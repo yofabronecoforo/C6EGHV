@@ -48,3 +48,17 @@ If the villagers are hostile, they will retaliate by organizing into one barbari
 What's that? "Not masochistic enough!" you say? Then how about a new reward type that's nothing but hostile villagers? They won't even lure you in with the carrot before reaching for the stick, they just go straight for the stick, and the stick is pointy. This Hostiles-type reward is weighted similarly to other existing types; this means that there should be either a 1/7 or 1/8 chance of being the selected type, depending on whether or not the Gathering Storm expansion is present.
 
 Finally, to compensate for the increased numbers of barbarian units that are likely to be present now, the experience and level caps from fighting such units have been increased. You still aren't going to get a fully-promoted unit from fighting barbarians, but at least you'll be able to get more than a single promotion.
+
+### Advanced Setup
+Options have been added to Advanced Setup which, when enabled, will prevent hostile villagers from appearing after, or as, a reward. Enabling both of these options will remove any chance of encountering hostile villagers entirely. Enabling 'No Barbarians' will override these new options and will also remove any chance of encountering hostile villagers; the tooltip for this option has been updated to reflect this.
+
+* Currently, when 'No Hostile Villagers As Reward' is enabled, no reward will be granted if that is the randomly-chosen type. Further, hostiles may appear anyway as a result of the initial hostility check, which is normally bypassed with this type since the 'reward' is guaranteed hostile villagers; this does not apply if 'No Hostile Villagers After Reward' is also enabled.
+
+# Compatibility
+Works with the following rulesets:
+
+* Standard *
+* Rise and Fall
+* Gathering Storm
+
+[ * ] Works with Standard ruleset, but due to missing events and/or methods, the game era is less dynamic, and will instead change on predefined turns.
