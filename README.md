@@ -92,7 +92,17 @@ If your mod alters any _existing_ Goody Hut (sub)types, unless it is using a lud
 If your mod adds any __new__ Goody Hut (sub)types, and they share any identifiers with the new (sub)types introduced by EGHV, then like above, those additions will likely be overwritten by EGHV. This is also by design.
 
 # Special Thanks
-This mod would not exist without any of the following:
+This mod would not exist in its current form without any of the following:
 
 * The [Civilization Fanatics](https://www.civfanatics.com/) community, particularly the [Civ6 - Creation & Customization](https://forums.civfanatics.com/forums/civ6-creation-customization.541/) forums
 * The [Civilization VI Workshop](https://steamcommunity.com/app/289070/workshop/) on Steam
+
+Specifically, the following contributions were essential to the Hostile Villagers feature of this mod:
+
+* [Getting an extra bonus from goody huts](https://forums.civfanatics.com/threads/getting-an-extra-bonus-from-goody-huts.616695/#post-14780879) by LeeS
+* [Barbarians Evolved](https://steamcommunity.com/sharedfiles/filedetails/?id=2164194796) by Charsi
+* [Add a Feature to a Plot During Game time with Lua](https://forums.civfanatics.com/threads/add-a-feature-to-a-plot-during-game-time-with-lua.645149/#post-15435909) by LeeS
+* [OnGoodyHutReward event, what are the parameters?](https://forums.civfanatics.com/threads/ongoodyhutreward-event-what-are-the-parameters.642591/#post-15398744) by LeeS
+* [How do you catch an era change event in Lua?](https://forums.civfanatics.com/threads/how-do-you-catch-an-era-change-event-in-lua.614454/#post-15144387) by Tiramisu
+
+Extra special thanks to these contributors, and to the greater community, without whom the common knowledge required for the remaining features of this mod would not be as common.
