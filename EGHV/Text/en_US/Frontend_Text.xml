@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	EGHV : Enhanced Goodies and Hostile Villagers for Civilization VI
+	Copyright (C) 2020-2021 zzragnar0kzz
+	All rights reserved
+-->
+<GameData>
+	<LocalizedText>
+        <!-- frontend new no barbarians parameter text -->
+        <Replace Tag="LOC_GAME_NO_BARBARIANS_DESCRIPTION" Language="en_US">
+            <Text>Enabling this option removes barbarians; by extension, it also overrides the 'Hostile Villager' options below and removes hostile villagers entirely.</Text>
+        </Replace>
+        <!-- frontend no hostiles after reward parameter text -->
+        <Replace Tag="LOC_GAME_NO_HOSTILES_AFTER_REWARD_NAME" Language="en_US">
+            <Text>No Hostile Villagers After Reward</Text>
+        </Replace>
+        <Replace Tag="LOC_GAME_NO_HOSTILES_AFTER_REWARD_DESCRIPTION" Language="en_US">
+            <Text>Enabling this option prevents hostile villagers from appearing after receiving a tribal village reward; it does not eliminate hostile villagers as a possible tribal village 'reward' type. Will be ignored if 'No Barbarians' is enabled.</Text>
+        </Replace>
+        <!-- frontend no hostiles as reward parameter text -->
+        <Replace Tag="LOC_GAME_NO_HOSTILES_AS_REWARD_NAME" Language="en_US">
+            <Text>No Hostile Villagers As Reward</Text>
+        </Replace>
+        <Replace Tag="LOC_GAME_NO_HOSTILES_AS_REWARD_DESCRIPTION" Language="en_US">
+            <Text>Enabling this option eliminates hostile villagers as a possible tribal village 'reward' type; it does not prevent hostile villagers from appearing after receiving any other tribal village reward. Will be ignored if 'No Barbarians' is enabled.</Text>
+        </Replace>
+    </LocalizedText>
+</GameData>

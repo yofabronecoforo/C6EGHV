@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Mod id="a4b1fac6-8c9e-4873-a1c1-7ddf08dbbf11" version="1.0">
+    <Properties>
+        <Name>LOC_EGHV_MOD_TITLE</Name>
+        <Teaser>LOC_EGHV_MOD_TEASER</Teaser>
+        <Description>LOC_EGHV_MOD_DESCRIPTION</Description>
+        <Authors>LOC_EGHV_MOD_AUTHORS</Authors>
+        <SpecialThanks>LOC_EGHV_MOD_SPECIALTHANKS</SpecialThanks>
+		<Stability>Beta</Stability>
+		<CompatibleVersions>2.0</CompatibleVersions>
+    </Properties>
+	<References>
+		<Mod id="1B28771A-C749-434B-9053-D1380C553DE9" title="LOC_EXPANSION1_MOD_TITLE"/>
+		<Mod id="4873eb62-8ccc-4574-b784-dda455e74e68" title="LOC_EXPANSION2_MOD_TITLE"/>
+		<Mod id="9DE86512-DE1A-400D-8C0A-AB46EBBF76B9" title="LOC_GRANCOLOMBIA_MAYA_MOD_TITLE"/>
+	</References>
+	<ActionCriteria>
+		<Criteria id="EGHV" any="1">
+			<RuleSetInUse>RULESET_STANDARD,RULESET_EXPANSION_1,RULESET_EXPANSION_2</RuleSetInUse>
+		</Criteria>
+		<Criteria id="EGHV_Base" any="1">
+			<RuleSetInUse>RULESET_STANDARD</RuleSetInUse>
+		</Criteria>
+		<Criteria id="EGHV_Expansion1" any="1">
+			<RuleSetInUse>RULESET_EXPANSION_1</RuleSetInUse>
+		</Criteria>
+		<Criteria id="EGHV_Expansion1AndBeyond" any="1">
+			<RuleSetInUse>RULESET_EXPANSION_1,RULESET_EXPANSION_2</RuleSetInUse>
+		</Criteria>
+		<Criteria id="EGHV_Expansion2" any="1">
+			<RuleSetInUse>RULESET_EXPANSION_2</RuleSetInUse>
+		</Criteria>
+		<Criteria id="EGHV_GranColombia_Maya" any="1">
+			<ModInUse>9DE86512-DE1A-400D-8C0A-AB46EBBF76B9</ModInUse>
+		</Criteria>
+	</ActionCriteria>
+	<InGameActions>
+		<AddGameplayScripts id="EGHV_GAMEPLAY_SCRIPT_HOSTILE_VILLAGERS" criteria="EGHV">
+			<Properties>
+        		<LoadOrder>1010151</LoadOrder>
+      		</Properties>
+			<File>EGHV/Scripts/HostileVillagers.lua</File>
+		</AddGameplayScripts>
+		<UpdateDatabase id="EGHV_INGAME" criteria="EGHV">
+			<Properties>
+        		<LoadOrder>1010171</LoadOrder>
+      		</Properties>
+			<File Priority="2">EGHV/Data/Ingame.sql</File>
+		</UpdateDatabase>
+		<UpdateDatabase id="EGHV_INGAME_XP2" criteria="EGHV_Expansion2">
+			<Properties>
+        		<LoadOrder>1010172</LoadOrder>
+      		</Properties>
+			<File Priority="2">EGHV/Data/Ingame_XP2.sql</File>
+		</UpdateDatabase>
+		<UpdateDatabase id="EGHV_INGAME_OVERRIDE" criteria="EGHV">
+			<Properties>
+        		<LoadOrder>1010179</LoadOrder>
+      		</Properties>
+			<File Priority="1">EGHV/Data/Override.sql</File>
+		</UpdateDatabase>
+		<UpdateText id="EGHV_INGAME_TEXT" criteria="EGHV">
+			<Properties>
+				<LoadOrder>1010101</LoadOrder>
+			</Properties>
+			<File>EGHV/Text/en_US/Ingame_Text.xml</File>
+		</UpdateText>
+		<UpdateText id="EGHV_INGAME_TEXT_XP2" criteria="EGHV_Expansion2">
+			<Properties>
+				<LoadOrder>1010103</LoadOrder>
+			</Properties>
+			<File>EGHV/Text/en_US/Ingame_XP2_Text.xml</File>
+		</UpdateText>
+	</InGameActions>
+	<FrontEndActions>
+		<UpdateText id="EGHV_FRONTEND_TEXT">
+			<Properties>
+        		<LoadOrder>1010101</LoadOrder>
+      		</Properties>
+			<File>EGHV/Text/en_US/Frontend_Text.xml</File>
+		</UpdateText>
+		<UpdateDatabase id="EGHV_FRONTEND">
+			<Properties>
+        		<LoadOrder>1010171</LoadOrder>
+      		</Properties>
+			<File Priority="2">EGHV/Config/Frontend.sql</File>
+        </UpdateDatabase>
+    </FrontEndActions>
+	<LocalizedText>
+		<Text id="LOC_EGHV_MOD_TITLE">
+			<en_US>Enhanced Goodies and Hostile Villagers</en_US>
+		</Text>
+		<Text id="LOC_EGHV_MOD_TEASER">
+			<en_US>Provides many new goody hut rewards, and a chance for hostile villagers to spawn after claiming a reward.</en_US>
+		</Text>
+		<Text id="LOC_EGHV_MOD_DESCRIPTION">
+			<en_US>Provides 20+ new goody hut rewards distributed among all 6 types (25+ rewards among 7 types for Gathering Storm).[NEWLINE][NEWLINE]Some previously enabled rewards have been disabled; some previously disabled rewards have been enabled; some existing rewards have had their type reassigned to accommodate new rewards. In all, the number of rewards of each type has doubled, or in some cases tripled.[NEWLINE][NEWLINE]In addition to the usual reward provided by a hut, there is a chance that hostile villagers may spawn as one or more barbarian units. If they are angry enough, they may even create a new barbarian camp from which to launch further reprisals.[NEWLINE][NEWLINE]The chance of encountering hostile villagers, and their level of hostility, scale with the current game era.</en_US>
+		</Text>
+		<Text id="LOC_EGHV_MOD_AUTHORS">
+			<en_US>zzragnar0kzz</en_US>
+		</Text>
+		<Text id="LOC_EGHV_MOD_SPECIALTHANKS">
+			<en_US>The Community</en_US>
+		</Text>
+	</LocalizedText>
+	<Files>
+
+		<File>EGHV/Config/Frontend.sql</File>
+
+		<File>EGHV/Data/Ingame.sql</File>
+		<File>EGHV/Data/Ingame_XP2.sql</File>
+		<File>EGHV/Data/Override.sql</File>
+		
+		<File>EGHV/Scripts/HostileVillagers.lua</File>
+
+		<File>EGHV/Text/en_US/Frontend_Text.xml</File>
+		<File>EGHV/Text/en_US/Ingame_Text.xml</File>
+		<File>EGHV/Text/en_US/Ingame_XP2_Text.xml</File>
+
+	</Files>
+</Mod>
