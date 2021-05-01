@@ -55,6 +55,7 @@ Options have been added to Advanced Setup which, when enabled, will prevent host
 * Currently, when 'No Hostile Villagers As Reward' is enabled, no reward will be granted if that is the randomly-chosen type. Further, hostiles may appear anyway as a result of the initial hostility check, which is normally bypassed with this type since the 'reward' is guaranteed hostile villagers; this does not apply if 'No Hostile Villagers After Reward' is also enabled.
 
 # Compatibility
+### Rulesets
 Works with the following rulesets:
 
 * Standard *
@@ -62,3 +63,21 @@ Works with the following rulesets:
 * Gathering Storm
 
 [ * ] Works with Standard ruleset, but due to missing events and/or methods, the game era is less dynamic, and will instead change on predefined turns.
+
+### Game Modes
+Works with the following game modes:
+
+* Apocalypse
+* Barbarian Clans
+* Dramatic Ages
+* Heroes & Legends
+* Monopolies and Corporations
+* Secret Societies
+
+Has not been tested with the following game modes:
+
+* Tech and Civic Shuffle
+* Zombie Defense
+
+### Mods
+Should work with other mods that add new Goody Hut (sub)types; any reward(s) unrecognized by EGHV will be assigned a rarity value of 6 for purposes of determining hostile spawn chance and/or villager hostility level.
