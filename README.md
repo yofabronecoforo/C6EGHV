@@ -31,7 +31,11 @@ Military | grant experience -OR- grant resources * -OR - 1 free scout | 1 free w
 
 [ * ] Requires the Gathering Storm expansion. When present each Tier 6 reward has an equal chance of occurring; when not present, grant experience will be twice as likely as one free scout.
 
-In addition to the above, greater numbers of Goody Huts should appear on the map.
+Minimum-turn requirements have been set to 0 for all __defined__ rewards, meaning that all such rewards will be available from turn 1 on.
+
+* There is a known issue where receiving the "2 free civics" reward prior to unlocking the Code of Laws civic results in only receiving 1 free civic, which will be Code of Laws. As this is only really a problem during turns 1-20, I am currently inclined to leave it alone.
+
+In addition to all of the above, greater numbers of Goody Huts should appear on the map.
 
 ### Hostile Villagers
 Whenever a reward is earned from a Goody Hut, there is a chance that some of the villagers will be displeased that their tribe treated with outsiders. This chance fluctuates based on several factors:
