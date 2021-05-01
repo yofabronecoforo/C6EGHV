@@ -84,4 +84,15 @@ Has not been tested with the following game modes:
 * Zombie Defense
 
 ### Mods
-Should work with other mods that add new Goody Hut (sub)types; any reward(s) unrecognized by EGHV will be assigned a rarity value of 6 for purposes of determining hostile spawn chance and/or villager hostility level.
+Should work with other mods that add new Goody Hut (sub)types; any reward(s) unrecognized by EGHV will be assigned a rarity value of 6 for purposes of determining hostile spawn chance and/or villager hostility level. See the Conflicts section below for exceptions.
+
+# Conflicts
+If your mod alters any _existing_ Goody Hut (sub)types, unless it is using a ludicrously high load order to apply those changes, they will likely be overwritten by EGHV due to its ridiculously high load order. This is by design.
+
+If your mod adds any __new__ Goody Hut (sub)types, and they share any identifiers with the new (sub)types introduced by EGHV, then like above, those additions will likely be overwritten by EGHV. This is also by design.
+
+# Special Thanks
+This mod would not exist without any of the following:
+
+* The [Civilization Fanatics](https://www.civfanatics.com/) community, particularly the [Civ6 - Creation & Customization](https://forums.civfanatics.com/forums/civ6-creation-customization.541/) forums
+* The [Civilization VI Workshop](https://steamcommunity.com/app/289070/workshop/) on Steam
