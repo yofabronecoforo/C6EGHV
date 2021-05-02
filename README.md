@@ -87,7 +87,7 @@ Has not been tested with the following game modes:
 Should work with other mods that add new Goody Hut (sub)types; any reward(s) unrecognized by EGHV will be assigned a rarity value of 6 for purposes of determining hostile spawn chance and/or villager hostility level. See the Conflicts section below for exceptions.
 
 # Conflicts
-If your mod alters any _existing_ Goody Hut (sub)types, unless it is also using a ludicrously high load order to apply those changes, they will likely be overwritten by EGHV due to its ridiculously high load order. Conflicts __will__ arise _regardless of relative load order_ if these alterations deviate substantially from those of EGHV.
+If your mod alters any _existing_ Goody Hut (sub)types, unless it is also using a ludicrously high load order to apply these changes, they will likely be overwritten by EGHV due to its ridiculously high load order. Conflicts __will__ arise _regardless of relative load order_ if these alterations deviate substantially from those of EGHV.
 
 EGHV adds new item(s) to the following table(s) in the Gameplay SQLite database:
 
