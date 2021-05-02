@@ -91,10 +91,10 @@
 			<en_US>Enhanced Goodies and Hostile Villagers</en_US>
 		</Text>
 		<Text id="LOC_EGHV_MOD_TEASER">
-			<en_US>Provides many new goody hut rewards, and a chance for hostile villagers to spawn after claiming a reward.</en_US>
+			<en_US>Provides many new goody hut rewards, and a chance for hostile villagers to spawn after claiming a reward, or even as the "reward".</en_US>
 		</Text>
 		<Text id="LOC_EGHV_MOD_DESCRIPTION">
-			<en_US>Provides 20+ new goody hut rewards distributed among all 6 types (25+ rewards among 7 types for Gathering Storm).[NEWLINE][NEWLINE]Some previously enabled rewards have been disabled; some previously disabled rewards have been enabled; some existing rewards have had their type reassigned to accommodate new rewards. In all, the number of rewards of each type has doubled, or in some cases tripled.[NEWLINE][NEWLINE]In addition to the usual reward provided by a hut, there is a chance that hostile villagers may spawn as one or more barbarian units. If they are angry enough, they may even create a new barbarian camp from which to launch further reprisals.[NEWLINE][NEWLINE]The chance of encountering hostile villagers, and their level of hostility, scale with the current game era.</en_US>
+			<en_US>Provides many new goody hut rewards, and a chance for hostile villagers to spawn after claiming a reward, or even as the "reward".[NEWLINE][NEWLINE]See README.md for full details.</en_US>
 		</Text>
 		<Text id="LOC_EGHV_MOD_AUTHORS">
 			<en_US>zzragnar0kzz</en_US>
