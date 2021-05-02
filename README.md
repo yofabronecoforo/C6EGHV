@@ -86,6 +86,18 @@ Has not been tested with the following game modes:
 ### Mods
 Should work with other mods that add new Goody Hut (sub)types; any reward(s) unrecognized by EGHV will be assigned a rarity value of 6 for purposes of determining hostile spawn chance and/or villager hostility level. See the Conflicts section below for exceptions.
 
+# Installation
+### Automatic
+EGHV is [Steam Workshop item 2474051781](https://steamcommunity.com/sharedfiles/filedetails/?id=2474051781). Subscribe to automatically download and install the latest release, and to automatically receive any updates as they are published to the Workshop.
+
+### Manual
+Download the [latest release](https://github.com/zzragnar0kzz/C6EGHV/releases/latest) and extract it into the game's local mods folder. Alternately, clone the repository into the game's local mods folder using your preferred tools. The local mods folder varies:
+- Windows : `$userprofile\Documents\My Games\Sid Meier's Civilization VI\Mods`
+- Linux : 
+- MacOS : 
+
+To update to a newer release, clone or download the latest release as described above, overwriting any existing items in the destination folder.
+
 # Conflicts
 If your mod alters any _existing_ Goody Hut (sub)types, unless it is also using a ludicrously high load order to apply these changes, they will likely be overwritten by EGHV due to its ridiculously high load order. Conflicts __will__ arise _regardless of relative load order_ if these alterations deviate substantially from those of EGHV.
 
