@@ -357,8 +357,8 @@ function OnGoodyHutReward(iPlayerID, iUnitID, iRewardHash, iSubTypeHash)
 			sOnGoodyHutRewardMessageSecondary = sOnGoodyHutRewardMessageSecondary .. "Tier " .. m_kGoodyHutRewardInfo[iSubTypeHash].Tier .. " reward of " .. m_kGoodyHutRewardInfo[iSubTypeHash].SubTypeGoodyHut;
 		end
 	else
-		sOnGoodyHutRewardMessagePrimary = sOnGoodyHutRewardMessagePrimary .. iRewardHash .. " village at plot (x " .. iX .. ", y " .. iY .. ")";
-		sOnGoodyHutRewardMessageSecondary = sOnGoodyHutRewardMessageSecondary .. "reward of " .. iSubTypeHash;
+		sOnGoodyHutRewardMessagePrimary = sOnGoodyHutRewardMessagePrimary .. iRewardHash .. " village at plot (x " .. iX .. ", y " .. iY .. ") [ 'undefined goody hut' ]";
+		sOnGoodyHutRewardMessageSecondary = sOnGoodyHutRewardMessageSecondary .. "reward of " .. iSubTypeHash .. " [ 'undefined goody hut subtype' ]";
 	end
 
 	print(sOnGoodyHutRewardMessagePrimary);
