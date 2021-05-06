@@ -22,17 +22,19 @@ m_bIsNoBarbarians = GameConfiguration.GetValue("GAME_NO_BARBARIANS");		-- fetch 
 m_bIsNoHostilesAfterReward = GameConfiguration.GetValue("GAME_NO_HOSTILES_AFTER_REWARD");
 m_bIsNoHostilesAsReward = GameConfiguration.GetValue("GAME_NO_HOSTILES_AS_REWARD");
 
-m_eNumEras = 1;						-- the minimum number of in-game era(s) needs to be 1 or shit breaks
-m_sQuery = "SELECT * FROM Eras";	-- sqlite query to determine the actual number of in-game era(s)
-m_kEras = DB.Query(m_sQuery);		-- the result of the above sqlite query
+m_eNumEras = 0;						-- the minimum number of in-game era(s) needs to be 1 or shit breaks
 
-if m_kEras and #m_kEras > 0 then m_eNumEras = #m_kEras; end		-- set the number of in-game era(s) to the count of items returned by the above sqlite query
+m_kEras = {};
+for row in GameInfo.Eras() do
+	m_eNumEras = m_eNumEras + 1;
+	m_kEras[(row.ChronologyIndex - 1)] = row.EraType;
+end
 
 -- table of era starts; key = game turn, value = era that begins on that turn
 -- this is a kludge, and is not entirely accurate, but is currently necessary for the script to function with the Standard ruleset; will be ignored if a different ruleset is in use
 m_kEraStartTurns = { [1] = 0, [76] = 1, [136] = 2, [196] = 3, [256] = 4, [316] = 5, [376] = 6, [436] = 7 };
 
-m_eCurrentEra = 0									-- set the default era to 0; set the actual current game era below after determining the ruleset in use
+m_eCurrentEra = 0;									-- set the default era to 0; set the actual current game era below after determining the ruleset in use
 m_eCurrentTurn = Game.GetCurrentGameTurn();			-- retrieve the current game turn at startup
 
 if (m_sRuleset == "RULESET_STANDARD") then			-- retrieve the current game era at startup; this is a pain with the Standard ruleset, since Game.GetEras():GetCurrentEra() does not appear to exist here
@@ -58,16 +60,15 @@ m_sHostileSpawnUnitMessage = Locale.Lookup("LOC_HOSTILE_VILLAGERS_UNIT_NOTIFICAT
 m_sHostileSpawnCampMessage = Locale.Lookup("LOC_HOSTILE_VILLAGERS_CAMP_NOTIFICATION_MESSAGE");		-- body of notification when a camp spawns
 
 -- table of difficulty levels; key = hash value from PlayerConfigurations:GetHandicapTypeID(), value = table of associated difficulty levels
-m_kDifficultyLevels = {
-	[1078608846]	= { DifficultyType = "DIFFICULTY_SETTLER", Level = 1 },
-	[1329626265]	= { DifficultyType = "DIFFICULTY_CHIEFTAIN", Level = 2 },
-	[-966254459]	= { DifficultyType = "DIFFICULTY_WARLORD", Level = 3 },
-	[-179952465]	= { DifficultyType = "DIFFICULTY_PRINCE", Level = 4 },
-	[675933641]		= { DifficultyType = "DIFFICULTY_KING", Level = 5 },
-	[1499830429]	= { DifficultyType = "DIFFICULTY_EMPEROR", Level = 6 },
-	[575051378]		= { DifficultyType = "DIFFICULTY_IMMORTAL", Level = 7 },
-	[1543611863]	= { DifficultyType = "DIFFICULTY_DEITY", Level = 8 }
-};
+m_kDifficultyLevels = {};
+m_eNumDifficultyLevels = 0;
+for row in GameInfo.Difficulties() do
+	m_eNumDifficultyLevels = m_eNumDifficultyLevels + 1;
+	m_kDifficultyLevels[DB.MakeHash(row.DifficultyType)] = { DifficultyType = row.DifficultyType, Level = m_eNumDifficultyLevels };
+end
+
+m_eDifficultyHash = PlayerConfigurations[0]:GetHandicapTypeID();				-- fetch the current difficulty level's hash value
+m_eHostileSpawnDifficultyModifier = m_kDifficultyLevels[m_eDifficultyHash].Level;		-- fetch the current difficulty level
 
 -- table of individual melee units to spawn; key = era to spawn in, value = unit to spawn
 m_kHostileMeleeByEra = { [0] = "UNIT_WARRIOR", [1] = "UNIT_WARRIOR", [2] = "UNIT_SWORDSMAN", [3] = "UNIT_MAN_AT_ARMS", [4] = "UNIT_MUSKETMAN", [5] = "UNIT_LINE_INFANTRY", [6] = "UNIT_INFANTRY", [7] = "UNIT_INFANTRY", [8] = "UNIT_INFANTRY" };
@@ -77,104 +78,45 @@ m_kHostileMeleeByEra = { [0] = "UNIT_WARRIOR", [1] = "UNIT_WARRIOR", [2] = "UNIT
 m_kHostileRangedByEra = { [0] = "UNIT_SLINGER", [1] = "UNIT_ARCHER", [2] = "UNIT_ARCHER", [3] = "UNIT_CROSSBOWMAN", [4] = "UNIT_CROSSBOWMAN", [5] = "UNIT_FIELD_CANNON", [6] = "UNIT_FIELD_CANNON", [7] = "UNIT_MACHINE_GUN", [8] = "UNIT_MACHINE_GUN" };
 
 -- table of goody hut types; key = reward hash value from Events.GoodyHutReward, value = associated goody hut type
-m_kGoodyHutTypes = {
-	-- built-in types
-	[301278043]		= "GOODYHUT_CULTURE",
-	[-2010932837]	= "GOODYHUT_GOLD",
-	[-1897648434]	= "GOODYHUT_FAITH",
-	[1623514478]	= "GOODYHUT_MILITARY",
-	[-1068790248]	= "GOODYHUT_SCIENCE",
-	[1892398955]	= "GOODYHUT_SURVIVORS",
-	-- Gathering Storm types
-	[392580697]		= "GOODYHUT_DIPLOMACY",
-	-- EGHV types
-	[1861842132]	= "GOODYHUT_HOSTILES"
-}
+m_kGoodyHutTypes = {};
+m_eNumGoodyHutTypes = 0;
+for row in GameInfo.GoodyHuts() do
+	m_eNumGoodyHutTypes = m_eNumGoodyHutTypes + 1;
+	m_kGoodyHutTypes[DB.MakeHash(row.GoodyHutType)] = row.GoodyHutType;
+end
 
 --[[ =========================================================================
 	the big stupid table of goody hut reward data : framework cribbed from [4] and modified
 		key = subtype hash value from Events.GoodyHutReward, value = a small stupid table of associated reward data :
-			SubTypeGoodyHut is the specific goody hut reward associated with the key
-			Tier is the rarity value of the reward, from 6 (extremely common) to 1 (extremely rare)
+			GoodyHut is the type of goody hut reward
+			SubTypeGoodyHut is the specific goody hut reward associated with this key
+			Weight is the Weight value for this specific reward, as defined in the gameplay database
+			Tier is the rarity value of this specific reward, based on its Weight value, generally from 6 (extremely common) to 1 (extremely rare)
 			Description is the tag from the localization database to use as the body of any notification sent to the panel
 =========================================================================== ]]
-m_kGoodyHutRewardInfo = {
-	-- EGHV culture-type rewards
-	[2066007186]	= { SubTypeGoodyHut = "GOODYHUT_ONE_CIVIC", Tier = 4, Description = "LOC_GOODYHUT_CULTURE_ONE_CIVIC_DESCRIPTION" },
-	[-1560984545]	= { SubTypeGoodyHut = "GOODYHUT_TWO_CIVICS", Tier = 3, Description = "LOC_GOODYHUT_CULTURE_TWO_CIVICS_DESCRIPTION" },
-	[-824659778]	= { SubTypeGoodyHut = "GOODYHUT_SMALL_CHANGE_CULTURE", Tier = 2, Description = "LOC_GOODYHUT_CULTURE_SMALL_CHANGE_DESCRIPTION" },
-	[-1615934897]	= { SubTypeGoodyHut = "GOODYHUT_SMALL_MODIFIER_CULTURE", Tier = 1, Description = "LOC_GOODYHUT_CULTURE_SMALL_MODIFIER_DESCRIPTION" },
-	-- EGHV faith-type rewards
-	[1084480174]	= { SubTypeGoodyHut = "GOODYHUT_SMALL_CHANGE_FAITH", Tier = 2, Description = "LOC_GOODYHUT_FAITH_SMALL_CHANGE_DESCRIPTION" },
-	[1572322819]	= { SubTypeGoodyHut = "GOODYHUT_SMALL_MODIFIER_FAITH", Tier = 1, Description = "LOC_GOODYHUT_FAITH_SMALL_MODIFIER_DESCRIPTION" },
-	-- EGHV gold-type rewards
-	[2139117074]	= { SubTypeGoodyHut = "GOODYHUT_ADD_TRADE_ROUTE", Tier = 3, Description = "LOC_GOODYHUT_ADD_TRADE_ROUTE_DESCRIPTION" },
-	[-1372363028]	= { SubTypeGoodyHut = "GOODYHUT_SMALL_CHANGE_GOLD", Tier = 2, Description = "LOC_GOODYHUT_GOLD_SMALL_CHANGE_DESCRIPTION" },
-	[222801916]		= { SubTypeGoodyHut = "GOODYHUT_SMALL_MODIFIER_GOLD", Tier = 1, Description = "LOC_GOODYHUT_GOLD_SMALL_MODIFIER_DESCRIPTION" },
-	-- EGHV military-type rewards
-	[359564910]		= { SubTypeGoodyHut = "GOODYHUT_GRANT_WARRIOR", Tier = 5, Description = "LOC_GOODYHUT_MILITARY_GRANT_MELEE_UNIT_DESCRIPTION" },
-	[-1607386473]	= { SubTypeGoodyHut = "GOODYHUT_GRANT_SLINGER", Tier = 5, Description = "LOC_GOODYHUT_MILITARY_GRANT_RANGED_UNIT_DESCRIPTION" },
-	[-1569174051]	= { SubTypeGoodyHut = "GOODYHUT_GRANT_SPEARMAN", Tier = 5, Description = "LOC_GOODYHUT_MILITARY_GRANT_ANTI_CAVALRY_UNIT_DESCRIPTION" },
-	[971311701]		= { SubTypeGoodyHut = "GOODYHUT_GRANT_MILITARY_ENGINEER", Tier = 4, Description = "LOC_GOODYHUT_MILITARY_GRANT_MILITARY_ENGINEER_DESCRIPTION" },
-	[1424219521]	= { SubTypeGoodyHut = "GOODYHUT_GRANT_MEDIC", Tier = 4, Description = "LOC_GOODYHUT_MILITARY_GRANT_MEDIC_DESCRIPTION" },
-	[-620620448]	= { SubTypeGoodyHut = "GOODYHUT_GRANT_HORSEMAN", Tier = 3, Description = "LOC_GOODYHUT_MILITARY_GRANT_LIGHT_CAVALRY_UNIT_DESCRIPTION" },
-	[-249550326]	= { SubTypeGoodyHut = "GOODYHUT_GRANT_HEAVY_CHARIOT", Tier = 3, Description = "LOC_GOODYHUT_MILITARY_GRANT_HEAVY_CAVALRY_UNIT_DESCRIPTION" },
-	[-833622945]	= { SubTypeGoodyHut = "GOODYHUT_SMALL_CHANGE_PRODUCTION", Tier = 2, Description = "LOC_GOODYHUT_PRODUCTION_SMALL_CHANGE_DESCRIPTION" },
-	[385855644]		= { SubTypeGoodyHut = "GOODYHUT_SMALL_MODIFIER_PRODUCTION", Tier = 1, Description = "LOC_GOODYHUT_PRODUCTION_SMALL_MODIFIER_DESCRIPTION" },
-	-- EGHV science-type rewards
-	[342022628]		= { SubTypeGoodyHut = "GOODYHUT_TWO_TECHS", Tier = 3, Description = "LOC_GOODYHUT_SCIENCE_TWO_TECHS_DESCRIPTION" },
-	[526786045]		= { SubTypeGoodyHut = "GOODYHUT_SMALL_CHANGE_SCIENCE", Tier = 2, Description = "LOC_GOODYHUT_SCIENCE_SMALL_CHANGE_DESCRIPTION" },
-	[1309697804]	= { SubTypeGoodyHut = "GOODYHUT_SMALL_MODIFIER_SCIENCE", Tier = 1, Description = "LOC_GOODYHUT_SCIENCE_SMALL_MODIFIER_DESCRIPTION" },
-	-- EGHV survivors-type rewards
-	[1034048074]	= { SubTypeGoodyHut = "GOODYHUT_SMALL_CHANGE_FOOD", Tier = 2, Description = "LOC_GOODYHUT_FOOD_SMALL_CHANGE_DESCRIPTION" },
-	[-1630102694]	= { SubTypeGoodyHut = "GOODYHUT_SMALL_MODIFIER_FOOD", Tier = 1, Description = "LOC_GOODYHUT_FOOD_SMALL_MODIFIER_DESCRIPTION" },
-	-- EGHV diplomacy-type rewards
-	[1915551099]	= { SubTypeGoodyHut = "GOODYHUT_TWO_ENVOYS", Tier = 3, Description = "LOC_GOODYHUT_DIPLOMACY_ENVOYS_DESCRIPTION" },							-- requires Gathering Storm
-	[896143518]		= { SubTypeGoodyHut = "GOODYHUT_TWO_GOVERNOR_TITLES", Tier = 2, Description = "LOC_GOODYHUT_DIPLOMACY_GOVERNOR_TITLES_DESCRIPTION" },		-- requires Gathering Storm
-	[-755814703]	= { SubTypeGoodyHut = "GOODYHUT_SMALL_BOOST_FAVOR", Tier = 1, Description = "LOC_GOODYHUT_DIPLOMACY_SMALL_BOOST_FAVOR_DESCRIPTION" },		-- requires Gathering Storm
-	-- existing diplomacy-type rewards
-	[-842336157]	= { SubTypeGoodyHut = "GOODYHUT_FAVOR", Tier = 6, Description = "LOC_GOODYHUT_DIPLOMACY_FAVOR_DESCRIPTION" },							-- requires Gathering Storm
-	[1171999597]	= { SubTypeGoodyHut = "GOODYHUT_ENVOY", Tier = 5, Description = "LOC_GOODYHUT_DIPLOMACY_ENVOY_DESCRIPTION" },							-- requires Gathering Storm
-	[-1140666915]	= { SubTypeGoodyHut = "GOODYHUT_GOVERNOR_TITLE", Tier = 4, Description = "LOC_GOODYHUT_DIPLOMACY_GOVERNOR_TITLE_DESCRIPTION" },			-- requires Gathering Storm
-	-- existing culture-type rewards
-	[-1593446804]	= { SubTypeGoodyHut = "GOODYHUT_ONE_CIVIC_BOOST", Tier = 6, Description = "placeholder" },			-- no built-in description tag for this reward
-	[-367235253]	= { SubTypeGoodyHut = "GOODYHUT_TWO_CIVIC_BOOSTS", Tier = 5, Description = "placeholder" },			-- no built-in description tag for this reward
-	-- existing faith-type rewards
-	[313124344]		= { SubTypeGoodyHut = "GOODYHUT_SMALL_FAITH", Tier = 6, Description = "LOC_GOODYHUT_SMALL_FAITH_DESCRIPTION" },
-	[173418224]		= { SubTypeGoodyHut = "GOODYHUT_MEDIUM_FAITH", Tier = 5, Description = "LOC_GOODYHUT_MEDIUM_FAITH_DESCRIPTION" },
-	[1747194442]	= { SubTypeGoodyHut = "GOODYHUT_LARGE_FAITH", Tier = 4, Description = "LOC_GOODYHUT_LARGE_FAITH_DESCRIPTION" },
-	[2109989822]	= { SubTypeGoodyHut = "GOODYHUT_ONE_RELIC", Tier = 3, Description = "LOC_GOODYHUT_CULTURE_RELIC_DESCRIPTION" },			-- moved from culture-type for balancing
-	-- existing gold-type rewards
-	[-856816033]	= { SubTypeGoodyHut = "GOODYHUT_SMALL_GOLD", Tier = 6, Description = "LOC_GOODYHUT_SMALL_GOLD_DESCRIPTION" },
-	[-2073396856]	= { SubTypeGoodyHut = "GOODYHUT_MEDIUM_GOLD", Tier = 5, Description = "LOC_GOODYHUT_MEDIUM_GOLD_DESCRIPTION" },
-	[725818580]		= { SubTypeGoodyHut = "GOODYHUT_LARGE_GOLD", Tier = 4, Description = "LOC_GOODYHUT_LARGE_GOLD_DESCRIPTION" },
-	-- existing military-type rewards
-	[0]				= { SubTypeGoodyHut = "GOODYHUT_GRANT_UPGRADE", Tier = 7, Description = "LOC_GOODYHUT_MILITARY_GRANT_UPGRADE_DESCRIPTION" },	-- disabled by default, and disabled by EGHV
-	[1721956964] 	= { SubTypeGoodyHut = "GOODYHUT_HEAL", Tier = 7, Description = "LOC_GOODYHUT_MILITARY_HEAL_DESCRIPTION" },						-- enabled by default, but disabled by EGHV
-	[-1085383998]	= { SubTypeGoodyHut = "GOODYHUT_RESOURCES", Tier = 6, Description = "LOC_GOODYHUT_MILITARY_RESOURCES_DESCRIPTION" },			-- requires Gathering Storm
-	[-897059678]	= { SubTypeGoodyHut = "GOODYHUT_GRANT_EXPERIENCE", Tier = 6, Description = "LOC_GOODYHUT_MILITARY_GRANT_EXPERIENCE_DESCRIPTION" },
-	[-945185595]	= { SubTypeGoodyHut = "GOODYHUT_GRANT_SCOUT", Tier = 6, Description = "LOC_GOODYHUT_MILITARY_GRANT_UNIT_DESCRIPTION" },
-	-- existing science-type rewards
-	[51039867]		= { SubTypeGoodyHut = "GOODYHUT_ONE_TECH_BOOST", Tier = 6, Description = "placeholder" },			-- no built-in description tag for this reward
-	[1570455183]	= { SubTypeGoodyHut = "GOODYHUT_TWO_TECH_BOOSTS", Tier = 5, Description = "placeholder" },			-- no built-in description tag for this reward
-	[294222921]		= { SubTypeGoodyHut = "GOODYHUT_ONE_TECH", Tier = 4, Description = "LOC_GOODYHUT_SCIENCE_ONE_TECH_DESCRIPTION" },
-	-- existing survivors-type rewards
-	[1038837136]	= { SubTypeGoodyHut = "GOODYHUT_ADD_POP", Tier = 6, Description = "LOC_GOODYHUT_SURVIVORS_ADD_POP_DESCRIPTION" },
-	[-317814676]	= { SubTypeGoodyHut = "GOODYHUT_GRANT_BUILDER", Tier = 5, Description = "LOC_GOODYHUT_SURVIVORS_GRANT_UNIT_DESCRIPTION" },
-	[-2134131563]	= { SubTypeGoodyHut = "GOODYHUT_GRANT_TRADER", Tier = 4, Description = "LOC_GOODYHUT_SURVIVORS_GRANT_UNIT_DESCRIPTION" },
-	[750739574]		= { SubTypeGoodyHut = "GOODYHUT_GRANT_SETTLER", Tier = 3, Description = "LOC_GOODYHUT_SURVIVORS_GRANT_UNIT_DESCRIPTION" },		-- disabled by default, but enabled by EGHV
-	-- EGHV : hostiles-type "reward"
-	[-657161256]	= { SubTypeGoodyHut = "GOODYHUT_SPAWN_HOSTILE_VILLAGERS", Tier = 0, Description = "LOC_GOODYHUT_SPAWN_HOSTILE_VILLAGERS_DESCRIPTION" }		-- tier 0 for maximum hostility
-};
+m_kGoodyHutRewardInfo = {};
+m_eNumGoodyHutRewards = 0;
+local iSubTypeHash = 0;
+for row in GameInfo.GoodyHutSubTypes() do
+	m_eNumGoodyHutRewards = m_eNumGoodyHutRewards + 1;
+	iSubTypeHash = DB.MakeHash(row.SubTypeGoodyHut);
+	m_kGoodyHutRewardInfo[iSubTypeHash] = { GoodyHut = row.GoodyHut, SubTypeGoodyHut = row.SubTypeGoodyHut, Weight = row.Weight, Tier = 0, Description = row.Description };
+	if (row.SubTypeGoodyHut == "GOODYHUT_SPAWN_HOSTILE_VILLAGERS") then m_kGoodyHutRewardInfo[iSubTypeHash].Tier = 0;				-- maximum hostility for guaranteed hostile villagers rewards
+	elseif (row.SubTypeGoodyHut == "METEOR_GRANT_GOODIES") then m_kGoodyHutRewardInfo[iSubTypeHash].Tier = row.Weight;					-- super-low hostility for meteor-strike rewards
+	elseif (row.GoodyHut == "GOODYHUT_MILITARY") then m_kGoodyHutRewardInfo[iSubTypeHash].Tier = math.floor(row.Weight / 10);
+	elseif (row.GoodyHut == "GOODYHUT_CULTURE" or row.GoodyHut == "GOODYHUT_DIPLOMACY" or row.GoodyHut == "GOODYHUT_FAITH" or row.GoodyHut == "GOODYHUT_GOLD" or row.GoodyHut == "GOODYHUT_SCIENCE" or row.GoodyHut == "GOODYHUT_SURVIVORS") then m_kGoodyHutRewardInfo[iSubTypeHash].Tier = math.floor(row.Weight / 20);
+	elseif (row.Weight >= 100) then m_kGoodyHutRewardInfo[iSubTypeHash].Tier = 1;					-- near-maximum hostility for any other rewards with a defined large weight
+	else m_kGoodyHutRewardInfo[iSubTypeHash].Tier = 2;				-- default rarity tier for unknown rewards, results in high hostility
+	end
+end
+iSubTypeHash = nil;
 
 --[[ =========================================================================
 	function OnTurnBegin() : framework cribbed from [5] and modified
 =========================================================================== ]]
 function OnTurnBegin(iTurn)
 	m_eCurrentTurn = iTurn;			-- update the global current turn
-
 	local bIsEraChanged = false;
-
 	local iPreviousEra = m_eCurrentEra;
 
 	if (m_sRuleset == "RULESET_STANDARD") then			-- Standard ruleset in use
@@ -191,12 +133,10 @@ function OnTurnBegin(iTurn)
 	end
 
 	if bIsEraChanged then
-		local sEraChangedMessage = "Turn " .. iTurn .. " : The current game era has changed from " .. iPreviousEra .. " to " .. m_eCurrentEra;
-
+		local sEraChangedMessage = "Turn " .. iTurn .. " : The current game era has changed from " .. m_kEras[iPreviousEra] .. " to " .. m_kEras[m_eCurrentEra];
 		if not m_bIsNoBarbarians and not m_bIsNoHostilesAfterReward then
 			sEraChangedMessage = sEraChangedMessage .. "; hostile villagers will appear after rewards with increased frequency and intensity";
 		end
-
 		print(sEraChangedMessage);
 	end
 end
@@ -216,8 +156,8 @@ function GetBarbarianId()
 	return -2;			-- return an even screwier number, because something is very wrong if this fires
 end
 
--- fetch the Barbarian player ID, if any
-m_eBarbarianPlayer = GetBarbarianId();
+-- fetch the Barbarian player ID here if 'No Barbarians' is NOT enabled
+if not m_bIsNoBarbarians then m_eBarbarianPlayer = GetBarbarianId(); end
 
 --[[ =========================================================================
 	function ValidateAdjacentPlots() : framework cribbed from [3] and modified
@@ -227,7 +167,7 @@ function ValidateAdjacentPlots(iX, iY)
 	for direction = 0, DirectionTypes.NUM_DIRECTION_TYPES - 1, 1 do
 		local adjacentPlot = Map.GetAdjacentPlot(iX, iY, direction);
 		if adjacentPlot and ImprovementBuilder.CanHaveImprovement(adjacentPlot, m_eBarbCamp, -1) then
-			print("Plot (x " .. adjacentPlot:GetX() .. ", y " .. adjacentPlot:GetY() .. ") is a valid location for a barbarian camp");
+			-- print("Plot (x " .. adjacentPlot:GetX() .. ", y " .. adjacentPlot:GetY() .. ") is a valid location for a barbarian camp");
 			table.insert(tValidPlots, adjacentPlot);
 		end
 	end
@@ -369,8 +309,8 @@ function OnGoodyHutReward(iPlayerID, iUnitID, iRewardHash, iSubTypeHash)
 		return;
 	end
 
-	local iDifficultyHash = PlayerConfigurations[iPlayerID]:GetHandicapTypeID();				-- fetch the current difficulty hash
-	local iHostileSpawnDifficultyModifier = m_kDifficultyLevels[iDifficultyHash].Level;		-- fetch the current difficulty level
+	-- local iDifficultyHash = PlayerConfigurations[iPlayerID]:GetHandicapTypeID();				-- fetch the current difficulty hash
+	local iHostileSpawnDifficultyModifier = m_eHostileSpawnDifficultyModifier;		-- fetch the current difficulty level
 	local iHostileSpawnEraModifier = m_eCurrentEra + 1;			-- set the era modifier
 	local iHostileSpawnUnitModifier = iHostileSpawnDifficultyModifier;		-- set the unit modifier to the difficulty level
 	if (sUnitType ~= "UNIT_BUILDER" and sUnitType ~= "UNIT_SETTLER" and sUnitType ~= "UNIT_MEDIC" and sUnitPromotionClass ~= "PROMOTION_CLASS_RECON") then
@@ -422,30 +362,67 @@ end
 --[[ =========================================================================
 	function Initialize()
 =========================================================================== ]]
-function Initialize()
-	print("Initializing HostileVillagers.lua . . .");
-	print("---------------------------------------");
-	print("Ruleset in use : " .. tostring(m_sRuleset));
-	print("No Barbarians : " .. tostring(m_bIsNoBarbarians));
-	print("No Goody Huts : " .. tostring(m_bIsNoGoodyHuts));
-	print("No Hostile Villagers AFTER Reward : " .. tostring(m_bIsNoHostilesAfterReward));
-	print("No Hostile Villagers AS Reward : " .. tostring(m_bIsNoHostilesAsReward));
-	print("Defined game era(s) : " .. m_eNumEras .. " ( 0, " .. tostring(m_eNumEras - 1) .. ", 1 )");
-	print("Active game era at startup : " .. m_eCurrentEra);
-	print("Game turn at startup : " .. m_eCurrentTurn);
-	print("Barbarian player ID : " .. m_eBarbarianPlayer);
-	print("Goody Hut index : " .. m_eGoodyHut);
-	print("Barbarian Camp index : " .. m_eBarbCamp);
-	print("Random modifier for hostile villagers : 1 - " .. m_iRandomSeed);
-	print("Hostile villager spawn threshold : " .. m_iRandomSeed);
-	print("Ignoring first generated random value : " .. m_iDiscardSeed);
-	print("---------------------------------------");
-
-	-- event hooks
+function Initialize( bIsDebugEnabled )
+	local sRowOfDashes = "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -";
+	print(sRowOfDashes);
+	print(" Initializing HostileVillagers.lua . . .");
+	print(sRowOfDashes);
+	print(" Ruleset in use : " .. tostring(m_sRuleset));
+	print(" No Barbarians : " .. tostring(m_bIsNoBarbarians));
+	if not m_bIsNoBarbarians then
+		print("   Barbarian player ID : " .. m_eBarbarianPlayer);
+		print("   Barbarian Camp index : " .. m_eBarbCamp);
+	end
+	print(sRowOfDashes);
+	print(" Available difficulty level(s) : " .. m_eNumDifficultyLevels);
+	if bIsDebugEnabled then
+		for k, v in pairs(m_kDifficultyLevels) do
+			print("   [" .. k .. "] = " .. v.DifficultyType .. " (" .. v.Level .. ")");
+		end
+	end
+	print(" Selected difficulty level : " .. m_kDifficultyLevels[m_eDifficultyHash].DifficultyType .. " (" .. m_kDifficultyLevels[m_eDifficultyHash].Level .. ")");
+	print(" Number of defined game era(s) : " .. m_eNumEras .. " ( 0, " .. tostring(m_eNumEras - 1) .. ", 1 )");
+	if bIsDebugEnabled then
+		for i, v in ipairs(m_kEras) do
+			print("   [" .. i .. "] = " .. v);
+		end
+	end
+	print(" Active game era at startup : " .. m_kEras[m_eCurrentEra] .. " (" .. m_eCurrentEra .. ")");
+	print(" Game turn at startup : " .. m_eCurrentTurn);
+	print(sRowOfDashes);
+	print(" No Goody Huts : " .. tostring(m_bIsNoGoodyHuts));
+	if not m_bIsNoGoodyHuts then
+		if not m_bIsNoBarbarians then
+			print("   No Hostile Villagers AFTER Reward : " .. tostring(m_bIsNoHostilesAfterReward));
+			print("   No Hostile Villagers AS Reward : " .. tostring(m_bIsNoHostilesAsReward));
+		end
+		print("   Goody Hut index : " .. m_eGoodyHut);
+		print("   Number of defined Goody Hut type(s) : " .. m_eNumGoodyHutTypes);
+		if bIsDebugEnabled and (m_eNumGoodyHutTypes > 0) then
+			for k, v in pairs(m_kGoodyHutTypes) do
+				print("     [" .. k .. "] = " .. v);
+			end
+		end
+		print("   Number of defined Goody Hut subtype(s) : " .. m_eNumGoodyHutRewards);
+		if bIsDebugEnabled and (m_eNumGoodyHutRewards > 0) then
+			for k, v in pairs(m_kGoodyHutRewardInfo) do
+				print("     [" .. k .. "] = Subtype : " .. v.SubTypeGoodyHut .. ", Tier : " .. v.Tier);
+			end
+		end
+	end
+	print(sRowOfDashes);
+	print(" Random modifier for hostile villagers : 1 - " .. m_iRandomSeed);
+	print(" Hostile villager spawn threshold : " .. m_iRandomSeed);
+	print(" Ignoring first generated random value : " .. m_iDiscardSeed);
+	-- events hooks
+	print(" Adding Events hooks . . .");
 	Events.LoadScreenClose.Add(OnLoadScreenClose);
+	print(sRowOfDashes);
+	sRowOfDashes = nil;
 end
 
-Initialize();
+Initialize(false);
+-- Initialize(true);
 
 --[[ =========================================================================
 	references
