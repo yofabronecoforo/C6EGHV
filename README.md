@@ -8,7 +8,7 @@ Most types now have six possible rewards. To accommodate this, existing rewards 
 
 Rarity | Tier 6 | Tier 5 | Tier 4 | Tier 3 | Tier 2 | Tier 1
 ------ | ------ | ------ | ------ | ------ | ------ | ------
-Frequency | 50.8% | 25.4% | 12.7% | 6.3% | 3.2% | 1.6%
+Frequency | 28.6% | 23.8% | 19.0% | 14.3% | 9.5% | 4.8%
 
 Most types retain at least their original common and uncommon rewards, which are now their Tier 6 and Tier 5 rewards. Most types also retain their original rare rewards, which are now their Tier 4 rewards. The "one free relic" reward is now a Faith-type reward, and is Tier 3. The defined-but-disabled "one free settler" reward has been enabled, and is the Tier 3 Survivors-type reward. New rewards have been added where necessary to fill out all types; for most types, the available rewards are now as follows:
 
@@ -18,18 +18,12 @@ Culture | 1 civics boost | 2 civics boosts | 1 free civic | 2 free civics | +X c
 Diplomacy * | 20 favor | 1 free envoy | 1 free governor title | 2 free envoys | 2 free governor titles | +X favor per turn
 Faith | 20 faith | 60 faith | 100 faith | 1 free relic | +X faith per turn in all cities | +X% faith per turn in all cities
 Gold | 40 gold | 80 gold | 120 gold | +1 trade route | +X gold per turn in all cities | +X% gold per turn in all cities
+Military | grant experience -OR- grant resources ** | 1 free scout -OR- 1 free warrior | 1 free slinger -OR- 1 free spearman | 1 free horseman -OR- 1 free heavy chariot | 1 free medic -OR- 1 free military engineer | +X production per turn in all cities -OR- +X% production per turn in all cities
 Science | 1 tech boost | 2 tech boosts | 1 free tech | 2 free techs | +X science per turn in all cities | +X% science per turn in all cities
 Survivors | +1 population in nearest city | 1 free builder | 1 free trader | 1 free settler | +X food per turn in all cities | +X% food per turn in all cities
 
-[ * ] Requires the Gathering Storm expansion
-
-Military-type rewards are slightly different. The "one free recon unit" has been replaced with several rewards that each provide a different class of unit; provided units will not scale with era or available tech, but can also be earned without having researched the prerequisite tech. The "free healing" reward has been disabled because it is lame. All enabled rewards of this type are split into six tiers as above, but due to the amount of available rewards, several tiers have more than one possible reward, with overall chances per tier as follows:
-
-Goody Hut | Tier 6 (38.1%) | Tier 5 (38.1%) | Tier 4 (12.7%) | Tier 3 (6.3%) | Tier 2 (3.2%) | Tier 1 (1.6%)
---------- | ------ | ------ | ------ | ------ | ------ | ------
-Military | grant experience -OR- grant resources * -OR - 1 free scout | 1 free warrior -OR- slinger -OR- spearman | 1 free medic -OR- military engineer | 1 free horseman -OR- heavy chariot | +X production per turn in all cities | +X% production per turn in all cities
-
-[ * ] Requires the Gathering Storm expansion. When present each Tier 6 reward has an equal chance of occurring; when not present, grant experience will be twice as likely as one free scout.
+* [ * ] Requires the Gathering Storm expansion.
+* [ ** ] Requires the Gathering Storm expansion. When present each Tier 6 reward has an equal chance of occurring; when not present, grant experience will be the only reward in this tier.
 
 Minimum-turn requirements have been set to 0 for all __defined__ rewards, meaning that all such rewards will be available from turn 1 on.
 
