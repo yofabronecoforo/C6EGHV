@@ -14,7 +14,7 @@ UPDATE Parameters SET Description = 'LOC_GAME_NO_BARBARIANS_DESCRIPTION', SortIn
 -- Reposition the No Tribal Villages parameter
 UPDATE Parameters SET SortIndex = 2030 WHERE ParameterId = 'NoGoodyHuts';
 
--- 
+-- Add advanced options to (1) disable hostile villagers _after_ a reward, and (2) disable hostile villagers _as_ the "reward"
 INSERT INTO Parameters (Key1, Key2, ParameterId, Name, Description, Domain, DefaultValue, ConfigurationGroup, ConfigurationId, GroupId, SortIndex)
 VALUES
     ('Ruleset', 'RULESET_STANDARD', 'NoHostilesAfterReward', 'LOC_GAME_NO_HOSTILES_AFTER_REWARD_NAME', 'LOC_GAME_NO_HOSTILES_AFTER_REWARD_DESCRIPTION', 'bool', 0, 'Game', 'GAME_NO_HOSTILES_AFTER_REWARD', 'AdvancedOptions', 2031),
