@@ -19,8 +19,11 @@ m_sRuleset = GameConfiguration.GetValue("RULESET");				-- fetch the ruleset in u
 m_bIsNoGoodyHuts = GameConfiguration.GetValue("GAME_NO_GOODY_HUTS");		-- fetch the status of the No Goody Huts setup option
 m_bIsNoBarbarians = GameConfiguration.GetValue("GAME_NO_BARBARIANS");		-- fetch the status of the No Barbarians setup option
 
-m_bIsNoHostilesAfterReward = GameConfiguration.GetValue("GAME_NO_HOSTILES_AFTER_REWARD");
-m_bIsNoHostilesAsReward = GameConfiguration.GetValue("GAME_NO_HOSTILES_AS_REWARD");
+m_eGoodyHutFrequency = GameConfiguration.GetValue("GOODYHUT_FREQUENCY");	-- fetch the goody hut frequency percentage value
+
+m_bIsNoHostilesAfterReward = GameConfiguration.GetValue("GAME_NO_HOSTILES_AFTER_REWARD");		-- fetch the value of the "No Hostiles After Reward" setup option
+-- m_bIsNoHostilesAsReward = GameConfiguration.GetValue("GAME_NO_HOSTILES_AS_REWARD");
+m_bIsRewardsEqualized = GameConfiguration.GetValue("GAME_EQUALIZE_GOODY_HUTS");					-- fetch the value of the "Equalize Rewarc chances" setup option
 
 m_eNumEras = 0;						-- the minimum number of in-game era(s) needs to be 1 or shit breaks
 
@@ -288,7 +291,7 @@ function OnGoodyHutReward(iPlayerID, iUnitID, iRewardHash, iSubTypeHash)
 		sOnGoodyHutRewardMessagePrimary = sOnGoodyHutRewardMessagePrimary .. m_kGoodyHutTypes[iRewardHash] .. " village at plot (x " .. iX .. ", y " .. iY .. ")";
 		if (m_kGoodyHutRewardInfo[iSubTypeHash].SubTypeGoodyHut == "GOODYHUT_SPAWN_HOSTILE_VILLAGERS") then
 			sOnGoodyHutRewardMessageSecondary = sOnGoodyHutRewardMessageSecondary .. "'reward' of " .. m_kGoodyHutRewardInfo[iSubTypeHash].SubTypeGoodyHut;
-			if m_bIsNoHostilesAsReward then
+			if m_bIsNoHostilesAsReward or GameConfiguration.GetValue("EXCLUDE_GOODYHUT_SPAWN_HOSTILE_VILLAGERS") == 1 then		-- 2021/05/16 : not sure if this still fires
 				sOnGoodyHutRewardMessageSecondary = sOnGoodyHutRewardMessageSecondary .. "; 'No Hostiles As Reward' enabled";
 			else
 				bIsRewardHostileVillagers = true;
@@ -392,9 +395,11 @@ function Initialize( bIsDebugEnabled )
 	print(sRowOfDashes);
 	print(" No Goody Huts : " .. tostring(m_bIsNoGoodyHuts));
 	if not m_bIsNoGoodyHuts then
+		print("   Goody Hut frequency : " .. tostring(m_eGoodyHutFrequency) .. " %% 'normal' distribution");
+		print("   Equalize all Reward chances : " .. tostring(m_bIsRewardsEqualized));
 		if not m_bIsNoBarbarians then
 			print("   No Hostile Villagers AFTER Reward : " .. tostring(m_bIsNoHostilesAfterReward));
-			print("   No Hostile Villagers AS Reward : " .. tostring(m_bIsNoHostilesAsReward));
+			-- print("   No Hostile Villagers AS Reward : " .. tostring(m_bIsNoHostilesAsReward));
 		end
 		print("   Goody Hut index : " .. m_eGoodyHut);
 		print("   Number of defined Goody Hut type(s) : " .. m_eNumGoodyHutTypes);
