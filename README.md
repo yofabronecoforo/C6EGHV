@@ -1,8 +1,18 @@
 # Enhanced Goodies and Hostile Villagers for Civilization VI
 
-A mod which provides several new Goody Hut rewards, and the return of hostile villagers.
+A mod which provides several new Goody Hut customization options, many new Goody Hut rewards, and the return of hostile villagers.
+
+Ingame text partially localized in English (en_US), French (fr_FR), and Spanish (es_ES).
 
 # Features
+### SP / MP
+Compatible with Single- and Multi-Player game setups.
+
+### Goody Hut Picker and Distribution Slider
+Provides a new picker window for selecting the specific Goody Hut reward(s) that can appear, available in the game's Advanced Setup. Available selections in the picker will vary by the selected ruleset and/or compatible enabled mods, and can be sorted by Name (the specific reward) or by Type (the parent category of the reward). Disabling all available reward(s) will cause the "No Goody Huts" game option to be implicitly enabled.
+
+Provides a slider for decreasing or increasing the relative amount of Goody Huts that will appear on the selected map; this slider defaults to 100%, and adjusts in steps of 25% in a range of 25% - 500%, inclusive. This slider also appears in the picker window.
+
 ### Goody Huts
 Most types now have six possible rewards. To accommodate this, existing rewards have been enabled, disabled, and/or moved to other types, and have had their chances of occurring balanced against new rewards as follows:
 
@@ -29,8 +39,6 @@ Minimum-turn requirements have been set to 0 for all __defined__ rewards, meanin
 
 * There is a known issue where receiving the "2 free civics" reward prior to unlocking the Code of Laws civic results in only receiving 1 free civic, which will be Code of Laws. As this is only really a problem during turns 1-20, I am currently inclined to leave it alone.
 
-In addition to all of the above, greater numbers of Goody Huts should appear on the map.
-
 ### Hostile Villagers
 Whenever a reward is earned from a Goody Hut, there is a chance that some of the villagers will be displeased that their tribe treated with outsiders. This chance fluctuates based on several factors:
 
@@ -48,9 +56,9 @@ What's that? "Not masochistic enough!" you say? Then how about a new reward type
 Finally, to compensate for the increased numbers of barbarian units that are likely to be present now, the experience and level caps from fighting such units have been increased. You still aren't going to get a fully-promoted unit from fighting barbarians, but at least you'll be able to get more than a single promotion.
 
 ### Advanced Setup
-Options have been added to Advanced Setup which, when enabled, will prevent hostile villagers from appearing after, or as, a reward. Enabling both of these options will remove any chance of encountering hostile villagers entirely. Enabling 'No Barbarians' will override these new options and will also remove any chance of encountering hostile villagers; the tooltip for this option has been updated to reflect this.
+Provides an option in Advanced Setup which, when enabled, will prevent hostile villagers from appearing after a reward. Enabling this option, while also disabling the "Hostile Villagers" reward type via the picker, will remove any chance of encountering hostile villagers entirely. Enabling 'No Barbarians' will override these new options and will also remove any chance of encountering hostile villagers; the tooltip for this option has been updated to reflect this.
 
-* Currently, when 'No Hostile Villagers As Reward' is enabled, no reward will be granted if that is the randomly-chosen type. Further, hostiles may appear anyway as a result of the initial hostility check, which is normally bypassed with this type since the 'reward' is guaranteed hostile villagers; this does not apply if 'No Hostile Villagers After Reward' is also enabled.
+Provides an option in Advanced Setup to equalize the chances of receiving all Goody Hut rewards. When enabled, most known individual rewards will have an equal chance of appearing, and for the purposes of spawning Hostile Villagers, they will be assigned to rarity Tier 1.
 
 # Compatibility
 ### Rulesets
@@ -78,7 +86,9 @@ Has not been tested with the following game modes:
 * Zombie Defense
 
 ### Mods
-Should work with other mods that add new Goody Hut (sub)types; any reward(s) unrecognized by EGHV will be assigned a rarity value of 6 for purposes of determining hostile spawn chance and/or villager hostility level. See the Conflicts section below for exceptions.
+Should work with other mods that add new Goody Hut (sub)types. Any reward(s) unrecognized by EGHV will be assigned a rarity value of 6 for purposes of determining hostile spawn chance and/or villager hostility level; these reward(s) will also not appear in the Goody Hut picker. See the Conflicts section below for exceptions.
+
+TO-DO : Add directions for making your mod's new Goody Hut reward(s) available within EGHV's picker.
 
 # Installation
 ### Automatic
@@ -95,7 +105,12 @@ To update to a newer release, clone or download the latest release as described 
 # Conflicts
 If your mod alters any _existing_ Goody Hut (sub)types, unless it is also using a ludicrously high load order to apply these changes, they will likely be overwritten by EGHV due to its ridiculously high load order. Conflicts __will__ arise _regardless of relative load order_ if these alterations deviate substantially from those of EGHV.
 
-EGHV adds new item(s) to the following table(s) in the Gameplay SQLite database:
+EGHV adds the following custom table(s) to the game's Configuration database:
+- TribalVillages
+
+If your mod uses any similarly-named tables, conflicts _may_ arise.
+
+EGHV adds new item(s) to the following table(s) in the game's Gameplay database:
 
 * Types
 * GoodyHuts
@@ -110,18 +125,32 @@ If your mod adds any similarly-named item(s) to any of the above table(s), then 
 
 EGHV employs a gameplay script named HostileVillagers.lua. If your mod employs a gameplay script with that name, conflicts __will__ arise.
 
+EGHV replaces the following existing Frontend context file(s):
+- AdvancedSetup.lua and AdvancedSetup.xml
+- GameSetupLogic.lua
+- HostGame.lua and HostGame.xml
+
+In addition, it adds the following new FrontEnd context file(s):
+- GoodyHutPicker.lua and GoodyHutPicker.xml
+
+If your mod replaces any of these existing files, or adds any similarly-named new ones, compatibility issues **will** arise.
+
 # Special Thanks
 This mod would not exist in its current form without any of the following:
 
 * The [Civilization Fanatics](https://www.civfanatics.com/) community, particularly the [Civ6 - Creation & Customization](https://forums.civfanatics.com/forums/civ6-creation-customization.541/) forums
 * The [Civilization VI Workshop](https://steamcommunity.com/app/289070/workshop/) on Steam
 
-Specifically, the following contributions were essential to the Hostile Villagers feature of this mod:
+Specifically, the following were essential to the Hostile Villagers feature:
 
 * [Getting an extra bonus from goody huts](https://forums.civfanatics.com/threads/getting-an-extra-bonus-from-goody-huts.616695/#post-14780879) by LeeS
 * [Barbarians Evolved](https://steamcommunity.com/sharedfiles/filedetails/?id=2164194796) by Charsi
 * [Add a Feature to a Plot During Game time with Lua](https://forums.civfanatics.com/threads/add-a-feature-to-a-plot-during-game-time-with-lua.645149/#post-15435909) by LeeS
 * [OnGoodyHutReward event, what are the parameters?](https://forums.civfanatics.com/threads/ongoodyhutreward-event-what-are-the-parameters.642591/#post-15398744) by LeeS
 * [How do you catch an era change event in Lua?](https://forums.civfanatics.com/threads/how-do-you-catch-an-era-change-event-in-lua.614454/#post-15144387) by Tiramisu
+
+The following were essential in implementing the Goody Hut picker and frequency slider:
+
+* [Configurable Goody Huts](https://steamcommunity.com/sharedfiles/filedetails/?id=2462745561) by Sailor Cat
 
 Extra special thanks to these contributors, and to the greater community, without whom the common knowledge required for the remaining features of this mod would not be as common.
