@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	EGHV : Enhanced Goodies and Hostile Villagers for Civilization VI
+	Copyright (C) 2020-2021 zzragnar0kzz
+	All rights reserved
+-->
+<!-- localized frontend text for es_ES -->
+<GameData>
+	<LocalizedText>
+        <!-- new no barbarians parameter text -->
+        <Replace Tag="LOC_GAME_NO_BARBARIANS_DESCRIPTION" Language="es_ES">
+            <Text>Habilitar esta opción elimina a los bárbaros; por extensión, también anula las opciones de 'Aldeano hostil' a continuación y elimina por completo a los aldeanos hostiles.</Text>
+        </Replace>
+        <!-- no hostiles after reward parameter text -->
+        <Replace Tag="LOC_GAME_NO_HOSTILES_AFTER_REWARD_NAME" Language="es_ES">
+            <Text>Sin Aldeanos Hostiles Después de la Recompensa</Text>
+        </Replace>
+        <Replace Tag="LOC_GAME_NO_HOSTILES_AFTER_REWARD_DESCRIPTION" Language="es_ES">
+            <Text>Habilitar esta opción evita que aparezcan aldeanos hostiles después de recibir una recompensa de aldea tribal; no elimina a los aldeanos hostiles como un posible tipo de "recompensa" de aldea tribal. Se ignorará si la opción "No bárbaros" está habilitada.</Text>
+        </Replace>
+        <!-- no hostiles as reward parameter text -->
+        <Replace Tag="LOC_GAME_NO_HOSTILES_AS_REWARD_NAME" Language="es_ES">
+            <Text>Sin Aldeanos Hostiles Como Recompensa</Text>
+        </Replace>
+        <Replace Tag="LOC_GAME_NO_HOSTILES_AS_REWARD_DESCRIPTION" Language="es_ES">
+            <Text>Habilitar esta opción elimina a los aldeanos hostiles como un posible tipo de "recompensa" de aldea tribal; no impide que aparezcan aldeanos hostiles después de recibir cualquier otra recompensa de aldea tribal. Se ignorará si la opción "No bárbaros" está habilitada.</Text>
+        </Replace>
+    </LocalizedText>
+</GameData>

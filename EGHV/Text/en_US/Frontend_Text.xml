@@ -4,25 +4,506 @@
 	Copyright (C) 2020-2021 zzragnar0kzz
 	All rights reserved
 -->
+<!-- localized frontend text for en_US -->
 <GameData>
 	<LocalizedText>
-        <!-- frontend new no barbarians parameter text -->
-        <Replace Tag="LOC_GAME_NO_BARBARIANS_DESCRIPTION" Language="en_US">
-            <Text>Enabling this option removes barbarians; by extension, it also overrides the 'Hostile Villager' options below and removes hostile villagers entirely.</Text>
+        <!-- button labels for option selection screens -->
+		<Replace Tag="LOC_SELECTION_NOTHING" Language="en_US">
+			<Text>None</Text>
+		</Replace>
+		<Replace Tag="LOC_SELECTION_EVERYTHING" Language="en_US">
+			<Text>All available ({1_Count})</Text>
+		</Replace>
+		<Replace Tag="LOC_SELECTION_CUSTOM" Language="en_US">
+			<Text>Custom selection ({1_Count})</Text>
+		</Replace>
+        <!-- Goody Hut picker -->
+        <Replace Tag="LOC_GOODY_HUT_CONFIG_NAME" Language="en_US">
+            <Text>Select Tribal Villages</Text>
         </Replace>
-        <!-- frontend no hostiles after reward parameter text -->
+        <Replace Tag="LOC_GOODY_HUT_CONFIG_DESCRIPTION" Language="en_US">
+            <Text>Choose which Goody Hut reward(s) have a chance of appearing.</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODY_HUT_PICKER_SORT_BY" Language="en_US">
+            <Text>Sort By:</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODY_HUT_PICKER_SORT_NAME" Language="en_US">
+            <Text>Name</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODY_HUT_PICKER_SORT_TYPE" Language="en_US">
+            <Text>Type</Text>
+        </Replace>
+        <!-- Goody Hut frequency -->
+        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_NAME" Language="en_US">
+            <Text>Tribal Village Frequency %</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_DESCRIPTION" Language="en_US">
+            <Text>Choose the distribution of Goody Huts on the map.</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_025_NAME" Language="en_US">
+            <Text>25%</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_025_DESCRIPTION" Language="en_US">
+            <Text>~ 25% of the baseline Goody Hut distribution (TilesPerGoody = 224, GoodyRange = 3).</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_050_NAME" Language="en_US">
+            <Text>50%</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_050_DESCRIPTION" Language="en_US">
+            <Text>~ 50% of the baseline Goody Hut distribution (TilesPerGoody = 192, GoodyRange = 3).</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_075_NAME" Language="en_US">
+            <Text>75%</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_075_DESCRIPTION" Language="en_US">
+            <Text>~ 75% of the baseline Goody Hut distribution (TilesPerGoody = 160, GoodyRange = 3).</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_100_NAME" Language="en_US">
+            <Text>100%</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_100_DESCRIPTION" Language="en_US">
+            <Text>Baseline Goody Hut distribution (TilesPerGoody = 128, GoodyRange = 3).</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_125_NAME" Language="en_US">
+            <Text>125%</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_125_DESCRIPTION" Language="en_US">
+            <Text>~ 125% of the baseline Goody Hut distribution (TilesPerGoody = 112, GoodyRange = 3).</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_150_NAME" Language="en_US">
+            <Text>150%</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_150_DESCRIPTION" Language="en_US">
+            <Text>~ 150% of the baseline Goody Hut distribution (TilesPerGoody = 96, GoodyRange = 3).</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_175_NAME" Language="en_US">
+            <Text>175%</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_175_DESCRIPTION" Language="en_US">
+            <Text>~ 175% of the baseline Goody Hut distribution (TilesPerGoody = 80, GoodyRange = 3).</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_200_NAME" Language="en_US">
+            <Text>200%</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_200_DESCRIPTION" Language="en_US">
+            <Text>~ 200% of the baseline Goody Hut distribution (TilesPerGoody = 64, GoodyRange = 2).</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_225_NAME" Language="en_US">
+            <Text>225%</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_225_DESCRIPTION" Language="en_US">
+            <Text>~ 225% of the baseline Goody Hut distribution (TilesPerGoody = 56, GoodyRange = 2).</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_250_NAME" Language="en_US">
+            <Text>250%</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_250_DESCRIPTION" Language="en_US">
+            <Text>~ 250% of the baseline Goody Hut distribution (TilesPerGoody = 48, GoodyRange = 2).</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_275_NAME" Language="en_US">
+            <Text>275%</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_275_DESCRIPTION" Language="en_US">
+            <Text>~ 275% of the baseline Goody Hut distribution (TilesPerGoody = 40, GoodyRange = 2).</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_300_NAME" Language="en_US">
+            <Text>300%</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_300_DESCRIPTION" Language="en_US">
+            <Text>~ 300% of the baseline Goody Hut distribution (TilesPerGoody = 32, GoodyRange = 2).</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_325_NAME" Language="en_US">
+            <Text>325%</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_325_DESCRIPTION" Language="en_US">
+            <Text>~ 325% of the baseline Goody Hut distribution (TilesPerGoody = 28, GoodyRange = 2).</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_350_NAME" Language="en_US">
+            <Text>350%</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_350_DESCRIPTION" Language="en_US">
+            <Text>~ 350% of the baseline Goody Hut distribution (TilesPerGoody = 24, GoodyRange = 2).</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_375_NAME" Language="en_US">
+            <Text>375%</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_375_DESCRIPTION" Language="en_US">
+            <Text>~ 375% of the baseline Goody Hut distribution (TilesPerGoody = 20, GoodyRange = 2).</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_400_NAME" Language="en_US">
+            <Text>400%</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_400_DESCRIPTION" Language="en_US">
+            <Text>~ 400% of the baseline Goody Hut distribution (TilesPerGoody = 16, GoodyRange = 1).</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_425_NAME" Language="en_US">
+            <Text>425%</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_425_DESCRIPTION" Language="en_US">
+            <Text>~ 425% of the baseline Goody Hut distribution (TilesPerGoody = 14, GoodyRange = 1).</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_450_NAME" Language="en_US">
+            <Text>450%</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_450_DESCRIPTION" Language="en_US">
+            <Text>~ 450% of the baseline Goody Hut distribution (TilesPerGoody = 12, GoodyRange = 1).</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_475_NAME" Language="en_US">
+            <Text>475%</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_475_DESCRIPTION" Language="en_US">
+            <Text>~ 475% of the baseline Goody Hut distribution (TilesPerGoody = 10, GoodyRange = 1).</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_500_NAME" Language="en_US">
+            <Text>500%</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_500_DESCRIPTION" Language="en_US">
+            <Text>~ 500% of the baseline Goody Hut distribution (TilesPerGoody = 8, GoodyRange = 1).</Text>
+        </Replace>
+        <!-- dummy tags -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_DUMMY_CONFIG_NAME" Language="en_US">
+            <Text>Dummy Reward</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_DUMMY_CONFIG_DESCRIPTION" Language="en_US">
+            <Text>Generic description for the dummy reward.</Text>
+        </Replace>
+        <!-- culture type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_SMALL_MODIFIER_NAME" Language="en_US">
+            <Text>+ 10% [ICON_Culture] Culture per turn</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_SMALL_MODIFIER_DESC" Language="en_US">
+            <Text>All cities get a + 10% [ICON_Culture] Culture per turn modifier.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_SMALL_CHANGE_NAME" Language="en_US">
+            <Text>+ 2 [ICON_Culture] Culture per turn</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_SMALL_CHANGE_DESC" Language="en_US">
+            <Text>All cities get a + 2 [ICON_Culture] Culture per turn modifier.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_TWO_CIVICS_NAME" Language="en_US">
+            <Text>2 free Civics</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_TWO_CIVICS_DESC" Language="en_US">
+            <Text>Receive two (2) random free Civics.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_ONE_CIVIC_NAME" Language="en_US">
+            <Text>1 free Civic</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_ONE_CIVIC_DESC" Language="en_US">
+            <Text>Receive one (1) random free Civic.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_TWO_CIVIC_BOOSTS_NAME" Language="en_US">
+            <Text>2 free [ICON_CivicBoosted] Civic boosts</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_TWO_CIVIC_BOOSTS_DESC" Language="en_US">
+            <Text>Receive two (2) random free [ICON_CivicBoosted] Civic boosts.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_ONE_CIVIC_BOOST_NAME" Language="en_US">
+            <Text>1 free [ICON_CivicBoosted] Civic boost</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_ONE_CIVIC_BOOST_DESC" Language="en_US">
+            <Text>Receive one (1) random free [ICON_CivicBoosted] Civic boost.</Text>
+        </Replace>
+        <!-- faith type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_SMALL_MODIFIER_NAME" Language="en_US">
+            <Text>+ 10% [ICON_Faith] Faith per turn</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_SMALL_MODIFIER_DESC" Language="en_US">
+            <Text>All cities get a + 10% [ICON_Faith] Faith per turn modifier.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_SMALL_CHANGE_NAME" Language="en_US">
+            <Text>+ 2 [ICON_Faith] Faith per turn</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_SMALL_CHANGE_DESC" Language="en_US">
+            <Text>All cities get a + 2 [ICON_Faith] Faith per turn modifier.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_ONE_RELIC_NAME" Language="en_US">
+            <Text>1 free [ICON_GreatWork_Relic] Relic</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_ONE_RELIC_DESC" Language="en_US">
+            <Text>Receive one (1) random free [ICON_GreatWork_Relic] Relic.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_LARGE_SUM_NAME" Language="en_US">
+            <Text>+ 100 [ICON_Faith] Faith</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_LARGE_SUM_DESC" Language="en_US">
+            <Text>Receive one hundred (100) [ICON_Faith] Faith.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_MEDIUM_SUM_NAME" Language="en_US">
+            <Text>+ 60 [ICON_Faith] Faith</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_MEDIUM_SUM_DESC" Language="en_US">
+            <Text>Receive sixty (60) [ICON_Faith] Faith.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_SMALL_SUM_NAME" Language="en_US">
+            <Text>+ 20 [ICON_Faith] Faith</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_SMALL_SUM_DESC" Language="en_US">
+            <Text>Receive twenty (20) [ICON_Faith] Faith.</Text>
+        </Replace>
+        <!-- gold type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_SMALL_MODIFIER_NAME" Language="en_US">
+            <Text>+ 10% [ICON_Gold] Gold per turn</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_SMALL_MODIFIER_DESC" Language="en_US">
+            <Text>All cities get a + 10% [ICON_Gold] Gold per turn modifier.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_SMALL_CHANGE_NAME" Language="en_US">
+            <Text>+ 4 [ICON_Gold] Gold per turn</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_SMALL_CHANGE_DESC" Language="en_US">
+            <Text>All cities get a + 4 [ICON_Gold] Gold per turn modifier.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_ADD_TRADE_ROUTE_NAME" Language="en_US">
+            <Text>+ 1 [ICON_TradeRoute] Trade Route</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_ADD_TRADE_ROUTE_DESC" Language="en_US">
+            <Text>Receive one (1) additional [ICON_TradeRoute] Trade Route capacity.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_LARGE_SUM_NAME" Language="en_US">
+            <Text>+ 120 [ICON_Gold] Gold</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_LARGE_SUM_DESC" Language="en_US">
+            <Text>Receive one hundred twenty (120) [ICON_Gold] Gold.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_MEDIUM_SUM_NAME" Language="en_US">
+            <Text>+ 80 [ICON_Gold] Gold</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_MEDIUM_SUM_DESC" Language="en_US">
+            <Text>Receive eighty (80) [ICON_Gold] Gold.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_SMALL_SUM_NAME" Language="en_US">
+            <Text>+ 40 [ICON_Gold] Gold</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_SMALL_SUM_DESC" Language="en_US">
+            <Text>Receive forty (40) [ICON_Gold] Gold.</Text>
+        </Replace>
+        <!-- military type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_PRODUCTION_SMALL_MODIFIER_NAME" Language="en_US">
+            <Text>+ 10% [ICON_Production] Production per turn</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_PRODUCTION_SMALL_MODIFIER_DESC" Language="en_US">
+            <Text>All cities get a + 10% [ICON_Production] Production per turn modifier.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_PRODUCTION_SMALL_CHANGE_NAME" Language="en_US">
+            <Text>+ 2 [ICON_Production] Production per turn</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_PRODUCTION_SMALL_CHANGE_DESC" Language="en_US">
+            <Text>All cities get a + 2 [ICON_Production] Production per turn modifier.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_MEDIC_NAME" Language="en_US">
+            <Text>1 free [ICON_Plus] Medic</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_MEDIC_DESC" Language="en_US">
+            <Text>Receive one (1) free [ICON_Plus] Medic unit in the nearest city.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_MILITARY_ENGINEER_NAME" Language="en_US">
+            <Text>1 free [ICON_Charges] Military Engineer</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_MILITARY_ENGINEER_DESC" Language="en_US">
+            <Text>Receive one (1) free [ICON_Charges] Military Engineer unit in the nearest city.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_HEAVY_CHARIOT_NAME" Language="en_US">
+            <Text>1 free [ICON_Ability] Heavy Chariot</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_HEAVY_CHARIOT_DESC" Language="en_US">
+            <Text>Receive one (1) free [ICON_Ability] Heavy Chariot unit in the nearest city.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_HORSEMAN_NAME" Language="en_US">
+            <Text>1 free [ICON_Promotion] Horseman</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_HORSEMAN_DESC" Language="en_US">
+            <Text>Receive one (1) free [ICON_Promotion] Horseman unit in the nearest city.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SPEARMAN_NAME" Language="en_US">
+            <Text>1 free [ICON_Range] Spearman</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SPEARMAN_DESC" Language="en_US">
+            <Text>Receive one (1) free [ICON_Range] Spearman unit in the nearest city.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SLINGER_NAME" Language="en_US">
+            <Text>1 free [ICON_Ranged] Slinger</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SLINGER_DESC" Language="en_US">
+            <Text>Receive one (1) free [ICON_Ranged] Slinger unit in the nearest city.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_WARRIOR_NAME" Language="en_US">
+            <Text>1 free [ICON_Strength] Warrior</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_WARRIOR_DESC" Language="en_US">
+            <Text>Receive one (1) free [ICON_Strength] Warrior unit in the nearest city.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SCOUT_NAME" Language="en_US">
+            <Text>1 free [ICON_Position] Scout</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SCOUT_DESC" Language="en_US">
+            <Text>Receive one (1) free [ICON_Position] Scout unit in the nearest city.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_EXPERIENCE_NAME" Language="en_US">
+            <Text>Unit gains experience</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_EXPERIENCE_DESC" Language="en_US">
+            <Text>The unit that receives this reward gains experience towards its next promotion.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_RESOURCES_NAME" Language="en_US">
+            <Text>Gain strategic resources</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_RESOURCES_DESC" Language="en_US">
+            <Text>Receive a small stockpile of a random strategic resource.</Text>
+        </Replace>
+        <!-- science type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_SMALL_MODIFIER_NAME" Language="en_US">
+            <Text>+ 10% [ICON_Science] Science per turn</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_SMALL_MODIFIER_DESC" Language="en_US">
+            <Text>All cities get a + 10% [ICON_Science] Science per turn modifier.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_SMALL_CHANGE_NAME" Language="en_US">
+            <Text>+ 2 [ICON_Science] Science per turn</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_SMALL_CHANGE_DESC" Language="en_US">
+            <Text>All cities get a + 2 [ICON_Science] Science per turn modifier.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_TWO_TECHS_NAME" Language="en_US">
+            <Text>2 free Techs</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_TWO_TECHS_DESC" Language="en_US">
+            <Text>Receive two (2) random free Technologies.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_ONE_TECH_NAME" Language="en_US">
+            <Text>1 free Tech</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_ONE_TECH_DESC" Language="en_US">
+            <Text>Receive one (1) random free Technology.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_TWO_TECH_BOOSTS_NAME" Language="en_US">
+            <Text>2 free [ICON_TechBoosted] Tech boosts</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_TWO_TECH_BOOSTS_DESC" Language="en_US">
+            <Text>Receive two (2) random free [ICON_TechBoosted] Technology boosts.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_ONE_TECH_BOOST_NAME" Language="en_US">
+            <Text>1 free [ICON_TechBoosted] Tech boost</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_ONE_TECH_BOOST_DESC" Language="en_US">
+            <Text>Receive one (1) random free [ICON_TechBoosted] Technology boost.</Text>
+        </Replace>
+        <!-- survivors type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_FOOD_SMALL_MODIFIER_NAME" Language="en_US">
+            <Text>+ 10% [ICON_Food] Food per turn</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FOOD_SMALL_MODIFIER_DESC" Language="en_US">
+            <Text>All cities get a + 10% [ICON_Food] Food per turn modifier.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FOOD_SMALL_CHANGE_NAME" Language="en_US">
+            <Text>+ 2 [ICON_Food] Food per turn</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FOOD_SMALL_CHANGE_DESC" Language="en_US">
+            <Text>All cities get a + 2 [ICON_Food] Food per turn modifier.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_GRANT_SETTLER_NAME" Language="en_US">
+            <Text>1 free [ICON_Unit] Settler</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_GRANT_SETTLER_DESC" Language="en_US">
+            <Text>Receive one (1) free [ICON_Unit] Settler unit in the nearest city.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_GRANT_TRADER_NAME" Language="en_US">
+            <Text>1 free [ICON_TradingPost] Trader</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_GRANT_TRADER_DESC" Language="en_US">
+            <Text>Receive one (1) free [ICON_TradingPost] Trader unit in the nearest city.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_GRANT_BUILDER_NAME" Language="en_US">
+            <Text>1 free [ICON_Charges] Builder</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_GRANT_BUILDER_DESC" Language="en_US">
+            <Text>Receive one (1) free [ICON_Charges] Builder unit in the nearest city.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_ADD_POP_NAME" Language="en_US">
+            <Text>+ 1 [ICON_Citizen] Population</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_ADD_POP_DESC" Language="en_US">
+            <Text>Receive one (1) additional [ICON_Citizen] Population in the nearest city.</Text>
+        </Replace>
+        <!-- diplomacy type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_DIPLOMACY_SMALL_BOOST_FAVOR_NAME" Language="en_US">
+            <Text>+ 3 [ICON_Favor] Favor per turn</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_DIPLOMACY_SMALL_BOOST_FAVOR_DESC" Language="en_US">
+            <Text>All cities get a + 3 [ICON_Favor] Diplomatic Favor per turn modifier.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_DIPLOMACY_TWO_GOVERNOR_TITLES_NAME" Language="en_US">
+            <Text>2 free [ICON_GreatPerson] Governor Titles</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_DIPLOMACY_TWO_GOVERNOR_TITLES_DESC" Language="en_US">
+            <Text>Receive two (2) free [ICON_GreatPerson] Governor Titles.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_DIPLOMACY_TWO_ENVOYS_NAME" Language="en_US">
+            <Text>2 free [ICON_Envoy] Envoys</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_DIPLOMACY_TWO_ENVOYS_DESC" Language="en_US">
+            <Text>Receive two (2) free [ICON_Envoy] Envoys.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_DIPLOMACY_GOVERNOR_TITLE_NAME" Language="en_US">
+            <Text>1 free [ICON_GreatPerson] Governor Title</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_DIPLOMACY_GOVERNOR_TITLE_DESC" Language="en_US">
+            <Text>Receive one (1) free [ICON_GreatPerson] Governor Title.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_DIPLOMACY_ENVOY_NAME" Language="en_US">
+            <Text>1 free [ICON_Envoy] Envoy</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_DIPLOMACY_ENVOY_DESC" Language="en_US">
+            <Text>Receive one (1) free [ICON_Envoy] Envoy.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_DIPLOMACY_FAVOR_NAME" Language="en_US">
+            <Text>+ 20 [ICON_Favor] Favor</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_DIPLOMACY_FAVOR_DESC" Language="en_US">
+            <Text>Receive twenty (20) [ICON_Favor] Diplomatic Favor.</Text>
+        </Replace>
+        <!-- meteor strike type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_METEOR_GRANT_GOODIES_NAME" Language="en_US">
+            <Text>A [ICON_Razed] meteor strikes!</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_METEOR_GRANT_GOODIES_DESC" Language="en_US">
+            <Text>Receive an advanced unit produced from materials salvaged from the nearby [ICON_Razed] meteor strike site.</Text>
+        </Replace>
+        <!-- hostiles type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_SPAWN_HOSTILE_VILLAGERS_NAME" Language="en_US">
+            <Text>[ICON_Barbarian] Hostile Villagers!</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SPAWN_HOSTILE_VILLAGERS_DESC" Language="en_US">
+            <Text>No "reward" here; guaranteed [ICON_Barbarian] Hostile Villagers![NEWLINE][NEWLINE]Disabling this reward does not affect the possibility of [ICON_Barbarian] Hostile Villagers appearing following any other reward; refer to Advanced Setup option "No Hostile Villagers After Reward" to prevent [ICON_Barbarian] Hostile Villagers following other rewards.</Text>
+        </Replace>
+        <!-- new no barbarians parameter text -->
+        <Replace Tag="LOC_GAME_NO_BARBARIANS_DESCRIPTION" Language="en_US">
+            <Text>Enabling this option removes barbarians; by extension, it also overrides any 'Hostile Villagers' options, and removes hostile villagers entirely.</Text>
+        </Replace>
+        <!-- new no tribal villages parameter text -->
+        <Replace Tag="LOC_GAME_NO_GOODY_HUTS_DESCRIPTION" Language="en_US">
+            <Text>Enabling this option removes tribal villages; by extension, it also overrides the Goody Hut picker, and any other reward-related options.</Text>
+        </Replace>
+        <!-- equalize goody hut rewards parameter text -->
+        <Replace Tag="LOC_GAME_EQUALIZE_GOODY_HUTS_NAME" Language="en_US">
+            <Text>Equalize Tribal Village Rewards</Text>
+        </Replace>
+        <Replace Tag="LOC_GAME_EQUALIZE_GOODY_HUTS_DESCRIPTION" Language="en_US">
+            <Text>Enabling this option gives most available Goody Hut rewards a roughly equal chance of appearing. Will be ignored if 'No Tribal Villages' is enabled.</Text>
+        </Replace>
+        <!-- no hostiles after reward parameter text -->
         <Replace Tag="LOC_GAME_NO_HOSTILES_AFTER_REWARD_NAME" Language="en_US">
             <Text>No Hostile Villagers After Reward</Text>
         </Replace>
         <Replace Tag="LOC_GAME_NO_HOSTILES_AFTER_REWARD_DESCRIPTION" Language="en_US">
             <Text>Enabling this option prevents hostile villagers from appearing after receiving a tribal village reward; it does not eliminate hostile villagers as a possible tribal village 'reward' type. Will be ignored if 'No Barbarians' is enabled.</Text>
         </Replace>
-        <!-- frontend no hostiles as reward parameter text -->
-        <Replace Tag="LOC_GAME_NO_HOSTILES_AS_REWARD_NAME" Language="en_US">
+        <!-- * DEPRECATED * superceded by the Goody Huts picker * no hostiles as reward parameter text -->
+        <!-- <Replace Tag="LOC_GAME_NO_HOSTILES_AS_REWARD_NAME" Language="en_US">
             <Text>No Hostile Villagers As Reward</Text>
-        </Replace>
-        <Replace Tag="LOC_GAME_NO_HOSTILES_AS_REWARD_DESCRIPTION" Language="en_US">
+        </Replace> -->
+        <!-- <Replace Tag="LOC_GAME_NO_HOSTILES_AS_REWARD_DESCRIPTION" Language="en_US">
             <Text>Enabling this option eliminates hostile villagers as a possible tribal village 'reward' type; it does not prevent hostile villagers from appearing after receiving any other tribal village reward. Will be ignored if 'No Barbarians' is enabled.</Text>
-        </Replace>
+        </Replace> -->
     </LocalizedText>
 </GameData>
