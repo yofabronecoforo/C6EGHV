@@ -24,7 +24,7 @@ UPDATE GlobalParameters SET Value = 4 WHERE Name = 'EXPERIENCE_MAX_BARB_LEVEL';
 UPDATE GlobalParameters SET Value = 6 WHERE Name = 'EXPERIENCE_ACTIVATE_GOODY_HUT';
 
 -- Adjust the frequency of, minimum distance between, and gold earned for clearing Goody Huts; defaults : TilesPerGoody = 128, GoodyRange = 3, DispersalGold = ?
-UPDATE Improvements SET TilesPerGoody = 64, GoodyRange = 2, DispersalGold = 0 WHERE ImprovementType = 'IMPROVEMENT_GOODY_HUT';
+UPDATE Improvements SET TilesPerGoody = 128, GoodyRange = 3, DispersalGold = 0 WHERE ImprovementType = 'IMPROVEMENT_GOODY_HUT';
 
 -- Adjust the weight value and other properties assigned to individual existing Culture-type rewards
 UPDATE GoodyHutSubTypes SET Weight = 60, Turn = 0 WHERE SubTypeGoodyHut = 'GOODYHUT_ONE_CIVIC_BOOST';       -- defaults : Weight = 55
