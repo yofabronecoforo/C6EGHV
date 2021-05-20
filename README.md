@@ -2,7 +2,12 @@
 
 A mod which provides several new Goody Hut customization options, many new Goody Hut rewards, and the return of hostile villagers.
 
-Ingame text partially localized in English (en_US), French (fr_FR), and Spanish (es_ES).
+New Frontend and Ingame text fully localized in the following language(s):
+- English (en_US)
+- Spanish (es_ES)
+
+New Frontend and Ingame text partially localized in the following language(s):
+- French (fr_FR)
 
 # Features
 ### SP / MP
@@ -10,6 +15,9 @@ Compatible with Single- and Multi-Player game setups.
 
 ### Goody Hut Picker and Distribution Slider
 Provides a new picker window for selecting the specific Goody Hut reward(s) that can appear, available in the game's Advanced Setup. Available selections in the picker will vary by the selected ruleset and/or compatible enabled mods, and can be sorted by Name (the specific reward) or by Type (the parent category of the reward). Disabling all available reward(s) will cause the "No Goody Huts" game option to be implicitly enabled.
+
+The tooltip for the Goody Hut picker will dynamically update to reflect the source(s) of rewards based on the selected ruleset. Its button text reflects the total amount of available reward(s) when all item(s) in the picker are selected.
+- This functionality extends to other picker window(s).
 
 Provides a slider for decreasing or increasing the relative amount of Goody Huts that will appear on the selected map; this slider defaults to 100%, and adjusts in steps of 25% in a range of 25% - 500%, inclusive. This slider also appears in the picker window.
 
@@ -86,9 +94,11 @@ Has not been tested with the following game modes:
 * Zombie Defense
 
 ### Mods
-Should work with other mods that add new Goody Hut (sub)types. Any reward(s) unrecognized by EGHV will be assigned a rarity value of 6 for purposes of determining hostile spawn chance and/or villager hostility level; these reward(s) will also not appear in the Goody Hut picker. See the Conflicts section below for exceptions.
+Should work with other mods that add new Goody Hut (sub)types; see below for caveats, and see the Conflicts section further below for exceptions.
 
-TO-DO : Add directions for making your mod's new Goody Hut reward(s) available within EGHV's picker.
+Most reward(s) unrecognized by EGHV will be assigned a rarity value of 6 for purposes of determining hostile spawn chance and/or villager hostility level. These reward(s) will also not appear in the Goody Hut picker, unless they are configured to do so; see the contents of EGHV/User for further details.
+
+TO-DO : Add complete directions for making your mod's new Goody Hut reward(s) available within EGHV's picker.
 
 # Installation
 ### Automatic
