@@ -7,9 +7,424 @@
 <!-- localized frontend text for es_ES -->
 <GameData>
 	<LocalizedText>
+        <!-- button labels for option selection screens -->
+		<Replace Tag="LOC_SELECTION_NOTHING" Language="es_ES">
+			<Text>Ninguna seleccionada</Text>
+		</Replace>
+		<Replace Tag="LOC_SELECTION_EVERYTHING" Language="es_ES">
+			<Text>Todos disponibles ({1_Count})</Text>
+		</Replace>
+		<Replace Tag="LOC_SELECTION_CUSTOM" Language="es_ES">
+			<Text>La selección personalizada ({1_Count})</Text>
+		</Replace>
+        <!-- Goody Hut picker -->
+        <Replace Tag="LOC_GOODY_HUT_CONFIG_NAME" Language="es_ES">
+            <Text>Seleccionar pueblos tribales</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODY_HUT_CONFIG_DESCRIPTION" Language="es_ES">
+            <Text>Elige qué recompensas de Goody Hut tienen posibilidades de aparecer.</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODY_HUT_PICKER_SORT_BY" Language="es_ES">
+            <Text>Ordenar por:</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODY_HUT_PICKER_SORT_NAME" Language="es_ES">
+            <Text>Nombre</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODY_HUT_PICKER_SORT_TYPE" Language="es_ES">
+            <Text>Tipo</Text>
+        </Replace>
+        <!-- Goody Hut frequency -->
+        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_NAME" Language="es_ES">
+            <Text>Frecuencia de aldea tribal %</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_DESCRIPTION" Language="es_ES">
+            <Text>Elija la distribución de Goody Huts en el mapa.</Text>
+        </Replace>
+        <!-- dynamic content picker tooltips -->
+        <Replace Tag="LOC_STANDARD_TT" Language="es_ES">
+            <Text>[NEWLINE]Contenido disponible:[NEWLINE]  Estándar</Text>
+        </Replace>
+        <Replace Tag="LOC_DLC_AZTEC_TT" Language="es_ES">
+            <Text>[NEWLINE]  DLC: Paquete de civilización azteca</Text>
+        </Replace>
+        <Replace Tag="LOC_DLC_POLAND_TT" Language="es_ES">
+            <Text>[NEWLINE]  DLC: Paquete de escenario y civilización de Polonia</Text>
+        </Replace>
+        <Replace Tag="LOC_DLC_VIKINGS_TT" Language="es_ES">
+            <Text>[NEWLINE]  DLC: Paquete de escenarios vikingos</Text>
+        </Replace>
+        <Replace Tag="LOC_DLC_AUSTRALIA_TT" Language="es_ES">
+            <Text>[NEWLINE]  DLC: Paquete de escenario y civilización de Australia</Text>
+        </Replace>
+        <Replace Tag="LOC_DLC_PERSIA_TT" Language="es_ES">
+            <Text>[NEWLINE]  DLC: Paquete de escenario y civilización de Persia y Macedonia</Text>
+        </Replace>
+        <Replace Tag="LOC_DLC_NUBIA_TT" Language="es_ES">
+            <Text>[NEWLINE]  DLC: Paquete de escenario y civilización de Nubia</Text>
+        </Replace>
+        <Replace Tag="LOC_DLC_KHMER_TT" Language="es_ES">
+            <Text>[NEWLINE]  DLC: Paquete de escenario y civilización jemer e indonesia</Text>
+        </Replace>
+        <Replace Tag="LOC_DLC_MAYA_TT" Language="es_ES">
+            <Text>[NEWLINE]  DLC: Paquete de Gran Colombia y Maya</Text>
+        </Replace>
+        <Replace Tag="LOC_DLC_ETHIOPIA_TT" Language="es_ES">
+            <Text>[NEWLINE]  DLC: Paquete Etiopía</Text>
+        </Replace>
+        <Replace Tag="LOC_DLC_BYZANTIUM_TT" Language="es_ES">
+            <Text>[NEWLINE]  DLC: Paquete de Bizancio y Galia</Text>
+        </Replace>
+        <Replace Tag="LOC_DLC_BABYLON_STK_TT" Language="es_ES">
+            <Text>[NEWLINE]  DLC: Paquete Babylon</Text>
+        </Replace>
+        <Replace Tag="LOC_DLC_VIETNAM_TT" Language="es_ES">
+            <Text>[NEWLINE]  DLC: Paquete Vietnam y Kublai Khan</Text>
+        </Replace>
+        <Replace Tag="LOC_DLC_PORTUGAL_TT" Language="es_ES">
+            <Text>[NEWLINE]  DLC: Paquete Portugal</Text>
+        </Replace>
+        <Replace Tag="LOC_XP1_TT" Language="es_ES">
+            <Text>[NEWLINE]  Expansión: Rise and Fall</Text>
+        </Replace>
+        <Replace Tag="LOC_XP2_TT" Language="es_ES">
+            <Text>[NEWLINE]  Expansión: Gathering Storm</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_TT" Language="es_ES">
+            <Text>[NEWLINE]  Modificación: Objetos Mejorados y Aldeanos Hostiles</Text>
+        </Replace>
+        <Replace Tag="LOC_ENWS_TT" Language="es_ES">
+            <Text>[NEWLINE]  Modificación: Selección mejorada de maravillas naturales</Text>
+        </Replace>
+        <!-- dummy tags -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_DUMMY_CONFIG_NAME" Language="es_ES">
+            <Text>Recompensa ficticia</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_DUMMY_CONFIG_DESCRIPTION" Language="es_ES">
+            <Text>Descripción genérica de la recompensa ficticia.</Text>
+        </Replace>
+        <!-- culture type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_SMALL_MODIFIER_NAME" Language="es_ES">
+            <Text>+ 10% [ICON_Culture] Cultura por turno.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_SMALL_MODIFIER_DESC" Language="es_ES">
+            <Text>Todas las ciudades obtienen un modificador de + 10% [ICON_Culture] Cultura por turno.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_SMALL_CHANGE_NAME" Language="es_ES">
+            <Text>+ 2 [ICON_Culture] Cultura por turno.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_SMALL_CHANGE_DESC" Language="es_ES">
+            <Text>Todas las ciudades obtienen un modificador de + 2 [ICON_Culture] Cultura por turno.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_TWO_CIVICS_NAME" Language="es_ES">
+            <Text>2 cívicos gratis</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_TWO_CIVICS_DESC" Language="es_ES">
+            <Text>Recibe dos (2) Civics gratuitos al azar.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_ONE_CIVIC_NAME" Language="es_ES">
+            <Text>1 cívico gratis</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_ONE_CIVIC_DESC" Language="es_ES">
+            <Text>Recibe un (1) Civic gratis al azar.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_TWO_CIVIC_BOOSTS_NAME" Language="es_ES">
+            <Text>2 [ICON_CivicBoosted] mejoras cívicas gratuitas</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_TWO_CIVIC_BOOSTS_DESC" Language="es_ES">
+            <Text>Recibe dos (2) mejoras cívicas [ICON_CivicBoosted] gratuitas al azar.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_ONE_CIVIC_BOOST_NAME" Language="es_ES">
+            <Text>1 [ICON_CivicBoosted] impulso cívico gratuito</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_ONE_CIVIC_BOOST_DESC" Language="es_ES">
+            <Text>Recibe un (1) [ICON_CivicBoosted] impulso cívico gratuito aleatorio.</Text>
+        </Replace>
+        <!-- faith type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_SMALL_MODIFIER_NAME" Language="es_ES">
+            <Text>+ 10% [ICON_Faith] Fe por turno</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_SMALL_MODIFIER_DESC" Language="es_ES">
+            <Text>Todas las ciudades obtienen un modificador de + 10% [ICON_Faith] Fe por turno.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_SMALL_CHANGE_NAME" Language="es_ES">
+            <Text>+ 2 [ICON_Faith] Fe por turno</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_SMALL_CHANGE_DESC" Language="es_ES">
+            <Text>Todas las ciudades obtienen un modificador de + 2 [ICON_Faith] Fe por turno.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_ONE_RELIC_NAME" Language="es_ES">
+            <Text>1 [ICON_GreatWork_Relic] reliquia gratuita</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_ONE_RELIC_DESC" Language="es_ES">
+            <Text>Recibe una (1) [ICON_GreatWork_Relic] reliquia gratuita aleatoria.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_LARGE_SUM_NAME" Language="es_ES">
+            <Text>+ 100 [ICON_Faith] Fe</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_LARGE_SUM_DESC" Language="es_ES">
+            <Text>Recibe cien (100) [ICON_Faith] Fe.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_MEDIUM_SUM_NAME" Language="es_ES">
+            <Text>+ 60 [ICON_Faith] Fe</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_MEDIUM_SUM_DESC" Language="es_ES">
+            <Text>Recibe sesenta (60) [ICON_Faith] Fe.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_SMALL_SUM_NAME" Language="es_ES">
+            <Text>+ 20 [ICON_Faith] Fe</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_SMALL_SUM_DESC" Language="es_ES">
+            <Text>Recibe veinte (20) [ICON_Faith] Fe.</Text>
+        </Replace>
+        <!-- gold type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_SMALL_MODIFIER_NAME" Language="es_ES">
+            <Text>+ 10% [ICON_Gold] Oro por turno</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_SMALL_MODIFIER_DESC" Language="es_ES">
+            <Text>Todas las ciudades obtienen un modificador de + 10% [ICON_Gold] de oro por turno.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_SMALL_CHANGE_NAME" Language="es_ES">
+            <Text>+ 4 [ICON_Gold] Oro por turno</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_SMALL_CHANGE_DESC" Language="es_ES">
+            <Text>Todas las ciudades obtienen un modificador de + 4 [ICON_Gold] de oro por turno.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_ADD_TRADE_ROUTE_NAME" Language="es_ES">
+            <Text>+ 1 [ICON_TradeRoute] Ruta comercial</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_ADD_TRADE_ROUTE_DESC" Language="es_ES">
+            <Text>Reciba una (1) capacidad adicional de [ICON_TradeRoute] ruta comercial.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_LARGE_SUM_NAME" Language="es_ES">
+            <Text>+ 120 [ICON_Gold] Oro</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_LARGE_SUM_DESC" Language="es_ES">
+            <Text>Recibe ciento veinte (120) [ICON_Gold] de oro.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_MEDIUM_SUM_NAME" Language="es_ES">
+            <Text>+ 80 [ICON_Gold] Oro</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_MEDIUM_SUM_DESC" Language="es_ES">
+            <Text>Recibe ochenta (80) [ICON_Gold] de oro.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_SMALL_SUM_NAME" Language="es_ES">
+            <Text>+ 40 [ICON_Gold] Oro</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_SMALL_SUM_DESC" Language="es_ES">
+            <Text>Recibe cuarenta (40) [ICON_Gold] de oro.</Text>
+        </Replace>
+        <!-- military type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_PRODUCTION_SMALL_MODIFIER_NAME" Language="es_ES">
+            <Text>+ 10% [ICON_Production] Producción por turno</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_PRODUCTION_SMALL_MODIFIER_DESC" Language="es_ES">
+            <Text>Todas las ciudades obtienen un modificador de producción por turno de + 10% [ICON_Production].</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_PRODUCTION_SMALL_CHANGE_NAME" Language="es_ES">
+            <Text>+ 2 [ICON_Production] Producción por turno</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_PRODUCTION_SMALL_CHANGE_DESC" Language="es_ES">
+            <Text>Todas las ciudades obtienen un modificador de producción por turno de + 2 [ICON_Production].</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_MEDIC_NAME" Language="es_ES">
+            <Text>1 [ICON_Plus] Médico gratis</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_MEDIC_DESC" Language="es_ES">
+            <Text>Reciba una (1) [ICON_Plus] unidad Médica gratuita en la ciudad más cercana.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_MILITARY_ENGINEER_NAME" Language="es_ES">
+            <Text>1 [ICON_Charges] Ingeniero militar gratis</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_MILITARY_ENGINEER_DESC" Language="es_ES">
+            <Text>Reciba una (1) [ICON_Charges] unidad Ingeniero militar gratuita en la ciudad más cercana.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_HEAVY_CHARIOT_NAME" Language="es_ES">
+            <Text>1 [ICON_Ability] Carro pesado gratis</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_HEAVY_CHARIOT_DESC" Language="es_ES">
+            <Text>Reciba una (1) [ICON_Ability] unidad Carro pesado gratuita en la ciudad más cercana.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_HORSEMAN_NAME" Language="es_ES">
+            <Text>1 [ICON_Promotion] Jinete gratis</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_HORSEMAN_DESC" Language="es_ES">
+            <Text>Reciba una (1) [ICON_Promotion] unidad Jinete gratuita en la ciudad más cercana.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SPEARMAN_NAME" Language="es_ES">
+            <Text>1 [ICON_Range] Lancero gratis</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SPEARMAN_DESC" Language="es_ES">
+            <Text>Reciba una (1) [ICON_Range] unidad Lancero gratuita en la ciudad más cercana.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SLINGER_NAME" Language="es_ES">
+            <Text>1 [ICON_Ranged] Hondero gratis</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SLINGER_DESC" Language="es_ES">
+            <Text>Reciba una (1) [ICON_Ranged] unidad Hondero gratuita en la ciudad más cercana.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_WARRIOR_NAME" Language="es_ES">
+            <Text>1 [ICON_Strength] Guerrero gratis</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_WARRIOR_DESC" Language="es_ES">
+            <Text>Reciba una (1) [ICON_Strength] unidad Guerrero gratuita en la ciudad más cercana.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SCOUT_NAME" Language="es_ES">
+            <Text>1 [ICON_Position] Explorar gratis</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SCOUT_DESC" Language="es_ES">
+            <Text>Reciba una (1) [ICON_Position] unidad Explorar gratuita en la ciudad más cercana.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_EXPERIENCE_NAME" Language="es_ES">
+            <Text>Unidad gana experiencia</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_EXPERIENCE_DESC" Language="es_ES">
+            <Text>La unidad que recibe esta recompensa gana experiencia para su próxima promoción.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_RESOURCES_NAME" Language="es_ES">
+            <Text>Obtenga recursos estratégicos</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_RESOURCES_DESC" Language="es_ES">
+            <Text>Reciba una pequeña reserva de un recurso estratégico aleatorio.</Text>
+        </Replace>
+        <!-- science type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_SMALL_MODIFIER_NAME" Language="es_ES">
+            <Text>+ 10% [ICON_Science] Ciencia por turno</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_SMALL_MODIFIER_DESC" Language="es_ES">
+            <Text>Todas las ciudades obtienen un modificador de + 10% [ICON_Science] Ciencia por turno.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_SMALL_CHANGE_NAME" Language="es_ES">
+            <Text>+ 2 [ICON_Science] Ciencia por turno</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_SMALL_CHANGE_DESC" Language="es_ES">
+            <Text>Todas las ciudades obtienen un modificador de + 2 [ICON_Science] Ciencia por turno.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_TWO_TECHS_NAME" Language="es_ES">
+            <Text>2 tecnologías gratuitas</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_TWO_TECHS_DESC" Language="es_ES">
+            <Text>Reciba dos (2) tecnologías gratuitas al azar.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_ONE_TECH_NAME" Language="es_ES">
+            <Text>1 tecnología gratuita</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_ONE_TECH_DESC" Language="es_ES">
+            <Text>Reciba una (1) tecnología gratuita aleatoria.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_TWO_TECH_BOOSTS_NAME" Language="es_ES">
+            <Text>2 [ICON_TechBoosted] mejoras tecnológicas gratuitas</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_TWO_TECH_BOOSTS_DESC" Language="es_ES">
+            <Text>Reciba dos (2) [ICON_TechBoosted] mejoras de tecnología gratuitas al azar.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_ONE_TECH_BOOST_NAME" Language="es_ES">
+            <Text>1 [ICON_TechBoosted] impulso tecnológico gratuito</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_ONE_TECH_BOOST_DESC" Language="es_ES">
+            <Text>Reciba un (1) [ICON_TechBoosted] impulso tecnológico gratuito al azar.</Text>
+        </Replace>
+        <!-- survivors type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_FOOD_SMALL_MODIFIER_NAME" Language="es_ES">
+            <Text>+ 10% [ICON_Food] Comida por turno</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FOOD_SMALL_MODIFIER_DESC" Language="es_ES">
+            <Text>Todas las ciudades obtienen un modificador de + 10% [ICON_Food] Comida por turno.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FOOD_SMALL_CHANGE_NAME" Language="es_ES">
+            <Text>+ 2 [ICON_Food] Comida por turno</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FOOD_SMALL_CHANGE_DESC" Language="es_ES">
+            <Text>Todas las ciudades obtienen un modificador de + 2 [ICON_Food] Comida por turno.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_GRANT_SETTLER_NAME" Language="es_ES">
+            <Text>1 [ICON_Unit] colono gratuito</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_GRANT_SETTLER_DESC" Language="es_ES">
+            <Text>Reciba una (1) [ICON_Unit] unidad Settler gratis en la ciudad más cercana.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_GRANT_TRADER_NAME" Language="es_ES">
+            <Text>1 [ICON_TradingPost] operador gratuito</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_GRANT_TRADER_DESC" Language="es_ES">
+            <Text>Reciba una (1) [ICON_TradingPost] unidad Trader gratuita en la ciudad más cercana.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_GRANT_BUILDER_NAME" Language="es_ES">
+            <Text>1 [ICON_Charges] creador gratuito</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_GRANT_BUILDER_DESC" Language="es_ES">
+            <Text>Reciba una (1) [ICON_Charges] unidad Builder gratis en la ciudad más cercana.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_ADD_POP_NAME" Language="es_ES">
+            <Text>+ 1 [ICON_Citizen] población adicional</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_ADD_POP_DESC" Language="es_ES">
+            <Text>Reciba una (1) [ICON_Citizen] población adicional en la ciudad más cercana.</Text>
+        </Replace>
+        <!-- diplomacy type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_DIPLOMACY_SMALL_BOOST_FAVOR_NAME" Language="es_ES">
+            <Text>+ 3 [ICON_Favor] Favor por turno</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_DIPLOMACY_SMALL_BOOST_FAVOR_DESC" Language="es_ES">
+            <Text>Todas las ciudades obtienen un modificador de + 3 [ICON_Favor] Favor Diplomático por turno.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_DIPLOMACY_TWO_GOVERNOR_TITLES_NAME" Language="es_ES">
+            <Text>2 [ICON_GreatPerson] títulos de gobernador gratuitos</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_DIPLOMACY_TWO_GOVERNOR_TITLES_DESC" Language="es_ES">
+            <Text>Reciba dos (2) [ICON_GreatPerson] títulos de gobernador gratuitos.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_DIPLOMACY_TWO_ENVOYS_NAME" Language="es_ES">
+            <Text>2 [ICON_Envoy] Enviados gratis</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_DIPLOMACY_TWO_ENVOYS_DESC" Language="es_ES">
+            <Text>Reciba dos (2) [ICON_Envoy] Enviados gratis.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_DIPLOMACY_GOVERNOR_TITLE_NAME" Language="es_ES">
+            <Text>1 [ICON_GreatPerson] título de gobernador gratuito</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_DIPLOMACY_GOVERNOR_TITLE_DESC" Language="es_ES">
+            <Text>Reciba un (1) [ICON_GreatPerson] título de gobernador gratuito.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_DIPLOMACY_ENVOY_NAME" Language="es_ES">
+            <Text>1 [ICON_Envoy] Enviado gratis</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_DIPLOMACY_ENVOY_DESC" Language="es_ES">
+            <Text>Reciba un (1) [ICON_Envoy] Enviado gratis.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_DIPLOMACY_FAVOR_NAME" Language="es_ES">
+            <Text>+ 20 [ICON_Favor] Favor</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_DIPLOMACY_FAVOR_DESC" Language="es_ES">
+            <Text>Recibe veinte (20) [ICON_Favor] Favor Diplomático.</Text>
+        </Replace>
+        <!-- meteor strike type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_METEOR_GRANT_GOODIES_NAME" Language="es_ES">
+            <Text>¡Un [ICON_Razed] meteoro golpea!</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_METEOR_GRANT_GOODIES_DESC" Language="es_ES">
+            <Text>Recibe una unidad avanzada producida a partir de materiales rescatados del cercano [ICON_Razed] sitio de impacto de meteorito.</Text>
+        </Replace>
+        <!-- hostiles type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_SPAWN_HOSTILE_VILLAGERS_NAME" Language="es_ES">
+            <Text>[ICON_Barbarian] ¡Aldeanos hostiles!</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SPAWN_HOSTILE_VILLAGERS_DESC" Language="es_ES">
+            <Text>No hay "recompensa" aquí; [ICON_Barbarian] ¡Aldeanos hostiles garantizados![NEWLINE][NEWLINE]Deshabilitar esta recompensa no afecta la posibilidad de que aparezcan [ICON_Barbarian] aldeanos hostiles después de cualquier otra recompensa.; consulte la opción de Configuración avanzada "Sin aldeanos hostiles después de la recompensa" para evitar que [ICON_Barbarian] aldeanos hostiles sigan otras recompensas.</Text>
+        </Replace>
         <!-- new no barbarians parameter text -->
         <Replace Tag="LOC_GAME_NO_BARBARIANS_DESCRIPTION" Language="es_ES">
             <Text>Habilitar esta opción elimina a los bárbaros; por extensión, también anula las opciones de 'Aldeano hostil' a continuación y elimina por completo a los aldeanos hostiles.</Text>
+        </Replace>
+        <!-- new no tribal villages parameter text -->
+        <Replace Tag="LOC_GAME_NO_GOODY_HUTS_DESCRIPTION" Language="es_ES">
+            <Text>Habilitar esta opción elimina las aldeas tribales; por extensión, también anula el selector de Goody Hut y cualquier otra opción relacionada con la recompensa.</Text>
+        </Replace>
+        <!-- equalize goody hut rewards parameter text -->
+        <Replace Tag="LOC_GAME_EQUALIZE_GOODY_HUTS_NAME" Language="es_ES">
+            <Text>Igualar las recompensas de pueblos tribales</Text>
+        </Replace>
+        <Replace Tag="LOC_GAME_EQUALIZE_GOODY_HUTS_DESCRIPTION" Language="es_ES">
+            <Text>Al habilitar esta opción, la mayoría de las recompensas de Goody Hut disponibles tienen aproximadamente la misma probabilidad de aparecer. Se ignorará si la opción "No pueblos tribales" está habilitada.</Text>
         </Replace>
         <!-- no hostiles after reward parameter text -->
         <Replace Tag="LOC_GAME_NO_HOSTILES_AFTER_REWARD_NAME" Language="es_ES">
@@ -18,12 +433,12 @@
         <Replace Tag="LOC_GAME_NO_HOSTILES_AFTER_REWARD_DESCRIPTION" Language="es_ES">
             <Text>Habilitar esta opción evita que aparezcan aldeanos hostiles después de recibir una recompensa de aldea tribal; no elimina a los aldeanos hostiles como un posible tipo de "recompensa" de aldea tribal. Se ignorará si la opción "No bárbaros" está habilitada.</Text>
         </Replace>
-        <!-- no hostiles as reward parameter text -->
-        <Replace Tag="LOC_GAME_NO_HOSTILES_AS_REWARD_NAME" Language="es_ES">
+        <!-- * DEPRECATED * superceded by the Goody Huts picker * no hostiles as reward parameter text -->
+        <!-- <Replace Tag="LOC_GAME_NO_HOSTILES_AS_REWARD_NAME" Language="es_ES">
             <Text>Sin Aldeanos Hostiles Como Recompensa</Text>
         </Replace>
         <Replace Tag="LOC_GAME_NO_HOSTILES_AS_REWARD_DESCRIPTION" Language="es_ES">
             <Text>Habilitar esta opción elimina a los aldeanos hostiles como un posible tipo de "recompensa" de aldea tribal; no impide que aparezcan aldeanos hostiles después de recibir cualquier otra recompensa de aldea tribal. Se ignorará si la opción "No bárbaros" está habilitada.</Text>
-        </Replace>
+        </Replace> -->
     </LocalizedText>
 </GameData>

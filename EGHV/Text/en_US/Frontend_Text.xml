@@ -9,7 +9,7 @@
 	<LocalizedText>
         <!-- button labels for option selection screens -->
 		<Replace Tag="LOC_SELECTION_NOTHING" Language="en_US">
-			<Text>None</Text>
+			<Text>None selected</Text>
 		</Replace>
 		<Replace Tag="LOC_SELECTION_EVERYTHING" Language="en_US">
 			<Text>All available ({1_Count})</Text>
@@ -40,125 +40,60 @@
         <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_DESCRIPTION" Language="en_US">
             <Text>Choose the distribution of Goody Huts on the map.</Text>
         </Replace>
-        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_025_NAME" Language="en_US">
-            <Text>25%</Text>
+        <!-- dynamic content picker tooltips -->
+        <Replace Tag="LOC_STANDARD_TT" Language="en_US">
+            <Text>[NEWLINE]Available content:[NEWLINE]  Standard</Text>
         </Replace>
-        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_025_DESCRIPTION" Language="en_US">
-            <Text>~ 25% of the baseline Goody Hut distribution (TilesPerGoody = 224, GoodyRange = 3).</Text>
+        <Replace Tag="LOC_DLC_AZTEC_TT" Language="en_US">
+            <Text>[NEWLINE]  DLC: Aztec Civilization Pack</Text>
         </Replace>
-        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_050_NAME" Language="en_US">
-            <Text>50%</Text>
+        <Replace Tag="LOC_DLC_POLAND_TT" Language="en_US">
+            <Text>[NEWLINE]  DLC: Poland Civilization and Scenario Pack</Text>
         </Replace>
-        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_050_DESCRIPTION" Language="en_US">
-            <Text>~ 50% of the baseline Goody Hut distribution (TilesPerGoody = 192, GoodyRange = 3).</Text>
+        <Replace Tag="LOC_DLC_VIKINGS_TT" Language="en_US">
+            <Text>[NEWLINE]  DLC: Vikings Scenario Pack</Text>
         </Replace>
-        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_075_NAME" Language="en_US">
-            <Text>75%</Text>
+        <Replace Tag="LOC_DLC_AUSTRALIA_TT" Language="en_US">
+            <Text>[NEWLINE]  DLC: Australia Civilization and Scenario Pack</Text>
         </Replace>
-        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_075_DESCRIPTION" Language="en_US">
-            <Text>~ 75% of the baseline Goody Hut distribution (TilesPerGoody = 160, GoodyRange = 3).</Text>
+        <Replace Tag="LOC_DLC_PERSIA_TT" Language="en_US">
+            <Text>[NEWLINE]  DLC: Persia and Macedon Civilization and Scenario Pack</Text>
         </Replace>
-        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_100_NAME" Language="en_US">
-            <Text>100%</Text>
+        <Replace Tag="LOC_DLC_NUBIA_TT" Language="en_US">
+            <Text>[NEWLINE]  DLC: Nubia Civilization and Scenario Pack</Text>
         </Replace>
-        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_100_DESCRIPTION" Language="en_US">
-            <Text>Baseline Goody Hut distribution (TilesPerGoody = 128, GoodyRange = 3).</Text>
+        <Replace Tag="LOC_DLC_KHMER_TT" Language="en_US">
+            <Text>[NEWLINE]  DLC: Khmer and Indonesia Civilization and Scenario Pack</Text>
         </Replace>
-        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_125_NAME" Language="en_US">
-            <Text>125%</Text>
+        <Replace Tag="LOC_DLC_MAYA_TT" Language="en_US">
+            <Text>[NEWLINE]  DLC: Gran Colombia and Maya Pack</Text>
         </Replace>
-        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_125_DESCRIPTION" Language="en_US">
-            <Text>~ 125% of the baseline Goody Hut distribution (TilesPerGoody = 112, GoodyRange = 3).</Text>
+        <Replace Tag="LOC_DLC_ETHIOPIA_TT" Language="en_US">
+            <Text>[NEWLINE]  DLC: Ethiopia Pack</Text>
         </Replace>
-        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_150_NAME" Language="en_US">
-            <Text>150%</Text>
+        <Replace Tag="LOC_DLC_BYZANTIUM_TT" Language="en_US">
+            <Text>[NEWLINE]  DLC: Byzantium and Gaul Pack</Text>
         </Replace>
-        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_150_DESCRIPTION" Language="en_US">
-            <Text>~ 150% of the baseline Goody Hut distribution (TilesPerGoody = 96, GoodyRange = 3).</Text>
+        <Replace Tag="LOC_DLC_BABYLON_STK_TT" Language="en_US">
+            <Text>[NEWLINE]  DLC: Babylon Pack</Text>
         </Replace>
-        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_175_NAME" Language="en_US">
-            <Text>175%</Text>
+        <Replace Tag="LOC_DLC_VIETNAM_TT" Language="en_US">
+            <Text>[NEWLINE]  DLC: Vietnam and Kublai Khan Pack</Text>
         </Replace>
-        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_175_DESCRIPTION" Language="en_US">
-            <Text>~ 175% of the baseline Goody Hut distribution (TilesPerGoody = 80, GoodyRange = 3).</Text>
+        <Replace Tag="LOC_DLC_PORTUGAL_TT" Language="en_US">
+            <Text>[NEWLINE]  DLC: Portugal Pack</Text>
         </Replace>
-        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_200_NAME" Language="en_US">
-            <Text>200%</Text>
+        <Replace Tag="LOC_XP1_TT" Language="en_US">
+            <Text>[NEWLINE]  Expansion: Rise and Fall</Text>
         </Replace>
-        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_200_DESCRIPTION" Language="en_US">
-            <Text>~ 200% of the baseline Goody Hut distribution (TilesPerGoody = 64, GoodyRange = 2).</Text>
+        <Replace Tag="LOC_XP2_TT" Language="en_US">
+            <Text>[NEWLINE]  Expansion: Gathering Storm</Text>
         </Replace>
-        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_225_NAME" Language="en_US">
-            <Text>225%</Text>
+        <Replace Tag="LOC_EGHV_TT" Language="en_US">
+            <Text>[NEWLINE]  Mod: Enhanced Goodies and Hostile Villagers</Text>
         </Replace>
-        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_225_DESCRIPTION" Language="en_US">
-            <Text>~ 225% of the baseline Goody Hut distribution (TilesPerGoody = 56, GoodyRange = 2).</Text>
-        </Replace>
-        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_250_NAME" Language="en_US">
-            <Text>250%</Text>
-        </Replace>
-        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_250_DESCRIPTION" Language="en_US">
-            <Text>~ 250% of the baseline Goody Hut distribution (TilesPerGoody = 48, GoodyRange = 2).</Text>
-        </Replace>
-        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_275_NAME" Language="en_US">
-            <Text>275%</Text>
-        </Replace>
-        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_275_DESCRIPTION" Language="en_US">
-            <Text>~ 275% of the baseline Goody Hut distribution (TilesPerGoody = 40, GoodyRange = 2).</Text>
-        </Replace>
-        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_300_NAME" Language="en_US">
-            <Text>300%</Text>
-        </Replace>
-        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_300_DESCRIPTION" Language="en_US">
-            <Text>~ 300% of the baseline Goody Hut distribution (TilesPerGoody = 32, GoodyRange = 2).</Text>
-        </Replace>
-        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_325_NAME" Language="en_US">
-            <Text>325%</Text>
-        </Replace>
-        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_325_DESCRIPTION" Language="en_US">
-            <Text>~ 325% of the baseline Goody Hut distribution (TilesPerGoody = 28, GoodyRange = 2).</Text>
-        </Replace>
-        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_350_NAME" Language="en_US">
-            <Text>350%</Text>
-        </Replace>
-        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_350_DESCRIPTION" Language="en_US">
-            <Text>~ 350% of the baseline Goody Hut distribution (TilesPerGoody = 24, GoodyRange = 2).</Text>
-        </Replace>
-        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_375_NAME" Language="en_US">
-            <Text>375%</Text>
-        </Replace>
-        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_375_DESCRIPTION" Language="en_US">
-            <Text>~ 375% of the baseline Goody Hut distribution (TilesPerGoody = 20, GoodyRange = 2).</Text>
-        </Replace>
-        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_400_NAME" Language="en_US">
-            <Text>400%</Text>
-        </Replace>
-        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_400_DESCRIPTION" Language="en_US">
-            <Text>~ 400% of the baseline Goody Hut distribution (TilesPerGoody = 16, GoodyRange = 1).</Text>
-        </Replace>
-        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_425_NAME" Language="en_US">
-            <Text>425%</Text>
-        </Replace>
-        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_425_DESCRIPTION" Language="en_US">
-            <Text>~ 425% of the baseline Goody Hut distribution (TilesPerGoody = 14, GoodyRange = 1).</Text>
-        </Replace>
-        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_450_NAME" Language="en_US">
-            <Text>450%</Text>
-        </Replace>
-        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_450_DESCRIPTION" Language="en_US">
-            <Text>~ 450% of the baseline Goody Hut distribution (TilesPerGoody = 12, GoodyRange = 1).</Text>
-        </Replace>
-        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_475_NAME" Language="en_US">
-            <Text>475%</Text>
-        </Replace>
-        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_475_DESCRIPTION" Language="en_US">
-            <Text>~ 475% of the baseline Goody Hut distribution (TilesPerGoody = 10, GoodyRange = 1).</Text>
-        </Replace>
-        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_500_NAME" Language="en_US">
-            <Text>500%</Text>
-        </Replace>
-        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_500_DESCRIPTION" Language="en_US">
-            <Text>~ 500% of the baseline Goody Hut distribution (TilesPerGoody = 8, GoodyRange = 1).</Text>
+        <Replace Tag="LOC_ENWS_TT" Language="en_US">
+            <Text>[NEWLINE]  Mod: Enhanced Natural Wonders Selection</Text>
         </Replace>
         <!-- dummy tags -->
         <Replace Tag="LOC_EGHV_GOODYHUT_DUMMY_CONFIG_NAME" Language="en_US">
@@ -292,52 +227,52 @@
             <Text>All cities get a + 2 [ICON_Production] Production per turn modifier.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_MEDIC_NAME" Language="en_US">
-            <Text>1 free [ICON_Plus] Medic</Text>
+            <Text>1 free [ICON_Unit] Medic</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_MEDIC_DESC" Language="en_US">
-            <Text>Receive one (1) free [ICON_Plus] Medic unit in the nearest city.</Text>
+            <Text>Receive one (1) free [ICON_Unit] Medic unit in the nearest city.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_MILITARY_ENGINEER_NAME" Language="en_US">
-            <Text>1 free [ICON_Charges] Military Engineer</Text>
+            <Text>1 free [ICON_Unit] Military Engineer</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_MILITARY_ENGINEER_DESC" Language="en_US">
-            <Text>Receive one (1) free [ICON_Charges] Military Engineer unit in the nearest city.</Text>
+            <Text>Receive one (1) free [ICON_Unit] Military Engineer unit in the nearest city.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_HEAVY_CHARIOT_NAME" Language="en_US">
-            <Text>1 free [ICON_Ability] Heavy Chariot</Text>
+            <Text>1 free [ICON_Unit] Heavy Chariot</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_HEAVY_CHARIOT_DESC" Language="en_US">
-            <Text>Receive one (1) free [ICON_Ability] Heavy Chariot unit in the nearest city.</Text>
+            <Text>Receive one (1) free [ICON_Unit] Heavy Chariot unit in the nearest city.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_HORSEMAN_NAME" Language="en_US">
-            <Text>1 free [ICON_Promotion] Horseman</Text>
+            <Text>1 free [ICON_Unit] Horseman</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_HORSEMAN_DESC" Language="en_US">
-            <Text>Receive one (1) free [ICON_Promotion] Horseman unit in the nearest city.</Text>
+            <Text>Receive one (1) free [ICON_Unit] Horseman unit in the nearest city.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SPEARMAN_NAME" Language="en_US">
-            <Text>1 free [ICON_Range] Spearman</Text>
+            <Text>1 free [ICON_Unit] Spearman</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SPEARMAN_DESC" Language="en_US">
-            <Text>Receive one (1) free [ICON_Range] Spearman unit in the nearest city.</Text>
+            <Text>Receive one (1) free [ICON_Unit] Spearman unit in the nearest city.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SLINGER_NAME" Language="en_US">
-            <Text>1 free [ICON_Ranged] Slinger</Text>
+            <Text>1 free [ICON_Unit] Slinger</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SLINGER_DESC" Language="en_US">
-            <Text>Receive one (1) free [ICON_Ranged] Slinger unit in the nearest city.</Text>
+            <Text>Receive one (1) free [ICON_Unit] Slinger unit in the nearest city.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_WARRIOR_NAME" Language="en_US">
-            <Text>1 free [ICON_Strength] Warrior</Text>
+            <Text>1 free [ICON_Unit] Warrior</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_WARRIOR_DESC" Language="en_US">
-            <Text>Receive one (1) free [ICON_Strength] Warrior unit in the nearest city.</Text>
+            <Text>Receive one (1) free [ICON_Unit] Warrior unit in the nearest city.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SCOUT_NAME" Language="en_US">
-            <Text>1 free [ICON_Position] Scout</Text>
+            <Text>1 free [ICON_Unit] Scout</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SCOUT_DESC" Language="en_US">
-            <Text>Receive one (1) free [ICON_Position] Scout unit in the nearest city.</Text>
+            <Text>Receive one (1) free [ICON_Unit] Scout unit in the nearest city.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_EXPERIENCE_NAME" Language="en_US">
             <Text>Unit gains experience</Text>
@@ -408,16 +343,16 @@
             <Text>Receive one (1) free [ICON_Unit] Settler unit in the nearest city.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_GRANT_TRADER_NAME" Language="en_US">
-            <Text>1 free [ICON_TradingPost] Trader</Text>
+            <Text>1 free [ICON_Unit] Trader</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_GRANT_TRADER_DESC" Language="en_US">
-            <Text>Receive one (1) free [ICON_TradingPost] Trader unit in the nearest city.</Text>
+            <Text>Receive one (1) free [ICON_Unit] Trader unit in the nearest city.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_GRANT_BUILDER_NAME" Language="en_US">
-            <Text>1 free [ICON_Charges] Builder</Text>
+            <Text>1 free [ICON_Unit] Builder</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_GRANT_BUILDER_DESC" Language="en_US">
-            <Text>Receive one (1) free [ICON_Charges] Builder unit in the nearest city.</Text>
+            <Text>Receive one (1) free [ICON_Unit] Builder unit in the nearest city.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_ADD_POP_NAME" Language="en_US">
             <Text>+ 1 [ICON_Citizen] Population</Text>
@@ -433,10 +368,10 @@
             <Text>All cities get a + 3 [ICON_Favor] Diplomatic Favor per turn modifier.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_DIPLOMACY_TWO_GOVERNOR_TITLES_NAME" Language="en_US">
-            <Text>2 free [ICON_GreatPerson] Governor Titles</Text>
+            <Text>2 free Governor Titles</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_DIPLOMACY_TWO_GOVERNOR_TITLES_DESC" Language="en_US">
-            <Text>Receive two (2) free [ICON_GreatPerson] Governor Titles.</Text>
+            <Text>Receive two (2) free Governor Titles.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_DIPLOMACY_TWO_ENVOYS_NAME" Language="en_US">
             <Text>2 free [ICON_Envoy] Envoys</Text>
@@ -445,10 +380,10 @@
             <Text>Receive two (2) free [ICON_Envoy] Envoys.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_DIPLOMACY_GOVERNOR_TITLE_NAME" Language="en_US">
-            <Text>1 free [ICON_GreatPerson] Governor Title</Text>
+            <Text>1 free Governor Title</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_DIPLOMACY_GOVERNOR_TITLE_DESC" Language="en_US">
-            <Text>Receive one (1) free [ICON_GreatPerson] Governor Title.</Text>
+            <Text>Receive one (1) free Governor Title.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_DIPLOMACY_ENVOY_NAME" Language="en_US">
             <Text>1 free [ICON_Envoy] Envoy</Text>
