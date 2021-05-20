@@ -1085,67 +1085,67 @@
 			<Properties>
         		<LoadOrder>1010189</LoadOrder>
       		</Properties>
-			<File>EGHV/User/ExcludeGoodyHut/CityState.sql</File>
+			<File>EGHV/Community/WondrousGoodyHuts/ExcludeGoodyHut/CityState.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_WGH_INGAME_EXCLUDE_GOODYHUT" criteria="EGHV_WGH_Exclude_GoodyHut_Formation">
 			<Properties>
         		<LoadOrder>1010189</LoadOrder>
       		</Properties>
-			<File>EGHV/User/ExcludeGoodyHut/Formation.sql</File>
+			<File>EGHV/Community/WondrousGoodyHuts/ExcludeGoodyHut/Formation.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_WGH_INGAME_EXCLUDE_GOODYHUT" criteria="EGHV_WGH_Exclude_GoodyHut_Production">
 			<Properties>
         		<LoadOrder>1010189</LoadOrder>
       		</Properties>
-			<File>EGHV/User/ExcludeGoodyHut/Production.sql</File>
+			<File>EGHV/Community/WondrousGoodyHuts/ExcludeGoodyHut/Production.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_WGH_INGAME_EXCLUDE_GOODYHUT" criteria="EGHV_WGH_Exclude_GoodyHut_RandomImprovement">
 			<Properties>
         		<LoadOrder>1010189</LoadOrder>
       		</Properties>
-			<File>EGHV/User/ExcludeGoodyHut/RandomImprovement.sql</File>
+			<File>EGHV/Community/WondrousGoodyHuts/ExcludeGoodyHut/RandomImprovement.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_WGH_INGAME_EXCLUDE_GOODYHUT" criteria="EGHV_WGH_Exclude_GoodyHut_RandomPolicy">
 			<Properties>
         		<LoadOrder>1010189</LoadOrder>
       		</Properties>
-			<File>EGHV/User/ExcludeGoodyHut/RandomPolicy.sql</File>
+			<File>EGHV/Community/WondrousGoodyHuts/ExcludeGoodyHut/RandomPolicy.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_WGH_INGAME_EXCLUDE_GOODYHUT" criteria="EGHV_WGH_Exclude_GoodyHut_RandomResource">
 			<Properties>
         		<LoadOrder>1010189</LoadOrder>
       		</Properties>
-			<File>EGHV/User/ExcludeGoodyHut/RandomResource.sql</File>
+			<File>EGHV/Community/WondrousGoodyHuts/ExcludeGoodyHut/RandomResource.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_WGH_INGAME_EXCLUDE_GOODYHUT" criteria="EGHV_WGH_Exclude_GoodyHut_RandomUnit">
 			<Properties>
         		<LoadOrder>1010189</LoadOrder>
       		</Properties>
-			<File>EGHV/User/ExcludeGoodyHut/RandomUnit.sql</File>
+			<File>EGHV/Community/WondrousGoodyHuts/ExcludeGoodyHut/RandomUnit.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_WGH_INGAME_EXCLUDE_GOODYHUT" criteria="EGHV_WGH_Exclude_GoodyHut_SightBomb">
 			<Properties>
         		<LoadOrder>1010189</LoadOrder>
       		</Properties>
-			<File>EGHV/User/ExcludeGoodyHut/SightBomb.sql</File>
+			<File>EGHV/Community/WondrousGoodyHuts/ExcludeGoodyHut/SightBomb.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_WGH_INGAME_EXCLUDE_GOODYHUT" criteria="EGHV_WGH_Exclude_GoodyHut_Spy">
 			<Properties>
         		<LoadOrder>1010189</LoadOrder>
       		</Properties>
-			<File>EGHV/User/ExcludeGoodyHut/Spy.sql</File>
+			<File>EGHV/Community/WondrousGoodyHuts/ExcludeGoodyHut/Spy.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_WGH_INGAME_EXCLUDE_GOODYHUT" criteria="EGHV_WGH_Exclude_GoodyHut_Teleport">
 			<Properties>
         		<LoadOrder>1010189</LoadOrder>
       		</Properties>
-			<File>EGHV/User/ExcludeGoodyHut/Teleport.sql</File>
+			<File>EGHV/Community/WondrousGoodyHuts/ExcludeGoodyHut/Teleport.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_WGH_INGAME_EXCLUDE_GOODYHUT" criteria="EGHV_WGH_Exclude_GoodyHut_Wonder">
 			<Properties>
         		<LoadOrder>1010189</LoadOrder>
       		</Properties>
-			<File>EGHV/User/ExcludeGoodyHut/Wonder.sql</File>
+			<File>EGHV/Community/WondrousGoodyHuts/ExcludeGoodyHut/Wonder.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_OVERRIDE" criteria="EGHV">
 			<Properties>
@@ -1206,7 +1206,7 @@
 			<Properties>
         		<LoadOrder>1010171</LoadOrder>
       		</Properties>
-			<File Priority="5">EGHV/User/Setup.sql</File>
+			<File Priority="5">EGHV/Community/WondrousGoodyHuts/WondrousGoodyHuts.sql</File>
 			<File Priority="4">EGHV/Config/GoodyHutPicker/Standard.sql</File>
 			<File Priority="3">EGHV/Config/GoodyHutPicker/Expansion1.sql</File>
 			<File Priority="2">EGHV/Config/GoodyHutPicker/Expansion2.sql</File>
@@ -1352,19 +1352,19 @@
 		<File>EGHV/UI/Replacements/Multiplayer/HostGame.lua</File>
 		<File>EGHV/UI/Replacements/Multiplayer/HostGame.xml</File>
 
-		<File>EGHV/User/Setup.sql</File>
+		<File>EGHV/Community/WondrousGoodyHuts/WondrousGoodyHuts.sql</File>
 
-		<File>EGHV/User/ExcludeGoodyHut/CityState.sql</File>
-		<File>EGHV/User/ExcludeGoodyHut/Formation.sql</File>
-		<File>EGHV/User/ExcludeGoodyHut/Production.sql</File>
-		<File>EGHV/User/ExcludeGoodyHut/RandomImprovement.sql</File>
-		<File>EGHV/User/ExcludeGoodyHut/RandomPolicy.sql</File>
-		<File>EGHV/User/ExcludeGoodyHut/RandomResource.sql</File>
-		<File>EGHV/User/ExcludeGoodyHut/RandomUnit.sql</File>
-		<File>EGHV/User/ExcludeGoodyHut/SightBomb.sql</File>
-		<File>EGHV/User/ExcludeGoodyHut/Spy.sql</File>
-		<File>EGHV/User/ExcludeGoodyHut/Teleport.sql</File>
-		<File>EGHV/User/ExcludeGoodyHut/Wonder.sql</File>
+		<File>EGHV/Community/WondrousGoodyHuts/ExcludeGoodyHut/CityState.sql</File>
+		<File>EGHV/Community/WondrousGoodyHuts/ExcludeGoodyHut/Formation.sql</File>
+		<File>EGHV/Community/WondrousGoodyHuts/ExcludeGoodyHut/Production.sql</File>
+		<File>EGHV/Community/WondrousGoodyHuts/ExcludeGoodyHut/RandomImprovement.sql</File>
+		<File>EGHV/Community/WondrousGoodyHuts/ExcludeGoodyHut/RandomPolicy.sql</File>
+		<File>EGHV/Community/WondrousGoodyHuts/ExcludeGoodyHut/RandomResource.sql</File>
+		<File>EGHV/Community/WondrousGoodyHuts/ExcludeGoodyHut/RandomUnit.sql</File>
+		<File>EGHV/Community/WondrousGoodyHuts/ExcludeGoodyHut/SightBomb.sql</File>
+		<File>EGHV/Community/WondrousGoodyHuts/ExcludeGoodyHut/Spy.sql</File>
+		<File>EGHV/Community/WondrousGoodyHuts/ExcludeGoodyHut/Teleport.sql</File>
+		<File>EGHV/Community/WondrousGoodyHuts/ExcludeGoodyHut/Wonder.sql</File>
 
 	</Files>
 </Mod>
