@@ -1,3 +1,14 @@
+--[[ =========================================================================
+	EGHV : Enhanced Goodies and Hostile Villagers for Civilization VI
+	Copyright (C) 2020-2021 zzragnar0kzz
+	All rights reserved
+=========================================================================== ]]
+
+--[[ =========================================================================
+	begin modified HostGame.lua frontend script
+=========================================================================== ]]
+-- print("C6GUE: Loading modified HostGame.lua . . .");
+
 -------------------------------------------------
 -- Multiplayer Host Game Screen
 -------------------------------------------------
@@ -8,6 +19,8 @@ include("PlayerSetupLogic");
 include("PopupDialog");
 include("Civ6Common");
 
+-- C6GUE shared components
+include("C6GUE_Common");
 
 -- ===========================================================================
 --	CONSTANTS
@@ -21,18 +34,6 @@ local SCREEN_OFFSET_Y		:number = 20;
 local MIN_SCREEN_OFFSET_Y	:number = -93;
 --local SCROLL_SIZE_DEFAULT	:number = 620;
 --local SCROLL_SIZE_IN_SESSION:number = 662;
-
--- EGHV check
-local bIsEGHV:boolean = false;
-sQuery = "SELECT * FROM TribalVillages";
-tResult = DB.ConfigurationQuery(sQuery);
-if(tResult and #tResult > 0) then bIsEGHV = true; end
-
--- ENWS check
-local bIsENWS:boolean = false;
-sQuery = "SELECT * FROM MapSizes WHERE EXISTS MinNaturalWonders";
-tResult = DB.ConfigurationQuery(sQuery);
-if(tResult and #tResult > 0) then bIsENWS = true; end
 
 -- ===========================================================================
 --	Globals
@@ -103,12 +104,12 @@ function CreatePickerDriverByParameter(o, parameter, parent)
 			LuaEvents.LeaderPicker_Initialize(o.Parameters[parameterId], g_GameParameters);
 			Controls.LeaderPicker:SetHide(false);
 		end);
-	elseif (parameterId == "GoodyHutConfig" and bIsEGHV) then							-- C6GUE : EGHV : Goody Hut picker
+	elseif (parameterId == "GoodyHutConfig" and C6GUE.EGHV.IsEnabled) then							-- C6GUE : EGHV : Goody Hut picker
 		button:RegisterCallback( Mouse.eLClick, function()
 			LuaEvents.GoodyHutPicker_Initialize(o.Parameters[parameterId]);
 			Controls.GoodyHutPicker:SetHide(false);
 		end);
-	elseif (parameterId == "NaturalWonders" and bIsENWS) then							-- C6GUE : ENWS : Natural Wonder picker
+	elseif (parameterId == "NaturalWonders" and C6GUE.ENWS.IsEnabled) then							-- C6GUE : ENWS : Natural Wonder picker
 		button:RegisterCallback( Mouse.eLClick, function()
 			LuaEvents.NaturalWonderPicker_Initialize(o.Parameters[parameterId]);
 			Controls.NaturalWonderPicker:SetHide(false);
@@ -119,7 +120,7 @@ function CreatePickerDriverByParameter(o, parameter, parent)
 			Controls.MultiSelectWindow:SetHide(false);
 		end);
 	end
-	button:SetToolTipString(parameter.Description);
+	button:SetToolTipString(parameter.Description .. UpdateButtonToolTip(parameterId));		-- update button tooltip text
 
 	-- Store the root control, NOT the instance table.
 	g_SortingMap[tostring(c.ButtonRoot)] = parameter;
@@ -180,6 +181,8 @@ function CreatePickerDriverByParameter(o, parameter, parent)
 				button:LocalizeAndSetText(valueText, valueAmount);
 				cache.ValueText = valueText;
 				cache.ValueAmount = valueAmount;
+				-- C6GUE : update button tooltip text
+				button:SetToolTipString(parameter.Description .. UpdateButtonToolTip(parameterId));
 			end
 		end,
 		UpdateValues = function(values, p) 
@@ -493,12 +496,12 @@ function GameParameters_UI_CreateParameterDriver(o, parameter, ...)
 			return nil;
 		end
 		return CreatePickerDriverByParameter(o, parameter);
-	elseif(parameterId == "GoodyHutConfig" and bIsEGHV) then
+	elseif(parameterId == "GoodyHutConfig" and C6GUE.EGHV.IsEnabled) then
 		if GameConfiguration.IsWorldBuilderEditor() then
 			return nil;
 		end
 		return CreatePickerDriverByParameter(o, parameter);
-	elseif(parameterId == "NaturalWonders" and bIsENWS) then
+	elseif(parameterId == "NaturalWonders" and C6GUE.ENWS.IsEnabled) then
 		if GameConfiguration.IsWorldBuilderEditor() then
 			return nil;
 		end
@@ -873,6 +876,9 @@ function OnShutdown()
 	LuaEvents.CityStatePicker_SetParameterValues.Remove(OnSetParameterValues);
 	LuaEvents.CityStatePicker_SetParameterValue.Remove(OnSetParameterValue);
 	LuaEvents.LeaderPicker_SetParameterValues.Remove(OnSetParameterValues);
+
+	LuaEvents.GoodyHutPicker_SetParameterValues.Remove(OnSetParameterValues);				-- C6GUE : EGHV
+	LuaEvents.NaturalWonderPicker_SetParameterValues.Remove(OnSetParameterValues);			-- C6GUE : ENWS
 end
 
 -- ===========================================================================
@@ -963,6 +969,9 @@ function Initialize()
 	LuaEvents.CityStatePicker_SetParameterValues.Add(OnSetParameterValues);
 	LuaEvents.CityStatePicker_SetParameterValue.Add(OnSetParameterValue);
 	LuaEvents.LeaderPicker_SetParameterValues.Add(OnSetParameterValues);
+	
+	LuaEvents.GoodyHutPicker_SetParameterValues.Add(OnSetParameterValues);				-- C6GUE : EGHV
+	LuaEvents.NaturalWonderPicker_SetParameterValues.Add(OnSetParameterValues);			-- C6GUE : ENWS
 
 	Controls.BackButton:RegisterCallback( Mouse.eLClick, OnExitGameAskAreYouSure);
 	Controls.LoadButton:RegisterCallback( Mouse.eLClick, LoadButtonClick );
@@ -975,3 +984,7 @@ function Initialize()
 	m_kPopupDialog = PopupDialog:new( "InGameTopOptionsMenu" );
 end
 Initialize();
+
+--[[ =========================================================================
+	end modified HostGame.lua frontend script
+=========================================================================== ]]

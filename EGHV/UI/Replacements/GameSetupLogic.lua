@@ -1,24 +1,22 @@
+--[[ =========================================================================
+	EGHV : Enhanced Goodies and Hostile Villagers for Civilization VI
+	Copyright (C) 2020-2021 zzragnar0kzz
+	All rights reserved
+=========================================================================== ]]
+
+--[[ =========================================================================
+	begin modified GameSetupLogic.lua frontend script
+=========================================================================== ]]
+-- print("C6GUE: Loading modified GameSetupLogic.lua . . .");
+
 -------------------------------------------------
 -- Game Setup Logic
 -------------------------------------------------
 include( "InstanceManager" );
 include ("SetupParameters");
 
--- 
-local sQuery:string = "";
-local tResult:table = {};
-
--- EGHV check
-local bIsEGHV:boolean = false;
-sQuery = "SELECT * FROM TribalVillages";
-tResult = DB.ConfigurationQuery(sQuery);
-if(tResult and #tResult > 0) then bIsEGHV = true; end
-
--- ENWS check
-local bIsENWS:boolean = false;
-sQuery = "SELECT * FROM MapSizes WHERE EXISTS MinNaturalWonders";
-tResult = DB.ConfigurationQuery(sQuery);
-if(tResult and #tResult > 0) then bIsENWS = true; end
+-- C6GUE shared components
+include("C6GUE_Common");
 
 -- Instance managers for dynamic game options (parent is set dynamically).
 g_BooleanParameterManager	= InstanceManager:new("BooleanParameterInstance",	"CheckBox");
@@ -267,7 +265,7 @@ function GameParameters_UI_DefaultCreateParameterDriver(o, parameter, parent)
 				g_StringParameterManager:ReleaseInstance(c);
 			end,
 		};
-	elseif (bIsEGHV and parameter.ParameterId == "GoodyHutFrequency") then			-- configure the Goody Huts frequency slider
+	elseif (C6GUE.EGHV.IsEnabled and parameter.ParameterId == "GoodyHutFrequency") then			-- configure the Goody Huts frequency slider
 		-- print(" *** : Configuring Goody Hut Frequency slider");
 		local minimumValue = parameter.Values.MinimumValue;
 		local maximumValue = parameter.Values.MaximumValue;
@@ -823,7 +821,7 @@ function MapSize_ValueNeedsChanging(p)
 	local maxCityStates = 0;
 	local defCityStates = 0;
 
-	-- ENWS : define values for the Natural Wonders slider(s); these will be used if ENWS is present
+	-- C6GUE : define values for the Natural Wonders slider(s); these will be used if ENWS is present
 	local minNaturalWonders = 0;
 	local maxNaturalWonders = 0;
 	local defNaturalWonders = 0;
@@ -836,7 +834,7 @@ function MapSize_ValueNeedsChanging(p)
 			minCityStates = v.MinCityStates;
 			maxCityStates = v.MaxCityStates;
 			defCityStates = v.DefaultCityStates;
-			if (bIsENWS) then									-- fetch current values here if ENWS is present
+			if (C6GUE.ENWS.IsEnabled) then									-- C6GUE : fetch current values here if ENWS is present
 				minNaturalWonders = v.MinNaturalWonders;
 				maxNaturalWonders = v.MaxNaturalWonders;
 				defNaturalWonders = v.DefaultNaturalWonders;
@@ -857,14 +855,14 @@ function MapSize_ValueNeedsChanging(p)
 	elseif(MapConfiguration.GetMaxMinorPlayers() ~= maxCityStates) then
 		SetupParameters_Log("Max Minor Players: " .. MapConfiguration.GetMaxMinorPlayers() .. " should be " .. maxCityStates);
 		return true;
-	-- ENWS : Additional elseifs to set parameters for the Natural Wonders slider(s) when ENWS is present
-	elseif(bIsENWS and MapConfiguration.GetValue("MAP_MIN_NATURAL_WONDERS") ~= minNaturalWonders) then
+	-- C6GUE : Additional elseifs to set parameters for the Natural Wonders slider(s) when ENWS is present
+	elseif(C6GUE.ENWS.IsEnabled and MapConfiguration.GetValue("MAP_MIN_NATURAL_WONDERS") ~= minNaturalWonders) then
 		if (MapConfiguration.GetValue("MAP_MIN_NATURAL_WONDERS") == nil) then
 			MapConfiguration.SetValue("MAP_MIN_NATURAL_WONDERS", minNaturalWonders);
 		end
 		SetupParameters_Log("Min Natural Wonders: ", MapConfiguration.GetValue("MAP_MIN_NATURAL_WONDERS"), " should be ", minNaturalWonders);
 		return true;
-	elseif(bIsENWS and MapConfiguration.GetValue("MAP_MAX_NATURAL_WONDERS") ~= maxNaturalWonders) then
+	elseif(C6GUE.ENWS.IsEnabled and MapConfiguration.GetValue("MAP_MAX_NATURAL_WONDERS") ~= maxNaturalWonders) then
 		if (MapConfiguration.GetValue("MAP_MAX_NATURAL_WONDERS") == nil) then
 			MapConfiguration.SetValue("MAP_MAX_NATURAL_WONDERS", maxNaturalWonders);
 		end
@@ -889,7 +887,7 @@ function MapSize_ValueChanged(p)
 	local maxCityStates = 0;
 	local defCityStates = 0;
 
-	-- ENWS : define values for the Natural Wonders slider(s); these will be used if ENWS is present
+	-- C6GUE : define values for the Natural Wonders slider(s); these will be used if ENWS is present
 	local minNaturalWonders = 0;
 	local maxNaturalWonders = 0;
 	local defNaturalWonders = 0;
@@ -902,7 +900,7 @@ function MapSize_ValueChanged(p)
 			minCityStates = v.MinCityStates;
 			maxCityStates = v.MaxCityStates;
 			defCityStates = v.DefaultCityStates;
-			if (bIsENWS) then									-- fetch current values here if ENWS is present
+			if (C6GUE.ENWS.IsEnabled) then									-- fetch current values here if ENWS is present
 				minNaturalWonders = v.MinNaturalWonders;
 				maxNaturalWonders = v.MaxNaturalWonders;
 				defNaturalWonders = v.DefaultNaturalWonders;
@@ -915,7 +913,7 @@ function MapSize_ValueChanged(p)
 	MapConfiguration.SetMinMinorPlayers(minCityStates);
 	MapConfiguration.SetMaxMinorPlayers(maxCityStates);
 	GameConfiguration.SetValue("CITY_STATE_COUNT", defCityStates);
-	if (bIsENWS) then				-- ENWS : Set new values for the Natural Wonders slider(s) when ENWS is present
+	if (C6GUE.ENWS.IsEnabled) then				-- C6GUE : Set new values for the Natural Wonders slider(s) when ENWS is present
 		MapConfiguration.SetValue("MAP_MIN_NATURAL_WONDERS", minNaturalWonders);
 		MapConfiguration.SetValue("MAP_MAX_NATURAL_WONDERS", maxNaturalWonders);
 		GameConfiguration.SetValue("NATURAL_WONDER_COUNT", defNaturalWonders);
@@ -947,3 +945,7 @@ function GetGameModeInfo(gameModeType)
 
 	return item_results[1];
 end
+
+--[[ =========================================================================
+	end modified GameSetupLogic.lua frontend script
+=========================================================================== ]]

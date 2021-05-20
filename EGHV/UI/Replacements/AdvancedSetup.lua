@@ -1,3 +1,14 @@
+--[[ =========================================================================
+	EGHV : Enhanced Goodies and Hostile Villagers for Civilization VI
+	Copyright (C) 2020-2021 zzragnar0kzz
+	All rights reserved
+=========================================================================== ]]
+
+--[[ =========================================================================
+	begin modified AdvancedSetup.lua frontend script
+=========================================================================== ]]
+-- print("C6GUE: Loading modified AdvancedSetup.lua . . .");
+
 -- ===========================================================================
 --	Single Player Create Game w/ Advanced Options
 -- ===========================================================================
@@ -6,6 +17,9 @@ include("PlayerSetupLogic");
 include("Civ6Common");
 include("SupportFunctions");
 include("PopupDialog");
+
+-- C6GUE shared components
+include("C6GUE_Common");
 
 -- ===========================================================================
 -- ===========================================================================
@@ -17,30 +31,6 @@ local SCREEN_OFFSET_Y		:number = 61;
 local MIN_SCREEN_OFFSET_Y	:number = -53;
 
 local MAX_SIDEBAR_Y			:number = 960;
-
--- 
-local sQuery:string = "";
-local tResult:table = {};
--- 
--- local bIsXP1:boolean = Modding.IsModActive("1B28771A-C749-434B-9053-D1380C553DE9");
--- print("XP1 active: " .. tostring(bIsXP1));
--- 
--- local bIsXP2:boolean = Modding.IsModActive("4873eb62-8ccc-4574-b784-dda455e74e68");
--- print("XP2 active: " .. tostring(bIsXP2));
-
--- EGHV check
-local bIsEGHV:boolean = false;
-sQuery = "SELECT * FROM TribalVillages";
-tResult = DB.ConfigurationQuery(sQuery);
-if(tResult and #tResult > 0) then bIsEGHV = true; end
-print("EGHV active: " .. tostring(bIsEGHV));
-
--- ENWS check
-local bIsENWS:boolean = false;
-sQuery = "SELECT * FROM MapSizes WHERE EXISTS MinNaturalWonders";
-tResult = DB.ConfigurationQuery(sQuery);
-if(tResult and #tResult > 0) then bIsENWS = true; end
-print("ENWS active: " .. tostring(bIsENWS));
 
 -- ===========================================================================
 -- ===========================================================================
@@ -521,6 +511,8 @@ function CreatePickerDriverByParameter(o, parameter, parent)
 
 	local parameterId = parameter.ParameterId;
 	local button = c.Button;
+
+	-- C6GUE : define picker based on parameterId
 	if (parameterId == "CityStates") then												-- built-in city-state picker
 		button:RegisterCallback( Mouse.eLClick, function()
 			LuaEvents.CityStatePicker_Initialize(o.Parameters[parameterId], g_GameParameters);
@@ -531,12 +523,12 @@ function CreatePickerDriverByParameter(o, parameter, parent)
 			LuaEvents.LeaderPicker_Initialize(o.Parameters[parameterId], g_GameParameters);
 			Controls.LeaderPicker:SetHide(false);
 		end);
-	elseif (parameterId == "GoodyHutConfig" and bIsEGHV) then							-- C6GUE : EGHV : Goody Hut picker
+	elseif (parameterId == "GoodyHutConfig" and C6GUE.EGHV.IsEnabled) then				-- C6GUE : EGHV : Goody Hut picker
 		button:RegisterCallback( Mouse.eLClick, function()
 			LuaEvents.GoodyHutPicker_Initialize(o.Parameters[parameterId]);
 			Controls.GoodyHutPicker:SetHide(false);
 		end);
-	elseif (parameterId == "NaturalWonders" and bIsENWS) then							-- C6GUE : ENWS : Natural Wonder picker
+	elseif (parameterId == "NaturalWonders" and C6GUE.ENWS.IsEnabled) then				-- C6GUE : ENWS : Natural Wonder picker
 		button:RegisterCallback( Mouse.eLClick, function()
 			LuaEvents.NaturalWonderPicker_Initialize(o.Parameters[parameterId]);
 			Controls.NaturalWonderPicker:SetHide(false);
@@ -547,7 +539,7 @@ function CreatePickerDriverByParameter(o, parameter, parent)
 			Controls.MultiSelectWindow:SetHide(false);
 		end);
 	end
-	button:SetToolTipString(parameter.Description);
+	button:SetToolTipString(parameter.Description .. UpdateButtonToolTip(parameterId));		-- update button tooltip text
 
 	-- Store the root control, NOT the instance table.
 	g_SortingMap[tostring(c.ButtonRoot)] = parameter;
@@ -608,6 +600,8 @@ function CreatePickerDriverByParameter(o, parameter, parent)
 				button:LocalizeAndSetText(valueText, valueAmount);
 				cache.ValueText = valueText;
 				cache.ValueAmount = valueAmount;
+				-- C6GUE : update button tooltip text
+				button:SetToolTipString(parameter.Description .. UpdateButtonToolTip(parameterId));
 			end
 		end,
 		UpdateValues = function(values, p) 
@@ -960,7 +954,7 @@ function CreateSimpleParameterDriver(o, parameter, parent)
 				g_SimpleStringParameterManager:ReleaseInstance(c);
 			end,
 		};
-	elseif (bIsEGHV and parameter.ParameterId == "GoodyHutFrequency") then			-- configure the Goody Huts frequency slider
+	elseif (C6GUE.EGHV.IsEnabled and parameter.ParameterId == "GoodyHutFrequency") then			-- configure the Goody Huts frequency slider
 		-- print(" *** : Configuring Goody Hut Frequency slider");
 		local minimumValue = parameter.Values.MinimumValue;
 		local maximumValue = parameter.Values.MaximumValue;
@@ -1124,12 +1118,12 @@ function GameParameters_UI_CreateParameterDriver(o, parameter, ...)
 			return nil;
 		end
 		return CreatePickerDriverByParameter(o, parameter);
-	elseif(parameterId == "GoodyHutConfig" and bIsEGHV) then
+	elseif(parameterId == "GoodyHutConfig" and C6GUE.EGHV.IsEnabled) then
 		if GameConfiguration.IsWorldBuilderEditor() then
 			return nil;
 		end
 		return CreatePickerDriverByParameter(o, parameter);
-	elseif(parameterId == "NaturalWonders" and bIsENWS) then
+	elseif(parameterId == "NaturalWonders" and C6GUE.ENWS.IsEnabled) then
 		if GameConfiguration.IsWorldBuilderEditor() then
 			return nil;
 		end
@@ -1753,9 +1747,9 @@ function OnShutdown()
 	LuaEvents.CityStatePicker_SetParameterValues.Remove(OnSetParameterValues);
     LuaEvents.CityStatePicker_SetParameterValue.Remove(OnSetParameterValue);
 	LuaEvents.LeaderPicker_SetParameterValues.Remove(OnSetParameterValues);
-	-- 
-	LuaEvents.GoodyHutPicker_SetParameterValues.Remove(OnSetParameterValues);
-	LuaEvents.NaturalWonderPicker_SetParameterValues.Remove(OnSetParameterValues);
+	
+	LuaEvents.GoodyHutPicker_SetParameterValues.Remove(OnSetParameterValues);				-- C6GUE : EGHV
+	LuaEvents.NaturalWonderPicker_SetParameterValues.Remove(OnSetParameterValues);			-- C6GUE : ENWS
 end
 
 -- ===========================================================================
@@ -1796,10 +1790,14 @@ function Initialize()
 	LuaEvents.CityStatePicker_SetParameterValues.Add(OnSetParameterValues);
     LuaEvents.CityStatePicker_SetParameterValue.Add(OnSetParameterValue);
 	LuaEvents.LeaderPicker_SetParameterValues.Add(OnSetParameterValues);
-	-- 
-	LuaEvents.GoodyHutPicker_SetParameterValues.Add(OnSetParameterValues);
-	LuaEvents.NaturalWonderPicker_SetParameterValues.Add(OnSetParameterValues);
+	
+	LuaEvents.GoodyHutPicker_SetParameterValues.Add(OnSetParameterValues);				-- C6GUE : EGHV
+	LuaEvents.NaturalWonderPicker_SetParameterValues.Add(OnSetParameterValues);			-- C6GUE : ENWS
 
 	Resize();
 end
 Initialize();
+
+--[[ =========================================================================
+	end modified AdvancedSetup.lua frontend script
+=========================================================================== ]]
