@@ -8,6 +8,11 @@
     begin EGHV frontend configuration
 ########################################################################### */
 
+-- content flags for C6GUE components
+INSERT INTO ContentFlags (Name, Id, CityStates, GoodyHuts, Leaders, NaturalWonders, SQL, Tooltip) VALUES 
+    ('ENWS', 'C6GUE01', 0, 0, 0, 0, 'SELECT MinNaturalWonders FROM MapSizes', 'LOC_ENWS_TT'),
+	('EGHV', 'C6GUE02', 0, 1, 0, 0, 'SELECT * FROM Parameters WHERE ParameterId = ''NoHostilesAfterReward''', 'LOC_EGHV_TT');
+
 -- Reposition the No Barbarians parameter, and give it a description
 UPDATE Parameters SET Description = 'LOC_GAME_NO_BARBARIANS_DESCRIPTION', SortIndex = 2020 WHERE ParameterId = 'NoBarbarians';
 
