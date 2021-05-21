@@ -37,13 +37,13 @@ New rewards have been added where necessary to fill out all types to at least si
 
 Goody Hut | Tier 6 | Tier 5 | Tier 4 | Tier 3 | Tier 2 | Tier 1
 --------- | ------ | ------ | ------ | ------ | ------ | ------
-Culture | 1 civics boost | 2 civics boosts | 1 free civic | 2 free civics | +X culture per turn in all cities | +X% culture per turn in all cities
-Diplomacy * | 20 favor | 1 free envoy | 1 free governor title | 2 free envoys | 2 free governor titles | +X favor per turn
-Faith | 20 faith | 60 faith | 100 faith | 1 free relic | +X faith per turn in all cities | +X% faith per turn in all cities
-Gold | 40 gold | 80 gold | 120 gold | +1 trade route | +X gold per turn in all cities | +X% gold per turn in all cities
-Military | grant experience -OR- grant resources ** | 1 free scout -OR- 1 free warrior | 1 free slinger -OR- 1 free spearman | 1 free horseman -OR- 1 free heavy chariot | 1 free medic -OR- 1 free military engineer | +X production per turn in all cities -OR- +X% production per turn in all cities
-Science | 1 tech boost | 2 tech boosts | 1 free tech | 2 free techs | +X science per turn in all cities | +X% science per turn in all cities
-Survivors | +1 population in nearest city | 1 free builder | 1 free trader | 1 free settler | +X food per turn in all cities | +X% food per turn in all cities
+Culture | 1 civics boost | 2 civics boosts | 1 free civic | 2 free civics | +2 culture per turn in all cities | +10% culture per turn in all cities
+Diplomacy * | 20 favor | 1 free envoy | 1 free governor title | 2 free envoys | 2 free governor titles | +3 favor per turn
+Faith | 20 faith | 60 faith | 100 faith | 1 free relic | +2 faith per turn in all cities | +10% faith per turn in all cities
+Gold | 40 gold | 80 gold | 120 gold | +1 trade route | +4 gold per turn in all cities | +10% gold per turn in all cities
+Military | grant experience -OR- grant resources ** | 1 free scout -OR- 1 free warrior | 1 free slinger -OR- 1 free spearman | 1 free horseman -OR- 1 free heavy chariot | 1 free medic -OR- 1 free military engineer | +2 production per turn in all cities -OR- +10% production per turn in all cities
+Science | 1 tech boost | 2 tech boosts | 1 free tech | 2 free techs | +2 science per turn in all cities | +10% science per turn in all cities
+Survivors | +1 population in nearest city | 1 free builder | 1 free trader | 1 free settler | +2 food per turn in all cities | +10% food per turn in all cities
 
 * [ * ] Requires the Gathering Storm expansion.
 * [ ** ] Requires the Gathering Storm expansion. When present each Tier 6 reward has an equal chance of occurring; when not present, grant experience will be the only reward in this tier.
