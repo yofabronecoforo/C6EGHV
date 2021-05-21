@@ -1,6 +1,6 @@
 # Enhanced Goodies and Hostile Villagers for Civilization VI
 
-A mod which provides a picker for choosing which Goody Hut reward(s), if any, have a chance of appearing ingame. It also provides a slider for decreasing or increasing the relative amount of Goody Huts that will appear. In addition, it provides several other new Goody Hut customization options, and many new Goody Hut rewards. Finally, Hostile Villagers as (and now, potentially following) a reward make their return.
+A mod that provides a picker for choosing which Goody Hut reward(s), if any, have a chance of appearing ingame. It also provides a slider for decreasing or increasing the relative amount of Goody Huts that will appear. In addition, it provides several other new Goody Hut customization options, and many new Goody Hut rewards. Finally, Hostile Villagers as (and now, potentially following) a reward make their return.
 
 New Frontend and Ingame text fully localized in the following language(s):
 - English (en_US)
