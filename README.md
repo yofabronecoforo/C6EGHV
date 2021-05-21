@@ -23,11 +23,12 @@ The tooltip for the Goody Hut picker will dynamically update to reflect the sour
 Provides a slider for decreasing or increasing the relative amount of Goody Huts that will appear on the selected map; this slider defaults to 100%, and adjusts in steps of 25% in a range of 25% - 500%, inclusive. This slider also appears in the picker window.
 
 ### Goody Huts
-Most types now have six possible rewards. To accommodate this, existing rewards have been enabled, disabled, and/or moved to other types, and have had their chances of occurring balanced against new rewards as follows:
+Most types now have six possible rewards. To accommodate this, existing rewards have been enabled, disabled, and/or moved to other types, and have had their chances of occurring balanced against new rewards. Currently, rarity tiers and the corresponding frequencies and weights for most types are as follows:
 
 Rarity | Tier 6 | Tier 5 | Tier 4 | Tier 3 | Tier 2 | Tier 1
 ------ | ------ | ------ | ------ | ------ | ------ | ------
 Frequency | 28.6% | 23.8% | 19.0% | 14.3% | 9.5% | 4.8%
+Weight | 60 | 50 | 40 | 30 | 20 | 10
 
 Most types retain at least their original common and uncommon rewards, which are now their Tier 6 and Tier 5 rewards. Most types also retain their original rare rewards, which are now their Tier 4 rewards.
 
