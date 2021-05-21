@@ -10,10 +10,7 @@ New Frontend and Ingame text partially localized in the following language(s):
 - French (fr_FR)
 
 # Features
-### SP / MP
-Compatible with Single- and Multi-Player game setups.
-
-### Goody Hut Picker and Distribution Slider
+## Goody Hut Picker and Distribution Slider
 Provides a new picker window for selecting the specific Goody Hut reward(s) that can appear, available in the game's Advanced Setup. Available selections in the picker will vary by the selected ruleset and/or compatible enabled content, and can be sorted by Name (the specific reward) or by Type (the parent category of the reward). Disabling all available reward(s) will cause the "No Goody Huts" game option to be implicitly enabled.
 
 The tooltip for the Goody Hut picker will dynamically update to reflect the source(s) of its contents based on the selected ruleset. Its button text reflects the total amount of available items(s) when all items in the picker are selected.
@@ -22,7 +19,7 @@ The tooltip for the Goody Hut picker will dynamically update to reflect the sour
 
 Provides a slider for decreasing or increasing the relative amount of Goody Huts that will appear on the selected map; this slider defaults to 100%, and adjusts in steps of 25% in a range of 25% - 500%, inclusive. This slider also appears in the picker window.
 
-### Goody Huts
+## Goody Huts
 Most types now have six possible rewards. To accommodate this, existing rewards have been enabled, disabled, and/or moved to other types, and have had their chances of occurring balanced against new rewards. Currently, rarity tiers and the corresponding frequencies and weights for most types are as follows:
 
 Rarity | Tier 6 | Tier 5 | Tier 4 | Tier 3 | Tier 2 | Tier 1
@@ -55,7 +52,7 @@ Minimum-turn requirements have been set to 0 for all __defined__ rewards, meanin
 
 * There is a known issue where receiving the "2 free civics" reward prior to unlocking the Code of Laws civic results in only receiving 1 free civic, which will be Code of Laws. As this is only really a problem during turns 1-20, I am currently inclined to leave it alone.
 
-### Hostile Villagers
+## Hostile Villagers
 Whenever a reward is earned from a Goody Hut, there is a chance that some of the villagers will be displeased that their tribe treated with outsiders. This chance fluctuates based on several factors:
 
 * the selected difficulty level (base chance increases with higher settings)
@@ -71,14 +68,17 @@ What's that? "Not masochistic enough!" you say? Then how about a new reward type
 
 Finally, to compensate for the increased numbers of barbarian units that are likely to be present now, the experience and level caps from fighting such units have been increased. You still aren't going to get a fully-promoted unit from fighting barbarians, but at least you'll be able to get more than a single promotion.
 
-### Advanced Setup
+## Advanced Setup
 Provides an option in Advanced Setup which, when enabled, will prevent hostile villagers from appearing after a reward. Enabling this option, while also disabling the "Hostile Villagers" reward type via the picker, will remove any chance of encountering hostile villagers entirely. Enabling 'No Barbarians' will override these new options and will also remove any chance of encountering hostile villagers; the tooltip for this option has been updated to reflect this.
 
 Provides an option in Advanced Setup to equalize the chances of receiving all Goody Hut rewards. When enabled, most known individual rewards will have an equal chance of appearing, and for the purposes of spawning Hostile Villagers, they will be assigned to rarity Tier 1.
 
 # Compatibility
-### Rulesets
-Works with the following rulesets:
+## SP / MP
+Compatible with Single- and Multi-Player game setups.
+
+## Rulesets
+Compatible with the following rulesets:
 
 * Standard *
 * Rise and Fall
@@ -86,8 +86,8 @@ Works with the following rulesets:
 
 [ * ] Works with Standard ruleset, but due to missing events and/or methods, the game era is less dynamic, and will instead change on predefined turns.
 
-### Game Modes
-Works with the following game modes:
+## Game Modes
+Compatible with the following game modes:
 
 * Apocalypse
 * Barbarian Clans
@@ -101,7 +101,7 @@ Has not been tested with the following game modes:
 * Tech and Civic Shuffle
 * Zombie Defense
 
-### Mods
+## Mods
 Should work with other mods that add new Goody Hut (sub)types, with the following caveats:
 - Most rewards which EGHV does NOT recognize will be assigned a rarity value of 6 for purposes of determining hostile spawn chance and/or villager hostility level. Exceptions to this include most rewards which are the only subtype within their parent type; these require additional tuning.
 - Any rewards which EGHV does NOT recognize will **NOT** appear in the Goody Hut picker; these must be configured and recognized to do so. If you would like any Goody Huts provided by a particular community project to be reflected within the picker when said project is enabled, please open an issue with the project details, and it will be considered.
@@ -112,10 +112,10 @@ Should work with other mods that add new Goody Hut (sub)types, with the followin
 See the Conflicts section below for exceptions.
 
 # Installation
-### Automatic
+## Automatic
 EGHV is [Steam Workshop item 2474051781](https://steamcommunity.com/sharedfiles/filedetails/?id=2474051781). Subscribe to automatically download and install the latest release, and to automatically receive any updates as they are published to the Workshop.
 
-### Manual
+## Manual
 Download the [latest release](https://github.com/zzragnar0kzz/C6EGHV/releases/latest) and extract it into the game's local mods folder. Alternately, clone the repository into the game's local mods folder using your preferred tools. The local mods folder varies:
 - Windows : `$userprofile\Documents\My Games\Sid Meier's Civilization VI\Mods`
 - Linux : 
