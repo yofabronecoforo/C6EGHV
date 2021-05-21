@@ -1,6 +1,6 @@
 # Enhanced Goodies and Hostile Villagers for Civilization VI
 
-A mod which provides several new Goody Hut customization options, many new Goody Hut rewards, and the return of hostile villagers.
+A mod which provides a picker for choosing which Goody Hut reward(s), if any, have a chance of appearing ingame. It also provides a slider for decreasing or increasing the relative amount of Goody Huts that will appear. In addition, it provides several other new Goody Hut customization options, and many new Goody Hut rewards. Finally, Hostile Villagers as (and now, potentially following) a reward make their return.
 
 New Frontend and Ingame text fully localized in the following language(s):
 - English (en_US)
@@ -14,10 +14,11 @@ New Frontend and Ingame text partially localized in the following language(s):
 Compatible with Single- and Multi-Player game setups.
 
 ### Goody Hut Picker and Distribution Slider
-Provides a new picker window for selecting the specific Goody Hut reward(s) that can appear, available in the game's Advanced Setup. Available selections in the picker will vary by the selected ruleset and/or compatible enabled mods, and can be sorted by Name (the specific reward) or by Type (the parent category of the reward). Disabling all available reward(s) will cause the "No Goody Huts" game option to be implicitly enabled.
+Provides a new picker window for selecting the specific Goody Hut reward(s) that can appear, available in the game's Advanced Setup. Available selections in the picker will vary by the selected ruleset and/or compatible enabled content, and can be sorted by Name (the specific reward) or by Type (the parent category of the reward). Disabling all available reward(s) will cause the "No Goody Huts" game option to be implicitly enabled.
 
 The tooltip for the Goody Hut picker will dynamically update to reflect the source(s) of its contents based on the selected ruleset. Its button text reflects the total amount of available items(s) when all items in the picker are selected.
 - This functionality extends to other picker window(s).
+- NOTE: Active content is currently only queried once at initial startup; thus, any changes to active content after initial startup will not be accurately reflected in any affected tooltip(s) until the game is restarted. Resolutions are under investigation.
 
 Provides a slider for decreasing or increasing the relative amount of Goody Huts that will appear on the selected map; this slider defaults to 100%, and adjusts in steps of 25% in a range of 25% - 500%, inclusive. This slider also appears in the picker window.
 
@@ -28,7 +29,13 @@ Rarity | Tier 6 | Tier 5 | Tier 4 | Tier 3 | Tier 2 | Tier 1
 ------ | ------ | ------ | ------ | ------ | ------ | ------
 Frequency | 28.6% | 23.8% | 19.0% | 14.3% | 9.5% | 4.8%
 
-Most types retain at least their original common and uncommon rewards, which are now their Tier 6 and Tier 5 rewards. Most types also retain their original rare rewards, which are now their Tier 4 rewards. The "one free relic" reward is now a Faith-type reward, and is Tier 3. The defined-but-disabled "one free settler" reward has been enabled, and is the Tier 3 Survivors-type reward. New rewards have been added where necessary to fill out all types; for most types, the available rewards are now as follows:
+Most types retain at least their original common and uncommon rewards, which are now their Tier 6 and Tier 5 rewards. Most types also retain their original rare rewards, which are now their Tier 4 rewards.
+
+The "one free relic" reward is now a Faith-type reward, and is Tier 3. The defined-but-disabled "one free settler" reward has been enabled, and is now the Tier 3 Survivors-type reward. 
+
+The "heal unit" reward has been disabled because it is lame. The defined-but-disabled "upgrade unit" reward remains disabled; this is unlikely to change.
+
+New rewards have been added where necessary to fill out all types to at least six possible rewards; for Military-type, the "grant scout" reward has been split into several rewards which each grant a different unit type, and other new rewards have been added to bring the total to twelve. Available rewards are now as follows:
 
 Goody Hut | Tier 6 | Tier 5 | Tier 4 | Tier 3 | Tier 2 | Tier 1
 --------- | ------ | ------ | ------ | ------ | ------ | ------
@@ -94,11 +101,14 @@ Has not been tested with the following game modes:
 * Zombie Defense
 
 ### Mods
-Should work with other mods that add new Goody Hut (sub)types; see below for caveats, and see the Conflicts section further below for exceptions.
+Should work with other mods that add new Goody Hut (sub)types, with the following caveats:
+- Most rewards which EGHV does NOT recognize will be assigned a rarity value of 6 for purposes of determining hostile spawn chance and/or villager hostility level. Exceptions to this include most rewards which are the only subtype within their parent type; these require additional tuning.
+- Any rewards which EGHV does NOT recognize will **NOT** appear in the Goody Hut picker; these must be configured and recognized to do so. If you would like any Goody Huts provided by a particular community project to be reflected within the picker when said project is enabled, please open an issue with the project details, and it will be considered.
+- Note that taken together, the above means EGHV has no interaction with unrecognized Goody Hut rewards beyond potentially spawning hostile villagers after receiving such a reward.
+- New Goody Hut rewards provided by recognized content will appear in the Goody Hut picker when enabled, and disabling any of these rewards via the picker will eliminate their chances of appearing ingame. Currently, the following community projects are recognized by EGHV:
+  - Wondrous Goody Huts
 
-Most reward(s) unrecognized by EGHV will be assigned a rarity value of 6 for purposes of determining hostile spawn chance and/or villager hostility level. These reward(s) will also not appear in the Goody Hut picker, unless they are configured to do so; see the contents of EGHV/User for further details.
-
-TO-DO : Add complete directions for making your mod's new Goody Hut reward(s) available within EGHV's picker.
+See the Conflicts section below for exceptions.
 
 # Installation
 ### Automatic
