@@ -635,451 +635,451 @@
 			<Properties>
         		<LoadOrder>1010151</LoadOrder>
       		</Properties>
-			<File Priority="2">EGHV/Data/Ingame.sql</File>
+			<File Priority="2">EGHV/Gameplay/Ingame.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_XP2" criteria="EGHV_Expansion2">
 			<Properties>
         		<LoadOrder>1010153</LoadOrder>
       		</Properties>
-			<File Priority="2">EGHV/Data/Ingame_XP2.sql</File>
+			<File Priority="2">EGHV/Gameplay/Ingame_XP2.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_025" criteria="EGHV_GoodyHut_Distribution_025">
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/GoodyHutDistribution/025.sql</File>
+			<File>EGHV/Gameplay/GoodyHutDistribution/025.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_050" criteria="EGHV_GoodyHut_Distribution_050">
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/GoodyHutDistribution/050.sql</File>
+			<File>EGHV/Gameplay/GoodyHutDistribution/050.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_075" criteria="EGHV_GoodyHut_Distribution_075">
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/GoodyHutDistribution/075.sql</File>
+			<File>EGHV/Gameplay/GoodyHutDistribution/075.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_125" criteria="EGHV_GoodyHut_Distribution_125">
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/GoodyHutDistribution/125.sql</File>
+			<File>EGHV/Gameplay/GoodyHutDistribution/125.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_150" criteria="EGHV_GoodyHut_Distribution_150">
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/GoodyHutDistribution/150.sql</File>
+			<File>EGHV/Gameplay/GoodyHutDistribution/150.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_175" criteria="EGHV_GoodyHut_Distribution_175">
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/GoodyHutDistribution/175.sql</File>
+			<File>EGHV/Gameplay/GoodyHutDistribution/175.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_200" criteria="EGHV_GoodyHut_Distribution_200">
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/GoodyHutDistribution/200.sql</File>
+			<File>EGHV/Gameplay/GoodyHutDistribution/200.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_225" criteria="EGHV_GoodyHut_Distribution_225">
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/GoodyHutDistribution/225.sql</File>
+			<File>EGHV/Gameplay/GoodyHutDistribution/225.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_250" criteria="EGHV_GoodyHut_Distribution_250">
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/GoodyHutDistribution/250.sql</File>
+			<File>EGHV/Gameplay/GoodyHutDistribution/250.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_275" criteria="EGHV_GoodyHut_Distribution_275">
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/GoodyHutDistribution/275.sql</File>
+			<File>EGHV/Gameplay/GoodyHutDistribution/275.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_300" criteria="EGHV_GoodyHut_Distribution_300">
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/GoodyHutDistribution/300.sql</File>
+			<File>EGHV/Gameplay/GoodyHutDistribution/300.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_325" criteria="EGHV_GoodyHut_Distribution_325">
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/GoodyHutDistribution/325.sql</File>
+			<File>EGHV/Gameplay/GoodyHutDistribution/325.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_350" criteria="EGHV_GoodyHut_Distribution_350">
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/GoodyHutDistribution/350.sql</File>
+			<File>EGHV/Gameplay/GoodyHutDistribution/350.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_375" criteria="EGHV_GoodyHut_Distribution_375">
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/GoodyHutDistribution/375.sql</File>
+			<File>EGHV/Gameplay/GoodyHutDistribution/375.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_400" criteria="EGHV_GoodyHut_Distribution_400">
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/GoodyHutDistribution/400.sql</File>
+			<File>EGHV/Gameplay/GoodyHutDistribution/400.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_425" criteria="EGHV_GoodyHut_Distribution_425">
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/GoodyHutDistribution/425.sql</File>
+			<File>EGHV/Gameplay/GoodyHutDistribution/425.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_450" criteria="EGHV_GoodyHut_Distribution_450">
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/GoodyHutDistribution/450.sql</File>
+			<File>EGHV/Gameplay/GoodyHutDistribution/450.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_475" criteria="EGHV_GoodyHut_Distribution_475">
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/GoodyHutDistribution/475.sql</File>
+			<File>EGHV/Gameplay/GoodyHutDistribution/475.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_500" criteria="EGHV_GoodyHut_Distribution_500">
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/GoodyHutDistribution/500.sql</File>
+			<File>EGHV/Gameplay/GoodyHutDistribution/500.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EQUALIZE_GOODYHUTS" criteria="EGHV_Equalize_GoodyHuts">
 			<Properties>
         		<LoadOrder>1010171</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/EqualizeGoodyHuts.sql</File>
+			<File>EGHV/Gameplay/EqualizeGoodyHuts.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EQUALIZE_GOODYHUTS_XP2" criteria="EGHV_Equalize_GoodyHuts_Expansion2">
 			<Properties>
         		<LoadOrder>1010173</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/EqualizeGoodyHuts_XP2.sql</File>
+			<File>EGHV/Gameplay/EqualizeGoodyHuts_XP2.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_ADD_POPULATION" criteria="EGHV_Exclude_GoodyHut_Add_Population">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/Add_Population.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Add_Population.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_ADD_TRADE_ROUTE" criteria="EGHV_Exclude_GoodyHut_Add_Trade_Route">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/Add_Trade_Route.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Add_Trade_Route.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_FAVOR" criteria="EGHV_Exclude_GoodyHut_Favor">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/Favor.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Favor.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_GRANT_BUILDER" criteria="EGHV_Exclude_GoodyHut_Grant_Builder">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/Grant_Builder.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Grant_Builder.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_GRANT_EXPERIENCE" criteria="EGHV_Exclude_GoodyHut_Grant_Experience">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/Grant_Experience.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Grant_Experience.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_GRANT_HEAVY_CHARIOT" criteria="EGHV_Exclude_GoodyHut_Grant_Heavy_Chariot">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/Grant_Heavy_Chariot.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Grant_Heavy_Chariot.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_GRANT_HORSEMAN" criteria="EGHV_Exclude_GoodyHut_Grant_Horseman">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/Grant_Horseman.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Grant_Horseman.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_GRANT_MEDIC" criteria="EGHV_Exclude_GoodyHut_Grant_Medic">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/Grant_Medic.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Grant_Medic.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_GRANT_MILITARY_ENGINEER" criteria="EGHV_Exclude_GoodyHut_Grant_Military_Engineer">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/Grant_Military_Engineer.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Grant_Military_Engineer.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_GRANT_SCOUT" criteria="EGHV_Exclude_GoodyHut_Grant_Scout">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/Grant_Scout.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Grant_Scout.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_GRANT_SETTLER" criteria="EGHV_Exclude_GoodyHut_Grant_Settler">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/Grant_Settler.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Grant_Settler.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_GRANT_SLINGER" criteria="EGHV_Exclude_GoodyHut_Grant_Slinger">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/Grant_Slinger.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Grant_Slinger.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_GRANT_SPEARMAN" criteria="EGHV_Exclude_GoodyHut_Grant_Spearman">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/Grant_Spearman.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Grant_Spearman.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_GRANT_TRADER" criteria="EGHV_Exclude_GoodyHut_Grant_Trader">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/Grant_Trader.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Grant_Trader.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_GRANT_WARRIOR" criteria="EGHV_Exclude_GoodyHut_Grant_Warrior">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/Grant_Warrior.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Grant_Warrior.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_LARGE_FAITH" criteria="EGHV_Exclude_GoodyHut_Large_Faith">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/Large_Faith.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Large_Faith.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_LARGE_GOLD" criteria="EGHV_Exclude_GoodyHut_Large_Gold">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/Large_Gold.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Large_Gold.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_MEDIUM_FAITH" criteria="EGHV_Exclude_GoodyHut_Medium_Faith">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/Medium_Faith.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Medium_Faith.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_MEDIUM_GOLD" criteria="EGHV_Exclude_GoodyHut_Medium_Gold">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/Medium_Gold.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Medium_Gold.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_METEOR_GRANT_GOODIES" criteria="EGHV_Exclude_GoodyHut_Meteor_Strike">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/Meteor_Grant_Goodies.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Meteor_Grant_Goodies.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_ONE_CIVIC_BOOST" criteria="EGHV_Exclude_GoodyHut_One_Civic_Boost">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/One_Civic_Boost.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/One_Civic_Boost.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_ONE_CIVIC" criteria="EGHV_Exclude_GoodyHut_One_Civic">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/One_Civic.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/One_Civic.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_ONE_ENVOY" criteria="EGHV_Exclude_GoodyHut_One_Envoy">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/One_Envoy.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/One_Envoy.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_ONE_GOVERNOR_TITLE" criteria="EGHV_Exclude_GoodyHut_One_Governor_Title">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/One_Governor_Title.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/One_Governor_Title.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_ONE_RELIC" criteria="EGHV_Exclude_GoodyHut_One_Relic">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/One_Relic.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/One_Relic.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_ONE_TECH_BOOST" criteria="EGHV_Exclude_GoodyHut_One_Tech_Boost">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/One_Tech_Boost.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/One_Tech_Boost.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_ONE_TECH" criteria="EGHV_Exclude_GoodyHut_One_Tech">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/One_Tech.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/One_Tech.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_RESOURCES" criteria="EGHV_Exclude_GoodyHut_Grant_Strategic_Resources">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/Resources.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Resources.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_SMALL_BOOST_FAVOR" criteria="EGHV_Exclude_GoodyHut_Small_Boost_Favor">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/Small_Boost_Favor.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Small_Boost_Favor.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_SMALL_CHANGE_CULTURE" criteria="EGHV_Exclude_GoodyHut_Small_Change_Culture">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/Small_Change_Culture.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Small_Change_Culture.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_SMALL_CHANGE_FAITH" criteria="EGHV_Exclude_GoodyHut_Small_Change_Faith">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/Small_Change_Faith.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Small_Change_Faith.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_SMALL_CHANGE_FOOD" criteria="EGHV_Exclude_GoodyHut_Small_Change_Food">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/Small_Change_Food.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Small_Change_Food.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_SMALL_CHANGE_GOLD" criteria="EGHV_Exclude_GoodyHut_Small_Change_Gold">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/Small_Change_Gold.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Small_Change_Gold.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_SMALL_CHANGE_PRODUCTION" criteria="EGHV_Exclude_GoodyHut_Small_Change_Production">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/Small_Change_Production.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Small_Change_Production.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_SMALL_CHANGE_SCIENCE" criteria="EGHV_Exclude_GoodyHut_Small_Change_Science">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/Small_Change_Science.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Small_Change_Science.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_SMALL_FAITH" criteria="EGHV_Exclude_GoodyHut_Small_Faith">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/Small_Faith.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Small_Faith.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_SMALL_GOLD" criteria="EGHV_Exclude_GoodyHut_Small_Gold">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/Small_Gold.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Small_Gold.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_SMALL_MODIFIER_CULTURE" criteria="EGHV_Exclude_GoodyHut_Small_Modifier_Culture">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/Small_Modifier_Culture.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Small_Modifier_Culture.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_SMALL_MODIFIER_FAITH" criteria="EGHV_Exclude_GoodyHut_Small_Modifier_Faith">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/Small_Modifier_Faith.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Small_Modifier_Faith.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_SMALL_MODIFIER_FOOD" criteria="EGHV_Exclude_GoodyHut_Small_Modifier_Food">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/Small_Modifier_Food.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Small_Modifier_Food.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_SMALL_MODIFIER_GOLD" criteria="EGHV_Exclude_GoodyHut_Small_Modifier_Gold">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/Small_Modifier_Gold.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Small_Modifier_Gold.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_SMALL_MODIFIER_PRODUCTION" criteria="EGHV_Exclude_GoodyHut_Small_Modifier_Production">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/Small_Modifier_Production.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Small_Modifier_Production.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_SMALL_MODIFIER_SCIENCE" criteria="EGHV_Exclude_GoodyHut_Small_Modifier_Science">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/Small_Modifier_Science.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Small_Modifier_Science.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_SPAWN_HOSTILE_VILLAGERS" criteria="EGHV_Exclude_GoodyHut_Spawn_Hostile_Villagers">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/Spawn_Hostile_Villagers.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Spawn_Hostile_Villagers.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_TWO_CIVIC_BOOSTS" criteria="EGHV_Exclude_GoodyHut_Two_Civic_Boosts">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/Two_Civic_Boosts.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Two_Civic_Boosts.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_TWO_CIVICS" criteria="EGHV_Exclude_GoodyHut_Two_Civics">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/Two_Civics.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Two_Civics.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_TWO_ENVOYS" criteria="EGHV_Exclude_GoodyHut_Two_Envoys">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/Two_Envoys.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Two_Envoys.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_TWO_GOVERNOR_TITLES" criteria="EGHV_Exclude_GoodyHut_Two_Governor_Titles">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/Two_Governor_Titles.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Two_Governor_Titles.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_TWO_TECH_BOOSTS" criteria="EGHV_Exclude_GoodyHut_Two_Tech_Boosts">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/Two_Tech_Boosts.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Two_Tech_Boosts.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_TWO_TECHS" criteria="EGHV_Exclude_GoodyHut_Two_Techs">
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHut/Two_Techs.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Two_Techs.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUTS" criteria="EGHV_Exclude_GoodyHuts">
 			<Properties>
         		<LoadOrder>1010182</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHuts.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHuts.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUTS_XP2" criteria="EGHV_Exclude_GoodyHuts_Expansion2">
 			<Properties>
         		<LoadOrder>1010182</LoadOrder>
       		</Properties>
-			<File>EGHV/Data/ExcludeGoodyHuts_XP2.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHuts_XP2.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_WGH_INGAME_EXCLUDE_GOODYHUT" criteria="EGHV_WGH_Exclude_GoodyHut_CityState">
 			<Properties>
@@ -1151,23 +1151,23 @@
 			<Properties>
         		<LoadOrder>1010199</LoadOrder>
       		</Properties>
-			<File Priority="1">EGHV/Data/Override.sql</File>
+			<File Priority="1">EGHV/Gameplay/Override.sql</File>
 		</UpdateDatabase>
 		<UpdateText id="EGHV_INGAME_TEXT" criteria="EGHV">
 			<Properties>
 				<LoadOrder>1010101</LoadOrder>
 			</Properties>
-			<File>EGHV/Text/en_US/Ingame_Text.xml</File>
-			<File>EGHV/Text/es_ES/Ingame_Text.xml</File>
-			<File>EGHV/Text/fr_FR/Ingame_Text.xml</File>
+			<File>EGHV/Localization/en_US/Ingame_Text.xml</File>
+			<File>EGHV/Localization/es_ES/Ingame_Text.xml</File>
+			<File>EGHV/Localization/fr_FR/Ingame_Text.xml</File>
 		</UpdateText>
 		<UpdateText id="EGHV_INGAME_TEXT_XP2" criteria="EGHV_Expansion2">
 			<Properties>
 				<LoadOrder>1010103</LoadOrder>
 			</Properties>
-			<File>EGHV/Text/en_US/Ingame_XP2_Text.xml</File>
-			<File>EGHV/Text/es_ES/Ingame_XP2_Text.xml</File>
-			<File>EGHV/Text/fr_FR/Ingame_XP2_Text.xml</File>
+			<File>EGHV/Localization/en_US/Ingame_XP2_Text.xml</File>
+			<File>EGHV/Localization/es_ES/Ingame_XP2_Text.xml</File>
+			<File>EGHV/Localization/fr_FR/Ingame_XP2_Text.xml</File>
 		</UpdateText>
 	</InGameActions>
 	<FrontEndActions>
@@ -1177,15 +1177,15 @@
 				<LoadOrder>-42</LoadOrder>
 			</Properties>
 			<!-- Configuration schema changes -->
-			<File Priority="2">EGHV/Config/Schema/Configuration.sql</File>
+			<File Priority="2">EGHV/Configuration/Schema.sql</File>
 		</UpdateDatabase>
 		<UpdateText id="EGHV_FRONTEND_TEXT">
 			<Properties>
         		<LoadOrder>1010101</LoadOrder>
       		</Properties>
-			<File>EGHV/Text/en_US/Frontend_Text.xml</File>
-			<File>EGHV/Text/es_ES/Frontend_Text.xml</File>
-			<File>EGHV/Text/fr_FR/Frontend_Text.xml</File>
+			<File>EGHV/Localization/en_US/Frontend_Text.xml</File>
+			<File>EGHV/Localization/es_ES/Frontend_Text.xml</File>
+			<File>EGHV/Localization/fr_FR/Frontend_Text.xml</File>
 		</UpdateText>
 		<ImportFiles id="EGHV_FRONTEND_LUA">
 			<Properties>
@@ -1207,10 +1207,10 @@
         		<LoadOrder>1010171</LoadOrder>
       		</Properties>
 			<File Priority="5">EGHV/Community/WondrousGoodyHuts/WondrousGoodyHuts.sql</File>
-			<File Priority="4">EGHV/Config/GoodyHutPicker/Standard.sql</File>
-			<File Priority="3">EGHV/Config/GoodyHutPicker/Expansion1.sql</File>
-			<File Priority="2">EGHV/Config/GoodyHutPicker/Expansion2.sql</File>
-			<File Priority="1">EGHV/Config/Frontend.sql</File>
+			<File Priority="4">EGHV/Configuration/GoodyHutPicker/Standard.sql</File>
+			<File Priority="3">EGHV/Configuration/GoodyHutPicker/Expansion1.sql</File>
+			<File Priority="2">EGHV/Configuration/GoodyHutPicker/Expansion2.sql</File>
+			<File Priority="1">EGHV/Configuration/Frontend.sql</File>
         </UpdateDatabase>
     </FrontEndActions>
 	<LocalizedText>
@@ -1242,107 +1242,106 @@
 	</LocalizedText>
 	<Files>
 
-		<File>EGHV/Config/Frontend.sql</File>
+		<File>EGHV/Configuration/Frontend.sql</File>
+		<File>EGHV/Configuration/Schema.sql</File>
 
-		<File>EGHV/Config/GoodyHutPicker/Standard.sql</File>
-		<File>EGHV/Config/GoodyHutPicker/Expansion1.sql</File>
-		<File>EGHV/Config/GoodyHutPicker/Expansion2.sql</File>
+		<File>EGHV/Configuration/GoodyHutPicker/Standard.sql</File>
+		<File>EGHV/Configuration/GoodyHutPicker/Expansion1.sql</File>
+		<File>EGHV/Configuration/GoodyHutPicker/Expansion2.sql</File>
 
-		<File>EGHV/Config/Schema/Configuration.sql</File>
+		<File>EGHV/Gameplay/EqualizeGoodyHuts.sql</File>
+		<File>EGHV/Gameplay/EqualizeGoodyHuts_XP2.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHuts.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHuts_XP2.sql</File>
+		<File>EGHV/Gameplay/Ingame.sql</File>
+		<File>EGHV/Gameplay/Ingame_XP2.sql</File>
+		<File>EGHV/Gameplay/Override.sql</File>
 
-		<File>EGHV/Data/EqualizeGoodyHuts.sql</File>
-		<File>EGHV/Data/EqualizeGoodyHuts_XP2.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHuts.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHuts_XP2.sql</File>
-		<File>EGHV/Data/Ingame.sql</File>
-		<File>EGHV/Data/Ingame_XP2.sql</File>
-		<File>EGHV/Data/Override.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Add_Population.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Add_Trade_Route.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Favor.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Grant_Builder.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Grant_Experience.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Grant_Heavy_Chariot.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Grant_Horseman.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Grant_Medic.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Grant_Military_Engineer.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Grant_Scout.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Grant_Settler.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Grant_Slinger.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Grant_Spearman.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Grant_Trader.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Grant_Warrior.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Large_Faith.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Large_Gold.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Medium_Faith.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Medium_Gold.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Meteor_Grant_Goodies.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/One_Civic_Boost.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/One_Civic.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/One_Envoy.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/One_Governor_Title.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/One_Relic.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/One_Tech_Boost.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/One_Tech.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Resources.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Small_Boost_Favor.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Small_Change_Culture.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Small_Change_Faith.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Small_Change_Food.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Small_Change_Gold.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Small_Change_Production.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Small_Change_Science.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Small_Faith.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Small_Gold.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Small_Modifier_Culture.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Small_Modifier_Faith.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Small_Modifier_Food.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Small_Modifier_Gold.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Small_Modifier_Production.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Small_Modifier_Science.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Spawn_Hostile_Villagers.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Two_Civic_Boosts.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Two_Civics.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Two_Envoys.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Two_Governor_Titles.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Two_Tech_Boosts.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Two_Techs.sql</File>
 
-		<File>EGHV/Data/ExcludeGoodyHut/Add_Population.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/Add_Trade_Route.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/Favor.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/Grant_Builder.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/Grant_Experience.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/Grant_Heavy_Chariot.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/Grant_Horseman.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/Grant_Medic.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/Grant_Military_Engineer.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/Grant_Scout.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/Grant_Settler.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/Grant_Slinger.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/Grant_Spearman.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/Grant_Trader.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/Grant_Warrior.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/Large_Faith.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/Large_Gold.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/Medium_Faith.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/Medium_Gold.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/Meteor_Grant_Goodies.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/One_Civic_Boost.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/One_Civic.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/One_Envoy.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/One_Governor_Title.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/One_Relic.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/One_Tech_Boost.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/One_Tech.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/Resources.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/Small_Boost_Favor.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/Small_Change_Culture.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/Small_Change_Faith.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/Small_Change_Food.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/Small_Change_Gold.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/Small_Change_Production.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/Small_Change_Science.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/Small_Faith.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/Small_Gold.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/Small_Modifier_Culture.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/Small_Modifier_Faith.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/Small_Modifier_Food.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/Small_Modifier_Gold.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/Small_Modifier_Production.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/Small_Modifier_Science.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/Spawn_Hostile_Villagers.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/Two_Civic_Boosts.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/Two_Civics.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/Two_Envoys.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/Two_Governor_Titles.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/Two_Tech_Boosts.sql</File>
-		<File>EGHV/Data/ExcludeGoodyHut/Two_Techs.sql</File>
-
-		<File>EGHV/Data/GoodyHutDistribution/025.sql</File>
-		<File>EGHV/Data/GoodyHutDistribution/050.sql</File>
-		<File>EGHV/Data/GoodyHutDistribution/075.sql</File>
-		<File>EGHV/Data/GoodyHutDistribution/125.sql</File>
-		<File>EGHV/Data/GoodyHutDistribution/150.sql</File>
-		<File>EGHV/Data/GoodyHutDistribution/175.sql</File>
-		<File>EGHV/Data/GoodyHutDistribution/200.sql</File>
-		<File>EGHV/Data/GoodyHutDistribution/225.sql</File>
-		<File>EGHV/Data/GoodyHutDistribution/250.sql</File>
-		<File>EGHV/Data/GoodyHutDistribution/275.sql</File>
-		<File>EGHV/Data/GoodyHutDistribution/300.sql</File>
-		<File>EGHV/Data/GoodyHutDistribution/325.sql</File>
-		<File>EGHV/Data/GoodyHutDistribution/350.sql</File>
-		<File>EGHV/Data/GoodyHutDistribution/375.sql</File>
-		<File>EGHV/Data/GoodyHutDistribution/400.sql</File>
-		<File>EGHV/Data/GoodyHutDistribution/425.sql</File>
-		<File>EGHV/Data/GoodyHutDistribution/450.sql</File>
-		<File>EGHV/Data/GoodyHutDistribution/475.sql</File>
-		<File>EGHV/Data/GoodyHutDistribution/500.sql</File>
+		<File>EGHV/Gameplay/GoodyHutDistribution/025.sql</File>
+		<File>EGHV/Gameplay/GoodyHutDistribution/050.sql</File>
+		<File>EGHV/Gameplay/GoodyHutDistribution/075.sql</File>
+		<File>EGHV/Gameplay/GoodyHutDistribution/125.sql</File>
+		<File>EGHV/Gameplay/GoodyHutDistribution/150.sql</File>
+		<File>EGHV/Gameplay/GoodyHutDistribution/175.sql</File>
+		<File>EGHV/Gameplay/GoodyHutDistribution/200.sql</File>
+		<File>EGHV/Gameplay/GoodyHutDistribution/225.sql</File>
+		<File>EGHV/Gameplay/GoodyHutDistribution/250.sql</File>
+		<File>EGHV/Gameplay/GoodyHutDistribution/275.sql</File>
+		<File>EGHV/Gameplay/GoodyHutDistribution/300.sql</File>
+		<File>EGHV/Gameplay/GoodyHutDistribution/325.sql</File>
+		<File>EGHV/Gameplay/GoodyHutDistribution/350.sql</File>
+		<File>EGHV/Gameplay/GoodyHutDistribution/375.sql</File>
+		<File>EGHV/Gameplay/GoodyHutDistribution/400.sql</File>
+		<File>EGHV/Gameplay/GoodyHutDistribution/425.sql</File>
+		<File>EGHV/Gameplay/GoodyHutDistribution/450.sql</File>
+		<File>EGHV/Gameplay/GoodyHutDistribution/475.sql</File>
+		<File>EGHV/Gameplay/GoodyHutDistribution/500.sql</File>
 		
 		<File>EGHV/Scripts/C6GUE_Common.lua</File>
 		<File>EGHV/Scripts/HostileVillagers.lua</File>
 
-		<File>EGHV/Text/en_US/Frontend_Text.xml</File>
-		<File>EGHV/Text/en_US/Ingame_Text.xml</File>
-		<File>EGHV/Text/en_US/Ingame_XP2_Text.xml</File>
+		<File>EGHV/Localization/en_US/Frontend_Text.xml</File>
+		<File>EGHV/Localization/en_US/Ingame_Text.xml</File>
+		<File>EGHV/Localization/en_US/Ingame_XP2_Text.xml</File>
 
-		<File>EGHV/Text/es_ES/Frontend_Text.xml</File>
-		<File>EGHV/Text/es_ES/Ingame_Text.xml</File>
-		<File>EGHV/Text/es_ES/Ingame_XP2_Text.xml</File>
+		<File>EGHV/Localization/es_ES/Frontend_Text.xml</File>
+		<File>EGHV/Localization/es_ES/Ingame_Text.xml</File>
+		<File>EGHV/Localization/es_ES/Ingame_XP2_Text.xml</File>
 
-		<File>EGHV/Text/fr_FR/Frontend_Text.xml</File>
-		<File>EGHV/Text/fr_FR/Ingame_Text.xml</File>
-		<File>EGHV/Text/fr_FR/Ingame_XP2_Text.xml</File>
+		<File>EGHV/Localization/fr_FR/Frontend_Text.xml</File>
+		<File>EGHV/Localization/fr_FR/Ingame_Text.xml</File>
+		<File>EGHV/Localization/fr_FR/Ingame_XP2_Text.xml</File>
 
 		<File>EGHV/UI/Additions/GoodyHutPicker.lua</File>
 		<File>EGHV/UI/Additions/GoodyHutPicker.xml</File>
