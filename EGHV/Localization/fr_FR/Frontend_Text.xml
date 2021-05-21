@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	EGHV : Enhanced Goodies and Hostile Villagers for Civilization VI
+	Copyright (C) 2020-2021 zzragnar0kzz
+	All rights reserved
+-->
+<!-- localized frontend text for fr_FR -->
+<GameData>
+	<LocalizedText>
+        <!-- new no barbarians parameter text -->
+        <Replace Tag="LOC_GAME_NO_BARBARIANS_DESCRIPTION" Language="fr_FR">
+            <Text>L'activation de cette option supprime les barbares; par extension, il remplace également les options «Villageois hostile» ci-dessous et supprime entièrement les villageois hostiles.</Text>
+        </Replace>
+        <!-- no hostiles after reward parameter text -->
+        <Replace Tag="LOC_GAME_NO_HOSTILES_AFTER_REWARD_NAME" Language="fr_FR">
+            <Text>Aucun villageois hostile après la récompense</Text>
+        </Replace>
+        <Replace Tag="LOC_GAME_NO_HOSTILES_AFTER_REWARD_DESCRIPTION" Language="fr_FR">
+            <Text>L'activation de cette option empêche les villageois hostiles d'apparaître après avoir reçu une récompense de village tribal; il n'élimine pas les villageois hostiles comme un possible type de «récompense» de village tribal. Sera ignoré si «Pas de barbares» est activé.</Text>
+        </Replace>
+        <!-- no hostiles as reward parameter text -->
+        <Replace Tag="LOC_GAME_NO_HOSTILES_AS_REWARD_NAME" Language="fr_FR">
+            <Text>Aucun villageois hostile comme récompense</Text>
+        </Replace>
+        <Replace Tag="LOC_GAME_NO_HOSTILES_AS_REWARD_DESCRIPTION" Language="fr_FR">
+            <Text>L'activation de cette option élimine les villageois hostiles en tant que type de «récompense» de village tribal possible; cela n'empêche pas les villageois hostiles d'apparaître après avoir reçu une autre récompense de village tribal. Sera ignoré si «Pas de barbares» est activé.</Text>
+        </Replace>
+    </LocalizedText>
+</GameData>
