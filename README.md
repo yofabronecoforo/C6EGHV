@@ -149,6 +149,7 @@ EGHV replaces the following existing Frontend context file(s):
 - AdvancedSetup.lua and AdvancedSetup.xml
 - GameSetupLogic.lua
 - HostGame.lua and HostGame.xml
+- Mods.lua
 
 In addition, it adds the following new FrontEnd context file(s):
 - GoodyHutPicker.lua and GoodyHutPicker.xml
