@@ -13,9 +13,8 @@ New Frontend and Ingame text partially localized in the following language(s):
 ## Goody Hut Picker and Distribution Slider
 Provides a new picker window for selecting the specific Goody Hut reward(s) that can appear, available in the game's Advanced Setup. Available selections in the picker will vary by the selected ruleset and/or compatible enabled content, and can be sorted by Name (the specific reward) or by Type (the parent category of the reward). Disabling all available reward(s) will cause the "No Goody Huts" game option to be implicitly enabled.
 
-The tooltip for the Goody Hut picker will dynamically update to reflect the source(s) of its contents based on the selected ruleset. Its button text reflects the total amount of available items(s) when all items in the picker are selected.
-- This functionality extends to other picker window(s).
-- NOTE: Active content is currently only queried once at initial startup; thus, any changes to active content after initial startup will not be accurately reflected in any affected tooltip(s) until the game is restarted. Resolutions are under investigation.
+The tooltip for the Goody Hut picker reflects the source(s) of its content based on the selected ruleset and/or any currently available known content; it will dynamically update to reflect any changes to known content after launch. Its button text reflects the total amount of available items(s) when all items in the picker are selected.
+- This functionality extends to the built-in City-States, Leaders, and Natural Wonders pickers.
 
 Provides a slider for decreasing or increasing the relative amount of Goody Huts that will appear on the selected map; this slider defaults to 100%, and adjusts in steps of 25% in a range of 25% - 500%, inclusive. This slider also appears in the picker window.
 
