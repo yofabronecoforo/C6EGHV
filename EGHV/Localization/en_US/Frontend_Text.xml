@@ -45,55 +45,55 @@
             <Text>[NEWLINE]Available content:[NEWLINE]  Standard</Text>
         </Replace>
         <Replace Tag="LOC_DLC_AZTEC_TT" Language="en_US">
-            <Text>[NEWLINE]  DLC: Aztec Civilization Pack</Text>
+            <Text>[NEWLINE]  [COLOR_MEDIUM_GREEN]DLC[ENDCOLOR]: Aztec Civilization Pack</Text>
         </Replace>
         <Replace Tag="LOC_DLC_POLAND_TT" Language="en_US">
-            <Text>[NEWLINE]  DLC: Poland Civilization and Scenario Pack</Text>
+            <Text>[NEWLINE]  [COLOR_MEDIUM_GREEN]DLC[ENDCOLOR]: Poland Civilization and Scenario Pack</Text>
         </Replace>
         <Replace Tag="LOC_DLC_VIKINGS_TT" Language="en_US">
-            <Text>[NEWLINE]  DLC: Vikings Scenario Pack</Text>
+            <Text>[NEWLINE]  [COLOR_MEDIUM_GREEN]DLC[ENDCOLOR]: Vikings Scenario Pack</Text>
         </Replace>
         <Replace Tag="LOC_DLC_AUSTRALIA_TT" Language="en_US">
-            <Text>[NEWLINE]  DLC: Australia Civilization and Scenario Pack</Text>
+            <Text>[NEWLINE]  [COLOR_MEDIUM_GREEN]DLC[ENDCOLOR]: Australia Civilization and Scenario Pack</Text>
         </Replace>
         <Replace Tag="LOC_DLC_PERSIA_TT" Language="en_US">
-            <Text>[NEWLINE]  DLC: Persia and Macedon Civilization and Scenario Pack</Text>
+            <Text>[NEWLINE]  [COLOR_MEDIUM_GREEN]DLC[ENDCOLOR]: Persia and Macedon Civilization and Scenario Pack</Text>
         </Replace>
         <Replace Tag="LOC_DLC_NUBIA_TT" Language="en_US">
-            <Text>[NEWLINE]  DLC: Nubia Civilization and Scenario Pack</Text>
+            <Text>[NEWLINE]  [COLOR_MEDIUM_GREEN]DLC[ENDCOLOR]: Nubia Civilization and Scenario Pack</Text>
         </Replace>
         <Replace Tag="LOC_DLC_KHMER_TT" Language="en_US">
-            <Text>[NEWLINE]  DLC: Khmer and Indonesia Civilization and Scenario Pack</Text>
+            <Text>[NEWLINE]  [COLOR_MEDIUM_GREEN]DLC[ENDCOLOR]: Khmer and Indonesia Civilization and Scenario Pack</Text>
         </Replace>
         <Replace Tag="LOC_DLC_MAYA_TT" Language="en_US">
-            <Text>[NEWLINE]  DLC: Gran Colombia and Maya Pack</Text>
+            <Text>[NEWLINE]  [COLOR_MEDIUM_GREEN]DLC[ENDCOLOR]: Gran Colombia and Maya Pack</Text>
         </Replace>
         <Replace Tag="LOC_DLC_ETHIOPIA_TT" Language="en_US">
-            <Text>[NEWLINE]  DLC: Ethiopia Pack</Text>
+            <Text>[NEWLINE]  [COLOR_MEDIUM_GREEN]DLC[ENDCOLOR]: Ethiopia Pack</Text>
         </Replace>
         <Replace Tag="LOC_DLC_BYZANTIUM_TT" Language="en_US">
-            <Text>[NEWLINE]  DLC: Byzantium and Gaul Pack</Text>
+            <Text>[NEWLINE]  [COLOR_MEDIUM_GREEN]DLC[ENDCOLOR]: Byzantium and Gaul Pack</Text>
         </Replace>
         <Replace Tag="LOC_DLC_BABYLON_STK_TT" Language="en_US">
-            <Text>[NEWLINE]  DLC: Babylon Pack</Text>
+            <Text>[NEWLINE]  [COLOR_MEDIUM_GREEN]DLC[ENDCOLOR]: Babylon Pack</Text>
         </Replace>
         <Replace Tag="LOC_DLC_VIETNAM_TT" Language="en_US">
-            <Text>[NEWLINE]  DLC: Vietnam and Kublai Khan Pack</Text>
+            <Text>[NEWLINE]  [COLOR_MEDIUM_GREEN]DLC[ENDCOLOR]: Vietnam and Kublai Khan Pack</Text>
         </Replace>
         <Replace Tag="LOC_DLC_PORTUGAL_TT" Language="en_US">
-            <Text>[NEWLINE]  DLC: Portugal Pack</Text>
+            <Text>[NEWLINE]  [COLOR_MEDIUM_GREEN]DLC[ENDCOLOR]: Portugal Pack</Text>
         </Replace>
         <Replace Tag="LOC_XP1_TT" Language="en_US">
-            <Text>[NEWLINE]  Expansion: Rise and Fall</Text>
+            <Text>[NEWLINE]  [COLOR:72,39,111,255]Expansion[ENDCOLOR]: Rise and Fall</Text>
         </Replace>
         <Replace Tag="LOC_XP2_TT" Language="en_US">
-            <Text>[NEWLINE]  Expansion: Gathering Storm</Text>
+            <Text>[NEWLINE]  [COLOR:72,39,111,255]Expansion[ENDCOLOR]: Gathering Storm</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_TT" Language="en_US">
-            <Text>[NEWLINE]  Mod: Enhanced Goodies and Hostile Villagers</Text>
+            <Text>[NEWLINE]  [COLOR_Blue]Mod[ENDCOLOR]: Enhanced Goodies and Hostile Villagers</Text>
         </Replace>
         <Replace Tag="LOC_ENWS_TT" Language="en_US">
-            <Text>[NEWLINE]  Mod: Enhanced Natural Wonders Selection</Text>
+            <Text>[NEWLINE]  [COLOR_Blue]Mod[ENDCOLOR]: Enhanced Natural Wonders Selection</Text>
         </Replace>
         <!-- dummy tags -->
         <Replace Tag="LOC_EGHV_GOODYHUT_DUMMY_CONFIG_NAME" Language="en_US">
