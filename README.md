@@ -126,6 +126,7 @@ To update to a newer release, clone or download the latest release as described 
 If your mod alters any _existing_ Goody Hut (sub)types, unless it is also using a ludicrously high load order to apply these changes, they will likely be overwritten by EGHV due to its ridiculously high load order. Conflicts __will__ arise _regardless of relative load order_ if these alterations deviate substantially from those of EGHV.
 
 EGHV adds the following custom table(s) to the game's Configuration database:
+- ContentFlags
 - TribalVillages
 
 If your mod uses any similarly-named tables, conflicts _may_ arise.
