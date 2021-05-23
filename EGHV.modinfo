@@ -1187,6 +1187,14 @@
 			<File>EGHV/Localization/es_ES/Frontend_Text.xml</File>
 			<File>EGHV/Localization/fr_FR/Frontend_Text.xml</File>
 		</UpdateText>
+		<UpdateText id="EGHV_WGH_FRONTEND_TEXT">
+			<Properties>
+        		<LoadOrder>1010102</LoadOrder>
+      		</Properties>
+			<File>EGHV/Localization/en_US/Frontend_WondrousGoodyHuts_Text.xml</File>
+			<!-- <File>EGHV/Localization/es_ES/Frontend_WondrousGoodyHuts_Text.xml</File> -->
+			<!-- <File>EGHV/Localization/fr_FR/Frontend_WondrousGoodyHuts_Text.xml</File> -->
+		</UpdateText>
 		<ImportFiles id="EGHV_FRONTEND_LUA">
 			<Properties>
         		<LoadOrder>1010141</LoadOrder>
@@ -1198,6 +1206,7 @@
 				<File>EGHV/UI/Replacements/AdvancedSetup.lua</File>
 				<File>EGHV/UI/Replacements/AdvancedSetup.xml</File>
 				<File>EGHV/UI/Replacements/GameSetupLogic.lua</File>
+				<File>EGHV/UI/Replacements/Mods.lua</File>
 				<File>EGHV/UI/Replacements/Multiplayer/HostGame.lua</File>
 				<File>EGHV/UI/Replacements/Multiplayer/HostGame.xml</File>
 			</Items>
@@ -1332,14 +1341,17 @@
 		<File>EGHV/Scripts/HostileVillagers.lua</File>
 
 		<File>EGHV/Localization/en_US/Frontend_Text.xml</File>
+		<File>EGHV/Localization/en_US/Frontend_WondrousGoodyHuts_Text.xml</File>
 		<File>EGHV/Localization/en_US/Ingame_Text.xml</File>
 		<File>EGHV/Localization/en_US/Ingame_XP2_Text.xml</File>
 
 		<File>EGHV/Localization/es_ES/Frontend_Text.xml</File>
+		<!-- <File>EGHV/Localization/es_ES/Frontend_WondrousGoodyHuts_Text.xml</File> -->
 		<File>EGHV/Localization/es_ES/Ingame_Text.xml</File>
 		<File>EGHV/Localization/es_ES/Ingame_XP2_Text.xml</File>
 
 		<File>EGHV/Localization/fr_FR/Frontend_Text.xml</File>
+		<!-- <File>EGHV/Localization/fr_FR/Frontend_WondrousGoodyHuts_Text.xml</File> -->
 		<File>EGHV/Localization/fr_FR/Ingame_Text.xml</File>
 		<File>EGHV/Localization/fr_FR/Ingame_XP2_Text.xml</File>
 
@@ -1348,6 +1360,7 @@
 		<File>EGHV/UI/Replacements/AdvancedSetup.lua</File>
 		<File>EGHV/UI/Replacements/AdvancedSetup.xml</File>
 		<File>EGHV/UI/Replacements/GameSetupLogic.lua</File>
+		<File>EGHV/UI/Replacements/Mods.lua</File>
 		<File>EGHV/UI/Replacements/Multiplayer/HostGame.lua</File>
 		<File>EGHV/UI/Replacements/Multiplayer/HostGame.xml</File>
 
