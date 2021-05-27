@@ -1177,12 +1177,16 @@
 				<LoadOrder>-42</LoadOrder>
 			</Properties>
 			<!-- Configuration schema changes -->
+			<File Priority="2">C6GUE/Configuration/Schema.sql</File>
 			<File Priority="2">EGHV/Configuration/Schema.sql</File>
 		</UpdateDatabase>
 		<UpdateText id="EGHV_FRONTEND_TEXT">
 			<Properties>
         		<LoadOrder>1010101</LoadOrder>
       		</Properties>
+			<File>C6GUE/Localization/en_US/Common_Frontend_Text.xml</File>
+			<File>C6GUE/Localization/es_ES/Common_Frontend_Text.xml</File>
+			<File>C6GUE/Localization/fr_FR/Common_Frontend_Text.xml</File>
 			<File>EGHV/Localization/en_US/Frontend_Text.xml</File>
 			<File>EGHV/Localization/es_ES/Frontend_Text.xml</File>
 			<File>EGHV/Localization/fr_FR/Frontend_Text.xml</File>
@@ -1192,23 +1196,23 @@
         		<LoadOrder>1010102</LoadOrder>
       		</Properties>
 			<File>EGHV/Localization/en_US/Frontend_WondrousGoodyHuts_Text.xml</File>
-			<!-- <File>EGHV/Localization/es_ES/Frontend_WondrousGoodyHuts_Text.xml</File> -->
-			<!-- <File>EGHV/Localization/fr_FR/Frontend_WondrousGoodyHuts_Text.xml</File> -->
+			<File>EGHV/Localization/es_ES/Frontend_WondrousGoodyHuts_Text.xml</File>
+			<File>EGHV/Localization/fr_FR/Frontend_WondrousGoodyHuts_Text.xml</File>
 		</UpdateText>
 		<ImportFiles id="EGHV_FRONTEND_LUA">
 			<Properties>
         		<LoadOrder>1010141</LoadOrder>
       		</Properties>
 			<Items>
-				<File>EGHV/Scripts/C6GUE_Common.lua</File>
+				<!-- <File>EGHV/Scripts/C6GUE_Common.lua</File> -->
 				<File>EGHV/UI/Additions/GoodyHutPicker.lua</File>
 				<File>EGHV/UI/Additions/GoodyHutPicker.xml</File>
-				<File>EGHV/UI/Replacements/AdvancedSetup.lua</File>
-				<File>EGHV/UI/Replacements/AdvancedSetup.xml</File>
-				<File>EGHV/UI/Replacements/GameSetupLogic.lua</File>
-				<File>EGHV/UI/Replacements/Mods.lua</File>
-				<File>EGHV/UI/Replacements/Multiplayer/HostGame.lua</File>
-				<File>EGHV/UI/Replacements/Multiplayer/HostGame.xml</File>
+				<File>C6GUE/UI/Replacements/AdvancedSetup.lua</File>
+				<File>C6GUE/UI/Replacements/AdvancedSetup.xml</File>
+				<File>C6GUE/UI/Replacements/GameSetupLogic.lua</File>
+				<File>C6GUE/UI/Replacements/Mods.lua</File>
+				<File>C6GUE/UI/Replacements/Multiplayer/HostGame.lua</File>
+				<File>C6GUE/UI/Replacements/Multiplayer/HostGame.xml</File>
 			</Items>
 		</ImportFiles>
 		<UpdateDatabase id="EGHV_FRONTEND">
@@ -1250,6 +1254,20 @@
 		</Text>
 	</LocalizedText>
 	<Files>
+
+		<File>C6GUE/Configuration/Schema.sql</File>
+
+		<File>C6GUE/Localization/en_US/Common_Frontend_Text.xml</File>
+		<File>C6GUE/Localization/es_ES/Common_Frontend_Text.xml</File>
+		<File>C6GUE/Localization/fr_FR/Common_Frontend_Text.xml</File>
+
+		<File>C6GUE/UI/Replacements/AdvancedSetup.lua</File>
+		<File>C6GUE/UI/Replacements/AdvancedSetup.xml</File>
+		<File>C6GUE/UI/Replacements/GameSetupLogic.lua</File>
+		<File>C6GUE/UI/Replacements/Mods.lua</File>
+
+		<File>C6GUE/UI/Replacements/Multiplayer/HostGame.lua</File>
+		<File>C6GUE/UI/Replacements/Multiplayer/HostGame.xml</File>
 
 		<File>EGHV/Configuration/Frontend.sql</File>
 		<File>EGHV/Configuration/Schema.sql</File>
@@ -1336,9 +1354,6 @@
 		<File>EGHV/Gameplay/GoodyHutDistribution/450.sql</File>
 		<File>EGHV/Gameplay/GoodyHutDistribution/475.sql</File>
 		<File>EGHV/Gameplay/GoodyHutDistribution/500.sql</File>
-		
-		<File>EGHV/Scripts/C6GUE_Common.lua</File>
-		<File>EGHV/Scripts/HostileVillagers.lua</File>
 
 		<File>EGHV/Localization/en_US/Frontend_Text.xml</File>
 		<File>EGHV/Localization/en_US/Frontend_WondrousGoodyHuts_Text.xml</File>
@@ -1346,23 +1361,20 @@
 		<File>EGHV/Localization/en_US/Ingame_XP2_Text.xml</File>
 
 		<File>EGHV/Localization/es_ES/Frontend_Text.xml</File>
-		<!-- <File>EGHV/Localization/es_ES/Frontend_WondrousGoodyHuts_Text.xml</File> -->
+		<File>EGHV/Localization/es_ES/Frontend_WondrousGoodyHuts_Text.xml</File>
 		<File>EGHV/Localization/es_ES/Ingame_Text.xml</File>
 		<File>EGHV/Localization/es_ES/Ingame_XP2_Text.xml</File>
 
 		<File>EGHV/Localization/fr_FR/Frontend_Text.xml</File>
-		<!-- <File>EGHV/Localization/fr_FR/Frontend_WondrousGoodyHuts_Text.xml</File> -->
+		<File>EGHV/Localization/fr_FR/Frontend_WondrousGoodyHuts_Text.xml</File>
 		<File>EGHV/Localization/fr_FR/Ingame_Text.xml</File>
 		<File>EGHV/Localization/fr_FR/Ingame_XP2_Text.xml</File>
+		
+		<!-- <File>EGHV/Scripts/C6GUE_Common.lua</File> -->
+		<File>EGHV/Scripts/HostileVillagers.lua</File>
 
 		<File>EGHV/UI/Additions/GoodyHutPicker.lua</File>
 		<File>EGHV/UI/Additions/GoodyHutPicker.xml</File>
-		<File>EGHV/UI/Replacements/AdvancedSetup.lua</File>
-		<File>EGHV/UI/Replacements/AdvancedSetup.xml</File>
-		<File>EGHV/UI/Replacements/GameSetupLogic.lua</File>
-		<File>EGHV/UI/Replacements/Mods.lua</File>
-		<File>EGHV/UI/Replacements/Multiplayer/HostGame.lua</File>
-		<File>EGHV/UI/Replacements/Multiplayer/HostGame.xml</File>
 
 		<File>EGHV/Community/WondrousGoodyHuts/WondrousGoodyHuts.sql</File>
 
