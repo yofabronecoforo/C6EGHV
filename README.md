@@ -5,8 +5,6 @@ A mod that provides a picker for choosing which Goody Hut reward(s), if any, hav
 New Frontend and Ingame text fully localized in the following language(s):
 - English (en_US)
 - Spanish (es_ES)
-
-New Frontend and Ingame text partially localized in the following language(s):
 - French (fr_FR)
 
 # Features
