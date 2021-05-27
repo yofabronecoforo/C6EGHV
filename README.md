@@ -130,13 +130,12 @@ EGHV adds the following custom table(s) to the game's Configuration database:
 If your mod uses any similarly-named tables, conflicts _may_ arise.
 
 EGHV adds new item(s) to the following table(s) in the game's Gameplay database:
-
-* Types
-* GoodyHuts
-* GoodyHutSubTypes
-* GoodyHutSubTypes_XP2 *
-* Modifiers
-* ModifierArguments
+- Types
+- GoodyHuts
+- GoodyHutSubTypes
+- GoodyHutSubTypes_XP2 *
+- Modifiers
+- ModifierArguments
 
 [ * ] Requires the Gathering Storm expansion
 
@@ -150,10 +149,10 @@ EGHV replaces the following existing Frontend context file(s):
 - HostGame.lua and HostGame.xml
 - Mods.lua
 
-In addition, it adds the following new FrontEnd context file(s):
+EGHV adds the following new Frontend context file(s):
 - GoodyHutPicker.lua and GoodyHutPicker.xml
 
-If your mod replaces any of these existing files, or adds any similarly-named new ones, compatibility issues **will** arise.
+If your mod replaces any of the above existing files, or adds any similarly-named new ones, compatibility issues **will** arise.
 
 # Special Thanks
 This mod would not exist in its current form without any of the following:
