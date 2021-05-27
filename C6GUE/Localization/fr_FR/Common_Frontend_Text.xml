@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--==========================================================================
+	C6GUE : Gameplay and Usability Enhancements for Civilization VI
+	Copyright (C) 2020-2021 zzragnar0kzz
+	All rights reserved
+===========================================================================-->
+<!-- C6GUE common localized frontend text for fr_FR -->
+<GameData>
+	<LocalizedText>
+		<!-- button labels for picker window(s) -->
+		<Replace Tag="LOC_SELECTION_NOTHING" Language="fr_FR">
+			<Text>Aucune sélection</Text>
+		</Replace>
+		<Replace Tag="LOC_SELECTION_EVERYTHING" Language="fr_FR">
+			<Text>Tous disponibles ({1_Count})</Text>
+		</Replace>
+		<Replace Tag="LOC_SELECTION_CUSTOM" Language="fr_FR">
+			<Text>Sélection personnalisée ({1_Count})</Text>
+		</Replace>
+		<!-- dynamic tooltip text which reflects available content source(s) in known picker(s) -->
+        <Replace Tag="LOC_STANDARD_TT" Language="fr_FR">
+            <Text>[NEWLINE]Contenu disponible:[NEWLINE]  Standard</Text>
+        </Replace>
+        <Replace Tag="LOC_DLC_AZTEC_TT" Language="fr_FR">
+            <Text>[NEWLINE]  [COLOR_MEDIUM_GREEN]DLC[ENDCOLOR]: Pack civilisation aztèque</Text>
+        </Replace>
+        <Replace Tag="LOC_DLC_POLAND_TT" Language="fr_FR">
+            <Text>[NEWLINE]  [COLOR_MEDIUM_GREEN]DLC[ENDCOLOR]: Pack civilisation et scénario de la Pologne</Text>
+        </Replace>
+        <Replace Tag="LOC_DLC_VIKINGS_TT" Language="fr_FR">
+            <Text>[NEWLINE]  [COLOR_MEDIUM_GREEN]DLC[ENDCOLOR]: Pack de scénarios Vikings</Text>
+        </Replace>
+        <Replace Tag="LOC_DLC_AUSTRALIA_TT" Language="fr_FR">
+            <Text>[NEWLINE]  [COLOR_MEDIUM_GREEN]DLC[ENDCOLOR]: Pack Civilisation Australienne et Scénario</Text>
+        </Replace>
+        <Replace Tag="LOC_DLC_PERSIA_TT" Language="fr_FR">
+            <Text>[NEWLINE]  [COLOR_MEDIUM_GREEN]DLC[ENDCOLOR]: Pack de civilisations et de scénarios de la Perse et de la Macédoine</Text>
+        </Replace>
+        <Replace Tag="LOC_DLC_NUBIA_TT" Language="fr_FR">
+            <Text>[NEWLINE]  [COLOR_MEDIUM_GREEN]DLC[ENDCOLOR]: Pack civilisation et scénario de la Nubie</Text>
+        </Replace>
+        <Replace Tag="LOC_DLC_KHMER_TT" Language="fr_FR">
+            <Text>[NEWLINE]  [COLOR_MEDIUM_GREEN]DLC[ENDCOLOR]: Pack civilisations et scénarios khmers et indonésiens</Text>
+        </Replace>
+        <Replace Tag="LOC_DLC_MAYA_TT" Language="fr_FR">
+            <Text>[NEWLINE]  [COLOR_MEDIUM_GREEN]DLC[ENDCOLOR]: Gran Colombia et Maya Pack</Text>
+        </Replace>
+        <Replace Tag="LOC_DLC_ETHIOPIA_TT" Language="fr_FR">
+            <Text>[NEWLINE]  [COLOR_MEDIUM_GREEN]DLC[ENDCOLOR]: Pack Éthiopie</Text>
+        </Replace>
+        <Replace Tag="LOC_DLC_BYZANTIUM_TT" Language="fr_FR">
+            <Text>[NEWLINE]  [COLOR_MEDIUM_GREEN]DLC[ENDCOLOR]: Pack Byzance et Gaule</Text>
+        </Replace>
+        <Replace Tag="LOC_DLC_BABYLON_STK_TT" Language="fr_FR">
+            <Text>[NEWLINE]  [COLOR_MEDIUM_GREEN]DLC[ENDCOLOR]: Pack Babylone</Text>
+        </Replace>
+        <Replace Tag="LOC_DLC_VIETNAM_TT" Language="fr_FR">
+            <Text>[NEWLINE]  [COLOR_MEDIUM_GREEN]DLC[ENDCOLOR]: Pack Vietnam et Kublai Khan</Text>
+        </Replace>
+        <Replace Tag="LOC_DLC_PORTUGAL_TT" Language="fr_FR">
+            <Text>[NEWLINE]  [COLOR_MEDIUM_GREEN]DLC[ENDCOLOR]: Pack Portugal</Text>
+        </Replace>
+        <Replace Tag="LOC_XP1_TT" Language="fr_FR">
+            <Text>[NEWLINE]  [COLOR:72,39,111,255]Expansion[ENDCOLOR]: Rise and Fall</Text>
+        </Replace>
+        <Replace Tag="LOC_XP2_TT" Language="fr_FR">
+            <Text>[NEWLINE]  [COLOR:72,39,111,255]Expansion[ENDCOLOR]: Gathering Storm</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_TT" Language="fr_FR">
+            <Text>[NEWLINE]  [COLOR_Blue]Mod[ENDCOLOR]: Goodies améliorés et villageois hostiles</Text>
+        </Replace>
+        <Replace Tag="LOC_ENWS_TT" Language="fr_FR">
+            <Text>[NEWLINE]  [COLOR_Blue]Mod[ENDCOLOR]: Sélection améliorée de merveilles naturelles</Text>
+        </Replace>
+    </LocalizedText>
+</GameData>
