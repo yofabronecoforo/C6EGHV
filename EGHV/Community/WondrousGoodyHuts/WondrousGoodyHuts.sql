@@ -11,7 +11,7 @@
 
 /* ###########################################################################
     add an entry for this mod to table ContentFlags
-		Id and Name are user-selectable strings
+		Id and Name are user-selectable strings; they are only used internally by EGHV
 		GUID is the mod's id from its .modinfo file
 		Tooltip is the tag for the localized text to appear in select tooltips when this mod is enabled
 		numeric values for the following column(s) indicate specifc content provided by the mod:
@@ -28,7 +28,8 @@ SELECT 'WGH', 'WondrousGoodyHuts', '2d90451f-08c9-47de-bce8-e9b7fdecbe92', 0, 1,
 
 /* ###########################################################################
     Goody Hut picker configuration : StandardGoodyHuts
-	these queries will be ignored when WondrousGoodyHuts is not enabled
+	these queries will FAIL when WondrousGoodyHuts is not enabled
+		this behavior is expected, and related errors in the log(s) can be safely ignored
 ########################################################################### */
 
 -- random resource
