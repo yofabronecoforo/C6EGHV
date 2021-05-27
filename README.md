@@ -66,9 +66,19 @@ What's that? "Not masochistic enough!" you say? Then how about a new reward type
 Finally, to compensate for the increased numbers of barbarian units that are likely to be present now, the experience and level caps from fighting such units have been increased. You still aren't going to get a fully-promoted unit from fighting barbarians, but at least you'll be able to get more than a single promotion.
 
 ## Advanced Setup
-Provides an option in Advanced Setup which, when enabled, will prevent hostile villagers from appearing after a reward. Enabling this option, while also disabling the "Hostile Villagers" reward type via the picker, will remove any chance of encountering hostile villagers entirely. Enabling 'No Barbarians' will override these new options and will also remove any chance of encountering hostile villagers; the tooltip for this option has been updated to reflect this.
+Provides an option in Advanced Setup to select whether Hostile Villagers may appear following any other Goody Hut reward. Available choices are:
+- Never (hostile villagers will NOT appear)
+- Maybe ( * this is the default option; a chance for hostile villagers to appear, as described above)
+- Always (hostile villagers will ALWAYS appear; their hostility level will be as described above)
+- Always + Increased Hostility (hostile villagers will ALWAYS appear, and their hostility level will be hyper-elevated)
 
-Provides an option in Advanced Setup to equalize the chances of receiving all Goody Hut rewards. When enabled, most known individual rewards will have an equal chance of appearing, and for the purposes of spawning Hostile Villagers, they will be assigned to rarity Tier 1.
+Setting this option to 'Never', while also disabling the 'Hostile Villagers' reward type via the picker, will remove any chance of encountering hostile villagers entirely.
+
+Provides an option in Advanced Setup to equalize the chances most known Goody Hut rewards have of appearing. When enabled, most known individual rewards will have an equal chance of appearing, and for the purposes of spawning Hostile Villagers, they will be assigned to rarity Tier 1.
+
+Enabling 'No Barbarians' will override these new options, and will also remove any chance of encountering hostile villagers; the tooltip for this option has been updated to reflect this.
+
+Enabling 'No Tribal Villages' will override any selections made with the Goody Hut picker. It will also override any other Goody-Hut-related values; the tooltip for this option has been updated to reflect this.
 
 # Compatibility
 ## SP / MP
