@@ -113,7 +113,7 @@ Should work with other mods that add new Goody Hut (sub)types, with the followin
 - Most rewards which EGHV does NOT recognize will be assigned a rarity value of 6 for purposes of determining hostile spawn chance and/or villager hostility level. Exceptions to this include most rewards which are the only subtype within their parent type; these require additional tuning.
 - Any rewards which EGHV does NOT recognize will **NOT** appear in the Goody Hut picker; these must be configured and recognized to do so. If you would like any Goody Huts provided by a particular community project to be reflected within the picker when said project is enabled, please open an issue with the project details, and it will be considered.
 - Note that taken together, the above means EGHV has no interaction with unrecognized Goody Hut rewards beyond potentially spawning hostile villagers after receiving such a reward.
-- New Goody Hut rewards provided by recognized content will appear in the Goody Hut picker when enabled, and disabling any of these rewards via the picker will eliminate their chances of appearing ingame. Currently, the following community projects are recognized by EGHV:
+- New Goody Hut rewards provided by recognized content will appear in the Goody Hut picker when enabled, and disabling any of these rewards via the picker will eliminate their chances of appearing ingame. Currently, in addition to official content and C6GUE components, the following community project(s) provide content recognized by EGHV:
   - Wondrous Goody Huts
 
 See the Conflicts section below for exceptions.
