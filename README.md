@@ -1,6 +1,14 @@
 # Enhanced Goodies and Hostile Villagers for Civilization VI
 
-A mod that provides a picker for choosing which Goody Hut reward(s), if any, have a chance of appearing ingame. It also provides a slider for decreasing or increasing the relative amount of Goody Huts that will appear. In addition, it provides several other new Goody Hut customization options, and many new Goody Hut rewards. Finally, Hostile Villagers as (and now, potentially following) a reward make their return.
+A mod that provides a fairly comprehensive extension to the Tribal Village rewards system. Many new Frontend options relating to Goody Huts are available, including:
+- A picker for choosing which Goody Hut reward(s), if any, have a chance of appearing ingame.
+- A slider for decreasing or increasing the relative amount of Goody Huts that will appear.
+- A dropdown menu for selecting an amount of possible bonus reward(s) in addition to the usual reward from a Goody Hut.
+- A checkbox flag for equalizing the chances of receiving all enabled reward(s).
+
+In addition, the number of available Goody Hut rewards has been nearly tripled (now 60 with Gathering Storm, compared to 23).
+
+Finally, Hostile Villagers as (and now, potentially following) a reward make their return.
 
 New Frontend and Ingame text fully localized in the following language(s):
 - English (en_US)
