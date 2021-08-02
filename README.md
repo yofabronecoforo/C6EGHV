@@ -16,62 +16,84 @@ New Frontend and Ingame text fully localized in the following language(s):
 - French (fr_FR)
 
 # Features
-## Goody Hut Picker and Distribution Slider
+## Reward Picker
 Provides a new picker window for selecting the specific Goody Hut reward(s) that can appear, available in the game's Advanced Setup. Available selections in the picker will vary by the selected ruleset and/or compatible enabled content, and can be sorted by Name (the specific reward) or by Type (the parent category of the reward). Disabling all available reward(s) will cause the "No Goody Huts" game option to be implicitly enabled.
 
 The tooltip for the Goody Hut picker reflects the source(s) of its content based on the selected ruleset and/or any currently available known content; it will dynamically update to reflect any changes to known content after launch. Its button text reflects the total amount of available items(s) when all items in the picker are selected.
 - This functionality extends to the built-in City-States, Leaders, and Natural Wonders pickers.
 
+## Goody Hut Distribution Slider
 Provides a slider for decreasing or increasing the relative amount of Goody Huts that will appear on the selected map; this slider defaults to 100%, and adjusts in steps of 25% in a range of 25% - 500%, inclusive. This slider also appears in the picker window.
 
 ## Goody Huts
-Most types now have six possible rewards. To accommodate this, existing rewards have been enabled, disabled, and/or moved to other types, and have had their chances of occurring balanced against new rewards. Currently, rarity tiers and the corresponding frequencies and weights for most types are as follows:
+Existing built-in rewards have been enabled, disabled, and/or moved to other types, and have had their chances of occurring balanced against new rewards as follows:
+- The "one free relic" reward is now a Faith-type reward.
+- The defined-but-disabled "one free settler" reward has been enabled. 
+- The "heal unit" reward has been disabled because it is lame.
+- The "unit experience" reward has been disabled and replaced.
+- The defined-but-disabled "upgrade unit" reward remains disabled; this is unlikely to change because it does not work correctly.
+- If Gathering Storm is present, all of the rewards it provides have been disabled and replaced.
 
-Rarity | Tier 6 | Tier 5 | Tier 4 | Tier 3 | Tier 2 | Tier 1
------- | ------ | ------ | ------ | ------ | ------ | ------
-Frequency | 28.6% | 23.8% | 19.0% | 14.3% | 9.5% | 4.8%
-Weight | 60 | 50 | 40 | 30 | 20 | 10
+New rewards have been added in both new and existing categories. Available rewards are now as follows:
 
-Most types retain at least their original common and uncommon rewards, which are now their Tier 6 and Tier 5 rewards. Most types also retain their original rare rewards, which are now their Tier 4 rewards.
-
-The "one free relic" reward is now a Faith-type reward, and is Tier 3. The defined-but-disabled "one free settler" reward has been enabled, and is now the Tier 3 Survivors-type reward. 
-
-The "heal unit" reward has been disabled because it is lame. The defined-but-disabled "upgrade unit" reward remains disabled; this is unlikely to change.
-
-New rewards have been added where necessary to fill out all types to at least six possible rewards; for Military-type, the "grant scout" reward has been split into several rewards which each grant a different unit type, and other new rewards have been added to bring the total to twelve. Available rewards are now as follows:
-
-Goody Hut | Tier 6 | Tier 5 | Tier 4 | Tier 3 | Tier 2 | Tier 1
---------- | ------ | ------ | ------ | ------ | ------ | ------
-Culture | 1 civics boost | 2 civics boosts | 1 free civic | 2 free civics | +2 culture per turn in all cities | +10% culture per turn in all cities
-Diplomacy * | 20 favor | 1 free envoy | 1 free governor title | 2 free envoys | 2 free governor titles | +3 favor per turn
-Faith | 20 faith | 60 faith | 100 faith | 1 free relic | +2 faith per turn in all cities | +10% faith per turn in all cities
-Gold | 40 gold | 80 gold | 120 gold | +1 trade route | +4 gold per turn in all cities | +10% gold per turn in all cities
-Military | grant experience -OR- grant resources ** | 1 free scout -OR- 1 free warrior | 1 free slinger -OR- 1 free spearman | 1 free horseman -OR- 1 free heavy chariot | 1 free medic -OR- 1 free military engineer | +2 production per turn in all cities -OR- +10% production per turn in all cities
-Science | 1 tech boost | 2 tech boosts | 1 free tech | 2 free techs | +2 science per turn in all cities | +10% science per turn in all cities
-Survivors | +1 population in nearest city | 1 free builder | 1 free trader | 1 free settler | +2 food per turn in all cities | +10% food per turn in all cities
-
-* [ * ] Requires the Gathering Storm expansion.
-* [ ** ] Requires the Gathering Storm expansion. When present each Tier 6 reward has an equal chance of occurring; when not present, grant experience will be the only reward in this tier.
+Goody Hut (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
+--------- | ------ | ------ | ------ | ------
+Abilities | +1 sight | +20 healing per turn | +1 movement | +10 combat strength
+(Anti) Cavalry | 1 free spearman (50) | 1 free heavy chariot (25) | 1 free horseman (25)
+Culture | 1 civics boost | 2 civics boosts | 1 free civic | 2 free civics
+Diplomacy ** | 10 favor | 20 favor | 30 favor | 50 favor
+Envoys | 1 free envoy | 2 free envoys | 3 free envoys | 4 free envoys
+Faith | 20 faith | 60 faith | 100 faith | 1 free relic
+Gold | 40 gold | 80 gold | 120 gold | +1 trade route
+Governors * | 1 free governor title | 2 free governor titles | 3 free governor titles | 4 free governor titles
+Hostiles | low hostility | medium hostility | high hostility | maximum hostility
+Meteor ** | meteor-strike site (100)
+Military | 1 free recon unit (55) | 1 free melee unit (25) | 1 free ranged unit (20)
+Promotions | 10 experience | 20 experience | 30 experience | 50 experience
+Resources ** | +10 strategic resources | +20 strategic resources | +30 strategic resources | +50 strategic resources
+Secrets | unlock villager secrets (100)
+Science | 1 tech boost | 2 tech boosts | 1 free tech | 2 free techs
+Support | 1 free battering ram | 1 free catapult | 1 free military engineer | 1 free medic
+Survivors | +1 population | 1 free builder | 1 free trader | 1 free settler
+* [ * ] Requires the Rise and Fall expansion.
+* [ ** ] Requires the Gathering Storm expansion.
 
 Minimum-turn requirements have been set to 0 for all __defined__ rewards, meaning that all such rewards will be available from turn 1 on.
 
-* There is a known issue where receiving the "2 free civics" reward prior to unlocking the Code of Laws civic results in only receiving 1 free civic, which will be Code of Laws. As this is only really a problem during turns 1-20, I am currently inclined to leave it alone.
+There is a known issue where receiving the "2 free civics" reward prior to unlocking the Code of Laws civic results in only receiving 1 free civic, which will be Code of Laws. As this is only really a problem during turns 1-20, I am currently inclined to leave it alone.
+
+The "grant catapult" reward currently does not work if the Player does not possess the prerequisite technology. This is weird, because none of the other specific individual unit rewards have a similar limitation.
+
+The Villager Secrets reward can only be awarded to a Player a certain number of times before becoming useless. If this reward is received, and this limit has been reached for the Player, a new reward will be randomly seleted instead.
+
+The unit Ability rewards apply to any valid unit(s) in formation with the popping unit, as well as the popping unit. These rewards apply to each valid unit up to one time for the lifetime of each unit. For example, a Builder or Settler can and will receive increased movement once, but not additional combat strength.
+
+Units provided by Military type rewards will be Era-specific; units provided by (Anti) Cavalry and Support type rewards will not. Most of the other new rewards above are self-explanatory. The various Hostile Villagers and Villager Secrets rewards will be described in detail further below.
+
+## Bonus Rewards
+Provides a dropdown menu for selecting the total number of potential reward(s) to receive from each Goody Hut. At the default setting of 1, nothing changes. With any of the "up to X" settings, X total rewards will be received from each Goody Hut, with any additional rewards beyond the first randomly selected using a hokey custom method. In certain circumstances, fewer than X rewards will be received; these include:
+- When any Hostile Villagers reward is selected as a reward, whether it's the first or a bonus reward. When this happens, it will be the last reward granted by this Goody Hut; if it is the first reward, it will be the only reward.
+
+## Equalized Reward Chances
+Provides a checkbox option which, when enabled, assigns every enabled reward in a category an equal share of that category's Weight. This results in all enabled rewards having a roughly equal chance of being selected.
 
 ## Hostile Villagers
-Whenever a reward is earned from a Goody Hut, there is a chance that some of the villagers will be displeased that their tribe treated with outsiders. This chance fluctuates based on several factors:
+Except for the meteor strike in Gathering Storm, whenever a reward is earned from a Goody Hut, there is a chance that some of the villagers will be displeased that their tribe treated with outsiders. This chance fluctuates based on several factors:
 
-* the selected difficulty level (base chance increases with higher settings)
-* the type of unit that popped the hut (increased chance when this is not a civilian or recon-class unit)
-* the rarity tier of the reward (chance increases with more valuable rewards)
-* the current game era (increased chance with each successive era)
+* The selected difficulty level (Base chance increases with higher settings)
+* The type of unit that popped the hut (Increased chance with a reward received via border expansion or by a unit susceptible to instant removal like capture, condemnation, plunder, or return to another tile; decreased chance with most non-recon military units)
+* The rarity tier of any received reward(s) (Chance increases with more valuable rewards. If bonus rewards are enabled, the cumulative value of all received rewards will be used; this can either have very little effect or it can seriously wreck your day, depending on how many rewards were received and how rare each was)
+* The current game era (Increased chance with each successive era)
 
-On the default difficulty setting, in the Ancient era, a recon or civilian unit popping a hut has a 5-10% chance of encountering hostile villagers. This chance increases to 7-12% for other units. These scale with each successive era, so that in the Future era, they will be 45-90% and 63-108%, respectively. On the lowest difficulty setting, these chances should start at 2-7% and 3-8% in the Ancient era, and scale from there. On the highest difficulty setting, they should start at 9-14% and 13-18%, and scale from there. Thus, late enough in the game, and with rare enough rewards, encountering hostile villagers is no longer a chance, but instead becomes a guarantee.
+On the default difficulty setting, in the Ancient era, with one reward, there should be a 5-16% chance of encountering hostile villagers, depending on the received reward and the method in which it was received. This chance scales with each successive era, so that in the Future era, it will be 45-144%. On the lowest difficulty setting, the chance should start at 2-7% in the Ancient era, and scale from there. On the highest difficulty setting, the chancce should start at 9-28%, and scale from there. If bonus rewards are enabled, these chances increase slightly based upon the rarity of each reward received beyond the first. Thus, late enough in the game, and with sufficient quantity of and/or rare enough rewards, encountering hostile villagers is no longer a chance, but instead becomes a guarantee.
 
-If the villagers are hostile, they will retaliate by organizing into one barbarian melee unit. If they are very hostile, more than one unit will appear. If they are downright pissed off, they will organize into a new barbarian camp near the site of their former village, and they will spawn a handful of units. Their hostility level greatly fluctuates based on the same factors as the chance to be hostile above, and like above, eventually multiple units, and even a camp, will move from being a chance to a guarantee.
+If the villagers are hostile, they will retaliate by organizing into one barbarian melee unit in a nearby tile. If they are very hostile, more than one unit will appear, and some will be ranged. If they are downright pissed off, they will organize into a new barbarian camp near the site of their former village, and they will spawn a handful of units. If Horses are located near the site of the former village, there is a chance that any unit(s) that appear may instead be mounted; this chance increases with more nearby sources of Horses. Villager hostility level greatly fluctuates based on the same factors as the chance to be hostile above, and like above, eventually multiple units, and even a camp, will move from being a chance to a guarantee.
 
-What's that? "Not masochistic enough!" you say? Then how about a new reward type that's nothing but hostile villagers? They won't even lure you in with the carrot before reaching for the stick, they just go straight for the stick, and the stick is pointy. This Hostiles-type reward is weighted similarly to other existing types; this means that there should be either a 1/7 or 1/8 chance of being the selected type, depending on whether or not the Gathering Storm expansion is present.
+What's that? "Not masochistic enough!" you say? Then how about a new reward type that's nothing but hostile villagers "rewards?" They won't even lure you in with the carrot before reaching for the stick, they just go straight for the stick, and the stick is pointy. When enabled, these rewards can be selected by the rewards system like any other reward, and have pre-determined villager hostility values, with the Common reward being low hostility. Hostility increases as rarity does; in fact, one of these rewards is selected internally after calculating villager hostility to place any hostiles that appear after any other reward.
 
 Finally, to compensate for the increased numbers of barbarian units that are likely to be present now, the experience and level caps from fighting such units have been increased. You still aren't going to get a fully-promoted unit from fighting barbarians, but at least you'll be able to get more than a single promotion.
+
+Hostile Villagers, both as and after a reward, are configurable via the picker and other Advanced Setup options.
 
 ## Advanced Setup
 Provides an option in Advanced Setup to select whether Hostile Villagers may appear following any other Goody Hut reward. Available choices are:
@@ -80,9 +102,7 @@ Provides an option in Advanced Setup to select whether Hostile Villagers may app
 - Always (hostile villagers will ALWAYS appear; their hostility level will be as described above)
 - Always + Increased Hostility (hostile villagers will ALWAYS appear, and their hostility level will be hyper-elevated)
 
-Setting this option to 'Never', while also disabling the 'Hostile Villagers' reward type via the picker, will remove any chance of encountering hostile villagers entirely.
-
-Provides an option in Advanced Setup to equalize the chances most known Goody Hut rewards have of appearing. When enabled, most known individual rewards will have an equal chance of appearing, and for the purposes of spawning Hostile Villagers, they will be assigned to rarity Tier 1.
+Setting this option to 'Never', while also disabling all 'Hostile Villagers' reward type(s) via the picker, will remove any chance of encountering hostile villagers entirely.
 
 Enabling 'No Barbarians' will override these new options, and will also remove any chance of encountering hostile villagers; the tooltip for this option has been updated to reflect this.
 
@@ -95,11 +115,9 @@ Compatible with Single- and Multi-Player game setups.
 ## Rulesets
 Compatible with the following rulesets:
 
-* Standard *
+* Standard
 * Rise and Fall
 * Gathering Storm
-
-[ * ] Works with Standard ruleset, but due to missing events and/or methods, the game era is less dynamic, and will instead change on predefined turns.
 
 ## Game Modes
 Compatible with the following game modes:
@@ -118,9 +136,8 @@ Has not been tested with the following game modes:
 
 ## Mods
 Should work with other mods that add new Goody Hut (sub)types, with the following caveats:
-- Most rewards which EGHV does NOT recognize will be assigned a rarity value of 6 for purposes of determining hostile spawn chance and/or villager hostility level. Exceptions to this include most rewards which are the only subtype within their parent type; these require additional tuning.
 - Any rewards which EGHV does NOT recognize will **NOT** appear in the Goody Hut picker; these must be configured and recognized to do so. If you would like any Goody Huts provided by a particular community project to be reflected within the picker when said project is enabled, please open an issue with the project details, and it will be considered.
-- Note that taken together, the above means EGHV has no interaction with unrecognized Goody Hut rewards beyond potentially spawning hostile villagers after receiving such a reward.
+- Note that the above means EGHV has no interaction with unrecognized Goody Hut rewards beyond potentially spawning hostile villagers after receiving such a reward.
 - New Goody Hut rewards provided by recognized content will appear in the Goody Hut picker when enabled, and disabling any of these rewards via the picker will eliminate their chances of appearing ingame. Currently, in addition to official content and C6GUE components, the following community project(s) provide content recognized by EGHV:
   - Wondrous Goody Huts
 
