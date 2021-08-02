@@ -126,7 +126,20 @@ Hostile Villagers as a reward are configurable via the picker. For Hostile Villa
 Setting this option to 'Never', while also disabling all 'Hostile Villagers' reward type(s) via the picker, will remove any chance of encountering hostile villagers entirely, whether as or after a reward.
 
 ## Villager Secrets
-This is a specialized reward which, when received, unlocks the ability for the receiving Player to build the Tribal Totem building. This building functions like a Monument, except it provides Amenities instead of Culture. This building can also be upgraded in a similar fashion to Walls: Each additional time this reward is received by the same Player, an improved version of the building will be unlocked, which provides +2 Gold and +1 Culture/Faith/Food/Production/Science in addition to its Amenities output (in Gathering Storm, it provides +1 Favor as well). The building can currently be upgraded in this way 5 times, with the additional yield modifiers stacking each time. This means that each Player can currently receive this reward a total of 6 times in a game before there are no further "secrets" to unlock and it becomes useless. When this happens, a new reward will be randomly selected to replace it, unless this is the only currently enabled reward, in which case nothing will happen.
+This is a specialized reward which, when received, unlocks the ability for the receiving Player to build the Tribal Totem building. This building functions like a Monument, except it provides Amenities instead of Culture. This building can also be upgraded. The second time this reward is received by the same Player, an improved version of the building will be unlocked, which provides additional yields (the initial unlock is level 0):
+
+Tribal Totem Yield Modifiers | Culture | Faith | Food | Gold | Production | Science | Favor **
+------- | ------- | ------- | ------- | ------- | ------- | ------- | -------
+Level 1 | +1 | +1 | +1 | +2 | +1 | +1 | +1
+
+These yields are in addition to its Amenities output. The building can currently be upgraded in this way 5 times, with the additional yield modifiers stacking each time; thus, at level 5 it will look like this:
+
+Tribal Totem Yield Modifiers | Culture | Faith | Food | Gold | Production | Science | Favor **
+------- | ------- | ------- | ------- | ------- | ------- | ------- | -------
+Level 1 | +5 | +5 | +5 | +10 | +5 | +5 | +5
+- [ ** ] Requires Gathering Storm
+
+This means that each Player can currently receive this reward a total of 6 times in a game before there are no further "secrets" to unlock and it becomes useless. When this happens, a new reward will be randomly selected to replace it, unless this is the only currently enabled reward, in which case nothing will happen.
 
 If Hostile Villagers after a reward are enabled, this reward will provoke a slightly more aggressive response than usual.
 
