@@ -115,7 +115,7 @@ What's that? "Not masochistic enough!" you say? Then how about a new reward type
 
 Any hostile villagers that appear as or after a reward will generate an ingame panel notification with details.
 
-Finally, to compensate for the increased numbers of barbarian units that are likely to be present now, the experience and level caps from fighting such units have been increased. You still aren't going to get a fully-promoted unit from fighting barbarians, but at least you'll be able to get more than a single promotion.
+To compensate for the increased numbers of barbarian units that are likely to be present now, the experience and level caps from fighting such units have been increased. You still aren't going to get a fully-promoted unit from fighting barbarians, but at least you'll be able to get more than a single promotion.
 
 Hostile Villagers as a reward are configurable via the picker. For Hostile Villagers after a reward, there is a new dropdown option in Advanced Setup to select the chances of an appearance following any other Goody Hut reward. Available choices are:
 - Never (hostile villagers will NOT appear)
@@ -136,7 +136,7 @@ These yields are in addition to its Amenities output. The building can currently
 
 Tribal Totem Yield Modifiers | Culture | Faith | Food | Gold | Production | Science | Favor **
 ------- | ------- | ------- | ------- | ------- | ------- | ------- | -------
-Level 1 | +5 | +5 | +5 | +10 | +5 | +5 | +5
+Level 5 | +5 | +5 | +5 | +10 | +5 | +5 | +5
 - [ ** ] Requires Gathering Storm
 
 This means that each Player can currently receive this reward a total of 6 times in a game before there are no further "secrets" to unlock and it becomes useless. When this happens, a new reward will be randomly selected to replace it, unless this is the only currently enabled reward, in which case nothing will happen.
