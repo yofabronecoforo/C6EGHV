@@ -59,23 +59,31 @@ Survivors | +1 population | 1 free builder | 1 free trader | 1 free settler
 * [ ** ] Requires the Gathering Storm expansion.
 
 Minimum-turn requirements have been set to 0 for all __defined__ rewards, meaning that all such rewards will be available from turn 1 on.
-
-There is a known issue where receiving the "2 free civics" reward prior to unlocking the Code of Laws civic results in only receiving 1 free civic, which will be Code of Laws. As this is only really a problem during turns 1-20, I am currently inclined to leave it alone.
+- There is a known issue where receiving the "2 free civics" reward prior to unlocking the Code of Laws civic results in only receiving 1 free civic, which will be Code of Laws. As this is only really a problem during turns 1-20, I am currently inclined to leave it alone.
 
 The "grant catapult" reward currently does not work if the Player does not possess the prerequisite technology. This is weird, because none of the other specific individual unit rewards have a similar limitation.
 
-The Villager Secrets reward can only be awarded to a Player a certain number of times before becoming useless. If this reward is received, and this limit has been reached for the Player, a new reward will be randomly seleted instead.
+The Villager Secrets reward can only be awarded to a Player a certain number of times before becoming useless. When this reward is received, and this limit has been reached for the Player, then unless this reward is the only enabled reward, a new reward will be randomly seleted instead. If it IS the only enabled reward, then instead nothing will happen. See below for further details.
 
-The unit Ability rewards apply to any valid unit(s) in formation with the popping unit, as well as the popping unit. These rewards apply to each valid unit up to one time for the lifetime of each unit. For example, a Builder or Settler can and will receive increased movement once, but not additional combat strength.
+The unit Ability rewards apply to any valid unit(s) in formation with the popping unit, as well as the popping unit. These rewards apply to each valid unit up to one time for the lifetime of that unit. For example, a Builder, Missionary, or Great Person can and will receive increased movement once, but not additional combat strength. Currently, the end result of this is that nothing will happen when an Ability reward is received and all valid unit(s) have already received the ability.
 
-Units provided by Military type rewards will be Era-specific; units provided by (Anti) Cavalry and Support type rewards will not. Most of the other new rewards above are self-explanatory. The various Hostile Villagers and Villager Secrets rewards will be described in detail further below.
+Units provided by Military type rewards will be Era-specific; units provided by (Anti) Cavalry and Support type rewards will not. 
+
+Most of the other new and existing rewards above are self-explanatory. The various Hostile Villagers and Villager Secrets rewards will be described in detail further below.
 
 ## Bonus Rewards
-Provides a dropdown menu for selecting the total number of potential reward(s) to receive from each Goody Hut. At the default setting of 1, nothing changes. With any of the "up to X" settings, X total rewards will be received from each Goody Hut, with any additional rewards beyond the first randomly selected using a hokey custom method. In certain circumstances, fewer than X rewards will be received; these include:
+Provides a dropdown menu for selecting the total number of potential reward(s) to receive from each Goody Hut. At the default setting of 1, nothing changes. With any of the "up to X" settings, X total rewards will be received from each Goody Hut, with any additional rewards beyond the first randomly selected from the pool of enabled rewards using a hokey custom method. In certain circumstances, fewer than X rewards will be received; these include:
 - When any Hostile Villagers reward is selected as a reward, whether it's the first or a bonus reward. When this happens, it will be the last reward granted by this Goody Hut; if it is the first reward, it will be the only reward.
 
+Any received bonus reward will generate an ingame panel notification with details about the received reward. These notifications use one of the built-in "user-defined" types, so the icon used is subject to frequent change, as the game itself cannot seem to consistently use the same icon.
+
 ## Equalized Reward Chances
-Provides a checkbox option which, when enabled, assigns every enabled reward in a category an equal share of that category's Weight. This results in all enabled rewards having a roughly equal chance of being selected.
+Provides a checkbox option which, when enabled, assigns every enabled reward in a category an equal share of that category's Weight. This results in most enabled rewards having a roughly equal chance of being selected. When all available rewards are enabled in Gathering Storm, these chances are roughly as follows:
+- 5.89% meteor strike or villager secrets type
+- 1.96% specific (anti) cavalry or military reward (5.89% for each type)
+- 1.47% all other specific rewards (5.89% for each parent type)
+
+These values will be different for different rulesets and/or amounts of enabled rewards, but will still ultimately be fairly close together.
 
 ## Hostile Villagers
 Except for the meteor strike in Gathering Storm, whenever a reward is earned from a Goody Hut, there is a chance that some of the villagers will be displeased that their tribe treated with outsiders. This chance fluctuates based on several factors:
@@ -89,11 +97,18 @@ On the default difficulty setting, in the Ancient era, with one reward, there sh
 
 If the villagers are hostile, they will retaliate by organizing into one barbarian melee unit in a nearby tile. If they are very hostile, more than one unit will appear, and some will be ranged. If they are downright pissed off, they will organize into a new barbarian camp near the site of their former village, and they will spawn a handful of units. If Horses are located near the site of the former village, there is a chance that any unit(s) that appear may instead be mounted; this chance increases with more nearby sources of Horses. Villager hostility level greatly fluctuates based on the same factors as the chance to be hostile above, and like above, eventually multiple units, and even a camp, will move from being a chance to a guarantee.
 
-What's that? "Not masochistic enough!" you say? Then how about a new reward type that's nothing but hostile villagers "rewards?" They won't even lure you in with the carrot before reaching for the stick, they just go straight for the stick, and the stick is pointy. When enabled, these rewards can be selected by the rewards system like any other reward, and have pre-determined villager hostility values, with the Common reward being low hostility. Hostility increases as rarity does; in fact, one of these rewards is selected internally after calculating villager hostility to place any hostiles that appear after any other reward.
+What's that? "Not masochistic enough!" you say? Then how about a new reward type that's nothing but hostile villagers "rewards?" They won't even lure you in with the carrot before reaching for the stick, they just go straight for the stick, and the stick is pointy. When enabled, these rewards can be selected by the rewards system like any other reward, and have pre-determined villager hostility values, as shown in the table above. Hostility increases as rarity does; in fact, one of these rewards is selected internally after calculating villager hostility to place any hostiles that appear after any other reward.
+
+Any hostile villagers that appear as or after a reward will generate an ingame panel notification with details.
 
 Finally, to compensate for the increased numbers of barbarian units that are likely to be present now, the experience and level caps from fighting such units have been increased. You still aren't going to get a fully-promoted unit from fighting barbarians, but at least you'll be able to get more than a single promotion.
 
 Hostile Villagers, both as and after a reward, are configurable via the picker and other Advanced Setup options.
+
+## Villager Secrets
+This is a specialized reward which, when received, unlocks the ability for the receiving Player to build the Tribal Totem building. This building functions like a Monument, except it provides Amenities instead of Culture. This building can also be upgraded in a similar fashion to Walls: Each additional time this reward is received by the same Player, an improved version of the building will be unlocked, offering a flat bonus in every yield. The building can currently be upgraded in this way 5 times, which means that each Player can currently receive this reward a total of 6 times in a game before there are no further "secrets" to unlock and it becomes useless. When this happens, a new reward will be randomly selected to replace it, unless this is the only currently enabled reward, in which case nothing will happen.
+
+If Hostile Villagers after a reward are enabled, this reward will provoke a slightly more aggressive response than usual.
 
 ## Advanced Setup
 Provides an option in Advanced Setup to select whether Hostile Villagers may appear following any other Goody Hut reward. Available choices are:
@@ -107,6 +122,8 @@ Setting this option to 'Never', while also disabling all 'Hostile Villagers' rew
 Enabling 'No Barbarians' will override these new options, and will also remove any chance of encountering hostile villagers; the tooltip for this option has been updated to reflect this.
 
 Enabling 'No Tribal Villages' will override any selections made with the Goody Hut picker. It will also override any other Goody-Hut-related values; the tooltip for this option has been updated to reflect this.
+
+The dev version provides a checkbox option that, when enabled, will produce _extremely_ verbose logging output for debugging purposes. This is disabled by default.
 
 # Compatibility
 ## SP / MP
