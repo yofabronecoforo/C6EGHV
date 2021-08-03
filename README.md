@@ -92,12 +92,17 @@ Bonus Rewards, if enabled, can only be received from a Goody Hut. There are two 
 2. Civilization traits and other abilities that provide a reward when another condition is met will also not provide any bonus rewards. Nice try, Gilgamesh.
 
 ## Equalized Reward Chances
-Provides a checkbox option which, when enabled, assigns every enabled reward in a category an equal share of that category's Weight. This results in most enabled rewards having a roughly equal chance of being selected. When all available rewards are enabled in Gathering Storm, these chances are roughly as follows:
-- 5.89% meteor strike or villager secrets type
-- 1.96% specific (anti) cavalry or military reward (5.89% for each parent type)
-- 1.47% all other specific rewards (5.89% for each parent type)
+Provides a checkbox option which, when enabled, assigns every enabled reward in a category an equal share of that category's Weight. This results in most enabled rewards having a roughly equal chance of being selected. Final actual chances will vary with the number of enabled rewards and/or the selected ruleset; with Standard rules and all available rewards enabled, these chances are as follows:
+- ~ 7.69% villager secrets type (1 reward in type)
+- ~ 2.56% specific (anti) cavalry type or military type reward (3 rewards in each parent type: ~ 7.69% for each parent type)
+- ~ 1.92% any other specific reward (4 rewards in each parent type: ~ 7.69% for each parent type)
 
-These values will be different for different rulesets and/or amounts of enabled rewards, but will still ultimately be fairly close together.
+With Rise and Fall rules and all available rewards enabled, the above chances adjust to 7.14%, 2.38%, and 1.79%, respectively.
+
+With Gathering Storm rules and all available rewards enabled, the above chances adjust to 5.89%, 1.96%, and 1.47%, respectively. Additionally, the following chances exist:
+- ~ 5.89% meteor strike type reward (1 reward in type)
+
+Fewer enabled rewards in a category will result in a greater chance of each enabled reward being chosen if its parent category is chosen. Fewer enabled categories will result in a greater chance of each enabled category being chosen. Ultimately, while the actual values may vary somewhat, they will be fairly close together.
 
 ## Hostile Villagers
 Except for the meteor strike in Gathering Storm, whenever a reward is earned from a Goody Hut, there is a chance that some of the villagers will be displeased that their tribe treated with outsiders. This chance fluctuates based on several factors:
@@ -206,19 +211,34 @@ EGHV adds the following custom table(s) to the game's Configuration database:
 
 If your mod uses any similarly-named tables, conflicts _may_ arise.
 
-EGHV adds new item(s) to the following table(s) in the game's Gameplay database:
+EGHV adds new item(s) to and/or modifies existing item(s) in the following table(s) in the game's Gameplay database:
 - Types
+- TypeTags
+- Building
+- BuildingConditions
+- BuildingModifiers **
+- BuildingReplaces
+- Building_YieldChanges
+- GlobalParameters
 - GoodyHuts
 - GoodyHutSubTypes
-- GoodyHutSubTypes_XP2 *
+- GoodyHutSubTypes_XP2 **
+- Improvements
 - Modifiers
 - ModifierArguments
+- ModifierStrings
+- UnitAbilities
+- UnitAbilityModifiers
 
-[ * ] Requires the Gathering Storm expansion
+[ ** ] Requires the Gathering Storm expansion
 
-If your mod adds any similarly-named item(s) to any of the above table(s), then like above, these additions will likely be overwritten by EGHV. Conflicts __will__ arise _regardless of relative load order_ if these additions deviate substantially from those of EGHV.
+If your mod operates on any similarly-named item(s) in any of the above table(s), then like above, these additions will likely be overwritten by EGHV. Conflicts __will__ arise _regardless of relative load order_ if these additions deviate substantially from those of EGHV.
 
-EGHV employs a gameplay script named HostileVillagers.lua. If your mod employs a gameplay script with that name, conflicts __will__ arise.
+EGHV employs the following new custom gameplay scripts:
+- EnhancedGoodies.lua
+- IngameGUE.lua
+
+If your mod employs any gameplay scripts with similar names, conflicts __will__ arise.
 
 EGHV replaces the following existing Frontend context file(s):
 - AdvancedSetup.lua and AdvancedSetup.xml
