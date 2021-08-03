@@ -44,32 +44,32 @@ New rewards have been added in both new and existing categories. The following r
 Goody Hut (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
 --------- | ------ | ------ | ------ | ------
 Abilities * | +1 sight | +20 healing per turn | +1 movement | +10 combat strength
-(Anti) Cavalry * | 1 free spearman (50) | 1 free heavy chariot (25) | 1 free horseman (25)
-Culture | 1 civics boost | 2 civics boosts | 1 free civic * | 2 free civics *
-Envoys * | 1 free envoy | 2 free envoys | 3 free envoys | 4 free envoys
-Faith | 20 faith | 60 faith | 100 faith | 1 free relic
-Gold | 40 gold | 80 gold | 120 gold | +1 trade route *
+(Anti) Cavalry * | 1 spearman (50) | 1 heavy chariot (25) | 1 horseman (25)
+Culture | 1 civics boost | 2 civics boosts | 1 civic * | 2 civics *
+Envoys * | 1 envoy | 2 envoys | 3 envoys | 4 envoys
+Faith | 20 faith | 60 faith | 100 faith | 1 relic
+Gold | 40 gold | 80 gold | 120 gold | 1 additional trade route *
 Hostiles * | low hostility | medium hostility | high hostility | maximum hostility
-Military | 1 free recon unit (55) | 1 free melee unit (25) * | 1 free ranged unit (20) *
+Military | 1 recon unit (55) | 1 melee unit (25) * | 1 ranged unit (20) *
 Promotions * | 10 experience | 20 experience | 30 experience | 50 experience
 Secrets * | unlock villager secrets (100)
-Science | 1 tech boost | 2 tech boosts | 1 free tech | 2 free techs *
-Support * | 1 free battering ram | 1 free catapult | 1 free military engineer | 1 free medic
-Survivors | +1 population | 1 free builder | 1 free trader | 1 free settler
+Science | 1 tech boost | 2 tech boosts | 1 tech | 2 techs *
+Support * | 1 battering ram | 1 catapult | 1 military engineer | 1 medic
+Survivors | 1 new population | 1 builder | 1 trader | 1 settler
 
 The following rewards are available for Rise and Fall and later ruleset(s):
 
 Goody Hut (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
 --------- | ------ | ------ | ------ | ------
-Governors * | 1 free governor title | 2 free governor titles | 3 free governor titles | 4 free governor titles
+Governors * | 1 governor title | 2 governor titles | 3 governor titles | 4 governor titles
 
 The following rewards are available for Gathering Storm and later ruleset(s):
 
 Goody Hut (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
 --------- | ------ | ------ | ------ | ------
-Diplomacy * | 10 favor | 20 favor | 30 favor | 50 favor
+Diplomacy * | 10 diplomatic favor | 20 diplomatic favor | 30 diplomatic favor | 50 diplomatic favor
 Meteor | meteor-strike site (100)
-Resources * | +10 strategic resources | +20 strategic resources | +30 strategic resources | +50 strategic resources
+Resources * | 10 strategic resources | 20 strategic resources | 30 strategic resources | 50 strategic resources
 
 - [ * ] Provided by EGHV
 
@@ -211,13 +211,13 @@ To update to a newer release, clone or download the latest release as described 
 # Conflicts
 If your mod alters any _existing_ Goody Hut (sub)types, unless it is also using a ludicrously high load order to apply these changes, they will likely be overwritten by EGHV due to its ridiculously high load order. Conflicts __will__ arise _regardless of relative load order_ if these alterations deviate substantially from those of EGHV.
 
-EGHV adds the following custom table(s) to the game's Configuration database:
+EGHV adds the following custom tables to the game's Configuration database:
 - ContentFlags
 - TribalVillages
 
 If your mod uses any similarly-named tables, conflicts _may_ arise.
 
-EGHV adds new item(s) to and/or modifies existing item(s) in the following table(s) in the game's Gameplay database:
+EGHV adds new item(s) to and/or modifies existing item(s) in the following tables in the game's Gameplay database:
 - Types
 - TypeTags
 - Building
@@ -236,9 +236,9 @@ EGHV adds new item(s) to and/or modifies existing item(s) in the following table
 - UnitAbilities
 - UnitAbilityModifiers
 
-[ ** ] Requires the Gathering Storm expansion
+[ ** ] Requires Gathering Storm
 
-If your mod operates on any similarly-named item(s) in any of the above table(s), then like above, these additions will likely be overwritten by EGHV. Conflicts __will__ arise _regardless of relative load order_ if these additions deviate substantially from those of EGHV.
+If your mod operates on any similarly-named item(s) in any of the above named table(s), these change(s) will likely be overwritten by EGHV. Conflicts __will__ arise _regardless of relative load order_ if these changes deviate substantially from those of EGHV.
 
 EGHV employs the following new custom gameplay scripts:
 - EnhancedGoodies.lua
