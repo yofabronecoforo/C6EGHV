@@ -30,9 +30,14 @@ Existing built-in rewards have been enabled, disabled, and/or moved to other typ
 - The "one free relic" reward is now a Faith-type reward.
 - The defined-but-disabled "one free settler" reward has been enabled. 
 - The "heal unit" reward has been disabled because it is lame.
-- The "unit experience" reward has been disabled and replaced.
+- The "unit experience" reward has been disabled; it is superceded by the rewards in the new Promotions type.
 - The defined-but-disabled "upgrade unit" reward remains disabled; this is unlikely to change because it does not work correctly.
-- If Gathering Storm is present, all of the new rewards it provides have been disabled and replaced.
+  - Potential solutions to this are being investigated.
+- If Gathering Storm is present, all of the new rewards it provides have been disabled:
+  - The "free envoy" reward is superceded by the rewards in the new Envoys type; these rewards are now available for all rulesets.
+  - The "free governor title" reward is superceded by the rewards in the new Governors type; these rewards are now available for Rise and Fall and later ruleset(s).
+  - The "free diplomatic favor" reward is superceded by new rewards in the Diplomacy type.
+  - The "free strategic resources" reward is superceded by the rewards in the new Resources type.
 
 New rewards have been added in both new and existing categories. The following rewards are available for all rulesets:
 
