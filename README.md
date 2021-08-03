@@ -87,7 +87,7 @@ Units provided by Military type rewards will be Era-specific; units provided by 
 Most of the other new and existing rewards above are self-explanatory. The various Hostile Villagers and Villager Secrets rewards will be described in detail further below.
 
 ## Bonus Rewards
-Provides a dropdown menu for selecting the total number of potential reward(s) to receive from each Goody Hut. At the default setting of 1, nothing changes. With any of the "up to X" settings, X total rewards will be received from each Goody Hut, with any additional rewards beyond the first randomly selected from the pool of enabled rewards using a hokey custom method. In certain circumstances, fewer than X rewards will be received; these include:
+Provides a dropdown menu for selecting the total number of potential reward(s) to receive from each Goody Hut. At the default setting of 1, nothing changes. With any of the "up to X" settings, X total rewards will be received from each Goody Hut, with any additional rewards beyond the first randomly selected from the pool of enabled rewards using a custom method. In certain circumstances, fewer than X rewards will be received; these include:
 - When any Hostile Villagers reward is selected as a reward, whether it's the first or a bonus reward. When this happens, it will be the last reward granted by this Goody Hut; if it is the first reward, it will be the only reward.
 
 Any received bonus reward will generate an ingame panel notification with details about the received reward. These notifications use one of the built-in "user-defined" types, so the icon used is subject to frequent change, as the game itself cannot seem to consistently use the same icon.
@@ -98,7 +98,7 @@ Bonus Rewards, if enabled, can only be received from a Goody Hut. There are two 
 
 ## Equalized Reward Chances
 Provides a checkbox option which, when enabled, assigns every enabled reward in a category an equal share of that category's Weight. This results in most enabled rewards having a roughly equal chance of being selected. Final actual chances will vary with the number of enabled rewards and/or the selected ruleset; with Standard rules and all available rewards enabled, these chances are as follows:
-- ~ 7.69% villager secrets type (1 reward in type)
+- ~ 7.69% villager secrets type reward (1 reward in type)
 - ~ 2.56% specific (anti) cavalry type or military type reward (3 rewards in each parent type: ~ 7.69% for each parent type)
 - ~ 1.92% any other specific reward (4 rewards in each parent type: ~ 7.69% for each parent type)
 
@@ -107,15 +107,16 @@ With Rise and Fall rules and all available rewards enabled, the above chances ad
 With Gathering Storm rules and all available rewards enabled, the above chances adjust to 5.89%, 1.96%, and 1.47%, respectively. Additionally, the following chances exist:
 - ~ 5.89% meteor strike type reward (1 reward in type)
 
-Fewer enabled rewards in a category will result in a greater chance of each enabled reward being chosen if its parent category is chosen. Fewer enabled categories will result in a greater chance of each enabled category being chosen. Ultimately, while the actual values may vary somewhat, they will be fairly close together.
+Fewer enabled rewards in a category will result in a greater chance of each enabled reward being chosen if its parent category is chosen. Fewer enabled categories will result in a greater chance of each enabled category being chosen. Ultimately, while the actual values may vary somewhat, they will be fairly close together as demonstrated above.
 
 ## Hostile Villagers
-Except for the meteor strike in Gathering Storm, whenever a reward is earned from a Goody Hut, there is a chance that some of the villagers will be displeased that their tribe treated with outsiders. This chance fluctuates based on several factors:
+Whenever a reward is earned from a Goody Hut, there is a chance that some of the villagers will be displeased that their tribe treated with outsiders. This does not apply to the meteor strike reward, or to any rewards earned via trait or ability as outlined above; it only applies to rewards received from an actual Goody Hut. This chance fluctuates based on several factors:
 
-* The selected difficulty level (Base chance increases with higher settings)
-* The type of unit that popped the hut (Increased chance with a reward received via border expansion or by a unit susceptible to instant removal like capture, condemnation, plunder, or return to another tile; decreased chance with most non-recon military units)
-* The rarity tier of any received reward(s) (Chance increases with more valuable rewards. If bonus rewards are enabled, the cumulative value of all received rewards will be used; this can either have very little effect or it can seriously wreck your day, depending on how many rewards were received and how rare each was)
-* The current game era (Increased chance with each successive era)
+- The selected difficulty level (Base chance increases with higher settings).
+- The method used to pop the hut (Increased chance with a reward received via border expansion or by a unit susceptible to instant removal like capture, condemnation, plunder, or return to another tile; decreased chance with most non-recon military units).
+  - Yes, decreased chance with most military units. The villagers may be primitive, but they're smart enough to not really want to dick around with units geared for warfare.
+- The rarity tier of any received reward(s) (Chance increases with more valuable rewards. If bonus rewards are enabled, the cumulative value of all received rewards will be used; this can either have very little effect or it can seriously wreck your day, depending on how many rewards were received and how rare each was).
+- The current game era (Increased chance with each successive era).
 
 On the default difficulty setting, in the Ancient era, with one reward, there should be a 5-16% chance of encountering hostile villagers, depending on the received reward and the method in which it was received. This chance scales with each successive era, so that in the Future era, it will be 45-144%. On the lowest difficulty setting, the chance should start at 2-7% in the Ancient era, and scale from there. On the highest difficulty setting, the chancce should start at 9-28%, and scale from there. If bonus rewards are enabled, these chances increase slightly based upon the rarity of each reward received beyond the first. Thus, on higher difficulties, late enough in the game and with sufficient quantity and/or quality of rewards, encountering hostile villagers is no longer a chance, but instead becomes a guarantee.
 
