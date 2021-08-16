@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--==========================================================================
+	EGHV : Enhanced Goodies and Hostile Villagers for Civilization VI
+	Copyright (C) 2020-2021 zzragnar0kzz
+	All rights reserved
+===========================================================================-->
+<!-- ingame icon definitions -->
+<GameInfo>
+    <IconDefinitions>
+        <!-- villager totem building; for now, reuse existing Monument assets here -->
+        <Row Name="ICON_BUILDING_TRIBAL_TOTEM_LVL0"             Atlas="ICON_ATLAS_BUILDINGS" Index="0"/>
+        <Row Name="ICON_BUILDING_TRIBAL_TOTEM_LVL1"             Atlas="ICON_ATLAS_BUILDINGS" Index="0"/>
+        <Row Name="ICON_BUILDING_TRIBAL_TOTEM_LVL2"             Atlas="ICON_ATLAS_BUILDINGS" Index="0"/>
+        <Row Name="ICON_BUILDING_TRIBAL_TOTEM_LVL3"             Atlas="ICON_ATLAS_BUILDINGS" Index="0"/>
+        <Row Name="ICON_BUILDING_TRIBAL_TOTEM_LVL4"             Atlas="ICON_ATLAS_BUILDINGS" Index="0"/>
+        <Row Name="ICON_BUILDING_TRIBAL_TOTEM_LVL5"             Atlas="ICON_ATLAS_BUILDINGS" Index="0"/>
+        <!-- villager totem building fog-of-war; for now, reuse existing Monument assets here -->
+        <Row Name="ICON_BUILDING_TRIBAL_TOTEM_LVL0_FOW"            Atlas="ICON_ATLAS_BUILDINGS_FOW" Index="0"/>
+        <Row Name="ICON_BUILDING_TRIBAL_TOTEM_LVL1_FOW"            Atlas="ICON_ATLAS_BUILDINGS_FOW" Index="0"/>
+        <Row Name="ICON_BUILDING_TRIBAL_TOTEM_LVL2_FOW"            Atlas="ICON_ATLAS_BUILDINGS_FOW" Index="0"/>
+        <Row Name="ICON_BUILDING_TRIBAL_TOTEM_LVL3_FOW"            Atlas="ICON_ATLAS_BUILDINGS_FOW" Index="0"/>
+        <Row Name="ICON_BUILDING_TRIBAL_TOTEM_LVL4_FOW"            Atlas="ICON_ATLAS_BUILDINGS_FOW" Index="0"/>
+        <Row Name="ICON_BUILDING_TRIBAL_TOTEM_LVL5_FOW"            Atlas="ICON_ATLAS_BUILDINGS_FOW" Index="0"/>
+    </IconDefinitions>
+</GameInfo>
