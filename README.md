@@ -18,6 +18,8 @@ New Frontend and Ingame text fully localized in the following language(s):
 
 # Features
 ## Reward Picker
+![Goody Hut Picker](/IMAGES/Goody_Hut_Picker.png)
+
 Provides a new picker window for selecting the specific Goody Hut reward(s) that can appear, available in the game's Advanced Setup. Available selections in the picker will vary by the selected ruleset and/or compatible enabled content, and can be sorted by Name (the specific reward) or by Type (the parent category of the reward). Disabling all available reward(s) will cause the "No Goody Huts" game option to be implicitly enabled.
 
 The tooltip for the Goody Hut picker reflects the source(s) of its content based on the selected ruleset and/or any currently available known content; it will dynamically update to reflect any changes to known content after launch. Its button text reflects the total amount of available items(s) when all items in the picker are selected.
