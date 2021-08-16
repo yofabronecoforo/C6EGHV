@@ -152,6 +152,8 @@ Hostile Villagers as a reward are configurable via the picker. For Hostile Villa
 Setting this option to 'Never', while also disabling all 'Hostile Villagers' reward type(s) via the picker, will remove any chance of encountering hostile villagers entirely, whether as or after a reward.
 
 ## Villager Secrets
+![Villager Secrets](/IMAGES/Villager_Secrets.png)
+
 This is a specialized reward which, when received, unlocks the ability for the receiving Player to build the Tribal Totem building. This building functions like a Monument, except it provides Amenities instead of Culture. This building can also be upgraded. The second time this reward is received by the same Player, an improved version of the building will be unlocked, which provides additional yields (the initial unlock is level 0):
 
 Tribal Totem Yield Modifiers | Culture | Faith | Food | Gold | Production | Science | Favor **
