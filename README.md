@@ -26,6 +26,8 @@ The tooltip for the Goody Hut picker reflects the source(s) of its content based
 - This functionality extends to the built-in City-States, Leaders, and Natural Wonders pickers.
 
 ## Goody Hut Distribution Slider
+![Goody Hut Frequency](/IMAGES/Goody_Hut_Distribution.png)
+
 Provides a slider for decreasing or increasing the relative amount of Goody Huts that will appear on the selected map; this slider defaults to 100%, and adjusts in steps of 25% in a range of 25% - 500%, inclusive. This slider also appears in the picker window.
 
 ## Goody Huts
@@ -90,6 +92,8 @@ Units provided by Military type rewards will be Era-specific; units provided by 
 Most of the other new and existing rewards above are self-explanatory. The various Hostile Villagers and Villager Secrets rewards will be described in detail further below.
 
 ## Bonus Rewards
+![Bonus Rewards](/IMAGES/Bonus_Rewards.png)
+
 Provides a dropdown menu for selecting the total number of potential reward(s) to receive from each Goody Hut. At the default setting of 1, nothing changes. With any of the "up to X" settings, X total rewards will be received from each Goody Hut, with any additional rewards beyond the first randomly selected from the pool of enabled rewards using a custom method. In certain circumstances, fewer than X rewards will be received; these include:
 - When any Hostile Villagers reward is selected as a reward, whether it's the first or a bonus reward. When this happens, it will be the last reward granted by this Goody Hut; if it is the first reward, it will be the only reward.
 
@@ -100,6 +104,8 @@ Bonus Rewards, if enabled, can only be received from a Goody Hut. There are two 
 2. Civilization traits and other abilities that provide a reward when another condition is met will also not provide any bonus rewards. Nice try, Gilgamesh.
 
 ## Equalized Reward Chances
+![Equalize Rewards](/IMAGES/Equalize_Tribal_Village_Rewards.png)
+
 Provides a checkbox option which, when enabled, assigns every enabled reward in a category an equal share of that category's Weight. This results in most enabled rewards having a roughly equal chance of being selected. Final actual chances will vary with the number of enabled rewards and/or the selected ruleset; with Standard rules and all available rewards enabled, these chances are as follows:
 - ~ 7.69% villager secrets type reward (1 reward in type)
 - ~ 2.56% specific (anti) cavalry type or military type reward (3 rewards in each parent type: ~ 7.69% for each parent type)
@@ -113,6 +119,8 @@ With Gathering Storm rules and all available rewards enabled, the above chances 
 Fewer enabled rewards in a category will result in a greater chance of each enabled reward being chosen if its parent category is chosen. Fewer enabled categories will result in a greater chance of each enabled category being chosen. Ultimately, while the actual values may vary somewhat, they will be fairly close together as demonstrated above.
 
 ## Hostile Villagers
+![Hostiles After Reward](/IMAGES/Hostiles_After_Reward.png)
+
 Whenever a reward is earned from a Goody Hut, there is a chance that some of the villagers will be displeased that their tribe treated with outsiders. This does not apply to the meteor strike reward, or to any rewards earned via trait or ability as outlined above; it only applies to rewards received from an actual Goody Hut. This chance fluctuates based on several factors:
 
 - The selected difficulty level (Base chance increases with higher settings).
