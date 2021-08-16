@@ -44,15 +44,15 @@ New rewards have been added in both new and existing categories. The following r
 Goody Hut (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
 --------- | ------ | ------ | ------ | ------
 Abilities * | +1 sight | +20 healing per turn | +1 movement | +10 combat strength
-(Anti) Cavalry * | 1 spearman (50) | 1 heavy chariot (25) | 1 horseman (25)
+(Anti) Cavalry * | 1 anti-cavalry unit (50) | 1 heavy cavalry unit (25) | 1 light cavalry unit (25)
 Culture | 1 civics boost | 2 civics boosts | 1 civic * | 2 civics *
 Envoys * | 1 envoy | 2 envoys | 3 envoys | 4 envoys
-Faith | 20 faith | 60 faith | 100 faith | 1 relic
-Gold | 40 gold | 80 gold | 120 gold | 1 additional trade route *
+Faith | +20 faith | +60 faith | +100 faith | 1 relic
+Gold | +40 gold | +80 gold | +120 gold | 1 additional trade route *
 Hostiles * | low hostility | medium hostility | high hostility | maximum hostility
 Military | 1 recon unit (55) | 1 melee unit (25) * | 1 ranged unit (20) *
 Promotions * | 10 experience | 20 experience | 30 experience | 50 experience
-Secrets * | unlock villager secrets (100)
+Secrets * | villager secrets (100)
 Science | 1 tech boost | 2 tech boosts | 1 tech | 2 techs *
 Support * | 1 battering ram | 1 catapult | 1 military engineer | 1 medic
 Survivors | 1 new population | 1 builder | 1 trader | 1 settler
