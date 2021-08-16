@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	EGHV : Enhanced Goodies and Hostile Villagers for Civilization VI
+	Copyright (C) 2020-2021 zzragnar0kzz
+	All rights reserved
+-->
+<!-- localized in-game text for fr_FR -->
+<GameData>
+	<LocalizedText>
+        <!-- in-game hostile villager notifications -->
+        <Replace Tag="LOC_HOSTILE_VILLAGERS_NOTIFICATION_TITLE" Language="fr_FR">
+            <Text>Villageois Hostiles</Text>
+        </Replace>
+        <Replace Tag="LOC_HOSTILE_VILLAGERS_UNIT_NOTIFICATION_MESSAGE" Language="fr_FR">
+            <Text>Certains villageois sont fâchés que leur tribu ait traité avec des étrangers et se soient organisés en une unité de mêlée hostile en représailles!</Text>
+        </Replace>
+        <Replace Tag="LOC_HOSTILE_VILLAGERS_CAMP_NOTIFICATION_MESSAGE" Language="fr_FR">
+            <Text>Les villageois sont extrêmement hostiles à la présence d'étrangers et ont créé un nouveau camp à partir duquel lancer de nouvelles attaques!</Text>
+        </Replace>
+        <!-- new goody hut reward descriptions : hostiles-type -->
+        <Replace Tag="LOC_GOODYHUT_SPAWN_HOSTILE_VILLAGERS_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_RED]Des villageois hostiles apparaissent![ENDCOLOR]</Text>
+        </Replace>
+        <!-- replacement goody hut reward description : culture-type : free relic (now faith-type) -->
+        <Replace Tag="LOC_GOODYHUT_CULTURE_RELIC_DESCRIPTION" Language="fr_FR">
+			<Text>Une [ICON_GreatWork_Relic] relique a été décernée</Text>
+		</Replace>
+        <!-- new goody hut reward descriptions : culture-type -->
+        <Replace Tag="LOC_GOODYHUT_CULTURE_ONE_CIVIC_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_FLOAT_CULTURE]Un Civique gratuit[ENDCOLOR]</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_CULTURE_TWO_CIVICS_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_FLOAT_CULTURE]Deux Civiques gratuites[ENDCOLOR]</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_CULTURE_SMALL_CHANGE_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_FLOAT_CULTURE]+{1_Num} [ICON_CultureLarge] Culture dans toutes les villes[ENDCOLOR]</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_CULTURE_SMALL_MODIFIER_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_FLOAT_CULTURE]+{1_Num}% [ICON_CultureLarge] Culture dans toutes les villes[ENDCOLOR]</Text>
+        </Replace>
+        <!-- new goody hut reward descriptions : faith-type -->
+        <Replace Tag="LOC_GOODYHUT_FAITH_SMALL_CHANGE_DESCRIPTION" Language="fr_FR">
+            <Text>+{1_Num} [ICON_FaithLarge] de foi dans toutes les villes</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_FAITH_SMALL_MODIFIER_DESCRIPTION" Language="fr_FR">
+            <Text>+{1_Num}% [ICON_FaithLarge] de foi dans toutes les villes</Text>
+        </Replace>
+        <!-- new goody hut reward descriptions : gold-type -->
+        <Replace Tag="LOC_GOODYHUT_ADD_TRADE_ROUTE_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_FLOAT_GOLD]+{1_Num} [ICON_TradeRouteLarge] route(s) commercial(es)[ENDCOLOR]</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_GOLD_SMALL_CHANGE_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_FLOAT_GOLD]+{1_Num} [ICON_GoldLarge] Or dans toutes les villes[ENDCOLOR]</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_GOLD_SMALL_MODIFIER_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_FLOAT_GOLD]+{1_Num}% [ICON_GoldLarge] Or dans toutes les villes[ENDCOLOR]</Text>
+        </Replace>
+        <!-- replacement goody hut reward description : military-type : grant recon unit -->
+        <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_UNIT_DESCRIPTION" Language="fr_FR">
+			<Text>[COLOR_FLOAT_MILITARY]Les villageois vous fournissent un Scout[ENDCOLOR]</Text>
+		</Replace>
+        <!-- new goody hut reward descriptions : military-type -->
+        <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_MELEE_UNIT_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_FLOAT_MILITARY]Les villageois vous fournissent un Guerrier[ENDCOLOR]</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_RANGED_UNIT_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_FLOAT_MILITARY]Les villageois vous fournissent un Slinger[ENDCOLOR]</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_ANTI_CAVALRY_UNIT_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_FLOAT_MILITARY]Les villageois vous fournissent un Lancier[ENDCOLOR]</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_LIGHT_CAVALRY_UNIT_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_FLOAT_MILITARY]Les villageois vous fournissent un Cavalier[ENDCOLOR]</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_HEAVY_CAVALRY_UNIT_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_FLOAT_MILITARY]Les villageois vous fournissent un Char Lourd[ENDCOLOR]</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_MILITARY_ENGINEER_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_FLOAT_MILITARY]Les villageois vous fournissent un Ingénieur Militaire[ENDCOLOR]</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_MEDIC_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_FLOAT_MILITARY]Les villageois vous fournissent un Medic[ENDCOLOR]</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_PRODUCTION_SMALL_CHANGE_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_FLOAT_MILITARY]+{1_Num} à toute [ICON_ProductionLarge] la Production dans toutes les villes[ENDCOLOR]</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_PRODUCTION_SMALL_MODIFIER_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_FLOAT_MILITARY]+{1_Num}% à toute [ICON_ProductionLarge] la Production dans toutes les villes[ENDCOLOR]</Text>
+        </Replace>
+        <!-- new goody hut reward descriptions : science-type -->
+        <Replace Tag="LOC_GOODYHUT_SCIENCE_TWO_TECHS_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_FLOAT_SCIENCE]Deux Technologies gratuites[ENDCOLOR]</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_SCIENCE_SMALL_CHANGE_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_FLOAT_SCIENCE]+{1_Num} [ICON_ScienceLarge] la Science dans toutes les villes[ENDCOLOR]</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_SCIENCE_SMALL_MODIFIER_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_FLOAT_SCIENCE]+{1_Num}% [ICON_ScienceLarge] la Science dans toutes les villes[ENDCOLOR]</Text>
+        </Replace>
+        <!-- replacement goody hut reward description : survivors-type : add population -->
+        <Replace Tag="LOC_GOODYHUT_SURVIVORS_ADD_POP_DESCRIPTION" Language="fr_FR">
+			<Text>+{1_Num} [ICON_Citizen] population</Text>
+		</Replace>
+        <!-- replacement goody hut reward description : survivors-type : grant civilian unit -->
+		<Replace Tag="LOC_GOODYHUT_SURVIVORS_GRANT_UNIT_DESCRIPTION" Language="fr_FR">
+			<Text>Vous êtes accordé {1_Num}  {1_Num: plural 1?{2_Unit} unité; other?{2_Unit} unités;}</Text>
+		</Replace>
+        <!-- new goody hut reward descriptions : survivors-type -->
+        <Replace Tag="LOC_GOODYHUT_FOOD_SMALL_CHANGE_DESCRIPTION" Language="fr_FR">
+            <Text>+{1_Num} [ICON_FoodLarge] Nourriture dans toutes les villes</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_FOOD_SMALL_MODIFIER_DESCRIPTION" Language="fr_FR">
+            <Text>+{1_Num}% [ICON_FoodLarge] Nourriture dans toutes les villes</Text>
+        </Replace>
+    </LocalizedText>
+</GameData>
