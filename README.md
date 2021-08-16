@@ -18,7 +18,7 @@ New Frontend and Ingame text fully localized in the following language(s):
 
 # Features
 ## Reward Picker
-![Goody Hut Picker](/IMAGES/Goody_Hut_Picker.png)
+![Goody Hut Picker](/IMAGES/Picker_Detail.png)
 
 Provides a new picker window for selecting the specific Goody Hut reward(s) that can appear, available in the game's Advanced Setup. Available selections in the picker will vary by the selected ruleset and/or compatible enabled content, and can be sorted by Name (the specific reward) or by Type (the parent category of the reward). Disabling all available reward(s) will cause the "No Goody Huts" game option to be implicitly enabled.
 
@@ -31,6 +31,8 @@ The tooltip for the Goody Hut picker reflects the source(s) of its content based
 Provides a slider for decreasing or increasing the relative amount of Goody Huts that will appear on the selected map; this slider defaults to 100%, and adjusts in steps of 25% in a range of 25% - 500%, inclusive. This slider also appears in the picker window.
 
 ## Goody Huts
+![Goody Hut Picker](/IMAGES/Goody_Hut_Picker.png)
+
 Existing built-in rewards have been enabled, disabled, and/or moved to other types, and have had their chances of occurring balanced against new rewards as follows:
 - The "one free relic" reward is now a Faith-type reward.
 - The defined-but-disabled "one free settler" reward has been enabled. 
