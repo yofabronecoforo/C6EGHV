@@ -1,4 +1,5 @@
 # Enhanced Goodies and Hostile Villagers for Civilization VI
+![Advanced Setup Modifications](/IMAGES/Advanced_Setup_Modifications.png)
 
 A mod that provides a fairly comprehensive extension to the Tribal Village rewards system. Many new Frontend options relating to Goody Huts are available, including:
 - A picker for choosing which Goody Hut reward(s), if any, have a chance of appearing ingame.
