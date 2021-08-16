@@ -17,12 +17,19 @@ UPDATE Parameters SET Description = 'LOC_GAME_NO_GOODY_HUTS_DESCRIPTION', SortIn
 -- equalize reward weights, and hostile villagers after reward dropdown
 REPLACE INTO Parameters (ParameterId, Name, Description, Domain, DefaultValue, ConfigurationGroup, ConfigurationId, GroupId, SortIndex)
 VALUES
-    ('EqualizeGoodyHuts', 'LOC_GAME_EQUALIZE_GOODY_HUTS_NAME', 'LOC_GAME_EQUALIZE_GOODY_HUTS_DESCRIPTION', 'bool', 0, 'Game', 'GAME_EQUALIZE_GOODY_HUTS', 'AdvancedOptions', 2035),
-    ('HostilesChance', 'LOC_HOSTILES_CHANCE_NAME', 'LOC_HOSTILES_CHANCE_DESC', 'HostilesChance', 2, 'Game', 'GAME_HOSTILES_CHANCE', 'AdvancedOptions', 2034);
+    ('TotalRewards', 'LOC_GAME_TOTAL_REWARDS_NAME', 'LOC_GAME_TOTAL_REWARDS_DESC', 'TotalRewards', 1, 'Game', 'GAME_TOTAL_REWARDS', 'AdvancedOptions', 2034),
+    ('HostilesChance', 'LOC_GAME_HOSTILES_CHANCE_NAME', 'LOC_GAME_HOSTILES_CHANCE_DESC', 'HostilesChance', 2, 'Game', 'GAME_HOSTILES_CHANCE', 'AdvancedOptions', 2035),
+    ('EqualizeGoodyHuts', 'LOC_GAME_EQUALIZE_GOODY_HUTS_NAME', 'LOC_GAME_EQUALIZE_GOODY_HUTS_DESC', 'bool', 0, 'Game', 'GAME_EQUALIZE_GOODY_HUTS', 'AdvancedOptions', 2036),
+    ('EGHV_Debug', 'LOC_GAME_EGHV_DEBUG_NAME', 'LOC_GAME_EGHV_DEBUG_DESC', 'bool', 0, 'Game', 'GAME_EGHV_DEBUG', 'AdvancedOptions', 2049);
 
--- values for hostile villagers after reward
+-- domain values for specified parameter(s)
 REPLACE INTO DomainValues (Domain, Value, Name, Description, SortIndex)
 VALUES
+    ('TotalRewards', 1, 'LOC_TOTAL_REWARDS_1_NAME', 'LOC_TOTAL_REWARDS_1_DESC', 10),
+    ('TotalRewards', 2, 'LOC_TOTAL_REWARDS_2_NAME', 'LOC_TOTAL_REWARDS_2_DESC', 20),
+    ('TotalRewards', 3, 'LOC_TOTAL_REWARDS_3_NAME', 'LOC_TOTAL_REWARDS_3_DESC', 30),
+    ('TotalRewards', 4, 'LOC_TOTAL_REWARDS_4_NAME', 'LOC_TOTAL_REWARDS_4_DESC', 40),
+    ('TotalRewards', 5, 'LOC_TOTAL_REWARDS_5_NAME', 'LOC_TOTAL_REWARDS_5_DESC', 50),
     ('HostilesChance', 1, 'LOC_HOSTILES_CHANCE_NEVER_NAME', 'LOC_HOSTILES_CHANCE_NEVER_DESC', 10),
     ('HostilesChance', 2, 'LOC_HOSTILES_CHANCE_MAYBE_NAME', 'LOC_HOSTILES_CHANCE_MAYBE_DESC', 20),
     ('HostilesChance', 3, 'LOC_HOSTILES_CHANCE_ALWAYS_NAME', 'LOC_HOSTILES_CHANCE_ALWAYS_DESC', 30),

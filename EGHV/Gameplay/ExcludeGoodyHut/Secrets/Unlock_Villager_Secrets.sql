@@ -8,8 +8,8 @@
     begin EGHV exclude Goody Hut configuration
 ########################################################################### */
 
--- exclude the one envoy subtype
-UPDATE GoodyHutSubTypes SET Weight = 0 WHERE SubTypeGoodyHut = 'GOODYHUT_ENVOY';
+-- exclude the unlock villager secrets subtype
+UPDATE GoodyHutSubTypes SET Weight = 0 WHERE SubTypeGoodyHut = 'GOODYHUT_UNLOCK_VILLAGER_SECRETS';
 
 /* ###########################################################################
     end EGHV exclude Goody Hut configuration

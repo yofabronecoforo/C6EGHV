@@ -23,8 +23,8 @@
 	this facilitates picker and tooltip configuration
 ########################################################################### */
 
-REPLACE INTO ContentFlags (Id, Name, GUID, CityStates, GoodyHuts, Leaders, NaturalWonders, Base, XP1, XP2, Tooltip)
-SELECT 'WGH', 'WondrousGoodyHuts', '2d90451f-08c9-47de-bce8-e9b7fdecbe92', 0, 1, 0, 0, 1, 1, 1, 'LOC_WGH_TT';
+-- REPLACE INTO ContentFlags (Id, Name, GUID, CityStates, GoodyHuts, Leaders, NaturalWonders, Base, XP1, XP2, Tooltip)
+-- SELECT 'WGH', 'WondrousGoodyHuts', '2d90451f-08c9-47de-bce8-e9b7fdecbe92', 0, 1, 0, 0, 1, 1, 1, 'LOC_WGH_TT';
 
 /* ###########################################################################
     Goody Hut picker configuration : StandardGoodyHuts

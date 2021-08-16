@@ -8,8 +8,8 @@
     begin EGHV exclude Goody Hut configuration
 ########################################################################### */
 
--- exclude the spawn hostile villagers subtype
-UPDATE GoodyHutSubTypes SET Weight = 0 WHERE SubTypeGoodyHut = 'GOODYHUT_SPAWN_HOSTILE_VILLAGERS';
+-- exclude the grant large strategic resources subtype
+UPDATE GoodyHutSubTypes SET Weight = 0 WHERE SubTypeGoodyHut = 'GOODYHUT_LARGE_RESOURCES';
 
 /* ###########################################################################
     end EGHV exclude Goody Hut configuration

@@ -8,8 +8,8 @@
     begin EGHV exclude Goody Hut configuration
 ########################################################################### */
 
--- exclude the grant experience subtype
-UPDATE GoodyHutSubTypes SET Weight = 0 WHERE SubTypeGoodyHut = 'GOODYHUT_GRANT_EXPERIENCE';
+-- exclude the mid hostility villagers subtype
+UPDATE GoodyHutSubTypes SET Weight = 0 WHERE SubTypeGoodyHut = 'GOODYHUT_MID_HOSTILITY_VILLAGERS';
 
 /* ###########################################################################
     end EGHV exclude Goody Hut configuration

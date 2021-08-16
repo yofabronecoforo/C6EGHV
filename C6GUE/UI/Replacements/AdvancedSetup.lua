@@ -1706,10 +1706,25 @@ function OnStartButton()
 				for i, v in ipairs(excludeGoodyHutsConfig) do
 					local sGHSetting = sPrefix .. v;
 					GameConfiguration.SetValue(sGHSetting, 1);
-					print(" *** " .. sGHSetting);
+					print(" - " .. sGHSetting);
 				end
 			else
 				print("No Tribal Village rewards have been marked as 'excluded'.");
+			end
+			local tExcludeHostileVillagers = { 
+				"EXCLUDE_GOODYHUT_LOW_HOSTILITY_VILLAGERS",
+				"EXCLUDE_GOODYHUT_MID_HOSTILITY_VILLAGERS", 
+				"EXCLUDE_GOODYHUT_HIGH_HOSTILITY_VILLAGERS", 
+				"EXCLUDE_GOODYHUT_MAX_HOSTILITY_VILLAGERS"
+			};
+			local bNoBarbarians = GameConfiguration.GetValue("GAME_NO_BARBARIANS");
+			if bNoBarbarians then
+				GameConfiguration.SetValue("GOODYHUTS_EXCLUDED", 1);
+				print("The 'No Barbarians' setup option is enabled; ensuring " .. #tExcludeHostileVillagers .. " defined hostile villager reward(s) are disabled . . .")
+				for i, v in ipairs(tExcludeHostileVillagers) do
+					GameConfiguration.SetValue(v, 1);
+					print(" - " .. v);
+				end
 			end
 			-- < EGHV
             HostGame();

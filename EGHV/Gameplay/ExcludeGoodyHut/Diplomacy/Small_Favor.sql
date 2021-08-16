@@ -9,7 +9,7 @@
 ########################################################################### */
 
 -- exclude the small favor subtype
-UPDATE GoodyHutSubTypes SET Weight = 0 WHERE SubTypeGoodyHut = 'GOODYHUT_FAVOR';
+UPDATE GoodyHutSubTypes SET Weight = 0 WHERE SubTypeGoodyHut = 'GOODYHUT_SMALL_FAVOR';
 
 /* ###########################################################################
     end EGHV exclude Goody Hut configuration

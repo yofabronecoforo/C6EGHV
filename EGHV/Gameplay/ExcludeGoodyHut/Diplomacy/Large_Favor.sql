@@ -8,8 +8,8 @@
     begin EGHV exclude Goody Hut configuration
 ########################################################################### */
 
--- exclude the one governor title subtype
-UPDATE GoodyHutSubTypes SET Weight = 0 WHERE SubTypeGoodyHut = 'GOODYHUT_GOVERNOR_TITLE';
+-- exclude the large favor subtype
+UPDATE GoodyHutSubTypes SET Weight = 0 WHERE SubTypeGoodyHut = 'GOODYHUT_LARGE_FAVOR';
 
 /* ###########################################################################
     end EGHV exclude Goody Hut configuration

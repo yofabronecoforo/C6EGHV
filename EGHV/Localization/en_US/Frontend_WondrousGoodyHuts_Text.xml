@@ -8,9 +8,9 @@
 <GameData>
 	<LocalizedText>
 		<!-- tooltip text -->
-		<Replace Tag="LOC_WGH_TT" Language="en_US">
+		<!-- <Replace Tag="LOC_WGH_TT" Language="en_US">
 			<Text>[NEWLINE]  [COLOR_Blue]Mod[ENDCOLOR]: [COLOR_Civ6Yellow]Wondrous[ENDCOLOR] Goody Huts</Text>
-		</Replace>
+		</Replace> -->
 		<!-- random resource -->
 		<Replace Tag="LOC_GOODYHUT_SAILOR_RANDOMRESOURCE_NAME" Language="en_US">
 			<Text>Find new resource</Text>

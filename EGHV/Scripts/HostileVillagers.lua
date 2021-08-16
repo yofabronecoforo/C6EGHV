@@ -442,7 +442,7 @@ function Initialize( bIsDebugEnabled )
 	sRowOfDashes = nil;
 end
 
-Initialize(false);
+-- Initialize(false);
 -- Initialize(true);
 
 --[[ =========================================================================

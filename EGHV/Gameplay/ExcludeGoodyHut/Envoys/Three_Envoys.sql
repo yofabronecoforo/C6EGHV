@@ -8,8 +8,8 @@
     begin EGHV exclude Goody Hut configuration
 ########################################################################### */
 
--- exclude the grant strategic resources subtype
-UPDATE GoodyHutSubTypes SET Weight = 0 WHERE SubTypeGoodyHut = 'GOODYHUT_RESOURCES';
+-- exclude the three envoy subtype
+UPDATE GoodyHutSubTypes SET Weight = 0 WHERE SubTypeGoodyHut = 'GOODYHUT_THREE_ENVOYS';
 
 /* ###########################################################################
     end EGHV exclude Goody Hut configuration
