@@ -1,6 +1,8 @@
 # Enhanced Goodies and Hostile Villagers for Civilization VI
 ![Advanced Setup Modifications](/IMAGES/Advanced_Setup_Modifications.png)
 
+The above image, and all other image(s) herein, reflect an Advanced Setup with Gathering Storm rules; actual configuration options will vary with different rules and/or available additional content.
+
 A mod that provides a fairly comprehensive extension to the Tribal Village rewards system. Many new Frontend options relating to Goody Huts are available, including:
 - A picker for choosing which Goody Hut reward(s), if any, have a chance of appearing ingame.
 - A slider for decreasing or increasing the relative amount of Goody Huts that will appear.
