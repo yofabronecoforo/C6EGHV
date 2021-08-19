@@ -23,7 +23,6 @@ GUE = ExposedMembers.GUE;
 =========================================================================== ]]
 -- make DebugPrint() more conveniently globally accessible, as otherwise this declaration must be made in a local scope within each function below
 Dprint = GUE.DebugPrint;
-
 -- QueueGoodyHutReward stores arguments from Event.GoodyHutReward for use by Event.ImprovementActivated
 GUE.QueueGoodyHutReward = {};
 -- QueueImprovementActivated stores arguments from Event.ImprovementActivated for use by Event.GoodyHutReward
@@ -50,17 +49,104 @@ GUE.Notification = {
 		Message = Locale.Lookup("LOC_BONUS_REWARD_NOTIFICATION_MESSAGE")
 	}
 };
--- table of units to spawn by Era
-GUE.HostileUnitByEra = {
-	[0] = { Melee = "UNIT_WARRIOR", Ranged = "UNIT_SLINGER", HeavyCavalry = "UNIT_BARBARIAN_HORSEMAN", LightCavalry = "UNIT_BARBARIAN_HORSE_ARCHER" },
-	[1] = { Melee = "UNIT_WARRIOR", Ranged = "UNIT_ARCHER", HeavyCavalry = "UNIT_BARBARIAN_HORSEMAN", LightCavalry = "UNIT_BARBARIAN_HORSE_ARCHER" },
-	[2] = { Melee = "UNIT_SWORDSMAN", Ranged = "UNIT_ARCHER", HeavyCavalry = "UNIT_KNIGHT", LightCavalry = "UNIT_BARBARIAN_HORSE_ARCHER" },
-	[3] = { Melee = "UNIT_MAN_AT_ARMS", Ranged = "UNIT_CROSSBOWMAN", HeavyCavalry = "UNIT_KNIGHT", LightCavalry = "UNIT_HORSEMAN" },
-	[4] = { Melee = "UNIT_MUSKETMAN", Ranged = "UNIT_CROSSBOWMAN", HeavyCavalry = "UNIT_KNIGHT", LightCavalry = "UNIT_HORSEMAN" },
-	[5] = { Melee = "UNIT_LINE_INFANTRY", Ranged = "UNIT_FIELD_CANNON", HeavyCavalry = "UNIT_KNIGHT", LightCavalry = (GUE.Ruleset == "RULESET_EXPANSION_2") and "UNIT_COURSER" or "UNIT_HORSEMAN" },
-	[6] = { Melee = "UNIT_INFANTRY", Ranged = "UNIT_FIELD_CANNON", HeavyCavalry = (GUE.Ruleset == "RULESET_EXPANSION_2") and "UNIT_CUIRASSIER" or "UNIT_KNIGHT", LightCavalry = (GUE.Ruleset == "RULESET_EXPANSION_2") and "UNIT_COURSER" or "UNIT_CAVALRY" },
-	[7] = { Melee = "UNIT_INFANTRY", Ranged = "UNIT_MACHINE_GUN", HeavyCavalry = (GUE.Ruleset == "RULESET_EXPANSION_2") and "UNIT_CUIRASSIER" or "UNIT_KNIGHT", LightCavalry = "UNIT_CAVALRY" },
-	[8] = { Melee = "UNIT_INFANTRY", Ranged = "UNIT_MACHINE_GUN", HeavyCavalry = (GUE.Ruleset == "RULESET_EXPANSION_2") and "UNIT_CUIRASSIER" or "UNIT_KNIGHT", LightCavalry = "UNIT_CAVALRY" }
+-- Rise and Fall or later ruleset check
+GUE.RulesetXP1 = (GUE.Ruleset ~= "RULESET_STANDARD") and true or false;
+-- Gathering Storm or later ruleset check
+GUE.RulesetXP2 = (GUE.Ruleset ~= "RULESET_STANDARD" and GUE.Ruleset ~= "RULESET_EXPANSION_1") and true or false;
+-- this resolves to Skirmisher when GS or later ruleset is in use; otherwise, it resolves to Scout
+local sScoutOrSkirmisher = GUE.RulesetXP2 and "UNIT_SKIRMISHER" or "UNIT_SCOUT";
+-- this resolves to Spec Ops when R&F or later ruleset is in use; otherwise, it resolves to Ranger
+local sRangerOrSpecOps = GUE.RulesetXP1 and "UNIT_SPEC_OPS" or "UNIT_RANGER";
+-- this resolves to Pike and Shot when R&F or later ruleset is in use; otherwise, it resolves to Pikeman
+local sPikemanOrPikeAndShot = GUE.RulesetXP1 and "UNIT_PIKE_AND_SHOT" or "UNIT_PIKEMAN";
+-- this resolves to Courser when GS or later ruleset is in use; otherwise, it resolves to Cavalry
+local sCavalryOrCourser = GUE.RulesetXP2 and "UNIT_COURSER" or "UNIT_CAVALRY";
+-- this resolves to Courser when GS or later ruleset is in use; otherwise, it resolves to Horseman ** DEPRECATED **
+local sCourserOrHorseman = GUE.RulesetXP2 and "UNIT_COURSER" or "UNIT_HORSEMAN";
+-- this resolves to Cuirassier when GS or later ruleset is in use; otherwise, it resolves to Knight
+local sCuirassierOrKnight = GUE.RulesetXP2 and "UNIT_CUIRASSIER" or "UNIT_KNIGHT";
+-- this resolves to Supply Convoy when R&F or later ruleset is in use; otherwise, it resolves to Medic
+local sMedicOrSupplyConvoy = GUE.RulesetXP1 and "UNIT_SUPPLY_CONVOY" or "UNIT_MEDIC";
+-- table of available Recon units by Era
+local tReconByEra = {
+	[0] = "UNIT_SCOUT", [1] = "UNIT_SCOUT", [2] = sScoutOrSkirmisher, [3] = sScoutOrSkirmisher, [4] = "UNIT_RANGER", [5] = "UNIT_RANGER",
+	[6] = sRangerOrSpecOps, [7] = sRangerOrSpecOps, [8] = sRangerOrSpecOps
+};
+-- table of available Melee units by Era
+local tMeleeByEra = {
+	[0] = "UNIT_WARRIOR", [1] = "UNIT_SWORDSMAN", [2] = "UNIT_MAN_AT_ARMS", [3] = "UNIT_MUSKETMAN", [4] = "UNIT_LINE_INFANTRY",
+	[5] = "UNIT_INFANTRY", [6] = "UNIT_INFANTRY", [7] = "UNIT_MECHANIZED_INFANTRY", [8] = "UNIT_MECHANIZED_INFANTRY"
+};
+-- table of available Ranged units by Era
+local tRangedByEra = {
+	[0] = "UNIT_SLINGER", [1] = "UNIT_ARCHER", [2] = "UNIT_CROSSBOWMAN", [3] = "UNIT_CROSSBOWMAN", [4] = "UNIT_FIELD_CANNON",
+	[5] = "UNIT_FIELD_CANNON", [6] = "UNIT_MACHINE_GUN", [7] = "UNIT_MACHINE_GUN", [8] = "UNIT_MACHINE_GUN"
+};
+-- table of available Anti-Cavalry units by Era
+local tAntiCavalryByEra = {
+	[0] = "UNIT_SPEARMAN", [1] = "UNIT_SPEARMAN", [2] = "UNIT_PIKEMAN", [3] = sPikemanOrPikeAndShot, [4] = sPikemanOrPikeAndShot,
+	[5] = "UNIT_AT_CREW", [6] = "UNIT_AT_CREW", [7] = "UNIT_MODERN_AT", [8] = "UNIT_MODERN_AT"
+};
+-- table of available Heavy Cavalry units by Era
+local tHeavyCavalryByEra = {
+	[0] = "UNIT_HEAVY_CHARIOT", [1] = "UNIT_HEAVY_CHARIOT", [2] = "UNIT_KNIGHT", [3] = "UNIT_KNIGHT", [4] = sCuirassierOrKnight,
+	[5] = "UNIT_TANK", [6] = "UNIT_TANK", [7] = "UNIT_MODERN_ARMOR", [8] = "UNIT_MODERN_ARMOR"
+};
+-- table of available Light Cavalry units by Era
+local tLightCavalryByEra = {
+	[0] = "UNIT_HORSEMAN", [1] = "UNIT_HORSEMAN", [2] = sCourserOrHorseman, [3] = sCourserOrHorseman, [4] = "UNIT_CAVALRY",
+	[5] = "UNIT_CAVALRY", [6] = "UNIT_HELICOPTER", [7] = "UNIT_HELICOPTER", [8] = "UNIT_HELICOPTER"
+};
+-- table of available Siege units by Era
+local tSiegeByEra = {
+	[0] = "UNIT_CATAPULT", [1] = "UNIT_CATAPULT", [2] = "UNIT_TREBUCHET", [3] = "UNIT_BOMBARD", [4] = "UNIT_BOMBARD",
+	[5] = "UNIT_ARTILLERY", [6] = "UNIT_ARTILLERY", [7] = "UNIT_ROCKET_ARTILLERY", [8] = "UNIT_ROCKET_ARTILLERY"
+};
+-- table of available Support units by Era
+local tSupportByEra = {
+	[0] = "UNIT_BATTERING_RAM", [1] = "UNIT_BATTERING_RAM", [2] = "UNIT_SIEGE_TOWER", [3] = "UNIT_SIEGE_TOWER", [4] = "UNIT_MEDIC",
+	[5] = sMedicOrSupplyConvoy, [6] = sMedicOrSupplyConvoy, [7] = sMedicOrSupplyConvoy, [8] = sMedicOrSupplyConvoy
+};
+-- table of available naval Melee units by Era
+local tNavalMeleeByEra = {
+	[0] = "UNIT_GALLEY", [1] = "UNIT_GALLEY", [2] = "UNIT_GALLEY", [3] = "UNIT_CARAVEL", [4] = "UNIT_IRONCLAD",
+	[5] = "UNIT_IRONCLAD", [6] = "UNIT_DESTROYER", [7] = "UNIT_DESTROYER", [8] = "UNIT_DESTROYER"
+};
+-- table of available naval Ranged units by Era
+local tNavalRangedByEra = {
+	[0] = "UNIT_QUADRIREME", [1] = "UNIT_QUADRIREME", [2] = "UNIT_QUADRIREME", [3] = "UNIT_FRIGATE", [4] = "UNIT_FRIGATE",
+	[5] = "UNIT_BATTLESHIP", [6] = "UNIT_BATTLESHIP", [7] = "UNIT_MISSILE_CRUISER", [8] = "UNIT_MISSILE_CRUISER"
+};
+-- initialize the grant unit by Era table
+GUE.UnitRewardByEra = {};
+-- populate the grant unit by Era table using the unit table(s) defined above
+for e = 0, 8, 1 do
+	GUE.UnitRewardByEra[e] = {
+		Recon = tReconByEra[e], Melee = tMeleeByEra[e], Ranged = tRangedByEra[e], AntiCavalry = tAntiCavalryByEra[e],
+		HeavyCavalry = tHeavyCavalryByEra[e], LightCavalry = tLightCavalryByEra[e], Siege = tSiegeByEra[e], Support = tSupportByEra[e],
+		NavalMelee = tNavalMeleeByEra[e], NavalRanged = tNavalRangedByEra[e]
+	};
+end
+-- initialize the table of hostile units to spawn by Era
+GUE.HostileUnitByEra = {};
+-- manually populate the hostile units table for Era 0
+GUE.HostileUnitByEra[0] = {
+	Recon = tReconByEra[0], Melee = tMeleeByEra[0], Ranged = tRangedByEra[0], AntiCavalry = tAntiCavalryByEra[0],
+	HeavyCavalry = "UNIT_BARBARIAN_HORSEMAN", LightCavalry = "UNIT_BARBARIAN_HORSE_ARCHER", Siege = tSiegeByEra[0], Support = tSupportByEra[0],
+	NavalMelee = tNavalMeleeByEra[0], NavalRanged = tNavalRangedByEra[0]
+};
+-- finish populating the hostile units table using the unit table(s) defined above
+for e = 1, 8, 1 do
+	GUE.HostileUnitByEra[e] = {
+		Recon = tReconByEra[e], Melee = tMeleeByEra[e], Ranged = tRangedByEra[e], AntiCavalry = tAntiCavalryByEra[e],
+		HeavyCavalry = tHeavyCavalryByEra[e], LightCavalry = tLightCavalryByEra[e], Siege = tSiegeByEra[e], Support = tSupportByEra[e],
+		NavalMelee = tNavalMeleeByEra[e], NavalRanged = tNavalRangedByEra[e]
+	};
+end
+-- 
+GUE.GrantUnitRewards = {
+	["GOODYHUT_GRANT_SCOUT"] = 1, ["GOODYHUT_GRANT_WARRIOR"] = 2, ["GOODYHUT_GRANT_SLINGER"] = 3, ["GOODYHUT_GRANT_SPEARMAN"] = 4, ["GOODYHUT_GRANT_HEAVY_CHARIOT"] = 5, ["GOODYHUT_GRANT_HORSEMAN"] = 6, 
+	["GOODYHUT_GRANT_CATAPULT"] = 7, ["GOODYHUT_GRANT_BATTERING_RAM"] = 8, ["GOODYHUT_GRANT_MILITARY_ENGINEER"] = 9
 };
 -- define valid Villager Secrets reward(s) - these are the SubTypeGoodyHut values for any such rewards
 GUE.VillagerSecrets = "GOODYHUT_UNLOCK_VILLAGER_SECRETS";
@@ -132,6 +218,69 @@ GUE.UnitAbilityRewards = {
 	["GOODYHUT_IMPROVED_SIGHT"] = "ABILITY_IMPROVED_SIGHT",
 	["GOODYHUT_IMPROVED_STRENGTH"] = "ABILITY_IMPROVED_STRENGTH"
 };
+-- unit combat experience rewards; key = goody hut subtype, value = amount of XP to award
+GUE.UnitXPRewards = { ["GOODYHUT_SMALL_EXPERIENCE"] = 10, ["GOODYHUT_MEDIUM_EXPERIENCE"] = 20, ["GOODYHUT_LARGE_EXPERIENCE"] = 30, ["GOODYHUT_HUGE_EXPERIENCE"] = 40 };
+
+--[[ =========================================================================
+	exposed member function AddUnitToMap( iX, iY, iPlayerID, iTurn, iEra, sRewardSubType )
+	spawns units belonging to iPlayerID near the plot at (x iX, y iY)
+	ingame notifications sent to iPlayerID
+	pre-init : this should be defined prior to Initialize()
+=========================================================================== ]]
+function GUE.AddUnitToMap( iX, iY, iPlayerID, iTurn, iEra, sRewardSubType )
+	-- 
+	if GUE.GrantUnitRewards[sRewardSubType] == nil then return; end
+	-- fetch the value assigned to this key in the unit rewards table
+	local iUnitGrant = GUE.GrantUnitRewards[sRewardSubType];
+	-- initialize the unit to place, defaulting to an empty string; if this doesn't change, there's a problem
+	local sUnitGrant = "";
+	-- verify the actual unit to place
+	if iUnitGrant == 1 then sUnitGrant = GUE.UnitRewardByEra[iEra].Recon;
+	elseif iUnitGrant == 2 then sUnitGrant = GUE.UnitRewardByEra[iEra].Melee;
+	elseif iUnitGrant == 3 then sUnitGrant = GUE.UnitRewardByEra[iEra].Ranged;
+	elseif iUnitGrant == 4 then sUnitGrant = GUE.UnitRewardByEra[iEra].AntiCavalry;
+	elseif iUnitGrant == 5 then sUnitGrant = GUE.UnitRewardByEra[iEra].HeavyCavalry;
+	elseif iUnitGrant == 6 then sUnitGrant = GUE.UnitRewardByEra[iEra].LightCavalry;
+	elseif iUnitGrant == 7 then sUnitGrant = GUE.UnitRewardByEra[iEra].Siege;
+	elseif iUnitGrant == 8 then sUnitGrant = GUE.UnitRewardByEra[iEra].Support;
+	elseif iUnitGrant == 9 then sUnitGrant = "UNIT_MILITARY_ENGINEER";
+	end
+	-- place the identified unit
+	UnitManager.InitUnitValidAdjacentHex(iPlayerID, sUnitGrant, iX, iY, 1);
+end
+
+--[[ =========================================================================
+	exposed member function AddXPToUnit( iX, iY, tUnits, iXP )
+	pre-init : this should be defined prior to Initialize()
+=========================================================================== ]]
+function GUE.AddXPToUnit( iX, iY, tUnits, iXP )
+	-- 
+	if tUnits == nil then return; end
+	-- 
+	-- local iXP = GUE.UnitXPRewards[sRewardSubType];
+	-- 
+	for k, v in pairs(tUnits) do
+		-- 
+		local sUnitType = v.UnitType;
+		-- this unit's promotion class
+		local sPromotionClass = v.PromotionClass;
+		-- data for this unit
+		local pUnit = v.Table;
+		-- 
+		local pUnitExperience = pUnit:GetExperience();
+		-- 
+		if pUnitExperience ~= nil then
+			-- 
+			pUnitExperience:ChangeExperience(iXP);
+			-- debugging log output
+			Dprint("A " .. sUnitType .. " near plot (x " .. iX .. ", y " .. iY .. ") has received " .. iXP .. " experience points towards its next promotion");
+		-- 
+		else
+			-- debugging log output
+			Dprint("Combat experience is not a valid award for a " .. sUnitType .. " near plot (x " .. iX .. ", y " .. iY .. "); skipping this unit");
+		end
+	end
+end
 
 --[[ =========================================================================
 	exposed member function AddAbilityToUnit( iX, iY, tUnits, sAbilityType )
@@ -142,6 +291,7 @@ function GUE.AddAbilityToUnit( iX, iY, tUnits, sAbilityType )
 	if tUnits ~= nil then
 		-- iterate over all unit(s) in the passed table
 		for k, v in pairs(tUnits) do
+			-- 
 			local sUnitType = v.UnitType;
 			-- this unit's promotion class
 			local sPromotionClass = v.PromotionClass;
@@ -179,6 +329,45 @@ function GUE.AddAbilityToUnit( iX, iY, tUnits, sAbilityType )
 				Dprint("Unit Ability " .. sAbilityType .. " was previously attached to a " .. sUnitType .. " at plot (x " .. iX .. ", y " .. iY .. "); skipping unit");
 			end
 		end
+	end
+end
+
+--[[ =========================================================================
+	exposed member function UpgradeUnit( iX, iY, tUnits )
+	pre-init : this should be defined prior to Initialize()
+=========================================================================== ]]
+function GUE.UpgradeUnit( iX, iY, tUnits )
+	-- abort here if the supplied Units table is nil
+	if tUnits == nil then return; end
+	for k, v in pairs(tUnits) do
+		-- this unit's type and promotion class
+		local sUnitType, sPromotionClass = v.UnitType, v.PromotionClass;
+		-- internal data for this unit
+		local pUnit = v.Table;
+		-- shortcut to this unit's GetAbility() and GetExperience() methods
+		local pUnitAbility, pUnitExperience = pUnit:GetAbility(), pUnit:GetExperience();
+		-- initialize table for this unit's abilities
+		local tAbilities = {};
+		-- iterate over the unit ability rewards table to identify any abilities attached to this unit
+		for k, v in pairs(GUE.UnitAbilityRewards) do
+			-- true when this unit has earned this ability; add this ability to the table of this unit's abilities
+			if pUnitAbility:GetAbilityCount(v) > 0 then table.insert(tAbilities, v); end
+		end
+		-- initialize table for this unit's experience data
+		local tExperience = { 
+			XPForNextLevel = pUnitExperience:GetExperienceForNextLevel(), XP = pUnitExperience:GetExperiencePoints(), Level = pUnitExperience:GetLevel(), Promotions = pUnitExperience:GetPromotions(), 
+			Name = pUnitExperience:GetVeteranName()
+		};
+		-- 
+		local sPriDebugMsg = "A " .. sUnitType .. " at plot (x " .. iX .. ", y " .. iY .. ") is Level " .. tExperience.Level .. " with " .. tExperience.XP .. " XP (" .. tExperience.XPForNextLevel .. " TNL)";
+		if tExperience.Name ~= nil then sPriDebugMsg = sPriDebugMsg .. ", and is known as " .. tExperience.Name; end
+		local sSecDebugMsg = "Promotions: " .. tostring(tExperience.Promotions);
+		local sTerDebugMsg = "Abilities: ";
+		for i, v in ipairs(tAbilities) do sTerDebugMsg = sTerDebugMsg .. v .. " "; end
+		-- 
+		Dprint(sPriDebugMsg);
+		Dprint(sSecDebugMsg);
+		Dprint(sTerDebugMsg);
 	end
 end
 
@@ -678,8 +867,12 @@ function GUE.GetNewRewards( iNumRewards, iPlayerID, iX, iY, sRewardSubType, iTur
 								else
 									Dprint("VillagerSecretsLevel >= MaxSecretsLevel for Player " .. iPlayerID);
 								end
+							-- 
+							elseif (GUE.GrantUnitRewards[sThisSubType] ~= nil) then GUE.AddUnitToMap(iX, iY, iPlayerID, iTurn, iEra, sThisSubType);
 							-- true when the rolled reward is a unit ability reward
 							elseif (GUE.UnitAbilityRewards[sThisSubType] ~= nil) then GUE.AddAbilityToUnit(iX, iY, tUnits, GUE.UnitAbilityRewards[sThisSubType]);
+							-- 
+							elseif (GUE.UnitXPRewards[sThisSubType] ~= nil) then GUE.AddXPToUnit(iX, iY, tUnits, GUE.UnitXPRewards[sThisSubType]);
 							-- true when the rolled reward is a hostile villagers "reward"; set the bonus hostiles flag
 							elseif GUE.HostileVillagers[sThisSubType] then bBonusHostiles = true;
 							-- true for any other rolled reward; attach its modifier to (re) apply the reward
@@ -834,8 +1027,12 @@ function GUE.ValidateGoodyHutReward( tImprovementActivated, tGoodyHutReward )
 			-- roll for one new reward
 			iThisRewardModifier, bHostilesAsBonusReward = GUE.GetNewRewards(1, iPlayerID, iX, iY, sRewardSubType, iTurn, iEra, tUnitsInPlot);
 		end
+	-- 
+	elseif (GUE.GrantUnitRewards[sRewardSubType] ~= nil) then GUE.AddUnitToMap(iX, iY, iPlayerID, iTurn, iEra, sRewardSubType);
 	-- execute the AddAbilityToUnit() enhanced method here if this reward is a unit ability reward
 	elseif (GUE.UnitAbilityRewards[sRewardSubType] ~= nil and bIsExplore) then GUE.AddAbilityToUnit(iX, iY, tUnitsInPlot, GUE.UnitAbilityRewards[sRewardSubType]);
+	-- 
+	elseif (GUE.UnitXPRewards[sRewardSubType] ~= nil) then GUE.AddXPToUnit(iX, iY, tUnitsInPlot, GUE.UnitXPRewards[sRewardSubType]);
 	-- execute the CreateHostileVillagers() enhanced method here if this reward is a valid Hostile Villagers "reward"
 	elseif (GUE.HostileVillagers[sRewardSubType] ~= nil) then GUE.CreateHostileVillagers(iX, iY, iPlayerID, iTurn, iEra, sRewardSubType);
 	end
@@ -1037,6 +1234,27 @@ function Initialize()
 		print("There are " .. GUE.BonusRewardCount .. " eligible reward(s) in the bonus rewards table; Cumulative Weight/RNG Seed Value: " .. GUE.TotalBonusRewardWeight);
 	else
 		print("There are 'zero' eligible reward(s) in the bonus rewards table, or the 'No Tribal Villages' setup option is enabled; skipping . . .");
+	end
+	-- 
+	if GUE.DebugEnabled then
+		print(GUE.RowOfDashes);
+		Dprint("Defined Unit reward(s) by Era:");
+		for e = 0, 8, 1 do
+			local sPriDebugMsg = e .. " (" .. GUE.Eras[e] .. "): Recon " .. GUE.UnitRewardByEra[e].Recon .. " | Melee " .. GUE.UnitRewardByEra[e].Melee .. " | Ranged " .. GUE.UnitRewardByEra[e].Ranged 
+				.. " | Anti-Cavalry " .. GUE.UnitRewardByEra[e].AntiCavalry .. " | Heavy Cavalry " .. GUE.UnitRewardByEra[e].HeavyCavalry .. " | Light Cavalry " .. GUE.UnitRewardByEra[e].LightCavalry 
+				.. " | Siege " .. GUE.UnitRewardByEra[e].Siege .. " | Support " .. GUE.UnitRewardByEra[e].Support 
+				.. " | Naval Melee " .. GUE.UnitRewardByEra[e].NavalMelee .. " | Naval Ranged " .. GUE.UnitRewardByEra[e].NavalRanged;
+			Dprint(sPriDebugMsg);
+		end
+		print(GUE.RowOfDashes);
+		Dprint("Defined Hostile Unit 'reward(s)' by Era:");
+		for e = 0, 8, 1 do
+			local sPriDebugMsg = e .. " (" .. GUE.Eras[e] .. "): Recon " .. GUE.HostileUnitByEra[e].Recon .. " | Melee " .. GUE.HostileUnitByEra[e].Melee .. " | Ranged " .. GUE.HostileUnitByEra[e].Ranged 
+				.. " | Anti-Cavalry " .. GUE.HostileUnitByEra[e].AntiCavalry .. " | Heavy Cavalry " .. GUE.HostileUnitByEra[e].HeavyCavalry .. " | Light Cavalry " .. GUE.HostileUnitByEra[e].LightCavalry 
+				.. " | Siege " .. GUE.HostileUnitByEra[e].Siege .. " | Support " .. GUE.HostileUnitByEra[e].Support 
+				.. " | Naval Melee " .. GUE.HostileUnitByEra[e].NavalMelee .. " | Naval Ranged " .. GUE.HostileUnitByEra[e].NavalRanged;
+			Dprint(sPriDebugMsg);
+		end
 	end
     -- Events hooks
 	print(GUE.RowOfDashes);

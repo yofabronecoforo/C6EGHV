@@ -153,26 +153,26 @@
         </Replace>
         <!-- new goody hut reward descriptions : (anti) cavalry military-type -->
         <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_ANTI_CAVALRY_UNIT_DESCRIPTION" Language="en_US">
-            <Text>[COLOR_FLOAT_MILITARY]One Spearman[ENDCOLOR]</Text>
+            <Text>[COLOR_FLOAT_MILITARY]One anti-cavalry unit[ENDCOLOR]</Text>
         </Replace>
         <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_LIGHT_CAVALRY_UNIT_DESCRIPTION" Language="en_US">
-            <Text>[COLOR_FLOAT_MILITARY]One Horseman[ENDCOLOR]</Text>
+            <Text>[COLOR_FLOAT_MILITARY]One light cavalry unit[ENDCOLOR]</Text>
         </Replace>
         <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_HEAVY_CAVALRY_UNIT_DESCRIPTION" Language="en_US">
-            <Text>[COLOR_FLOAT_MILITARY]One Heavy Chariot[ENDCOLOR]</Text>
+            <Text>[COLOR_FLOAT_MILITARY]One heavy cavalry unit[ENDCOLOR]</Text>
         </Replace>
         <!-- new goody hut reward descriptions : support military-type -->
         <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_MILITARY_ENGINEER_DESCRIPTION" Language="en_US">
             <Text>[COLOR_FLOAT_MILITARY]One Military Engineer[ENDCOLOR]</Text>
         </Replace>
-        <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_MEDIC_DESCRIPTION" Language="en_US">
+        <!-- <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_MEDIC_DESCRIPTION" Language="en_US">
             <Text>[COLOR_FLOAT_MILITARY]One Medic[ENDCOLOR]</Text>
-        </Replace>
+        </Replace> -->
         <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_BATTERING_RAM_DESCRIPTION" Language="en_US">
-            <Text>[COLOR_FLOAT_MILITARY]One Battering Ram[ENDCOLOR]</Text>
+            <Text>[COLOR_FLOAT_MILITARY]One support unit[ENDCOLOR]</Text>
         </Replace>
         <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_CATAPULT_DESCRIPTION" Language="en_US">
-            <Text>[COLOR_FLOAT_MILITARY]One Catapult[ENDCOLOR]</Text>
+            <Text>[COLOR_FLOAT_MILITARY]One siege unit[ENDCOLOR]</Text>
         </Replace>
         <!-- new goody hut reward descriptions : science-type -->
         <Replace Tag="LOC_GOODYHUT_SCIENCE_TWO_TECHS_DESCRIPTION" Language="en_US">
@@ -199,8 +199,17 @@
 			<Text>One Trader</Text>
 		</Replace>
         <!-- new goody hut reward descriptions : promotions-type -->
-        <Replace Tag="LOC_GOODYHUT_EXPERIENCE_DESCRIPTION" Language="en_US">
-            <Text>+{1_Num} experience towards this unit's next [ICON_Promotion] Promotion</Text>
+        <Replace Tag="LOC_GOODYHUT_SMALL_EXPERIENCE_DESCRIPTION" Language="en_US">
+            <Text>+10 combat experience</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_MEDIUM_EXPERIENCE_DESCRIPTION" Language="en_US">
+            <Text>+20 combat experience</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_LARGE_EXPERIENCE_DESCRIPTION" Language="en_US">
+            <Text>+30 combat experience</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_HUGE_EXPERIENCE_DESCRIPTION" Language="en_US">
+            <Text>+50 combat experience</Text>
         </Replace>
         <!-- new goody hut reward descriptions : abilities-type -->
         <Replace Tag="LOC_GOODYHUT_IMPROVED_SIGHT_DESCRIPTION" Language="en_US">

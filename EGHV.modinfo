@@ -520,9 +520,9 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
-		<Criteria id="EGHV_Exclude_GoodyHut_Grant_Medic">
+		<Criteria id="EGHV_Exclude_GoodyHut_Grant_Upgrade">
     		<ConfigurationValueMatches>
-    			<ConfigurationId>EXCLUDE_GOODYHUT_GRANT_MEDIC</ConfigurationId>
+    			<ConfigurationId>EXCLUDE_GOODYHUT_GRANT_UPGRADE</ConfigurationId>
     			<Group>Game</Group>
     			<Value>1</Value>
     		</ConfigurationValueMatches>
@@ -1201,11 +1201,11 @@
       		</Properties>
 			<File>EGHV/Gameplay/ExcludeGoodyHut/Support/Grant_Catapult.sql</File>
 		</UpdateDatabase>
-		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_GRANT_MEDIC" criteria="EGHV_Exclude_GoodyHut_Grant_Medic">
+		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_GRANT_UPGRADE" criteria="EGHV_Exclude_GoodyHut_Grant_Upgrade">
 			<Properties>
         		<LoadOrder>1010171</LoadOrder>
       		</Properties>
-			<File>EGHV/Gameplay/ExcludeGoodyHut/Support/Grant_Medic.sql</File>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Support/Grant_Upgrade.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_GRANT_MILITARY_ENGINEER" criteria="EGHV_Exclude_GoodyHut_Grant_Military_Engineer">
 			<Properties>
@@ -1598,7 +1598,7 @@
 
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Support/Grant_Battering_Ram.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Support/Grant_Catapult.sql</File>
-		<File>EGHV/Gameplay/ExcludeGoodyHut/Support/Grant_Medic.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Support/Grant_Upgrade.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Support/Grant_Military_Engineer.sql</File>
 		
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Governors/One_Governor_Title.sql</File>
