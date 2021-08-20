@@ -3,13 +3,13 @@
 
 The above image, and all other image(s) herein, reflect an Advanced Setup with Gathering Storm rules; actual configuration options will vary with different rules and/or available additional content.
 
-A mod that provides a fairly comprehensive extension to the Tribal Village rewards system. Many new Frontend options relating to Goody Huts are available, including:
+A mod that provides a fairly comprehensive extension to and overhaul of the Tribal Village (Goody Hut) rewards system. Many new Frontend options relating to Goody Huts are available, including:
 - A picker for choosing which Goody Hut reward(s), if any, have a chance of appearing ingame.
 - A slider for decreasing or increasing the relative amount of Goody Huts that will appear.
 - A dropdown menu for selecting an amount of possible bonus reward(s) in addition to the usual reward from a Goody Hut.
 - A checkbox flag for equalizing the chances of receiving all enabled reward(s).
 
-In addition, the number of available Goody Hut rewards has nearly tripled: There are now 47 with Standard rules and 51 with Rise and Fall rules (compared to 18 with either ruleset without EGHV), and 60 with Gathering Storm rules (compared to 23).
+In addition, the number of available Goody Hut rewards has nearly tripled: There are now 47 with Standard rules and 51 with Rise and Fall rules (compared to 18 with either ruleset without EGHV), and 60 with Gathering Storm rules (compared to 23). Many of these rewards are implemented entirely via Lua scripting, because the built-in system is sorely lacking in many ways.
 
 Finally, Hostile Villagers as (and now, potentially following) a reward make their return.
 
