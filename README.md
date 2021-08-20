@@ -50,7 +50,7 @@ Military | 1 recon unit (55) | 1 melee unit (25) * | 1 ranged unit (20) *
 Promotions * | 10 experience | 20 experience | 30 experience | 50 experience
 Secrets * | villager secrets (100)
 Science | 1 tech boost | 2 tech boosts | 1 tech | 2 techs *
-Support * | 1 battering ram | 1 catapult | 1 military engineer | 1 medic
+Support * | 1 support unit (25) | 1 siege unit (25) | 1 military engineer (25) | upgrade unit (25)
 Survivors | 1 new population | 1 builder | 1 trader | 1 settler
 
 The following rewards are available for Rise and Fall and later ruleset(s):
@@ -68,6 +68,8 @@ Meteor | meteor-strike site (100)
 Resources * | 10 strategic resources | 20 strategic resources | 30 strategic resources | 50 strategic resources
 
 - [ * ] Provided by EGHV
+
+Minimum-turn requirements are set to 0 for all __DEFINED__ and __ENABLED__ rewards, meaning that all such rewards will be available from turn 1 on.
 
 Units provided by most Military type rewards - including (Anti) Cavalry and Support type rewards, but excluding the Military Engineer reward - will be Era-specific and will spawn in a plot near the Goody Hut that produced the reward. Units provided by the Military Engineer reward, or by any other reward, will be the unit indicated by the reward and will spawn in the nearest city center.
 
@@ -176,8 +178,7 @@ Provides a checkbox option that, when enabled, will produce __EXTREMELY__ verbos
 - Again, logging output will be __EXTREMELY__ verbose when this option is enabled; unless this verbosity is required, it is recommended that this option remain disabled.
 
 # Known Shortcomings, Limitations, and Bugs
-Minimum-turn requirements are set to 0 for all __DEFINED__ and __ENABLED__ rewards, meaning that all such rewards will be available from turn 1 on.
-- There is a known issue where receiving the "2 free civics" reward prior to unlocking the Code of Laws civic results in only receiving 1 free civic, which will be Code of Laws. As this is only really a problem during the extremely-early game (turns 1-20) prior to manual unlocking of Code of Laws, and the potential fix is cumbersome and ultimately unrewarding to implement, it is likely to remain unchanged.
+There is a known issue where receiving the "2 free civics" reward prior to unlocking the Code of Laws civic results in only receiving 1 free civic, which will be Code of Laws. As this is only really a problem during the extremely-early game (turns 1-20) prior to manual unlocking of Code of Laws, and the potential fix is cumbersome and ultimately unrewarding to implement, it is likely to remain unchanged.
 
 The Villager Secrets reward can only be awarded to a Player a certain number of times before becoming useless. When this reward is received, and this limit has been reached for the Player, then unless this reward is the only enabled reward, a new reward will be randomly seleted instead. If it IS the only enabled reward, then instead nothing will happen. See below for further details.
 
