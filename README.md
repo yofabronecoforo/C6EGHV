@@ -10,7 +10,14 @@ A mod that provides a fairly comprehensive extension to and overhaul of the Trib
 - A dropdown menu for selecting an amount of possible bonus reward(s) in addition to the usual reward from a Goody Hut.
 - A checkbox flag for equalizing the chances of receiving all enabled reward(s).
 
-In addition, the number of available Goody Hut rewards has nearly tripled: There are now 47 with Standard rules and 51 with Rise and Fall rules (compared to 18 with either ruleset without EGHV), and 60 with Gathering Storm rules (compared to 23). Many of these rewards are implemented entirely via Lua scripting, because the built-in system is sorely lacking in many ways.
+In addition, the number of available Goody Hut rewards has greatly increased: 
+Ruleset | Available Rewards | Rewards w/o EGHV
+------- | ------- | -------
+Standard | 47 | 18
+Rise and Fall | 51 | 18
+Gathering Storm | 60 | 23
+
+Many of these rewards are implemented entirely via Lua scripting, because the built-in system is sorely lacking in many ways.
 
 Finally, Hostile Villagers as (and now, potentially following) a reward make their return.
 
