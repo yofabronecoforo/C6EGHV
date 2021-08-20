@@ -3,6 +3,7 @@
 
 The above image, and all other image(s) herein, reflect an Advanced Setup with Gathering Storm rules; actual configuration options will vary with different rules and/or available additional content.
 
+# Overview
 A mod that provides a fairly comprehensive extension to and overhaul of the Tribal Village (Goody Hut) rewards system. Many new Frontend options relating to Goody Huts are available, including:
 - A picker for choosing which Goody Hut reward(s), if any, have a chance of appearing ingame.
 - A slider for decreasing or increasing the relative amount of Goody Huts that will appear.
