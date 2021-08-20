@@ -11,11 +11,11 @@ A mod that provides a fairly comprehensive extension to and overhaul of the Trib
 - A checkbox flag for equalizing the chances of receiving all enabled reward(s).
 
 In addition, the number of available Goody Hut rewards has greatly increased: 
-Ruleset | Available Rewards | Rewards w/o EGHV
+Ruleset | Available Rewards (Types) | Rewards (Types) w/o EGHV
 ------- | ------- | -------
-Standard | 47 | 18
-Rise and Fall | 51 | 18
-Gathering Storm | 60 | 23
+Standard | 47 (13) | 18 (6)
+Rise and Fall | 51 (14) | 18 (6)
+Gathering Storm | 60 (17) | 23 (8)
 
 Many of these rewards are implemented entirely via Lua scripting, because the built-in system is sorely lacking in many ways.
 
