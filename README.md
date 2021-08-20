@@ -123,6 +123,7 @@ With Gathering Storm rules and all available rewards enabled, the above chances 
 Fewer enabled rewards in a category will result in a greater chance of each enabled reward being chosen if its parent category is chosen. Fewer enabled categories will result in a greater chance of each enabled category being chosen. Ultimately, while the actual values may vary somewhat, they will be fairly close together as demonstrated above.
 
 ## Hostile Villagers
+#### Hostiles After Reward
 ![Hostiles After Reward](/IMAGES/Hostiles_After_Reward.png)
 
 Whenever a reward is earned from a Goody Hut, there is a chance that some of the villagers will be displeased that their tribe treated with outsiders. This does not apply to the meteor strike reward, or to any rewards earned via trait or ability as outlined above; it only applies to rewards received from an actual Goody Hut. This chance fluctuates based on several factors:
@@ -137,6 +138,7 @@ On the default difficulty setting, in the Ancient era, with one reward, there sh
 
 If the villagers are hostile, they will retaliate by organizing into one barbarian melee unit in a nearby tile. If they are very hostile, more than one unit will appear, and some will be ranged. If they are downright pissed off, they will organize into a new barbarian camp near the site of their former village, and they will spawn a handful of units. If Horses are located near the site of the former village, there is a chance that any unit(s) that appear may instead be mounted; this chance increases with each additional nearby source of Horses. Villager hostility level greatly fluctuates based on the same factors as the chance to be hostile above, and like above, eventually multiple units, and even a camp, will move from being a chance to a guarantee.
 
+#### Hostiles As Reward
 ![Hostiles As Reward](/IMAGES/Hostile_Villagers.gif)
 
 What's that? "Not masochistic enough!" you say? Then how about a new reward type that's nothing but hostile villagers "rewards?" They won't even lure you in with the carrot before reaching for the stick, they just go straight for the stick, and the stick is pointy. When enabled, these rewards can be selected by the rewards system like any other reward, and have pre-determined villager hostility values, as shown in the table above. Hostility increases as rarity does; in fact, one of these rewards is selected internally after calculating villager hostility to place any hostiles that appear after any other reward.
@@ -145,6 +147,7 @@ Any hostile villagers that appear as or after a reward will generate an ingame p
 
 To compensate for the increased numbers of barbarian units that are likely to be present now, the experience and level caps from fighting such units have been increased. You still aren't going to get a fully-promoted unit from fighting barbarians, but at least you'll be able to get more than a single promotion.
 
+#### Hostiles Configuration
 Hostile Villagers as a reward are configurable via the picker. For Hostile Villagers after a reward, there is a new dropdown option in Advanced Setup to select the chances of an appearance following any other Goody Hut reward. Available choices are:
 - Never (hostile villagers will NOT appear)
 - Maybe ( * this is the default option; a chance for hostile villagers to appear, as described above)
