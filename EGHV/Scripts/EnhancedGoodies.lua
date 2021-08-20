@@ -220,6 +220,13 @@ GUE.UnitAbilityRewards = {
 };
 -- unit combat experience rewards; key = goody hut subtype, value = amount of XP to award
 GUE.UnitXPRewards = { ["GOODYHUT_SMALL_EXPERIENCE"] = 10, ["GOODYHUT_MEDIUM_EXPERIENCE"] = 20, ["GOODYHUT_LARGE_EXPERIENCE"] = 30, ["GOODYHUT_HUGE_EXPERIENCE"] = 40 };
+-- 
+GUE.PromotionsByClass = {};
+for row in GameInfo.UnitPromotionClasses() do GUE.PromotionsByClass[row.PromotionClassType] = {}; end
+for row in GameInfo.UnitPromotions() do table.insert(GUE.PromotionsByClass[row.PromotionClass], row.UnitPromotionType); end
+-- 
+GUE.UnitUpgrades = {};
+for row in GameInfo.UnitUpgrades() do GUE.UnitUpgrades[row.Unit] = row.UpgradeUnit; end
 
 --[[ =========================================================================
 	exposed member function AddUnitToMap( iX, iY, iPlayerID, iTurn, iEra, sRewardSubType )
@@ -228,7 +235,7 @@ GUE.UnitXPRewards = { ["GOODYHUT_SMALL_EXPERIENCE"] = 10, ["GOODYHUT_MEDIUM_EXPE
 	pre-init : this should be defined prior to Initialize()
 =========================================================================== ]]
 function GUE.AddUnitToMap( iX, iY, iPlayerID, iTurn, iEra, sRewardSubType )
-	-- 
+	-- abort here if sRewardSubType is not a valid grant unit reward
 	if GUE.GrantUnitRewards[sRewardSubType] == nil then return; end
 	-- fetch the value assigned to this key in the unit rewards table
 	local iUnitGrant = GUE.GrantUnitRewards[sRewardSubType];
@@ -254,27 +261,23 @@ end
 	pre-init : this should be defined prior to Initialize()
 =========================================================================== ]]
 function GUE.AddXPToUnit( iX, iY, tUnits, iXP )
-	-- 
+	-- abort here if the supplied units table is nil
 	if tUnits == nil then return; end
-	-- 
-	-- local iXP = GUE.UnitXPRewards[sRewardSubType];
-	-- 
+	-- iterate over the supplied units table
 	for k, v in pairs(tUnits) do
-		-- 
-		local sUnitType = v.UnitType;
-		-- this unit's promotion class
-		local sPromotionClass = v.PromotionClass;
+		-- this unit's type and promotion class
+		local sUnitType, sPromotionClass = v.UnitType, v.PromotionClass;
 		-- data for this unit
 		local pUnit = v.Table;
-		-- 
+		-- shortcut to this unit's GetExperience() method
 		local pUnitExperience = pUnit:GetExperience();
-		-- 
+		-- true when this unit can earn experience
 		if pUnitExperience ~= nil then
-			-- 
+			-- add iXP experience to this unit
 			pUnitExperience:ChangeExperience(iXP);
 			-- debugging log output
 			Dprint("A " .. sUnitType .. " near plot (x " .. iX .. ", y " .. iY .. ") has received " .. iXP .. " experience points towards its next promotion");
-		-- 
+		-- this unit can 'NOT' earn experience
 		else
 			-- debugging log output
 			Dprint("Combat experience is not a valid award for a " .. sUnitType .. " near plot (x " .. iX .. ", y " .. iY .. "); skipping this unit");
@@ -291,10 +294,8 @@ function GUE.AddAbilityToUnit( iX, iY, tUnits, sAbilityType )
 	if tUnits ~= nil then
 		-- iterate over all unit(s) in the passed table
 		for k, v in pairs(tUnits) do
-			-- 
-			local sUnitType = v.UnitType;
-			-- this unit's promotion class
-			local sPromotionClass = v.PromotionClass;
+			-- this unit's type and promotion class
+			local sUnitType, sPromotionClass = v.UnitType, v.PromotionClass;
 			-- data for this unit
 			local pUnit = v.Table;
 			-- shortcut to this unit's GetAbility() method
@@ -333,42 +334,120 @@ function GUE.AddAbilityToUnit( iX, iY, tUnits, sAbilityType )
 end
 
 --[[ =========================================================================
-	exposed member function UpgradeUnit( iX, iY, tUnits )
+	exposed member function UpgradeUnit( iPlayerID, iX, iY, tUnits )
 	pre-init : this should be defined prior to Initialize()
 =========================================================================== ]]
-function GUE.UpgradeUnit( iX, iY, tUnits )
+function GUE.UpgradeUnit( iPlayerID, iX, iY, tUnits )
 	-- abort here if the supplied Units table is nil
 	if tUnits == nil then return; end
+	-- initialize the results table and the new units tracker
+	local tNewUnits, iNumNewUnits = {}, 0;
+	-- iterate over the supplied units table
 	for k, v in pairs(tUnits) do
 		-- this unit's type and promotion class
 		local sUnitType, sPromotionClass = v.UnitType, v.PromotionClass;
-		-- internal data for this unit
-		local pUnit = v.Table;
-		-- shortcut to this unit's GetAbility() and GetExperience() methods
-		local pUnitAbility, pUnitExperience = pUnit:GetAbility(), pUnit:GetExperience();
-		-- initialize table for this unit's abilities
-		local tAbilities = {};
-		-- iterate over the unit ability rewards table to identify any abilities attached to this unit
-		for k, v in pairs(GUE.UnitAbilityRewards) do
-			-- true when this unit has earned this ability; add this ability to the table of this unit's abilities
-			if pUnitAbility:GetAbilityCount(v) > 0 then table.insert(tAbilities, v); end
+		-- true when this unit's type is a key in the unit upgrades table
+		if GUE.UnitUpgrades[sUnitType] ~= nil then
+			-- internal data for this unit
+			local pUnit = v.Table;
+			-- fetch the current (x, y) map coordinates of this unit
+			local jX, jY = pUnit:GetX(), pUnit:GetY();
+			-- shortcut to this unit's GetAbility() and GetExperience() methods
+			local pUnitAbility, pUnitExperience = pUnit:GetAbility(), pUnit:GetExperience();
+			-- initialize tables for this unit's abilities and promotions, and initialize the level tracker for this unit to 1
+			local tAbilities, tPromotions, iLevel = {}, {}, 1;
+			-- initialize the level table
+			local tLevel = { 
+				{ Min = 0, Max = 15 }, { Min = 15, Max = 45 }, { Min = 45, Max = 90 }, { Min = 90, Max = 150 }, { Min = 150, Max = 225 }, { Min = 225, Max = 315 }, { Min = 315, Max = 420 }
+			 };
+			-- iterate over the unit ability rewards table to identify any abilities attached to this unit
+			for k, v in pairs(GUE.UnitAbilityRewards) do tAbilities[v] = (pUnitAbility:GetAbilityCount(v) > 0) and true or false; end
+			-- iterate over the promotions by class table to identify any promotions earned by this unit
+			for i, v in ipairs(GUE.PromotionsByClass[sPromotionClass]) do 
+				-- fetch the status of this promotion
+				tPromotions[v] = pUnitExperience:HasPromotion(GameInfo.UnitPromotions[v].Index); 
+				-- increment this unit's level tracker when this is true
+				if (tPromotions[v] == true) then iLevel = iLevel + 1; end
+			end
+			-- fetch this unit's experience to next level and veteran name
+			local iXPTNL, sVeteranName = pUnitExperience:GetExperienceForNextLevel(), pUnitExperience:GetVeteranName();
+			-- calculate this unit's current actual experience
+			local iXP = tLevel[iLevel].Max - iXPTNL;
+			-- calculate this unit's current actual experience since last level
+			local iXPSLL = iXP - tLevel[iLevel].Min;
+			-- initialize primary debugging message
+			local sPriDebugMsg = "A " .. sUnitType;
+			-- adjust primary debugging message for unit veteran name
+			if (sVeteranName ~= nil and sVeteranName ~= "") then sPriDebugMsg = sPriDebugMsg .. " known as " .. sVeteranName; end
+			-- adjust primary debugging message
+			sPriDebugMsg = sPriDebugMsg .. " at plot (x " .. iX .. ", y " .. iY .. ") ";
+			-- adjust primary debugging message for no or invalid unit promotion class
+			if GUE.PromotionsByClass[sPromotionClass] == nil then sPriDebugMsg = sPriDebugMsg .. "is 'NOT' eligible for promotion,";
+			-- adjust primary debugging message for current unit promotion level
+			else sPriDebugMsg = sPriDebugMsg .. "is Level " .. iLevel .. ",";
+			end
+			-- adjust primary debugging message for direct unit promotion path
+			sPriDebugMsg = sPriDebugMsg .. " and has a valid upgrade path to " .. GUE.UnitUpgrades[sUnitType];
+			-- initialize secondary debugging message
+			local sSecDebugMsg = "Current promotions: ";
+			-- adjust secondary debugging message for valid promotions for this unit
+			for k, v in pairs(tPromotions) do sSecDebugMsg = sSecDebugMsg .. k .. " = " .. tostring(v) .. " "; end
+			-- initialize tertiary debugging message
+			local sTerDebugMsg = "Current abilities: ";
+			-- adjust tertiary debugging message for valid abilities for this unit
+			for k, v in pairs(tAbilities) do sTerDebugMsg = sTerDebugMsg .. k .. " = " .. tostring(v) .. " "; end
+			-- debugging output
+			Dprint(sPriDebugMsg);
+			if GUE.PromotionsByClass[sPromotionClass] ~= nil then Dprint(sSecDebugMsg); end
+			Dprint(sTerDebugMsg);
+			-- "upgrade" this unit by (1) destroying this unit, and then (2) creating a new unit which this unit would upgrade to
+			UnitManager.Kill(pUnit);
+			UnitManager.InitUnit(iPlayerID, GUE.UnitUpgrades[sUnitType], jX, jY, 1);
+			-- iterate over all unit(s) found in this Plot
+			for i, pUnit in ipairs(Units.GetUnitsInPlotLayerID(jX, jY, MapLayers.ANY)) do
+				-- fetch this unit's ID and OwnerID
+				local iThisUnitID, iThisUnitOwnerID = pUnit:GetID(), pUnit:GetOwner();
+				-- make sure this unit belongs to this Player
+				if iThisUnitOwnerID == iPlayerID then
+					-- data for this unit
+					local pUnitData = GameInfo.Units[pUnit:GetType()];
+					-- true when this unit is the "upgraded" unit
+					if pUnitData.UnitType == GUE.UnitUpgrades[sUnitType] then
+						-- store the entire unit table for and select details about this unit in the results table, keyed to its ID
+						tNewUnits[iThisUnitID] = { Table = pUnit, UnitType = pUnitData.UnitType, PromotionClass = pUnitData.PromotionClass };
+						-- increment the units in plot tracker
+						iNumNewUnits = iNumNewUnits + 1;
+						-- shortcut to this unit's GetExperience() method
+						local pUnitExperience = pUnit:GetExperience();
+						-- iterate over the promotions table for this new unit
+						for k, v in pairs(tPromotions) do 
+							-- true when the old unit had this promotion
+							if (v == true) then 
+								-- initialize local debugging message
+								local sPriInfoMsg = "Reapplying promotion " .. k .. " . . . ";
+								-- apply this promotion to this new unit
+								pUnitExperience:SetPromotion(GameInfo.UnitPromotions[k].Index); 
+								-- local debugging output
+								Dprint(sPriInfoMsg .. "[PASS!]");
+							end
+						end
+						-- grant enough experience to this new unit to provide its next promotion
+						pUnitExperience:ChangeExperience(tLevel[iLevel].Max);
+						-- remove this new unit's moves for this turn
+						UnitManager.FinishMoves(pUnit);
+					end
+				end 
+			end
+		-- true when this unit's type is NOT a key in the unit upgrades table
+		else
+			-- debugging output
+			Dprint("A " .. sUnitType .. " at plot (x " .. iX .. ", y " .. iY ..") does not have a valid defined upgrade path; skipping this unit");
+			-- store the entire unit table for and select details about this unit in the results table, keyed to its ID
+			tNewUnits[k] = v;
 		end
-		-- initialize table for this unit's experience data
-		local tExperience = { 
-			XPForNextLevel = pUnitExperience:GetExperienceForNextLevel(), XP = pUnitExperience:GetExperiencePoints(), Level = pUnitExperience:GetLevel(), Promotions = pUnitExperience:GetPromotions(), 
-			Name = pUnitExperience:GetVeteranName()
-		};
-		-- 
-		local sPriDebugMsg = "A " .. sUnitType .. " at plot (x " .. iX .. ", y " .. iY .. ") is Level " .. tExperience.Level .. " with " .. tExperience.XP .. " XP (" .. tExperience.XPForNextLevel .. " TNL)";
-		if tExperience.Name ~= nil then sPriDebugMsg = sPriDebugMsg .. ", and is known as " .. tExperience.Name; end
-		local sSecDebugMsg = "Promotions: " .. tostring(tExperience.Promotions);
-		local sTerDebugMsg = "Abilities: ";
-		for i, v in ipairs(tAbilities) do sTerDebugMsg = sTerDebugMsg .. v .. " "; end
-		-- 
-		Dprint(sPriDebugMsg);
-		Dprint(sSecDebugMsg);
-		Dprint(sTerDebugMsg);
 	end
+	-- return the results table
+	return tNewUnits;
 end
 
 --[[ =========================================================================
@@ -875,6 +954,8 @@ function GUE.GetNewRewards( iNumRewards, iPlayerID, iX, iY, sRewardSubType, iTur
 							elseif (GUE.UnitXPRewards[sThisSubType] ~= nil) then GUE.AddXPToUnit(iX, iY, tUnits, GUE.UnitXPRewards[sThisSubType]);
 							-- true when the rolled reward is a hostile villagers "reward"; set the bonus hostiles flag
 							elseif GUE.HostileVillagers[sThisSubType] then bBonusHostiles = true;
+							-- 
+							elseif (sThisSubType == "GOODYHUT_GRANT_UPGRADE") then tUnits = GUE.UpgradeUnit(iPlayerID, iX, iY, tUnits);
 							-- true for any other rolled reward; attach its modifier to (re) apply the reward
 							else GUE.AddModifierToPlayer(iPlayerID, sThisModifier, false);
 							end
@@ -1033,6 +1114,8 @@ function GUE.ValidateGoodyHutReward( tImprovementActivated, tGoodyHutReward )
 	elseif (GUE.UnitAbilityRewards[sRewardSubType] ~= nil and bIsExplore) then GUE.AddAbilityToUnit(iX, iY, tUnitsInPlot, GUE.UnitAbilityRewards[sRewardSubType]);
 	-- 
 	elseif (GUE.UnitXPRewards[sRewardSubType] ~= nil) then GUE.AddXPToUnit(iX, iY, tUnitsInPlot, GUE.UnitXPRewards[sRewardSubType]);
+	-- 
+	elseif (sRewardSubType == "GOODYHUT_GRANT_UPGRADE") then tUnitsInPlot = GUE.UpgradeUnit(iPlayerID, iX, iY, tUnitsInPlot);
 	-- execute the CreateHostileVillagers() enhanced method here if this reward is a valid Hostile Villagers "reward"
 	elseif (GUE.HostileVillagers[sRewardSubType] ~= nil) then GUE.CreateHostileVillagers(iX, iY, iPlayerID, iTurn, iEra, sRewardSubType);
 	end
@@ -1288,397 +1371,3 @@ Initialize();
 --[[ =========================================================================
 	end EnhancedGoodies.lua gameplay script
 =========================================================================== ]]
-
---[[ =========================================================================
-	hook function Old_EG_OnGoodyHutReward() ** 2021/07/22 possible GoodyHutReward before ImprovementActivated for Sumeria's civ ability spotted ** DEPRECATED **
-	fires whenever a goody hut is popped, including the meteor strike reward
-	pre-init : this should be defined and hooked to Events.GoodyHutReward in EG_OnLoadScreenClose() prior to Initialize()
-=========================================================================== ]]
--- function Old_EG_OnGoodyHutReward( iPlayerID, iUnitID, iTypeHash, iSubTypeHash )
--- 	-- if the Sumerian civ ability has triggered, reset the flag and abort
--- 	if (GUE.SumerianCivAbilityTrigger) then
--- 		-- define local warning message(s)
--- 		local sPriWarnMsg = "WARNING EG_OnGoodyHutReward() Ignoring reward received via Sumeria's civilization ability";
--- 		-- print warning message(s) to the log when debugging
--- 		print(sPriWarnMsg);
--- 		-- reset the Sumerian civ ability flag
--- 		GUE.SumerianCivAbilityTrigger = false;
--- 		return;
--- 	-- otherwise do nothing and abort if this is the meteor strike reward
--- 	elseif (GUE.GoodyHutTypes[iTypeHash].GoodyHutType == "METEOR_GOODIES") and (GUE.GoodyHutRewards[iSubTypeHash].SubTypeGoodyHut == "METEOR_GRANT_GOODIES") then
--- 		-- define local warning message(s)
--- 		local sLocalWarnMsg = "WARNING EG_OnGoodyHutReward() Ignoring the meteor strike reward . . .";
--- 		-- print warning message(s) to the log when debugging
--- 		print(sLocalWarnMsg);
--- 		return;
--- 	end
--- 	-- define function entry message(s)
--- 	local sPriEntryMsg = "Enter EG_OnGoodyHutReward( iPlayerID = " .. iPlayerID .. ", iUnitID = " .. iUnitID
--- 		.. ", iTypeHash = " .. iTypeHash .. ", iSubTypeHash = " .. iSubTypeHash .. " )";
--- 	-- print entry message(s) to the log when debugging
--- 	Dprint(sPriEntryMsg);
--- 	-- define a local table for any pertinent argument(s) to be stored or passed
--- 	local tCurrentArgs = {};
--- 	-- store any argument(s) which are pertinent in this local table
--- 	tCurrentArgs.PlayerID = iPlayerID;
--- 	tCurrentArgs.UnitID_GHR = iUnitID;
--- 	tCurrentArgs.TypeHash = iTypeHash;
--- 	tCurrentArgs.SubTypeHash = iSubTypeHash;
--- 	-- this fires when Events.GoodyHutReward has fired BEFORE Events.ImprovementActivated this turn
--- 	if (#GUE.QueueImprovementActivated == 0) then
--- 		-- define local info message(s)
--- 		local sPriInfoMsg = "Events.GoodyHutReward fired FIRST for the current reward; adding pertinent argument(s) to the end of GUE.QueueGoodyHutReward . . .";
--- 		-- print info message(s) to the log when debugging
--- 		Dprint(sPriInfoMsg);
--- 		-- insert the local table into the global QueueGoodyHutReward
--- 		table.insert(GUE.QueueGoodyHutReward, tCurrentArgs);
--- 		-- define local info message(s)
--- 		local sSecInfoMsg = "GUE.QueueGoodyHutReward now contains " .. #GUE.QueueGoodyHutReward .. " item(s)";
--- 		-- print info message(s) to the log when debugging
--- 		Dprint(sSecInfoMsg);
--- 	-- this fires when Events.GoodyHutReward has fired AFTER Events.ImprovementActivated this turn
--- 	elseif (#GUE.QueueImprovementActivated > 0) then
--- 		-- define local info message(s)
--- 		local sPriInfoMsg = "Events.GoodyHutReward fired SECOND for the current reward; pulling pertinent argument(s) from the front of GUE.QueueImprovementActivated . . .";
--- 		-- print info message(s) to the log when debugging
--- 		Dprint(sPriInfoMsg);
--- 		-- iterate over the first index in the global QueueImprovementActivated and add its data to the local table
--- 		for k, v in pairs(GUE.QueueImprovementActivated[1]) do tCurrentArgs[k] = v; end
--- 		-- remove the first index from the global QueueImprovementActivated
--- 		table.remove(GUE.QueueImprovementActivated, 1);
--- 		-- fetch pertinent existing argument(s) from the local table
--- 		local iX = tCurrentArgs.PlotX;
--- 		local iY = tCurrentArgs.PlotY;
--- 		local iOwnerID = tCurrentArgs.OwnerID;
--- 		local iUnitID_IA = tCurrentArgs.UnitID_IA;
--- 		local iImprovementIndex = tCurrentArgs.ImprovementIndex;
--- 		local iImprovementOwnerID = tCurrentArgs.ImprovementOwnerID;
--- 		local iActivationType = tCurrentArgs.ActivationType;
--- 		-- define local info message(s)
--- 		local sSecInfoMsg = "Fetched argument(s): iX = " .. iX .. ", iY = " .. iY .. ", iOwnerID = " .. iOwnerID .. ", iUnitID_IA = " .. iUnitID_IA
--- 			.. ", iImprovementIndex = " .. iImprovementIndex .. ", iImprovementOwnerID = " .. iImprovementOwnerID .. ", iActivationType = " .. iActivationType;
--- 		local sTerInfoMsg = "GUE.QueueImprovementActivated now contains " .. #GUE.QueueImprovementActivated .. " item(s)";
--- 		-- print info message(s) to the log when debugging
--- 		Dprint(sSecInfoMsg);
--- 		Dprint(sTerInfoMsg);
--- 		-- use the consolidated arguments to validate and execute enhanced method(s), if any, on this reward
--- 		GUE.ValidateGoodyHutReward(tCurrentArgs);
--- 	-- strange things are afoot at the Circle K if this fires
--- 	else
--- 		-- define local warning message(s)
--- 		local sLocalWarnMsg = "WARNING EG_OnGoodyHutReward() GUE.QueueImprovementActivated appears to be undefined, so something weird but non-game-breaking has definitely happened here; proceeding . . .";
--- 		-- print warning message(s) to the log when debugging
--- 		print(sLocalWarnMsg);
--- 	end
--- 	-- define function exit message(s)
--- 	local sPriExitMsg = "Exit EG_OnGoodyHutReward()";
--- 	-- print exit message(s) to the log when debugging
--- 	Dprint(sPriExitMsg);
--- end
-
---[[ =========================================================================
-	hook function EG_OnImprovementActivated() ** 2021/07/22 possible GoodyHutReward before ImprovementActivated for Sumeria's civ ability spotted ** DEPRECATED **
-	fires whenever an improvement is activated, including any goody hut other than the meteor strike reward
-	pre-init : this should be defined and hooked to Events.ImprovementActivated in EG_OnLoadScreenClose() prior to Initialize()
-=========================================================================== ]]
--- function Old_EG_OnImprovementActivated( iX, iY, iOwnerID, iUnitID, iImprovementIndex, iImprovementOwnerID, iActivationType )
--- 	-- Sumeria receives a random goody hut reward upon clearing a barbarian camp; this reward should be ignored, so set the flag and abort
--- 	if (iImprovementIndex == GUE.BarbCampIndex) then
--- 		-- check iOwnerID to see if this Player is Sumeria
--- 		if (iOwnerID > -1) then
--- 			if (GUE.PlayerData[iOwnerID] ~= nil) then
--- 				if (GUE.PlayerData[iOwnerID].CivTypeName == "CIVILIZATION_SUMERIA") then
--- 					GUE.SumerianCivAbilityTrigger = true;
--- 				end
--- 			end
--- 		-- check iImprovementOwnerID to see if this Player is Sumeria
--- 		elseif (iImprovementOwnerID > -1) then
--- 			if (GUE.PlayerData[iImprovementOwnerID] ~= nil) then
--- 				if (GUE.PlayerData[iImprovementOwnerID].CivTypeName == "CIVILIZATION_SUMERIA") then
--- 					GUE.SumerianCivAbilityTrigger = true;
--- 				end
--- 			end
--- 		end
--- 		-- this is true when this Player is Sumeria
--- 		if (GUE.SumerianCivAbilityTrigger) then
--- 			-- define local warning message(s)
--- 			local sPriWarnMsg = "WARNING EG_OnImprovementActivated() Ignoring reward received via Sumeria's civilization ability";
--- 			-- print warning message(s) to the log when debugging
--- 			print(sPriWarnMsg);
--- 		end
--- 		return;
--- 	-- if the activated improvement is otherwise NOT a goody hut, do nothing and abort
--- 	elseif (iImprovementIndex ~= GUE.GoodyHutIndex) then
--- 		return;
--- 	end
--- 	-- define function entry messages
--- 	local sPriEntryMsg = "Enter EG_OnImprovementActivated( iX = " .. iX .. ", iY = " .. iY
--- 		.. ", iOwnerID = " .. iOwnerID .. ", iUnitID = " .. iUnitID
--- 		.. ", iImprovementIndex = " .. iImprovementIndex .. ", iImprovementOwnerID = " .. iImprovementOwnerID
--- 		.. ", iActivationType = " .. iActivationType .. " )";
--- 	-- print entry messages to the log when debugging
--- 	Dprint(sPriEntryMsg);
--- 	-- define a local table for any pertinent argument(s)
--- 	local tCurrentArgs = {};
-	
--- 	-- store any argument(s) which are pertinent in this local table
--- 	tCurrentArgs.PlotX = iX;
--- 	tCurrentArgs.PlotY = iY;
--- 	tCurrentArgs.OwnerID = iOwnerID;
--- 	tCurrentArgs.UnitID_IA = iUnitID;
--- 	tCurrentArgs.ImprovementIndex = iImprovementIndex;
--- 	tCurrentArgs.ImprovementOwnerID = iImprovementOwnerID;
--- 	tCurrentArgs.ActivationType = iActivationType;
--- 	-- this fires when Events.ImprovementActivated has fired BEFORE Events.GoodyHutReward this turn
--- 	if (#GUE.QueueGoodyHutReward == 0) then
--- 		-- define local info message(s)
--- 		local sPriInfoMsg = "Events.ImprovementActivated fired FIRST for the current reward; adding pertinent argument(s) to the end of GUE.QueueImprovementActivated . . .";
--- 		-- print info message(s) to the log when debugging
--- 		Dprint(sPriInfoMsg);
--- 		-- insert the local table into the global QueueImprovementActivated
--- 		table.insert(GUE.QueueImprovementActivated, tCurrentArgs);
--- 		-- define local info message(s)
--- 		local sSecInfoMsg = "GUE.QueueImprovementActivated now contains " .. #GUE.QueueImprovementActivated .. " item(s)";
--- 		-- print info message(s) to the log when debugging
--- 		Dprint(sSecInfoMsg);
--- 	-- this fires when Events.ImprovementActivated has fired AFTER Events.GoodyHutReward this turn
--- 	elseif (#GUE.QueueGoodyHutReward > 0) then
--- 		-- define local info message(s)
--- 		local sPriInfoMsg = "Events.ImprovementActivated fired SECOND for the current reward; pulling pertinent argument(s) from the front of GUE.QueueGoodyHutReward . . .";
--- 		-- print info message(s) to the log when debugging
--- 		Dprint(sPriInfoMsg);
--- 		-- iterate over the first index in the global QueueGoodyHutReward and add its data to the local table
--- 		for k, v in pairs(GUE.QueueGoodyHutReward[1]) do tCurrentArgs[k] = v; end
--- 		-- remove the first index from the global QueueGoodyHutReward
--- 		table.remove(GUE.QueueGoodyHutReward, 1);
--- 		-- fetch pertinent existing argument(s) from the local table
--- 		local iPlayerID = tCurrentArgs.PlayerID;
--- 		local iUnitID_GHR = tCurrentArgs.UnitID_GHR;
--- 		local iSubTypeHash = tCurrentArgs.SubTypeHash;
--- 		local iTypeHash = tCurrentArgs.TypeHash;
--- 		-- define local info message(s)
--- 		local sSecInfoMsg = "Fetched argument(s): iPlayerID = " .. iPlayerID .. ", iUnitID_GHR = " .. iUnitID_GHR
--- 			.. ", iTypeHash = " .. iTypeHash .. ", iSubTypeHash = " .. iSubTypeHash;
--- 		local sTerInfoMsg = "GUE.QueueGoodyHutReward now contains " .. #GUE.QueueGoodyHutReward .. " item(s)";
--- 		-- print info message(s) to the log when debugging
--- 		Dprint(sSecInfoMsg);
--- 		Dprint(sTerInfoMsg);
--- 		-- use the consolidated arguments to validate and execute enhanced method(s), if any, on this reward
--- 		GUE.ValidateGoodyHutReward(tCurrentArgs);
--- 	-- strange things are afoot at the Circle K if this fires
--- 	else
--- 		-- define local warning message(s)
--- 		local sLocalWarnMsg = "WARNING EG_OnImprovementActivated() GUE.QueueGoodyHutReward appears to be undefined, so something weird but non-game-breaking has definitely happened here; proceeding . . .";
--- 		-- print warning message(s) to the log when debugging
--- 		print(sLocalWarnMsg);
--- 	end
--- 	-- define function exit message(s)
--- 	local sPriExitMsg = "Exit EG_OnImprovementActivated()";
--- 	-- print exit message(s) to the log when debugging
--- 	Dprint(sPriExitMsg);
--- end
-
---[[ =========================================================================
-	exposed member function ValidateGoodyHutReward()
-	use arguments consolidated from OnGoodyHutReward and OnImprovementActivated, and
-		validate and execute any applicable enhanced method(s) on the current goody hut reward
-	pre-init : this should be defined prior to Initialize()
-=========================================================================== ]]
--- function GUE.OldValidateGoodyHutReward( tArgs )
--- 	-- fetch the current global turn
--- 	local iTurn = GUE.CurrentTurn;
--- 	-- define the "true" Player here with a screwy value; if this value doesn't get changed below, there is a problem
--- 	local iPlayerID = -2;
--- 	-- PlayerID most likely represents the "true" Player
--- 	if (tArgs.PlayerID > -1) then iPlayerID = tArgs.PlayerID;
--- 	-- OwnerID likely represents the "true" Player IF PlayerID is invalid
--- 	elseif (tArgs.OwnerID > -1) then iPlayerID = tArgs.OwnerID;
--- 	-- ImprovementOwnerID likely represents the "true" Player IF both PlayerID AND OwnerID are invalid
--- 	elseif (tArgs.ImprovementOwnerID > -1) then iPlayerID = tArgs.ImprovementOwnerID;
--- 	end
--- 	-- identify the current global or player Era
--- 	local iEra = (GUE.Ruleset == "RULESET_STANDARD") and GUE.PlayerData[iPlayerID].Era or GUE.CurrentEra;
--- 	-- define function entry messages
--- 	local sPriEntryMsg = "Turn " .. iTurn .. " | Era " .. iEra
--- 		.. " | Enter ValidateGoodyHutReward( PlotX = " .. tArgs.PlotX .. ", PlotY = " .. tArgs.PlotY
--- 		.. ", OwnerID = " .. tArgs.OwnerID .. ", UnitID_IA = " .. tArgs.UnitID_IA
--- 		.. ", ImprovementIndex = " .. tArgs.ImprovementIndex .. ", ImprovementOwnerID = " .. tArgs.ImprovementOwnerID
--- 		.. ", ActivationType = " .. tArgs.ActivationType
--- 		.. ", PlayerID = " .. tArgs.PlayerID .. ", UnitID_GHR = " .. tArgs.UnitID_GHR
--- 		.. ", TypeHash = " .. tArgs.TypeHash .. ", SubTypeHash = " .. tArgs.SubTypeHash .. " )";
--- 	-- print entry messages to the log when debugging
--- 	Dprint(sPriEntryMsg);
--- 	-- spot check for equality between OwnerID and PlayerID; these values not being equal may indicate a problem
--- 	if (tArgs.OwnerID ~= tArgs.PlayerID) then
--- 		-- define local warning message(s)
--- 		local sLocalWarnMsg = "WARNING ValidateGoodyHutReward() OwnerID " .. tArgs.OwnerID .. " ~= PlayerID " .. tArgs.PlayerID
--- 			.. "; possible misalignment between Events.GoodyHutReward and Events.ImprovementActivated detected; proceeding regardless . . .";
--- 		-- print warning message(s) to the log when debugging
--- 		print(sLocalWarnMsg);
--- 	end
--- 	-- spot check for equality between UnitID_IA and UnitID_GHR
--- 	if (tArgs.UnitID_IA ~= tArgs.UnitID_GHR) then
--- 		-- define local warning message(s)
--- 		local sLocalWarnMsg = "WARNING ValidateGoodyHutReward() UnitID_IA " .. tArgs.UnitID_IA .. " ~= UnitID_GHR " .. tArgs.UnitID_GHR
--- 			.. "; possible misalignment between Events.GoodyHutReward and Events.ImprovementActivated detected; proceeding regardless . . .";
--- 		-- print warning message(s) to the log when debugging
--- 		print(sLocalWarnMsg);
--- 	end
--- 	-- initialize flag(s) that direct log output depending on whether this hut was popped by a unit or via border expansion
--- 	local bIsExpand = ((tArgs.UnitID_IA == -1) and (tArgs.UnitID_GHR == -1)) and true or false;
--- 	local bIsExplore = ((tArgs.UnitID_IA ~= -1) and (tArgs.UnitID_GHR ~= -1)) and true or false;
--- 	-- table of this Unit's data
--- 	local pUnit_IA = bIsExplore and Players[tArgs.OwnerID]:GetUnits():FindID(tArgs.UnitID_IA) or nil;
--- 	-- local pUnit_IA = Players[tArgs.OwnerID]:GetUnits():FindID(tArgs.UnitID_IA);
--- 	if (pUnit_IA == nil) then pUnit_IA = bIsExplore and Players[tArgs.ImprovementOwnerID]:GetUnits():FindID(tArgs.UnitID_IA) or nil; end
--- 	-- if (pUnit_IA == nil) then pUnit_IA = Players[tArgs.ImprovementOwnerID]:GetUnits():FindID(tArgs.UnitID_IA); end
--- 	local pUnit_GHR = bIsExplore and Players[tArgs.PlayerID]:GetUnits():FindID(tArgs.UnitID_GHR) or nil;
--- 	-- local pUnit_GHR = Players[tArgs.PlayerID]:GetUnits():FindID(tArgs.UnitID_GHR);
--- 	-- focused table of this Unit's data
--- 	local tUnitData_IA = bIsExplore and GameInfo.Units[pUnit_IA:GetType()] or nil;
--- 	local tUnitData_GHR = bIsExplore and GameInfo.Units[pUnit_GHR:GetType()] or nil;
--- 	-- local tUnitData_IA = GameInfo.Units[pUnit_IA:GetType()];
--- 	-- local tUnitData_GHR = GameInfo.Units[pUnit_GHR:GetType()];
--- 	-- this Unit's type
--- 	local sUnitType_IA = bIsExplore and tUnitData_IA.UnitType or nil;
--- 	local sUnitType_GHR = bIsExplore and tUnitData_GHR.UnitType or nil;
--- 	-- local sUnitType_IA = tUnitData_IA.UnitType;
--- 	-- local sUnitType_GHR = tUnitData_GHR.UnitType;
--- 	-- this Unit's promotion class
--- 	local sUnitPromotionClass_IA = bIsExplore and tUnitData_IA.PromotionClass or nil;
--- 	local sUnitPromotionClass_GHR = bIsExplore and tUnitData_GHR.PromotionClass or nil;
--- 	local sUnitPromotionClass = (sUnitPromotionClass_IA == sUnitPromotionClass_GHR) and sUnitPromotionClass_IA or nil;
--- 	-- local sUnitPromotionClass_IA = tUnitData_IA.PromotionClass;
--- 	-- local sUnitPromotionClass_GHR = tUnitData_GHR.PromotionClass;
--- 	-- strange things are afoot at the Circle K if this fires
--- 	if ((tArgs.UnitID_IA == -1) and (tArgs.UnitID_GHR ~= -1)) or ((tArgs.UnitID_IA ~= -1) and (tArgs.UnitID_GHR == -1)) then
--- 		-- define local warning message(s)
--- 		local sLocalWarnMsg = "WARNING ValidateGoodyHutReward() UnitID_IA " .. tArgs.UnitID_IA .. " ~= UnitID_GHR " .. tArgs.UnitID_GHR
--- 			.. "; probable misalignment between Events.GoodyHutReward and Events.ImprovementActivated detected; proceeding regardless . . .";
--- 		-- print warning message(s) to the log when debugging
--- 		print(sLocalWarnMsg);
--- 	end
--- 	-- this fires when the local iPlayerID still has the value it was declared with, and indicates a problem
--- 	if (iPlayerID == -2) then
--- 		-- define local error message(s)
--- 		local sPriErrorMsg = "ERROR ValidateGoodyHutReward() PlayerID " .. iPlayerID .. " is invalid; definite misalignment between Events.GoodyHutReward and Events.ImprovementActivated has occurred";
--- 		local sSecErrorMsg = "Resetting argument queue(s) . . .";
--- 		-- print error message(s) to the log when debugging
--- 		print(sPriErrorMsg);
--- 		print(sSecErrorMsg);
--- 		-- reset the argument queue(s)
--- 		GUE.QueueGoodyHutReward = {};
--- 		GUE.QueueImprovementActivated = {};
--- 		-- define function exit message(s)
--- 		local sPriExitMsg = "Turn " .. iTurn .. " | Era " .. iEra .. " | Exit ValidateGoodyHutReward()";
--- 		-- print exit message(s) to the log when debugging, then abort
--- 		Dprint(sPriExitMsg);
--- 		return;
--- 	end
--- 	-- initialize the hostiles as bonus reward and the replacement reward flag(s)
--- 	local bHostilesAsBonusReward, bIsReplacement = false, false;
--- 	-- the hostile modifier of the received reward
--- 	local iThisRewardModifier = GUE.GoodyHutRewards[tArgs.SubTypeHash].HostileModifier;
--- 	-- fetch the type, subtype, and tier of the received reward
--- 	local sRewardType, sRewardSubType, sRewardTier = GUE.GoodyHutTypes[tArgs.TypeHash].GoodyHutType, GUE.GoodyHutRewards[tArgs.SubTypeHash].SubTypeGoodyHut, GUE.GoodyHutRewards[tArgs.SubTypeHash].Tier;
--- 	-- if the received reward is villager secrets, and the Player has already received it the maximum number of times, roll a replacement reward
--- 	if sRewardSubType == GUE.VillagerSecrets and GUE.PlayerData[iPlayerID].VillagerSecretsLevel >= GUE.MaxSecretsLevel then 
--- 		-- debugging output
--- 		Dprint("VillagerSecretsLevel >= MaxSecretsLevel for Player " .. iPlayerID .. "; rolling new reward to replace " .. sRewardSubType .. " . . .");
--- 		-- roll one new reward, and reset the hostile modifier, hostiles as bonus reward flag, reward subtype, and reward tier accordingly
--- 		iThisRewardModifier, bHostilesAsBonusReward, sRewardSubType, sRewardTier = GUE.GetNewRewards(1, iPlayerID, tArgs.PlotX, tArgs.PlotY, sRewardSubType, iTurn, iEra);
--- 		-- set the replacement reward flag
--- 		bIsReplacement = true;
--- 	end
--- 	-- this Player's Civilization type
--- 	local sCivTypeName = GUE.PlayerData[iPlayerID].CivTypeName;
--- 	-- define the log message
--- 	local sPriLogMsg = "Turn " .. iTurn .. " | Era " .. iEra .. " | Player " .. iPlayerID .. " (" .. sCivTypeName .. ") found a " .. sRewardType .. " village ";
--- 	-- great person flag
--- 	local bIsIncreasedHostility = false;
--- 	-- increased hostility unit flag
--- 	local bIsDecreasedHostility = false;
--- 	-- goody hut popped by exploration
--- 	if bIsExplore then
--- 		-- -- table of this Unit's data
--- 		-- local pUnit_IA = Players[tArgs.OwnerID]:GetUnits():FindID(tArgs.UnitID_IA);
--- 		-- if (pUnit_IA == nil) then pUnit_IA = Players[tArgs.ImprovementOwnerID]:GetUnits():FindID(tArgs.UnitID_IA); end
--- 		-- local pUnit_GHR = Players[tArgs.PlayerID]:GetUnits():FindID(tArgs.UnitID_GHR);
--- 		-- -- focused table of this Unit's data
--- 		-- local tUnitData_IA = GameInfo.Units[pUnit_IA:GetType()];
--- 		-- local tUnitData_GHR = GameInfo.Units[pUnit_GHR:GetType()];
--- 		-- -- this Unit's type
--- 		-- local sUnitType_IA = tUnitData_IA.UnitType;
--- 		-- local sUnitType_GHR = tUnitData_GHR.UnitType;
--- 		-- -- this Unit's promotion class
--- 		-- local sUnitPromotionClass_IA = tUnitData_IA.PromotionClass;
--- 		-- local sUnitPromotionClass_GHR = tUnitData_GHR.PromotionClass;
--- 		-- if this Unit is a high-value target, set the increased hostility flag
--- 		if (GUE.HighValueTargets[sUnitType_IA] ~= nil) or (GUE.HighValueTargets[sUnitType_GHR] ~= nil) then
--- 			bIsIncreasedHostility = true;
--- 		-- if this Unit's promotion class is a decreased hostility class, set the decreased hostility unit flag
--- 		elseif (GUE.DecreasedHostilityPromotionClasses[sUnitPromotionClass_IA] ~= nil) or (GUE.DecreasedHostilityPromotionClasses[sUnitPromotionClass_GHR] ~= nil) then
--- 			bIsDecreasedHostility = true;
--- 		end
--- 		-- reflect an exploration reward with unit details in the log message
--- 		sPriLogMsg = sPriLogMsg .. "with a ";
--- 		if (sUnitType_IA == sUnitType_GHR) then sPriLogMsg = sPriLogMsg .. sUnitType_IA;
--- 		elseif (sUnitType_IA ~= sUnitType_GHR) then sPriLogMsg = sPriLogMsg .. sUnitType_IA .. "/" .. sUnitType_GHR;
--- 		end
--- 	-- goody hut popped via expansion
--- 	elseif bIsExpand then
--- 		-- reflect an expansion reward in the log message
--- 		sPriLogMsg = sPriLogMsg .. "via border expansion";
--- 	-- goody hut popped through unknown means
--- 	else
--- 		-- reflect other rewards in the log message
--- 		sPriLogMsg = sPriLogMsg .. "through unknown means";
--- 	end
--- 	-- reflect the goody hut map coordinates in the log message
--- 	sPriLogMsg = sPriLogMsg .. " at plot (x " .. tArgs.PlotX .. ", y " .. tArgs.PlotY .. ")";
--- 	-- pedantry - indicate if this is a replacement reward
--- 	local sReplacement = (bIsReplacement) and " replacement" or "";
--- 	-- define the secondary log message
--- 	local sSecLogMsg = ", and received a";
--- 	-- more (obvious) pedantry
--- 	if (sRewardTier == "Uncommon") then sSecLogMsg = sSecLogMsg .. "n"; end
--- 	-- reflect the received reward and its rarity tier in the secondary log message
--- 	sSecLogMsg = sSecLogMsg .. " " .. sRewardTier .. sReplacement .. " reward of " .. sRewardSubType;
--- 	-- print the log message(s)
--- 	print(sPriLogMsg .. sSecLogMsg);
--- 	-- execute the UnlockVillagerSecrets() enhanced method here if this reward is a valid Villager Secrets reward
--- 	if (sRewardSubType == GUE.VillagerSecrets) then 
--- 		-- this Player has villager secrets left to unlock, so unlock the next level
--- 		if (GUE.PlayerData[iPlayerID].VillagerSecretsLevel < GUE.MaxSecretsLevel) then GUE.UnlockVillagerSecrets(iPlayerID, iTurn, iEra, sRewardSubType);
--- 		-- max villager secrets rewards already received by this Player ** 2021/07/28 this may not ever fire any more
--- 		else
--- 			-- debugging output
--- 			Dprint("VillagerSecretsLevel >= MaxSecretsLevel for Player " .. iPlayerID .. "; rolling new reward to replace " .. sRewardSubType .. " . . .");
--- 			-- roll for one new reward
--- 			iThisRewardModifier, bHostilesAsBonusReward = GUE.GetNewRewards(1, iPlayerID, tArgs.PlotX, tArgs.PlotY, sRewardSubType, iTurn, iEra);
--- 		end
--- 	-- execute the AddAbilityToUnit() enhanced method here if this reward is a unit ability reward
--- 	elseif (GUE.UnitAbilityRewards[sRewardSubType] ~= nil and bIsExplore) then GUE.AddAbilityToUnit(tArgs.PlotX, tArgs.PlotY, GUE.UnitAbilityRewards[sRewardSubType]);
--- 	-- execute the CreateHostileVillagers() enhanced method here if this reward is a valid Hostile Villagers "reward"
--- 	elseif (GUE.HostileVillagers[sRewardSubType] ~= nil) then GUE.CreateHostileVillagers(tArgs.PlotX, tArgs.PlotY, iPlayerID, iTurn, iEra, sRewardSubType);
--- 	end
--- 	-- initialize the hostile modifier for bonus reward(s)
--- 	local iBonusRewardModifier = 0;
--- 	-- roll for any bonus rewards and store the cumulative hostile modifier sum and status of the hostiles as bonus reward flag
--- 	if not bHostilesAsBonusReward then iBonusRewardModifier, bHostilesAsBonusReward = GUE.GetNewRewards(GUE.BonusRewardsPerGoodyHut, iPlayerID, tArgs.PlotX, tArgs.PlotY, sRewardSubType, iTurn, iEra); end
--- 	-- the difficulty modifier remains constant throughout the game
--- 	local iDifficultyModifier = GUE.PlayerData[iPlayerID].Difficulty;
--- 	-- hostile villagers will appear when the calculated hostiles chance below equals or exceeds this value
--- 	local iSpawnThreshold = 100;
--- 	-- roll for hostile villagers AFTER other enhanced method(s) here, IF hostiles after rewards are enabled AND this reward is NOT one of the guaranteed hostiles "rewards" AND hostiles were NOT a bonus reward
--- 	if (GUE.HostilesAfterReward > 1) and (GUE.HostileVillagers[sRewardSubType] == nil) and not (bHostilesAsBonusReward) then
--- 		-- determine villager hostility level
--- 		local sHostilityLevel = GUE.DetermineVillagerHostility(bIsExpand, bIsIncreasedHostility, bIsDecreasedHostility, iDifficultyModifier, iThisRewardModifier, iBonusRewardModifier, iEra, iSpawnThreshold);
--- 		-- spawn hostiles if the villagers are pissed enough
--- 		if (GUE.HostileVillagers[sHostilityLevel] ~= nil) then GUE.CreateHostileVillagers(tArgs.PlotX, tArgs.PlotY, iPlayerID, iTurn, iEra, sHostilityLevel); end
--- 	end
--- 	-- define function exit message(s)
--- 	local sPriExitMsg = "Turn " .. iTurn .. " | Era " .. iEra .. " | Exit ValidateGoodyHutReward()";
--- 	-- print exit message(s) to the log when debugging
--- 	Dprint(sPriExitMsg);
--- end

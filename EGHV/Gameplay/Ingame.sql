@@ -271,7 +271,7 @@ UPDATE ModifierArguments SET Value = 120 WHERE ModifierId = 'GOODY_GOLD_LARGE_MO
 -- existing Military-type rewards
 UPDATE GoodyHutSubTypes SET Weight = 0, Turn = 0 WHERE SubTypeGoodyHut = 'GOODYHUT_GRANT_EXPERIENCE';
 UPDATE GoodyHutSubTypes SET Weight = 0, Turn = 0 WHERE SubTypeGoodyHut = 'GOODYHUT_HEAL';
-UPDATE GoodyHutSubTypes SET GoodyHut = 'GOODYHUT_SUPPORT', Weight = 25, Turn = 0, ModifierID = 'GOODY_EGHV_DUMMY_REWARD' WHERE SubTypeGoodyHut = 'GOODYHUT_GRANT_UPGRADE';
+UPDATE GoodyHutSubTypes SET GoodyHut = 'GOODYHUT_SUPPORT', Weight = 25, Turn = 0, UpgradeUnit = 0, ModifierID = 'GOODY_EGHV_DUMMY_REWARD' WHERE SubTypeGoodyHut = 'GOODYHUT_GRANT_UPGRADE';
 UPDATE GoodyHutSubTypes SET Weight = 55, Turn = 0, ModifierID = 'GOODY_EGHV_DUMMY_REWARD' WHERE SubTypeGoodyHut = 'GOODYHUT_GRANT_SCOUT';
 
 -- existing Science-type rewards

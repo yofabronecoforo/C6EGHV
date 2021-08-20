@@ -324,20 +324,20 @@
             <Text>1 [ICON_Unit] support unit</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_BATTERING_RAM_DESC" Language="en_US">
-            <Text>Receive one (1) free [ICON_Unit] Era-appropriate support unit in a nearby plot.</Text>
+            <Text>Receive one (1) free Era-appropriate [ICON_Unit] support unit in a nearby plot.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_CATAPULT_NAME" Language="en_US">
             <Text>1 [ICON_Unit] siege unit</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_CATAPULT_DESC" Language="en_US">
-            <Text>Receive one (1) free [ICON_Unit] Era-appropriate siege unit in a nearby plot.</Text>
+            <Text>Receive one (1) free Era-appropriate [ICON_Unit] siege unit in a nearby plot.</Text>
         </Replace>
-        <!-- <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_MEDIC_NAME" Language="en_US">
-            <Text>1 [ICON_Unit] Medic</Text>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_UPGRADE_NAME" Language="en_US">
+            <Text>1 free unit upgrade</Text>
         </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_MEDIC_DESC" Language="en_US">
-            <Text>Receive one (1) free [ICON_Unit] Medic in the nearest city.</Text>
-        </Replace> -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_UPGRADE_DESC" Language="en_US">
+            <Text>The discovering unit(s) will be upgraded to the next unit(s) in any applicable promotion class(es), and will be granted enough experience to earn a promotion, if applicable.</Text>
+        </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_MILITARY_ENGINEER_NAME" Language="en_US">
             <Text>1 [ICON_Unit] Military Engineer</Text>
         </Replace>
@@ -349,38 +349,38 @@
             <Text>1 [ICON_Unit] heavy cavalry unit</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_HEAVY_CHARIOT_DESC" Language="en_US">
-            <Text>Receive one (1) free [ICON_Unit] Era-appropriate heavy cavalry unit in a nearby plot.</Text>
+            <Text>Receive one (1) free Era-appropriate [ICON_Unit] heavy cavalry unit in a nearby plot.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_HORSEMAN_NAME" Language="en_US">
             <Text>1 [ICON_Unit] light cavalry unit</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_HORSEMAN_DESC" Language="en_US">
-            <Text>Receive one (1) free [ICON_Unit] Era-appropriate light cavalry unit in a nearby plot.</Text>
+            <Text>Receive one (1) free Era-appropriate [ICON_Unit] light cavalry unit in a nearby plot.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SPEARMAN_NAME" Language="en_US">
             <Text>1 [ICON_Unit] anti-cavalry unit</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SPEARMAN_DESC" Language="en_US">
-            <Text>Receive one (1) free [ICON_Unit] Era-appropriate anti-cavalry unit in a nearby plot.</Text>
+            <Text>Receive one (1) free Era-appropriate [ICON_Unit] anti-cavalry unit in a nearby plot.</Text>
         </Replace>
         <!-- military type -->
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SLINGER_NAME" Language="en_US">
             <Text>1 [ICON_Unit] ranged unit</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SLINGER_DESC" Language="en_US">
-            <Text>Receive one (1) free [ICON_Unit] Era-appropriate ranged unit in a nearby plot.</Text>
+            <Text>Receive one (1) free Era-appropriate [ICON_Unit] ranged unit in a nearby plot.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_WARRIOR_NAME" Language="en_US">
             <Text>1 [ICON_Unit] melee unit</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_WARRIOR_DESC" Language="en_US">
-            <Text>Receive one (1) free [ICON_Unit] Era-appropriate melee unit in a nearby plot.</Text>
+            <Text>Receive one (1) free Era-appropriate [ICON_Unit] melee unit in a nearby plot.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SCOUT_NAME" Language="en_US">
             <Text>1 [ICON_Unit] recon unit</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SCOUT_DESC" Language="en_US">
-            <Text>Receive one (1) free [ICON_Unit] Era-appropriate recon unit in a nearby plot.</Text>
+            <Text>Receive one (1) free Era-appropriate [ICON_Unit] recon unit in a nearby plot.</Text>
         </Replace>
         <!-- science type -->
         <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_TWO_TECHS_NAME" Language="en_US">
