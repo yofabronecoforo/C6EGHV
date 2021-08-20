@@ -188,7 +188,7 @@ Unit Promotion rewards apply to any valid unit(s) in formation with the popping 
 
 The Upgrade Unit reward applies to any valid unit(s) in formation with the popping unit, as well as the popping unit. Upgraded unit(s) retain any promotions and/or abilities attached to the old unit(s), and lose any remaining movement for this turn. Currently, specific units' actual experience totals cannot directly be determined; therefore, to balance any potential lost experience, any upgraded unit will be granted enough experience for its next promotion.
 - This reward ultimately yields a new unit and a new promotion. It is a double-dose. It is an Upgrayedd.
--- Kids, ask your parents.
+  - Kids, ask your parents.
 
 Great effort has been made to ensure unit rewards only fire when a valid unit has been identified, but issues may still arise when certain rewards are granted via border expansion. Please open a new pull request to address any such issues.
 
