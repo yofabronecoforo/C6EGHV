@@ -20,30 +20,16 @@ New Frontend and Ingame text fully localized in the following language(s):
 - French (fr_FR)
 
 # Features
-## Reward Picker
-![Goody Hut Picker](/IMAGES/Picker_Detail.gif)
-
-Provides a new picker window for selecting the specific Goody Hut reward(s) that can appear, available in the game's Advanced Setup. Available selections in the picker will vary by the selected ruleset and/or compatible enabled content, and can be sorted by Name (the specific reward) or by Type (the parent category of the reward). Disabling all available reward(s) will cause the "No Goody Huts" game option to be implicitly enabled.
-
-The tooltip for the Goody Hut picker reflects the source(s) of its content based on the selected ruleset and/or any currently available known content; it will dynamically update to reflect any changes to known content after launch. Its button text reflects the total amount of available items(s) when all items in the picker are selected.
-- This functionality extends to the built-in City-States, Leaders, and Natural Wonders pickers.
-
-## Goody Hut Distribution Slider
-![Goody Hut Frequency](/IMAGES/Goody_Hut_Distribution.png)
-
-Provides a slider for decreasing or increasing the relative amount of Goody Huts that will appear on the selected map; this slider defaults to 100%, and adjusts in steps of 25% in a range of 25% - 500%, inclusive. This slider also appears in the picker window.
-
 ## Goody Huts
 ![Goody Hut Picker](/IMAGES/Goody_Hut_Picker.png)
 
 Existing built-in rewards have been enabled, disabled, and/or moved to other types, and have had their chances of occurring balanced against new rewards as follows:
 - The "one free relic" reward is now a Faith-type reward.
 - The defined-but-disabled "one free settler" reward has been enabled. 
-- The "heal unit" reward has been disabled because it is lame.
+- The "heal unit" reward has been disabled because it is lame; it has been superceded by a new reward in the Abilities type.
 - The "unit experience" reward has been disabled; it is superceded by the rewards in the new Promotions type.
-- The defined-but-disabled "upgrade unit" reward remains disabled; this is unlikely to change because it does not work correctly.
-  - Potential solutions to this are being investigated.
-- If Gathering Storm is present, all of the new rewards it provides have been disabled:
+- The defined-but-disabled "upgrade unit" reward has been enabled entirely via Lua, because the built-in mechanism is broken; this is now a Support-type reward.
+- If Gathering Storm is present, all of the new rewards it provides have been disabled and superceded as follows:
   - The "free envoy" reward is superceded by the rewards in the new Envoys type; these rewards are now available for all rulesets.
   - The "free governor title" reward is superceded by the rewards in the new Governors type; these rewards are now available for Rise and Fall and later ruleset(s).
   - The "free diplomatic favor" reward is superceded by new rewards in the Diplomacy type.
@@ -83,18 +69,22 @@ Resources * | 10 strategic resources | 20 strategic resources | 30 strategic res
 
 - [ * ] Provided by EGHV
 
-Minimum-turn requirements have been set to 0 for all __defined__ rewards, meaning that all such rewards will be available from turn 1 on.
-- There is a known issue where receiving the "2 free civics" reward prior to unlocking the Code of Laws civic results in only receiving 1 free civic, which will be Code of Laws. As this is only really a problem during turns 1-20, I am currently inclined to leave it alone.
+Units provided by most Military type rewards - including (Anti) Cavalry and Support type rewards, but excluding the Military Engineer reward - will be Era-specific and will spawn in a plot near the Goody Hut that produced the reward. Units provided by the Military Engineer reward, or by any other reward, will be the unit indicated by the reward and will spawn in the nearest city center.
 
-The "grant catapult" reward currently does not work if the Player does not possess the prerequisite technology. This is weird, because none of the other specific individual unit rewards have a similar limitation.
+Most other new and existing rewards above are self-explanatory. The various Hostile Villagers and Villager Secrets rewards are described in detail further below. Refer to the #Known Shortcomings, Limitations, and Bugs section below for additional caveats.
 
-The Villager Secrets reward can only be awarded to a Player a certain number of times before becoming useless. When this reward is received, and this limit has been reached for the Player, then unless this reward is the only enabled reward, a new reward will be randomly seleted instead. If it IS the only enabled reward, then instead nothing will happen. See below for further details.
+## Goody Hut Reward Picker
+![Goody Hut Picker](/IMAGES/Picker_Detail.gif)
 
-The unit Ability rewards apply to any valid unit(s) in formation with the popping unit, as well as the popping unit. These rewards apply to each valid unit up to one time for the lifetime of that unit. For example, a Builder, Missionary, or Great Person can and will receive increased movement once, but not additional combat strength. Currently, the end result of this is that nothing will happen when an Ability reward is received and all valid unit(s) have already received the ability.
+Provides a new picker window for selecting the specific Goody Hut reward(s) that can appear, available in the game's Advanced Setup. Available selections in the picker will vary by the selected ruleset and/or compatible enabled content, and can be sorted by Name (the specific reward) or by Type (the parent category of the reward). Disabling all available reward(s) will cause the "No Goody Huts" game option to be implicitly enabled.
 
-Units provided by Military type rewards will be Era-specific; units provided by (Anti) Cavalry and Support type rewards will not. 
+The tooltip for the Goody Hut picker reflects the source(s) of its content based on the selected ruleset and/or any currently available known content; it will dynamically update to reflect any changes to known content after launch. Its button text reflects the total amount of available items(s) when all items in the picker are selected.
+- This functionality extends to the built-in City-States, Leaders, and Natural Wonders pickers.
 
-Most of the other new and existing rewards above are self-explanatory. The various Hostile Villagers and Villager Secrets rewards will be described in detail further below.
+## Goody Hut Distribution Slider
+![Goody Hut Frequency](/IMAGES/Goody_Hut_Distribution.png)
+
+Provides a slider for decreasing or increasing the relative amount of Goody Huts that will appear on the selected map; this slider defaults to 100%, and adjusts in steps of 25% in a range of 25% - 500%, inclusive. This slider also appears in the picker window.
 
 ## Bonus Rewards
 ![Bonus Rewards](/IMAGES/Bonus_Rewards.png)
@@ -184,6 +174,20 @@ Enabling 'No Tribal Villages' will override any selections made with the Goody H
 
 Provides a checkbox option that, when enabled, will produce __EXTREMELY__ verbose logging output for debugging purposes. This is disabled by default, and should remain disabled unless absolutely necessary.
 - Again, logging output will be __EXTREMELY__ verbose when this option is enabled; unless this verbosity is required, it is recommended that this option remain disabled.
+
+# Known Shortcomings, Limitations, and Bugs
+Minimum-turn requirements are set to 0 for all __DEFINED__ and __ENABLED__ rewards, meaning that all such rewards will be available from turn 1 on.
+- There is a known issue where receiving the "2 free civics" reward prior to unlocking the Code of Laws civic results in only receiving 1 free civic, which will be Code of Laws. As this is only really a problem during the extremely-early game (turns 1-20) prior to manual unlocking of Code of Laws, and the potential fix is cumbersome and ultimately unrewarding to implement, it is likely to remain unchanged.
+
+The Villager Secrets reward can only be awarded to a Player a certain number of times before becoming useless. When this reward is received, and this limit has been reached for the Player, then unless this reward is the only enabled reward, a new reward will be randomly seleted instead. If it IS the only enabled reward, then instead nothing will happen. See below for further details.
+
+Unit Ability rewards apply to any valid unit(s) in formation with the popping unit, as well as the popping unit. These rewards apply to each valid unit up to one time for the lifetime of that unit. For example, a Builder, Missionary, or Great Person can and will receive increased movement once, but not additional combat strength. Currently, the end result of this is that nothing will happen when an Ability reward is received and all valid unit(s) have already received the ability.
+
+Unit Promotion rewards apply to any valid unit(s) in formation with the popping unit, as well as the popping unit. These rewards can be applied an unlimited number of times to any specific unit; however, built-in limitations prevent a specific unit from earning more experience than is needed for its next promotion, so any experience earned beyond this amount will be lost.
+
+The Upgrade Unit reward applies to any valid unit(s) in formation with the popping unit, as well as the popping unit. Upgraded unit(s) retain any promotions and/or abilities attached to the old unit(s), and lose any remaining movement for this turn. Currently, specific units' actual experience totals cannot directly be determined; therefore, to balance any potential lost experience, any upgraded unit will be granted enough experience for its next promotion.
+
+Great effort has been made to ensure unit rewards only fire when a valid unit has been identified, but issues may still arise with certain rewards are granted via border expansion. Please open a new pull request to address any such issues.
 
 # Compatibility
 ## SP / MP
