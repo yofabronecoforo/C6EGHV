@@ -185,7 +185,7 @@ Provides a checkbox option that, when enabled, will produce __EXTREMELY__ verbos
 - Again, logging output will be __EXTREMELY__ verbose when this option is enabled; unless this verbosity is required, it is recommended that this option remain disabled.
 
 # Known Shortcomings, Limitations, and Bugs
-There is a known issue where receiving the "2 free civics" reward prior to unlocking the Code of Laws civic results in only receiving 1 free civic, which will be Code of Laws. As this is only really a problem during the extremely-early game (turns 1-20) prior to manual unlocking of Code of Laws, and the potential fix is cumbersome and ultimately unrewarding to implement, it is likely to remain unchanged.
+Receiving the "2 free civics" reward prior to unlocking the Code of Laws civic results in only receiving 1 free civic, which will be Code of Laws. As this is only really a problem during the extremely-early game (turns 1-20) prior to manual unlocking of Code of Laws, and the potential fix is cumbersome and ultimately unrewarding to implement, it is likely to remain unchanged.
 
 The Villager Secrets reward can only be awarded to a Player a certain number of times before becoming useless. When this reward is received, and this limit has been reached for the Player, then unless this reward is the only enabled reward, a new reward will be randomly seleted instead. If this reward IS the only enabled reward, then instead nothing will happen.
 
@@ -197,6 +197,8 @@ The Upgrade Unit reward applies to any valid unit(s) in formation with the poppi
 - Kids, ask your parents.
 
 Great effort has been made to ensure unit rewards only fire when a valid unit has been identified, but issues may still arise when certain rewards are granted via border expansion. Please open a new pull request to address any such issues.
+
+Errors relating to the Wondrous Goody Huts community project may appear in the Database.log and Lua.log files when it is not present, or when it is present and disabled. Any such errors can be safely ignored.
 
 # Compatibility
 ## SP / MP
@@ -246,15 +248,18 @@ Download the [latest release](https://github.com/zzragnar0kzz/C6EGHV/releases/la
 To update to a newer release, clone or download the latest release as described above, overwriting any existing items in the destination folder.
 
 # Conflicts
-If your mod alters any _existing_ Goody Hut (sub)types, unless it is also using a ludicrously high load order to apply these changes, they will likely be overwritten by EGHV due to its ridiculously high load order. Conflicts __will__ arise _regardless of relative load order_ if these alterations deviate substantially from those of EGHV.
+## General
+If your mod alters any _existing_ Goody Hut (sub)types, unless it is also using a ludicrously high load order to apply these changes, they will likely be overwritten by EGHV due to its ridiculously high load order. Conflicts __WILL__ arise _regardless of relative load order_ if these alterations deviate substantially from those of EGHV.
 
-EGHV adds the following custom tables to the game's Configuration database:
+## Configuration Database
+EGHV adds the following custom tables to the game's Configuration SQLite database:
 - ContentFlags
 - TribalVillages
 
-If your mod uses any similarly-named tables, conflicts _may_ arise.
+If your mod uses any similarly-named tables, conflicts __WILL__ arise.
 
-EGHV adds new item(s) to and/or modifies existing item(s) in the following tables in the game's Gameplay database:
+## Gameplay Database
+EGHV adds new item(s) to and/or modifies existing item(s) in the following tables in the game's Gameplay SQLite database:
 - Types
 - TypeTags
 - Building
@@ -275,14 +280,16 @@ EGHV adds new item(s) to and/or modifies existing item(s) in the following table
 
 [ ** ] Requires Gathering Storm
 
-If your mod operates on any similarly-named item(s) in any of the above named table(s), these change(s) will likely be overwritten by EGHV. Conflicts __will__ arise _regardless of relative load order_ if these changes deviate substantially from those of EGHV.
+If your mod operates on any similarly-named item(s) in any of the above named table(s), these change(s) will likely be overwritten by EGHV. Conflicts __WILL__ arise _regardless of relative load order_ if these changes deviate substantially from those of EGHV.
 
+## Gameplay Scripts
 EGHV employs the following new custom gameplay scripts:
 - EnhancedGoodies.lua
 - IngameGUE.lua
 
-If your mod employs any gameplay scripts with similar names, conflicts __will__ arise.
+If your mod employs any gameplay scripts with similar names, conflicts __WILL__ arise.
 
+## Frontend
 EGHV replaces the following existing Frontend context file(s):
 - AdvancedSetup.lua and AdvancedSetup.xml
 - GameSetupLogic.lua
@@ -292,7 +299,7 @@ EGHV replaces the following existing Frontend context file(s):
 EGHV adds the following new Frontend context file(s):
 - GoodyHutPicker.lua and GoodyHutPicker.xml
 
-If your mod replaces any of the above existing files, or adds any similarly-named new ones, compatibility issues **will** arise.
+If your mod replaces any of the above existing files, or adds any similarly-named new ones, compatibility issues __WILL__ arise.
 
 # Special Thanks
 This mod would not exist in its current form without any of the following:
