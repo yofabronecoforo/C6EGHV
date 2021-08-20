@@ -178,7 +178,7 @@ Enabling 'No Barbarians' will override any hostiles-related options and/or selec
 
 Enabling 'No Tribal Villages' will override any selections made with the Goody Hut picker. It will also override any other Goody-Hut-related values, including hostiles-related options and/or selections, but will not otherwise affect Barbarians. The tooltip for this option has been updated to reflect this.
 
-The dev version provides a checkbox option that, when enabled, will produce _extremely_ verbose logging output for debugging purposes. This is disabled by default.
+Provides a checkbox option that, when enabled, will produce _extremely_ verbose logging output for debugging purposes. This is disabled by default.
 
 # Compatibility
 ## SP / MP
