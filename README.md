@@ -78,7 +78,7 @@ Resources * | 10 strategic resources | 20 strategic resources | 30 strategic res
 
 Minimum-turn requirements are set to 0 for all __DEFINED__ and __ENABLED__ rewards, meaning that all such rewards will be available from turn 1 on.
 
-Units provided by most Military type rewards - including (Anti) Cavalry and Support type rewards, but excluding the Military Engineer reward - will be Era-specific and will spawn in a plot near the Goody Hut that produced the reward. Units provided by the Military Engineer reward, or by any other reward, will be the unit indicated by the reward and will spawn in the nearest city center.
+Units provided by any Military type reward - including any (Anti) Cavalry or Support type reward, and the Military Engineer reward - will be Era-specific and will spawn in a plot near the Goody Hut that provided the reward. Units provided by any other reward will be the unit indicated by the reward and will spawn in the nearest city center.
 
 Most other new and existing rewards above are self-explanatory. The various Hostile Villagers and Villager Secrets rewards are described in detail further below. Refer to the #Known Shortcomings, Limitations, and Bugs section below for additional caveats.
 
