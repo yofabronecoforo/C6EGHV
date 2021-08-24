@@ -190,6 +190,8 @@ GUE.BonusRewardCount = 0;
 GUE.ExcludedRewards = { ["METEOR_GRANT_GOODIES"] = "" };
 -- initialize the bonus rewards table; this should ultimately contain relevant data for all enabled reward(s)
 GUE.ValidRewards = {};
+-- 
+GUE.WGH_Rewards = {};
 -- true when the goody hut subtypes table exists AND the 'No Tribal Villages' setup option has NOT been set
 if GUE.GoodyHutRewards and not GUE.NoGoodyHuts then
 	-- iterate over the goody hut subtypes table
@@ -208,6 +210,9 @@ if GUE.GoodyHutRewards and not GUE.NoGoodyHuts then
 			GUE.ValidRewards[k].Start = iStartIndex;
 			-- set the end index to the value obtained above
 			GUE.ValidRewards[k].End = GUE.TotalBonusRewardWeight;
+		end
+		-- 
+		if v.GoodyHut == "GOODYHUT_SAILOR_WONDROUS" then GUE.WGH_Rewards[v.SubTypeGoodyHut] = "";
 		end
 	end
 end
@@ -956,6 +961,10 @@ function GUE.GetNewRewards( iNumRewards, iPlayerID, iX, iY, sRewardSubType, iTur
 							elseif GUE.HostileVillagers[sThisSubType] then bBonusHostiles = true;
 							-- 
 							elseif (sThisSubType == "GOODYHUT_GRANT_UPGRADE") then tUnits = GUE.UpgradeUnit(iPlayerID, iX, iY, tUnits);
+							-- 
+							elseif (GUE.WGH_Rewards[sThisSubType] ~= nil) then 
+								Dprint("*** WGH Bonus Reward stub ***");
+								-- Sailor_Expanded_Goodies(iPlayerID, 1, 2, 3);
 							-- true for any other rolled reward; attach its modifier to (re) apply the reward
 							else GUE.AddModifierToPlayer(iPlayerID, sThisModifier, false);
 							end
@@ -1118,6 +1127,8 @@ function GUE.ValidateGoodyHutReward( tImprovementActivated, tGoodyHutReward )
 	elseif (sRewardSubType == "GOODYHUT_GRANT_UPGRADE") then tUnitsInPlot = GUE.UpgradeUnit(iPlayerID, iX, iY, tUnitsInPlot);
 	-- execute the CreateHostileVillagers() enhanced method here if this reward is a valid Hostile Villagers "reward"
 	elseif (GUE.HostileVillagers[sRewardSubType] ~= nil) then GUE.CreateHostileVillagers(iX, iY, iPlayerID, iTurn, iEra, sRewardSubType);
+	-- 
+	elseif (GUE.WGH_Rewards[sRewardSubType] ~= nil) then Dprint("*** WGH Primary Reward stub ***");
 	end
 	-- initialize the hostile modifier for bonus reward(s)
 	local iBonusRewardModifier = 0;
