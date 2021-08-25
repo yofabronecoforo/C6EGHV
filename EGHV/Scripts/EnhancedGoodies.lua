@@ -304,7 +304,7 @@ function GUE.AddAbilityToUnit( iX, iY, tUnits, sAbilityType )
 			-- data for this unit
 			local pUnit = v.Table;
 			-- shortcut to this unit's GetAbility() method
-			local pUnitAbility	= pUnit:GetAbility();
+			local pUnitAbility = pUnit:GetAbility();
 			-- the number of times sAbilityType has been attached to this unit
 			local iAbilityCount = pUnitAbility:GetAbilityCount(sAbilityType);
 			-- attach sAbilityType to this unit when it has not previously been attached to the unit
@@ -422,9 +422,9 @@ function GUE.UpgradeUnit( iPlayerID, iX, iY, tUnits )
 						tNewUnits[iThisUnitID] = { Table = pUnit, UnitType = pUnitData.UnitType, PromotionClass = pUnitData.PromotionClass };
 						-- increment the units in plot tracker
 						iNumNewUnits = iNumNewUnits + 1;
-						-- shortcut to this unit's GetExperience() method
-						local pUnitExperience = pUnit:GetExperience();
-						-- iterate over the promotions table for this new unit
+						-- shortcuts to this unit's GetExperience() and GetAbility() methods
+						local pUnitExperience, pUnitAbility = pUnit:GetExperience(), pUnit:GetAbility();
+						-- iterate over the existing promotions table for this new unit
 						for k, v in pairs(tPromotions) do 
 							-- true when the old unit had this promotion
 							if (v == true) then 
@@ -433,7 +433,19 @@ function GUE.UpgradeUnit( iPlayerID, iX, iY, tUnits )
 								-- apply this promotion to this new unit
 								pUnitExperience:SetPromotion(GameInfo.UnitPromotions[k].Index); 
 								-- local debugging output
-								Dprint(sPriInfoMsg .. "[PASS!]");
+								Dprint(sPriInfoMsg .. "PASS!");
+							end
+						end
+						-- iterate over the existing abilities table for this new unit
+						for k, v in pairs(tAbilities) do 
+							-- true when the old unit had this ability
+							if (v == true) then 
+								-- initialize local debugging message
+								local sPriInfoMsg = "Reapplying ability " .. k .. " . . . ";
+								-- apply this ability to this new unit
+								pUnitAbility:ChangeAbilityCount(k, 1);
+								-- local debugging output
+								Dprint(sPriInfoMsg .. "PASS!");
 							end
 						end
 						-- grant enough experience to this new unit to provide its next promotion

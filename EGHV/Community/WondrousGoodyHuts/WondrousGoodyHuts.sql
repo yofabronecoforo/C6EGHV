@@ -36,67 +36,67 @@
 REPLACE INTO EGHV_StandardGoodyHuts (GoodyHut, Name, SubTypeGoodyHut, Description, Icon)
 SELECT 'GOODYHUT_SAILOR_WONDROUS', 'LOC_GOODYHUT_SAILOR_RANDOMRESOURCE_NAME', 'GOODYHUT_SAILOR_RANDOMRESOURCE', 'LOC_GOODYHUT_SAILOR_RANDOMRESOURCE_DESC', 'ICON_DISTRICT_WONDER'
 -- WHERE EXISTS (SELECT * FROM SailorGoodyOptions);
-WHERE EXISTS (SELECT * FROM sqlite_master WHERE type='table' AND name='SailorGoodyOptions');
+WHERE EXISTS (SELECT * FROM sqlite_master WHERE type = 'table' AND name = 'SailorGoodyOptions');
 
 -- random unit
 REPLACE INTO EGHV_StandardGoodyHuts (GoodyHut, Name, SubTypeGoodyHut, Description, Icon)
 SELECT 'GOODYHUT_SAILOR_WONDROUS', 'LOC_GOODYHUT_SAILOR_RANDOMUNIT_NAME', 'GOODYHUT_SAILOR_RANDOMUNIT', 'LOC_GOODYHUT_SAILOR_RANDOMUNIT_DESC', 'ICON_DISTRICT_WONDER'
 -- WHERE EXISTS (SELECT * FROM SailorGoodyOptions);
-WHERE EXISTS (SELECT * FROM sqlite_master WHERE type='table' AND name='SailorGoodyOptions');
+WHERE EXISTS (SELECT * FROM sqlite_master WHERE type = 'table' AND name = 'SailorGoodyOptions');
 
 -- random improvement
 REPLACE INTO EGHV_StandardGoodyHuts (GoodyHut, Name, SubTypeGoodyHut, Description, Icon)
 SELECT 'GOODYHUT_SAILOR_WONDROUS', 'LOC_GOODYHUT_SAILOR_RANDOMIMPROVEMENT_NAME', 'GOODYHUT_SAILOR_RANDOMIMPROVEMENT', 'LOC_GOODYHUT_SAILOR_RANDOMIMPROVEMENT_DESC', 'ICON_DISTRICT_WONDER'
 -- WHERE EXISTS (SELECT * FROM SailorGoodyOptions);
-WHERE EXISTS (SELECT * FROM sqlite_master WHERE type='table' AND name='SailorGoodyOptions');
+WHERE EXISTS (SELECT * FROM sqlite_master WHERE type = 'table' AND name = 'SailorGoodyOptions');
 
 -- sight bomb
 REPLACE INTO EGHV_StandardGoodyHuts (GoodyHut, Name, SubTypeGoodyHut, Description, Icon)
 SELECT 'GOODYHUT_SAILOR_WONDROUS', 'LOC_GOODYHUT_SAILOR_SIGHTBOMB_NAME', 'GOODYHUT_SAILOR_SIGHTBOMB', 'LOC_GOODYHUT_SAILOR_SIGHTBOMB_DESC', 'ICON_DISTRICT_WONDER'
 -- WHERE EXISTS (SELECT * FROM SailorGoodyOptions);
-WHERE EXISTS (SELECT * FROM sqlite_master WHERE type='table' AND name='SailorGoodyOptions');
+WHERE EXISTS (SELECT * FROM sqlite_master WHERE type = 'table' AND name = 'SailorGoodyOptions');
 
 -- random policy
 REPLACE INTO EGHV_StandardGoodyHuts (GoodyHut, Name, SubTypeGoodyHut, Description, Icon)
 SELECT 'GOODYHUT_SAILOR_WONDROUS', 'LOC_GOODYHUT_SAILOR_RANDOMPOLICY_NAME', 'GOODYHUT_SAILOR_RANDOMPOLICY', 'LOC_GOODYHUT_SAILOR_RANDOMPOLICY_DESC', 'ICON_DISTRICT_WONDER'
 -- WHERE EXISTS (SELECT * FROM SailorGoodyOptions);
-WHERE EXISTS (SELECT * FROM sqlite_master WHERE type='table' AND name='SailorGoodyOptions');
+WHERE EXISTS (SELECT * FROM sqlite_master WHERE type = 'table' AND name = 'SailorGoodyOptions');
 
 -- formation
 REPLACE INTO EGHV_StandardGoodyHuts (GoodyHut, Name, SubTypeGoodyHut, Description, Icon)
 SELECT 'GOODYHUT_SAILOR_WONDROUS', 'LOC_GOODYHUT_SAILOR_FORMATION_NAME', 'GOODYHUT_SAILOR_FORMATION', 'LOC_GOODYHUT_SAILOR_FORMATION_DESC', 'ICON_DISTRICT_WONDER'
 -- WHERE EXISTS (SELECT * FROM SailorGoodyOptions);
-WHERE EXISTS (SELECT * FROM sqlite_master WHERE type='table' AND name='SailorGoodyOptions');
+WHERE EXISTS (SELECT * FROM sqlite_master WHERE type = 'table' AND name = 'SailorGoodyOptions');
 
 -- wonder
 REPLACE INTO EGHV_StandardGoodyHuts (GoodyHut, Name, SubTypeGoodyHut, Description, Icon)
 SELECT 'GOODYHUT_SAILOR_WONDROUS', 'LOC_GOODYHUT_SAILOR_WONDER_NAME', 'GOODYHUT_SAILOR_WONDER', 'LOC_GOODYHUT_SAILOR_WONDER_DESC', 'ICON_DISTRICT_WONDER'
 -- WHERE EXISTS (SELECT * FROM SailorGoodyOptions);
-WHERE EXISTS (SELECT * FROM sqlite_master WHERE type='table' AND name='SailorGoodyOptions');
+WHERE EXISTS (SELECT * FROM sqlite_master WHERE type = 'table' AND name = 'SailorGoodyOptions');
 
 -- city-state
 REPLACE INTO EGHV_StandardGoodyHuts (GoodyHut, Name, SubTypeGoodyHut, Description, Icon)
 SELECT 'GOODYHUT_SAILOR_WONDROUS', 'LOC_GOODYHUT_SAILOR_CITYSTATE_NAME', 'GOODYHUT_SAILOR_CITYSTATE', 'LOC_GOODYHUT_SAILOR_CITYSTATE_DESC', 'ICON_DISTRICT_WONDER'
 -- WHERE EXISTS (SELECT * FROM SailorGoodyOptions);
-WHERE EXISTS (SELECT * FROM sqlite_master WHERE type='table' AND name='SailorGoodyOptions');
+WHERE EXISTS (SELECT * FROM sqlite_master WHERE type = 'table' AND name = 'SailorGoodyOptions');
 
 -- spy
 REPLACE INTO EGHV_StandardGoodyHuts (GoodyHut, Name, SubTypeGoodyHut, Description, Icon)
 SELECT 'GOODYHUT_SAILOR_WONDROUS', 'LOC_GOODYHUT_SAILOR_SPY_NAME', 'GOODYHUT_SAILOR_SPY', 'LOC_GOODYHUT_SAILOR_SPY_DESC', 'ICON_DISTRICT_WONDER'
 -- WHERE EXISTS (SELECT * FROM SailorGoodyOptions);
-WHERE EXISTS (SELECT * FROM sqlite_master WHERE type='table' AND name='SailorGoodyOptions');
+WHERE EXISTS (SELECT * FROM sqlite_master WHERE type = 'table' AND name = 'SailorGoodyOptions');
 
 -- production
 REPLACE INTO EGHV_StandardGoodyHuts (GoodyHut, Name, SubTypeGoodyHut, Description, Icon)
 SELECT 'GOODYHUT_SAILOR_WONDROUS', 'LOC_GOODYHUT_SAILOR_PRODUCTION_NAME', 'GOODYHUT_SAILOR_PRODUCTION', 'LOC_GOODYHUT_SAILOR_PRODUCTION_DESC', 'ICON_DISTRICT_WONDER'
 -- WHERE EXISTS (SELECT * FROM SailorGoodyOptions);
-WHERE EXISTS (SELECT * FROM sqlite_master WHERE type='table' AND name='SailorGoodyOptions');
+WHERE EXISTS (SELECT * FROM sqlite_master WHERE type = 'table' AND name = 'SailorGoodyOptions');
 
 -- teleport
 REPLACE INTO EGHV_StandardGoodyHuts (GoodyHut, Name, SubTypeGoodyHut, Description, Icon)
 SELECT 'GOODYHUT_SAILOR_WONDROUS', 'LOC_GOODYHUT_SAILOR_TELEPORT_NAME', 'GOODYHUT_SAILOR_TELEPORT', 'LOC_GOODYHUT_SAILOR_TELEPORT_DESC', 'ICON_DISTRICT_WONDER'
 -- WHERE EXISTS (SELECT * FROM SailorGoodyOptions);
-WHERE EXISTS (SELECT * FROM sqlite_master WHERE type='table' AND name='SailorGoodyOptions');
+WHERE EXISTS (SELECT * FROM sqlite_master WHERE type = 'table' AND name = 'SailorGoodyOptions');
 
 /* ###########################################################################
     end WondrousGoodyHuts compatibility
