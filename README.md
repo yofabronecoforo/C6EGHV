@@ -21,10 +21,13 @@ Many of these rewards are implemented entirely via Lua scripting, because the bu
 
 Finally, Hostile Villagers as (and now, potentially following) a reward make their return.
 
-New Frontend and Ingame text fully localized in the following language(s):
+# Localization
+When obtained via any of the official channels referenced in the #Installation section below, releases contain new Frontend and Ingame text fully localized in the following language(s):
 - English (en_US)
 - Spanish (es_ES)
 - French (fr_FR)
+
+Please report any conspicuous absent text, or appearances of localization placeholders (e.g. LOC_SOME_TEXT_HERE), if any of the above languages is in use.
 
 # Features
 ## Goody Huts
