@@ -239,7 +239,10 @@ Has not been tested with the following game modes:
 
 ## Mods
 ### Incompatible Mods
-[***] TO-DO 
+The following community projects are known to alter one or more of the game files also modified by EGHV:
+- 
+
+To prevent breakage, when any of the above mod(s) are enabled, EGHV will be disabled. Further, EGHV cannot be enabled while any of the above mod(s) are also enabled.
 
 ### Compatible Mods
 Should work with other mods that add new Goody Hut (sub)types, with the following caveats:
