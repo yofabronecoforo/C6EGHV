@@ -238,6 +238,10 @@ Has not been tested with the following game modes:
 * Zombie Defense
 
 ## Mods
+### Incompatible Mods
+[***] TO-DO 
+
+### Compatible Mods
 Should work with other mods that add new Goody Hut (sub)types, with the following caveats:
 - Any rewards which EGHV does NOT recognize will **NOT** appear in the Goody Hut picker; these must be configured and recognized to do so. If you would like any Goody Huts provided by a particular community project to be reflected within the picker when said project is enabled, please open an issue with the project details, and it will be considered.
 - Note that the above means EGHV has no interaction with unrecognized Goody Hut rewards beyond potentially spawning hostile villagers after receiving such a reward.
@@ -262,14 +266,28 @@ To update to a newer release, clone or download the latest release as described 
 ## General
 If your mod alters any _existing_ Goody Hut (sub)types, unless it is also using a ludicrously high load order to apply these changes, they will likely be overwritten by EGHV due to its ridiculously high load order. Conflicts __WILL__ arise _regardless of relative load order_ if these alterations deviate substantially from those of EGHV.
 
-## Configuration Database
+## Frontend
+### Database
 EGHV adds the following custom tables to the game's Configuration SQLite database:
 - ContentFlags
 - TribalVillages
 
 If your mod uses any similarly-named tables, conflicts __WILL__ arise.
 
-## Gameplay Database
+### Context
+EGHV replaces the following existing Frontend context file(s):
+- AdvancedSetup.lua and AdvancedSetup.xml
+- GameSetupLogic.lua
+- HostGame.lua and HostGame.xml
+- Mods.lua
+
+EGHV adds the following new Frontend context file(s):
+- GoodyHutPicker.lua and GoodyHutPicker.xml
+
+If your mod replaces any of the above existing files, or adds any similarly-named new ones, compatibility issues __WILL__ arise.
+
+## Ingame
+### Database
 EGHV adds new item(s) to and/or modifies existing item(s) in the following tables in the game's Gameplay SQLite database:
 - Types
 - TypeTags
@@ -293,24 +311,12 @@ EGHV adds new item(s) to and/or modifies existing item(s) in the following table
 
 If your mod operates on any similarly-named item(s) in any of the above named table(s), these change(s) will likely be overwritten by EGHV. Conflicts __WILL__ arise _regardless of relative load order_ if these changes deviate substantially from those of EGHV.
 
-## Gameplay Scripts
+### Gameplay Scripts
 EGHV employs the following new custom gameplay scripts:
 - EnhancedGoodies.lua
 - IngameGUE.lua
 
 If your mod employs any gameplay scripts with similar names, conflicts __WILL__ arise.
-
-## Frontend
-EGHV replaces the following existing Frontend context file(s):
-- AdvancedSetup.lua and AdvancedSetup.xml
-- GameSetupLogic.lua
-- HostGame.lua and HostGame.xml
-- Mods.lua
-
-EGHV adds the following new Frontend context file(s):
-- GoodyHutPicker.lua and GoodyHutPicker.xml
-
-If your mod replaces any of the above existing files, or adds any similarly-named new ones, compatibility issues __WILL__ arise.
 
 # Special Thanks
 This mod would not exist in its current form without any of the following:
