@@ -1,5 +1,5 @@
 # Enhanced Goodies and Hostile Villagers for Civilization VI
-![Advanced Setup Modifications](/IMAGES/Advanced_Setup_Modifications.png)
+![Advanced Setup](/IMAGES/Advanced_Setup.png)
 
 The above image, and all other image(s) reflecting game content herein, reflect an Advanced Setup with Gathering Storm rules; actual configuration options will vary with different rules and/or available additional content.
 
