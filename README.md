@@ -240,7 +240,7 @@ Has not been tested with the following game modes:
 ## Mods
 ### Incompatible Mods
 The following community projects are known to alter one or more of the game files also modified by EGHV:
-- 
+- (placeholder)
 
 To prevent breakage, when any of the above mod(s) are enabled, EGHV will be disabled. Further, EGHV cannot be enabled while any of the above mod(s) are also enabled.
 
