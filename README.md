@@ -202,7 +202,11 @@ It is an Upgrayedd.
 
 Great effort has been made to ensure unit rewards only fire when a valid unit has been identified, but issues may still arise when certain rewards are granted via border expansion. Please open a new pull request to address any such issues.
 
-Errors relating to the Wondrous Goody Huts community project may appear in the Database.log and Lua.log files when it is not present, or when it is present and disabled. Any such errors can be safely ignored.
+Errors relating to the Wondrous Goody Huts community project may appear in the Database and/or Lua log files when
+- said project is NOT present, or 
+- said project IS present, but it is disabled 
+
+Any such errors can be safely ignored.
 
 # Compatibility
 ## SP / MP
