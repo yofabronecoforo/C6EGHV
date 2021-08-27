@@ -16,6 +16,8 @@ print("Loading gameplay script EnhancedGoodies.lua . . .");
 -- fetch or initialize global exposed members
 if not ExposedMembers.GUE then ExposedMembers.GUE = {}; end
 GUE = ExposedMembers.GUE;
+-- 
+WGH = ExposedMembers.WGH;
 
 --[[ =========================================================================
 	exposed globals : define any needed C6GUE globally shared component(s) here
@@ -191,9 +193,26 @@ GUE.ExcludedRewards = { ["METEOR_GRANT_GOODIES"] = "" };
 -- initialize the bonus rewards table; this should ultimately contain relevant data for all enabled reward(s)
 GUE.ValidRewards = {};
 -- 
+GUE.WGH_ModifierToAbility = { 
+	["SAILOR_GOODY_RANDOMRESOURCE_SWITCH"] = "ABILITY_SAILOR_GOODY_RANDOMRESOURCE", ["SAILOR_GOODY_RANDOMUNIT_SWITCH"] = "ABILITY_SAILOR_GOODY_RANDOMUNIT", 
+	["SAILOR_GOODY_RANDOMIMPROVEMENT_SWITCH"] = "ABILITY_SAILOR_GOODY_RANDOMIMPROVEMENT", ["SAILOR_GOODY_SIGHTBOMB_SWITCH"] = "ABILITY_SAILOR_GOODY_SIGHTBOMB", 
+	["SAILOR_GOODY_RANDOMPOLICY_SWITCH"] = "ABILITY_SAILOR_GOODY_RANDOMPOLICY", ["SAILOR_GOODY_FORMATION_SWITCH"] = "ABILITY_SAILOR_GOODY_FORMATION", 
+	["SAILOR_GOODY_WONDER_SWITCH"] = "ABILITY_SAILOR_GOODY_WONDER", ["SAILOR_GOODY_CITYSTATE_SWITCH"] = "ABILITY_SAILOR_GOODY_CITYSTATE", 
+	["SAILOR_GOODY_SPY_SWITCH"] = "ABILITY_SAILOR_GOODY_SPY", ["SAILOR_GOODY_PRODUCTION_SWITCH"] = "ABILITY_SAILOR_GOODY_PRODUCTION", 
+	["SAILOR_GOODY_TELEPORT_SWITCH"] = "ABILITY_SAILOR_GOODY_TELEPORT"
+};
+-- 
+-- for row in GameInfo.ModifierArguments() do
+-- 	GUE.WGH_ModifierToAbility[row.ModifierID] = row.Value;
+-- end
+-- 
 GUE.WGH_Rewards = {};
 -- true when the goody hut subtypes table exists AND the 'No Tribal Villages' setup option has NOT been set
 if GUE.GoodyHutRewards and not GUE.NoGoodyHuts then
+	-- 
+	local iWondrousTypeHash = -1;
+	-- 
+	for k, v in pairs(GUE.GoodyHutTypes) do if v.GoodyHutType == "GOODYHUT_SAILOR_WONDROUS" then iWondrousTypeHash = k; end end
 	-- iterate over the goody hut subtypes table
 	for k, v in pairs(GUE.GoodyHutRewards) do
 		-- fetch data for certain enabled rewards for the bonus rewards table
@@ -212,7 +231,8 @@ if GUE.GoodyHutRewards and not GUE.NoGoodyHuts then
 			GUE.ValidRewards[k].End = GUE.TotalBonusRewardWeight;
 		end
 		-- 
-		if v.GoodyHut == "GOODYHUT_SAILOR_WONDROUS" then GUE.WGH_Rewards[v.SubTypeGoodyHut] = "";
+		if v.GoodyHut == "GOODYHUT_SAILOR_WONDROUS" then 
+			GUE.WGH_Rewards[v.SubTypeGoodyHut] = { TypeHash = iWondrousTypeHash, SubTypeHash = k, ModifierID = v.ModifierID, AbilityType = GUE.WGH_ModifierToAbility[v.ModifierID] }; 
 		end
 	end
 end
@@ -406,8 +426,10 @@ function GUE.UpgradeUnit( iPlayerID, iX, iY, tUnits )
 			if GUE.PromotionsByClass[sPromotionClass] ~= nil then Dprint(sSecDebugMsg); end
 			Dprint(sTerDebugMsg);
 			-- "upgrade" this unit by (1) destroying this unit, and then (2) creating a new unit which this unit would upgrade to
+			local sQuadDebugMsg = "'Upgrading' " .. sUnitType .. " to " .. GUE.UnitUpgrades[sUnitType] .. " . . . ";
 			UnitManager.Kill(pUnit);
 			UnitManager.InitUnit(iPlayerID, GUE.UnitUpgrades[sUnitType], jX, jY, 1);
+			Dprint(sQuadDebugMsg .. "PASS!");
 			-- iterate over all unit(s) found in this Plot
 			for i, pUnit in ipairs(Units.GetUnitsInPlotLayerID(jX, jY, MapLayers.ANY)) do
 				-- fetch this unit's ID and OwnerID
@@ -449,9 +471,13 @@ function GUE.UpgradeUnit( iPlayerID, iX, iY, tUnits )
 							end
 						end
 						-- grant enough experience to this new unit to provide its next promotion
+						local sPriInfoMsg = "Adjusting 'upgraded' unit experience . . . ";
 						pUnitExperience:ChangeExperience(tLevel[iLevel].Max);
+						Dprint(sPriInfoMsg .. "PASS!");
 						-- remove this new unit's moves for this turn
+						local sSecInfoMsg = "Adjusting 'upgraded' unit movement . . . ";
 						UnitManager.FinishMoves(pUnit);
+						Dprint(sSecInfoMsg .. "PASS!");
 					end
 				end 
 			end
@@ -911,7 +937,7 @@ end
 	rolls a replacement reward if sRewardSubType is the villagers secrets reward and Player iPlayerID has already received it the maximum number of times
 	pre-init : this should be defined prior to Initialize()
 =========================================================================== ]]
-function GUE.GetNewRewards( iNumRewards, iPlayerID, iX, iY, sRewardSubType, iTurn, iEra, tUnits )
+function GUE.GetNewRewards( iNumRewards, iPlayerID, iUnitID, iX, iY, sRewardSubType, iTurn, iEra, tUnits )
 	-- initialize the cumulative hostile reward modifier
 	local iSumModifiers = 0;
 	-- initialize the hostiles as bonus reward flag
@@ -974,9 +1000,21 @@ function GUE.GetNewRewards( iNumRewards, iPlayerID, iX, iY, sRewardSubType, iTur
 							-- 
 							elseif (sThisSubType == "GOODYHUT_GRANT_UPGRADE") then tUnits = GUE.UpgradeUnit(iPlayerID, iX, iY, tUnits);
 							-- 
-							elseif (GUE.WGH_Rewards[sThisSubType] ~= nil) then 
-								Dprint("*** WGH Bonus Reward stub ***");
-								-- Sailor_Expanded_Goodies(iPlayerID, 1, 2, 3);
+							elseif (GUE.WGH_Rewards[sThisSubType] ~= nil) then
+								local iTypeHash, iSubTypeHash = GUE.WGH_Rewards[sThisSubType].TypeHash, GUE.WGH_Rewards[sThisSubType].SubTypeHash;
+								Dprint("WGH Bonus Reward: Subtype = " .. sThisSubType .. ", TypeHash = " .. iTypeHash .. ", SubTypeHash = " .. iSubTypeHash);
+								-- GUE.AddModifierToPlayer(iPlayerID, sThisModifier, false);
+								local pPlayer = Players[iPlayerID];
+								local pPlayerUnits = pPlayer:GetUnits();
+								local pThisUnit = pPlayerUnits:FindID(iUnitID);
+								local tX, tY = pThisUnit:GetX(), pThisUnit:GetY();
+								local tUnitsInPlot = Units.GetUnitsInPlotLayerID(tX, tY, MapLayers.ANY);
+								for i, pUnit in ipairs(tUnitsInPlot) do
+									local pUnitAbility = pUnit:GetAbility();
+									pUnitAbility:ChangeAbilityCount(GUE.WGH_Rewards[sThisSubType].AbilityType, 1);
+									Dprint("Applying Wondrous Goody Hut reward ability " .. tostring(GUE.WGH_Rewards[sThisSubType].AbilityType) .. " here; WGH will handle the rest");
+								end
+								WGH.Sailor_Expanded_Goodies(iPlayerID, iUnitID, iTypeHash, iSubTypeHash);
 							-- true for any other rolled reward; attach its modifier to (re) apply the reward
 							else GUE.AddModifierToPlayer(iPlayerID, sThisModifier, false);
 							end
@@ -1069,7 +1107,7 @@ function GUE.ValidateGoodyHutReward( tImprovementActivated, tGoodyHutReward )
 		-- debugging output
 		Dprint("VillagerSecretsLevel >= MaxSecretsLevel for Player " .. iPlayerID .. "; rolling new reward to replace " .. sRewardSubType .. " . . .");
 		-- roll one new reward, and reset the hostile modifier, hostiles as bonus reward flag, reward subtype, and reward tier accordingly
-		iThisRewardModifier, bHostilesAsBonusReward, sRewardSubType, sRewardTier = GUE.GetNewRewards(1, iPlayerID, iX, iY, sRewardSubType, iTurn, iEra, tUnitsInPlot);
+		iThisRewardModifier, bHostilesAsBonusReward, sRewardSubType, sRewardTier = GUE.GetNewRewards(1, iPlayerID, iUnitID, iX, iY, sRewardSubType, iTurn, iEra, tUnitsInPlot);
 		-- set the replacement reward flag
 		bIsReplacement = true;
 	end
@@ -1127,7 +1165,7 @@ function GUE.ValidateGoodyHutReward( tImprovementActivated, tGoodyHutReward )
 			-- debugging output
 			Dprint("VillagerSecretsLevel >= MaxSecretsLevel for Player " .. iPlayerID .. "; rolling new reward to replace " .. sRewardSubType .. " . . .");
 			-- roll for one new reward
-			iThisRewardModifier, bHostilesAsBonusReward = GUE.GetNewRewards(1, iPlayerID, iX, iY, sRewardSubType, iTurn, iEra, tUnitsInPlot);
+			iThisRewardModifier, bHostilesAsBonusReward = GUE.GetNewRewards(1, iPlayerID, iUnitID, iX, iY, sRewardSubType, iTurn, iEra, tUnitsInPlot);
 		end
 	-- 
 	elseif (GUE.GrantUnitRewards[sRewardSubType] ~= nil) then GUE.AddUnitToMap(iX, iY, iPlayerID, iTurn, iEra, sRewardSubType);
@@ -1140,12 +1178,12 @@ function GUE.ValidateGoodyHutReward( tImprovementActivated, tGoodyHutReward )
 	-- execute the CreateHostileVillagers() enhanced method here if this reward is a valid Hostile Villagers "reward"
 	elseif (GUE.HostileVillagers[sRewardSubType] ~= nil) then GUE.CreateHostileVillagers(iX, iY, iPlayerID, iTurn, iEra, sRewardSubType);
 	-- 
-	elseif (GUE.WGH_Rewards[sRewardSubType] ~= nil) then Dprint("*** WGH Primary Reward stub ***");
+	elseif (GUE.WGH_Rewards[sRewardSubType] ~= nil) then Dprint("The Primary reward here is of Wondrous-type, and has already been processed by WGH");
 	end
 	-- initialize the hostile modifier for bonus reward(s)
 	local iBonusRewardModifier = 0;
 	-- roll for any bonus rewards and store the cumulative hostile modifier sum and status of the hostiles as bonus reward flag
-	if not bHostilesAsBonusReward then iBonusRewardModifier, bHostilesAsBonusReward = GUE.GetNewRewards(GUE.BonusRewardsPerGoodyHut, iPlayerID, iX, iY, sRewardSubType, iTurn, iEra, tUnitsInPlot); end
+	if not bHostilesAsBonusReward then iBonusRewardModifier, bHostilesAsBonusReward = GUE.GetNewRewards(GUE.BonusRewardsPerGoodyHut, iPlayerID, iUnitID, iX, iY, sRewardSubType, iTurn, iEra, tUnitsInPlot); end
 	-- the difficulty modifier remains constant throughout the game
 	local iDifficultyModifier = GUE.PlayerData[iPlayerID].Difficulty;
 	-- hostile villagers will appear when the calculated hostiles chance below equals or exceeds this value
