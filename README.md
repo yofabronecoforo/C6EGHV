@@ -10,7 +10,8 @@ A mod that provides a fairly comprehensive extension to and overhaul of the Trib
 - A dropdown menu for selecting an amount of possible bonus reward(s) in addition to the usual reward from a Goody Hut.
 - A checkbox flag for equalizing the chances of receiving all enabled reward(s).
 
-In addition, the number of available Goody Hut rewards has greatly increased: 
+In addition, the number of available Goody Hut rewards has greatly increased:
+
 Ruleset | Available Rewards (Types) | Rewards (Types) w/o EGHV
 ------- | ------- | -------
 Standard | 47 (13) | 18 (6)
