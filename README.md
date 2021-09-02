@@ -5,12 +5,12 @@ The above image, and all other image(s) reflecting game content herein, reflect 
 
 # Overview
 A mod that provides a fairly comprehensive extension to and overhaul of the Tribal Village (Goody Hut) rewards system. Many new Frontend options relating to Goody Huts are available, including:
-- A picker for choosing which Goody Hut reward(s), if any, have a chance of appearing ingame.
-- A slider for decreasing or increasing the relative amount of Goody Huts that will appear.
-- A dropdown menu for selecting an amount of possible bonus reward(s) in addition to the usual reward from a Goody Hut.
+- A picker for choosing exactly which Goody Hut reward(s), if any, will have a chance of appearing ingame.
+- A slider for decreasing or increasing the number of Goody Huts that will appear ingame, relative to the baseline amount for the selected map and/or size.
+- A dropdown menu for selecting an amount of possible bonus reward(s), which may be provided in addition to the usual reward from a Goody Hut.
 - A checkbox flag for equalizing the chances of receiving all enabled reward(s).
 
-In addition, the number of available Goody Hut rewards has greatly increased:
+In addition, the number of available Goody Hut rewards has greatly increased for each official ruleset:
 
 Ruleset | Available Rewards (Types) | Rewards (Types) w/o EGHV
 ------- | ------- | -------
