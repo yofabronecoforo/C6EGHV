@@ -152,7 +152,9 @@ Any hostile villagers that appear as or after a reward will generate an ingame p
 To compensate for the increased numbers of barbarian units that are likely to be present now, the experience and level caps from fighting such units have been increased. You still aren't going to get a fully-promoted unit from fighting barbarians, but at least you'll be able to get more than a single promotion.
 
 ### Hostiles Configuration
-Hostile Villagers as a reward are configurable via the picker. For Hostile Villagers after a reward, there is a new dropdown option in Advanced Setup to select the chances of an appearance following any other Goody Hut reward. Available choices are:
+Hostile Villagers AS a "reward" are configurable via the picker like any other available reward.
+
+Hostile Villagers AFTER any other reward are configurable via a new dropdown option in Advanced Setup. Available choices are:
 - Never (hostile villagers will NOT appear)
 - Maybe ( * this is the default option; a chance for hostile villagers to appear, as described above)
 - Always (hostile villagers will ALWAYS appear; their hostility level will be as described above)
