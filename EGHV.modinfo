@@ -13,28 +13,38 @@
 		<Mod id="1B28771A-C749-434B-9053-D1380C553DE9" title="LOC_EXPANSION1_MOD_TITLE"/>
 		<Mod id="4873eb62-8ccc-4574-b784-dda455e74e68" title="LOC_EXPANSION2_MOD_TITLE"/>
 		<Mod id="9DE86512-DE1A-400D-8C0A-AB46EBBF76B9" title="LOC_GRANCOLOMBIA_MAYA_MOD_TITLE"/>
+		<Mod id="2d90451f-08c9-47de-bce8-e9b7fdecbe92" title="[COLOR:ResGoldLabelCS]Wondrous[ENDCOLOR] Goody Huts"/>
 	</References>
 	<ActionCriteria>
-		<!-- essential criteria -->
+		<!-- all rulesets -->
 		<Criteria id="EGHV" any="1">
 			<RuleSetInUse>RULESET_STANDARD,RULESET_EXPANSION_1,RULESET_EXPANSION_2</RuleSetInUse>
 		</Criteria>
+		<!-- standard ruleset only -->
 		<Criteria id="EGHV_Base">
 			<RuleSetInUse>RULESET_STANDARD</RuleSetInUse>
 		</Criteria>
+		<!-- rise and fall ruleset only -->
 		<Criteria id="EGHV_Expansion1">
 			<RuleSetInUse>RULESET_EXPANSION_1</RuleSetInUse>
 		</Criteria>
+		<!-- any expansion ruleset -->
 		<Criteria id="EGHV_Expansion1AndBeyond" any="1">
 			<RuleSetInUse>RULESET_EXPANSION_1,RULESET_EXPANSION_2</RuleSetInUse>
 		</Criteria>
+		<!-- gathering storm ruleset only -->
 		<Criteria id="EGHV_Expansion2">
 			<RuleSetInUse>RULESET_EXPANSION_2</RuleSetInUse>
 		</Criteria>
+		<!-- Gran Colombia and Maya DLC present -->
 		<Criteria id="EGHV_GranColombia_Maya">
 			<ModInUse>9DE86512-DE1A-400D-8C0A-AB46EBBF76B9</ModInUse>
 		</Criteria>
-		<!-- goody hut appearance frequency -->
+		<!-- Wondrous Goody Huts community mod present -->
+		<Criteria id="EGHV_WGH_Ingame_Config">
+			<ModInUse>2d90451f-08c9-47de-bce8-e9b7fdecbe92</ModInUse>
+		</Criteria>
+		<!-- goody hut appearance frequency 25% of baseline -->
 		<Criteria id="EGHV_GoodyHut_Distribution_025">
     		<ConfigurationValueMatches>
     			<ConfigurationId>GOODYHUT_FREQUENCY</ConfigurationId>
@@ -42,6 +52,7 @@
     			<Value>25</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- goody hut appearance frequency 50% of baseline -->
 		<Criteria id="EGHV_GoodyHut_Distribution_050">
     		<ConfigurationValueMatches>
     			<ConfigurationId>GOODYHUT_FREQUENCY</ConfigurationId>
@@ -49,6 +60,7 @@
     			<Value>50</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- goody hut appearance frequency 75% of baseline -->
 		<Criteria id="EGHV_GoodyHut_Distribution_075">
     		<ConfigurationValueMatches>
     			<ConfigurationId>GOODYHUT_FREQUENCY</ConfigurationId>
@@ -56,6 +68,7 @@
     			<Value>75</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- goody hut appearance frequency 125% of baseline -->
 		<Criteria id="EGHV_GoodyHut_Distribution_125">
     		<ConfigurationValueMatches>
     			<ConfigurationId>GOODYHUT_FREQUENCY</ConfigurationId>
@@ -63,6 +76,7 @@
     			<Value>125</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- goody hut appearance frequency 150% of baseline -->
 		<Criteria id="EGHV_GoodyHut_Distribution_150">
     		<ConfigurationValueMatches>
     			<ConfigurationId>GOODYHUT_FREQUENCY</ConfigurationId>
@@ -70,6 +84,7 @@
     			<Value>150</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- goody hut appearance frequency 175% of baseline -->
 		<Criteria id="EGHV_GoodyHut_Distribution_175">
     		<ConfigurationValueMatches>
     			<ConfigurationId>GOODYHUT_FREQUENCY</ConfigurationId>
@@ -77,6 +92,7 @@
     			<Value>175</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- goody hut appearance frequency 200% of baseline -->
 		<Criteria id="EGHV_GoodyHut_Distribution_200">
     		<ConfigurationValueMatches>
     			<ConfigurationId>GOODYHUT_FREQUENCY</ConfigurationId>
@@ -84,6 +100,7 @@
     			<Value>200</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- goody hut appearance frequency 225% of baseline -->
 		<Criteria id="EGHV_GoodyHut_Distribution_225">
     		<ConfigurationValueMatches>
     			<ConfigurationId>GOODYHUT_FREQUENCY</ConfigurationId>
@@ -91,6 +108,7 @@
     			<Value>225</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- goody hut appearance frequency 250% of baseline -->
 		<Criteria id="EGHV_GoodyHut_Distribution_250">
     		<ConfigurationValueMatches>
     			<ConfigurationId>GOODYHUT_FREQUENCY</ConfigurationId>
@@ -98,6 +116,7 @@
     			<Value>250</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- goody hut appearance frequency 275% of baseline -->
 		<Criteria id="EGHV_GoodyHut_Distribution_275">
     		<ConfigurationValueMatches>
     			<ConfigurationId>GOODYHUT_FREQUENCY</ConfigurationId>
@@ -105,6 +124,7 @@
     			<Value>275</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- goody hut appearance frequency 300% of baseline -->
 		<Criteria id="EGHV_GoodyHut_Distribution_300">
     		<ConfigurationValueMatches>
     			<ConfigurationId>GOODYHUT_FREQUENCY</ConfigurationId>
@@ -112,6 +132,7 @@
     			<Value>300</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- goody hut appearance frequency 325% of baseline -->
 		<Criteria id="EGHV_GoodyHut_Distribution_325">
     		<ConfigurationValueMatches>
     			<ConfigurationId>GOODYHUT_FREQUENCY</ConfigurationId>
@@ -119,6 +140,7 @@
     			<Value>325</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- goody hut appearance frequency 350% of baseline -->
 		<Criteria id="EGHV_GoodyHut_Distribution_350">
     		<ConfigurationValueMatches>
     			<ConfigurationId>GOODYHUT_FREQUENCY</ConfigurationId>
@@ -126,6 +148,7 @@
     			<Value>350</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- goody hut appearance frequency 375% of baseline -->
 		<Criteria id="EGHV_GoodyHut_Distribution_375">
     		<ConfigurationValueMatches>
     			<ConfigurationId>GOODYHUT_FREQUENCY</ConfigurationId>
@@ -133,6 +156,7 @@
     			<Value>375</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- goody hut appearance frequency 400% of baseline -->
 		<Criteria id="EGHV_GoodyHut_Distribution_400">
     		<ConfigurationValueMatches>
     			<ConfigurationId>GOODYHUT_FREQUENCY</ConfigurationId>
@@ -140,6 +164,7 @@
     			<Value>400</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- goody hut appearance frequency 425% of baseline -->
 		<Criteria id="EGHV_GoodyHut_Distribution_425">
     		<ConfigurationValueMatches>
     			<ConfigurationId>GOODYHUT_FREQUENCY</ConfigurationId>
@@ -147,6 +172,7 @@
     			<Value>425</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- goody hut appearance frequency 450% of baseline -->
 		<Criteria id="EGHV_GoodyHut_Distribution_450">
     		<ConfigurationValueMatches>
     			<ConfigurationId>GOODYHUT_FREQUENCY</ConfigurationId>
@@ -154,6 +180,7 @@
     			<Value>450</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- goody hut appearance frequency 475% of baseline -->
 		<Criteria id="EGHV_GoodyHut_Distribution_475">
     		<ConfigurationValueMatches>
     			<ConfigurationId>GOODYHUT_FREQUENCY</ConfigurationId>
@@ -161,6 +188,7 @@
     			<Value>475</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- goody hut appearance frequency 500% of baseline -->
 		<Criteria id="EGHV_GoodyHut_Distribution_500">
     		<ConfigurationValueMatches>
     			<ConfigurationId>GOODYHUT_FREQUENCY</ConfigurationId>
@@ -168,7 +196,7 @@
     			<Value>500</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
-		<!-- equalize goody hut weights -->
+		<!-- equalize goody hut weights (generic) -->
 		<Criteria id="EGHV_Equalize_GoodyHuts">
     		<ConfigurationValueMatches>
     			<ConfigurationId>GAME_EQUALIZE_GOODY_HUTS</ConfigurationId>
@@ -176,6 +204,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- equalize goody hut weights (any expansion ruleset) -->
 		<Criteria id="EGHV_Equalize_GoodyHuts_Expansion1AndBeyond">
 			<RuleSetInUse>RULESET_EXPANSION_1,RULESET_EXPANSION_2</RuleSetInUse>
     		<ConfigurationValueMatches>
@@ -184,6 +213,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- equalize goody hut weights (gathering storm ruleset only) -->
 		<Criteria id="EGHV_Equalize_GoodyHuts_Expansion2">
 			<RuleSetInUse>RULESET_EXPANSION_2</RuleSetInUse>
     		<ConfigurationValueMatches>
@@ -192,7 +222,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
-		<!-- culture -->
+		<!-- exclude (disable) 1 free civic boost reward -->
 		<Criteria id="EGHV_Exclude_GoodyHut_One_Civic_Boost">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_ONE_CIVIC_BOOST</ConfigurationId>
@@ -200,6 +230,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- exclude (disable) 1 free civic reward -->
 		<Criteria id="EGHV_Exclude_GoodyHut_One_Civic">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_ONE_CIVIC</ConfigurationId>
@@ -207,6 +238,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- exclude (disable) 2 free civic boosts reward -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Two_Civic_Boosts">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_TWO_CIVIC_BOOSTS</ConfigurationId>
@@ -214,6 +246,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- exclude (disable) 2 free civics reward -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Two_Civics">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_TWO_CIVICS</ConfigurationId>
@@ -221,7 +254,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
-		<!-- faith -->
+		<!-- exclude (disable) 1 free relic reward -->
 		<Criteria id="EGHV_Exclude_GoodyHut_One_Relic">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_ONE_RELIC</ConfigurationId>
@@ -229,6 +262,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- exclude (disable) large faith cache reward -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Large_Faith">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_LARGE_FAITH</ConfigurationId>
@@ -236,6 +270,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- exclude (disable) medium faith cache reward -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Medium_Faith">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_MEDIUM_FAITH</ConfigurationId>
@@ -243,6 +278,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- exclude (disable) small faith cache reward -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Small_Faith">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_SMALL_FAITH</ConfigurationId>
@@ -250,7 +286,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
-		<!-- gold -->
+		<!-- exclude (disable) 1 free additional trade route capacity reward -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Add_Trade_Route">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_ADD_TRADE_ROUTE</ConfigurationId>
@@ -258,6 +294,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- exclude (disable) large gold cache reward -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Large_Gold">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_LARGE_GOLD</ConfigurationId>
@@ -265,6 +302,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- exclude (disable) medium gold cache reward -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Medium_Gold">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_MEDIUM_GOLD</ConfigurationId>
@@ -272,6 +310,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- exclude (disable) small gold cache reward -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Small_Gold">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_SMALL_GOLD</ConfigurationId>
@@ -279,7 +318,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
-		<!-- military -->
+		<!-- exclude (disable) 1 free recon unit reward -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Grant_Scout">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_GRANT_SCOUT</ConfigurationId>
@@ -287,6 +326,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- exclude (disable) 1 free ranged unit reward -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Grant_Slinger">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_GRANT_SLINGER</ConfigurationId>
@@ -294,6 +334,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- exclude (disable) 1 free melee unit reward -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Grant_Warrior">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_GRANT_WARRIOR</ConfigurationId>
@@ -301,7 +342,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
-		<!-- science -->
+		<!-- exclude (disable) 1 free technology boost reward -->
 		<Criteria id="EGHV_Exclude_GoodyHut_One_Tech_Boost">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_ONE_TECH_BOOST</ConfigurationId>
@@ -309,6 +350,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- exclude (disable) 1 free technology reward -->
 		<Criteria id="EGHV_Exclude_GoodyHut_One_Tech">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_ONE_TECH</ConfigurationId>
@@ -316,6 +358,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- exclude (disable) 2 free technology boosts reward -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Two_Tech_Boosts">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_TWO_TECH_BOOSTS</ConfigurationId>
@@ -323,6 +366,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- exclude (disable) 2 free technologies reward -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Two_Techs">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_TWO_TECHS</ConfigurationId>
@@ -330,7 +374,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
-		<!-- survivors -->
+		<!-- exclude (disable) 1 free additional population in nearby city reward -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Add_Population">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_ADD_POP</ConfigurationId>
@@ -338,6 +382,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- exclude (disable) 1 free builder reward -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Grant_Builder">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_GRANT_BUILDER</ConfigurationId>
@@ -345,6 +390,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- exclude (disable) 1 free settler reward -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Grant_Settler">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_GRANT_SETTLER</ConfigurationId>
@@ -352,6 +398,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- exclude (disable) 1 free trader reward -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Grant_Trader">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_GRANT_TRADER</ConfigurationId>
@@ -359,7 +406,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
-		<!-- abilities -->
+		<!-- exclude (disable) basic enhanced sight reward -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Improved_Sight">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_IMPROVED_SIGHT</ConfigurationId>
@@ -367,6 +414,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- exclude (disable) basic enhanced healing reward -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Improved_Healing">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_IMPROVED_HEALING</ConfigurationId>
@@ -374,6 +422,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- exclude (disable) basic enhanced movement reward -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Improved_Movement">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_IMPROVED_MOVEMENT</ConfigurationId>
@@ -381,6 +430,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- exclude (disable) basic enhanced strength reward -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Improved_Strength">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_IMPROVED_STRENGTH</ConfigurationId>
@@ -388,7 +438,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
-		<!-- cavalry -->
+		<!-- exclude (disable) 1 free anti-cavalry unit reward -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Grant_Spearman">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_GRANT_SPEARMAN</ConfigurationId>
@@ -396,6 +446,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- exclude (disable) 1 free heavy cavalry unit reward -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Grant_Heavy_Chariot">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_GRANT_HEAVY_CHARIOT</ConfigurationId>
@@ -403,6 +454,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- exclude (disable) 1 free light cavalry unit reward -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Grant_Horseman">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_GRANT_HORSEMAN</ConfigurationId>
@@ -410,7 +462,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
-		<!-- envoys -->
+		<!-- exclude (disable) 1 free envoy reward -->
 		<Criteria id="EGHV_Exclude_GoodyHut_One_Envoy">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_ONE_ENVOY</ConfigurationId>
@@ -418,6 +470,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- exclude (disable) 2 free envoys reward -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Two_Envoys">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_TWO_ENVOYS</ConfigurationId>
@@ -425,6 +478,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- exclude (disable) 3 free envoys reward -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Three_Envoys">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_THREE_ENVOYS</ConfigurationId>
@@ -432,6 +486,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- exclude (disable) 4 free envoys reward -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Four_Envoys">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_FOUR_ENVOYS</ConfigurationId>
@@ -439,7 +494,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
-		<!-- hostiles -->
+		<!-- exclude (disable) low-hostility villagers "reward" -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Low_Hostility_Villagers">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_LOW_HOSTILITY_VILLAGERS</ConfigurationId>
@@ -447,6 +502,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- exclude (disable) medium-hostility villagers "reward" -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Mid_Hostility_Villagers">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_MID_HOSTILITY_VILLAGERS</ConfigurationId>
@@ -454,6 +510,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- exclude (disable) high-hostility villagers "reward" -->
 		<Criteria id="EGHV_Exclude_GoodyHut_High_Hostility_Villagers">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_HIGH_HOSTILITY_VILLAGERS</ConfigurationId>
@@ -461,6 +518,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- exclude (disable) maximum-hostility villagers "reward" -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Max_Hostility_Villagers">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_MAX_HOSTILITY_VILLAGERS</ConfigurationId>
@@ -468,7 +526,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
-		<!-- promotions -->
+		<!-- exclude (disable) huge combat experience cache reward -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Huge_Experience">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_HUGE_EXPERIENCE</ConfigurationId>
@@ -476,6 +534,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- exclude (disable) large combat experience cache reward -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Large_Experience">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_LARGE_EXPERIENCE</ConfigurationId>
@@ -483,6 +542,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- exclude (disable) medium combat experience cache reward -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Medium_Experience">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_MEDIUM_EXPERIENCE</ConfigurationId>
@@ -490,6 +550,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- exclude (disable) small combat experience cache reward -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Small_Experience">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_SMALL_EXPERIENCE</ConfigurationId>
@@ -497,7 +558,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
-		<!-- secrets -->
+		<!-- exclude (disable) unlock villager secrets reward -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Unlock_Villager_Secrets">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_UNLOCK_VILLAGER_SECRETS</ConfigurationId>
@@ -505,7 +566,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
-		<!-- support -->
+		<!-- exclude (disable) 1 free support unit reward -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Grant_Battering_Ram">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_GRANT_BATTERING_RAM</ConfigurationId>
@@ -513,6 +574,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- exclude (disable) 1 free siege unit reward -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Grant_Catapult">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_GRANT_CATAPULT</ConfigurationId>
@@ -520,6 +582,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- exclude (disable) upgrade this unit reward -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Grant_Upgrade">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_GRANT_UPGRADE</ConfigurationId>
@@ -527,6 +590,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- exclude (disable) 1 free military engineer reward -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Grant_Military_Engineer">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_GRANT_MILITARY_ENGINEER</ConfigurationId>
@@ -534,7 +598,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
-		<!-- governors - requires XP1 or later -->
+		<!-- exclude 1 free governor title reward - requires XP1 or later -->
 		<Criteria id="EGHV_Exclude_GoodyHut_One_Governor_Title">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_ONE_GOVERNOR_TITLE</ConfigurationId>
@@ -542,6 +606,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- exclude 2 free governor titles reward - requires XP1 or later -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Two_Governor_Titles">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_TWO_GOVERNOR_TITLES</ConfigurationId>
@@ -549,6 +614,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- exclude 3 free governor titles reward - requires XP1 or later -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Three_Governor_Titles">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_THREE_GOVERNOR_TITLES</ConfigurationId>
@@ -556,6 +622,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- exclude 4 free governor titles reward - requires XP1 or later -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Four_Governor_Titles">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_FOUR_GOVERNOR_TITLES</ConfigurationId>
@@ -563,7 +630,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
-		<!-- diplomacy - requires XP2 or later -->
+		<!-- exclude (disable) small diplomatic favor cache - requires XP2 or later -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Small_Favor">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_SMALL_FAVOR</ConfigurationId>
@@ -571,6 +638,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- exclude (disable) medium diplomatic favor cache - requires XP2 or later -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Medium_Favor">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_MEDIUM_FAVOR</ConfigurationId>
@@ -578,6 +646,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- exclude (disable) large diplomatic favor cache - requires XP2 or later -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Large_Favor">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_LARGE_FAVOR</ConfigurationId>
@@ -585,6 +654,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- exclude (disable) huge diplomatic favor cache - requires XP2 or later -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Huge_Favor">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_HUGE_FAVOR</ConfigurationId>
@@ -592,7 +662,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
-		<!-- meteor - requires XP2 or later -->
+		<!-- exclude (disable) meteor-strike reward - requires XP2 or later -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Meteor_Strike">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_METEOR_GRANT_GOODIES</ConfigurationId>
@@ -600,7 +670,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
-		<!-- resources - requires XP2 or later -->
+		<!-- exclude (disable) hugge strategic resources cache - requires XP2 or later -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Huge_Resources">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_HUGE_RESOURCES</ConfigurationId>
@@ -608,6 +678,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- exclude (disable) large strategic resources cache - requires XP2 or later -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Large_Resources">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_LARGE_RESOURCES</ConfigurationId>
@@ -615,6 +686,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- exclude (disable) medium strategic resources cache - requires XP2 or later -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Medium_Resources">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_MEDIUM_RESOURCES</ConfigurationId>
@@ -622,6 +694,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- exclude (disable) small strategic resources cache - requires XP2 or later -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Small_Resources">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_SMALL_RESOURCES</ConfigurationId>
@@ -629,7 +702,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
-		<!-- goody hut exclusion -->
+		<!-- rebalance remaining weight(s) after goody hut exclusion (generic) -->
 		<Criteria id="EGHV_Exclude_GoodyHuts">
     		<ConfigurationValueMatches>
     			<ConfigurationId>GOODYHUTS_EXCLUDED</ConfigurationId>
@@ -637,6 +710,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- rebalance remaining weight(s) after goody hut exclusion (any expansion ruleset) -->
 		<Criteria id="EGHV_Exclude_GoodyHuts_Expansion1AndBeyond">
 			<RuleSetInUse>RULESET_EXPANSION_1,RULESET_EXPANSION_2</RuleSetInUse>
     		<ConfigurationValueMatches>
@@ -645,6 +719,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- rebalance remaining weight(s) after goody hut exclusion (gathering storm ruleset only) -->
 		<Criteria id="EGHV_Exclude_GoodyHuts_Expansion2">
 			<RuleSetInUse>RULESET_EXPANSION_2</RuleSetInUse>
     		<ConfigurationValueMatches>
@@ -653,7 +728,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
-		<!-- wondrous goody huts exclusion -->
+		<!-- wondrous goody huts exclusion - discover city-state -->
 		<Criteria id="EGHV_WGH_Exclude_GoodyHut_CityState">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_SAILOR_CITYSTATE</ConfigurationId>
@@ -661,6 +736,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- wondrous goody huts exclusion - upgrade unit formation(s), if applicable -->
 		<Criteria id="EGHV_WGH_Exclude_GoodyHut_Formation">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_SAILOR_FORMATION</ConfigurationId>
@@ -668,6 +744,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- wondrous goody huts exclusion - finish current item(s) in capital's production queue -->
 		<Criteria id="EGHV_WGH_Exclude_GoodyHut_Production">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_SAILOR_PRODUCTION</ConfigurationId>
@@ -675,6 +752,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- wondrous goody huts exclusion - random valid improvement on a player-owned tile -->
 		<Criteria id="EGHV_WGH_Exclude_GoodyHut_RandomImprovement">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_SAILOR_RANDOMIMPROVEMENT</ConfigurationId>
@@ -682,6 +760,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- wondrous goody huts exclusion - unlock a currently-unavailable random policy card -->
 		<Criteria id="EGHV_WGH_Exclude_GoodyHut_RandomPolicy">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_SAILOR_RANDOMPOLICY</ConfigurationId>
@@ -689,6 +768,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- wondrous goody huts exclusion - new random resource in a player-owned tile -->
 		<Criteria id="EGHV_WGH_Exclude_GoodyHut_RandomResource">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_SAILOR_RANDOMRESOURCE</ConfigurationId>
@@ -696,6 +776,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- wondrous goody huts exclusion - random unit reward -->
 		<Criteria id="EGHV_WGH_Exclude_GoodyHut_RandomUnit">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_SAILOR_RANDOMUNIT</ConfigurationId>
@@ -703,6 +784,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- wondrous goody huts exclusion - wilderness training -->
 		<Criteria id="EGHV_WGH_Exclude_GoodyHut_SightBomb">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_SAILOR_SIGHTBOMB</ConfigurationId>
@@ -710,6 +792,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- wondrous goody huts exclusion - 1 free spy reward -->
 		<Criteria id="EGHV_WGH_Exclude_GoodyHut_Spy">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_SAILOR_SPY</ConfigurationId>
@@ -717,6 +800,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- wondrous goody huts exclusion - world tour -->
 		<Criteria id="EGHV_WGH_Exclude_GoodyHut_Teleport">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_SAILOR_TELEPORT</ConfigurationId>
@@ -724,6 +808,7 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
+		<!-- wondrous goody huts exclusion - discover natural wonder -->
 		<Criteria id="EGHV_WGH_Exclude_GoodyHut_Wonder">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_SAILOR_WONDER</ConfigurationId>
@@ -733,13 +818,13 @@
     	</Criteria>
 	</ActionCriteria>
 	<InGameActions>
-		<!-- gameplay schema -->
+		<!-- gameplay database schema -->
 		<UpdateDatabase id="EGHV_GAMEPLAY_SCHEMA" criteria="EGHV">
-			<!-- This needs to load RFE -->
+			<!-- this needs to load RFE -->
 			<Properties>
 				<LoadOrder>-42</LoadOrder>
 			</Properties>
-			<!-- Configuration schema changes -->
+			<!-- gameplay schema changes -->
 			<File Priority="2">EGHV/Gameplay/Schema.sql</File>
 		</UpdateDatabase>
 		<!-- script exposed members config -->
@@ -749,150 +834,168 @@
       		</Properties>
 			<File>C6GUE/Scripts/IngameGUE.lua</File>
 		</AddGameplayScripts>
-		<!-- enhanced goodies config -->
+		<!-- script enhanced goodies config -->
 		<AddGameplayScripts id="EGHV_GAMEPLAY_SCRIPT_ENHANCED_GOODIES" criteria="EGHV">
 			<Properties>
         		<LoadOrder>1010142</LoadOrder>
       		</Properties>
 			<File>EGHV/Scripts/EnhancedGoodies.lua</File>
 		</AddGameplayScripts>
-		<!-- hostile villagers config -->
+		<!-- script hostile villagers config -->
 		<AddGameplayScripts id="EGHV_GAMEPLAY_SCRIPT_HOSTILE_VILLAGERS" criteria="EGHV">
 			<Properties>
         		<LoadOrder>1010143</LoadOrder>
       		</Properties>
 			<File>EGHV/Scripts/HostileVillagers.lua</File>
 		</AddGameplayScripts>
-		<!-- database config for all rulesets -->
+		<!-- gameplay database config for all rulesets -->
 		<UpdateDatabase id="EGHV_INGAME" criteria="EGHV">
 			<Properties>
         		<LoadOrder>1010150</LoadOrder>
       		</Properties>
 			<File Priority="2">EGHV/Gameplay/Ingame.sql</File>
 		</UpdateDatabase>
-		<!-- database config for XP1 and beyond -->
+		<!-- gameplay database config for XP1 and beyond -->
 		<UpdateDatabase id="EGHV_INGAME_XP1_AND_BEYOND" criteria="EGHV_Expansion1AndBeyond">
 			<Properties>
         		<LoadOrder>1010151</LoadOrder>
       		</Properties>
 			<File Priority="2">EGHV/Gameplay/Ingame_XP1.sql</File>
 		</UpdateDatabase>
-		<!-- database config for XP2 and beyond -->
+		<!-- gameplay database config for XP2 and beyond -->
 		<UpdateDatabase id="EGHV_INGAME_XP2" criteria="EGHV_Expansion2">
 			<Properties>
         		<LoadOrder>1010152</LoadOrder>
       		</Properties>
 			<File Priority="2">EGHV/Gameplay/Ingame_XP2.sql</File>
 		</UpdateDatabase>
-		<!-- goody hut appearance frequency -->
+		<!-- goody hut appearance frequency 25% of baseline -->
 		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_025" criteria="EGHV_GoodyHut_Distribution_025">
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
 			<File>EGHV/Gameplay/GoodyHutDistribution/025.sql</File>
 		</UpdateDatabase>
+		<!-- goody hut appearance frequency 50% of baseline -->
 		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_050" criteria="EGHV_GoodyHut_Distribution_050">
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
 			<File>EGHV/Gameplay/GoodyHutDistribution/050.sql</File>
 		</UpdateDatabase>
+		<!-- goody hut appearance frequency 75% of baseline -->
 		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_075" criteria="EGHV_GoodyHut_Distribution_075">
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
 			<File>EGHV/Gameplay/GoodyHutDistribution/075.sql</File>
 		</UpdateDatabase>
+		<!-- goody hut appearance frequency 125% of baseline -->
 		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_125" criteria="EGHV_GoodyHut_Distribution_125">
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
 			<File>EGHV/Gameplay/GoodyHutDistribution/125.sql</File>
 		</UpdateDatabase>
+		<!-- goody hut appearance frequency 150% of baseline -->
 		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_150" criteria="EGHV_GoodyHut_Distribution_150">
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
 			<File>EGHV/Gameplay/GoodyHutDistribution/150.sql</File>
 		</UpdateDatabase>
+		<!-- goody hut appearance frequency 175% of baseline -->
 		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_175" criteria="EGHV_GoodyHut_Distribution_175">
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
 			<File>EGHV/Gameplay/GoodyHutDistribution/175.sql</File>
 		</UpdateDatabase>
+		<!-- goody hut appearance frequency 200% of baseline -->
 		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_200" criteria="EGHV_GoodyHut_Distribution_200">
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
 			<File>EGHV/Gameplay/GoodyHutDistribution/200.sql</File>
 		</UpdateDatabase>
+		<!-- goody hut appearance frequency 225% of baseline -->
 		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_225" criteria="EGHV_GoodyHut_Distribution_225">
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
 			<File>EGHV/Gameplay/GoodyHutDistribution/225.sql</File>
 		</UpdateDatabase>
+		<!-- goody hut appearance frequency 250% of baseline -->
 		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_250" criteria="EGHV_GoodyHut_Distribution_250">
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
 			<File>EGHV/Gameplay/GoodyHutDistribution/250.sql</File>
 		</UpdateDatabase>
+		<!-- goody hut appearance frequency 275% of baseline -->
 		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_275" criteria="EGHV_GoodyHut_Distribution_275">
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
 			<File>EGHV/Gameplay/GoodyHutDistribution/275.sql</File>
 		</UpdateDatabase>
+		<!-- goody hut appearance frequency 300% of baseline -->
 		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_300" criteria="EGHV_GoodyHut_Distribution_300">
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
 			<File>EGHV/Gameplay/GoodyHutDistribution/300.sql</File>
 		</UpdateDatabase>
+		<!-- goody hut appearance frequency 325% of baseline -->
 		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_325" criteria="EGHV_GoodyHut_Distribution_325">
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
 			<File>EGHV/Gameplay/GoodyHutDistribution/325.sql</File>
 		</UpdateDatabase>
+		<!-- goody hut appearance frequency 350% of baseline -->
 		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_350" criteria="EGHV_GoodyHut_Distribution_350">
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
 			<File>EGHV/Gameplay/GoodyHutDistribution/350.sql</File>
 		</UpdateDatabase>
+		<!-- goody hut appearance frequency 375% of baseline -->
 		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_375" criteria="EGHV_GoodyHut_Distribution_375">
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
 			<File>EGHV/Gameplay/GoodyHutDistribution/375.sql</File>
 		</UpdateDatabase>
+		<!-- goody hut appearance frequency 400% of baseline -->
 		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_400" criteria="EGHV_GoodyHut_Distribution_400">
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
 			<File>EGHV/Gameplay/GoodyHutDistribution/400.sql</File>
 		</UpdateDatabase>
+		<!-- goody hut appearance frequency 425% of baseline -->
 		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_425" criteria="EGHV_GoodyHut_Distribution_425">
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
 			<File>EGHV/Gameplay/GoodyHutDistribution/425.sql</File>
 		</UpdateDatabase>
+		<!-- goody hut appearance frequency 450% of baseline -->
 		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_450" criteria="EGHV_GoodyHut_Distribution_450">
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
 			<File>EGHV/Gameplay/GoodyHutDistribution/450.sql</File>
 		</UpdateDatabase>
+		<!-- goody hut appearance frequency 475% of baseline -->
 		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_475" criteria="EGHV_GoodyHut_Distribution_475">
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
 			<File>EGHV/Gameplay/GoodyHutDistribution/475.sql</File>
 		</UpdateDatabase>
+		<!-- goody hut appearance frequency 500% of baseline -->
 		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_500" criteria="EGHV_GoodyHut_Distribution_500">
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
@@ -1314,6 +1417,13 @@
       		</Properties>
 			<File>EGHV/Gameplay/ExcludeGoodyHuts_XP2.sql</File>
 		</UpdateDatabase>
+		<!-- enable WGH content here -->
+		<UpdateDatabase id="EGHV_WGH_INGAME_INITIAL_CONFIG" criteria="EGHV_WGH_Ingame_Config">
+			<Properties>
+        		<LoadOrder>1010178</LoadOrder>
+      		</Properties>
+			<File>EGHV/Community/WondrousGoodyHuts/Ingame.sql</File>
+		</UpdateDatabase>
 		<!-- exclude wondrous goody huts -->
 		<UpdateDatabase id="EGHV_WGH_INGAME_EXCLUDE_GOODYHUT" criteria="EGHV_WGH_Exclude_GoodyHut_CityState">
 			<Properties>
@@ -1503,32 +1613,32 @@
 		</Text>
 	</LocalizedText>
 	<Files>
-
+		<!-- configuration (frontend) schema for C6GUE components -->
 		<File>C6GUE/Configuration/Schema.sql</File>
-
+		<!-- configuration (frontend) localization text for C6GUE components -->
 		<File>C6GUE/Localization/en_US/Common_Frontend_Text.xml</File>
 		<File>C6GUE/Localization/es_ES/Common_Frontend_Text.xml</File>
 		<File>C6GUE/Localization/fr_FR/Common_Frontend_Text.xml</File>
-
+		<!-- C6GUE ingame script -->
 		<File>C6GUE/Scripts/IngameGUE.lua</File>
-
+		<!-- C6GUE configuration (frontend) UI replacements -->
 		<File>C6GUE/UI/Replacements/AdvancedSetup.lua</File>
 		<File>C6GUE/UI/Replacements/AdvancedSetup.xml</File>
 		<File>C6GUE/UI/Replacements/GameSetupLogic.lua</File>
 		<File>C6GUE/UI/Replacements/Mods.lua</File>
-
+		<!-- C6GUE configuration (frontend) multiplayer UI replacements -->
 		<File>C6GUE/UI/Replacements/Multiplayer/HostGame.lua</File>
 		<File>C6GUE/UI/Replacements/Multiplayer/HostGame.xml</File>
-
+		<!-- "new" icon definitions -->
 		<File>EGHV/Art/Ingame_Icons.xml</File>
-
+		<!-- frontend configuration -->
 		<File>EGHV/Configuration/Frontend.sql</File>
 		<File>EGHV/Configuration/Schema.sql</File>
-
+		<!-- frontend config - goody hut picker population -->
 		<File>EGHV/Configuration/GoodyHutPicker/Standard.sql</File>
 		<File>EGHV/Configuration/GoodyHutPicker/Expansion1.sql</File>
 		<File>EGHV/Configuration/GoodyHutPicker/Expansion2.sql</File>
-
+		<!-- ingame configuration -->
 		<File>EGHV/Gameplay/Schema.sql</File>
 		<File>EGHV/Gameplay/EqualizeGoodyHuts.sql</File>
 		<File>EGHV/Gameplay/EqualizeGoodyHuts_XP1.sql</File>
@@ -1540,84 +1650,68 @@
 		<File>EGHV/Gameplay/Ingame_XP1.sql</File>
 		<File>EGHV/Gameplay/Ingame_XP2.sql</File>
 		<File>EGHV/Gameplay/Override.sql</File>
-
+		<!-- ingame exclude goody huts -->
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Culture/One_Civic_Boost.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Culture/One_Civic.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Culture/Two_Civic_Boosts.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Culture/Two_Civics.sql</File>
-
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Faith/One_Relic.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Faith/Large_Faith.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Faith/Medium_Faith.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Faith/Small_Faith.sql</File>
-
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Gold/Add_Trade_Route.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Gold/Large_Gold.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Gold/Medium_Gold.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Gold/Small_Gold.sql</File>
-
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Military/Grant_Scout.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Military/Grant_Slinger.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Military/Grant_Warrior.sql</File>
-
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Science/One_Tech_Boost.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Science/One_Tech.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Science/Two_Tech_Boosts.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Science/Two_Techs.sql</File>
-
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Survivors/Add_Population.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Survivors/Grant_Builder.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Survivors/Grant_Settler.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Survivors/Grant_Trader.sql</File>
-		
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Abilities/Improved_Sight.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Abilities/Improved_Healing.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Abilities/Improved_Movement.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Abilities/Improved_Strength.sql</File>
-
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Cavalry/Grant_Spearman.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Cavalry/Grant_Heavy_Chariot.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Cavalry/Grant_Horseman.sql</File>
-
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Envoys/One_Envoy.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Envoys/Two_Envoys.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Envoys/Three_Envoys.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Envoys/Four_Envoys.sql</File>
-
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Hostiles/Low_Hostility_Villagers.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Hostiles/Mid_Hostility_Villagers.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Hostiles/High_Hostility_Villagers.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Hostiles/Max_Hostility_Villagers.sql</File>
-		
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Promotions/Huge_Experience.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Promotions/Large_Experience.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Promotions/Medium_Experience.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Promotions/Small_Experience.sql</File>
-
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Secrets/Unlock_Villager_Secrets.sql</File>
-
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Support/Grant_Battering_Ram.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Support/Grant_Catapult.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Support/Grant_Upgrade.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Support/Grant_Military_Engineer.sql</File>
-		
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Governors/One_Governor_Title.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Governors/Two_Governor_Titles.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Governors/Three_Governor_Titles.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Governors/Four_Governor_Titles.sql</File>
-		
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Diplomacy/Huge_Favor.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Diplomacy/Large_Favor.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Diplomacy/Medium_Favor.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Diplomacy/Small_Favor.sql</File>
-		
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Meteor/Meteor_Grant_Goodies.sql</File>
-		
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Resources/Huge_Resources.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Resources/Large_Resources.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Resources/Medium_Resources.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Resources/Small_Resources.sql</File>
-		
+		<!-- ingame goody hut distribution -->
 		<File>EGHV/Gameplay/GoodyHutDistribution/025.sql</File>
 		<File>EGHV/Gameplay/GoodyHutDistribution/050.sql</File>
 		<File>EGHV/Gameplay/GoodyHutDistribution/075.sql</File>
@@ -1637,32 +1731,30 @@
 		<File>EGHV/Gameplay/GoodyHutDistribution/450.sql</File>
 		<File>EGHV/Gameplay/GoodyHutDistribution/475.sql</File>
 		<File>EGHV/Gameplay/GoodyHutDistribution/500.sql</File>
-
+		<!-- ingame localized text -->
 		<File>EGHV/Localization/en_US/Frontend_Text.xml</File>
 		<File>EGHV/Localization/en_US/Frontend_WondrousGoodyHuts_Text.xml</File>
 		<File>EGHV/Localization/en_US/Ingame_Text.xml</File>
 		<File>EGHV/Localization/en_US/Ingame_XP1_Text.xml</File>
 		<File>EGHV/Localization/en_US/Ingame_XP2_Text.xml</File>
-
 		<File>EGHV/Localization/es_ES/Frontend_Text.xml</File>
 		<File>EGHV/Localization/es_ES/Frontend_WondrousGoodyHuts_Text.xml</File>
 		<File>EGHV/Localization/es_ES/Ingame_Text.xml</File>
 		<File>EGHV/Localization/es_ES/Ingame_XP2_Text.xml</File>
-
 		<File>EGHV/Localization/fr_FR/Frontend_Text.xml</File>
 		<File>EGHV/Localization/fr_FR/Frontend_WondrousGoodyHuts_Text.xml</File>
 		<File>EGHV/Localization/fr_FR/Ingame_Text.xml</File>
 		<File>EGHV/Localization/fr_FR/Ingame_XP2_Text.xml</File>
-		
+		<!-- ingame new lua scripts -->
 		<!-- <File>EGHV/Scripts/C6GUE_Common.lua</File> -->
 		<File>EGHV/Scripts/EnhancedGoodies.lua</File>
 		<File>EGHV/Scripts/HostileVillagers.lua</File>
-
+		<!-- ingame - goody hut picker -->
 		<File>EGHV/UI/Additions/GoodyHutPicker.lua</File>
 		<File>EGHV/UI/Additions/GoodyHutPicker.xml</File>
-
+		<!-- configuration for Wondrous Goody Huts -->
+		<File>EGHV/Community/WondrousGoodyHuts/Ingame.sql</File>
 		<File>EGHV/Community/WondrousGoodyHuts/WondrousGoodyHuts.sql</File>
-
 		<File>EGHV/Community/WondrousGoodyHuts/ExcludeGoodyHut/CityState.sql</File>
 		<File>EGHV/Community/WondrousGoodyHuts/ExcludeGoodyHut/Formation.sql</File>
 		<File>EGHV/Community/WondrousGoodyHuts/ExcludeGoodyHut/Production.sql</File>
@@ -1674,6 +1766,5 @@
 		<File>EGHV/Community/WondrousGoodyHuts/ExcludeGoodyHut/Spy.sql</File>
 		<File>EGHV/Community/WondrousGoodyHuts/ExcludeGoodyHut/Teleport.sql</File>
 		<File>EGHV/Community/WondrousGoodyHuts/ExcludeGoodyHut/Wonder.sql</File>
-
 	</Files>
 </Mod>

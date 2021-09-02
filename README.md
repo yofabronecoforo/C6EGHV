@@ -322,7 +322,10 @@ EGHV employs the following new custom gameplay scripts:
 If your mod employs any gameplay scripts with similar names, conflicts __WILL__ arise.
 
 # Special Thanks
-This mod would not exist in its current form without any of the following:
+Extra special thanks to the following for their direct contributions and/or insight:
+- SailorCat
+
+EGHV generally relies on knowledge gleaned from the following:
 
 * The [Civilization Fanatics](https://www.civfanatics.com/) community, particularly the [Civ6 - Creation & Customization](https://forums.civfanatics.com/forums/civ6-creation-customization.541/) forums
 * The [Civilization VI Workshop](https://steamcommunity.com/app/289070/workshop/) on Steam
@@ -330,7 +333,7 @@ This mod would not exist in its current form without any of the following:
 * The [Civilization 6 Modding Guide](https://forums.civfanatics.com/threads/lees-civilization-6-modding-guide.644687/) by LeeS
 * [DB's Font Icons and Colors](https://steamcommunity.com/sharedfiles/filedetails/?id=1846090643) by DB
 
-Specifically, the following were essential to the Hostile Villagers feature:
+The Hostile Villagers feature relies on knowledge gleaned from the following:
 
 * [Getting an extra bonus from goody huts](https://forums.civfanatics.com/threads/getting-an-extra-bonus-from-goody-huts.616695/#post-14780879) by LeeS
 * [Barbarians Evolved](https://steamcommunity.com/sharedfiles/filedetails/?id=2164194796) by Charsi
@@ -338,11 +341,11 @@ Specifically, the following were essential to the Hostile Villagers feature:
 * [OnGoodyHutReward event, what are the parameters?](https://forums.civfanatics.com/threads/ongoodyhutreward-event-what-are-the-parameters.642591/#post-15398744) by LeeS
 * [How do you catch an era change event in Lua?](https://forums.civfanatics.com/threads/how-do-you-catch-an-era-change-event-in-lua.614454/#post-15144387) by Tiramisu
 
-The following were essential in implementing the Goody Hut picker and frequency slider:
+The Goody Hut picker and frequency slider features rely on knowledge gleaned from the following:
 
 * [Configurable Goody Huts](https://steamcommunity.com/sharedfiles/filedetails/?id=2462745561) by Sailor Cat
 
-The following were essential to the Unit Ability rewards, Villager Secrets reward, and Bonus Rewards features:
+The Unit Ability rewards, Villager Secrets reward, and Bonus Rewards features rely on knowledge gleaned from the following:
 
 * [Questions regarding limitations of Mods](https://forums.civfanatics.com/threads/questions-regarding-limitations-of-mods.663297/) by dunkleosteus, et al
 * [Wondrous Goody Huts](https://steamcommunity.com/sharedfiles/filedetails/?id=2384120911) by Sailor Cat
