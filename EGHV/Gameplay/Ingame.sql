@@ -329,16 +329,12 @@ VALUES
     ('GOODYHUT_SUPPORT', 'GOODYHUT_GRANT_BATTERING_RAM', 'LOC_GOODYHUT_MILITARY_GRANT_BATTERING_RAM_DESCRIPTION', 25, 0, 1, 1, 'GOODY_EGHV_DUMMY_REWARD'),
     ('GOODYHUT_SUPPORT', 'GOODYHUT_GRANT_CATAPULT', 'LOC_GOODYHUT_MILITARY_GRANT_CATAPULT_DESCRIPTION', 25, 0, 1, 1, 'GOODY_EGHV_DUMMY_REWARD'),
     ('GOODYHUT_SUPPORT', 'GOODYHUT_GRANT_MILITARY_ENGINEER', 'LOC_GOODYHUT_MILITARY_GRANT_MILITARY_ENGINEER_DESCRIPTION', 25, 0, 1, 1, 'GOODY_EGHV_DUMMY_REWARD');
-    -- ('GOODYHUT_SUPPORT', 'GOODYHUT_GRANT_UPGRADE', 'LOC_GOODYHUT_MILITARY_GRANT_UPGRADE_DESCRIPTION', 25, 0, 1, 1, 'GOODY_EGHV_DUMMY_REWARD');
-
--- UPDATE GoodyHutSubTypes SET BonusModifierID = 'BONUS_SCIENCE_GRANT_TWO_TECHS' WHERE SubTypeGoodyHut = 'GOODYHUT_TWO_TECHS';
 
 -- new Modifiers
 REPLACE INTO Modifiers
     (ModifierId, ModifierType, RunOnce, Permanent, SubjectRequirementSetId)
 VALUES
     -- dummy modifier - for use by rewards implemented via lua
-    -- ('GOODY_EGHV_DUMMY_REWARD', 'MODIFIER_PLAYER_UNIT_ADJUST_GRANT_EXPERIENCE', 1, 1, NULL),
     ('GOODY_EGHV_DUMMY_REWARD', 'MODIFIER_PLAYER_ADJUST_YIELD_CHANGE', 1, 1, NULL),
     -- Culture
     ('GOODY_CULTURE_GRANT_ONE_CIVIC', 'MODIFIER_PLAYER_GRANT_RANDOM_CIVIC', 1, 1, NULL),
@@ -350,12 +346,11 @@ VALUES
     ('GOODY_MILITARY_GRANT_WARRIOR', 'MODIFIER_SINGLE_CITY_GRANT_UNIT_BY_CLASS_IN_NEAREST_CITY', 1, 1, NULL),
     ('GOODY_MILITARY_GRANT_SLINGER', 'MODIFIER_SINGLE_CITY_GRANT_UNIT_BY_CLASS_IN_NEAREST_CITY', 1, 1, NULL),
     -- (Anti) Cavalry
-    ('GOODY_MILITARY_GRANT_SPEARMAN', 'MODIFIER_SINGLE_CITY_GRANT_UNIT_IN_NEAREST_CITY', 1, 1, NULL),
-    ('GOODY_MILITARY_GRANT_HEAVY_CHARIOT', 'MODIFIER_SINGLE_CITY_GRANT_UNIT_IN_NEAREST_CITY', 1, 1, NULL),
-    ('GOODY_MILITARY_GRANT_HORSEMAN', 'MODIFIER_SINGLE_CITY_GRANT_UNIT_IN_NEAREST_CITY', 1, 1, NULL),
+    ('GOODY_MILITARY_GRANT_SPEARMAN', 'MODIFIER_SINGLE_CITY_GRANT_UNIT_BY_CLASS_IN_NEAREST_CITY', 1, 1, NULL),
+    ('GOODY_MILITARY_GRANT_HEAVY_CHARIOT', 'MODIFIER_SINGLE_CITY_GRANT_UNIT_BY_CLASS_IN_NEAREST_CITY', 1, 1, NULL),
+    ('GOODY_MILITARY_GRANT_HORSEMAN', 'MODIFIER_SINGLE_CITY_GRANT_UNIT_BY_CLASS_IN_NEAREST_CITY', 1, 1, NULL),
     -- Science
     ('GOODY_SCIENCE_GRANT_TWO_TECHS', 'MODIFIER_PLAYER_GRANT_RANDOM_TECHNOLOGY', 1, 1, NULL),
-    -- ('BONUS_SCIENCE_GRANT_TWO_TECHS', 'MODIFIER_PLAYER_GRANT_RANDOM_TECHNOLOGY', 0, 0, NULL),
     -- Abilities
     ('GOODY_ABILITIES_IMPROVED_SIGHT', 'MODIFIER_PLAYER_UNIT_ADJUST_SIGHT', 0, 0, NULL),
     ('GOODY_ABILITIES_IMPROVED_HEALING', 'MODIFIER_PLAYER_UNIT_ADJUST_HEAL_PER_TURN', 0, 0, NULL),
@@ -382,17 +377,15 @@ VALUES
     ('VILLAGER_SECRETS_UNLOCK_TRIBAL_TOTEM_LVL4', 'MODIFIER_PLAYER_ADJUST_VALID_BUILDING', 0, 0, NULL),
     ('VILLAGER_SECRETS_UNLOCK_TRIBAL_TOTEM_LVL5', 'MODIFIER_PLAYER_ADJUST_VALID_BUILDING', 0, 0, NULL),
     -- Support
-    ('GOODY_MILITARY_GRANT_BATTERING_RAM', 'MODIFIER_SINGLE_CITY_GRANT_UNIT_IN_NEAREST_CITY', 1, 1, NULL),
-    ('GOODY_MILITARY_GRANT_CATAPULT', 'MODIFIER_SINGLE_CITY_GRANT_UNIT_IN_NEAREST_CITY', 1, 1, NULL),
-    ('GOODY_MILITARY_GRANT_MILITARY_ENGINEER', 'MODIFIER_SINGLE_CITY_GRANT_UNIT_IN_NEAREST_CITY', 1, 1, NULL),
-    ('GOODY_MILITARY_GRANT_MEDIC', 'MODIFIER_SINGLE_CITY_GRANT_UNIT_IN_NEAREST_CITY', 1, 1, NULL);
+    ('GOODY_MILITARY_GRANT_BATTERING_RAM', 'MODIFIER_SINGLE_CITY_GRANT_UNIT_BY_CLASS_IN_NEAREST_CITY', 1, 1, NULL),
+    ('GOODY_MILITARY_GRANT_CATAPULT', 'MODIFIER_SINGLE_CITY_GRANT_UNIT_BY_CLASS_IN_NEAREST_CITY', 1, 1, NULL),
+    ('GOODY_MILITARY_GRANT_MILITARY_ENGINEER', 'MODIFIER_SINGLE_CITY_GRANT_UNIT_IN_NEAREST_CITY', 1, 1, NULL);
 
 -- new ModifierArguments
 REPLACE INTO ModifierArguments
     (ModifierId, Name, Value, Extra)
 VALUES
     -- dummy modifier - for use by rewards implemented via lua
-    -- ('GOODY_EGHV_DUMMY_REWARD', 'Amount', 3, NULL),
     ('GOODY_EGHV_DUMMY_REWARD', 'Amount', 0, NULL),
     ('GOODY_EGHV_DUMMY_REWARD', 'YieldType', 'YIELD_FOOD', NULL),
     ('GOODY_EGHV_DUMMY_REWARD', 'Scale', 'false', NULL),
@@ -402,38 +395,28 @@ VALUES
     ('GOODY_CULTURE_GRANT_TWO_CIVICS', 'Amount', 2, -1),
     -- Gold : add trade route
     ('GOODY_GOLD_ADD_TRADE_ROUTE', 'Amount', 1, NULL),
-    -- Military : grant scout
+    -- Military : grant recon unit
     ('GOODY_MILITARY_GRANT_SCOUT', 'UnitPromotionClassType', 'PROMOTION_CLASS_RECON', NULL),
-    -- ('GOODY_MILITARY_GRANT_SCOUT', 'UnitType', 'UNIT_SCOUT', NULL),
-    -- ('GOODY_MILITARY_GRANT_SCOUT', 'Amount', 1, NULL),
-    -- Military : grant warrior
+    -- Military : grant melee unit
     ('GOODY_MILITARY_GRANT_WARRIOR', 'UnitPromotionClassType', 'PROMOTION_CLASS_MELEE', NULL),
-    -- ('GOODY_MILITARY_GRANT_WARRIOR', 'UnitType', 'UNIT_WARRIOR', NULL),
-    -- ('GOODY_MILITARY_GRANT_WARRIOR', 'Amount', 1, NULL),
-    -- Military : grant slinger
+    -- Military : grant ranged unit
     ('GOODY_MILITARY_GRANT_SLINGER', 'UnitPromotionClassType', 'PROMOTION_CLASS_RANGED', NULL),
-    -- ('GOODY_MILITARY_GRANT_SLINGER', 'UnitType', 'UNIT_SLINGER', NULL),
-    -- ('GOODY_MILITARY_GRANT_SLINGER', 'Amount', 1, NULL),
-    -- (Anti) Cavalry (Military) : grant spearman
-    ('GOODY_MILITARY_GRANT_SPEARMAN', 'UnitType', 'UNIT_SPEARMAN', NULL),
-    ('GOODY_MILITARY_GRANT_SPEARMAN', 'Amount', 1, NULL),
-    -- (Anti) Cavalry (Military) : grant heavy chariot
-    ('GOODY_MILITARY_GRANT_HEAVY_CHARIOT', 'UnitType', 'UNIT_HEAVY_CHARIOT', NULL),
-    ('GOODY_MILITARY_GRANT_HEAVY_CHARIOT', 'Amount', 1, NULL),
-    -- (Anti) Cavalry (Military) : grant horseman
-    ('GOODY_MILITARY_GRANT_HORSEMAN', 'UnitType', 'UNIT_HORSEMAN', NULL),
-    ('GOODY_MILITARY_GRANT_HORSEMAN', 'Amount', 1, NULL),
+    -- (Anti) Cavalry (Military) : grant anti-cavalry unit
+    ('GOODY_MILITARY_GRANT_SPEARMAN', 'UnitPromotionClassType', 'PROMOTION_CLASS_ANTI_CAVALRY', NULL),
+    -- (Anti) Cavalry (Military) : grant heavy cavalry unit
+    ('GOODY_MILITARY_GRANT_HEAVY_CHARIOT', 'UnitPromotionClassType', 'PROMOTION_CLASS_HEAVY_CAVALRY', NULL),
+    -- (Anti) Cavalry (Military) : grant light cavalry unit
+    ('GOODY_MILITARY_GRANT_HORSEMAN', 'UnitPromotionClassType', 'PROMOTION_CLASS_LIGHT_CAVALRY', NULL),
     -- Science : two free techs
     ('GOODY_SCIENCE_GRANT_TWO_TECHS', 'Amount', 2, -1),
-    -- ('BONUS_SCIENCE_GRANT_TWO_TECHS', 'Amount', 2, -1),
-    -- Abilities : +1 sight
+    -- Abilities : enhanced sight
     ('GOODY_ABILITIES_IMPROVED_SIGHT', 'Amount', 1, NULL),
-    -- Abilities : improved healing
+    -- Abilities : enhanced healing
     ('GOODY_ABILITIES_IMPROVED_HEALING', 'Amount', 20, NULL),
     ('GOODY_ABILITIES_IMPROVED_HEALING', 'Type', 'ALL', NULL),
-    -- Abilities : +1 movement
+    -- Abilities : enhanced movement
     ('GOODY_ABILITIES_IMPROVED_MOVEMENT', 'Amount', 1, NULL),
-    -- Abilities : +5 combat strength
+    -- Abilities : enhanced combat strength
     ('GOODY_ABILITIES_IMPROVED_STRENGTH', 'Amount', 10, NULL),
     -- Envoys : +1 free
     ('GOODY_ENVOYS_GRANT_ONE', 'Amount', 1, NULL),
@@ -446,13 +429,13 @@ VALUES
     -- Hostile Villagers : unit XP modifier (the actual heavy-lifting here is done via lua)
     ('GOODY_SPAWN_HOSTILES', 'Amount', 3, NULL),
     -- Promotions : small lump XP sum
-    ('GOODY_EXPERIENCE_SMALL_MODIFIER', 'Amount', 10, NULL),
+    ('GOODY_EXPERIENCE_SMALL_MODIFIER', 'Amount', 5, NULL),
     -- Promotions : medium lump XP sum
-    ('GOODY_EXPERIENCE_MEDIUM_MODIFIER', 'Amount', 20, NULL),
+    ('GOODY_EXPERIENCE_MEDIUM_MODIFIER', 'Amount', 10, NULL),
     -- Promotions : large lump XP sum
-    ('GOODY_EXPERIENCE_LARGE_MODIFIER', 'Amount', 30, NULL),
+    ('GOODY_EXPERIENCE_LARGE_MODIFIER', 'Amount', 15, NULL),
     -- Promotions : huge lump XP sum
-    ('GOODY_EXPERIENCE_HUGE_MODIFIER', 'Amount', 50, NULL),
+    ('GOODY_EXPERIENCE_HUGE_MODIFIER', 'Amount', 25, NULL),
     -- Villager Secrets : unit XP modifier (the actual heavy-lifting here is done via lua)
     ('GOODY_VILLAGER_SECRETS', 'Amount', 3, NULL),
     -- level 0 Villager Totem building (initial unlock; +2 amenities)
@@ -473,18 +456,13 @@ VALUES
     -- level 5 Villager Totem building (+10 gold, +5 all other yields)
     ('VILLAGER_SECRETS_UNLOCK_TRIBAL_TOTEM_LVL5', 'BuildingType', 'BUILDING_TRIBAL_TOTEM_LVL5', NULL),
     ('VILLAGER_SECRETS_UNLOCK_TRIBAL_TOTEM_LVL5', 'BuildingTypeToReplace', 'BUILDING_TRIBAL_TOTEM_LVL4', NULL),
-    -- Support (Military) : grant battering ram
-    ('GOODY_MILITARY_GRANT_BATTERING_RAM', 'UnitType', 'UNIT_BATTERING_RAM', NULL),
-    ('GOODY_MILITARY_GRANT_BATTERING_RAM', 'Amount', 1, NULL),
-    -- Support (Military) : grant catapult
-    ('GOODY_MILITARY_GRANT_CATAPULT', 'UnitType', 'UNIT_CATAPULT', NULL),
-    ('GOODY_MILITARY_GRANT_CATAPULT', 'Amount', 1, NULL),
+    -- Support (Military) : grant support unit
+    ('GOODY_MILITARY_GRANT_BATTERING_RAM', 'UnitPromotionClassType', 'PROMOTION_CLASS_SUPPORT', NULL),
+    -- Support (Military) : grant siege unit
+    ('GOODY_MILITARY_GRANT_CATAPULT', 'UnitPromotionClassType', 'PROMOTION_CLASS_SIEGE', NULL),
     -- Support (Military) : grant military engineer
     ('GOODY_MILITARY_GRANT_MILITARY_ENGINEER', 'UnitType', 'UNIT_MILITARY_ENGINEER', NULL),
-    ('GOODY_MILITARY_GRANT_MILITARY_ENGINEER', 'Amount', 1, NULL),
-    -- Support (Military) : grant medic
-    ('GOODY_MILITARY_GRANT_MEDIC', 'UnitType', 'UNIT_MEDIC', NULL),
-    ('GOODY_MILITARY_GRANT_MEDIC', 'Amount', 1, NULL);
+    ('GOODY_MILITARY_GRANT_MILITARY_ENGINEER', 'Amount', 1, NULL);
 
 /* ###########################################################################
     End EGHV ingame configuration

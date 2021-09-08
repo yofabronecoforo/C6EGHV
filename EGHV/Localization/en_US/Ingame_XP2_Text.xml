@@ -21,8 +21,17 @@
 			<Text>[COLOR_FLOAT_DIPLOMATIC]+50 [ICON_FAVOR] Diplomatic Favor[ENDCOLOR]</Text>
 		</Replace>
 		<!-- new goody hut reward descriptions : resources-type -->
-		<Replace Tag="LOC_GOODYHUT_RESOURCES_DESCRIPTION" Language="en_US">
-			<Text>[COLOR_FLOAT_MILITARY]+{1_Num} [ICON_{2_Icon}] {3_Resources}[ENDCOLOR]</Text>
+		<Replace Tag="LOC_GOODYHUT_SMALL_RESOURCES_DESCRIPTION" Language="en_US">
+			<Text>[COLOR_FLOAT_MILITARY]+10 strategic resources[ENDCOLOR]</Text>
+		</Replace>
+		<Replace Tag="LOC_GOODYHUT_MEDIUM_RESOURCES_DESCRIPTION" Language="en_US">
+			<Text>[COLOR_FLOAT_MILITARY]+20 strategic resources[ENDCOLOR]</Text>
+		</Replace>
+		<Replace Tag="LOC_GOODYHUT_LARGE_RESOURCES_DESCRIPTION" Language="en_US">
+			<Text>[COLOR_FLOAT_MILITARY]+30 strategic resources[ENDCOLOR]</Text>
+		</Replace>
+		<Replace Tag="LOC_GOODYHUT_HUGE_RESOURCES_DESCRIPTION" Language="en_US">
+			<Text>[COLOR_FLOAT_MILITARY]+50 strategic resources[ENDCOLOR]</Text>
 		</Replace>
 	</LocalizedText>
 </GameData>

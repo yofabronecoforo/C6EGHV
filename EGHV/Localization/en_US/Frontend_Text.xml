@@ -174,25 +174,25 @@
             <Text>Small experience award</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_SMALL_EXPERIENCE_DESC" Language="en_US">
-            <Text>The unit that receives this reward gains ten (10) experience towards its next promotion.</Text>
+            <Text>Any unit that receives this reward gains five (5) experience towards its next promotion.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MEDIUM_EXPERIENCE_NAME" Language="en_US">
             <Text>Medium experience award</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MEDIUM_EXPERIENCE_DESC" Language="en_US">
-            <Text>The unit that receives this reward gains twenty (20) experience towards its next promotion.</Text>
+            <Text>Any unit that receives this reward gains ten (10) experience towards its next promotion.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_LARGE_EXPERIENCE_NAME" Language="en_US">
             <Text>Large experience award</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_LARGE_EXPERIENCE_DESC" Language="en_US">
-            <Text>The unit that receives this reward gains thirty (30) experience towards its next promotion.</Text>
+            <Text>Any unit that receives this reward gains fifteen (15) experience towards its next promotion.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_HUGE_EXPERIENCE_NAME" Language="en_US">
             <Text>Huge experience award</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_HUGE_EXPERIENCE_DESC" Language="en_US">
-            <Text>The unit that receives this reward gains fifty (50) experience towards its next promotion.</Text>
+            <Text>Any unit that receives this reward gains twenty-five (25) experience towards its next promotion.</Text>
         </Replace>
         <!-- diplomacy type -->
         <Replace Tag="LOC_EGHV_GOODYHUT_SMALL_FAVOR_NAME" Language="en_US">

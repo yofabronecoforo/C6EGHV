@@ -40,10 +40,10 @@ VALUES
     ('GOODYHUT_DIPLOMACY', 'GOODYHUT_LARGE_FAVOR', 'LOC_GOODYHUT_LARGE_FAVOR_DESCRIPTION', 20, 0, 1, 1, 'GOODY_FAVOR_LARGE_MODIFIER'),
     ('GOODYHUT_DIPLOMACY', 'GOODYHUT_HUGE_FAVOR', 'LOC_GOODYHUT_HUGE_FAVOR_DESCRIPTION', 10, 0, 1, 1, 'GOODY_FAVOR_HUGE_MODIFIER'),
     -- Resources
-    ('GOODYHUT_RESOURCES', 'GOODYHUT_SMALL_RESOURCES', 'LOC_GOODYHUT_RESOURCES_DESCRIPTION', 40, 0, 1, 1, 'GOODY_RESOURCES_SMALL_MODIFIER'),
-    ('GOODYHUT_RESOURCES', 'GOODYHUT_MEDIUM_RESOURCES', 'LOC_GOODYHUT_RESOURCES_DESCRIPTION', 30, 0, 1, 1, 'GOODY_RESOURCES_MEDIUM_MODIFIER'),
-    ('GOODYHUT_RESOURCES', 'GOODYHUT_LARGE_RESOURCES', 'LOC_GOODYHUT_RESOURCES_DESCRIPTION', 20, 0, 1, 1, 'GOODY_RESOURCES_LARGE_MODIFIER'),
-    ('GOODYHUT_RESOURCES', 'GOODYHUT_HUGE_RESOURCES', 'LOC_GOODYHUT_RESOURCES_DESCRIPTION', 10, 0, 1, 1, 'GOODY_RESOURCES_HUGE_MODIFIER');
+    ('GOODYHUT_RESOURCES', 'GOODYHUT_SMALL_RESOURCES', 'LOC_GOODYHUT_SMALL_RESOURCES_DESCRIPTION', 40, 0, 1, 1, 'GOODY_RESOURCES_SMALL_MODIFIER'),
+    ('GOODYHUT_RESOURCES', 'GOODYHUT_MEDIUM_RESOURCES', 'LOC_GOODYHUT_MEDIUM_RESOURCES_DESCRIPTION', 30, 0, 1, 1, 'GOODY_RESOURCES_MEDIUM_MODIFIER'),
+    ('GOODYHUT_RESOURCES', 'GOODYHUT_LARGE_RESOURCES', 'LOC_GOODYHUT_LARGE_RESOURCES_DESCRIPTION', 20, 0, 1, 1, 'GOODY_RESOURCES_LARGE_MODIFIER'),
+    ('GOODYHUT_RESOURCES', 'GOODYHUT_HUGE_RESOURCES', 'LOC_GOODYHUT_HUGE_RESOURCES_DESCRIPTION', 10, 0, 1, 1, 'GOODY_RESOURCES_HUGE_MODIFIER');
 
 -- New Modifiers
 REPLACE INTO Modifiers
@@ -110,31 +110,6 @@ VALUES
     ('GOODY_FAVOR_MEDIUM_MODIFIER', 'Amount', 20, NULL),
     ('GOODY_FAVOR_LARGE_MODIFIER', 'Amount', 30, NULL),
     ('GOODY_FAVOR_HUGE_MODIFIER', 'Amount', 50, NULL);
-
--- Normalize Goody Hut type and subtype weights here
--- Start by resetting the overall weight of type GOODYHUT_MILITARY
--- UPDATE GoodyHuts SET Weight = (SELECT SUM(Weight) FROM GoodyHutSubTypes WHERE GoodyHut = 'GOODYHUT_MILITARY') WHERE GoodyHutType = 'GOODYHUT_MILITARY';
-
--- -- 2021/05/04 With EGHV, GOODYHUT_MILITARY has either 2x or (2x - 1) as many subtypes as any other type, and its default weight should be 2x that of any other type
--- -- There's likely a smarter way to do this, but for now, since other subtype(s) should have already been adjusted, here we're just going to increase GOODYHUT_DIPLOMACY subtype weights by a factor of 2
--- UPDATE GoodyHutSubTypes SET Weight = Weight * 2 WHERE GoodyHut = 'GOODYHUT_DIPLOMACY';
-
--- -- Next, reset the remaining type weights based on the updated sums of the subtypes of each type
--- -- UPDATE GoodyHuts SET Weight = (SELECT SUM(Weight) FROM GoodyHutSubTypes WHERE GoodyHut = 'GOODYHUT_CULTURE') WHERE GoodyHutType = 'GOODYHUT_CULTURE';
--- UPDATE GoodyHuts SET Weight = (SELECT SUM(Weight) FROM GoodyHutSubTypes WHERE GoodyHut = 'GOODYHUT_DIPLOMACY') WHERE GoodyHutType = 'GOODYHUT_DIPLOMACY';
--- -- UPDATE GoodyHuts SET Weight = (SELECT SUM(Weight) FROM GoodyHutSubTypes WHERE GoodyHut = 'GOODYHUT_GOLD') WHERE GoodyHutType = 'GOODYHUT_GOLD';
--- -- UPDATE GoodyHuts SET Weight = (SELECT SUM(Weight) FROM GoodyHutSubTypes WHERE GoodyHut = 'GOODYHUT_FAITH') WHERE GoodyHutType = 'GOODYHUT_FAITH';
--- -- UPDATE GoodyHuts SET Weight = (SELECT SUM(Weight) FROM GoodyHutSubTypes WHERE GoodyHut = 'GOODYHUT_SCIENCE') WHERE GoodyHutType = 'GOODYHUT_SCIENCE';
--- -- UPDATE GoodyHuts SET Weight = (SELECT SUM(Weight) FROM GoodyHutSubTypes WHERE GoodyHut = 'GOODYHUT_SURVIVORS') WHERE GoodyHutType = 'GOODYHUT_SURVIVORS';
-
--- -- Set the meteor-strike reward's type weight equal to that of GOODYHUT_MILITARY, and its subtype weight equal to same
--- UPDATE GoodyHuts SET Weight = (SELECT Weight FROM GoodyHuts WHERE GoodyHutType = 'GOODYHUT_MILITARY') WHERE GoodyHutType = 'METEOR_GOODIES';
--- UPDATE GoodyHutSubTypes SET Weight = (SELECT Weight FROM GoodyHuts WHERE GoodyHutType = 'METEOR_GOODIES') WHERE SubTypeGoodyHut = 'METEOR_GRANT_GOODIES';
-
--- -- Finally, reset the hostile villagers "reward" type and subtype in the same way as above
--- UPDATE GoodyHuts SET Weight = (SELECT Weight FROM GoodyHuts WHERE GoodyHutType = 'GOODYHUT_MILITARY') WHERE GoodyHutType = 'GOODYHUT_HOSTILES';
--- UPDATE GoodyHutSubTypes SET Weight = (SELECT Weight FROM GoodyHuts WHERE GoodyHutType = 'GOODYHUT_HOSTILES') WHERE SubTypeGoodyHut = 'GOODYHUT_SPAWN_HOSTILE_VILLAGERS';
--- UPDATE GoodyHutSubTypes SET Weight = (SELECT Weight FROM GoodyHuts WHERE GoodyHutType = 'GOODYHUT_SECRETS') WHERE SubTypeGoodyHut = 'GOODYHUT_UNLOCK_VILLAGER_SECRETS';
 
 -- Add rows to table GoodyHutSubTypes_XP2 for new rewards which are similar to any built-in XP2 rewards
 REPLACE INTO GoodyHutSubTypes_XP2 (SubTypeGoodyHut, CityState)

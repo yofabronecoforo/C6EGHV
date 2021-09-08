@@ -119,26 +119,26 @@
         </Replace>
         <!-- new goody hut reward descriptions : faith-type -->
         <Replace Tag="LOC_GOODYHUT_LARGE_FAITH_DESCRIPTION" Language="en_US">
-			<Text>+20 [ICON_Faith]</Text>
+			<Text>+100 [ICON_Faith]</Text>
 		</Replace>
 		<Replace Tag="LOC_GOODYHUT_MEDIUM_FAITH_DESCRIPTION" Language="en_US">
 			<Text>+60 [ICON_Faith]</Text>
 		</Replace>
 		<Replace Tag="LOC_GOODYHUT_SMALL_FAITH_DESCRIPTION" Language="en_US">
-			<Text>+100 [ICON_Faith]</Text>
+			<Text>+20 [ICON_Faith]</Text>
 		</Replace>
         <!-- new goody hut reward descriptions : gold-type -->
         <Replace Tag="LOC_GOODYHUT_ADD_TRADE_ROUTE_DESCRIPTION" Language="en_US">
             <Text>[COLOR_FLOAT_GOLD]One [ICON_TradeRouteLarge] additional trade route[ENDCOLOR]</Text>
         </Replace>
         <Replace Tag="LOC_GOODYHUT_LARGE_GOLD_DESCRIPTION" Language="en_US">
-			<Text>[COLOR_FLOAT_GOLD]+40 [ICON_Gold][ENDCOLOR]</Text>
+			<Text>[COLOR_FLOAT_GOLD]+120 [ICON_Gold][ENDCOLOR]</Text>
 		</Replace>
 		<Replace Tag="LOC_GOODYHUT_MEDIUM_GOLD_DESCRIPTION" Language="en_US">
 			<Text>[COLOR_FLOAT_GOLD]+80 [ICON_Gold][ENDCOLOR]</Text>
 		</Replace>
 		<Replace Tag="LOC_GOODYHUT_SMALL_GOLD_DESCRIPTION" Language="en_US">
-			<Text>[COLOR_FLOAT_GOLD]+120 [ICON_Gold][ENDCOLOR]</Text>
+			<Text>[COLOR_FLOAT_GOLD]+40 [ICON_Gold][ENDCOLOR]</Text>
 		</Replace>
         <!-- replacement goody hut reward description : military-type : grant recon unit -->
         <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_UNIT_DESCRIPTION" Language="en_US">
@@ -200,16 +200,16 @@
 		</Replace>
         <!-- new goody hut reward descriptions : promotions-type -->
         <Replace Tag="LOC_GOODYHUT_SMALL_EXPERIENCE_DESCRIPTION" Language="en_US">
-            <Text>+10 combat experience</Text>
+            <Text>+5 combat experience</Text>
         </Replace>
         <Replace Tag="LOC_GOODYHUT_MEDIUM_EXPERIENCE_DESCRIPTION" Language="en_US">
-            <Text>+20 combat experience</Text>
+            <Text>+10 combat experience</Text>
         </Replace>
         <Replace Tag="LOC_GOODYHUT_LARGE_EXPERIENCE_DESCRIPTION" Language="en_US">
-            <Text>+30 combat experience</Text>
+            <Text>+15 combat experience</Text>
         </Replace>
         <Replace Tag="LOC_GOODYHUT_HUGE_EXPERIENCE_DESCRIPTION" Language="en_US">
-            <Text>+50 combat experience</Text>
+            <Text>+25 combat experience</Text>
         </Replace>
         <!-- new goody hut reward descriptions : abilities-type -->
         <Replace Tag="LOC_GOODYHUT_IMPROVED_SIGHT_DESCRIPTION" Language="en_US">
