@@ -41,7 +41,7 @@ Built-in rewards have been enabled, disabled, and/or moved to other types as fol
 - The defined-but-disabled "one free settler" Survivors-type reward is now enabled
 - The "heal unit" Military-type reward is now disabled and superceded by a new Abilities-type reward
 - The "unit experience" Military-type reward is now disabled and superceded by new Promotions-type rewards
-- The defined-but-disabled "upgrade unit" Military-type reward is now enabled entirely via Lua, because the built-in mechanism is broken; this is now a Support-type reward
+- The defined-but-disabled "upgrade unit" Military-type reward is now enabled entirely via Lua, because the built-in mechanism is broken; this is now a Promotions-type reward
 - If Gathering Storm is present and in use, all of the new rewards it provides are disabled and superceded as follows:
   - The "free envoy" Diplomacy-type reward is superceded by new Envoys-type rewards, which are now available for all rulesets
   - The "free governor title" Diplomacy-type reward is superceded by new Governors-type rewards, which are now available for Rise and Fall and later ruleset(s)
