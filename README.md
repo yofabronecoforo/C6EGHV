@@ -38,16 +38,15 @@ Excluding Military-type, built-in rewards have been rebalanced as follows:
 
 Goody Hut Type (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
 ------ | ------ | ------ | ------ | ------
-Culture | 1 civic boost | 2 civic boosts | 1 civic [ 1 ] | 2 civics [ 1 ]
+Culture | 1 civic boost | 2 civic boosts | 1 civic [ a ] | 2 civics [ a ]
 Faith | +20 faith | +60 faith | +100 faith | +1 relic
-Gold | +40 gold | +80 gold | +120 gold | +1 trade route [ 1 ]
-Science | 1 tech boost | 2 tech boosts | 1 tech | 2 techs [ 1 ]
+Gold | +40 gold | +80 gold | +120 gold | +1 trade route [ a ]
+Science | 1 tech boost | 2 tech boosts | 1 tech | 2 techs [ a ]
 Survivors | +1 new population | 1 Builder | 1 Trader | 1 Settler
 
-To accommodate the above, the following alterations have been made:
+To accommodate the above, the following alterations to built-in rewards have been made:
 - The "one free relic" Culture-type reward is now a Faith-type reward
 - The defined-but-disabled "one free settler" Survivors-type reward is now enabled
-- [ 1 ] Reward provided by EGHV
 
 Built-in Military-type rewards have been entirely disabled. A reward of this type now provides a unit as follows:
 
@@ -59,33 +58,33 @@ The following new rewards are provided by EGHV for all rulesets:
 
 Goody Hut (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
 ------ | ------ | ------ | ------ | ------
-Abilities ** | +1 sight | +20 healing per turn | +1 movement | +10 combat strength
-Envoys * | 1 envoy | 2 envoys | 3 envoys | 4 envoys
+Abilities [ b ] | +1 sight | +20 healing per turn | +1 movement | +10 combat strength
+Envoys [ c ] | 1 envoy | 2 envoys | 3 envoys | 4 envoys
 Hostiles | low hostility | medium hostility | high hostility | maximum hostility
-Promotions ** | 5 experience | 10 experience | 15 experience | upgrade unit with bonus experience
+Promotions [ b ] | 5 experience | 10 experience | 15 experience | upgrade unit with bonus experience
 Secrets | villager secrets (100)
-
-- [ * ] When the Gathering Storm expansion is present and in use, this reward type supercedes the "free envoy" Diplomacy-type reward, which is disabled
-- [ ** ] These rewards apply to any valid unit(s) when obtained via exploration; they should be replaced by EGHV when obtained via border expansion
 
 The following rewards are provided by EGHV for Rise and Fall and later ruleset(s):
 
 Goody Hut (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
 ------ | ------ | ------ | ------ | ------
-Governors *** | 1 governor title | 2 governor titles | 3 governor titles | 4 governor titles
-
-- [ *** ] When the Gathering Storm expansion is present and in use, this reward type supercedes the "free governor title" Diplomacy-type reward, which is disabled
+Governors [ d ] | 1 governor title | 2 governor titles | 3 governor titles | 4 governor titles
 
 The following rewards are provided by EGHV for Gathering Storm and later ruleset(s):
 
 Goody Hut (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
 ------ | ------ | ------ | ------ | ------
-Diplomacy **** | +10 diplomatic favor | +20 diplomatic favor | +30 diplomatic favor | +50 diplomatic favor
+Diplomacy [ e ] | +10 diplomatic favor | +20 diplomatic favor | +30 diplomatic favor | +50 diplomatic favor
 Meteor | meteor-strike site (100)
-Resources ***** | +10 strategic resources | +20 strategic resources | +30 strategic resources | +50 strategic resources
+Resources [ f ] | +10 strategic resources | +20 strategic resources | +30 strategic resources | +50 strategic resources
 
-- [ **** ] This reward type supercedes the "free diplomatic favor" Diplomacy-type reward, which is disabled
-- [ ***** ] This reward type supercedes the "free strategic resources" Military-type reward, which is disabled
+Vital alterations:
+- [ a ] Reward provided by EGHV
+- [ b ] Rewards of this type apply to any valid unit(s) when obtained via exploration; they should be replaced by EGHV when obtained via border expansion
+- [ c ] When the Gathering Storm expansion is present and in use, this reward type supercedes the "free envoy" Diplomacy-type reward, which is disabled
+- [ d ] When the Gathering Storm expansion is present and in use, this reward type supercedes the "free governor title" Diplomacy-type reward, which is disabled
+- [ e ] This reward type supercedes the "free diplomatic favor" Diplomacy-type reward, which is disabled
+- [ f ] This reward type supercedes the "free strategic resources" Military-type reward, which is disabled
 
 Minimum-turn requirements are set to 0 for all __DEFINED__ and __ENABLED__ rewards, meaning that all such rewards will be available from turn 1 on.
 
