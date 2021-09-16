@@ -48,32 +48,18 @@ Built-in rewards have been enabled, disabled, and/or moved to other types as fol
   - The "free diplomatic favor" Diplomacy-type reward is superceded by all-new Diplomacy-type rewards
   - The "free strategic resources" Military-type reward is superceded by new Resources-type rewards
 
-After accounting for the above changes, most built-in rewards for all official rulesets are rebalanced as follows:
+After accounting for the above changes, built-in rewards for all official rulesets are rebalanced as follows:
 
 Goody Hut (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
 ------ | ------ | ------ | ------ | ------
 Culture | 1 civic boost | 2 civic boosts | 1 civic | 2 civics
 Faith | +20 faith | +60 faith | +100 faith | +1 relic
 Gold | +40 gold | +80 gold | +120 gold | +1 trade route
-Military | see below
+Military * | 1 (recon OR melee OR ranged OR anti-cavalry OR heavy cavalry OR light cavalry OR support OR siege) unit OR 1 Military Engineer
 Science | 1 tech boost | 2 tech boosts | 1 tech | 2 techs
 Survivors | +1 new population | 1 Builder | 1 Trader | 1 Settler
 
-A Military-type reward requires a prerequisite technology as follows:
-
-Military-type reward | Prerequisite tech
------- | ------
-1 recon unit | none
-1 melee unit | none
-1 ranged unit | none
-1 anti-cavalry unit | Bronze Working
-1 heavy cavalry unit | The Wheel
-1 light cavalry unit | Horseback Riding
-1 support unit | 
-1 siege unit | 
-1 Military Engineer | 
-
-When the prerequisite technology has not been learned, a recon unit will instead be granted.
+- [ * ] Each Military-type reward has an equal chance of being selected when this type is selected
 
 The following new rewards are provided by EGHV for all rulesets:
 
