@@ -52,14 +52,12 @@ After accounting for the above changes, built-in rewards for all official rulese
 
 Goody Hut (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
 ------ | ------ | ------ | ------ | ------
-Culture | 1 civic boost | 2 civic boosts | 1 civic * | 2 civics *
+Culture | 1 civic boost | 2 civic boosts | 1 civic | 2 civics
 Faith | +20 faith | +60 faith | +100 faith | +1 relic
-Gold | +40 gold | +80 gold | +120 gold | +1 trade route *
-Military | 1 recon unit | 1 melee unit * | 1 ranged unit * | 2 recon units *
-Science | 1 tech boost | 2 tech boosts | 1 tech | 2 techs *
+Gold | +40 gold | +80 gold | +120 gold | +1 trade route
+Military | (55%) 1 recon unit, (30%) 1 melee unit, (15%) 1 ranged unit | (60%) 1 anti-cavlary unit, (20%) 1 heavy cavalry unit, (20%) 1 light cavalry unit | (50%) 1 support unit, (50%) 1 siege unit | 1 Military Engineer
+Science | 1 tech boost | 2 tech boosts | 1 tech | 2 techs
 Survivors | +1 new population | 1 Builder | 1 Trader | 1 Settler
-
-- [ * ] Provided by EGHV
 
 The following new rewards are provided by EGHV for all rulesets:
 
