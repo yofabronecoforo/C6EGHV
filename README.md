@@ -79,16 +79,16 @@ Meteor | meteor-strike site (100)
 Resources [ f ] | +10 strategic resources | +20 strategic resources | +30 strategic resources | +50 strategic resources
 
 Vital alterations:
-- [ a ] Reward provided by EGHV
+- [ a ] Individual reward provided by EGHV
 - [ b ] Rewards of this type apply to any valid unit(s) when obtained via exploration; they should be replaced by EGHV when obtained via border expansion
-- [ c ] When the Gathering Storm expansion is present and in use, this reward type supercedes the "free envoy" Diplomacy-type reward, which is disabled
-- [ d ] When the Gathering Storm expansion is present and in use, this reward type supercedes the "free governor title" Diplomacy-type reward, which is disabled
-- [ e ] This reward type supercedes the "free diplomatic favor" Diplomacy-type reward, which is disabled
-- [ f ] This reward type supercedes the "free strategic resources" Military-type reward, which is disabled
+- [ c ] When the Gathering Storm expansion is present and in use, this EGHV reward type supercedes the "free envoy" Diplomacy-type reward, which is disabled
+- [ d ] When the Gathering Storm expansion is present and in use, this EGHV reward type supercedes the "free governor title" Diplomacy-type reward, which is disabled
+- [ e ] This EGHV reward type supercedes the "free diplomatic favor" Diplomacy-type reward, which is disabled
+- [ f ] This EGHV reward type supercedes the "free strategic resources" Military-type reward, which is disabled
 
 Minimum-turn requirements are set to 0 for all __DEFINED__ and __ENABLED__ rewards, meaning that all such rewards will be available from turn 1 on.
 
-Units provided by any Military type reward - including any (Anti) Cavalry or Support type reward, and the Military Engineer reward - will be Era-specific and will spawn in a plot near the Goody Hut that provided the reward. Units provided by any other reward will be the unit indicated by the reward and will spawn in the nearest city center.
+Units provided by any Military type reward will be Era-specific and will spawn in a plot near the Goody Hut that provided the reward. Units provided by any other reward will be the unit indicated by the reward and will spawn in the nearest city center.
 
 Most other new and existing rewards above are self-explanatory. The various Hostile Villagers and Villager Secrets rewards are described in detail further below. Refer to the #Known Shortcomings, Limitations, and Bugs section below for additional caveats.
 
