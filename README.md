@@ -66,12 +66,12 @@ The following new rewards are provided by EGHV for all rulesets:
 Goody Hut (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
 ------ | ------ | ------ | ------ | ------
 Abilities | +1 sight | +20 healing per turn | +1 movement | +10 combat strength
-(Anti) Cavalry | 1 anti-cavalry unit (60) | 1 heavy cavalry unit (20) | 1 light cavalry unit (20)
+(Anti) Cavalry | 1 recon unit | 1 anti-cavalry unit | 1 heavy cavalry unit | 1 light cavalry unit
 Envoys | 1 envoy | 2 envoys | 3 envoys | 4 envoys
 Hostiles | low hostility | medium hostility | high hostility | maximum hostility
-Promotions | 5 experience | 10 experience | 15 experience | 25 experience
+Promotions | 5 experience | 10 experience | 15 experience | upgrade unit with bonus experience
 Secrets | villager secrets (100)
-Support | 1 support unit (30) | 1 siege unit (30) | 1 military engineer (25) | upgrade unit (15)
+Support | 1 recon unit | 1 support unit | 1 siege unit | 1 military engineer
 
 The following new rewards are provided by EGHV for Rise and Fall and later ruleset(s):
 
