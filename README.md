@@ -38,26 +38,22 @@ Excluding Military-type, built-in rewards have been rebalanced as follows:
 
 Goody Hut Type (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
 ------ | ------ | ------ | ------ | ------
-Culture | 1 civic boost | 2 civic boosts | 1 civic ^ | 2 civics ^
+Culture | 1 civic boost | 2 civic boosts | 1 civic [ 1 ] | 2 civics [ 1 ]
 Faith | +20 faith | +60 faith | +100 faith | +1 relic
-Gold | +40 gold | +80 gold | +120 gold | +1 trade route ^
-Science | 1 tech boost | 2 tech boosts | 1 tech | 2 techs ^
+Gold | +40 gold | +80 gold | +120 gold | +1 trade route [ 1 ]
+Science | 1 tech boost | 2 tech boosts | 1 tech | 2 techs [ 1 ]
 Survivors | +1 new population | 1 Builder | 1 Trader | 1 Settler
 
 To accommodate the above, the following alterations have been made:
 - The "one free relic" Culture-type reward is now a Faith-type reward
 - The defined-but-disabled "one free settler" Survivors-type reward is now enabled
-- New rewards indicated by [ ^ ] are provided by EGHV
+- [ 1 ] Reward provided by EGHV
 
 Built-in Military-type rewards have been entirely disabled. A reward of this type now provides a unit as follows:
 
 Recon | Melee | Ranged | Anti-Cavalry | Heavy Cavalry | Light Cavalry | Support | Siege | Military Engineer
 ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------
 16% | 12% | 12% | 10% | 10% | 10% | 10% | 10% | 10%
-
-To accommodate the above, the following alterations have been made:
-- The "heal unit" Military-type reward is now disabled
-- The "unit experience" Military-type reward is now disabled
 
 The following new rewards are provided by EGHV for all rulesets:
 
