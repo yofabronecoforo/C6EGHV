@@ -55,9 +55,15 @@ Goody Hut (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
 Culture | 1 civic boost | 2 civic boosts | 1 civic | 2 civics
 Faith | +20 faith | +60 faith | +100 faith | +1 relic
 Gold | +40 gold | +80 gold | +120 gold | +1 trade route
-Military | (55%) 1 recon unit, (30%) 1 melee unit, (15%) 1 ranged unit | (60%) 1 anti-cavlary unit, (20%) 1 heavy cavalry unit, (20%) 1 light cavalry unit | (50%) 1 support unit, (50%) 1 siege unit | 1 Military Engineer
+Military * | 1 basic unit * | 1 (anti-) cavalry unit * | 1 support or siege unit * | 1 Military Engineer *
 Science | 1 tech boost | 2 tech boosts | 1 tech | 2 techs
 Survivors | +1 new population | 1 Builder | 1 Trader | 1 Settler
+
+- [ * ] Military-type rewards are rebalanced as follows:
+
+Recon | Melee | Ranged | Anti-Cavalry | Heavy Cavalry | Light Cavalry | Support | Siege | Military Engineer | Total
+------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------
+16 | 12 | 12 | 10 | 10 | 10 | 10 | 10 | 10 | 100
 
 The following new rewards are provided by EGHV for all rulesets:
 
