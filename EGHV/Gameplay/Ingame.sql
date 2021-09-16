@@ -40,6 +40,8 @@ VALUES
     ('GOODYHUT_CAVALRY', 'KIND_GOODY_HUT'),
     -- free Envoys
     ('GOODYHUT_ENVOYS', 'KIND_GOODY_HUT'),
+    -- fallback rewards *** these help prevent infinite loops and crashes related to EGHV; they should not be enabled or normally accessible ***
+    ('GOODYHUT_FALLBACK', 'KIND_GOODY_HUT'),
     -- Hostile Villagers "rewards"
     ('GOODYHUT_HOSTILES', 'KIND_GOODY_HUT'),
     -- unit experience and promotions
@@ -224,6 +226,8 @@ VALUES
     ('GOODYHUT_CAVALRY', 100),
     -- free Envoys
     ('GOODYHUT_ENVOYS', 100),
+    -- fallback rewards *** these help prevent infinite loops and crashes related to EGHV; they should not be enabled or normally accessible ***
+    ('GOODYHUT_FALLBACK', 0),
     -- Hostile Villagers "rewards"
     ('GOODYHUT_HOSTILES', 100),
     -- unit experience and promotions
@@ -313,6 +317,13 @@ VALUES
     ('GOODYHUT_ENVOYS', 'GOODYHUT_TWO_ENVOYS', 'LOC_GOODYHUT_ENVOYS_GRANT_TWO_DESCRIPTION', 30, 0, 1, 1, 'GOODY_ENVOYS_GRANT_TWO'),
     ('GOODYHUT_ENVOYS', 'GOODYHUT_THREE_ENVOYS', 'LOC_GOODYHUT_ENVOYS_GRANT_THREE_DESCRIPTION', 20, 0, 1, 1, 'GOODY_ENVOYS_GRANT_THREE'),
     ('GOODYHUT_ENVOYS', 'GOODYHUT_FOUR_ENVOYS', 'LOC_GOODYHUT_ENVOYS_GRANT_FOUR_DESCRIPTION', 10, 0, 1, 1, 'GOODY_ENVOYS_GRANT_FOUR'),
+    -- fallback rewards *** these help prevent infinite loops and crashes related to EGHV; they should not be enabled or normally accessible ***
+    ('GOODYHUT_FALLBACK', 'GOODYHUT_CULTURE_FALLBACK', 'LOC_GOODYHUT_CULTURE_FALLBACK_DESCRIPTION', 0, 0, 1, 1, 'GOODY_FALLBACK_CULTURE'),
+    ('GOODYHUT_FALLBACK', 'GOODYHUT_FAITH_FALLBACK', 'LOC_GOODYHUT_FAITH_FALLBACK_DESCRIPTION', 0, 0, 1, 1, 'GOODY_FALLBACK_FAITH'),
+    ('GOODYHUT_FALLBACK', 'GOODYHUT_FOOD_FALLBACK', 'LOC_GOODYHUT_FOOD_FALLBACK_DESCRIPTION', 0, 0, 1, 1, 'GOODY_FALLBACK_FOOD'),
+    ('GOODYHUT_FALLBACK', 'GOODYHUT_GOLD_FALLBACK', 'LOC_GOODYHUT_GOLD_FALLBACK_DESCRIPTION', 0, 0, 1, 1, 'GOODY_FALLBACK_GOLD'),
+    ('GOODYHUT_FALLBACK', 'GOODYHUT_PRODUCTION_FALLBACK', 'LOC_GOODYHUT_PRODUCTION_FALLBACK_DESCRIPTION', 0, 0, 1, 1, 'GOODY_FALLBACK_PRODUCTION'),
+    ('GOODYHUT_FALLBACK', 'GOODYHUT_SCIENCE_FALLBACK', 'LOC_GOODYHUT_SCIENCE_FALLBACK_DESCRIPTION', 0, 0, 1, 1, 'GOODY_FALLBACK_SCIENCE'),
     -- Hostiles
     ('GOODYHUT_HOSTILES', 'GOODYHUT_LOW_HOSTILITY_VILLAGERS', 'LOC_GOODYHUT_HOSTILE_VILLAGERS_DESCRIPTION', 40, 0, 1, 1, 'GOODY_EGHV_DUMMY_REWARD'),
     ('GOODYHUT_HOSTILES', 'GOODYHUT_MID_HOSTILITY_VILLAGERS', 'LOC_GOODYHUT_HOSTILE_VILLAGERS_DESCRIPTION', 30, 0, 1, 1, 'GOODY_EGHV_DUMMY_REWARD'),
@@ -361,6 +372,13 @@ VALUES
     ('GOODY_ENVOYS_GRANT_TWO', 'MODIFIER_PLAYER_GRANT_INFLUENCE_TOKEN', 1, 1, NULL),
     ('GOODY_ENVOYS_GRANT_THREE', 'MODIFIER_PLAYER_GRANT_INFLUENCE_TOKEN', 1, 1, NULL),
     ('GOODY_ENVOYS_GRANT_FOUR', 'MODIFIER_PLAYER_GRANT_INFLUENCE_TOKEN', 1, 1, NULL),
+    -- fallback rewards *** these help prevent infinite loops and crashes related to EGHV; they should not be enabled or normally accessible ***
+    ('GOODY_FALLBACK_CULTURE', 'MODIFIER_PLAYER_CITIES_ADJUST_CITY_YIELD_CHANGE', 1, 1, NULL),
+    ('GOODY_FALLBACK_FAITH', 'MODIFIER_PLAYER_CITIES_ADJUST_CITY_YIELD_CHANGE', 1, 1, NULL),
+    ('GOODY_FALLBACK_FOOD', 'MODIFIER_PLAYER_CITIES_ADJUST_CITY_YIELD_CHANGE', 1, 1, NULL),
+    ('GOODY_FALLBACK_GOLD', 'MODIFIER_PLAYER_CITIES_ADJUST_CITY_YIELD_CHANGE', 1, 1, NULL),
+    ('GOODY_FALLBACK_PRODUCTION', 'MODIFIER_PLAYER_CITIES_ADJUST_CITY_YIELD_CHANGE', 1, 1, NULL),
+    ('GOODY_FALLBACK_SCIENCE', 'MODIFIER_PLAYER_CITIES_ADJUST_CITY_YIELD_CHANGE', 1, 1, NULL),
     -- Hostile Villagers
     ('GOODY_SPAWN_HOSTILES', 'MODIFIER_PLAYER_UNIT_ADJUST_GRANT_EXPERIENCE', 1, 1, NULL),
     -- Promotions
@@ -426,6 +444,24 @@ VALUES
     ('GOODY_ENVOYS_GRANT_THREE', 'Amount', 3, NULL),
     -- Envoys : +4 free
     ('GOODY_ENVOYS_GRANT_FOUR', 'Amount', 4, NULL),
+    -- culture fallback *** this helps prevent infinite loops and crashes related to EGHV; it should not be enabled or normally accessible ***
+    ('GOODY_FALLBACK_CULTURE', 'YieldType', 'YIELD_CULTURE', NULL),
+    ('GOODY_FALLBACK_CULTURE', 'Amount', 1, NULL),
+    -- faith fallback *** this helps prevent infinite loops and crashes related to EGHV; it should not be enabled or normally accessible ***
+    ('GOODY_FALLBACK_FAITH', 'YieldType', 'YIELD_FAITH', NULL),
+    ('GOODY_FALLBACK_FAITH', 'Amount', 1, NULL),
+    -- food fallback *** this helps prevent infinite loops and crashes related to EGHV; it should not be enabled or normally accessible ***
+    ('GOODY_FALLBACK_FOOD', 'YieldType', 'YIELD_FOOD', NULL),
+    ('GOODY_FALLBACK_FOOD', 'Amount', 1, NULL),
+    -- gold fallback *** this helps prevent infinite loops and crashes related to EGHV; it should not be enabled or normally accessible ***
+    ('GOODY_FALLBACK_GOLD', 'YieldType', 'YIELD_GOLD', NULL),
+    ('GOODY_FALLBACK_GOLD', 'Amount', 2, NULL),
+    -- production fallback *** this helps prevent infinite loops and crashes related to EGHV; it should not be enabled or normally accessible ***
+    ('GOODY_FALLBACK_PRODUCTION', 'YieldType', 'YIELD_PRODUCTION', NULL),
+    ('GOODY_FALLBACK_PRODUCTION', 'Amount', 1, NULL),
+    -- science fallback *** this helps prevent infinite loops and crashes related to EGHV; it should not be enabled or normally accessible ***
+    ('GOODY_FALLBACK_SCIENCE', 'YieldType', 'YIELD_SCIENCE', NULL),
+    ('GOODY_FALLBACK_SCIENCE', 'Amount', 1, NULL),
     -- Hostile Villagers : unit XP modifier (the actual heavy-lifting here is done via lua)
     ('GOODY_SPAWN_HOSTILES', 'Amount', 3, NULL),
     -- Promotions : small lump XP sum

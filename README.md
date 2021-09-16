@@ -10,7 +10,7 @@ A mod that provides a fairly comprehensive extension to and overhaul of the Trib
 - A dropdown menu for selecting an amount of possible bonus reward(s), which may be provided in addition to the usual reward from a Goody Hut.
 - A checkbox flag for equalizing the chances of receiving all enabled reward(s).
 
-In addition, the number of available Goody Hut rewards has greatly increased for each official ruleset:
+In addition, the number of available ingame Goody Hut rewards has greatly increased for each official ruleset:
 
 Ruleset | Available Rewards (Types) | Rewards (Types) w/o EGHV
 ------- | ------- | -------
@@ -28,52 +28,59 @@ When obtained via any of the official channels referenced in the #Installation s
 - Spanish (es_ES)
 - French (fr_FR)
 
-Please report any conspicuous absent text, or appearances of localization placeholders (e.g. LOC_SOME_TEXT_HERE), if any of the above languages is in use.
+Please report any conspicuous absent text, or any instances of localization placeholders (i.e. LOC_SOME_TEXT_HERE), when using any of the above languages.
 
 # Features
 ## Goody Huts
 ![Goody Hut Picker](/IMAGES/Goody_Hut_Picker.png)
 
-Existing built-in rewards have been enabled, disabled, and/or moved to other types, and have had their chances of occurring balanced against new rewards as follows:
-- The "one free relic" reward is now a Faith-type reward.
-- The defined-but-disabled "one free settler" reward has been enabled. 
-- The "heal unit" reward has been disabled because it is lame; it has been superceded by a new reward in the Abilities type.
-- The "unit experience" reward has been disabled; it is superceded by the rewards in the new Promotions type.
-- The defined-but-disabled "upgrade unit" reward has been enabled entirely via Lua, because the built-in mechanism is broken; this is now a Support-type reward.
-- If Gathering Storm is present, all of the new rewards it provides have been disabled and superceded as follows:
-  - The "free envoy" reward is superceded by the rewards in the new Envoys type; these rewards are now available for all rulesets.
-  - The "free governor title" reward is superceded by the rewards in the new Governors type; these rewards are now available for Rise and Fall and later ruleset(s).
-  - The "free diplomatic favor" reward is superceded by new rewards in the Diplomacy type.
-  - The "free strategic resources" reward is superceded by the rewards in the new Resources type.
+EGHV provides a new Advanced Setup option that can be used to select exactly which, if any, Goody Hut rewards are available ingame.
 
-New rewards have been added in both new and existing categories. The following rewards are available for all rulesets:
+Built-in rewards have been enabled, disabled, and/or moved to other types as follows:
+- The "one free relic" Culture-type reward is now a Faith-type reward
+- The defined-but-disabled "one free settler" Survivors-type reward is now enabled
+- The "heal unit" Military-type reward is now disabled and superceded by a new Abilities-type reward
+- The "unit experience" Military-type reward is now disabled and superceded by new Promotions-type rewards
+- The defined-but-disabled "upgrade unit" Military-type reward is now enabled entirely via Lua, because the built-in mechanism is broken; this is now a Support-type reward
+- If Gathering Storm is present, all of the new rewards it provides are disabled and superceded as follows:
+  - The "free envoy" Diplomacy-type reward is superceded by new Envoys-type rewards, which are now available for all rulesets
+  - The "free governor title" Diplomacy-type reward is superceded by new Governors-type rewards, which are now available for Rise and Fall and later ruleset(s)
+  - The "free diplomatic favor" Diplomacy-type reward is superceded by all-new Diplomacy-type rewards
+  - The "free strategic resources" Military-type reward is superceded by new Resources-type rewards
+
+After accounting for the above changes, built-in rewards for all official rulesets have had their chances of occurring rebalanced as follows:
 
 Goody Hut (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
---------- | ------ | ------ | ------ | ------
-Abilities * | +1 sight | +20 healing per turn | +1 movement | +10 combat strength
-(Anti) Cavalry * | 1 anti-cavalry unit (50) | 1 heavy cavalry unit (25) | 1 light cavalry unit (25)
+------ | ------ | ------ | ------ | ------
 Culture | 1 civics boost | 2 civics boosts | 1 civic * | 2 civics *
-Envoys * | 1 envoy | 2 envoys | 3 envoys | 4 envoys
 Faith | +20 faith | +60 faith | +100 faith | 1 relic
 Gold | +40 gold | +80 gold | +120 gold | 1 additional trade route *
-Hostiles * | low hostility | medium hostility | high hostility | maximum hostility
-Military | 1 recon unit (55) | 1 melee unit (25) * | 1 ranged unit (20) *
-Promotions * | 10 experience | 20 experience | 30 experience | 50 experience
-Secrets * | villager secrets (100)
+Military | 1 recon unit (60) | 1 melee unit (25) * | 1 ranged unit (15) *
 Science | 1 tech boost | 2 tech boosts | 1 tech | 2 techs *
-Support * | 1 support unit (25) | 1 siege unit (25) | 1 military engineer (25) | upgrade unit (25)
 Survivors | 1 new population | 1 builder | 1 trader | 1 settler
 
-The following rewards are available for Rise and Fall and later ruleset(s):
+The following rewards are now available for all rulesets:
 
 Goody Hut (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
---------- | ------ | ------ | ------ | ------
+------ | ------ | ------ | ------ | ------
+Abilities * | +1 sight | +20 healing per turn | +1 movement | +10 combat strength
+(Anti) Cavalry * | 1 anti-cavalry unit (60) | 1 heavy cavalry unit (20) | 1 light cavalry unit (20)
+Envoys * | 1 envoy | 2 envoys | 3 envoys | 4 envoys
+Hostiles * | low hostility | medium hostility | high hostility | maximum hostility
+Promotions * | 5 experience | 10 experience | 15 experience | 25 experience
+Secrets * | villager secrets (100)
+Support * | 1 support unit (30) | 1 siege unit (30) | 1 military engineer (25) | upgrade unit (15)
+
+The following rewards are now available for Rise and Fall and later ruleset(s):
+
+Goody Hut (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
+------ | ------ | ------ | ------ | ------
 Governors * | 1 governor title | 2 governor titles | 3 governor titles | 4 governor titles
 
-The following rewards are available for Gathering Storm and later ruleset(s):
+The following rewards are now available for Gathering Storm and later ruleset(s):
 
 Goody Hut (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
---------- | ------ | ------ | ------ | ------
+------ | ------ | ------ | ------ | ------
 Diplomacy * | 10 diplomatic favor | 20 diplomatic favor | 30 diplomatic favor | 50 diplomatic favor
 Meteor | meteor-strike site (100)
 Resources * | 10 strategic resources | 20 strategic resources | 30 strategic resources | 50 strategic resources
