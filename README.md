@@ -34,8 +34,6 @@ Please report any conspicuous absent text, or any instances of localization plac
 ## Goody Huts
 ![Goody Hut Picker](/IMAGES/Goody_Hut_Picker.png)
 
-EGHV provides a new Advanced Setup option that can be used to select exactly which, if any, Goody Hut rewards are available ingame.
-
 Excluding Military-type, built-in rewards have been rebalanced as follows:
 
 Goody Hut Type (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
@@ -49,17 +47,20 @@ Survivors | +1 new population | 1 Builder | 1 Trader | 1 Settler
 To accommodate the above, the following alterations have been made:
 - The "one free relic" Culture-type reward is now a Faith-type reward
 - The defined-but-disabled "one free settler" Survivors-type reward is now enabled
+- New rewards have been added as follows:
+  - Culture-type: 1 civic, 2 civics
+  - Gold-type: +1 trade route
+  - Science-type: 2 techs
 
-Built-in Military-type rewards have been entirely disabled. New rewards of this type provide units as follows:
+Built-in Military-type rewards have been entirely disabled. A reward of this type now provides a unit as follows:
 
 Recon | Melee | Ranged | Anti-Cavalry | Heavy Cavalry | Light Cavalry | Support | Siege | Military Engineer
 ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------
+16% | 12% | 12% | 10% | 10% | 10% | 10% | 10% | 10%
 
 To accommodate the above, the following alterations have been made:
-- The "heal unit" Military-type reward is now disabled and superceded by a new Abilities-type reward
-- The "unit experience" Military-type reward is now disabled and superceded by new Promotions-type rewards
-- The defined-but-disabled "upgrade unit" Military-type reward is now enabled entirely via Lua, because the built-in mechanism is broken; this is now a Promotions-type reward
-- Each available individual Military-type reward has an equal chance of being selected
+- The "heal unit" Military-type reward is now disabled
+- The "unit experience" Military-type reward is now disabled
 
 The following new rewards are provided by EGHV for all rulesets:
 
