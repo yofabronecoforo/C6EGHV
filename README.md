@@ -36,30 +36,35 @@ Please report any conspicuous absent text, or any instances of localization plac
 
 EGHV provides a new Advanced Setup option that can be used to select exactly which, if any, Goody Hut rewards are available ingame.
 
-Built-in rewards have been enabled, disabled, and/or moved to other types as follows:
-- The "one free relic" Culture-type reward is now a Faith-type reward
-- The defined-but-disabled "one free settler" Survivors-type reward is now enabled
-- The "heal unit" Military-type reward is now disabled and superceded by a new Abilities-type reward
-- The "unit experience" Military-type reward is now disabled and superceded by new Promotions-type rewards
-- The defined-but-disabled "upgrade unit" Military-type reward is now enabled entirely via Lua, because the built-in mechanism is broken; this is now a Promotions-type reward
-- If Gathering Storm is present and in use, all of the new rewards it provides are disabled and superceded as follows:
-  - The "free envoy" Diplomacy-type reward is superceded by new Envoys-type rewards, which are now available for all rulesets
-  - The "free governor title" Diplomacy-type reward is superceded by new Governors-type rewards, which are now available for Rise and Fall and later ruleset(s)
-  - The "free diplomatic favor" Diplomacy-type reward is superceded by all-new Diplomacy-type rewards
-  - The "free strategic resources" Military-type reward is superceded by new Resources-type rewards
+Excluding Military-type, built-in rewards have been enabled, disabled, moved to other types, and/or otherwise rebalanced as follows:
 
-After accounting for the above changes, built-in rewards for all official rulesets are rebalanced as follows:
-
-Goody Hut (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
+Goody Hut Type (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
 ------ | ------ | ------ | ------ | ------
 Culture | 1 civic boost | 2 civic boosts | 1 civic | 2 civics
 Faith | +20 faith | +60 faith | +100 faith | +1 relic
 Gold | +40 gold | +80 gold | +120 gold | +1 trade route
-Military * | 1 (recon OR melee OR ranged) unit | 1 (anti-cavalry OR heavy cavalry OR light cavalry) unit | 1 (support OR siege) unit | 1 Military Engineer
 Science | 1 tech boost | 2 tech boosts | 1 tech | 2 techs
 Survivors | +1 new population | 1 Builder | 1 Trader | 1 Settler
 
-- [ * ] Each individual unit reward has an equal chance of being selected when Military-type is the selected type
+- The "one free relic" Culture-type reward is now a Faith-type reward
+- The defined-but-disabled "one free settler" Survivors-type reward is now enabled
+
+Built-in Military-type rewards have been enabled, disabled, moved to other types, and/or otherwise rebalanced as follows:
+
+Recon | Melee | Ranged | Anti-Cavalry | Heavy Cavalry | Light Cavalry | Support | Siege | Military Engineer
+------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------
+1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1
+
+- The "heal unit" Military-type reward is now disabled and superceded by a new Abilities-type reward
+- The "unit experience" Military-type reward is now disabled and superceded by new Promotions-type rewards
+- The defined-but-disabled "upgrade unit" Military-type reward is now enabled entirely via Lua, because the built-in mechanism is broken; this is now a Promotions-type reward
+- Each individual Military-type reward has an equal chance of being selected
+
+When the Gathering Storm expansion is present and in use, all of the new rewards it provides are disabled and superceded as follows:
+- The "free envoy" Diplomacy-type reward is superceded by new Envoys-type rewards, which are now available for all rulesets
+- The "free governor title" Diplomacy-type reward is superceded by new Governors-type rewards, which are now available for Rise and Fall and later ruleset(s)
+- The "free diplomatic favor" Diplomacy-type reward is superceded by all-new Diplomacy-type rewards
+- The "free strategic resources" Military-type reward is superceded by new Resources-type rewards
 
 The following new rewards are provided by EGHV for all rulesets:
 
