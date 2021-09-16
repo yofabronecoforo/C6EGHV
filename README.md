@@ -42,50 +42,50 @@ Built-in rewards have been enabled, disabled, and/or moved to other types as fol
 - The "heal unit" Military-type reward is now disabled and superceded by a new Abilities-type reward
 - The "unit experience" Military-type reward is now disabled and superceded by new Promotions-type rewards
 - The defined-but-disabled "upgrade unit" Military-type reward is now enabled entirely via Lua, because the built-in mechanism is broken; this is now a Support-type reward
-- If Gathering Storm is present, all of the new rewards it provides are disabled and superceded as follows:
+- If Gathering Storm is present and in use, all of the new rewards it provides are disabled and superceded as follows:
   - The "free envoy" Diplomacy-type reward is superceded by new Envoys-type rewards, which are now available for all rulesets
   - The "free governor title" Diplomacy-type reward is superceded by new Governors-type rewards, which are now available for Rise and Fall and later ruleset(s)
   - The "free diplomatic favor" Diplomacy-type reward is superceded by all-new Diplomacy-type rewards
   - The "free strategic resources" Military-type reward is superceded by new Resources-type rewards
 
-After accounting for the above changes, built-in rewards for all official rulesets have had their chances of occurring rebalanced as follows:
+After accounting for the above changes, built-in rewards for all official rulesets are rebalanced as follows:
 
 Goody Hut (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
 ------ | ------ | ------ | ------ | ------
-Culture | 1 civics boost | 2 civics boosts | 1 civic * | 2 civics *
-Faith | +20 faith | +60 faith | +100 faith | 1 relic
-Gold | +40 gold | +80 gold | +120 gold | 1 additional trade route *
-Military | 1 recon unit (60) | 1 melee unit (25) * | 1 ranged unit (15) *
+Culture | 1 civic boost | 2 civic boosts | 1 civic * | 2 civics *
+Faith | +20 faith | +60 faith | +100 faith | +1 relic
+Gold | +40 gold | +80 gold | +120 gold | +1 trade route *
+Military | 1 recon unit | 1 melee unit * | 1 ranged unit * | 2 recon units *
 Science | 1 tech boost | 2 tech boosts | 1 tech | 2 techs *
-Survivors | 1 new population | 1 builder | 1 trader | 1 settler
-
-The following rewards are now available for all rulesets:
-
-Goody Hut (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
------- | ------ | ------ | ------ | ------
-Abilities * | +1 sight | +20 healing per turn | +1 movement | +10 combat strength
-(Anti) Cavalry * | 1 anti-cavalry unit (60) | 1 heavy cavalry unit (20) | 1 light cavalry unit (20)
-Envoys * | 1 envoy | 2 envoys | 3 envoys | 4 envoys
-Hostiles * | low hostility | medium hostility | high hostility | maximum hostility
-Promotions * | 5 experience | 10 experience | 15 experience | 25 experience
-Secrets * | villager secrets (100)
-Support * | 1 support unit (30) | 1 siege unit (30) | 1 military engineer (25) | upgrade unit (15)
-
-The following rewards are now available for Rise and Fall and later ruleset(s):
-
-Goody Hut (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
------- | ------ | ------ | ------ | ------
-Governors * | 1 governor title | 2 governor titles | 3 governor titles | 4 governor titles
-
-The following rewards are now available for Gathering Storm and later ruleset(s):
-
-Goody Hut (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
------- | ------ | ------ | ------ | ------
-Diplomacy * | 10 diplomatic favor | 20 diplomatic favor | 30 diplomatic favor | 50 diplomatic favor
-Meteor | meteor-strike site (100)
-Resources * | 10 strategic resources | 20 strategic resources | 30 strategic resources | 50 strategic resources
+Survivors | +1 new population | 1 Builder | 1 Trader | 1 Settler
 
 - [ * ] Provided by EGHV
+
+The following new rewards are provided by EGHV for all rulesets:
+
+Goody Hut (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
+------ | ------ | ------ | ------ | ------
+Abilities | +1 sight | +20 healing per turn | +1 movement | +10 combat strength
+(Anti) Cavalry | 1 anti-cavalry unit (60) | 1 heavy cavalry unit (20) | 1 light cavalry unit (20)
+Envoys | 1 envoy | 2 envoys | 3 envoys | 4 envoys
+Hostiles | low hostility | medium hostility | high hostility | maximum hostility
+Promotions | 5 experience | 10 experience | 15 experience | 25 experience
+Secrets | villager secrets (100)
+Support | 1 support unit (30) | 1 siege unit (30) | 1 military engineer (25) | upgrade unit (15)
+
+The following new rewards are provided by EGHV for Rise and Fall and later ruleset(s):
+
+Goody Hut (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
+------ | ------ | ------ | ------ | ------
+Governors | 1 governor title | 2 governor titles | 3 governor titles | 4 governor titles
+
+The following new rewards are provided by EGHV for Gathering Storm and later ruleset(s):
+
+Goody Hut (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
+------ | ------ | ------ | ------ | ------
+Diplomacy | +10 diplomatic favor | +20 diplomatic favor | +30 diplomatic favor | +50 diplomatic favor
+Meteor | meteor-strike site (100)
+Resources | +10 strategic resources | +20 strategic resources | +30 strategic resources | +50 strategic resources
 
 Minimum-turn requirements are set to 0 for all __DEFINED__ and __ENABLED__ rewards, meaning that all such rewards will be available from turn 1 on.
 
