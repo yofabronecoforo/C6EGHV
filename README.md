@@ -55,25 +55,23 @@ Goody Hut (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
 Culture | 1 civic boost | 2 civic boosts | 1 civic | 2 civics
 Faith | +20 faith | +60 faith | +100 faith | +1 relic
 Gold | +40 gold | +80 gold | +120 gold | +1 trade route
-Military * | 1 (recon OR melee OR ranged OR anti-cavalry OR heavy cavalry OR light cavalry OR support OR siege) unit OR 1 Military Engineer
+Military * | 1 (recon OR melee OR ranged) unit | 1 (anti-cavalry OR heavy cavalry OR light cavalry) unit | 1 (support OR siege) unit | 1 Military Engineer
 Science | 1 tech boost | 2 tech boosts | 1 tech | 2 techs
 Survivors | +1 new population | 1 Builder | 1 Trader | 1 Settler
 
-- [ * ] Each Military-type reward has an equal chance of being selected when this type is selected
+- [ * ] Each individual unit reward has an equal chance of being selected when Military-type is the selected type
 
 The following new rewards are provided by EGHV for all rulesets:
 
 Goody Hut (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
 ------ | ------ | ------ | ------ | ------
-Abilities * | +1 sight | +20 healing per turn | +1 movement | +10 combat strength
-(Anti) Cavalry | 1 recon unit | 1 anti-cavalry unit | 1 heavy cavalry unit | 1 light cavalry unit
+Abilities ** | +1 sight | +20 healing per turn | +1 movement | +10 combat strength
 Envoys | 1 envoy | 2 envoys | 3 envoys | 4 envoys
 Hostiles | low hostility | medium hostility | high hostility | maximum hostility
-Promotions * | 5 experience | 10 experience | 15 experience | upgrade unit with bonus experience
+Promotions ** | 5 experience | 10 experience | 15 experience | upgrade unit with bonus experience
 Secrets | villager secrets (100)
-Support | 1 recon unit | 1 support unit | 1 siege unit | 1 military engineer
 
-- [ * ] These rewards apply to any valid unit(s) when obtained via exploration; they should be replaced when obtained via border expansion
+- [ ** ] These rewards apply to any valid unit(s) when obtained via exploration; they should be replaced by EGHV when obtained via border expansion
 
 The following new rewards are provided by EGHV for Rise and Fall and later ruleset(s):
 
