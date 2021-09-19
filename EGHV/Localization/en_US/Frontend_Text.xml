@@ -336,7 +336,7 @@
             <Text>1 free unit upgrade</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_UPGRADE_DESC" Language="en_US">
-            <Text>The discovering unit(s) will be upgraded to the next unit(s) in any applicable promotion class(es), and will be granted enough experience to earn a promotion, if applicable.</Text>
+            <Text>The discovering unit(s) will be upgraded to the next unit(s) in any applicable promotion class(es).[NEWLINE][NEWLINE]Any unit upgraded in this manner will retain any abilities and/or promotions it has earned, and will be granted experience towards its next promotion.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_MILITARY_ENGINEER_NAME" Language="en_US">
             <Text>1 [ICON_Unit] Military Engineer</Text>

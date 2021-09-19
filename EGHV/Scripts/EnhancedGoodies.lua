@@ -148,7 +148,7 @@ end
 -- table of individual unit rewards
 GUE.GrantUnitRewards = {
 	["GOODYHUT_GRANT_SCOUT"] = 1, ["GOODYHUT_GRANT_WARRIOR"] = 2, ["GOODYHUT_GRANT_SLINGER"] = 3, ["GOODYHUT_GRANT_SPEARMAN"] = 4, ["GOODYHUT_GRANT_HEAVY_CHARIOT"] = 5, ["GOODYHUT_GRANT_HORSEMAN"] = 6, 
-	["GOODYHUT_GRANT_CATAPULT"] = 7, ["GOODYHUT_GRANT_BATTERING_RAM"] = 8, ["GOODYHUT_GRANT_MILITARY_ENGINEER"] = 9
+	["GOODYHUT_GRANT_CATAPULT"] = 7, ["GOODYHUT_GRANT_BATTERING_RAM"] = 8, ["GOODYHUT_GRANT_MILITARY_ENGINEER"] = 9, ["GOODYHUT_GRANT_BUILDER"] = 10, ["GOODYHUT_GRANT_TRADER"] = 11, ["GOODYHUT_GRANT_SETTLER"] = 12
 };
 -- define valid Villager Secrets reward(s) - these are the SubTypeGoodyHut values for any such rewards
 GUE.VillagerSecrets = "GOODYHUT_UNLOCK_VILLAGER_SECRETS";
@@ -183,15 +183,17 @@ GUE.HorsesIndex = GameInfo.Resources["RESOURCE_HORSES"].Index;
 -- table of adverbs for indicating villager hostility levels in log output
 GUE.HostilityAdverbs = { "SLIGHTLY", "* MODERATELY *", "** VERY **", "*** EXTREMELY ***" };
 -- sum of weights of enabled rewards; this will seed the RNG for any bonus reward rolls
-GUE.TotalBonusRewardWeight = 0;
+GUE.TotalBonusRewardTypeWeight, GUE.TotalBonusRewardWeight = 0, 0;
 -- the number of potential bonus rewards is the value of the "rewards per tribal village" game setting, minus 1
 GUE.BonusRewardsPerGoodyHut = GameConfiguration.GetValue("GAME_TOTAL_REWARDS") - 1;
 -- the number of available rewards in the bonus rewards table
 GUE.BonusRewardCount = 0;
--- initialize the exclusion table; this contains any reward(s) that should not be granted as a bonus reward
-GUE.ExcludedRewards = { ["METEOR_GRANT_GOODIES"] = "" };
--- initialize the bonus rewards table; this should ultimately contain relevant data for all enabled reward(s)
-GUE.ValidRewards = {};
+-- initialize the exclusion tables; these contain any reward(s) that should not be granted as a bonus reward
+GUE.ExcludedRewardTypes, GUE.ExcludedRewards = { ["METEOR_GOODIES"] = "" }, { ["METEOR_GRANT_GOODIES"] = "" };
+-- initialize the bonus rewards tables; these should ultimately contain relevant data for all enabled reward(s)
+GUE.ValidRewardTypes, GUE.ValidRewards = {}, {};
+-- 
+GUE.ValidBonusRewards = {};
 -- initialize table of Wondrous Goody Hut rewared abilities; key = ModifierID, value = AbilityType
 GUE.WGH_ModifierToAbility = { 
 	["SAILOR_GOODY_RANDOMRESOURCE_SWITCH"] = "ABILITY_SAILOR_GOODY_RANDOMRESOURCE", ["SAILOR_GOODY_RANDOMUNIT_SWITCH"] = "ABILITY_SAILOR_GOODY_RANDOMUNIT", 
@@ -209,25 +211,44 @@ GUE.WGH_Rewards = {};
 if GUE.GoodyHutRewards and not GUE.NoGoodyHuts then
 	-- initialize the hash value of the Wondrous type; if this does not get changed, there is a problem
 	local iWondrousTypeHash = -1;
-	-- identify the Type hash value for the Wondrous type
-	for k, v in pairs(GUE.GoodyHutTypes) do if v.GoodyHutType == "GOODYHUT_SAILOR_WONDROUS" then iWondrousTypeHash = k; end end
+	-- iterate over the goody hut types table
+	for k, v in pairs(GUE.GoodyHutTypes) do 
+		-- identify the Type hash value for the Wondrous type
+		if v.GoodyHutType == "GOODYHUT_SAILOR_WONDROUS" then iWondrousTypeHash = k; end 
+		-- fetch data for certain enabled rewards for the bonus rewards table
+		if (v.Weight > 0) and not GUE.ExcludedRewardTypes[v.GoodyHutType] then
+			-- the start value of the range of valid random numbers that indicate this reward
+			local iTypeStartIndex = GUE.TotalBonusRewardTypeWeight + 1;
+			-- the cumulative weight of all valid reward(s)
+			GUE.TotalBonusRewardTypeWeight = GUE.TotalBonusRewardTypeWeight + v.Weight;
+			-- put this item in the valid rewards table with the same key
+			GUE.ValidRewardTypes[k] = v;
+			-- set the start index to the value obtained above
+			GUE.ValidRewardTypes[k].Start = iTypeStartIndex;
+			-- set the end index to the value obtained above
+			GUE.ValidRewardTypes[k].End = GUE.TotalBonusRewardTypeWeight;
+			-- 
+			GUE.ValidRewardTypes[k].TotalSubTypeWeight = 0;
+			-- 
+			for a, b in pairs(GUE.GoodyHutRewards) do 
+				-- 
+				if (b.GoodyHut == v.GoodyHutType) and (b.Weight > 0) and not GUE.ExcludedRewards[b.SubTypeGoodyHut] then 
+					-- 
+					local t = b;
+					-- 
+					t.Start, t.End = GUE.ValidRewardTypes[k].TotalSubTypeWeight + 1, GUE.ValidRewardTypes[k].TotalSubTypeWeight + b.Weight;
+					-- 
+					GUE.ValidRewardTypes[k].TotalSubTypeWeight = GUE.ValidRewardTypes[k].TotalSubTypeWeight + b.Weight;
+					-- 
+					GUE.ValidBonusRewards[a] = t;
+				end
+			end
+		end
+	end
+	-- increment the total bonus rewards counter
+	for k, v in pairs(GUE.ValidBonusRewards) do GUE.BonusRewardCount = GUE.BonusRewardCount + 1; end
 	-- iterate over the goody hut subtypes table
 	for k, v in pairs(GUE.GoodyHutRewards) do
-		-- fetch data for certain enabled rewards for the bonus rewards table
-		if (v.Weight > 0) and not GUE.ExcludedRewards[v.SubTypeGoodyHut] then
-			-- the start value of the range of valid random numbers that indicate this reward
-			local iStartIndex = GUE.TotalBonusRewardWeight + 1;
-			-- the cumulative weight of all valid reward(s)
-			GUE.TotalBonusRewardWeight = GUE.TotalBonusRewardWeight + v.Weight;
-			-- increment the total bonus rewards counter
-			GUE.BonusRewardCount = GUE.BonusRewardCount + 1;
-			-- put this item in the valid rewards table with the same key
-			GUE.ValidRewards[k] = v;
-			-- set the start index to the value obtained above
-			GUE.ValidRewards[k].Start = iStartIndex;
-			-- set the end index to the value obtained above
-			GUE.ValidRewards[k].End = GUE.TotalBonusRewardWeight;
-		end
 		-- identify fallback rewards
 		if v.GoodyHut == "GOODYHUT_FALLBACK" then 
 			table.insert(GUE.FallbackRewards, v.ModifierID);
@@ -307,9 +328,14 @@ function GUE.AddUnitToMap( iX, iY, iPlayerID, iTurn, iEra, sRewardSubType )
 	elseif iUnitGrant == 7 then sUnitGrant = GUE.UnitRewardByEra[iEra].Siege;
 	elseif iUnitGrant == 8 then sUnitGrant = GUE.UnitRewardByEra[iEra].Support;
 	elseif iUnitGrant == 9 then sUnitGrant = "UNIT_MILITARY_ENGINEER";
+	elseif iUnitGrant == 10 then sUnitGrant = "UNIT_BUILDER";
+	elseif iUnitGrant == 11 then sUnitGrant = "UNIT_TRADER";
+	elseif iUnitGrant == 12 then sUnitGrant = "UNIT_SETTLER";
 	end
 	-- place the identified unit
 	UnitManager.InitUnitValidAdjacentHex(iPlayerID, sUnitGrant, iX, iY, 1);
+	-- debugging log output
+	Dprint("Successfully placed a new " .. sUnitGrant .. " under the control of Player " .. iPlayerID .. " near plot (x " .. iX .. ", y " .. iY .. ")");
 end
 
 --[[ =========================================================================
@@ -431,13 +457,16 @@ function GUE.UpgradeUnit( iPlayerID, iX, iY, tUnits )
 			-- calculate the range for any potential bonus experience
 			local iRangeXP = iXPFNL - iMinXP;
 			-- get a random amount of combat experience to compensate for any potential lost XP; this should cap at ~ half the amount needed for the next promotion
-			local iBonusXP = (TerrainBuilder.GetRandomNumber(iRangeXP, "Unit upgrade : compensation experience") / 2) + 1;
+			local iBonusXP = math.floor((TerrainBuilder.GetRandomNumber(iRangeXP, "Unit upgrade : compensation experience") / 2) + 1);
 			-- initialize primary debugging message
-			local sPriDebugMsg = "A " .. sUnitType;
-			-- adjust primary debugging message for unit veteran name
-			if (sVeteranName ~= nil and sVeteranName ~= "") then sPriDebugMsg = sPriDebugMsg .. " known as " .. sVeteranName; end
+			local sPriDebugMsg = "A ";
+			-- adjust primary debugging message for unit veteran name, if applicable
+			if (sVeteranName ~= nil and sVeteranName ~= "") then sPriDebugMsg = sPriDebugMsg .. "veteran "; end
+			-- sPriDebugMsg = sPriDebugMsg .. sUnitType;
+			-- if (sVeteranName ~= nil and sVeteranName ~= "") then sPriDebugMsg = sPriDebugMsg .. " known as " .. sVeteranName; end
 			-- adjust primary debugging message
-			sPriDebugMsg = sPriDebugMsg .. " at plot (x " .. iX .. ", y " .. iY .. ") ";
+			sPriDebugMsg = sPriDebugMsg .. sUnitType .. " at plot (x " .. iX .. ", y " .. iY .. ") ";
+			-- sPriDebugMsg = sPriDebugMsg .. " at plot (x " .. iX .. ", y " .. iY .. ") ";
 			-- adjust primary debugging message for no or invalid unit promotion class
 			if GUE.PromotionsByClass[sPromotionClass] == nil then sPriDebugMsg = sPriDebugMsg .. "is 'NOT' eligible for promotion,";
 			-- adjust primary debugging message for current unit promotion level
@@ -989,96 +1018,118 @@ function GUE.GetNewRewards( iNumRewards, iPlayerID, iUnitID, iX, iY, sRewardSubT
 				-- initialize the rolls tracker and valid roll flag
 				local iNumRolls, bIsValidRoll = 0, false;
 				-- loop until the valid roll flag has been set
-				while not bIsValidRoll do
-					-- get a random number between 1 and TotalBonusRewardWeight
-					local iBonusIndex = TerrainBuilder.GetRandomNumber(GUE.TotalBonusRewardWeight, "Bonus reward index") + 1;
-					-- iterate over the enabled rewards table
-					for k, v in pairs(GUE.ValidRewards) do
-						-- true when iBonusIndex is in the range Start - End, AND this is NOT the villager secrets reward when VillagerSecretsLevel meets or exceeds MaxSecretsLevel, AND this is NOT a Wondrous-type reward when iUnitID == -1; k is the hash value of the reward
-						if iBonusIndex >= v.Start and iBonusIndex <= v.End and not (v.SubTypeGoodyHut == GUE.VillagerSecrets and GUE.PlayerData[iPlayerID].VillagerSecretsLevel >= GUE.MaxSecretsLevel) and not (GUE.WGH_Rewards[v.SubTypeGoodyHut] ~= nil and iUnitID == -1) then
-							-- set the valid roll flag to indicate a successful new roll
-							bIsValidRoll = true;
-							-- fetch the object for the adjacent Plot in this direction ** 2021/07/26 this is hacky as fuck, and only works as long as n is always less than 6, which it *should* always be
-							local pAdjacentPlot = Map.GetAdjacentPlot(iX, iY, (n - 1));
-							-- fetch the (x, y) coordinates of the adjacent Plot object
-							local aX, aY = pAdjacentPlot:GetX(), pAdjacentPlot:GetY();
-							-- fetch the hostile modifier, subtype, reward modifier, rarity tier, and world view notification text for the current reward
-							local iThisHostileModifier, sThisSubType, sThisModifier, sThisTier, sBonusRewardDesc = v.HostileModifier, v.SubTypeGoodyHut, v.ModifierID, v.Tier, Locale.Lookup(v.Description);
-							-- these will ultimately contain the subtype and tier values of the last-rolled reward; they're only important for a replacement roll
-							sNewSubType, sNewTier = sThisSubType, sThisTier;
-							-- panel notification title
-							local sBonusRewardTitle = GUE.Notification.Reward.Title;
-							-- panel notification text
-							local sBonusRewardMessage = GUE.Notification.Reward.Message .. " " .. sBonusRewardDesc .. ".";
-							-- print log output if this is NOT a replacement roll for a presently-excluded reward
-							if not (iNumRewards == 1 and ((sRewardSubType == GUE.VillagerSecrets and GUE.PlayerData[iPlayerID].VillagerSecretsLevel >= GUE.MaxSecretsLevel) or (GUE.WGH_Rewards[sRewardSubType] ~= nil and iUnitID == -1))) then
-								-- info message for logging
-								local sPriInfoMsg = "The villagers also provide an additional " .. sThisTier .. " reward of " .. sThisSubType;
-								-- log output
-								print(sPriInfoMsg);
-							end
-							-- true when the rolled reward is a villager secrets reward
-							if (sThisSubType == GUE.VillagerSecrets) then 
-								-- true when this Player has received this reward fewer than the defined maximum amount of time(s)
-								if (GUE.PlayerData[iPlayerID].VillagerSecretsLevel < GUE.MaxSecretsLevel) then
-									GUE.UnlockVillagerSecrets(iPlayerID, iTurn, iEra, sThisSubType);
-								else
-									Dprint("VillagerSecretsLevel >= MaxSecretsLevel for Player " .. iPlayerID);
-								end
-							-- true when the rolled reward is a free unit
-							elseif (GUE.GrantUnitRewards[sThisSubType] ~= nil) then GUE.AddUnitToMap(iX, iY, iPlayerID, iTurn, iEra, sThisSubType);
-							-- true when the rolled reward is a unit ability reward
-							elseif (GUE.UnitAbilityRewards[sThisSubType] ~= nil) then GUE.AddAbilityToUnit(iX, iY, tUnits, GUE.UnitAbilityRewards[sThisSubType]);
-							-- true when the rolled reward is a unit experience reward
-							elseif (GUE.UnitXPRewards[sThisSubType] ~= nil) then GUE.AddXPToUnit(iX, iY, tUnits, GUE.UnitXPRewards[sThisSubType]);
-							-- true when the rolled reward is a hostile villagers "reward"; set the bonus hostiles flag
-							elseif GUE.HostileVillagers[sThisSubType] then bBonusHostiles = true;
-							-- true when the rolled reward is the 'upgrade unit' reward
-							elseif (sThisSubType == "GOODYHUT_GRANT_UPGRADE") then tUnits = GUE.UpgradeUnit(iPlayerID, iX, iY, tUnits);
-							-- true when the rolled reward is of Wondrous-type
-							elseif (GUE.WGH_Rewards[sThisSubType] ~= nil) then
-								-- true when the primary reward was earned via border expansion
-								if (iPlayerID == -1) or (iUnitID == -1) then
+				while not bIsValidRoll do 
+					-- initialize (1) the bonus reward subtype index to a dummy value, and (2) the bonus reward type index to a random value
+					local iBonusSubTypeIndex, iBonusTypeIndex = -2, TerrainBuilder.GetRandomNumber(GUE.TotalBonusRewardTypeWeight, "Bonus reward type index") + 1;
+					-- initialize primary debugging message
+					local sPriDebugMsg = "Bonus reward: Type index " .. iBonusTypeIndex;
+					-- iterate over the valid bonus reward types table
+					for k, v in pairs(GUE.ValidRewardTypes) do 
+						-- true when the random value is in the Start - End range for this reward type
+						if iBonusTypeIndex >= v.Start and iBonusTypeIndex <= v.End then 
+							-- adjust primary debugging message
+							sPriDebugMsg = sPriDebugMsg .. " (" .. v.GoodyHutType .. ")";
+							-- get a fresh random value limited to the sum of the weights of all subtypes of this type
+							iBonusSubTypeIndex = TerrainBuilder.GetRandomNumber(v.TotalSubTypeWeight, "Bonus reward subtype index") + 1;
+							-- initialize secondary debugging message
+							local sSecDebugMsg = "Subtype index " .. iBonusSubTypeIndex;
+							-- iterate over the valid bonus reward subtypes table
+							for a, b in pairs(GUE.ValidBonusRewards) do 
+								-- true when the fresh random subtype value is in the Start - End range for this reward subtype, AND this reward subtype has not been excluded
+								if b.GoodyHut == v.GoodyHutType and iBonusSubTypeIndex >= b.Start and iBonusSubTypeIndex <= b.End and not (b.SubTypeGoodyHut == GUE.VillagerSecrets and GUE.PlayerData[iPlayerID].VillagerSecretsLevel >= GUE.MaxSecretsLevel) and not (GUE.WGH_Rewards[b.SubTypeGoodyHut] ~= nil and iUnitID == -1) then 
+									-- set the valid roll flag to indicate a successful new roll
+									bIsValidRoll = true;
+									-- adjust secondary debugging message
+									sSecDebugMsg = sSecDebugMsg .. " (" .. b.SubTypeGoodyHut .. ")";
 									-- debugging output
-									Dprint("Wondrous-type Bonus reward(s) are invalid Border Expansion rewards; skipping this bonus reward");
-								-- true when the primary reward was earned via unit exploration
-								else
-									-- the Type and SubType hash values for this reward
-									local iTypeHash, iSubTypeHash = GUE.WGH_Rewards[sThisSubType].TypeHash, GUE.WGH_Rewards[sThisSubType].SubTypeHash;
-									-- debugging output
-									local pPlayer = Players[iPlayerID];
-									local pPlayerUnits = pPlayer:GetUnits();
-									local pThisUnit = pPlayerUnits:FindID(iUnitID);
-									local pThisUnitAbility = pThisUnit:GetAbility();
-									pThisUnitAbility:ChangeAbilityCount(GUE.WGH_Rewards[sThisSubType].AbilityType, 1);
-									Dprint("Wondrous-type Bonus reward " .. tostring(GUE.WGH_Rewards[sThisSubType].AbilityType) .. " successfully applied; WGH will handle the rest");
-									WGH.Sailor_Expanded_Goodies(iPlayerID, iUnitID, iTypeHash, iSubTypeHash);
+									Dprint(sPriDebugMsg .. ", " .. sSecDebugMsg);
+									-- fetch the object for the adjacent Plot in this direction ** 2021/07/26 this is hacky as fuck, and only works as long as n is always less than 6, which it *should* always be
+									local pAdjacentPlot = Map.GetAdjacentPlot(iX, iY, (n - 1));
+									-- fetch the (x, y) coordinates of the adjacent Plot object
+									local aX, aY = pAdjacentPlot:GetX(), pAdjacentPlot:GetY();
+									-- fetch the hostile modifier, subtype, reward modifier, rarity tier, and world view notification text for the current reward
+									local iThisHostileModifier, sThisType, sThisSubType, sThisModifier, sThisTier, sBonusRewardDesc = b.HostileModifier, b.GoodyHut, b.SubTypeGoodyHut, b.ModifierID, b.Tier, Locale.Lookup(b.Description);
+									-- these will ultimately contain the subtype and tier values of the last-rolled reward; they're only important for a replacement roll
+									sNewSubType, sNewTier = sThisSubType, sThisTier;
+									-- panel notification title
+									local sBonusRewardTitle = GUE.Notification.Reward.Title;
+									-- panel notification text
+									local sBonusRewardMessage = GUE.Notification.Reward.Message .. " " .. sBonusRewardDesc .. ".";
+									-- print log output if this is NOT a replacement roll for a presently-excluded reward
+									if not (iNumRewards == 1 and ((sRewardSubType == GUE.VillagerSecrets and GUE.PlayerData[iPlayerID].VillagerSecretsLevel >= GUE.MaxSecretsLevel) or (GUE.WGH_Rewards[sRewardSubType] ~= nil and iUnitID == -1))) then
+										-- info message for logging
+										local sPriInfoMsg = "The villagers also provide an additional " .. sThisTier .. " " .. sThisType .. " reward of " .. sThisSubType;
+										-- log output
+										print(sPriInfoMsg);
+									end
+									-- true when the rolled reward is a villager secrets reward
+									if (sThisSubType == GUE.VillagerSecrets) then 
+										-- true when this Player has received this reward fewer than the defined maximum amount of time(s)
+										if (GUE.PlayerData[iPlayerID].VillagerSecretsLevel < GUE.MaxSecretsLevel) then
+											GUE.UnlockVillagerSecrets(iPlayerID, iTurn, iEra, sThisSubType);
+										-- log output when false
+										else
+											Dprint("VillagerSecretsLevel >= MaxSecretsLevel for Player " .. iPlayerID);
+										end
+									-- true when the rolled reward is a free unit
+									elseif (GUE.GrantUnitRewards[sThisSubType] ~= nil) then GUE.AddUnitToMap(iX, iY, iPlayerID, iTurn, iEra, sThisSubType);
+									-- true when the rolled reward is a unit ability reward
+									elseif (GUE.UnitAbilityRewards[sThisSubType] ~= nil) then GUE.AddAbilityToUnit(iX, iY, tUnits, GUE.UnitAbilityRewards[sThisSubType]);
+									-- true when the rolled reward is a unit experience reward
+									elseif (GUE.UnitXPRewards[sThisSubType] ~= nil) then GUE.AddXPToUnit(iX, iY, tUnits, GUE.UnitXPRewards[sThisSubType]);
+									-- true when the rolled reward is a hostile villagers "reward"; set the bonus hostiles flag
+									elseif GUE.HostileVillagers[sThisSubType] then bBonusHostiles = true;
+									-- true when the rolled reward is the 'upgrade unit' reward
+									elseif (sThisSubType == "GOODYHUT_GRANT_UPGRADE") then tUnits = GUE.UpgradeUnit(iPlayerID, iX, iY, tUnits);
+									-- true when the rolled reward is of Wondrous-type
+									elseif (GUE.WGH_Rewards[sThisSubType] ~= nil) then
+										-- true when the primary reward was earned via border expansion
+										if (iPlayerID == -1) or (iUnitID == -1) then
+											-- debugging output
+											Dprint("Wondrous-type Bonus reward(s) are invalid Border Expansion rewards; skipping this bonus reward");
+										-- true when the primary reward was earned via unit exploration
+										else
+											-- the Type and SubType hash values for this reward
+											local iTypeHash, iSubTypeHash = GUE.WGH_Rewards[sThisSubType].TypeHash, GUE.WGH_Rewards[sThisSubType].SubTypeHash;
+											-- WGH setup parameters; these enable a Wondrous-type reward as a bonus reward
+											local pPlayer = Players[iPlayerID];
+											local pPlayerUnits = pPlayer:GetUnits();
+											local pThisUnit = pPlayerUnits:FindID(iUnitID);
+											local pThisUnitAbility = pThisUnit:GetAbility();
+											-- apply this ability to trigger a Wondrous-type bonus reward
+											pThisUnitAbility:ChangeAbilityCount(GUE.WGH_Rewards[sThisSubType].AbilityType, 1);
+											-- debugging output
+											Dprint("Wondrous-type Bonus reward " .. tostring(GUE.WGH_Rewards[sThisSubType].AbilityType) .. " successfully applied; WGH will handle the rest");
+											-- call WGH to handle this bonus reward; as far as it's concerned, this is the reward from a popped goody hut
+											WGH.Sailor_Expanded_Goodies(iPlayerID, iUnitID, iTypeHash, iSubTypeHash);
+										end
+									-- true for any other rolled reward; attach its modifier to (re) apply the reward
+									else GUE.AddModifierToPlayer(iPlayerID, sThisModifier, false);
+									end
+									-- the cumulative hostile modifier value of all received reward(s), including the first non-bonus reward
+									iSumModifiers = iSumModifiers + iThisHostileModifier;
+									-- spawn hostile villagers here if the bonus hostiles flag was set above; there will be no further bonus rewards after this one
+									if bBonusHostiles then GUE.CreateHostileVillagers(iX, iY, iPlayerID, iTurn, iEra, sThisSubType); end
+									-- display world view notification
+									Game.AddWorldViewText(iPlayerID, sBonusRewardDesc, iX, iY, 0);
+									-- send an ingame notification for each received bonus reward
+									NotificationManager.SendNotification(iPlayerID, GUE.Notification.Reward.TypeHash, sBonusRewardTitle, sBonusRewardMessage, aX, aY);
 								end
-							-- true for any other rolled reward; attach its modifier to (re) apply the reward
-							else GUE.AddModifierToPlayer(iPlayerID, sThisModifier, false);
 							end
-							-- the cumulative hostile modifier value of all received reward(s), including the first non-bonus reward
-							iSumModifiers = iSumModifiers + iThisHostileModifier;
-							-- spawn hostile villagers here if the bonus hostiles flag was set above; there will be no further bonus rewards after this one
-							if bBonusHostiles then GUE.CreateHostileVillagers(iX, iY, iPlayerID, iTurn, iEra, sThisSubType); end
-							-- display world view notification
-							Game.AddWorldViewText(iPlayerID, sBonusRewardDesc, iX, iY, 0);
-							-- send an ingame notification for each received bonus reward
-							NotificationManager.SendNotification(iPlayerID, GUE.Notification.Reward.TypeHash, sBonusRewardTitle, sBonusRewardMessage, aX, aY);
+							-- increment the rolls tracker and try again if the valid roll flag remains unset
+							iNumRolls = iNumRolls + 1;
+							-- infinite loop prevention; this fires when the current value of iNumRolls exceeds the amount of available goody hut rewards
+							if iNumRolls > GUE.NumGoodyHutRewards then 
+								-- debugging output
+								Dprint("Maximum number of attempts reached; resorting to fallback reward . . .");
+								-- divide the current value of iBonusIndex by the count of available fallback rewards; add 1 to the remainder and store the result
+								local iFallbackIndex = (iBonusIndex % #GUE.FallbackRewards) + 1;
+								-- apply the fallback reward represented by the index value obtained above
+								GUE.AddModifierToPlayer(iPlayerID, GUE.FallbackRewards[iFallbackIndex], false);
+								-- set the valid roll flag to indicate a successful new roll
+								bIsValidRoll = true;
+							end
 						end
-					end
-					-- increment the rolls tracker and try again if the valid roll flag remains unset
-					iNumRolls = iNumRolls + 1;
-					-- infinite loop prevention; this fires when the current value of iNumRolls exceeds the amount of available goody hut rewards
-					if iNumRolls > GUE.NumGoodyHutRewards then 
-						-- debugging output
-						Dprint("Maximum number of attempts reached; resorting to fallback reward . . .");
-						-- divide the current value of iBonusIndex by the count of available fallback rewards; add 1 to the remainder and store the result
-						local iFallbackIndex = (iBonusIndex % #GUE.FallbackRewards) + 1;
-						-- apply the fallback reward represented by the index value obtained above
-						GUE.AddModifierToPlayer(iPlayerID, GUE.FallbackRewards[iFallbackIndex], false);
-						-- set the valid roll flag to indicate a successful new roll
-						bIsValidRoll = true;
 					end
 				end
 				-- debugging log output
@@ -1089,6 +1140,8 @@ function GUE.GetNewRewards( iNumRewards, iPlayerID, iUnitID, iX, iY, sRewardSubT
 					-- bonus reward(s)
 					Dprint("Found reward " .. n .. " of " .. iNumRewards .. " in " .. iNumRolls .. " roll(s); Cumulative Bonus Hostile modifier: " .. iSumModifiers);
 				end
+				-- 
+				if bBonusHostiles then Dprint("Hostile villagers received as 'reward'; ignoring any further potential reward(s) from this Goody Hut"); end
 			end
 		end
 	end
@@ -1437,10 +1490,15 @@ function Initialize()
 	print("Configuring bonus reward(s) . . .");
 	-- log valid reward(s) if applicable
 	if not GUE.NoGoodyHuts and GUE.BonusRewardCount > 0 then
-		for k, v in pairs(GUE.ValidRewards) do
-			Dprint("+ [" .. v.Start .. " - " .. v.End .. "]: Subtype " .. v.SubTypeGoodyHut .. ", ModifierID " .. v.ModifierID .. ", Weight " .. v.Weight);
+		for k, v in pairs(GUE.ValidRewardTypes) do 
+			Dprint("+ [" .. v.Start .. " - " .. v.End .. "]: Type " .. v.GoodyHutType .. ", Weight " .. v.Weight .. ", Combined Subtype Weight " .. v.TotalSubTypeWeight);
+			for a, b in pairs(GUE.ValidBonusRewards) do 
+				if b.GoodyHut == v.GoodyHutType then 
+					Dprint("+ + [" .. b.Start .. " - " .. b.End .. "]: Subtype " .. b.SubTypeGoodyHut .. ", ModifierID " .. b.ModifierID .. ", Weight " .. b.Weight);
+				end
+			end
 		end
-		print("There are " .. GUE.BonusRewardCount .. " eligible reward(s) in the bonus rewards table; Cumulative Weight/RNG Seed Value: " .. GUE.TotalBonusRewardWeight);
+		print("There are " .. GUE.BonusRewardCount .. " eligible reward(s) in the bonus rewards table; Cumulative Weight/RNG Seed Value: " .. GUE.TotalBonusRewardTypeWeight);
 	else
 		print("There are 'zero' eligible reward(s) in the bonus rewards table, or the 'No Tribal Villages' setup option is enabled; skipping . . .");
 	end

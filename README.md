@@ -88,7 +88,7 @@ Vital alterations:
 
 Minimum-turn requirements are set to 0 for all __DEFINED__ and __ENABLED__ rewards, meaning that all such rewards will be available from turn 1 on.
 
-Units provided by any Military type reward will be Era-specific and will spawn in a plot near the Goody Hut that provided the reward. Units provided by any other reward will be the unit indicated by the reward and will spawn in the nearest city center.
+Units provided by any of the above rewards will spawn in a plot near the Goody Hut that provided the reward. Additionally, with the exception of the free Military Engineer, units provided by any Military-type reward will be Era-appropriate.
 
 Most other new and existing rewards above are self-explanatory. The various Hostile Villagers and Villager Secrets rewards are described in detail further below. Refer to the #Known Shortcomings, Limitations, and Bugs section below for additional caveats.
 
@@ -121,14 +121,14 @@ Bonus Rewards, if enabled, can only be received from a Goody Hut. There are two 
 ![Equalize Rewards](/IMAGES/Equalize_Tribal_Village_Rewards.png)
 
 Provides a checkbox option which, when enabled, assigns every enabled reward in a category an equal share of that category's Weight. This results in most enabled rewards having a roughly equal chance of being selected. Final actual chances will vary with the number of enabled rewards and/or the selected ruleset; with Standard rules and all available rewards enabled, these chances are as follows:
-- ~ 7.69% villager secrets type reward (1 reward in type)
-- ~ 2.56% specific (anti) cavalry type or military type reward (3 rewards in each parent type: ~ 7.69% for each parent type)
-- ~ 1.92% any other specific reward (4 rewards in each parent type: ~ 7.69% for each parent type)
+- ~ 9.09% villager secrets type reward (1 reward in type)
+- ~ 1.01% military-type unit reward (9 rewards in this parent type: ~ 9.09% for this parent type)
+- ~ 2.27% any other specific reward (4 rewards in each parent type: ~ 9.09% for each parent type)
 
-With Rise and Fall rules and all available rewards enabled, the above chances adjust to 7.14%, 2.38%, and 1.79%, respectively.
+With Rise and Fall rules and all available rewards enabled, the above chances adjust to 8.33%, 0.93%, and 2.08%, respectively.
 
-With Gathering Storm rules and all available rewards enabled, the above chances adjust to 5.89%, 1.96%, and 1.47%, respectively. Additionally, the following chances exist:
-- ~ 5.89% meteor strike type reward (1 reward in type)
+With Gathering Storm rules and all available rewards enabled, the above chances adjust to 6.67%, 0.74%, and 1.67%, respectively. Additionally, the following chances exist:
+- ~ 6.67% meteor strike type reward (1 reward in type)
 
 Fewer enabled rewards in a category will result in a greater chance of each enabled reward being chosen if its parent category is chosen. Fewer enabled categories will result in a greater chance of each enabled category being chosen. Ultimately, while the actual values may vary somewhat, they will be fairly close together as demonstrated above.
 
@@ -205,12 +205,7 @@ Unit Ability rewards apply to any valid unit(s) in formation with the popping un
 
 Unit Promotion rewards apply to any valid unit(s) in formation with the popping unit, as well as the popping unit. These rewards can be applied an unlimited number of times to any specific unit; however, built-in limitations prevent a specific unit from earning more experience than is needed for its next promotion, so any experience earned beyond this amount by any unit will be lost.
 
-The Upgrade Unit reward applies to any valid unit(s) in formation with the popping unit, as well as the popping unit. Upgraded unit(s) retain any promotions and/or abilities attached to the old unit(s); however, they lose any remaining movement for the current turn, as well as any experience accrued towards their next promotion. Currently, specific units' actual experience totals cannot directly be determined; therefore, to balance any potential lost experience, any upgraded unit will be granted enough experience for its next promotion. Since this reward ultimately yields at least one "new" unit AND one new promotion, it is a double-dose.
-
-![Upgrayedd](/IMAGES/Upgrayedd.jpg)
-
-It is an Upgrayedd.
-- Kids, ask your parents.
+The Upgrade Unit reward applies to any valid unit(s) in formation with the popping unit, as well as the popping unit. Upgraded unit(s) retain any promotions and/or abilities attached to the old unit(s); however, they lose any remaining movement for the current turn, as well as any experience accrued towards their next promotion. Currently, specific units' actual experience totals cannot directly be determined; therefore, to balance any potential lost experience, any upgraded unit will be granted a random amount of experience towards its next promotion.
 
 Great effort has been made to ensure unit rewards only fire when a valid unit has been identified, but issues may still arise when certain rewards are granted via border expansion. Please open a new pull request to address any such issues.
 
