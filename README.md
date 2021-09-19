@@ -14,9 +14,9 @@ In addition, the number of available ingame Goody Hut rewards has greatly increa
 
 Ruleset | Available Rewards (Types) | Rewards (Types) w/o EGHV
 ------- | ------- | -------
-Standard | 47 (13) | 18 (6)
-Rise and Fall | 51 (14) | 18 (6)
-Gathering Storm | 60 (17) | 23 (8)
+Standard | 46 (11) | 18 (6)
+Rise and Fall | 50 (12) | 18 (6)
+Gathering Storm | 59 (15) | 23 (8)
 
 Many of these rewards are implemented entirely via Lua scripting, because the built-in system is sorely lacking in many ways.
 
