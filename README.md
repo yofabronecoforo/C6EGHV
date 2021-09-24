@@ -36,10 +36,14 @@ Please report any conspicuous absent text, or any instances of localization plac
 
 EGHV modifies existing Goody Hut rewards, and provides several new rewards in several new categories.
 
+Minimum-turn requirements have been set to 0 for all __DEFINED__ and __ENABLED__ rewards. This means that all such rewards will be available from turn 1 on.
+
+Please refer to the #Known Shortcomings, Limitations, and Bugs section below for additional caveats.
+
 ### Standard
 ![Standard Rewards](/IMAGES/Standard.gif)
 
-These built-in rewards are available for all rulesets. Existing and new rewards have been rebalanced as follows:
+These rewards are available for all rulesets. Existing and new rewards have been rebalanced as follows:
 
 Goody Hut Type (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
 ------ | ------ | ------ | ------ | ------
@@ -62,10 +66,12 @@ Recon | Melee | Ranged | Anti-Cavalry | Heavy Cavalry | Light Cavalry | Support 
 ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------
 34% | 12% | 12% | 12% | 9% | 9% | 5% | 5% | 2%
 
+- Any unit provided by a Military-type reward will now spawn in a plot near the Goody Hut that provided the reward. Additionally, with the exception of the free Military Engineer, any unit provided by a Military-type reward will now be Era-appropriate.
+
 ### New Standard Types
 ![EGHV Rewards](/IMAGES/EGHV.gif)
 
-The following new rewards are provided by EGHV for all rulesets:
+These rewards are provided by EGHV for all rulesets:
 
 Goody Hut (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
 ------ | ------ | ------ | ------ | ------
@@ -76,23 +82,23 @@ Promotions [4] | 5 experience | 10 experience | 15 experience | upgrade and/or e
 Secrets | villager secrets (100)
 
 4. Rewards of this type apply to any valid unit(s) when obtained via exploration; they should be replaced by EGHV when obtained via border expansion
-5. When the Gathering Storm expansion is present and in use, this EGHV reward type supercedes the "free envoy" Diplomacy-type reward, which is disabled
+5. When the Gathering Storm expansion is present and in use, new rewards provided by this EGHV type supercede the "free envoy" Diplomacy-type reward, which is disabled
 
 ### New Rise and Fall Types
 ![EGHV Rewards](/IMAGES/Expansion1.gif)
 
-The following new rewards are provided by EGHV for Rise and Fall and later ruleset(s):
+These rewards are provided by EGHV for Rise and Fall and later ruleset(s):
 
 Goody Hut (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
 ------ | ------ | ------ | ------ | ------
 Governors [6] | 1 governor title | 2 governor titles | 3 governor titles | 4 governor titles
 
-6. When the Gathering Storm expansion is present and in use, this EGHV reward type supercedes the "free governor title" Diplomacy-type reward, which is disabled
+6. When the Gathering Storm expansion is present and in use, new rewards provided by this EGHV type supercede the "free governor title" Diplomacy-type reward, which is disabled
 
 ### New Gathering Storm Types
 ![EGHV Rewards](/IMAGES/Expansion2.gif)
 
-The following new rewards are provided by EGHV for Gathering Storm and later ruleset(s):
+These rewards are provided by EGHV for Gathering Storm and later ruleset(s):
 
 Goody Hut (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
 ------ | ------ | ------ | ------ | ------
@@ -100,14 +106,8 @@ Diplomacy [7] | +10 diplomatic favor | +20 diplomatic favor | +30 diplomatic fav
 Meteor | meteor-strike site (100)
 Resources [8] | +10 strategic resources | +20 strategic resources | +30 strategic resources | +50 strategic resources
 
-7. This EGHV reward type supercedes the "free diplomatic favor" Diplomacy-type reward, which is disabled
-8. This EGHV reward type supercedes the "free strategic resources" Military-type reward, which is disabled
-
-Minimum-turn requirements are set to 0 for all __DEFINED__ and __ENABLED__ rewards, meaning that all such rewards will be available from turn 1 on.
-
-Units provided by any of the above rewards will now spawn in a plot near the Goody Hut that provided the reward. Additionally, with the exception of the free Military Engineer, units provided by any Military-type reward will now be Era-appropriate.
-
-Most other new and existing rewards above are self-explanatory. The various Hostile Villagers and Villager Secrets rewards are described in detail further below. Refer to the #Known Shortcomings, Limitations, and Bugs section below for additional caveats.
+7. New rewards provided by this EGHV type supercede the "free diplomatic favor" Diplomacy-type reward, which is disabled
+8. New rewards provided by this EGHV type supercede the "free strategic resources" Military-type reward, which is disabled
 
 ## Goody Hut Reward Picker
 ![Goody Hut Picker](/IMAGES/Picker_Detail.gif)
