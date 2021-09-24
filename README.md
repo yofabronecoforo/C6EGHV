@@ -38,8 +38,6 @@ EGHV modifies existing Goody Hut rewards, and provides several new rewards in se
 
 Minimum-turn requirements have been set to 0 for all __DEFINED__ and __ENABLED__ rewards. This means that all such rewards will be available from turn 1 on.
 
-Please refer to the #Known Shortcomings, Limitations, and Bugs section below for additional caveats.
-
 ### Standard
 ![Standard Rewards](/IMAGES/Standard.gif)
 
@@ -47,15 +45,16 @@ These rewards are available for all rulesets. Existing and new rewards have been
 
 Goody Hut Type (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
 ------ | ------ | ------ | ------ | ------
-Culture | 1 civic boost | 2 civic boosts | 1 civic [1] | 2 civics [1]
-Faith | +20 faith | +60 faith | +100 faith | +1 relic [2]
+Culture | 1 civic boost | 2 civic boosts | 1 civic [1] | 2 civics [1] [2]
+Faith | +20 faith | +60 faith | +100 faith | +1 relic [3]
 Gold | +40 gold | +80 gold | +120 gold | +1 trade route [1]
 Science | 1 tech boost | 2 tech boosts | 1 tech | 2 techs [1]
-Survivors | +1 new population | 1 Builder | 1 Trader | 1 Settler [3]
+Survivors | +1 new population | 1 Builder | 1 Trader | 1 Settler [4]
 
 1. This reward is provided by EGHV
-2. The "one free relic" Culture-type reward is now a Faith-type reward
-3. The defined-but-disabled "one free settler" Survivors-type reward is now enabled
+2. Receiving the "2 civics" reward prior to unlocking the Code of Laws civic results in only receiving 1 free civic, which will be Code of Laws. As this is only really a problem during the extremely-early game (turns 1-20) prior to unlocking Code of Laws, it is likely to remain unchanged.
+3. The "one relic" Culture-type reward is now a Faith-type reward
+4. The defined-but-disabled "one settler" Survivors-type reward is now enabled
 
 ### Military-Type
 ![Military Rewards](/IMAGES/Military-type.gif)
@@ -75,14 +74,20 @@ These rewards are provided by EGHV for all rulesets:
 
 Goody Hut (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
 ------ | ------ | ------ | ------ | ------
-Abilities [4] | +1 sight | +20 healing per turn | +1 movement | +10 combat strength
-Envoys [5] | 1 envoy | 2 envoys | 3 envoys | 4 envoys
+Abilities [5] [7] | +1 sight | +20 healing per turn | +1 movement | +10 combat strength
+Envoys [6] | 1 envoy | 2 envoys | 3 envoys | 4 envoys
 Hostiles | low hostility | medium hostility | high hostility | maximum hostility
-Promotions [4] | 5 experience | 10 experience | 15 experience | upgrade and/or experience for next promotion
+Promotions [5] [8] | 5 experience | 10 experience | 15 experience | upgrade and/or experience for next promotion [9]
 Secrets | villager secrets (100)
 
-4. Rewards of this type apply to any valid unit(s) when obtained via exploration; they should be replaced by EGHV when obtained via border expansion
-5. When the Gathering Storm expansion is present and in use, new rewards provided by this EGHV type supercede the "free envoy" Diplomacy-type reward, which is disabled
+5. Rewards of this type apply to any valid unit(s) when obtained via exploration; they should be replaced by EGHV when obtained via border expansion
+6. When the Gathering Storm expansion is present and in use, new rewards provided by this EGHV type supercede the "free envoy" Diplomacy-type reward, which is disabled
+7. Unit Ability rewards apply to any valid unit(s) in formation with the popping unit, as well as the popping unit. These rewards apply to each valid unit up to one time for the lifetime of that unit. For example, a Builder, Missionary, or Great Person can and will receive increased movement once, but not additional combat strength. Currently, the end result of this is that nothing will happen when an Ability reward is received and all valid unit(s) have already received the ability.
+8. Unit Promotion rewards apply to any valid unit(s) in formation with the popping unit, as well as the popping unit. These rewards can be applied an unlimited number of times to any specific unit; however, built-in limitations prevent a specific unit from earning more experience than is needed for its next promotion, so any experience earned beyond this amount by any unit will be lost.
+9. The Upgrade Unit reward provides one or more of the following to any valid unit(s) in formation with the popping unit, as well as the popping unit:
+  - Any unit with a valid promotion class, that has NOT yet earned any promotions, will receive a free upgrade IF it also has a valid upgrade path. Upgraded unit(s) retain any abilities attached to the old unit(s); however, they lose any remaining movement for the current turn.
+  - Any unit with a valid promotion class, including any unit upgraded by (1) above, will receive enough experience for its next promotion.
+  - Units without a valid promotion class or upgrade path will be skipped by this reward; currently, this results in nothing happening.
 
 ### New Rise and Fall Types
 ![EGHV Rewards](/IMAGES/Expansion1.gif)
@@ -91,9 +96,9 @@ These rewards are provided by EGHV for Rise and Fall and later ruleset(s):
 
 Goody Hut (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
 ------ | ------ | ------ | ------ | ------
-Governors [6] | 1 governor title | 2 governor titles | 3 governor titles | 4 governor titles
+Governors [10] | 1 governor title | 2 governor titles | 3 governor titles | 4 governor titles
 
-6. When the Gathering Storm expansion is present and in use, new rewards provided by this EGHV type supercede the "free governor title" Diplomacy-type reward, which is disabled
+10. When the Gathering Storm expansion is present and in use, new rewards provided by this EGHV type supercede the "free governor title" Diplomacy-type reward, which is disabled
 
 ### New Gathering Storm Types
 ![EGHV Rewards](/IMAGES/Expansion2.gif)
@@ -102,12 +107,12 @@ These rewards are provided by EGHV for Gathering Storm and later ruleset(s):
 
 Goody Hut (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
 ------ | ------ | ------ | ------ | ------
-Diplomacy [7] | +10 diplomatic favor | +20 diplomatic favor | +30 diplomatic favor | +50 diplomatic favor
+Diplomacy [11] | +10 diplomatic favor | +20 diplomatic favor | +30 diplomatic favor | +50 diplomatic favor
 Meteor | meteor-strike site (100)
-Resources [8] | +10 strategic resources | +20 strategic resources | +30 strategic resources | +50 strategic resources
+Resources [12] | +10 strategic resources | +20 strategic resources | +30 strategic resources | +50 strategic resources
 
-7. New rewards provided by this EGHV type supercede the "free diplomatic favor" Diplomacy-type reward, which is disabled
-8. New rewards provided by this EGHV type supercede the "free strategic resources" Military-type reward, which is disabled
+11. New rewards provided by this EGHV type supercede the "free diplomatic favor" Diplomacy-type reward, which is disabled
+12. New rewards provided by this EGHV type supercede the "free strategic resources" Military-type reward, which is disabled
 
 ## Goody Hut Reward Picker
 ![Goody Hut Picker](/IMAGES/Picker_Detail.gif)
@@ -228,28 +233,6 @@ Enabling 'No Tribal Villages' will override any selections made with the Goody H
 
 Provides a checkbox option that, when enabled, will produce __EXTREMELY__ verbose logging output for debugging purposes. This is disabled by default, and should remain disabled unless absolutely necessary.
 - Again, logging output will be __EXTREMELY__ verbose when this option is enabled; unless this verbosity is required, it is recommended that this option remain disabled.
-
-# Known Shortcomings, Limitations, and Bugs
-## Two Civics
-Receiving the "2 free civics" reward prior to unlocking the Code of Laws civic results in only receiving 1 free civic, which will be Code of Laws. As this is only really a problem during the extremely-early game (turns 1-20) prior to manual unlocking of Code of Laws, and the potential fix is cumbersome and ultimately unrewarding to implement, it is likely to remain unchanged.
-
-## Villager Secrets
-The Villager Secrets reward can only be awarded to a Player a certain number of times before becoming useless. When this reward is received, and this limit has been reached for the Player, then unless this reward is the only enabled reward, a new reward will be randomly seleted instead. If this reward IS the only enabled reward, then instead nothing will happen.
-
-## Abilities-Type
-Unit Ability rewards apply to any valid unit(s) in formation with the popping unit, as well as the popping unit. These rewards apply to each valid unit up to one time for the lifetime of that unit. For example, a Builder, Missionary, or Great Person can and will receive increased movement once, but not additional combat strength. Currently, the end result of this is that nothing will happen when an Ability reward is received and all valid unit(s) have already received the ability.
-
-## Promotions-Type
-Unit Promotion rewards apply to any valid unit(s) in formation with the popping unit, as well as the popping unit. These rewards can be applied an unlimited number of times to any specific unit; however, built-in limitations prevent a specific unit from earning more experience than is needed for its next promotion, so any experience earned beyond this amount by any unit will be lost.
-
-## Unit Upgrade and/or Bonus Experience
-The Upgrade Unit reward does at least one, and possibly both, of the following to any valid unit(s) in formation with the popping unit, as well as the popping unit:
-1. Any unit with a valid promotion class, that has NOT yet earned any promotions, will receive a free upgrade. Upgraded unit(s) retain any abilities attached to the old unit(s); however, they lose any remaining movement for the current turn.
-2. Any unit with a valid promotion class, including any unit upgraded by (1) above, will receive enough experience for its next promotion.
-
-Units without a valid promotion class will be skipped by this reward; currently, this results in nothing happening.
-
-Great effort has been made to ensure unit ability and promotion rewards only fire when a valid unit has been identified, but issues may still arise when certain rewards are granted via border expansion. Please open a new pull request to address any such issues.
 
 # Compatibility
 ## SP / MP
