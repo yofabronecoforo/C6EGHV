@@ -214,17 +214,17 @@ If Hostile Villagers After a Reward are enabled, this reward will tend to provok
 
 ## Additional Advanced Setup
 ### No Barbarians
-![No Barbarians](/IMAGES/No_Barbarians.gif)
+![No Barbarians](/IMAGES/No_Barbarians.png)
 
 Enabling 'No Barbarians' will override any hostiles-related options and/or selections above, and will also remove any chance of encountering hostile villagers, whether as or after a reward. The tooltip for this option has been updated to reflect this.
 
 ### No Tribal Villages
-![No Tribal Villages](/IMAGES/No_Tribal_Villages.gif)
+![No Tribal Villages](/IMAGES/No_Tribal_Villages.png)
 
 Enabling 'No Tribal Villages' will override any selections made with the Goody Hut picker. It will also override any other Goody-Hut-related values, including hostiles-related options and/or selections, but will not otherwise affect Barbarians. The tooltip for this option has been updated to reflect this.
 
 ### Debugging
-![EGHV Debugging](/IMAGES/EGHV_Debugging.gif)
+![EGHV Debugging](/IMAGES/EGHV_Debugging.png)
 
 Provides a checkbox option that, when enabled, will produce __EXTREMELY__ verbose logging output for debugging purposes. This is disabled by default, and should remain disabled unless absolutely necessary.
 - Again, logging output will be __EXTREMELY__ verbose when this option is enabled; unless this verbosity is required, it is recommended that this option remain disabled.
