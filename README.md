@@ -251,13 +251,6 @@ Units without a valid promotion class will be skipped by this reward; currently,
 
 Great effort has been made to ensure unit ability and promotion rewards only fire when a valid unit has been identified, but issues may still arise when certain rewards are granted via border expansion. Please open a new pull request to address any such issues.
 
-## Wondrous Goody Huts
-Errors relating to the Wondrous Goody Huts community project may appear in the Database and/or Lua log files when
-- said project is NOT present, or 
-- said project IS present, but it is disabled 
-
-Any such errors can likely be safely ignored.
-
 # Compatibility
 ## SP / MP
 Compatible with Single- and Multi-Player game setups.
@@ -294,11 +287,15 @@ To prevent breakage, when any of the above mod(s) are enabled, EGHV will be disa
 ### Compatible Mods
 Should work with other mods that add new Goody Hut (sub)types, with the following caveats:
 - Any rewards which EGHV does NOT recognize will **NOT** appear in the Goody Hut picker; these must be configured and recognized to do so. If you would like any Goody Huts provided by a particular community project to be reflected within the picker when said project is enabled, please open an issue with the project details, and it will be considered.
-- Note that the above means EGHV has no interaction with unrecognized Goody Hut rewards beyond potentially spawning hostile villagers after receiving such a reward.
-- New Goody Hut rewards provided by recognized content will appear in the Goody Hut picker when enabled, and disabling any of these rewards via the picker will eliminate their chances of appearing ingame. Currently, in addition to official content and C6GUE components, the following community project(s) provide content recognized by EGHV:
-  - Wondrous Goody Huts
+  - Note that the above means EGHV has no interaction with unrecognized Goody Hut rewards beyond potentially spawning hostile villagers after receiving such a reward.
 
 See the Conflicts section below for exceptions.
+
+New Goody Hut rewards provided by recognized content will appear in the Goody Hut picker when such content is enabled. Such content can then be manipulated via the picker and any other configuration settings EGHV provides. All such content should function normally as the Primary reward, but may require additional configuration to be provided as a Bonus Reward.
+
+#### Wondrous Goody Huts
+This community project is explicitly recognized by EGHV. Primary rewards provided by it are handled directly by it. Bonus Rewards provided by it are not currently supported.
+- (placeholder)
 
 # Installation
 ## Automatic
