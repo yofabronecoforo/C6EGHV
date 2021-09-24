@@ -43,14 +43,15 @@ These built-in rewards are available for all rulesets. New rewards in these cate
 
 Goody Hut Type (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
 ------ | ------ | ------ | ------ | ------
-Culture | 1 civic boost | 2 civic boosts | 1 civic [ * ] | 2 civics [ * ]
-Faith | +20 faith | +60 faith | +100 faith | +1 relic
-Gold | +40 gold | +80 gold | +120 gold | +1 trade route [ * ]
-Science | 1 tech boost | 2 tech boosts | 1 tech | 2 techs [ * ]
-Survivors | +1 new population | 1 Builder | 1 Trader | 1 Settler
+Culture | 1 civic boost | 2 civic boosts | 1 civic [1] | 2 civics [1]
+Faith | +20 faith | +60 faith | +100 faith | +1 relic [2]
+Gold | +40 gold | +80 gold | +120 gold | +1 trade route [1]
+Science | 1 tech boost | 2 tech boosts | 1 tech | 2 techs [1]
+Survivors | +1 new population | 1 Builder | 1 Trader | 1 Settler [3]
 
-- The "one free relic" Culture-type reward is now a Faith-type reward
-- The defined-but-disabled "one free settler" Survivors-type reward is now enabled
+1. This reward is provided by EGHV
+2. The "one free relic" Culture-type reward is now a Faith-type reward
+3. The defined-but-disabled "one free settler" Survivors-type reward is now enabled
 
 ### Military-Type
 ![Military Rewards](/IMAGES/Military-type.gif)
