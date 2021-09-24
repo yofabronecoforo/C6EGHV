@@ -238,7 +238,11 @@ Unit Ability rewards apply to any valid unit(s) in formation with the popping un
 
 Unit Promotion rewards apply to any valid unit(s) in formation with the popping unit, as well as the popping unit. These rewards can be applied an unlimited number of times to any specific unit; however, built-in limitations prevent a specific unit from earning more experience than is needed for its next promotion, so any experience earned beyond this amount by any unit will be lost.
 
-The Upgrade Unit reward applies to any valid unit(s) in formation with the popping unit, as well as the popping unit. Upgraded unit(s) retain any promotions and/or abilities attached to the old unit(s); however, they lose any remaining movement for the current turn, as well as any experience accrued towards their next promotion. Currently, specific units' actual experience totals cannot directly be determined; therefore, to balance any potential lost experience, any upgraded unit will be granted a random amount of experience towards its next promotion.
+The Upgrade Unit reward does at least one, and possibly both, of the following to any valid unit(s) in formation with the popping unit, as well as the popping unit:
+1. Any unit with a valid promotion class, that has NOT yet earned any promotions, will receive a free upgrade. Upgraded unit(s) retain any abilities attached to the old unit(s); however, they lose any remaining movement for the current turn.
+2. Any unit with a valid promotion class, including any unit upgraded by (1) above, will receive enough experience for its next promotion.
+
+Units without a valid promotion class will be skipped by this reward; currently, this results in nothing happening.
 
 Great effort has been made to ensure unit rewards only fire when a valid unit has been identified, but issues may still arise when certain rewards are granted via border expansion. Please open a new pull request to address any such issues.
 
@@ -246,7 +250,7 @@ Errors relating to the Wondrous Goody Huts community project may appear in the D
 - said project is NOT present, or 
 - said project IS present, but it is disabled 
 
-Any such errors can be safely ignored.
+Any such errors can likely be safely ignored.
 
 # Compatibility
 ## SP / MP
