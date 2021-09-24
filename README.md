@@ -130,7 +130,9 @@ EGHV provides a slider for decreasing or increasing the relative amount of Goody
 ## Bonus Rewards
 ![Bonus Rewards](/IMAGES/Bonus_Rewards.png)
 
-EGHV provides a dropdown menu for selecting the total number of potential reward(s) to receive from each Goody Hut. At the default setting of 1, nothing changes. With any of the "up to X" settings, X total rewards will be received from each Goody Hut, with any additional rewards beyond the first randomly selected from the pool of enabled rewards using a custom method. In certain circumstances, fewer than X rewards will be received; these include:
+EGHV provides a dropdown menu for selecting the total number of potential reward(s) to receive from each Goody Hut. At the default setting of 1, nothing changes. With any of the "up to X" settings, up to X total rewards will be received from each Goody Hut, with any additional rewards beyond the first randomly selected from the pool of enabled rewards using a custom method.
+
+In certain circumstances, fewer than X rewards will be received; these include:
 - When any Hostile Villagers reward is selected as a reward, whether it's the first or a bonus reward. When this happens, it will be the last reward granted by this Goody Hut; if it is the first reward, it will be the only reward.
 
 Any received bonus reward will generate an ingame panel notification with details about the received reward. These notifications use one of the built-in "user-defined" types, so the icon used is subject to frequent change, as the game itself cannot seem to consistently use the same icon.
@@ -163,32 +165,32 @@ Whenever a reward is earned from a Goody Hut, there is a chance that some of the
 - The selected difficulty level (Base chance increases with higher settings).
 - The method used to pop the hut (Increased chance with a reward received via border expansion or by a unit susceptible to instant removal like capture, condemnation, plunder, or return to another tile; decreased chance with most non-recon military units).
   - Yes, decreased chance with most military units. The villagers may be primitive, but they're smart enough to not really want to dick around with units geared for warfare.
-- The rarity tier of any received reward(s) (Chance increases with more valuable rewards. If bonus rewards are enabled, the cumulative value of all received rewards will be used; this can either have very little effect or it can seriously wreck your day, depending on how many rewards were received and how rare each was).
+- The rarity tier of any received reward(s) (Chance increases with more valuable rewards. If Bonus Rewards are enabled, the cumulative value of all received rewards will be used; this can either have very little effect or it can seriously wreck your day, depending on how many rewards were received and how rare each was).
 - The current game era (Increased chance with each successive era).
 
 On the default difficulty setting, in the Ancient era, with one reward, there should be a 5-16% chance of encountering hostile villagers, depending on the received reward and the method in which it was received. This chance scales with each successive era, so that in the Future era, it will be 45-144%. On the lowest difficulty setting, the chance should start at 2-7% in the Ancient era, and scale from there. On the highest difficulty setting, the chancce should start at 9-28%, and scale from there. If bonus rewards are enabled, these chances increase slightly based upon the rarity of each reward received beyond the first. Thus, on higher difficulties, late enough in the game and with sufficient quantity and/or quality of rewards, encountering hostile villagers is no longer a chance, but instead becomes a guarantee.
 
 If the villagers are hostile, they will retaliate by organizing into one barbarian melee unit in a nearby tile. If they are very hostile, more than one unit will appear, and some will be ranged. If they are downright pissed off, they will organize into a new barbarian camp near the site of their former village, and they will spawn a handful of units. If Horses are located near the site of the former village, there is a chance that any unit(s) that appear may instead be mounted; this chance increases with each additional nearby source of Horses. Villager hostility level greatly fluctuates based on the same factors as the chance to be hostile above, and like above, eventually multiple units, and even a camp, will move from being a chance to a guarantee.
 
-### Hostiles As Reward
-![Hostiles As Reward](/IMAGES/Hostile_Villagers.gif)
-
-What's that? "Not masochistic enough!" you say? Then how about a new reward type that's nothing but hostile villagers "rewards?" They won't even lure you in with the carrot before reaching for the stick, they just go straight for the stick, and the stick is pointy. When enabled, these rewards can be selected by the rewards system like any other reward, and have pre-determined villager hostility values, as shown in the table above. Hostility increases as rarity does; in fact, one of these rewards is selected internally after calculating villager hostility to place any hostiles that appear after any other reward.
-
-Any hostile villagers that appear as or after a reward will generate an ingame panel notification with details.
-
-To compensate for the increased numbers of barbarian units that are likely to be present now, the experience and level caps from fighting such units have been increased. You still aren't going to get a fully-promoted unit from fighting barbarians, but at least you'll be able to get more than a single promotion.
-
-### Hostiles Configuration
-Hostile Villagers AS a "reward" are configurable via the picker like any other available reward.
-
-Hostile Villagers AFTER any other reward are configurable via a new dropdown option in Advanced Setup. Available choices are:
+Hostile Villagers AFTER any other reward are configurable via a new dropdown option in Advanced Setup. Available settings are:
 - Never (hostile villagers will NOT appear)
 - Maybe ( * this is the default option; a chance for hostile villagers to appear, as described above)
 - Always (hostile villagers will ALWAYS appear; their hostility level will be as described above)
 - Always + Increased Hostility (hostile villagers will ALWAYS appear, and their hostility level will be hyper-elevated)
 
 Setting this option to 'Never', while also disabling all 'Hostile Villagers' reward type(s) via the picker, will remove any chance of encountering hostile villagers entirely, whether as or after a reward.
+
+### Hostiles As Reward
+![Hostiles As Reward](/IMAGES/Hostile_Villagers.gif)
+
+What's that? "Not masochistic enough!" you say? Then how about a new reward type that's nothing but hostile villagers "rewards?" They won't even lure you in with the carrot before reaching for the stick, they just go straight for the stick, and the stick is pointy. When enabled, these rewards can be selected by the rewards system like any other reward, and have pre-determined villager hostility values. Hostility increases as rarity does; in fact, one of these rewards is selected internally after calculating villager hostility to place any hostiles that appear after any other reward.
+
+Hostile Villagers AS a "reward" are configurable via the picker like any other available reward.
+
+### Hostiles Errata
+Any hostile villagers that appear as or after a reward will generate an ingame panel notification with details.
+
+To compensate for the increased numbers of barbarian units that are likely to be present now, the experience and level caps from fighting such units have been increased. You still aren't going to get a fully-promoted unit from fighting barbarians, but at least you'll be able to get more than a single promotion.
 
 ## Villager Secrets
 ![Villager Secrets](/IMAGES/Villager_Secrets.png)
@@ -208,7 +210,7 @@ Level 5 | +5 | +5 | +5 | +10 | +5 | +5 | +5
 
 This means that each Player can currently receive this reward a total of 6 times in a game before there are no further "secrets" to unlock and it becomes useless. When this happens, a new reward will be randomly selected to replace it, unless this is the only currently enabled reward, in which case nothing will happen.
 
-If Hostile Villagers after a reward are enabled, this reward will provoke a slightly more aggressive response than usual.
+If Hostile Villagers After a Reward are enabled, this reward will tend to provoke elevated hostility.
 
 ## Additional Advanced Setup
 Enabling 'No Barbarians' will override any hostiles-related options and/or selections above, and will also remove any chance of encountering hostile villagers, whether as or after a reward. The tooltip for this option has been updated to reflect this.
