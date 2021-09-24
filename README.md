@@ -112,7 +112,12 @@ Resources [8] | +10 strategic resources | +20 strategic resources | +30 strategi
 ## Goody Hut Reward Picker
 ![Goody Hut Picker](/IMAGES/Picker_Detail.gif)
 
-Provides a new picker window for selecting the specific Goody Hut reward(s) that can appear, available in the game's Advanced Setup. Available selections in the picker will vary by the selected ruleset and/or compatible enabled content, and can be sorted by Name (the specific reward) or by Type (the parent category of the reward). Disabling all available reward(s) will cause the "No Goody Huts" game option to be implicitly enabled.
+EGHV provides a new picker window for selecting the specific Goody Hut reward(s) that can appear ingame, available in the game's Advanced Setup. Available content in the picker will vary with the selected ruleset and/or compatible enabled content. Available content can be sorted by:
+- Name (alphabetical by individual reward subtype)
+- Type (alphabetical by individual reward subtype, then grouped by parent reward type)
+- Rarity (alphabetical by individual reward subtype, then ascending by rarity tier)
+
+Disabling all available reward(s) via the picker will cause the "No Goody Huts" game option to be implicitly enabled.
 
 The tooltip for the Goody Hut picker reflects the source(s) of its content based on the selected ruleset and/or any currently available known content; it will dynamically update to reflect any changes to known content after launch. Its button text reflects the total amount of available items(s) when all items in the picker are selected.
 - This functionality extends to the built-in City-States, Leaders, and Natural Wonders pickers.
@@ -120,12 +125,12 @@ The tooltip for the Goody Hut picker reflects the source(s) of its content based
 ## Goody Hut Distribution Slider
 ![Goody Hut Frequency](/IMAGES/Goody_Hut_Distribution.png)
 
-Provides a slider for decreasing or increasing the relative amount of Goody Huts that will appear on the selected map; this slider defaults to 100%, and adjusts in steps of 25% in a range of 25% - 500%, inclusive. This slider also appears in the picker window.
+EGHV provides a slider for decreasing or increasing the relative amount of Goody Huts that will appear on the selected map; this slider defaults to 100%, and adjusts in steps of 25% in a range of 25% - 500%, inclusive. This slider also appears in the picker window.
 
 ## Bonus Rewards
 ![Bonus Rewards](/IMAGES/Bonus_Rewards.png)
 
-Provides a dropdown menu for selecting the total number of potential reward(s) to receive from each Goody Hut. At the default setting of 1, nothing changes. With any of the "up to X" settings, X total rewards will be received from each Goody Hut, with any additional rewards beyond the first randomly selected from the pool of enabled rewards using a custom method. In certain circumstances, fewer than X rewards will be received; these include:
+EGHV provides a dropdown menu for selecting the total number of potential reward(s) to receive from each Goody Hut. At the default setting of 1, nothing changes. With any of the "up to X" settings, X total rewards will be received from each Goody Hut, with any additional rewards beyond the first randomly selected from the pool of enabled rewards using a custom method. In certain circumstances, fewer than X rewards will be received; these include:
 - When any Hostile Villagers reward is selected as a reward, whether it's the first or a bonus reward. When this happens, it will be the last reward granted by this Goody Hut; if it is the first reward, it will be the only reward.
 
 Any received bonus reward will generate an ingame panel notification with details about the received reward. These notifications use one of the built-in "user-defined" types, so the icon used is subject to frequent change, as the game itself cannot seem to consistently use the same icon.
@@ -137,7 +142,7 @@ Bonus Rewards, if enabled, can only be received from a Goody Hut. There are two 
 ## Equalized Reward Chances
 ![Equalize Rewards](/IMAGES/Equalize_Tribal_Village_Rewards.png)
 
-Provides a checkbox option which, when enabled, assigns every enabled reward in a category an equal share of that category's Weight. This results in most enabled rewards having a roughly equal chance of being selected. Final actual chances will vary with the number of enabled rewards and/or the selected ruleset; with Standard rules and all available rewards enabled, these chances are as follows:
+EGHV provides a checkbox option which, when enabled, assigns every enabled reward in a category an equal share of that category's Weight. This results in most enabled rewards having a roughly equal chance of being selected. Final actual chances will vary with the number of enabled rewards and/or the selected ruleset; with Standard rules and all available rewards enabled, these chances are as follows:
 - ~ 9.09% villager secrets type reward (1 reward in this parent type)
 - ~ 1.01% military-type unit reward (9 rewards in this parent type: ~ 9.09% for this parent type)
 - ~ 2.27% any other specific reward (4 rewards in each parent type: ~ 9.09% for each parent type)
