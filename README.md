@@ -230,22 +230,28 @@ Provides a checkbox option that, when enabled, will produce __EXTREMELY__ verbos
 - Again, logging output will be __EXTREMELY__ verbose when this option is enabled; unless this verbosity is required, it is recommended that this option remain disabled.
 
 # Known Shortcomings, Limitations, and Bugs
+## Two Civics
 Receiving the "2 free civics" reward prior to unlocking the Code of Laws civic results in only receiving 1 free civic, which will be Code of Laws. As this is only really a problem during the extremely-early game (turns 1-20) prior to manual unlocking of Code of Laws, and the potential fix is cumbersome and ultimately unrewarding to implement, it is likely to remain unchanged.
 
+## Villager Secrets
 The Villager Secrets reward can only be awarded to a Player a certain number of times before becoming useless. When this reward is received, and this limit has been reached for the Player, then unless this reward is the only enabled reward, a new reward will be randomly seleted instead. If this reward IS the only enabled reward, then instead nothing will happen.
 
+## Abilities-Type
 Unit Ability rewards apply to any valid unit(s) in formation with the popping unit, as well as the popping unit. These rewards apply to each valid unit up to one time for the lifetime of that unit. For example, a Builder, Missionary, or Great Person can and will receive increased movement once, but not additional combat strength. Currently, the end result of this is that nothing will happen when an Ability reward is received and all valid unit(s) have already received the ability.
 
+## Promotions-Type
 Unit Promotion rewards apply to any valid unit(s) in formation with the popping unit, as well as the popping unit. These rewards can be applied an unlimited number of times to any specific unit; however, built-in limitations prevent a specific unit from earning more experience than is needed for its next promotion, so any experience earned beyond this amount by any unit will be lost.
 
+## Unit Upgrade and/or Bonus Experience
 The Upgrade Unit reward does at least one, and possibly both, of the following to any valid unit(s) in formation with the popping unit, as well as the popping unit:
 1. Any unit with a valid promotion class, that has NOT yet earned any promotions, will receive a free upgrade. Upgraded unit(s) retain any abilities attached to the old unit(s); however, they lose any remaining movement for the current turn.
 2. Any unit with a valid promotion class, including any unit upgraded by (1) above, will receive enough experience for its next promotion.
 
 Units without a valid promotion class will be skipped by this reward; currently, this results in nothing happening.
 
-Great effort has been made to ensure unit rewards only fire when a valid unit has been identified, but issues may still arise when certain rewards are granted via border expansion. Please open a new pull request to address any such issues.
+Great effort has been made to ensure unit ability and promotion rewards only fire when a valid unit has been identified, but issues may still arise when certain rewards are granted via border expansion. Please open a new pull request to address any such issues.
 
+## Wondrous Goody Huts
 Errors relating to the Wondrous Goody Huts community project may appear in the Database and/or Lua log files when
 - said project is NOT present, or 
 - said project IS present, but it is disabled 
