@@ -365,6 +365,14 @@ EGHV employs the following new custom gameplay scripts:
 
 If your mod employs any gameplay scripts with similar names, conflicts __WILL__ arise.
 
+# Art
+256x256 px source textures for EGHV content ganked from the pantry.
+
+Additionally, one or more 256x256 px source textures ganked from the following:
+- [Civilization Wiki](https://civilization.fandom.com/)
+
+Additional texture sizes derived from the above sources.
+
 # Special Thanks
 Extra special thanks to the following for their direct contributions and/or insight:
 - SailorCat
