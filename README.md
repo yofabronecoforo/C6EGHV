@@ -85,9 +85,9 @@ Secrets | villager secrets (100)
 7. Unit Ability rewards apply to any valid unit(s) in formation with the popping unit, as well as the popping unit. These rewards apply to each valid unit up to one time for the lifetime of that unit. For example, a Builder, Missionary, or Great Person can and will receive increased movement once, but not additional combat strength. Currently, the end result of this is that nothing will happen when an Ability reward is received and all valid unit(s) have already received the ability.
 8. Unit Promotion rewards apply to any valid unit(s) in formation with the popping unit, as well as the popping unit. These rewards can be applied an unlimited number of times to any specific unit; however, built-in limitations prevent a specific unit from earning more experience than is needed for its next promotion, so any experience earned beyond this amount by any unit will be lost.
 9. The Upgrade Unit reward provides one or more of the following to any valid unit(s) in formation with the popping unit, as well as the popping unit:
-  - Any unit with a valid promotion class, that has NOT yet earned any promotions, will receive a free upgrade IF it also has a valid upgrade path. Upgraded unit(s) retain any abilities attached to the old unit(s); however, they lose any remaining movement for the current turn.
-  - Any unit with a valid promotion class, including any unit upgraded by (1) above, will receive enough experience for its next promotion.
-  - Units without a valid promotion class or upgrade path will be skipped by this reward; currently, this results in nothing happening.
+    1. Any unit with a valid promotion class, that has NOT yet earned any promotions, will receive a free upgrade IF it also has a valid upgrade path. Upgraded unit(s) retain any abilities attached to the old unit(s); however, they lose any remaining movement for the current turn.
+    2. Any unit with a valid promotion class, including any unit upgraded by (1) above, will receive enough experience for its next promotion.
+    3. Units without a valid promotion class or upgrade path will be skipped by this reward; currently, this results in nothing happening.
 
 ### New Rise and Fall Types
 ![EGHV Rewards](/IMAGES/Expansion1.gif)
