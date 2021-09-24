@@ -39,7 +39,7 @@ EGHV modifies existing Goody Hut rewards, and provides several new rewards in se
 ### Standard
 ![Standard Rewards](/IMAGES/Standard.gif)
 
-These built-in rewards are available for all rulesets. New rewards in these categories provided by EGHV are indicated by [ * ] in the table below. Available rewards have been rebalanced as follows:
+These built-in rewards are available for all rulesets. Existing and new rewards have been rebalanced as follows:
 
 Goody Hut Type (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
 ------ | ------ | ------ | ------ | ------
@@ -69,14 +69,14 @@ The following new rewards are provided by EGHV for all rulesets:
 
 Goody Hut (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
 ------ | ------ | ------ | ------ | ------
-Abilities [ a ] | +1 sight | +20 healing per turn | +1 movement | +10 combat strength
-Envoys [ b ] | 1 envoy | 2 envoys | 3 envoys | 4 envoys
+Abilities [4] | +1 sight | +20 healing per turn | +1 movement | +10 combat strength
+Envoys [5] | 1 envoy | 2 envoys | 3 envoys | 4 envoys
 Hostiles | low hostility | medium hostility | high hostility | maximum hostility
-Promotions [ a ] | 5 experience | 10 experience | 15 experience | upgrade and/or experience for next promotion
+Promotions [4] | 5 experience | 10 experience | 15 experience | upgrade and/or experience for next promotion
 Secrets | villager secrets (100)
 
-- [ a ] Rewards of this type apply to any valid unit(s) when obtained via exploration; they should be replaced by EGHV when obtained via border expansion
-- [ b ] When the Gathering Storm expansion is present and in use, this EGHV reward type supercedes the "free envoy" Diplomacy-type reward, which is disabled
+4. Rewards of this type apply to any valid unit(s) when obtained via exploration; they should be replaced by EGHV when obtained via border expansion
+5. When the Gathering Storm expansion is present and in use, this EGHV reward type supercedes the "free envoy" Diplomacy-type reward, which is disabled
 
 ### New Rise and Fall Types
 ![EGHV Rewards](/IMAGES/Expansion1.gif)
@@ -85,9 +85,9 @@ The following new rewards are provided by EGHV for Rise and Fall and later rules
 
 Goody Hut (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
 ------ | ------ | ------ | ------ | ------
-Governors [ c ] | 1 governor title | 2 governor titles | 3 governor titles | 4 governor titles
+Governors [6] | 1 governor title | 2 governor titles | 3 governor titles | 4 governor titles
 
-- [ c ] When the Gathering Storm expansion is present and in use, this EGHV reward type supercedes the "free governor title" Diplomacy-type reward, which is disabled
+6. When the Gathering Storm expansion is present and in use, this EGHV reward type supercedes the "free governor title" Diplomacy-type reward, which is disabled
 
 ### New Gathering Storm Types
 ![EGHV Rewards](/IMAGES/Expansion2.gif)
@@ -96,12 +96,12 @@ The following new rewards are provided by EGHV for Gathering Storm and later rul
 
 Goody Hut (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
 ------ | ------ | ------ | ------ | ------
-Diplomacy [ d ] | +10 diplomatic favor | +20 diplomatic favor | +30 diplomatic favor | +50 diplomatic favor
+Diplomacy [7] | +10 diplomatic favor | +20 diplomatic favor | +30 diplomatic favor | +50 diplomatic favor
 Meteor | meteor-strike site (100)
-Resources [ e ] | +10 strategic resources | +20 strategic resources | +30 strategic resources | +50 strategic resources
+Resources [8] | +10 strategic resources | +20 strategic resources | +30 strategic resources | +50 strategic resources
 
-- [ d ] This EGHV reward type supercedes the "free diplomatic favor" Diplomacy-type reward, which is disabled
-- [ e ] This EGHV reward type supercedes the "free strategic resources" Military-type reward, which is disabled
+7. This EGHV reward type supercedes the "free diplomatic favor" Diplomacy-type reward, which is disabled
+8. This EGHV reward type supercedes the "free strategic resources" Military-type reward, which is disabled
 
 Minimum-turn requirements are set to 0 for all __DEFINED__ and __ENABLED__ rewards, meaning that all such rewards will be available from turn 1 on.
 
