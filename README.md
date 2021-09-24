@@ -34,61 +34,77 @@ Please report any conspicuous absent text, or any instances of localization plac
 ## Goody Huts
 ![Goody Hut Picker](/IMAGES/Goody_Hut_Picker.png)
 
-Excluding Military-type, built-in rewards have been rebalanced as follows:
+EGHV modifies existing Goody Hut rewards, and provides several new rewards in several new categories.
+
+### Standard
+![Standard Rewards](/IMAGES/Standard.gif)
+
+These built-in rewards are available for all rulesets. New rewards in these categories provided by EGHV are indicated by [ * ] in the table below. Available rewards have been rebalanced as follows:
 
 Goody Hut Type (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
 ------ | ------ | ------ | ------ | ------
-Culture | 1 civic boost | 2 civic boosts | 1 civic [ a ] | 2 civics [ a ]
+Culture | 1 civic boost | 2 civic boosts | 1 civic [ * ] | 2 civics [ * ]
 Faith | +20 faith | +60 faith | +100 faith | +1 relic
-Gold | +40 gold | +80 gold | +120 gold | +1 trade route [ a ]
-Science | 1 tech boost | 2 tech boosts | 1 tech | 2 techs [ a ]
+Gold | +40 gold | +80 gold | +120 gold | +1 trade route [ * ]
+Science | 1 tech boost | 2 tech boosts | 1 tech | 2 techs [ * ]
 Survivors | +1 new population | 1 Builder | 1 Trader | 1 Settler
 
-To accommodate the above, the following alterations to built-in rewards have been made:
 - The "one free relic" Culture-type reward is now a Faith-type reward
 - The defined-but-disabled "one free settler" Survivors-type reward is now enabled
 
-Built-in Military-type rewards have been entirely disabled. A reward of this type now provides a unit as follows:
+### Military-Type
+![Military Rewards](/IMAGES/Military-type.gif)
+
+Built-in Military-type rewards have been entirely disabled and reworked. For all rulesets, a reward of this type now provides a new unit as follows:
 
 Recon | Melee | Ranged | Anti-Cavalry | Heavy Cavalry | Light Cavalry | Support | Siege | Military Engineer
 ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------
-16% | 12% | 12% | 10% | 10% | 10% | 10% | 10% | 10%
+34% | 12% | 12% | 12% | 9% | 9% | 5% | 5% | 2%
+
+### New Standard Types
+![EGHV Rewards](/IMAGES/EGHV.gif)
 
 The following new rewards are provided by EGHV for all rulesets:
 
 Goody Hut (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
 ------ | ------ | ------ | ------ | ------
-Abilities [ b ] | +1 sight | +20 healing per turn | +1 movement | +10 combat strength
-Envoys [ c ] | 1 envoy | 2 envoys | 3 envoys | 4 envoys
+Abilities [ a ] | +1 sight | +20 healing per turn | +1 movement | +10 combat strength
+Envoys [ b ] | 1 envoy | 2 envoys | 3 envoys | 4 envoys
 Hostiles | low hostility | medium hostility | high hostility | maximum hostility
-Promotions [ b ] | 5 experience | 10 experience | 15 experience | upgrade unit with bonus experience
+Promotions [ a ] | 5 experience | 10 experience | 15 experience | upgrade and/or experience for next promotion
 Secrets | villager secrets (100)
 
-The following rewards are provided by EGHV for Rise and Fall and later ruleset(s):
+- [ a ] Rewards of this type apply to any valid unit(s) when obtained via exploration; they should be replaced by EGHV when obtained via border expansion
+- [ b ] When the Gathering Storm expansion is present and in use, this EGHV reward type supercedes the "free envoy" Diplomacy-type reward, which is disabled
+
+### New Rise and Fall Types
+![EGHV Rewards](/IMAGES/Expansion1.gif)
+
+The following new rewards are provided by EGHV for Rise and Fall and later ruleset(s):
 
 Goody Hut (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
 ------ | ------ | ------ | ------ | ------
-Governors [ d ] | 1 governor title | 2 governor titles | 3 governor titles | 4 governor titles
+Governors [ c ] | 1 governor title | 2 governor titles | 3 governor titles | 4 governor titles
 
-The following rewards are provided by EGHV for Gathering Storm and later ruleset(s):
+- [ c ] When the Gathering Storm expansion is present and in use, this EGHV reward type supercedes the "free governor title" Diplomacy-type reward, which is disabled
+
+### New Gathering Storm Types
+![EGHV Rewards](/IMAGES/Expansion2.gif)
+
+The following new rewards are provided by EGHV for Gathering Storm and later ruleset(s):
 
 Goody Hut (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
 ------ | ------ | ------ | ------ | ------
-Diplomacy [ e ] | +10 diplomatic favor | +20 diplomatic favor | +30 diplomatic favor | +50 diplomatic favor
+Diplomacy [ d ] | +10 diplomatic favor | +20 diplomatic favor | +30 diplomatic favor | +50 diplomatic favor
 Meteor | meteor-strike site (100)
-Resources [ f ] | +10 strategic resources | +20 strategic resources | +30 strategic resources | +50 strategic resources
+Resources [ e ] | +10 strategic resources | +20 strategic resources | +30 strategic resources | +50 strategic resources
 
-Vital alterations:
-- [ a ] Individual reward provided by EGHV
-- [ b ] Rewards of this type apply to any valid unit(s) when obtained via exploration; they should be replaced by EGHV when obtained via border expansion
-- [ c ] When the Gathering Storm expansion is present and in use, this EGHV reward type supercedes the "free envoy" Diplomacy-type reward, which is disabled
-- [ d ] When the Gathering Storm expansion is present and in use, this EGHV reward type supercedes the "free governor title" Diplomacy-type reward, which is disabled
-- [ e ] This EGHV reward type supercedes the "free diplomatic favor" Diplomacy-type reward, which is disabled
-- [ f ] This EGHV reward type supercedes the "free strategic resources" Military-type reward, which is disabled
+- [ d ] This EGHV reward type supercedes the "free diplomatic favor" Diplomacy-type reward, which is disabled
+- [ e ] This EGHV reward type supercedes the "free strategic resources" Military-type reward, which is disabled
 
 Minimum-turn requirements are set to 0 for all __DEFINED__ and __ENABLED__ rewards, meaning that all such rewards will be available from turn 1 on.
 
-Units provided by any of the above rewards will spawn in a plot near the Goody Hut that provided the reward. Additionally, with the exception of the free Military Engineer, units provided by any Military-type reward will be Era-appropriate.
+Units provided by any of the above rewards will now spawn in a plot near the Goody Hut that provided the reward. Additionally, with the exception of the free Military Engineer, units provided by any Military-type reward will now be Era-appropriate.
 
 Most other new and existing rewards above are self-explanatory. The various Hostile Villagers and Villager Secrets rewards are described in detail further below. Refer to the #Known Shortcomings, Limitations, and Bugs section below for additional caveats.
 
@@ -121,14 +137,14 @@ Bonus Rewards, if enabled, can only be received from a Goody Hut. There are two 
 ![Equalize Rewards](/IMAGES/Equalize_Tribal_Village_Rewards.png)
 
 Provides a checkbox option which, when enabled, assigns every enabled reward in a category an equal share of that category's Weight. This results in most enabled rewards having a roughly equal chance of being selected. Final actual chances will vary with the number of enabled rewards and/or the selected ruleset; with Standard rules and all available rewards enabled, these chances are as follows:
-- ~ 9.09% villager secrets type reward (1 reward in type)
+- ~ 9.09% villager secrets type reward (1 reward in this parent type)
 - ~ 1.01% military-type unit reward (9 rewards in this parent type: ~ 9.09% for this parent type)
 - ~ 2.27% any other specific reward (4 rewards in each parent type: ~ 9.09% for each parent type)
 
 With Rise and Fall rules and all available rewards enabled, the above chances adjust to 8.33%, 0.93%, and 2.08%, respectively.
 
 With Gathering Storm rules and all available rewards enabled, the above chances adjust to 6.67%, 0.74%, and 1.67%, respectively. Additionally, the following chances exist:
-- ~ 6.67% meteor strike type reward (1 reward in type)
+- ~ 6.67% meteor strike type reward (1 reward in this parent type)
 
 Fewer enabled rewards in a category will result in a greater chance of each enabled reward being chosen if its parent category is chosen. Fewer enabled categories will result in a greater chance of each enabled category being chosen. Ultimately, while the actual values may vary somewhat, they will be fairly close together as demonstrated above.
 

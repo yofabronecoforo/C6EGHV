@@ -452,6 +452,8 @@ function GUE.UpgradeUnit( iPlayerID, iX, iY, tUnits )
 				-- increment this unit's level tracker when this is true
 				if (tPromotions[v] == true) then iLevel = iLevel + 1; end
 			end
+			-- flag for whether this unit has any promotions
+			local bHasPromotions = (iLevel > 1) and true or false;
 			-- fetch this unit's (1) minimum accrued combat experience, (2) total experience required for its next level, and (3) its veteran name, if any
 			local iMinXP, iXPFNL, sVeteranName = tLevel[iLevel].Min, pUnitExperience:GetExperienceForNextLevel(), pUnitExperience:GetVeteranName();
 			-- calculate the range for any potential bonus experience
@@ -462,11 +464,8 @@ function GUE.UpgradeUnit( iPlayerID, iX, iY, tUnits )
 			local sPriDebugMsg = "A ";
 			-- adjust primary debugging message for unit veteran name, if applicable
 			if (sVeteranName ~= nil and sVeteranName ~= "") then sPriDebugMsg = sPriDebugMsg .. "veteran "; end
-			-- sPriDebugMsg = sPriDebugMsg .. sUnitType;
-			-- if (sVeteranName ~= nil and sVeteranName ~= "") then sPriDebugMsg = sPriDebugMsg .. " known as " .. sVeteranName; end
-			-- adjust primary debugging message
+			-- adjust primary debugging message to include map plot coordinates
 			sPriDebugMsg = sPriDebugMsg .. sUnitType .. " at plot (x " .. iX .. ", y " .. iY .. ") ";
-			-- sPriDebugMsg = sPriDebugMsg .. " at plot (x " .. iX .. ", y " .. iY .. ") ";
 			-- adjust primary debugging message for no or invalid unit promotion class
 			if GUE.PromotionsByClass[sPromotionClass] == nil then sPriDebugMsg = sPriDebugMsg .. "is 'NOT' eligible for promotion,";
 			-- adjust primary debugging message for current unit promotion level
@@ -486,65 +485,63 @@ function GUE.UpgradeUnit( iPlayerID, iX, iY, tUnits )
 			Dprint(sPriDebugMsg);
 			if GUE.PromotionsByClass[sPromotionClass] ~= nil then Dprint(sSecDebugMsg); end
 			Dprint(sTerDebugMsg);
-			-- "upgrade" this unit by (1) destroying this unit, and then (2) creating a new unit which this unit would upgrade to
-			local sQuadDebugMsg = "'Upgrading' " .. sUnitType .. " to " .. GUE.UnitUpgrades[sUnitType] .. " . . . ";
-			UnitManager.Kill(pUnit);
-			UnitManager.InitUnit(iPlayerID, GUE.UnitUpgrades[sUnitType], jX, jY, 1);
-			Dprint(sQuadDebugMsg .. "PASS!");
-			-- iterate over all unit(s) found in this Plot
-			for i, pUnit in ipairs(Units.GetUnitsInPlotLayerID(jX, jY, MapLayers.ANY)) do
-				-- fetch this unit's ID and OwnerID
-				local iThisUnitID, iThisUnitOwnerID = pUnit:GetID(), pUnit:GetOwner();
-				-- make sure this unit belongs to this Player
-				if iThisUnitOwnerID == iPlayerID then
-					-- data for this unit
-					local pUnitData = GameInfo.Units[pUnit:GetType()];
-					-- true when this unit is the "upgraded" unit
-					if pUnitData.UnitType == GUE.UnitUpgrades[sUnitType] then
-						-- store the entire unit table for and select details about this unit in the results table, keyed to its ID
-						tNewUnits[iThisUnitID] = { Table = pUnit, UnitType = pUnitData.UnitType, PromotionClass = pUnitData.PromotionClass };
-						-- increment the units in plot tracker
-						iNumNewUnits = iNumNewUnits + 1;
-						-- shortcuts to this unit's GetExperience() and GetAbility() methods
-						local pUnitExperience, pUnitAbility = pUnit:GetExperience(), pUnit:GetAbility();
-						-- iterate over the existing promotions table for this new unit
-						for k, v in pairs(tPromotions) do 
-							-- true when the old unit had this promotion
-							if (v == true) then 
-								-- initialize local debugging message
-								local sPriInfoMsg = "Reapplying promotion " .. k .. " . . . ";
-								-- apply this promotion to this new unit
-								pUnitExperience:SetPromotion(GameInfo.UnitPromotions[k].Index); 
-								-- local debugging output
-								Dprint(sPriInfoMsg .. "PASS!");
+			-- true when this unit has not yet earned any promotions
+			if not bHasPromotions then 
+				-- debugging output
+				local sQuadDebugMsg = "A " .. sUnitType .. " has NOT previously been promoted; 'upgrading' this unit to a " .. GUE.UnitUpgrades[sUnitType] .. " . . . ";
+				-- "upgrade" this unit by (1) destroying this unit, and then (2) creating a new unit which this unit would upgrade to
+				UnitManager.Kill(pUnit);
+				UnitManager.InitUnit(iPlayerID, GUE.UnitUpgrades[sUnitType], jX, jY, 1);
+				Dprint(sQuadDebugMsg .. "PASS!");
+				-- iterate over all unit(s) found in this Plot
+				for i, pUnit in ipairs(Units.GetUnitsInPlotLayerID(jX, jY, MapLayers.ANY)) do
+					-- fetch this unit's ID and OwnerID
+					local iThisUnitID, iThisUnitOwnerID = pUnit:GetID(), pUnit:GetOwner();
+					-- make sure this unit belongs to this Player
+					if iThisUnitOwnerID == iPlayerID then
+						-- data for this unit
+						local pUnitData = GameInfo.Units[pUnit:GetType()];
+						-- true when this unit is the "upgraded" unit
+						if pUnitData.UnitType == GUE.UnitUpgrades[sUnitType] then
+							-- store the entire unit table for and select details about this unit in the results table, keyed to its ID
+							tNewUnits[iThisUnitID] = { Table = pUnit, UnitType = pUnitData.UnitType, PromotionClass = pUnitData.PromotionClass };
+							-- increment the units in plot tracker
+							iNumNewUnits = iNumNewUnits + 1;
+							-- shortcuts to this unit's GetExperience() and GetAbility() methods
+							local pUnitExperience, pUnitAbility = pUnit:GetExperience(), pUnit:GetAbility();
+							-- iterate over the existing abilities table for this new unit
+							for k, v in pairs(tAbilities) do 
+								-- true when the old unit had this ability
+								if (v == true) then 
+									-- initialize local debugging message
+									local sPriInfoMsg = "Reapplying ability " .. k .. " . . . ";
+									-- apply this ability to this new unit
+									pUnitAbility:ChangeAbilityCount(k, 1);
+									-- local debugging output
+									Dprint(sPriInfoMsg .. "PASS!");
+								end
 							end
+							-- remove this new unit's moves for this turn
+							local sSecInfoMsg = "Adjusting 'upgraded' unit movement . . . ";
+							UnitManager.FinishMoves(pUnit);
+							Dprint(sSecInfoMsg .. "PASS!");
+							-- grant huge experience reward to this unit
+							local sPriInfoMsg = "Adding enough experience to this unit for its next promotion (" .. iXPFNL .. " XP) . . . ";
+							pUnitExperience:ChangeExperience(iXPFNL);
+							Dprint(sPriInfoMsg .. "PASS!");
 						end
-						-- iterate over the existing abilities table for this new unit
-						for k, v in pairs(tAbilities) do 
-							-- true when the old unit had this ability
-							if (v == true) then 
-								-- initialize local debugging message
-								local sPriInfoMsg = "Reapplying ability " .. k .. " . . . ";
-								-- apply this ability to this new unit
-								pUnitAbility:ChangeAbilityCount(k, 1);
-								-- local debugging output
-								Dprint(sPriInfoMsg .. "PASS!");
-							end
-						end
-						-- restore any experience gained by the old unit to the new unit
-						local sPriInfoMsg = "Restoring the minimum " .. iMinXP .. " experience point(s) required for 'upgraded' unit's Level " .. iLevel .. " promotion(s) . . . ";
-						pUnitExperience:ChangeExperience(iMinXP);
-						Dprint(sPriInfoMsg .. "PASS!");
-						-- compensate for any potential lost experience during the "upgrade"
-						local sPriInfoMsg = "Adding " .. iBonusXP .. " bonus experience points to 'upgraded' unit . . . ";
-						pUnitExperience:ChangeExperience(iBonusXP);
-						Dprint(sPriInfoMsg .. "PASS!");
-						-- remove this new unit's moves for this turn
-						local sSecInfoMsg = "Adjusting 'upgraded' unit movement . . . ";
-						UnitManager.FinishMoves(pUnit);
-						Dprint(sSecInfoMsg .. "PASS!");
-					end
-				end 
+					end 
+				end
+			-- true when this unit has earned at least one promotion
+			else 
+				-- debugging output
+				Dprint("A " .. sUnitType .. " has previously been promoted; skipping 'upgrade' for this unit . . . ");
+				-- grant huge experience reward to this unit
+				local sPriInfoMsg = "Adding enough experience to this unit for its next promotion (" .. iXPFNL .. " XP) . . . ";
+				pUnitExperience:ChangeExperience(iXPFNL);
+				Dprint(sPriInfoMsg .. "PASS!");
+				-- store the entire unit table for and select details about this unit in the results table, keyed to its ID
+				tNewUnits[k] = v;
 			end
 		-- true when this unit's type is NOT a key in the unit upgrades table
 		else
@@ -1462,6 +1459,15 @@ function EG_OnPlayerTurnDeactivated( iPlayerID )
 end
 
 --[[ =========================================================================
+	function EG_OnUnitExperienceChanged() ** 2021/09/21 this doesn't do shit; Events.UnitExperienceChanged is not defined **
+	
+	pre-init : this should be defined and hooked to Events.UnitExperienceChanged in EG_OnLoadScreenClose() prior to Initialize()
+=========================================================================== ]]
+-- function EG_OnUnitExperienceChanged( iPlayerID, iUnitID, iXP )
+-- 	Dprint("EG_OnUnitExperienceChanged( iPlayerID = " .. tostring(iPlayerID) .. ", iUnitID = " .. tostring(iUnitID), ", iXP = " .. tostring(iXP) .. " )");
+-- end
+
+--[[ =========================================================================
 	function EG_OnLoadScreenClose()
 	custom hooks should go here unless they need to be somewhere else
 	init : this should be hooked to Events.LoadScreenClose in Initialize()
@@ -1470,7 +1476,18 @@ function EG_OnLoadScreenClose()
 	-- no valid log output occurs here, so put any needed log commentary elsewhere
 	Events.GoodyHutReward.Add(EG_OnGoodyHutReward);
 	Events.ImprovementActivated.Add(EG_OnImprovementActivated);
+	-- Events.UnitExperienceChanged.Add(EG_OnUnitExperienceChanged);
 	Events.PlayerTurnDeactivated.Add(EG_OnPlayerTurnDeactivated);
+end
+
+function GUE.GetValidUnitsByEra( iEra, tUnits )
+	-- 
+	local sRecon, sMelee, sRanged = tostring(tUnits[iEra].Recon), tostring(tUnits[iEra].Melee), tostring(tUnits[iEra].Ranged);
+	local sAntiCav, sHeavyCav, sLightCav = tostring(tUnits[iEra].AntiCavalry), tostring(tUnits[iEra].HeavyCavalry), tostring(tUnits[iEra].LightCavalry);
+	local sSiege, sSupport = tostring(tUnits[iEra].Siege), tostring(tUnits[iEra].Support);
+	local sNavalMelee, sNavalRanged = tostring(tUnits[iEra].NavalMelee), tostring(tUnits[iEra].NavalRanged);
+	-- 
+	return sRecon, sMelee, sRanged, sAntiCav, sHeavyCav, sLightCav, sSiege, sSupport, sNavalMelee, sNavalRanged;
 end
 
 --[[ =========================================================================
@@ -1506,20 +1523,20 @@ function Initialize()
 	if GUE.DebugEnabled then
 		print(GUE.RowOfDashes);
 		Dprint("Defined Unit reward(s) by Era:");
-		for e = 0, 8, 1 do
-			local sPriDebugMsg = e .. " (" .. GUE.Eras[e] .. "): Recon " .. GUE.UnitRewardByEra[e].Recon .. " | Melee " .. GUE.UnitRewardByEra[e].Melee .. " | Ranged " .. GUE.UnitRewardByEra[e].Ranged 
-				.. " | Anti-Cavalry " .. GUE.UnitRewardByEra[e].AntiCavalry .. " | Heavy Cavalry " .. GUE.UnitRewardByEra[e].HeavyCavalry .. " | Light Cavalry " .. GUE.UnitRewardByEra[e].LightCavalry 
-				.. " | Siege " .. GUE.UnitRewardByEra[e].Siege .. " | Support " .. GUE.UnitRewardByEra[e].Support 
-				.. " | Naval Melee " .. GUE.UnitRewardByEra[e].NavalMelee .. " | Naval Ranged " .. GUE.UnitRewardByEra[e].NavalRanged;
+		for e = 0, 8, 1 do 
+			local sRecon, sMelee, sRanged, sAntiCav, sHeavyCav, sLightCav, sSiege, sSupport, sNavalMelee, sNavalRanged = GUE.GetValidUnitsByEra(e, GUE.UnitRewardByEra);
+			local sPriDebugMsg = e .. " (" .. tostring(GUE.Eras[e]) .. "): Recon " .. sRecon .. " | Melee " .. sMelee .. " | Ranged " .. sRanged 
+				.. " | Anti-Cavalry " .. sAntiCav .. " | Heavy Cavalry " .. sHeavyCav .. " | Light Cavalry " .. sLightCav 
+				.. " | Siege " .. sSiege .. " | Support " .. sSupport .. " | Naval Melee " .. sNavalMelee .. " | Naval Ranged " .. sNavalRanged;
 			Dprint(sPriDebugMsg);
 		end
 		print(GUE.RowOfDashes);
 		Dprint("Defined Hostile Unit 'reward(s)' by Era:");
-		for e = 0, 8, 1 do
-			local sPriDebugMsg = e .. " (" .. GUE.Eras[e] .. "): Recon " .. GUE.HostileUnitByEra[e].Recon .. " | Melee " .. GUE.HostileUnitByEra[e].Melee .. " | Ranged " .. GUE.HostileUnitByEra[e].Ranged 
-				.. " | Anti-Cavalry " .. GUE.HostileUnitByEra[e].AntiCavalry .. " | Heavy Cavalry " .. GUE.HostileUnitByEra[e].HeavyCavalry .. " | Light Cavalry " .. GUE.HostileUnitByEra[e].LightCavalry 
-				.. " | Siege " .. GUE.HostileUnitByEra[e].Siege .. " | Support " .. GUE.HostileUnitByEra[e].Support 
-				.. " | Naval Melee " .. GUE.HostileUnitByEra[e].NavalMelee .. " | Naval Ranged " .. GUE.HostileUnitByEra[e].NavalRanged;
+		for e = 0, 8, 1 do 
+			local sRecon, sMelee, sRanged, sAntiCav, sHeavyCav, sLightCav, sSiege, sSupport, sNavalMelee, sNavalRanged = GUE.GetValidUnitsByEra(e, GUE.HostileUnitByEra);
+			local sPriDebugMsg = e .. " (" .. tostring(GUE.Eras[e]) .. "): Recon " .. sRecon .. " | Melee " .. sMelee .. " | Ranged " .. sRanged 
+				.. " | Anti-Cavalry " .. sAntiCav .. " | Heavy Cavalry " .. sHeavyCav .. " | Light Cavalry " .. sLightCav 
+				.. " | Siege " .. sSiege .. " | Support " .. sSupport .. " | Naval Melee " .. sNavalMelee .. " | Naval Ranged " .. sNavalRanged;
 			Dprint(sPriDebugMsg);
 		end
 	end
@@ -1531,7 +1548,7 @@ function Initialize()
 	Dprint(" + Successfully added hook function EG_OnGoodyHutReward() to Events.GoodyHutReward");
 	Dprint(" + Successfully added hook function EG_OnImprovementActivated() to Events.ImprovementActivated");
 	Dprint(" + Successfully added hook function EG_OnPlayerTurnDeactivated() to Events.PlayerTurnDeactivated");
-	Dprint("Finished configuring hook(s) for ingame Event(s); proceeding . . .");
+	print("Finished configuring hook(s) for ingame Event(s); proceeding . . .");
 	print(GUE.RowOfDashes);
 	print("Finished initializing and configuring required component(s); proceeding . . .");
 end

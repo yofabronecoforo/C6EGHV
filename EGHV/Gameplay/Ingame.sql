@@ -249,34 +249,42 @@ UPDATE GlobalParameters SET Value = 3 WHERE Name = 'EXPERIENCE_ACTIVATE_GOODY_HU
 -- adjust the frequency of, minimum distance between, and gold earned for clearing Goody Huts; defaults : TilesPerGoody = 128, GoodyRange = 3, DispersalGold = ?
 UPDATE Improvements SET TilesPerGoody = 128, GoodyRange = 3, DispersalGold = 0 WHERE ImprovementType = 'IMPROVEMENT_GOODY_HUT';
 
--- existing Culture-type rewards
+-- adjust existing Culture-type "one Civic boost" reward
 UPDATE GoodyHutSubTypes SET Weight = 40, Turn = 0, Description = 'LOC_GOODYHUT_CULTURE_ONE_CIVIC_BOOST_DESCRIPTION' WHERE SubTypeGoodyHut = 'GOODYHUT_ONE_CIVIC_BOOST';
+-- adjust existing Culture-type "two Civic boosts" reward
 UPDATE GoodyHutSubTypes SET Weight = 30, Turn = 0, Description = 'LOC_GOODYHUT_CULTURE_TWO_CIVIC_BOOSTS_DESCRIPTION' WHERE SubTypeGoodyHut = 'GOODYHUT_TWO_CIVIC_BOOSTS';
 
--- existing Faith-type rewards
+-- adjust existing Faith-type "small Faith cache" reward
 UPDATE GoodyHutSubTypes SET Weight = 40, Turn = 0 WHERE SubTypeGoodyHut = 'GOODYHUT_SMALL_FAITH';               -- defaults : Weight = 55, Turn = 20
 UPDATE ModifierArguments SET Value = 20 WHERE ModifierId = 'GOODY_FAITH_SMALL_MODIFIER' AND Name = 'Amount';    -- defaults : Value = 20
+-- adjust existing Faith-type "medium Faith cache" reward
 UPDATE GoodyHutSubTypes SET Weight = 30, Turn = 0 WHERE SubTypeGoodyHut = 'GOODYHUT_MEDIUM_FAITH';              -- defaults : Weight = 30, Turn = 40
 UPDATE ModifierArguments SET Value = 60 WHERE ModifierId = 'GOODY_FAITH_MEDIUM_MODIFIER' AND Name = 'Amount';   -- defaults : Value = 60
+-- adjust existing Faith-type "large Faith cache" reward
 UPDATE GoodyHutSubTypes SET Weight = 20, Turn = 0 WHERE SubTypeGoodyHut = 'GOODYHUT_LARGE_FAITH';               -- defaults : Weight = 15, Turn = 60
 UPDATE ModifierArguments SET Value = 100 WHERE ModifierId = 'GOODY_FAITH_LARGE_MODIFIER' AND Name = 'Amount';   -- defaults : Value = 100
 
 -- make "one relic" a Faith-type reward (was Culture-type); adjust its weight value and other properties
 UPDATE GoodyHutSubTypes SET GoodyHut = 'GOODYHUT_FAITH', Weight = 10, Turn = 0 WHERE SubTypeGoodyHut = 'GOODYHUT_ONE_RELIC';              -- defaults : Weight = 15
 
--- existing Gold-type rewards
+-- adjust existing Gold-type "small Gold cache" reward
 UPDATE GoodyHutSubTypes SET Weight = 40, Turn = 0 WHERE SubTypeGoodyHut = 'GOODYHUT_SMALL_GOLD';                -- defaults : Weight = 55
 UPDATE ModifierArguments SET Value = 40 WHERE ModifierId = 'GOODY_GOLD_SMALL_MODIFIER' AND Name = 'Amount';     -- defaults : Value = 40
+-- adjust existing Gold-type "medium Gold cache" reward
 UPDATE GoodyHutSubTypes SET Weight = 30, Turn = 0 WHERE SubTypeGoodyHut = 'GOODYHUT_MEDIUM_GOLD';               -- defaults : Weight = 30, Turn = 20
 UPDATE ModifierArguments SET Value = 80 WHERE ModifierId = 'GOODY_GOLD_MEDIUM_MODIFIER' AND Name = 'Amount';    -- defaults : Value = 75
+-- adjust existing Gold-type "large Gold cache" reward
 UPDATE GoodyHutSubTypes SET Weight = 20, Turn = 0 WHERE SubTypeGoodyHut = 'GOODYHUT_LARGE_GOLD';                -- defaults : Weight = 15, Turn = 40
 UPDATE ModifierArguments SET Value = 120 WHERE ModifierId = 'GOODY_GOLD_LARGE_MODIFIER' AND Name = 'Amount';    -- defaults : Value = 120
 
--- existing Military-type rewards
+-- disable existing Military-type "grant experience" reward
 UPDATE GoodyHutSubTypes SET Weight = 0, Turn = 0 WHERE SubTypeGoodyHut = 'GOODYHUT_GRANT_EXPERIENCE';
+-- disable existing Military-type "heal unit" reward
 UPDATE GoodyHutSubTypes SET Weight = 0, Turn = 0 WHERE SubTypeGoodyHut = 'GOODYHUT_HEAL';
+-- enable "upgrade unit" reward and make it a custom Promotions-type reward
 UPDATE GoodyHutSubTypes SET GoodyHut = 'GOODYHUT_PROMOTIONS', Weight = 10, Turn = 0, UpgradeUnit = 0, ModifierID = 'GOODY_EGHV_DUMMY_REWARD' WHERE SubTypeGoodyHut = 'GOODYHUT_GRANT_UPGRADE';
-UPDATE GoodyHutSubTypes SET Weight = 16, Turn = 0, ModifierID = 'GOODY_EGHV_DUMMY_REWARD' WHERE SubTypeGoodyHut = 'GOODYHUT_GRANT_SCOUT';
+-- adjust existing Military-type "grant scout" reward; this reward now grants an Era-appropriate recon unit
+UPDATE GoodyHutSubTypes SET Weight = 34, Turn = 0, ModifierID = 'GOODY_EGHV_DUMMY_REWARD' WHERE SubTypeGoodyHut = 'GOODYHUT_GRANT_SCOUT';
 
 -- existing Science-type rewards
 UPDATE GoodyHutSubTypes SET Weight = 40, Turn = 0, Description = 'LOC_GOODYHUT_SCIENCE_ONE_TECH_BOOST_DESCRIPTION' WHERE SubTypeGoodyHut = 'GOODYHUT_ONE_TECH_BOOST';
@@ -301,12 +309,12 @@ VALUES
     -- Military
     ('GOODYHUT_MILITARY', 'GOODYHUT_GRANT_WARRIOR', 'LOC_GOODYHUT_MILITARY_GRANT_MELEE_UNIT_DESCRIPTION', 12, 0, 1, 1, 'GOODY_EGHV_DUMMY_REWARD'),
     ('GOODYHUT_MILITARY', 'GOODYHUT_GRANT_SLINGER', 'LOC_GOODYHUT_MILITARY_GRANT_RANGED_UNIT_DESCRIPTION', 12, 0, 1, 1, 'GOODY_EGHV_DUMMY_REWARD'),
-    ('GOODYHUT_MILITARY', 'GOODYHUT_GRANT_SPEARMAN', 'LOC_GOODYHUT_MILITARY_GRANT_ANTI_CAVALRY_UNIT_DESCRIPTION', 10, 0, 1, 1, 'GOODY_EGHV_DUMMY_REWARD'),
-    ('GOODYHUT_MILITARY', 'GOODYHUT_GRANT_HEAVY_CHARIOT', 'LOC_GOODYHUT_MILITARY_GRANT_HEAVY_CAVALRY_UNIT_DESCRIPTION', 10, 0, 1, 1, 'GOODY_EGHV_DUMMY_REWARD'),
-    ('GOODYHUT_MILITARY', 'GOODYHUT_GRANT_HORSEMAN', 'LOC_GOODYHUT_MILITARY_GRANT_LIGHT_CAVALRY_UNIT_DESCRIPTION', 10, 0, 1, 1, 'GOODY_EGHV_DUMMY_REWARD'),
-    ('GOODYHUT_MILITARY', 'GOODYHUT_GRANT_BATTERING_RAM', 'LOC_GOODYHUT_MILITARY_GRANT_BATTERING_RAM_DESCRIPTION', 10, 0, 1, 1, 'GOODY_EGHV_DUMMY_REWARD'),
-    ('GOODYHUT_MILITARY', 'GOODYHUT_GRANT_CATAPULT', 'LOC_GOODYHUT_MILITARY_GRANT_CATAPULT_DESCRIPTION', 10, 0, 1, 1, 'GOODY_EGHV_DUMMY_REWARD'),
-    ('GOODYHUT_MILITARY', 'GOODYHUT_GRANT_MILITARY_ENGINEER', 'LOC_GOODYHUT_MILITARY_GRANT_MILITARY_ENGINEER_DESCRIPTION', 10, 0, 1, 1, 'GOODY_EGHV_DUMMY_REWARD'),
+    ('GOODYHUT_MILITARY', 'GOODYHUT_GRANT_SPEARMAN', 'LOC_GOODYHUT_MILITARY_GRANT_ANTI_CAVALRY_UNIT_DESCRIPTION', 12, 0, 1, 1, 'GOODY_EGHV_DUMMY_REWARD'),
+    ('GOODYHUT_MILITARY', 'GOODYHUT_GRANT_HEAVY_CHARIOT', 'LOC_GOODYHUT_MILITARY_GRANT_HEAVY_CAVALRY_UNIT_DESCRIPTION', 9, 0, 1, 1, 'GOODY_EGHV_DUMMY_REWARD'),
+    ('GOODYHUT_MILITARY', 'GOODYHUT_GRANT_HORSEMAN', 'LOC_GOODYHUT_MILITARY_GRANT_LIGHT_CAVALRY_UNIT_DESCRIPTION', 9, 0, 1, 1, 'GOODY_EGHV_DUMMY_REWARD'),
+    ('GOODYHUT_MILITARY', 'GOODYHUT_GRANT_BATTERING_RAM', 'LOC_GOODYHUT_MILITARY_GRANT_BATTERING_RAM_DESCRIPTION', 5, 0, 1, 1, 'GOODY_EGHV_DUMMY_REWARD'),
+    ('GOODYHUT_MILITARY', 'GOODYHUT_GRANT_CATAPULT', 'LOC_GOODYHUT_MILITARY_GRANT_CATAPULT_DESCRIPTION', 5, 0, 1, 1, 'GOODY_EGHV_DUMMY_REWARD'),
+    ('GOODYHUT_MILITARY', 'GOODYHUT_GRANT_MILITARY_ENGINEER', 'LOC_GOODYHUT_MILITARY_GRANT_MILITARY_ENGINEER_DESCRIPTION', 2, 0, 1, 1, 'GOODY_EGHV_DUMMY_REWARD'),
     -- Science
     ('GOODYHUT_SCIENCE', 'GOODYHUT_TWO_TECHS', 'LOC_GOODYHUT_SCIENCE_TWO_TECHS_DESCRIPTION', 10, 0, 1, 1, 'GOODY_SCIENCE_GRANT_TWO_TECHS'),
     -- Abilities

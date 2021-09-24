@@ -23,53 +23,71 @@ GUE = ExposedMembers.GUE;
 =========================================================================== ]]
 -- exposed member function DebugPrint( sMessage ) : print sMessage to the log file if DebugEnabled == true
 function GUE.DebugPrint( sMessage ) if GUE.DebugEnabled then print("[DEBUG]: " .. sMessage); end end
--- DebugEnabled is the global Debug flag; DebugPrint() successfully outputs if true
--- GUE.DebugEnabled = false;
+-- DebugEnabled is the global Debug flag; DebugPrint() successfully outputs if true ** 2021/09/21 this is now configured via a Frontend UI setting **
+-- GUE.DebugEnabled = false;		-- legacy setting preserved for posterity ** 2021/09/21 uncommenting this will likely have undesired effects, so leave it alone **
 GUE.DebugEnabled = GameConfiguration.GetValue("GAME_EGHV_DEBUG");
 -- make DebugPrint() more conveniently globally accessible, as otherwise this declaration must be made in a local scope within each function below
 Dprint = GUE.DebugPrint;
--- RowOfDashes is also exactly what it says on the tin
+-- RowOfDashes is exactly what it says on the tin
 GUE.RowOfDashes = "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -";
 
 --[[ =========================================================================
-	function GetHostileModifier() : 
-	fetch the hostile villager modifier for the current goody hut reward
+	function GetHostileModifier( tGoodyHutTypes, sGoodyHutType, iWeight ) : 
+		fetch the hostile villager modifier for the goody hut reward of Type sGoodyHutType with Weight iWeight
 	this should be added to ExposedMembers in Initialize()
 =========================================================================== ]]
 function GUE.GetHostileModifier( tGoodyHutTypes, sGoodyHutType, iWeight )
 	local iTypeWeight = tGoodyHutTypes[DB.MakeHash(sGoodyHutType)].Weight;
-	if (sGoodyHutType == "METEOR_GOODIES") then return -1;
-	-- elseif (iWeight == iTypeWeight) then return 5;
-	elseif (iWeight >= 100) then return 5;
-	elseif (iWeight == 0) then return 0;
+	if (iWeight == 0) then return 0;
+	elseif (iWeight >= iTypeWeight) or (iWeight >= 100) then return 5;
+	elseif (sGoodyHutType == "METEOR_GOODIES") then return -1;
+	elseif (sGoodyHutType == "GOODYHUT_MILITARY") then 
+		if (iWeight >= 20) then return 1;
+		elseif (iWeight >= 15) then return 2;
+		elseif (iWeight >= 10) then return 3;
+		elseif (iWeight >= 5) then return 4;
+		elseif (iWeight >= 1) then return 5;
+		else return "'* UNRECOGNIZED *'";
+		end
 	elseif (iWeight >= 40) then return 1;
 	elseif (iWeight >= 30) then return 2;
 	elseif (iWeight >= 20) then return 3;
 	elseif (iWeight >= 10) then return 4;
+	elseif (iWeight >= 1) then return 5;
 	else return "'* UNRECOGNIZED *'";
 	end
 end
 
 --[[ =========================================================================
-	function GetRewardTier() : 
-	fetch the named tier for the current goody hut reward
+	function GetRewardTier( sGoodyHutType, iWeight ) : 
+		fetch the named tier for the goody hut reward of Type sGoodyHutType with Weight iWeight
 	this should be added to ExposedMembers in Initialize()
 =========================================================================== ]]
-function GUE.GetRewardTier( iWeight )
-	-- if (iWeight == 100) then return "Specialized";
-	if (iWeight >= 100) then return "Specialized";
-	elseif (iWeight == 0) then return "'Disabled'";
+function GUE.GetRewardTier( sGoodyHutType, iWeight )
+	if (iWeight == 0) then return "'Disabled'";
+	elseif (iWeight >= 100) then return "Specialized";
+	elseif (sGoodyHutType == "GOODYHUT_MILITARY") then 
+		if (iWeight >= 20) then return "Common";
+		elseif (iWeight >= 15) then return "Uncommon";
+		elseif (iWeight >= 10) then return "Rare";
+		elseif (iWeight >= 5) then return "Legendary";
+		elseif (iWeight >= 1) then return "Mythic";
+		else return "'* UNRECOGNIZED *'";
+		end
 	elseif (iWeight >= 40) then return "Common";
 	elseif (iWeight >= 30) then return "Uncommon";
 	elseif (iWeight >= 20) then return "Rare";
 	elseif (iWeight >= 10) then return "Legendary";
+	elseif (iWeight >= 1) then return "Mythic";
 	else return "'* UNRECOGNIZED *'";
 	end
 end
 
 --[[ =========================================================================
 	function GetGoodyHutsData() : 
-	print the current session's goody-hut-related data to the log if DebugEnabled = true
+		fetches the current session's goody-hut-related data
+		generates additional log output if DebugEnabled = true
+		returns fetched values
 	this should be added to ExposedMembers in Initialize()
 =========================================================================== ]]
 function GUE.GetGoodyHutsData( bIsNoBarbarians )
@@ -117,7 +135,7 @@ function GUE.GetGoodyHutsData( bIsNoBarbarians )
 			GoodyHut = row.GoodyHut,				-- GoodyHut is the type of goody hut reward
 			SubTypeGoodyHut = row.SubTypeGoodyHut,				-- SubTypeGoodyHut is the specific goody hut reward associated with a given hash/key
 			Weight = row.Weight,				-- Weight is the Weight value for this specific reward, as defined in the gameplay database
-			Tier = GUE.GetRewardTier(row.Weight),
+			Tier = GUE.GetRewardTier(row.GoodyHut, row.Weight),
 			HostileModifier = GUE.GetHostileModifier(tGoodyHutTypes, row.GoodyHut, row.Weight),
 			ModifierID = row.ModifierID,				-- ModifierID is the ingame Modifier that is applied when this specific reward is received
 			Description = row.Description,
@@ -345,7 +363,7 @@ function CheckPlayerEra( iPlayerID )
 		Dprint("Turn " .. tostring(iTurn) .. " | Player " .. tostring(iPlayerID) .. ": Players and/or PlayerConfigurations data is 'nil' for this Player; aborting.");
 		return;
 	elseif not pPlayer:IsMajor() then
-		Dprint("Turn " .. tostring(iTurn) .. " | Player " .. tostring(iPlayerID) .. ": This Player is 'NOT' a valid major civilization; aborting.");
+		-- Dprint("Turn " .. tostring(iTurn) .. " | Player " .. tostring(iPlayerID) .. ": This Player is 'NOT' a valid major civilization; aborting.");
 		return;
 	end
 	local iPreviousEra = GUE.PlayerData[iPlayerID].Era;

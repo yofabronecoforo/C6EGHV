@@ -105,7 +105,7 @@ function GetGoodyHutData( goodyhutSubType:string )
 
 		m_kGoodyHutDataCache[goodyhutSubType] = {};
 
-		local query:string = "SELECT GoodyHut FROM TribalVillages WHERE SubTypeGoodyHut = ? LIMIT 1";
+		local query:string = "SELECT GoodyHut, SortIndex FROM TribalVillages WHERE SubTypeGoodyHut = ? LIMIT 1";
 		local kResults:table = DB.ConfigurationQuery(query, goodyhutSubType);
 		if(kResults) then
 			for i,v in ipairs(kResults) do
@@ -189,6 +189,11 @@ function RefreshList( sortByFunc )
 	m_numSelected = 0;
 	m_kItemList = {};
 
+	-- Always Sort list by name first; this should ensure consistent appearance of items in the picker
+	if sortByFunc ~= nil and sortByFunc ~= SortByName then 
+		table.sort(m_kParameter.Values, SortByName);
+	end
+
 	-- Sort list
 	table.sort(m_kParameter.Values, sortByFunc ~= nil and sortByFunc or SortByName);
 
@@ -211,6 +216,21 @@ function SortByType(kItemA:table, kItemB:table)
 
 	if kItemDataA.GoodyHut ~= nil and kItemDataB.GoodyHut ~= nil then
 		return Locale.Compare(kItemDataA.GoodyHut, kItemDataB.GoodyHut) == -1;
+	else
+		return false;
+	end
+end
+
+-- ===========================================================================
+function SortByRarity(kItemA:table, kItemB:table)
+	local kItemDataA:table = GetGoodyHutData(kItemA.Value);
+	local kItemDataB:table = GetGoodyHutData(kItemB.Value);
+
+	if kItemDataA.SortIndex ~= nil and kItemDataB.SortIndex ~= nil then
+		-- return (kItemDataA.SortIndex >= kItemDataB.SortIndex) == -1;
+		-- return Locale.Compare(tostring(kItemDataA.SortIndex), tostring(kItemDataB.SortIndex)) == -1;
+		-- return kItemDataA.SortIndex ~= kItemDataB.SortIndex;
+		return Locale.Compare(kItemDataA.SortIndex, kItemDataB.SortIndex) == -1;
 	else
 		return false;
 	end
@@ -277,6 +297,15 @@ function InitSortByFilter()
 		function() 
 			Controls.SortByPulldown:GetButton():SetText(Locale.Lookup("LOC_GOODY_HUT_PICKER_SORT_TYPE"));
 			RefreshList(SortByType);
+		end );
+
+	local pRarityEntryInst:object = {};
+	Controls.SortByPulldown:BuildEntry( "InstanceOne", pRarityEntryInst );
+	pRarityEntryInst.Button:SetText(Locale.Lookup("LOC_GOODY_HUT_PICKER_SORT_RARITY"));
+	pRarityEntryInst.Button:RegisterCallback( Mouse.eLClick, 
+		function() 
+			Controls.SortByPulldown:GetButton():SetText(Locale.Lookup("LOC_GOODY_HUT_PICKER_SORT_RARITY"));
+			RefreshList(SortByRarity);
 		end );
 
 	Controls.SortByPulldown:CalculateInternals();
