@@ -832,7 +832,7 @@
 			<Properties>
         		<LoadOrder>1010141</LoadOrder>
       		</Properties>
-			<File>C6GUE/Scripts/IngameGUE.lua</File>
+			<File>EGHV/Scripts/EGHV_Common.lua</File>
 		</AddGameplayScripts>
 		<!-- script enhanced goodies config -->
 		<AddGameplayScripts id="EGHV_GAMEPLAY_SCRIPT_ENHANCED_GOODIES" criteria="EGHV">
@@ -847,6 +847,20 @@
         		<LoadOrder>1010143</LoadOrder>
       		</Properties>
 			<File>EGHV/Scripts/HostileVillagers.lua</File>
+		</AddGameplayScripts>
+		<!-- script bonus rewards config -->
+		<AddGameplayScripts id="EGHV_GAMEPLAY_SCRIPT_BONUS_REWARDS" criteria="EGHV">
+			<Properties>
+        		<LoadOrder>1010144</LoadOrder>
+      		</Properties>
+			<File>EGHV/Scripts/BonusRewards.lua</File>
+		</AddGameplayScripts>
+		<!-- EGHV gameplay script -->
+		<AddGameplayScripts id="EGHV_GAMEPLAY_SCRIPT_PRIMARY" criteria="EGHV">
+			<Properties>
+        		<LoadOrder>1010149</LoadOrder>
+      		</Properties>
+			<File>EGHV/Scripts/EGHV.lua</File>
 		</AddGameplayScripts>
 		<!-- gameplay database config for all rulesets -->
 		<UpdateDatabase id="EGHV_INGAME" criteria="EGHV">
@@ -1657,7 +1671,7 @@
 		<File>C6GUE/Localization/es_ES/Common_Frontend_Text.xml</File>
 		<File>C6GUE/Localization/fr_FR/Common_Frontend_Text.xml</File>
 		<!-- C6GUE ingame script -->
-		<File>C6GUE/Scripts/IngameGUE.lua</File>
+		
 		<!-- C6GUE configuration (frontend) UI replacements -->
 		<File>C6GUE/UI/Replacements/AdvancedSetup.lua</File>
 		<File>C6GUE/UI/Replacements/AdvancedSetup.xml</File>
@@ -1809,6 +1823,9 @@
 		<File>EGHV/Localization/fr_FR/Ingame_XP2_Text.xml</File>
 		<!-- ingame new lua scripts -->
 		<!-- <File>EGHV/Scripts/C6GUE_Common.lua</File> -->
+		<File>EGHV/Scripts/BonusRewards.lua</File>
+		<File>EGHV/Scripts/EGHV.lua</File>
+		<File>EGHV/Scripts/EGHV_Common.lua</File>
 		<File>EGHV/Scripts/EnhancedGoodies.lua</File>
 		<File>EGHV/Scripts/HostileVillagers.lua</File>
 		<!-- ingame - goody hut picker -->

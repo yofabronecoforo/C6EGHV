@@ -36,8 +36,6 @@ VALUES
     ('BUILDING_TRIBAL_TOTEM_LVL5', 'KIND_BUILDING'),
     -- additional unit abilities
     ('GOODYHUT_ABILITIES', 'KIND_GOODY_HUT'),
-    -- (anti) cavalry units
-    ('GOODYHUT_CAVALRY', 'KIND_GOODY_HUT'),
     -- free Envoys
     ('GOODYHUT_ENVOYS', 'KIND_GOODY_HUT'),
     -- fallback rewards *** these help prevent infinite loops and crashes related to EGHV; they should not be enabled or normally accessible ***
@@ -47,9 +45,7 @@ VALUES
     -- unit experience and promotions
     ('GOODYHUT_PROMOTIONS', 'KIND_GOODY_HUT'),
     -- Villager Secrets reward
-    ('GOODYHUT_SECRETS', 'KIND_GOODY_HUT'),
-    -- advanced military units
-    ('GOODYHUT_SUPPORT', 'KIND_GOODY_HUT');
+    ('GOODYHUT_SECRETS', 'KIND_GOODY_HUT');
 
 -- new Buildings
 REPLACE INTO Buildings
@@ -222,8 +218,6 @@ REPLACE INTO GoodyHuts
 VALUES
     -- additional unit abilities
     ('GOODYHUT_ABILITIES', 100),
-    -- (anti) cavalry units
-    ('GOODYHUT_CAVALRY', 0),
     -- free Envoys
     ('GOODYHUT_ENVOYS', 100),
     -- fallback rewards *** these help prevent infinite loops and crashes related to EGHV; they should not be enabled or normally accessible ***
@@ -233,9 +227,7 @@ VALUES
     -- unit experience and promotions
     ('GOODYHUT_PROMOTIONS', 100),
     -- Villager Secrets reward
-    ('GOODYHUT_SECRETS', 100),
-    -- advanced military units
-    ('GOODYHUT_SUPPORT', 0);
+    ('GOODYHUT_SECRETS', 100);
 
 -- modify the cap on experience gained from killing barbarians; default : Value = 1
 UPDATE GlobalParameters SET Value = 3 WHERE Name = 'EXPERIENCE_BARB_SOFT_CAP';

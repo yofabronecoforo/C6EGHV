@@ -7,7 +7,6 @@
 --[[ =========================================================================
 	begin EnhancedGoodies.lua gameplay script
 =========================================================================== ]]
-print("Loading gameplay script EnhancedGoodies.lua . . .");
 
 --[[ =========================================================================
 	context sharing : initialize and/or fetch ExposedMembers here
@@ -30,121 +29,13 @@ GUE.QueueGoodyHutReward = {};
 -- QueueImprovementActivated stores arguments from Event.ImprovementActivated for use by Event.GoodyHutReward
 GUE.QueueImprovementActivated = {};
 -- table of notification-related data for various reward types
-GUE.Notification = {
-	-- hostiles type
-	Hostile = {
-		Title = Locale.Lookup("LOC_HOSTILE_VILLAGERS_NOTIFICATION_TITLE"),
-		UnitTypeHash = NotificationTypes.BARBARIANS_SIGHTED,
-		UnitMessage1 = Locale.Lookup("LOC_HOSTILE_VILLAGERS_UNIT_NOTIFICATION_MESSAGE_1"),
-		UnitMessage2 = Locale.Lookup("LOC_HOSTILE_VILLAGERS_UNIT_NOTIFICATION_MESSAGE_2"),
-		CampTypeHash = NotificationTypes.NEW_BARBARIAN_CAMP,
-		CampMessage = Locale.Lookup("LOC_HOSTILE_VILLAGERS_CAMP_NOTIFICATION_MESSAGE")
-	-- secrets type
-	}, Secrets = {
-		Title = Locale.Lookup("LOC_VILLAGER_SECRETS_NOTIFICATION_TITLE"),
-		TypeHash = NotificationTypes.USER_DEFINED_2,
-		Message = Locale.Lookup("LOC_VILLAGER_SECRETS_NOTIFICATION_MESSAGE")
-	-- bonus rewards
-	}, Reward = {
-		Title = Locale.Lookup("LOC_BONUS_REWARD_NOTIFICATION_TITLE"),
-		TypeHash = NotificationTypes.USER_DEFINED_1,
-		Message = Locale.Lookup("LOC_BONUS_REWARD_NOTIFICATION_MESSAGE")
-	}
+GUE.Notification = GUE.Notification and GUE.Notification or {};
+-- define Villager Secrets notification parameters
+GUE.Notification.Secrets = {
+	Title = Locale.Lookup("LOC_VILLAGER_SECRETS_NOTIFICATION_TITLE"),
+	TypeHash = NotificationTypes.USER_DEFINED_2,
+	Message = Locale.Lookup("LOC_VILLAGER_SECRETS_NOTIFICATION_MESSAGE")
 };
--- Rise and Fall or later ruleset check
-GUE.RulesetXP1 = (GUE.Ruleset ~= "RULESET_STANDARD") and true or false;
--- Gathering Storm or later ruleset check
-GUE.RulesetXP2 = (GUE.Ruleset ~= "RULESET_STANDARD" and GUE.Ruleset ~= "RULESET_EXPANSION_1") and true or false;
--- this resolves to Skirmisher when GS or later ruleset is in use; otherwise, it resolves to Scout
-local sScoutOrSkirmisher = GUE.RulesetXP2 and "UNIT_SKIRMISHER" or "UNIT_SCOUT";
--- this resolves to Spec Ops when R&F or later ruleset is in use; otherwise, it resolves to Ranger
-local sRangerOrSpecOps = GUE.RulesetXP1 and "UNIT_SPEC_OPS" or "UNIT_RANGER";
--- this resolves to Pike and Shot when R&F or later ruleset is in use; otherwise, it resolves to Pikeman
-local sPikemanOrPikeAndShot = GUE.RulesetXP1 and "UNIT_PIKE_AND_SHOT" or "UNIT_PIKEMAN";
--- this resolves to Courser when GS or later ruleset is in use; otherwise, it resolves to Cavalry
-local sCavalryOrCourser = GUE.RulesetXP2 and "UNIT_COURSER" or "UNIT_CAVALRY";
--- this resolves to Courser when GS or later ruleset is in use; otherwise, it resolves to Horseman ** DEPRECATED **
-local sCourserOrHorseman = GUE.RulesetXP2 and "UNIT_COURSER" or "UNIT_HORSEMAN";
--- this resolves to Cuirassier when GS or later ruleset is in use; otherwise, it resolves to Knight
-local sCuirassierOrKnight = GUE.RulesetXP2 and "UNIT_CUIRASSIER" or "UNIT_KNIGHT";
--- this resolves to Supply Convoy when R&F or later ruleset is in use; otherwise, it resolves to Medic
-local sMedicOrSupplyConvoy = GUE.RulesetXP1 and "UNIT_SUPPLY_CONVOY" or "UNIT_MEDIC";
--- table of available Recon units by Era
-local tReconByEra = {
-	[0] = "UNIT_SCOUT", [1] = "UNIT_SCOUT", [2] = sScoutOrSkirmisher, [3] = sScoutOrSkirmisher, [4] = "UNIT_RANGER", [5] = "UNIT_RANGER",
-	[6] = sRangerOrSpecOps, [7] = sRangerOrSpecOps, [8] = sRangerOrSpecOps
-};
--- table of available Melee units by Era
-local tMeleeByEra = {
-	[0] = "UNIT_WARRIOR", [1] = "UNIT_SWORDSMAN", [2] = "UNIT_MAN_AT_ARMS", [3] = "UNIT_MUSKETMAN", [4] = "UNIT_LINE_INFANTRY",
-	[5] = "UNIT_INFANTRY", [6] = "UNIT_INFANTRY", [7] = "UNIT_MECHANIZED_INFANTRY", [8] = "UNIT_MECHANIZED_INFANTRY"
-};
--- table of available Ranged units by Era
-local tRangedByEra = {
-	[0] = "UNIT_SLINGER", [1] = "UNIT_ARCHER", [2] = "UNIT_CROSSBOWMAN", [3] = "UNIT_CROSSBOWMAN", [4] = "UNIT_FIELD_CANNON",
-	[5] = "UNIT_FIELD_CANNON", [6] = "UNIT_MACHINE_GUN", [7] = "UNIT_MACHINE_GUN", [8] = "UNIT_MACHINE_GUN"
-};
--- table of available Anti-Cavalry units by Era
-local tAntiCavalryByEra = {
-	[0] = "UNIT_SPEARMAN", [1] = "UNIT_SPEARMAN", [2] = "UNIT_PIKEMAN", [3] = sPikemanOrPikeAndShot, [4] = sPikemanOrPikeAndShot,
-	[5] = "UNIT_AT_CREW", [6] = "UNIT_AT_CREW", [7] = "UNIT_MODERN_AT", [8] = "UNIT_MODERN_AT"
-};
--- table of available Heavy Cavalry units by Era
-local tHeavyCavalryByEra = {
-	[0] = "UNIT_HEAVY_CHARIOT", [1] = "UNIT_HEAVY_CHARIOT", [2] = "UNIT_KNIGHT", [3] = "UNIT_KNIGHT", [4] = sCuirassierOrKnight,
-	[5] = "UNIT_TANK", [6] = "UNIT_TANK", [7] = "UNIT_MODERN_ARMOR", [8] = "UNIT_MODERN_ARMOR"
-};
--- table of available Light Cavalry units by Era
-local tLightCavalryByEra = {
-	[0] = "UNIT_HORSEMAN", [1] = "UNIT_HORSEMAN", [2] = sCourserOrHorseman, [3] = sCourserOrHorseman, [4] = "UNIT_CAVALRY",
-	[5] = "UNIT_CAVALRY", [6] = "UNIT_HELICOPTER", [7] = "UNIT_HELICOPTER", [8] = "UNIT_HELICOPTER"
-};
--- table of available Siege units by Era
-local tSiegeByEra = {
-	[0] = "UNIT_CATAPULT", [1] = "UNIT_CATAPULT", [2] = "UNIT_TREBUCHET", [3] = "UNIT_BOMBARD", [4] = "UNIT_BOMBARD",
-	[5] = "UNIT_ARTILLERY", [6] = "UNIT_ARTILLERY", [7] = "UNIT_ROCKET_ARTILLERY", [8] = "UNIT_ROCKET_ARTILLERY"
-};
--- table of available Support units by Era
-local tSupportByEra = {
-	[0] = "UNIT_BATTERING_RAM", [1] = "UNIT_BATTERING_RAM", [2] = "UNIT_SIEGE_TOWER", [3] = "UNIT_SIEGE_TOWER", [4] = "UNIT_MEDIC",
-	[5] = sMedicOrSupplyConvoy, [6] = sMedicOrSupplyConvoy, [7] = sMedicOrSupplyConvoy, [8] = sMedicOrSupplyConvoy
-};
--- table of available naval Melee units by Era
-local tNavalMeleeByEra = {
-	[0] = "UNIT_GALLEY", [1] = "UNIT_GALLEY", [2] = "UNIT_GALLEY", [3] = "UNIT_CARAVEL", [4] = "UNIT_IRONCLAD",
-	[5] = "UNIT_IRONCLAD", [6] = "UNIT_DESTROYER", [7] = "UNIT_DESTROYER", [8] = "UNIT_DESTROYER"
-};
--- table of available naval Ranged units by Era
-local tNavalRangedByEra = {
-	[0] = "UNIT_QUADRIREME", [1] = "UNIT_QUADRIREME", [2] = "UNIT_QUADRIREME", [3] = "UNIT_FRIGATE", [4] = "UNIT_FRIGATE",
-	[5] = "UNIT_BATTLESHIP", [6] = "UNIT_BATTLESHIP", [7] = "UNIT_MISSILE_CRUISER", [8] = "UNIT_MISSILE_CRUISER"
-};
--- initialize the grant unit by Era table
-GUE.UnitRewardByEra = {};
--- populate the grant unit by Era table using the unit table(s) defined above
-for e = 0, 8, 1 do
-	GUE.UnitRewardByEra[e] = {
-		Recon = tReconByEra[e], Melee = tMeleeByEra[e], Ranged = tRangedByEra[e], AntiCavalry = tAntiCavalryByEra[e],
-		HeavyCavalry = tHeavyCavalryByEra[e], LightCavalry = tLightCavalryByEra[e], Siege = tSiegeByEra[e], Support = tSupportByEra[e],
-		NavalMelee = tNavalMeleeByEra[e], NavalRanged = tNavalRangedByEra[e]
-	};
-end
--- initialize the table of hostile units to spawn by Era
-GUE.HostileUnitByEra = {};
--- manually populate the hostile units table for Era 0
-GUE.HostileUnitByEra[0] = {
-	Recon = tReconByEra[0], Melee = tMeleeByEra[0], Ranged = tRangedByEra[0], AntiCavalry = tAntiCavalryByEra[0],
-	HeavyCavalry = "UNIT_BARBARIAN_HORSEMAN", LightCavalry = "UNIT_BARBARIAN_HORSE_ARCHER", Siege = tSiegeByEra[0], Support = tSupportByEra[0],
-	NavalMelee = tNavalMeleeByEra[0], NavalRanged = tNavalRangedByEra[0]
-};
--- finish populating the hostile units table using the unit table(s) defined above
-for e = 1, 8, 1 do
-	GUE.HostileUnitByEra[e] = {
-		Recon = tReconByEra[e], Melee = tMeleeByEra[e], Ranged = tRangedByEra[e], AntiCavalry = tAntiCavalryByEra[e],
-		HeavyCavalry = tHeavyCavalryByEra[e], LightCavalry = tLightCavalryByEra[e], Siege = tSiegeByEra[e], Support = tSupportByEra[e],
-		NavalMelee = tNavalMeleeByEra[e], NavalRanged = tNavalRangedByEra[e]
-	};
-end
 -- table of individual unit rewards
 GUE.GrantUnitRewards = {
 	["GOODYHUT_GRANT_SCOUT"] = 1, ["GOODYHUT_GRANT_WARRIOR"] = 2, ["GOODYHUT_GRANT_SLINGER"] = 3, ["GOODYHUT_GRANT_SPEARMAN"] = 4, ["GOODYHUT_GRANT_HEAVY_CHARIOT"] = 5, ["GOODYHUT_GRANT_HORSEMAN"] = 6, 
@@ -335,7 +226,7 @@ function GUE.AddUnitToMap( iX, iY, iPlayerID, iTurn, iEra, sRewardSubType )
 	-- place the identified unit
 	UnitManager.InitUnitValidAdjacentHex(iPlayerID, sUnitGrant, iX, iY, 1);
 	-- debugging log output
-	Dprint("Successfully placed a new " .. sUnitGrant .. " under the control of Player " .. iPlayerID .. " near plot (x " .. iX .. ", y " .. iY .. ")");
+	print("Successfully placed a new " .. sUnitGrant .. " under the control of Player " .. iPlayerID .. " near plot (x " .. iX .. ", y " .. iY .. ")");
 end
 
 --[[ =========================================================================
@@ -358,11 +249,11 @@ function GUE.AddXPToUnit( iX, iY, tUnits, iXP )
 			-- add iXP experience to this unit
 			pUnitExperience:ChangeExperience(iXP);
 			-- debugging log output
-			Dprint("A " .. sUnitType .. " near plot (x " .. iX .. ", y " .. iY .. ") has received " .. iXP .. " experience points towards its next promotion");
+			print("A " .. sUnitType .. " near plot (x " .. iX .. ", y " .. iY .. ") has received " .. iXP .. " experience points towards its next promotion");
 		-- this unit can 'NOT' earn experience
 		else
 			-- debugging log output
-			Dprint("Combat experience is not a valid award for a " .. sUnitType .. " near plot (x " .. iX .. ", y " .. iY .. "); skipping this unit");
+			print("Combat experience is not a valid award for a " .. sUnitType .. " near plot (x " .. iX .. ", y " .. iY .. "); skipping this unit");
 		end
 	end
 end
@@ -393,23 +284,23 @@ function GUE.AddAbilityToUnit( iX, iY, tUnits, sAbilityType )
 						-- attach sAbilityType to this unit
 						pUnitAbility:ChangeAbilityCount(sAbilityType, 1);
 						-- debugging log output
-						Dprint("Military Unit Ability " .. sAbilityType .. " successfully attached to a " .. sUnitType .. " at plot (x " .. iX .. ", y " .. iY .. ")");
+						print("Military Unit Ability " .. sAbilityType .. " successfully attached to a " .. sUnitType .. " at plot (x " .. iX .. ", y " .. iY .. ")");
 					-- this unit is NOT a valid combat unit; do nothing
 					else
 						-- debugging log output
-						Dprint("Military Unit Ability " .. sAbilityType .. " is not valid for a " .. sUnitType .. " at plot (x " .. iX .. ", y " .. iY .. "); skipping unit");
+						print("Military Unit Ability " .. sAbilityType .. " is not valid for a " .. sUnitType .. " at plot (x " .. iX .. ", y " .. iY .. "); skipping unit");
 					end
 				-- these abilities can be attached to any unit
 				elseif (sAbilityType == "ABILITY_IMPROVED_SIGHT" or sAbilityType == "ABILITY_IMPROVED_MOVEMENT") then
 					-- attach sAbilityType to this unit
 					pUnitAbility:ChangeAbilityCount(sAbilityType, 1);
 					-- debugging log output
-					Dprint("Unit Ability " .. sAbilityType .. " successfully attached to a " .. sUnitType .. " at plot (x " .. iX .. ", y " .. iY .. ")");
+					print("Unit Ability " .. sAbilityType .. " successfully attached to a " .. sUnitType .. " at plot (x " .. iX .. ", y " .. iY .. ")");
 				end
 			-- do not attach sAbilityType to this unit more than once
 			else
 				-- debugging log output
-				Dprint("Unit Ability " .. sAbilityType .. " was previously attached to a " .. sUnitType .. " at plot (x " .. iX .. ", y " .. iY .. "); skipping unit");
+				print("Unit Ability " .. sAbilityType .. " was previously attached to a " .. sUnitType .. " at plot (x " .. iX .. ", y " .. iY .. "); skipping unit");
 			end
 		end
 	end
@@ -488,11 +379,11 @@ function GUE.UpgradeUnit( iPlayerID, iX, iY, tUnits )
 			-- true when this unit has not yet earned any promotions
 			if not bHasPromotions then 
 				-- debugging output
-				local sQuadDebugMsg = "A " .. sUnitType .. " has NOT previously been promoted; 'upgrading' this unit to a " .. GUE.UnitUpgrades[sUnitType] .. " . . . ";
+				local sQuadDebugMsg = "A " .. sUnitType .. " has NOT previously been promoted; 'upgrading' this unit to a " .. GUE.UnitUpgrades[sUnitType];
 				-- "upgrade" this unit by (1) destroying this unit, and then (2) creating a new unit which this unit would upgrade to
 				UnitManager.Kill(pUnit);
 				UnitManager.InitUnit(iPlayerID, GUE.UnitUpgrades[sUnitType], jX, jY, 1);
-				Dprint(sQuadDebugMsg .. "PASS!");
+				print(sQuadDebugMsg .. ", reapplying any earned abilities, and adding sufficient experience for its first promotion");
 				-- iterate over all unit(s) found in this Plot
 				for i, pUnit in ipairs(Units.GetUnitsInPlotLayerID(jX, jY, MapLayers.ANY)) do
 					-- fetch this unit's ID and OwnerID
@@ -526,7 +417,7 @@ function GUE.UpgradeUnit( iPlayerID, iX, iY, tUnits )
 							UnitManager.FinishMoves(pUnit);
 							Dprint(sSecInfoMsg .. "PASS!");
 							-- grant huge experience reward to this unit
-							local sPriInfoMsg = "Adding enough experience to this unit for its next promotion (" .. iXPFNL .. " XP) . . . ";
+							local sPriInfoMsg = "Adding enough experience to this unit for its first promotion (" .. iXPFNL .. " XP) . . . ";
 							pUnitExperience:ChangeExperience(iXPFNL);
 							Dprint(sPriInfoMsg .. "PASS!");
 						end
@@ -535,7 +426,7 @@ function GUE.UpgradeUnit( iPlayerID, iX, iY, tUnits )
 			-- true when this unit has earned at least one promotion
 			else 
 				-- debugging output
-				Dprint("A " .. sUnitType .. " has previously been promoted; skipping 'upgrade' for this unit . . . ");
+				print("A " .. sUnitType .. " has previously been promoted; skipping 'upgrade' for this unit and adding sufficient experience for its next promotion");
 				-- grant huge experience reward to this unit
 				local sPriInfoMsg = "Adding enough experience to this unit for its next promotion (" .. iXPFNL .. " XP) . . . ";
 				pUnitExperience:ChangeExperience(iXPFNL);
@@ -546,389 +437,13 @@ function GUE.UpgradeUnit( iPlayerID, iX, iY, tUnits )
 		-- true when this unit's type is NOT a key in the unit upgrades table
 		else
 			-- debugging output
-			Dprint("A " .. sUnitType .. " at plot (x " .. iX .. ", y " .. iY ..") does not have a valid defined upgrade path; skipping this unit");
+			print("A " .. sUnitType .. " is not a valid target for this reward; skipping this unit");
 			-- store the entire unit table for and select details about this unit in the results table, keyed to its ID
 			tNewUnits[k] = v;
 		end
 	end
 	-- return the results table
 	return tNewUnits;
-end
-
---[[ =========================================================================
-	exposed member function DetermineVillagerHostility( bIsExpand, bIsIncreasedHostility, bIsDecreasedHostility, iDifficultyModifier, iThisRewardModifier, iBonusRewardModifier, iEra, iSpawnThreshold )
-	calculate villager hostility after a reward, based on popping method and/or unit, selected difficulty, current game/player Era, and rarity of any received reward(s)
-	when this value equals or exceeds the spawn threshold, hostile villagers will appear
-	pre-init : this should be defined prior to Initialize()
-=========================================================================== ]]
-function GUE.DetermineVillagerHostility( bIsExpand, bIsIncreasedHostility, bIsDecreasedHostility, iDifficultyModifier, iThisRewardModifier, iBonusRewardModifier, iEra, iSpawnThreshold )
-	-- define any informational message(s)
-	local sPriInfoMsg = "The villagers are ";
-	-- default to zero hostility
-	local sHostilityLevel = "ZERO";
-	-- this fluctuates depending on how the goody hut was found and/or what type of unit found it; the default value applies to recon and most civilian and religious units
-	local iAdditionalModifier = 2;
-	-- this is true if the goody hut was popped via border expansion or by a high-value target unit, such as a settler, builder, or great person (including comandante general)
-	if (bIsExpand) or (bIsIncreasedHostility) then iAdditionalModifier = 3;
-	-- this is true if the goody hut was popped by any unit whose promotion class is in the decreased hostility table, which is most military and some civilian and religious units
-	elseif (bIsDecreasedHostility) then iAdditionalModifier = 1;
-	end
-	-- the era modifier increases with each successive game/player Era
-	local iEraModifier = iEra + 1;
-	-- the reward modifier is the sum of hostile reward modifiers from all rewards granted this turn
-	local iRewardModifier = iThisRewardModifier + iBonusRewardModifier;
-	-- calculate the base chance of hostile villagers appearing this turn
-	local iBaseChance = ((iAdditionalModifier * iDifficultyModifier) + iRewardModifier) * iEraModifier;
-	-- get a random modifier value 1-100, inclusive, if necessary
-	local iRandomModifier = TerrainBuilder.GetRandomNumber(iSpawnThreshold, "Hostile villagers : spawn chance") + 1;
-	-- add the random modifier to the base chance to determine the actual chance of hostile villagers appearing this turn, or set an override value with an "always hostile" setting
-	local iHostilesChance = iBaseChance + iRandomModifier;
-	-- inflate the hostiles chance here if necessary
-	if (GUE.HostilesAfterReward > 2) then while (iHostilesChance < iSpawnThreshold) do iHostilesChance = iHostilesChance * 2; end end
-	-- debugging message
-	local sPriDebugMsg = "Initial villager hostility level: (((" .. iAdditionalModifier .. " * " .. iDifficultyModifier .. ") + " 
-		.. iRewardModifier .. ") * " .. iEraModifier .. ") + " .. iRandomModifier .. " = " .. iHostilesChance .. " [Threshold: " .. iSpawnThreshold .. "]";
-	local sSecDebugMsg = " [Hostiles After Reward: " .. GUE.HostilityLevels[GUE.HostilesAfterReward] .. "]";
-	-- print the debugging message
-	Dprint(sPriDebugMsg .. sSecDebugMsg);
-	-- proceed to calculate hostility level if this is true
-	if (iHostilesChance >= iSpawnThreshold) then
-		-- adjust informational message(s)
-		sPriInfoMsg = sPriInfoMsg .. "annoyed by the presence of outsiders, and will react aggressively"
-		-- log output
-		print(sPriInfoMsg);
-		-- additional hostility modifier for hyper-hostile villagers after reward
-		local iHostilityModifier = (GUE.HostilesAfterReward > 3) and 101 or 0;
-		-- add the previously calculated hostiles chance to the additional hostility modifier to calculate the actual hostility level
-		local iActualHostility = iHostilesChance + iHostilityModifier;
-		-- table of low/mid/high/max hostility thresholds
-		local tHostilityThresholds = { iSpawnThreshold, (iSpawnThreshold * 1.33), (iSpawnThreshold * 1.67), (iSpawnThreshold * 2) };
-		-- debugging output
-		Dprint("Adjusted villager hostility level: " .. iHostilesChance .. " + " .. iHostilityModifier .. " = " .. iActualHostility .. " [Low/Mid/High/Max: "
-			.. tHostilityThresholds[1] .. "/" .. tHostilityThresholds[2] .. "/" .. tHostilityThresholds[3] .. "/" .. tHostilityThresholds[4] .. "]");
-		-- max hostility
-		if (iActualHostility >= tHostilityThresholds[4]) then sHostilityLevel = "GOODYHUT_MAX_HOSTILITY_VILLAGERS";
-		-- high hostility
-		elseif (iActualHostility >= tHostilityThresholds[3]) then sHostilityLevel = "GOODYHUT_HIGH_HOSTILITY_VILLAGERS";
-		-- mid hostility
-		elseif (iActualHostility >= tHostilityThresholds[2]) then sHostilityLevel = "GOODYHUT_MID_HOSTILITY_VILLAGERS";
-		-- low hostility
-		elseif (iActualHostility >= tHostilityThresholds[1]) then sHostilityLevel = "GOODYHUT_LOW_HOSTILITY_VILLAGERS";
-		end
-	else
-		-- adjust informational message(s)
-		sPriInfoMsg = sPriInfoMsg .. "unconcerned by the presence of outsiders"
-		-- log output
-		print(sPriInfoMsg);
-	end
-	-- return the selected hostility level
-	return sHostilityLevel;
-end
-
---[[ =========================================================================
-	exposed member function CreateHostileVillagers( iX, iY, iPlayerID, iTurn, iEra, sRewardSubType )
-	spawns hostile barbarian units near the plot at (x iX, y iY)
-	hostility level determined by sRewardSubType
-	ingame notifications sent to iPlayerID
-	pre-init : this should be defined prior to Initialize()
-=========================================================================== ]]
-function GUE.CreateHostileVillagers( iX, iY, iPlayerID, iTurn, iEra, sRewardSubType )
-	-- define function entry messages
-	local sPriEntryMsg = "Turn " .. iTurn .. " | Era " .. iEra .. " | Enter CreateHostileVillagers( iX = " .. iX .. ", iY = " .. iY
-		.. ", iPlayerID = " .. iPlayerID .. ", iTurn = " .. iTurn .. ", iEra = " .. iEra .. ", sRewardSubType = " .. sRewardSubType .. " )";
-	-- print entry messages to the log when debugging
-	Dprint(sPriEntryMsg);
-	-- fetch the hostilty level of the current "reward"
-	local iHostilityLevel = GUE.HostileVillagers[sRewardSubType];
-	-- the number of hostile melee unit(s) to spawn; this should always be at least 1, and may change depending on the hostility level
-	local iMeleeHostiles = (iHostilityLevel == 3) and 2 or 1;
-	-- the number of hostile ranged unit(s) to spawn; this defaults to 0, and may change depending on the hostility level
-	local iRangedHostiles = (iHostilityLevel > 1) and 1 or 0;
-	-- barbarian camp spawn flag; this will be set to true if the hostility level indicates that a barbarian camp should be placed
-	local bSpawnBarbCamp = (iHostilityLevel == 4) and true or false;
-	-- define the primary informational message
-	local sPriInfoMsg = "The villagers are ";
-	-- define the secondary informational message
-	local sSecInfoMsg = " hostile, and react to the presence of outsiders by forming " .. iMeleeHostiles .. " hostile melee and " .. iRangedHostiles .. " hostile ranged unit(s)";
-	-- adjust the secondary informational message for max hostility
-	if (iHostilityLevel == 4) then sSecInfoMsg = sSecInfoMsg .. ", AND a new barbarian camp!"; end
-	-- log output
-	print(sPriInfoMsg .. GUE.HostilityAdverbs[iHostilityLevel] .. sSecInfoMsg);
-	-- check nearby plots for (1) a valid location for a new barbarian camp, and (2) the presence of resources
-	local tValidBarbCampPlots, bIsHorsesNearby, iNearbyHorses = GUE.GetValidSpawnPlots(iX, iY, iTurn, iEra);
-	-- debugging output
-	Dprint("Discovered " .. #tValidBarbCampPlots .. " valid plot(s) in which a barbarian camp or hostile unit may spawn");
-	if bIsHorsesNearby then print("Horses discovered in " .. iNearbyHorses .. " nearby plot(s); any hostile unit(s) which spawn may be mounted"); end
-	-- attempt to spawn a barbarian camp first, if the flag was set
-	if (bSpawnBarbCamp) then
-		-- when this fires, pick a valid adjacent plot and try to spawn a barbarian camp
-		if tValidBarbCampPlots and #tValidBarbCampPlots > 0 then
-			-- get a random index value
-			local iSpawnPlotIndex = TerrainBuilder.GetRandomNumber(#tValidBarbCampPlots, "New barbarian camp plot index") + 1;
-			-- fetch data for the Plot indicated by the random index
-			local pSpawnPlot = tValidBarbCampPlots[iSpawnPlotIndex];
-			-- fetch the (x, y) coordinates of the fetched Plot object
-			local sX, sY = pSpawnPlot:GetX(), pSpawnPlot:GetY();
-			-- remove the random index from the table
-			table.remove(tValidBarbCampPlots, iSpawnPlotIndex);
-			-- attempt to place the barbarian camp in the indicated Plot
-			ImprovementBuilder.SetImprovementType(pSpawnPlot, GUE.BarbCampIndex, -1);
-			-- log output
-			print("A group of villagers have organized into a new barbarian camp at plot (x " .. sX .. ", y " .. sY .. ")!");
-			-- send an ingame notification for the new barbarian camp
-			NotificationManager.SendNotification(iPlayerID, GUE.Notification.Hostile.CampTypeHash, GUE.Notification.Hostile.Title, GUE.Notification.Hostile.CampMessage, sX, sY);
-		-- no valid spawn plot(s) were identified, so try to compensate with additional units
-		else
-			-- adjust the number of hostile melee unit(s) to spawn
-			iMeleeHostiles = 2;
-			-- adjust the number of hostile ranged unit(s) to spawn
-			iRangedHostiles = 2;
-			-- log output
-			print("There are no valid adjacent plot(s) in which a barbarian camp may spawn; attempting to spawn " .. iMeleeHostiles .. " hostile melee and " .. iRangedHostiles .. " hostile ranged unit(s) instead");
-		end
-	end
-	-- when fewer valid plots remain in the table than the total number of hostile units to be placed, re-fetch the Plot objects for all immediately adjacent plots
-	if (#tValidBarbCampPlots < (iMeleeHostiles + iRangedHostiles + 1)) then
-		-- unit(s) can potentially spawn in plots that barbarian camps cannot, so some now-valid plot(s) may have been ignored during previous validation
-		Dprint("Remaining count of valid plot(s) " .. #tValidBarbCampPlots .. " is less than the sum of hostile unit(s) to place; requerying adjacent plot(s) to identify any potentially now-valid plot(s)");
-		-- search for valid Plot object(s) adjacent to (iX, iY) in every defined direction
-		for d = 0, (DirectionTypes.NUM_DIRECTION_TYPES - 1), 1 do
-			-- fetch the object for the adjacent Plot in this direction
-			local pAdjacentPlot = Map.GetAdjacentPlot(iX, iY, d);
-			-- when this check fails, assume an invalid object and do nothing
-			if pAdjacentPlot then table.insert(tValidBarbCampPlots, pAdjacentPlot); end
-		end
-		-- debugging log output
-		Dprint("There are now " .. #tValidBarbCampPlots .. " valid plot(s) in which a hostile unit may spawn");
-	end
-	-- tracker for the total number of hostile unit(s) to be spawned
-	local tSpawnedUnits = { Count = 0, Plots = {}, Units = {} };
-	-- (mounted) melee units will spawn if this is greater than zero; if this is 0 or less, something is wrong elsewhere
-	if (iMeleeHostiles > 0) then
-		-- place (mounted) melee units until iMeleeHostiles such units(s) have been placed
-		for p = 1, iMeleeHostiles do
-			-- get a random index value
-			local iSpawnPlotIndex = TerrainBuilder.GetRandomNumber(#tValidBarbCampPlots, "Melee hostiles plot index") + 1;
-			-- fetch data for the Plot indicated by the random index
-			local pSpawnPlot = tValidBarbCampPlots[iSpawnPlotIndex];
-			-- remove the random index from the table
-			table.remove(tValidBarbCampPlots, iSpawnPlotIndex);
-			-- fetch the (x, y) coordinates of the fetched Plot object
-			local sX, sY = pSpawnPlot:GetX(), pSpawnPlot:GetY();
-			-- informational messages
-			local sPriInfoMsg = "A group of villagers have organized into a hostile ";
-			local sSecInfoMsg = " near plot (x " .. sX .. ", y " .. sY .. ")!";
-			-- Horses were located nearby: roll to choose mounted or standard melee
-			if bIsHorsesNearby then
-				-- modulo (%) returns the remainder from a division operation; there is a ~ 50% chance for "true" here with 1 Horses, and that chance gets greater with each additional Horses
-				local bMountedSpawn = ((TerrainBuilder.GetRandomNumber(100, "Mounted or standard melee choice") % (iNearbyHorses + 1)) > 0) and true or false;
-				-- substitute a mounted melee or heavy cavalry unit for this standard melee unit
-				if bMountedSpawn then
-					-- place a mounted melee or heavy cavalry unit based on the current Era
-					UnitManager.InitUnitValidAdjacentHex(GUE.BarbarianID, GUE.HostileUnitByEra[iEra].HeavyCavalry, sX, sY, 1);
-					-- log output
-					print(sPriInfoMsg .. GUE.HostileUnitByEra[iEra].HeavyCavalry .. sSecInfoMsg);
-					-- add an Era-appropriate heavy cavalry unit to the table of units to spawn
-					table.insert(tSpawnedUnits.Units, GUE.HostileUnitByEra[iEra].HeavyCavalry);
-				-- default to standard melee
-				else
-					-- place a standard melee unit based on the current Era
-					UnitManager.InitUnitValidAdjacentHex(GUE.BarbarianID, GUE.HostileUnitByEra[iEra].Melee, sX, sY, 1);
-					-- log output
-					print(sPriInfoMsg .. GUE.HostileUnitByEra[iEra].Melee .. sSecInfoMsg);
-					-- add an Era-appropriate melee unit to the table of units to spawn
-					table.insert(tSpawnedUnits.Units, GUE.HostileUnitByEra[iEra].Melee);
-				end
-			-- Horses were NOT located nearby: default to standard melee
-			else
-				-- place a standard melee unit based on the current Era
-				UnitManager.InitUnitValidAdjacentHex(GUE.BarbarianID, GUE.HostileUnitByEra[iEra].Melee, sX, sY, 1);
-				-- log output
-				print(sPriInfoMsg .. GUE.HostileUnitByEra[iEra].Melee .. sSecInfoMsg);
-				-- add an Era-appropriate melee unit to the table of units to spawn
-				table.insert(tSpawnedUnits.Units, GUE.HostileUnitByEra[iEra].Melee);
-			end
-			-- update the total spawned unit(s) tracker
-			tSpawnedUnits.Count = tSpawnedUnits.Count + 1;
-			table.insert(tSpawnedUnits.Plots, pSpawnPlot);
-		end
-	end
-	-- (mounted) ranged units will spawn if this is greater than zero ** 2021/04/22 ** ranged units spawned by this script don't seem to do anything but wait for death
-	if (iRangedHostiles > 0) then
-		-- place (mounted) ranged units until iRangedHostiles such unit(s) have been placed
-		for p = 1, iRangedHostiles do
-			-- get a random index value
-			local iSpawnPlotIndex = TerrainBuilder.GetRandomNumber(#tValidBarbCampPlots, "Ranged hostiles plot index") + 1;
-			-- fetch data for the Plot indicated by the random index
-			local pSpawnPlot = tValidBarbCampPlots[iSpawnPlotIndex];
-			-- remove the random index from the table
-			table.remove(tValidBarbCampPlots, iSpawnPlotIndex);
-			-- fetch the (x, y) coordinates of the fetched Plot object
-			local sX, sY = pSpawnPlot:GetX(), pSpawnPlot:GetY();
-			-- informational messages
-			local sPriInfoMsg = "A group of villagers have organized into a hostile ";
-			local sSecInfoMsg = " near plot (x " .. sX .. ", y " .. sY .. ")!";
-			-- Horses were located nearby: roll for mounted or standard ranged
-			if bIsHorsesNearby then
-				-- modulo (%) returns the remainder from a division operation; there is a ~ 50% chance for "true" here with 1 Horses, and that chance gets greater with each additional Horses
-				local bMountedSpawn = ((TerrainBuilder.GetRandomNumber(100, "Mounted or standard ranged choice") % (iNearbyHorses + 1)) > 0) and true or false;
-				-- substitute a mounted ranged or light cavalry unit for this standard ranged unit
-				if bMountedSpawn then
-					-- place a mounted ranged or light cavalry unit based on the current Era
-					UnitManager.InitUnitValidAdjacentHex(GUE.BarbarianID, GUE.HostileUnitByEra[iEra].LightCavalry, sX, sY, 1);
-					-- log output
-					print(sPriInfoMsg .. GUE.HostileUnitByEra[iEra].LightCavalry .. sSecInfoMsg);
-					-- add an Era-appropriate light cavalry unit to the table of units to spawn
-					table.insert(tSpawnedUnits.Units, GUE.HostileUnitByEra[iEra].LightCavalry);
-				-- default to standard ranged
-				else
-					-- place a standard ranged unit based on the current Era
-					UnitManager.InitUnitValidAdjacentHex(GUE.BarbarianID, GUE.HostileUnitByEra[iEra].Ranged, sX, sY, 1);
-					-- log output
-					print(sPriInfoMsg .. GUE.HostileUnitByEra[iEra].Ranged .. sSecInfoMsg);
-					-- add an Era-appropriate ranged unit to the table of units to spawn
-					table.insert(tSpawnedUnits.Units, GUE.HostileUnitByEra[iEra].Ranged);
-				end
-			-- Horses were NOT located nearby: default to standard ranged
-			else
-				-- place a standard ranged unit based on the current Era
-				UnitManager.InitUnitValidAdjacentHex(GUE.BarbarianID, GUE.HostileUnitByEra[iEra].Ranged, sX, sY, 1);
-				-- log output
-				print(sPriInfoMsg .. GUE.HostileUnitByEra[iEra].Ranged .. sSecInfoMsg);
-				-- add an Era-appropriate ranged unit to the table of units to spawn
-				table.insert(tSpawnedUnits.Units, GUE.HostileUnitByEra[iEra].Ranged);
-			end
-			-- update the total spawned unit(s) tracker
-			tSpawnedUnits.Count = tSpawnedUnits.Count + 1;
-			table.insert(tSpawnedUnits.Plots, pSpawnPlot);
-		end
-	end
-	-- this will fire if one or more unit(s) were spawned, and displays an ingame notification for each such unit
-	if (tSpawnedUnits.Count > 0) then
-		-- send notifications until tSpawnedUnits.Count such notification(s) have been sent
-		for n = 1, tSpawnedUnits.Count do
-			-- fetch the (x, y) coordinates for this spawn Plot
-			local nX, nY = tSpawnedUnits.Plots[n]:GetX(), tSpawnedUnits.Plots[n]:GetY();
-			-- the hostile ingame notification title
-			local sHostileTitle = GUE.Notification.Hostile.Title;
-			-- the hostile ingame notification message
-			local sHostileUnitMessage = GUE.Notification.Hostile.UnitMessage1 .. " " .. Locale.Lookup(GameInfo.Units[tSpawnedUnits.Units[n]].Name) .. " " .. GUE.Notification.Hostile.UnitMessage2;
-			-- send an ingame notification for each spawned unit
-			NotificationManager.SendNotification(iPlayerID, GUE.Notification.Hostile.UnitTypeHash, sHostileTitle, sHostileUnitMessage, nX, nY);
-		end
-	end
-	-- define function exit message(s)
-	local sPriExitMsg = "Turn " .. iTurn .. " | Era " .. iEra .. " | Exit CreateHostileVillagers()";
-	-- print exit message(s) to the log when debugging
-	Dprint(sPriExitMsg);
-end
-
---[[ =========================================================================
-	exposed member function GetValidAdjacentPlots( iX, iY, t )
-	identifies valid existing Plot objects which are adjacent to (iX, iY)
-	checks valid objects against t for any previously-identified object(s) and ignores them
-	any non-duplicate objects are added to the results table and returned
-	pre-init : this should be defined prior to Initialize()
-=========================================================================== ]]
-function GUE.GetValidAdjacentPlots( iX, iY, t )
-	-- initialize the results table; valid adjacent Plot object(s) go here
-	local tValidPlots = {};
-	-- place any object(s) currently in t in the results table
-	for k, v in pairs(t) do tValidPlots[k] = v; end
-	-- search for valid Plot object(s) adjacent to (iX, iY) in every defined direction
-	for d = 0, (DirectionTypes.NUM_DIRECTION_TYPES - 1), 1 do
-		-- fetch the object for the adjacent Plot in this direction
-		local pAdjacentPlot = Map.GetAdjacentPlot(iX, iY, d);
-		-- when this check fails, assume an invalid object and do nothing
-		if pAdjacentPlot then tValidPlots[pAdjacentPlot] = true; end
-	end
-	-- return the results table
-	return tValidPlots;
-end
-
---[[ =========================================================================
-	exposed member function ValidateNearbyPlots( t, iX, iY )
-	identifies any valid nearby Plot object(s) in t in which a Barbarian Camp improvement may exist
-		valid object(s) are added to the results table
-	identifies Horses in any valid nearby Plot object(s)
-		if found, a flag will be set and a tracker incremented, which will influence potential hostile unit selection
-	returns a results table, one or more resources found flag(s), and one or more nearby resources tracker(s)
-	pre-init : this should be defined prior to Initialize()
-=========================================================================== ]]
-function GUE.ValidateNearbyPlots( t, iX, iY )
-	-- initialize the results table; valid nearby Plot object(s) go here
-	local tValidPlots = {};
-	-- initialize the Horses found flag; this will be enabled if Horses are found in any valid object
-	local bIsHorsesNearby = false;
-	-- initialize the nearby Horses tracker; this will be incremented each time Horses are found in a valid object
-	local iNearbyHorses = 0;
-	-- iterate over the passed table to identify resources and valid barbarian camp locations
-	for k, v in pairs(t) do
-		-- fetch the (x, y) coordinates of this Plot
-		local kX, kY = k:GetX(), k:GetY();
-		-- debugging message(s)
-		local sLocalDebugMsg = "Plot (x " .. kX .. ", y " .. kY .. ") ";
-		-- the resource on this Plot, if any exists
-		local pPlotResource = k:GetResourceType();
-		-- this is true when Horses are present on this Plot
-		if (pPlotResource ~= 1) and (pPlotResource == GUE.HorsesIndex) then
-			-- debugging output
-			Dprint(sLocalDebugMsg .. "* contains Horses * ");
-			-- set the global Horses found flag if it has not already been set
-			if not bIsHorsesNearby then bIsHorsesNearby = true; end
-			-- increment the nearby Horses tracker
-			iNearbyHorses = iNearbyHorses + 1;
-		end
-		-- this is true when this Plot is a valid location for a barbarian camp
-		if ImprovementBuilder.CanHaveImprovement(k, GUE.BarbCampIndex, -1) then
-			-- debugging output
-			Dprint(sLocalDebugMsg .. "* is a valid location for a barbarian camp * ");
-			-- add this Plot object to the table of valid Plot objects
-			table.insert(tValidPlots, k); 
-		end
-	end
-	-- return the results table and any flag(s) and any tracker(s)
-	return tValidPlots, bIsHorsesNearby, iNearbyHorses;
-end
-
---[[ =========================================================================
-	exposed member function GetValidSpawnPlots( iX, iY, iTurn, iEra )
-	identifies valid existing Plot objects within the indicated radius of (iX, iY); each call to GetValidAdjacentPlots() below increases this radius by 1 tile
-	identifies whether a Barbarian Camp improvement may exist in any valid object(s)
-		valid object(s) are added to the results table
-	identifies whether Horses are present in any valid object(s)
-		if found, a flag will be set and a tracker incremented, which will influence hostile unit selection
-	returns a results table, one or more resources found flag(s), and one or more nearby resources tracker(s)
-	pre-init : this should be defined prior to Initialize()
-=========================================================================== ]]
-function GUE.GetValidSpawnPlots( iX, iY, iTurn, iEra )
-	-- define function entry messages
-	local sPriEntryMsg = "Turn " .. iTurn .. " | Era " .. iEra .. " | Enter GetValidSpawnPlots( iX = " .. iX .. ", iY = " .. iY 
-		.. ", iTurn = " .. iTurn .. ", iEra = " .. iEra .. " )";
-	-- print entry messages to the log when debugging
-	Dprint(sPriEntryMsg);
-	-- initialize local value(s): valid adjacent Plot(s) table, nearby Horses flag, nearby Horses tracker, additional adjacency radius
-	local tValidPlots, bIsHorsesNearby, iNearbyHorses, iExtraAdjacencyRadius = {}, false, 0, 2;
-	-- get any valid Plot(s) immediately adjacent to (iX, iY); results here will be keyed by Plot to ensure uniqueness of entries
-	tValidPlots = GUE.GetValidAdjacentPlots(iX, iY, tValidPlots);
-	-- get any new valid Plots(s) within iExtraAdjacencyRadius plots of any valid Plot(s) immediately adjacent to (iX, iY)
-	for a = 1, iExtraAdjacencyRadius, 1 do
-		-- get any new valid Plot(s) immediately adjacent to any previously-identified valid Plot(s)
-		for k, v in pairs(tValidPlots) do
-			-- fetch the (x, y) coordinates of this Plot
-			local aX, aY = k:GetX(), k:GetY();
-			-- get the valid Plot(s) immediately adjacent to this Plot
-			tValidPlots = GUE.GetValidAdjacentPlots(aX, aY, tValidPlots);
-		end
-	end
-	-- other stuff already uses a results table with integer keys and Plot values, so it will be converted here
-	local tValidPlots, bIsHorsesNearby, iNearbyHorses = GUE.ValidateNearbyPlots(tValidPlots, ix, iY);
-	-- define function exit message(s)
-	local sPriExitMsg = "Turn " .. iTurn .. " | Era " .. iEra .. " | Exit GetValidSpawnPlots(); return tValidPlots, bIsHorsesNearby, iNearbyHorses";
-	-- print exit message(s) to the log when debugging
-	Dprint(sPriExitMsg);
-	-- return the table of validated plots, the horses nearby flag, and the nearby horses tracker
-	return tValidPlots, bIsHorsesNearby, iNearbyHorses;
 end
 
 --[[ =========================================================================
@@ -991,159 +506,6 @@ function GUE.UnlockVillagerSecrets( iPlayerID, iTurn, iEra, sRewardSubType )
 	local sPriExitMsg = "Turn " .. iTurn .. " | Era " .. iEra .. " | Exit UnlockVillagerSecrets()";
 	-- print exit message(s) to the log when debugging
 	Dprint(sPriExitMsg);
-end
-
---[[ =========================================================================
-	exposed member function GetNewRewards()
-	rolls iNumRewards new bonus reward(s) when bonus rewards are enabled
-	rolls a replacement reward if sRewardSubType is the villagers secrets reward and Player iPlayerID has already received it the maximum number of times
-	pre-init : this should be defined prior to Initialize()
-=========================================================================== ]]
-function GUE.GetNewRewards( iNumRewards, iPlayerID, iUnitID, iX, iY, sRewardSubType, iTurn, iEra, tUnits )
-	-- initialize the cumulative hostile reward modifier
-	local iSumModifiers = 0;
-	-- initialize the hostiles as bonus reward flag
-	local bBonusHostiles = false;
-	-- initialize the subtype and tier return values
-	local sNewSubType, sNewTier = "", "";
-	-- do nothing if there are no bonus rewards, or if sRewardSubType is a hostile villager "reward" - no bonus rewards if the villagers are already pissed, right?
-	if (iNumRewards > 0) and not GUE.HostileVillagers[sRewardSubType] then 
-		-- loop up to iNumRewards times
-		for n = 1, iNumRewards, 1 do
-			-- no more bonus rewards if hostile villagers have been received as a bonus "reward"
-			if not bBonusHostiles then
-				-- initialize the rolls tracker and valid roll flag
-				local iNumRolls, bIsValidRoll = 0, false;
-				-- loop until the valid roll flag has been set
-				while not bIsValidRoll do 
-					-- initialize (1) the bonus reward subtype index to a dummy value, and (2) the bonus reward type index to a random value
-					local iBonusSubTypeIndex, iBonusTypeIndex = -2, TerrainBuilder.GetRandomNumber(GUE.TotalBonusRewardTypeWeight, "Bonus reward type index") + 1;
-					-- initialize primary debugging message
-					local sPriDebugMsg = "Bonus reward: Type index " .. iBonusTypeIndex;
-					-- iterate over the valid bonus reward types table
-					for k, v in pairs(GUE.ValidRewardTypes) do 
-						-- true when the random value is in the Start - End range for this reward type
-						if iBonusTypeIndex >= v.Start and iBonusTypeIndex <= v.End then 
-							-- adjust primary debugging message
-							sPriDebugMsg = sPriDebugMsg .. " (" .. v.GoodyHutType .. ")";
-							-- get a fresh random value limited to the sum of the weights of all subtypes of this type
-							iBonusSubTypeIndex = TerrainBuilder.GetRandomNumber(v.TotalSubTypeWeight, "Bonus reward subtype index") + 1;
-							-- initialize secondary debugging message
-							local sSecDebugMsg = "Subtype index " .. iBonusSubTypeIndex;
-							-- iterate over the valid bonus reward subtypes table
-							for a, b in pairs(GUE.ValidBonusRewards) do 
-								-- true when the fresh random subtype value is in the Start - End range for this reward subtype, AND this reward subtype has not been excluded
-								if b.GoodyHut == v.GoodyHutType and iBonusSubTypeIndex >= b.Start and iBonusSubTypeIndex <= b.End and not (b.SubTypeGoodyHut == GUE.VillagerSecrets and GUE.PlayerData[iPlayerID].VillagerSecretsLevel >= GUE.MaxSecretsLevel) and not (GUE.WGH_Rewards[b.SubTypeGoodyHut] ~= nil and iUnitID == -1) then 
-									-- set the valid roll flag to indicate a successful new roll
-									bIsValidRoll = true;
-									-- adjust secondary debugging message
-									sSecDebugMsg = sSecDebugMsg .. " (" .. b.SubTypeGoodyHut .. ")";
-									-- debugging output
-									Dprint(sPriDebugMsg .. ", " .. sSecDebugMsg);
-									-- fetch the object for the adjacent Plot in this direction ** 2021/07/26 this is hacky as fuck, and only works as long as n is always less than 6, which it *should* always be
-									local pAdjacentPlot = Map.GetAdjacentPlot(iX, iY, (n - 1));
-									-- fetch the (x, y) coordinates of the adjacent Plot object
-									local aX, aY = pAdjacentPlot:GetX(), pAdjacentPlot:GetY();
-									-- fetch the hostile modifier, subtype, reward modifier, rarity tier, and world view notification text for the current reward
-									local iThisHostileModifier, sThisType, sThisSubType, sThisModifier, sThisTier, sBonusRewardDesc = b.HostileModifier, b.GoodyHut, b.SubTypeGoodyHut, b.ModifierID, b.Tier, Locale.Lookup(b.Description);
-									-- these will ultimately contain the subtype and tier values of the last-rolled reward; they're only important for a replacement roll
-									sNewSubType, sNewTier = sThisSubType, sThisTier;
-									-- panel notification title
-									local sBonusRewardTitle = GUE.Notification.Reward.Title;
-									-- panel notification text
-									local sBonusRewardMessage = GUE.Notification.Reward.Message .. " " .. sBonusRewardDesc .. ".";
-									-- print log output if this is NOT a replacement roll for a presently-excluded reward
-									if not (iNumRewards == 1 and ((sRewardSubType == GUE.VillagerSecrets and GUE.PlayerData[iPlayerID].VillagerSecretsLevel >= GUE.MaxSecretsLevel) or (GUE.WGH_Rewards[sRewardSubType] ~= nil and iUnitID == -1))) then
-										-- info message for logging
-										local sPriInfoMsg = "The villagers also provide an additional " .. sThisTier .. " " .. sThisType .. " reward of " .. sThisSubType;
-										-- log output
-										print(sPriInfoMsg);
-									end
-									-- true when the rolled reward is a villager secrets reward
-									if (sThisSubType == GUE.VillagerSecrets) then 
-										-- true when this Player has received this reward fewer than the defined maximum amount of time(s)
-										if (GUE.PlayerData[iPlayerID].VillagerSecretsLevel < GUE.MaxSecretsLevel) then
-											GUE.UnlockVillagerSecrets(iPlayerID, iTurn, iEra, sThisSubType);
-										-- log output when false
-										else
-											Dprint("VillagerSecretsLevel >= MaxSecretsLevel for Player " .. iPlayerID);
-										end
-									-- true when the rolled reward is a free unit
-									elseif (GUE.GrantUnitRewards[sThisSubType] ~= nil) then GUE.AddUnitToMap(iX, iY, iPlayerID, iTurn, iEra, sThisSubType);
-									-- true when the rolled reward is a unit ability reward
-									elseif (GUE.UnitAbilityRewards[sThisSubType] ~= nil) then GUE.AddAbilityToUnit(iX, iY, tUnits, GUE.UnitAbilityRewards[sThisSubType]);
-									-- true when the rolled reward is a unit experience reward
-									elseif (GUE.UnitXPRewards[sThisSubType] ~= nil) then GUE.AddXPToUnit(iX, iY, tUnits, GUE.UnitXPRewards[sThisSubType]);
-									-- true when the rolled reward is a hostile villagers "reward"; set the bonus hostiles flag
-									elseif GUE.HostileVillagers[sThisSubType] then bBonusHostiles = true;
-									-- true when the rolled reward is the 'upgrade unit' reward
-									elseif (sThisSubType == "GOODYHUT_GRANT_UPGRADE") then tUnits = GUE.UpgradeUnit(iPlayerID, iX, iY, tUnits);
-									-- true when the rolled reward is of Wondrous-type
-									elseif (GUE.WGH_Rewards[sThisSubType] ~= nil) then
-										-- true when the primary reward was earned via border expansion
-										if (iPlayerID == -1) or (iUnitID == -1) then
-											-- debugging output
-											Dprint("Wondrous-type Bonus reward(s) are invalid Border Expansion rewards; skipping this bonus reward");
-										-- true when the primary reward was earned via unit exploration
-										else
-											-- the Type and SubType hash values for this reward
-											local iTypeHash, iSubTypeHash = GUE.WGH_Rewards[sThisSubType].TypeHash, GUE.WGH_Rewards[sThisSubType].SubTypeHash;
-											-- WGH setup parameters; these enable a Wondrous-type reward as a bonus reward
-											local pPlayer = Players[iPlayerID];
-											local pPlayerUnits = pPlayer:GetUnits();
-											local pThisUnit = pPlayerUnits:FindID(iUnitID);
-											local pThisUnitAbility = pThisUnit:GetAbility();
-											-- apply this ability to trigger a Wondrous-type bonus reward
-											pThisUnitAbility:ChangeAbilityCount(GUE.WGH_Rewards[sThisSubType].AbilityType, 1);
-											-- debugging output
-											Dprint("Wondrous-type Bonus reward " .. tostring(GUE.WGH_Rewards[sThisSubType].AbilityType) .. " successfully applied; WGH will handle the rest");
-											-- call WGH to handle this bonus reward; as far as it's concerned, this is the reward from a popped goody hut
-											WGH.Sailor_Expanded_Goodies(iPlayerID, iUnitID, iTypeHash, iSubTypeHash);
-										end
-									-- true for any other rolled reward; attach its modifier to (re) apply the reward
-									else GUE.AddModifierToPlayer(iPlayerID, sThisModifier, false);
-									end
-									-- the cumulative hostile modifier value of all received reward(s), including the first non-bonus reward
-									iSumModifiers = iSumModifiers + iThisHostileModifier;
-									-- spawn hostile villagers here if the bonus hostiles flag was set above; there will be no further bonus rewards after this one
-									if bBonusHostiles then GUE.CreateHostileVillagers(iX, iY, iPlayerID, iTurn, iEra, sThisSubType); end
-									-- display world view notification
-									Game.AddWorldViewText(iPlayerID, sBonusRewardDesc, iX, iY, 0);
-									-- send an ingame notification for each received bonus reward
-									NotificationManager.SendNotification(iPlayerID, GUE.Notification.Reward.TypeHash, sBonusRewardTitle, sBonusRewardMessage, aX, aY);
-								end
-							end
-							-- increment the rolls tracker and try again if the valid roll flag remains unset
-							iNumRolls = iNumRolls + 1;
-							-- infinite loop prevention; this fires when the current value of iNumRolls exceeds the amount of available goody hut rewards
-							if iNumRolls > GUE.NumGoodyHutRewards then 
-								-- debugging output
-								Dprint("Maximum number of attempts reached; resorting to fallback reward . . .");
-								-- divide the current value of iBonusIndex by the count of available fallback rewards; add 1 to the remainder and store the result
-								local iFallbackIndex = (iBonusIndex % #GUE.FallbackRewards) + 1;
-								-- apply the fallback reward represented by the index value obtained above
-								GUE.AddModifierToPlayer(iPlayerID, GUE.FallbackRewards[iFallbackIndex], false);
-								-- set the valid roll flag to indicate a successful new roll
-								bIsValidRoll = true;
-							end
-						end
-					end
-				end
-				-- debugging log output
-				if iNumRewards == 1 and ((sRewardSubType == GUE.VillagerSecrets and GUE.PlayerData[iPlayerID].VillagerSecretsLevel >= GUE.MaxSecretsLevel) or (GUE.WGH_Rewards[sRewardSubType] ~= nil and iUnitID == -1)) then
-					-- single replacement reward
-					Dprint("Found replacement reward in " .. iNumRolls .. " roll(s); New Initial Hostile modifier: " .. iSumModifiers);
-				else
-					-- bonus reward(s)
-					Dprint("Found reward " .. n .. " of " .. iNumRewards .. " in " .. iNumRolls .. " roll(s); Cumulative Bonus Hostile modifier: " .. iSumModifiers);
-				end
-				-- 
-				if bBonusHostiles then Dprint("Hostile villagers received as 'reward'; ignoring any further potential reward(s) from this Goody Hut"); end
-			end
-		end
-	end
-	-- return the values of the cumulative modifier and the bonus hostiles flag
-	return iSumModifiers, bBonusHostiles, sNewSubType, sNewTier;
 end
 
 --[[ =========================================================================
@@ -1327,166 +689,16 @@ function GUE.ValidateGoodyHutReward( tImprovementActivated, tGoodyHutReward )
 end
 
 --[[ =========================================================================
-	hook function EG_OnGoodyHutReward() ** 2021/07/22 possible GoodyHutReward before ImprovementActivated for Sumeria's civ ability spotted **
-	fires whenever a goody hut is popped, including the meteor strike reward
-	pre-init : this should be defined and hooked to Events.GoodyHutReward in EG_OnLoadScreenClose() prior to Initialize()
+	exposed member function GetValidUnitsByEra( iEra, tUnits )
+	pre-init: this should be defined prior to Initialize()
 =========================================================================== ]]
-function EG_OnGoodyHutReward( iPlayerID, iUnitID, iTypeHash, iSubTypeHash )
-	-- abort here if this is the meteor strike reward, as Events.ImprovementActivated does not appear to fire for it
-	if (GUE.GoodyHutTypes[iTypeHash].GoodyHutType == "METEOR_GOODIES" and GUE.GoodyHutRewards[iSubTypeHash].SubTypeGoodyHut == "METEOR_GRANT_GOODIES") then return; end
-	-- define function entry message(s)
-	local sPriEntryMsg = "ENTER EG_OnGoodyHutReward( iPlayerID = " .. iPlayerID .. ", iUnitID = " .. iUnitID .. ", iTypeHash = " .. iTypeHash .. ", iSubTypeHash = " .. iSubTypeHash .. " )";
-	-- print entry message(s) to the log when debugging
-	Dprint(sPriEntryMsg);
-	-- initialize the local event results table; any pertinent argument(s) go here
-	local tGoodyHutReward = {};
-	-- store all passed arguments within the results table
-	tGoodyHutReward.PlayerID, tGoodyHutReward.UnitID, tGoodyHutReward.TypeHash, tGoodyHutReward.SubTypeHash, tGoodyHutReward.Units = iPlayerID, iUnitID, iTypeHash, iSubTypeHash, { Count = 0 };
-	-- set the expansion and exploration flags based on the passed PlayerID and UnitID values
-	tGoodyHutReward.IsExpand, tGoodyHutReward.IsExplore = (iUnitID == -1 and iPlayerID == -1) and true or false, (iUnitID > -1 and iPlayerID > -1) and true or false;
-	-- this fires when Events.GoodyHutReward has fired BEFORE Events.ImprovementActivated this turn
-	if (#GUE.QueueImprovementActivated == 0) then
-		-- insert the local table into the global QueueGoodyHutReward
-		table.insert(GUE.QueueGoodyHutReward, tGoodyHutReward);
-		-- initialize debugging message(s)
-		local sPriDebugMsg = "Events.GoodyHutReward fired FIRST; pushing argument(s) to GUE.QueueGoodyHutReward[ " .. #GUE.QueueGoodyHutReward .. " ]: ";
-		local sSecDebugMsg = "iPlayerID = " .. tGoodyHutReward.PlayerID  .. ", iUnitID = " .. tGoodyHutReward.UnitID 
-			.. ", bIsExpand = " .. tostring(tGoodyHutReward.IsExpand) .. ", bIsExplore = " .. tostring(tGoodyHutReward.IsExplore) 
-			.. ", iTypeHash = " .. tGoodyHutReward.TypeHash .. ", iSubTypeHash = " .. tGoodyHutReward.SubTypeHash;
-		-- debugging output
-		Dprint(sPriDebugMsg .. sSecDebugMsg);
-	-- this fires when Events.GoodyHutReward has fired AFTER Events.ImprovementActivated this turn
-	elseif (#GUE.QueueImprovementActivated > 0) then
-		-- initialize a table to store this other Event's fetched argument(s)
-		tImprovementActivated = {};
-		-- iterate over the first index in the global QueueGoodyHutReward and add its data to the other Event table
-		for k, v in pairs(GUE.QueueImprovementActivated[1]) do tImprovementActivated[k] = v; end
-		-- remove the first index from the global QueueGoodyHutReward
-		table.remove(GUE.QueueImprovementActivated, 1);
-		-- debugging log output
-		local sPriDebugMsg = "Events.GoodyHutReward fired SECOND; pulling argument(s) from GUE.QueueImprovementActivated[ 1 ] ( " .. #GUE.QueueImprovementActivated .. " item(s) remaining in this queue )";
-		Dprint(sPriDebugMsg);
-		-- use the consolidated arguments to validate and execute enhanced method(s), if any, on this reward
-		GUE.ValidateGoodyHutReward(tImprovementActivated, tGoodyHutReward);
-	end
-	-- define function exit message(s)
-	local sPriExitMsg = "EXIT EG_OnGoodyHutReward()";
-	-- print exit message(s) to the log when debugging
-	Dprint(sPriExitMsg);
-end
-
---[[ =========================================================================
-	hook function EG_OnImprovementActivated() ** 2021/07/22 possible GoodyHutReward before ImprovementActivated for Sumeria's civ ability spotted **
-	fires whenever an improvement is activated, including any goody hut other than the meteor strike reward
-	pre-init : this should be defined and hooked to Events.ImprovementActivated in EG_OnLoadScreenClose() prior to Initialize()
-=========================================================================== ]]
-function EG_OnImprovementActivated( iX, iY, iOwnerID, iUnitID, iImprovementIndex, iImprovementOwnerID, iActivationType )
-	-- if the activated improvement IS NOT a barbarian camp AND IS NOT a goody hut, do nothing and abort
-	if (iImprovementIndex ~= GUE.BarbCampIndex and iImprovementIndex ~= GUE.GoodyHutIndex) then return; end
-	-- initialize flags for a barbarian camp and a goody hut
-	local bIsBarbCamp, bIsGoodyHut = (iImprovementIndex == GUE.BarbCampIndex) and true or false, (iImprovementIndex == GUE.GoodyHutIndex) and true or false;
-	-- determine whether this player is Sumeria and will generate a goody hut reward from clearing a barbarian camp
-	local bIsSumeria = ((iOwnerID > -1 and GUE.PlayerData[iOwnerID] and GUE.PlayerData[iOwnerID].IsSumeria) or (iImprovementOwnerID > -1 and GUE.PlayerData[iImprovementOwnerID] and GUE.PlayerData[iImprovementOwnerID].IsSumeria)) and true or false;
-	-- if the activated improvement IS a barbarian camp AND this player IS NOT Sumeria, there should be nothing else to catch, so do nothing and abort
-	if bIsBarbCamp and not bIsSumeria then return; end
-	-- define function entry messages
-	local sPriEntryMsg = "ENTER EG_OnImprovementActivated( iX = " .. iX .. ", iY = " .. iY .. ", iOwnerID = " .. iOwnerID .. ", iUnitID = " .. iUnitID
-		.. ", iImprovementIndex = " .. iImprovementIndex .. ", iImprovementOwnerID = " .. iImprovementOwnerID .. ", iActivationType = " .. iActivationType .. " )";
-	-- print entry messages to the log when debugging
-	Dprint(sPriEntryMsg);
-	-- initialize the local event results table; any pertinent argument(s) go here
-	local tImprovementActivated = {};
-	-- store the passed (x, y) Plot coordinate values, and the OwnerID, ImprovementOwnerID, and UnitID values in the results table
-	tImprovementActivated.X, tImprovementActivated.Y, tImprovementActivated.OwnerID, tImprovementActivated.ImprovementOwnerID, tImprovementActivated.UnitID = iX, iY, iOwnerID, iImprovementOwnerID, iUnitID;
-	-- initialize the table of popping unit(s)
-	tImprovementActivated.Units = { Count = 0 };
-	-- set the expansion and exploration flags based on the passed UnitID, OwnerID, and ImprovementOwnerID values; store these flags in the results table
-	tImprovementActivated.IsExpand, tImprovementActivated.IsExplore = (iUnitID == -1 and iImprovementOwnerID > -1) and true or false, (iUnitID ~= -1 and iOwnerID > -1) and true or false;
-	-- set the PlayerID based on the status of the expansion flag; store this value in the results table
-	tImprovementActivated.PlayerID = tImprovementActivated.IsExpand and iImprovementOwnerID or iOwnerID;
-	-- store the values of the flags defined above
-	tImprovementActivated.IsBarbCamp, tImprovementActivated.IsGoodyHut, tImprovementActivated.IsSumeria = bIsBarbCamp, bIsGoodyHut, bIsSumeria;
-	-- this fires when Events.ImprovementActivated has fired BEFORE Events.GoodyHutReward this turn
-	if (#GUE.QueueGoodyHutReward == 0) then
-		-- insert the local table into the global QueueImprovementActivated
-		table.insert(GUE.QueueImprovementActivated, tImprovementActivated);
-		-- initialize debugging message(s)
-		local sPriDebugMsg = "Events.ImprovementActivated fired FIRST; pushing argument(s) to GUE.QueueImprovementActivated[ " .. #GUE.QueueImprovementActivated .. " ]: ";
-		local sSecDebugMsg = "iX = " .. tImprovementActivated.X .. ", iY = " .. tImprovementActivated.Y .. ", iPlayerID = " .. tImprovementActivated.PlayerID  .. ", iUnitID = " .. tImprovementActivated.UnitID 
-			.. ", bIsExpand = " .. tostring(tImprovementActivated.IsExpand) .. ", bIsExplore = " .. tostring(tImprovementActivated.IsExplore) 
-			.. ", bIsBarbCamp = " .. tostring(tImprovementActivated.IsBarbCamp) .. ", bIsGoodyHut = " .. tostring(tImprovementActivated.IsGoodyHut) .. ", bIsSumeria = " .. tostring(tImprovementActivated.IsSumeria);
-		-- debugging log output
-		Dprint(sPriDebugMsg .. sSecDebugMsg);
-	-- this fires when Events.ImprovementActivated has fired AFTER Events.GoodyHutReward this turn
-	elseif (#GUE.QueueGoodyHutReward > 0) then
-		-- initialize a table to store this other Event's fetched argument(s)
-		tGoodyHutReward = {};
-		-- iterate over the first index in the global QueueGoodyHutReward and add its data to the other Event table
-		for k, v in pairs(GUE.QueueGoodyHutReward[1]) do tGoodyHutReward[k] = v; end
-		-- remove the first index from the global QueueGoodyHutReward
-		table.remove(GUE.QueueGoodyHutReward, 1);
-		-- debugging log output
-		local sPriDebugMsg = "Events.ImprovementActivated fired SECOND; pulling argument(s) from GUE.QueueGoodyHutReward[ 1 ] ( " .. #GUE.QueueGoodyHutReward .. " item(s) remaining in this queue )";
-		Dprint(sPriDebugMsg);
-		-- use the consolidated arguments to validate and execute enhanced method(s), if any, on this reward
-		GUE.ValidateGoodyHutReward(tImprovementActivated, tGoodyHutReward);
-	end
-	-- define function exit message(s)
-	local sPriExitMsg = "EXIT EG_OnImprovementActivated()";
-	-- print exit message(s) to the log when debugging
-	Dprint(sPriExitMsg);
-end
-
---[[ =========================================================================
-	hook function EG_OnPlayerTurnDeactivated()
-	resets event argument queue(s) if their counts differ at the end of a Player's turn
-	when this fires, some enhanced method(s) may not fire on any orphaned reward(s), and earlier enhanced method(s) may not have been entirely accurate in their delivery
-		however, this should prevent similar future problem(s), unless the queues become misaligned again, in which case we end up back here
-	as the queue(s) usually properly maintain themselves, this should only fire in rare circumstances; multiple firings in a session indicate something screwy in that session
-	pre-init : this should be defined and hooked to Events.PlayerTurnDeactivated in EG_OnLoadScreenClose() prior to Initialize()
-=========================================================================== ]]
-function EG_OnPlayerTurnDeactivated( iPlayerID )
-	-- this fires when these queue(s) are misaligned in any way at end-of-turn
-	if #GUE.QueueGoodyHutReward ~= #GUE.QueueImprovementActivated then
-		-- reset argument queue(s), and initialize or increment the forced resets tracker
-		GUE.QueueGoodyHutReward, GUE.QueueImprovementActivated, GUE.ForcedQueueResets = {}, {}, (GUE.ForcedQueueResets) and GUE.ForcedQueueResets + 1 or 1;
-		-- define function entry message(s)
-		local sPriEntryMsg = "ERROR EG_OnPlayerTurnDeactivated() Resetting misaligned argument queue(s) at end-of-turn for iPlayerID " .. iPlayerID .. "; this has now happened " .. GUE.ForcedQueueResets 
-			.. " total time(s) this session";
-		-- print entry message(s) to the log when debugging
-		print(sPriEntryMsg);
-	end
-end
-
---[[ =========================================================================
-	function EG_OnUnitExperienceChanged() ** 2021/09/21 this doesn't do shit; Events.UnitExperienceChanged is not defined **
-	
-	pre-init : this should be defined and hooked to Events.UnitExperienceChanged in EG_OnLoadScreenClose() prior to Initialize()
-=========================================================================== ]]
--- function EG_OnUnitExperienceChanged( iPlayerID, iUnitID, iXP )
--- 	Dprint("EG_OnUnitExperienceChanged( iPlayerID = " .. tostring(iPlayerID) .. ", iUnitID = " .. tostring(iUnitID), ", iXP = " .. tostring(iXP) .. " )");
--- end
-
---[[ =========================================================================
-	function EG_OnLoadScreenClose()
-	custom hooks should go here unless they need to be somewhere else
-	init : this should be hooked to Events.LoadScreenClose in Initialize()
-=========================================================================== ]]
-function EG_OnLoadScreenClose()
-	-- no valid log output occurs here, so put any needed log commentary elsewhere
-	Events.GoodyHutReward.Add(EG_OnGoodyHutReward);
-	Events.ImprovementActivated.Add(EG_OnImprovementActivated);
-	-- Events.UnitExperienceChanged.Add(EG_OnUnitExperienceChanged);
-	Events.PlayerTurnDeactivated.Add(EG_OnPlayerTurnDeactivated);
-end
-
 function GUE.GetValidUnitsByEra( iEra, tUnits )
-	-- 
+	-- force defined unit type values to strings
 	local sRecon, sMelee, sRanged = tostring(tUnits[iEra].Recon), tostring(tUnits[iEra].Melee), tostring(tUnits[iEra].Ranged);
 	local sAntiCav, sHeavyCav, sLightCav = tostring(tUnits[iEra].AntiCavalry), tostring(tUnits[iEra].HeavyCavalry), tostring(tUnits[iEra].LightCavalry);
 	local sSiege, sSupport = tostring(tUnits[iEra].Siege), tostring(tUnits[iEra].Support);
 	local sNavalMelee, sNavalRanged = tostring(tUnits[iEra].NavalMelee), tostring(tUnits[iEra].NavalRanged);
-	-- 
+	-- return unit type strings
 	return sRecon, sMelee, sRanged, sAntiCav, sHeavyCav, sLightCav, sSiege, sSupport, sNavalMelee, sNavalRanged;
 end
 
@@ -1497,64 +709,38 @@ end
 function Initialize()
 	-- log init messages
 	print(GUE.RowOfDashes);
-    print("Configuring Enhanced Goodies component(s) . . .");
-	-- bonus reward config
+	print("Loading EGHV component script EnhancedGoodies.lua . . .");
 	print(GUE.RowOfDashes);
-	GUE.GoodyHutPlots = GUE.GetGoodyHutPlots();
-	Dprint("There are " .. tostring(#GUE.GoodyHutPlots) .. " Goody Hut(s) on the selected map at startup");
-	Dprint("There are " .. tostring(#GUE.FallbackRewards) .. " defined Fallback reward(s) for the current session");
-	print("Bonus Reward(s) per Tribal Village: " .. GUE.BonusRewardsPerGoodyHut);
-	print("Configuring bonus reward(s) . . .");
-	-- log valid reward(s) if applicable
-	if not GUE.NoGoodyHuts and GUE.BonusRewardCount > 0 then
-		for k, v in pairs(GUE.ValidRewardTypes) do 
-			Dprint("+ [" .. v.Start .. " - " .. v.End .. "]: Type " .. v.GoodyHutType .. ", Weight " .. v.Weight .. ", Combined Subtype Weight " .. v.TotalSubTypeWeight);
-			for a, b in pairs(GUE.ValidBonusRewards) do 
-				if b.GoodyHut == v.GoodyHutType then 
-					Dprint("+ + [" .. b.Start .. " - " .. b.End .. "]: Subtype " .. b.SubTypeGoodyHut .. ", ModifierID " .. b.ModifierID .. ", Weight " .. b.Weight);
-				end
+    print("Configuring required ingame Enhanced Goodies component(s) for EGHV . . .");
+	print("No Goody Huts: " .. tostring(GUE.NoGoodyHuts));
+	if not GUE.NoGoodyHuts then 
+		GUE.GoodyHutPlots = GUE.GetGoodyHutPlots();
+		Dprint("There are " .. tostring(#GUE.GoodyHutPlots) .. " Goody Hut(s) on the selected map at startup");
+		Dprint("Goody Hut Improvement index: " .. tostring(GUE.GoodyHutIndex));
+		Dprint("There are " .. tostring(#GUE.FallbackRewards) .. " defined Fallback reward(s) for the current session");
+		print("Goody Hut frequency: " .. tostring(GUE.GoodyHutFrequency) .. " %% of 'normal' distribution");
+		print("Equalize all Reward chances: " .. tostring(GUE.EqualizeRewards));
+		Dprint("Total number of defined Goody Hut type(s): " .. tostring(GUE.NumGoodyHutTypes));
+		if (GUE.NumGoodyHutTypes > 0) then			-- print additional data for each available goody hut type when debugging
+			for k, v in pairs(GUE.GoodyHutTypes) do
+				Dprint("+ [" .. k .. "]: Type " .. v.GoodyHutType .. ", Weight " .. v.Weight);
 			end
 		end
-		print("There are " .. GUE.BonusRewardCount .. " eligible reward(s) in the bonus rewards table; Cumulative Weight/RNG Seed Value: " .. GUE.TotalBonusRewardTypeWeight);
+		print("There are " .. GUE.ActiveGoodyHutTypes .. " enabled of " .. GUE.NumGoodyHutTypes .. " defined Goody Hut type(s)");
+		Dprint("Total number of defined Goody Hut subtype(s): " .. tostring(GUE.NumGoodyHutRewards));
+		if (GUE.NumGoodyHutRewards > 0) then			-- print additional data for each available goody hut subtype when debugging
+			for k, v in pairs(GUE.GoodyHutRewards) do
+				Dprint("+ [" .. k .. "]: GoodyHut " .. v.GoodyHut .. ", Subtype " .. v.SubTypeGoodyHut .. ", Weight " .. v.Weight .. " (" .. v.Tier .. "), HostileModifier " .. v.HostileModifier .. ", ModifierID " .. v.ModifierID);
+			end
+		end
+		print("There are " .. GUE.ActiveGoodyHutRewards .. " enabled of " .. GUE.NumGoodyHutRewards .. " defined Goody Hut subtype(s)");
 	else
-		print("There are 'zero' eligible reward(s) in the bonus rewards table, or the 'No Tribal Villages' setup option is enabled; skipping . . .");
+		print("'No Goody Huts' enabled; skipping Enhanced Goodies configuration");
 	end
-	-- log player and hostile unit reward(s) when applicable
-	if GUE.DebugEnabled then
-		print(GUE.RowOfDashes);
-		Dprint("Defined Unit reward(s) by Era:");
-		for e = 0, 8, 1 do 
-			local sRecon, sMelee, sRanged, sAntiCav, sHeavyCav, sLightCav, sSiege, sSupport, sNavalMelee, sNavalRanged = GUE.GetValidUnitsByEra(e, GUE.UnitRewardByEra);
-			local sPriDebugMsg = e .. " (" .. tostring(GUE.Eras[e]) .. "): Recon " .. sRecon .. " | Melee " .. sMelee .. " | Ranged " .. sRanged 
-				.. " | Anti-Cavalry " .. sAntiCav .. " | Heavy Cavalry " .. sHeavyCav .. " | Light Cavalry " .. sLightCav 
-				.. " | Siege " .. sSiege .. " | Support " .. sSupport .. " | Naval Melee " .. sNavalMelee .. " | Naval Ranged " .. sNavalRanged;
-			Dprint(sPriDebugMsg);
-		end
-		print(GUE.RowOfDashes);
-		Dprint("Defined Hostile Unit 'reward(s)' by Era:");
-		for e = 0, 8, 1 do 
-			local sRecon, sMelee, sRanged, sAntiCav, sHeavyCav, sLightCav, sSiege, sSupport, sNavalMelee, sNavalRanged = GUE.GetValidUnitsByEra(e, GUE.HostileUnitByEra);
-			local sPriDebugMsg = e .. " (" .. tostring(GUE.Eras[e]) .. "): Recon " .. sRecon .. " | Melee " .. sMelee .. " | Ranged " .. sRanged 
-				.. " | Anti-Cavalry " .. sAntiCav .. " | Heavy Cavalry " .. sHeavyCav .. " | Light Cavalry " .. sLightCav 
-				.. " | Siege " .. sSiege .. " | Support " .. sSupport .. " | Naval Melee " .. sNavalMelee .. " | Naval Ranged " .. sNavalRanged;
-			Dprint(sPriDebugMsg);
-		end
-	end
-    -- Events hooks
 	print(GUE.RowOfDashes);
-	print("Configuring hook(s) for ingame Event(s) . . .");
-	Events.LoadScreenClose.Add(EG_OnLoadScreenClose);
-	Dprint("Successfully added hook function EG_OnLoadScreenClose() to Events.LoadScreenClose");
-	Dprint(" + Successfully added hook function EG_OnGoodyHutReward() to Events.GoodyHutReward");
-	Dprint(" + Successfully added hook function EG_OnImprovementActivated() to Events.ImprovementActivated");
-	Dprint(" + Successfully added hook function EG_OnPlayerTurnDeactivated() to Events.PlayerTurnDeactivated");
-	print("Finished configuring hook(s) for ingame Event(s); proceeding . . .");
-	print(GUE.RowOfDashes);
-	print("Finished initializing and configuring required component(s); proceeding . . .");
+	print("Finished configuring required ingame Enhanced Goodies component(s); proceeding . . .");
 end
 
--- execute function Initialize() here
--- GUE.DebugEnabled = true;
 Initialize();
 
 --[[ =========================================================================

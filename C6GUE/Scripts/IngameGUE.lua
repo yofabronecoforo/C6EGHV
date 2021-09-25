@@ -7,7 +7,6 @@
 --[[ =========================================================================
 	begin gameplay script
 =========================================================================== ]]
-print("Loading gameplay script IngameGUE.lua . . .");
 
 --[[ =========================================================================
 	context sharing : initialize and/or fetch ExposedMembers here
@@ -145,27 +144,27 @@ function GUE.GetGoodyHutsData( bIsNoBarbarians )
 	end
 	-- the big stupid table of villager hostility after a reward; key = value of iHostilesReward, value = hostility level
 	local tHostilityLevels = { [1] = "Never", [2] = "Maybe", [3] = "Always", [4] = "Hyper" };
-	Dprint("Goody Hut Improvement index: " .. tostring(iGoodyHutIndex));
-	print("Goody Hut frequency: " .. tostring(iGoodyHutFrequency) .. " %% of 'normal' distribution");
-	print("Equalize all Reward chances: " .. tostring(bEqualizeRewards));
-	if not bIsNoBarbarians then
-		print("Hostile Villagers 'AFTER' Goody Hut reward: " .. tostring(tHostilityLevels[iHostilesAfterReward]) .. " (" .. tostring(iHostilesAfterReward) .. ")");
-		print("Hostile Villagers 'AS' potential Goody Hut 'reward': " .. tostring(bHostilesAsReward) .. " (Low: " .. tostring(bLowHostilityAsReward) .. ", Mid: " .. tostring(bMidHostilityAsReward) .. ", High: " .. tostring(bHighHostilityAsReward) .. ", Max: " .. tostring(bMaxHostilityAsReward) .. " )");
-	end
-	Dprint("Total number of defined Goody Hut type(s): " .. tostring(iNumGoodyHutTypes));
+	-- Dprint("Goody Hut Improvement index: " .. tostring(iGoodyHutIndex));
+	-- print("Goody Hut frequency: " .. tostring(iGoodyHutFrequency) .. " %% of 'normal' distribution");
+	-- print("Equalize all Reward chances: " .. tostring(bEqualizeRewards));
+	-- if not bIsNoBarbarians then
+	-- 	print("Hostile Villagers 'AFTER' Goody Hut reward: " .. tostring(tHostilityLevels[iHostilesAfterReward]) .. " (" .. tostring(iHostilesAfterReward) .. ")");
+	-- 	print("Hostile Villagers 'AS' potential Goody Hut 'reward': " .. tostring(bHostilesAsReward) .. " (Low: " .. tostring(bLowHostilityAsReward) .. ", Mid: " .. tostring(bMidHostilityAsReward) .. ", High: " .. tostring(bHighHostilityAsReward) .. ", Max: " .. tostring(bMaxHostilityAsReward) .. " )");
+	-- end
+	-- Dprint("Total number of defined Goody Hut type(s): " .. tostring(iNumGoodyHutTypes));
 	if (iNumGoodyHutTypes > 0) then			-- print additional data for each available goody hut type when debugging
 		for k, v in pairs(tGoodyHutTypes) do
-			Dprint("+ [" .. k .. "]: Type " .. v.GoodyHutType .. ", Weight " .. v.Weight);
+			-- Dprint("+ [" .. k .. "]: Type " .. v.GoodyHutType .. ", Weight " .. v.Weight);
 		end
 	end
-	print("There are " .. iActiveGoodyHutTypes .. " enabled of " .. iNumGoodyHutTypes .. " defined Goody Hut type(s)");
-	Dprint("Total number of defined Goody Hut subtype(s): " .. tostring(iNumGoodyHutRewards));
+	-- print("There are " .. iActiveGoodyHutTypes .. " enabled of " .. iNumGoodyHutTypes .. " defined Goody Hut type(s)");
+	-- Dprint("Total number of defined Goody Hut subtype(s): " .. tostring(iNumGoodyHutRewards));
 	if (iNumGoodyHutRewards > 0) then			-- print additional data for each available goody hut subtype when debugging
 		for k, v in pairs(tGoodyHutRewards) do
-			Dprint("+ [" .. k .. "]: GoodyHut " .. v.GoodyHut .. ", Subtype " .. v.SubTypeGoodyHut .. ", Weight " .. v.Weight .. " (" .. v.Tier .. "), HostileModifier " .. v.HostileModifier .. ", ModifierID " .. v.ModifierID);
+			-- Dprint("+ [" .. k .. "]: GoodyHut " .. v.GoodyHut .. ", Subtype " .. v.SubTypeGoodyHut .. ", Weight " .. v.Weight .. " (" .. v.Tier .. "), HostileModifier " .. v.HostileModifier .. ", ModifierID " .. v.ModifierID);
 		end
 	end
-	print("There are " .. iActiveGoodyHutRewards .. " enabled of " .. iNumGoodyHutRewards .. " defined Goody Hut subtype(s)");
+	-- print("There are " .. iActiveGoodyHutRewards .. " enabled of " .. iNumGoodyHutRewards .. " defined Goody Hut subtype(s)");
 	return bEqualizeRewards, bHostilesAsReward, iGoodyHutFrequency, iGoodyHutIndex, iHostilesAfterReward, iNumGoodyHutRewards, iNumGoodyHutTypes, tGoodyHutRewards, tGoodyHutTypes, tHostilityLevels;
 end
 
@@ -230,10 +229,10 @@ function GUE.GetGameSetupData()
 	end
 	-- the big stupid table of major Players info; data for present Major Players goes here
 	local tPlayerData = {};
-	print(GUE.RowOfDashes);
-	print("Retrieving essential game setup data . . .");
-	print("Selected ruleset at startup: " .. sRuleset);
-	Dprint("Fetching data for any available Player(s) . . .");
+	-- print(GUE.RowOfDashes);
+	-- print("Retrieving essential game setup data . . .");
+	-- print("Selected ruleset at startup: " .. sRuleset);
+	-- Dprint("Fetching data for any available Player(s) . . .");
 	for p = 0, 63 do
 		local pPlayer = Players[p];
 		local pPlayerConfig = PlayerConfigurations[p];
@@ -259,10 +258,10 @@ function GUE.GetGameSetupData()
 					sPlayerInfo = sPlayerInfo .. " | Era " .. tPlayerData[p].Era .. " (" .. tEras[tPlayerData[p].Era] .. ")";
 				end
 				iNumPlayers = iNumPlayers + 1;
-				Dprint(sPlayerInfo);
+				-- Dprint(sPlayerInfo);
 			elseif pPlayer:IsBarbarian() then
 				iBarbarianID = p;
-				Dprint("Player " .. iBarbarianID .. ": Barbarians (" .. sCivTypeName .. ")");
+				-- Dprint("Player " .. iBarbarianID .. ": Barbarians (" .. sCivTypeName .. ")");
 			-- 2021/07/06 : IsFreeCities() is nil in this context
 			-- elseif (sRuleset ~= "RULESET_STANDARD") and (pPlayer:IsFreeCities()) then
 			-- 	iFreeCitiesID = p;
@@ -275,21 +274,21 @@ function GUE.GetGameSetupData()
 				else sPlayerInfo = sPlayerInfo .. "is reserved by game mode at startup";
 				end
 				iNumCityStates = iNumCityStates + 1;
-				Dprint(sPlayerInfo);
+				-- Dprint(sPlayerInfo);
 			end
 		end
 	end
-	print("There are " .. iNumPlayers .. " active major Player(s) and " .. iCityStatesCount .. "/" .. iNumCityStates .. " active/total City-State(s) at startup; proceeding . . .");
+	-- print("There are " .. iNumPlayers .. " active major Player(s) and " .. iCityStatesCount .. "/" .. iNumCityStates .. " active/total City-State(s) at startup; proceeding . . .");
 	if (sRuleset ~= "RULESET_STANDARD") then
 		iCurrentEra = Game.GetEras():GetCurrentEra();
-		print("Global game Era at startup: " .. iCurrentEra .. " (" .. tEras[iCurrentEra] .. ")");
+		-- print("Global game Era at startup: " .. iCurrentEra .. " (" .. tEras[iCurrentEra] .. ")");
 	end
-	print("Game turn at startup: " .. iCurrentTurn);
-	print("No Barbarians: " .. tostring(bNoBarbarians));
-	if not bNoBarbarians then
-		GUE.BarbCampIndex = GUE.GetBarbariansData();
-	end
-	print("No Goody Huts: " .. tostring(bNoGoodyHuts));
+	-- print("Game turn at startup: " .. iCurrentTurn);
+	-- print("No Barbarians: " .. tostring(bNoBarbarians));
+	-- if not bNoBarbarians then
+	-- 	GUE.BarbCampIndex = GUE.GetBarbariansData();
+	-- end
+	-- print("No Goody Huts: " .. tostring(bNoGoodyHuts));
 	if not bNoGoodyHuts then
 		GUE.EqualizeRewards, GUE.HostilesAsReward,
 			GUE.GoodyHutFrequency, GUE.GoodyHutIndex, GUE.HostilesAfterReward, GUE.NumGoodyHutRewards, GUE.NumGoodyHutTypes,
@@ -328,118 +327,22 @@ function GUE.AddModifierToPlayer( iPlayerID, sModifierID, bIsPermanent )
 end
 
 --[[ =========================================================================
-	function CheckGameEra() : framework cribbed from [5] and modified
-	for Expansion1 ruleset and beyond; global Era for all Players
-	this should be added to ExposedMembers in Initialize()
-=========================================================================== ]]
-function CheckGameEra( iTurn )
-	GUE.CurrentTurn = iTurn;			-- update the global current turn
-	local iPreviousEra = GUE.CurrentEra;
-	local iEraThisTurn = Game.GetEras():GetCurrentEra();		-- fetch the current era
-	-- local Dprint = GUE.DebugPrint;
-	if (iPreviousEra ~= iEraThisTurn) then			-- true when the current era differs from the stored global era
-		GUE.CurrentEra = iEraThisTurn;			-- update the global era
-		Dprint("Turn " .. tostring(iTurn) .. ": The current global game Era has changed from " .. tostring(GUE.Eras[iPreviousEra]) .. " to " .. tostring(GUE.Eras[iEraThisTurn]));
-		if (GUE.HostilesAfterReward > 2) then Dprint("Hostility > 2: Hostile villagers will now appear with increased intensity following most goody hut rewards");
-		elseif (GUE.HostilesAfterReward > 1) then Dprint("Hostility > 1: Hostile villagers will now appear with increased frequency and intensity following most goody hut rewards");
-		end
-	else
-		Dprint("Turn " .. tostring(iTurn) .. ": The current global game Era is " .. tostring(GUE.Eras[iEraThisTurn]));
-	end
-end
-
---[[ =========================================================================
-	function CheckPlayerEra() : framework cribbed from [5] and modified
-	for Standard ruleset; per-Player Eras
-	this should be added to ExposedMembers in Initialize()
-=========================================================================== ]]
-function CheckPlayerEra( iPlayerID )
-	local iTurn = Game.GetCurrentGameTurn();
-	if (GUE.CurrentTurn ~= iTurn) then GUE.CurrentTurn = iTurn; end
-	local pPlayer = Players[iPlayerID];
-	local pPlayerConfig = PlayerConfigurations[iPlayerID];
-	-- local Dprint = GUE.DebugPrint;
-	if (pPlayer == nil) or (pPlayerConfig == nil) then
-		Dprint("Turn " .. tostring(iTurn) .. " | Player " .. tostring(iPlayerID) .. ": Players and/or PlayerConfigurations data is 'nil' for this Player; aborting.");
-		return;
-	elseif not pPlayer:IsMajor() then
-		-- Dprint("Turn " .. tostring(iTurn) .. " | Player " .. tostring(iPlayerID) .. ": This Player is 'NOT' a valid major civilization; aborting.");
-		return;
-	end
-	local iPreviousEra = GUE.PlayerData[iPlayerID].Era;
-	local iEraThisTurn = pPlayer:GetEras():GetEra();		-- fetch the current era for this Player
-	if (iPreviousEra ~= iEraThisTurn) then			-- true when the current era differs from the stored era value for this Player
-		GUE.PlayerData[iPlayerID].Era = iEraThisTurn;			-- update the era for this Player
-		Dprint("Turn " .. tostring(iTurn) .. " | Player " .. tostring(iPlayerID) .. ": The current Era for this Player has changed from " .. tostring(GUE.Eras[iPreviousEra]) .. " to " .. tostring(GUE.Eras[iEraThisTurn]));
-		if (GUE.HostilesAfterReward > 2) then Dprint("Hostility > 2: Hostile villagers will now appear with increased intensity following most goody hut rewards");
-		elseif (GUE.HostilesAfterReward > 1) then Dprint("Hostility > 1: Hostile villagers will now appear with increased frequency and intensity following most goody hut rewards");
-		end
-	else
-		Dprint("Turn " .. tostring(iTurn) .. " | Player " .. tostring(iPlayerID) .. ": The current Era for this Player is " .. tostring(GUE.Eras[iEraThisTurn]));
-	end
-end
-
---[[ =========================================================================
-	function AddGameEraHook() : framework cribbed from [1] and modified
-	actions related to a global game Era change
-	this should be hooked to Events.LoadScreenClose in Initialize()
-=========================================================================== ]]
-function AddGameEraHook() Events.TurnBegin.Add(CheckGameEra); end
-
---[[ =========================================================================
-	function AddPlayerEraHook() : framework cribbed from [1] and modified
-	actions related to an Era change for an individual Player
-	this should be hooked to Events.LoadScreenClose in Initialize()
-=========================================================================== ]]
-function AddPlayerEraHook() GameEvents.PlayerTurnStarted.Add(CheckPlayerEra); end
-
---[[ =========================================================================
 	function Initialize() : framework cribbed and modified
 	this configures needed script components for use ingame
 =========================================================================== ]]
 function Initialize()
-	-- define local initialization messages
-	local sPriInitMsg = "Initializing gameplay script IngameExposedMembers.lua";
-	local sSecInitMsg = "Configuring C6GUE shared gameplay component(s) . . .";
-	local sTerInitMsg = "Finished initializing and configuring required component(s); proceeding . . .";
-	-- local Dprint = GUE.DebugPrint;
-	-- print local initialization messages
-	-- print(GUE.RowOfDashes);
-	-- print(sPriInitMsg);
 	print(GUE.RowOfDashes);
-	print(sSecInitMsg);
-	-- exposed member functions
-	-- GUE.AddGameEraHook = AddGameEraHook;
-	-- GUE.AddModifierToPlayer = AddModifierToPlayer;
-	-- GUE.AddPlayerEraHook = AddPlayerEraHook;
-	-- GUE.CheckGameEra = CheckGameEra;
-	-- GUE.CheckPlayerEra = CheckPlayerEra;
-	-- GUE.GetBarbariansData = GetBarbariansData;
-	-- GUE.GetGoodyHutsData = GetGoodyHutsData;
-	-- GUE.GetGameSetupData = GetGameSetupData;
-	-- GUE.GetHostileModifier = GetHostileModifier;
-	-- GUE.GetRewardTier = GetRewardTier;
+	print("Loading EGHV component script EGHV_Common.lua . . .");
+	print(GUE.RowOfDashes);
+	print("Configuring required ingame common component(s) for EGHV . . .");
 	-- exposed members - fetch game setup data
 	GUE.NoBarbarians, GUE.NoGoodyHuts, GUE.Ruleset,
 		GUE.PlayerData, GUE.Eras, GUE.DifficultyLevels, GUE.CityStatesData,
 		GUE.BarbarianID, GUE.CurrentEra, GUE.CurrentTurn, GUE.FreeCitiesID = GUE.GetGameSetupData();
-	-- Events hooks
 	print(GUE.RowOfDashes);
-	print("Configuring hook(s) for ingame Event(s) . . .");
-	if (GUE.Ruleset == "RULESET_STANDARD") then
-		Events.LoadScreenClose.Add(AddPlayerEraHook);
-		Dprint("Successfully added hook function AddPlayerEraHook() to Events.LoadScreenClose");
-	else
-		Events.LoadScreenClose.Add(AddGameEraHook);
-		Dprint("Successfully added hook function AddGameEraHook() to Events.LoadScreenClose");
-	end
-	-- print local tertiary initialization message
-	print(GUE.RowOfDashes);
-	print(sTerInitMsg);
+	print("Finished configuring required ingame common component(s); proceeding . . .");
 end
 
--- execute Initialize()
--- GUE.DebugEnabled = true;
 Initialize();
 
 --[[ =========================================================================
