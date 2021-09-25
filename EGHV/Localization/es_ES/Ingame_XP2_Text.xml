@@ -1,21 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
+<!--==========================================================================
 	EGHV : Enhanced Goodies and Hostile Villagers for Civilization VI
 	Copyright (C) 2020-2021 zzragnar0kzz
 	All rights reserved
--->
+===========================================================================-->
 <!-- localized in-game text for es_ES -->
 <GameData>
 	<LocalizedText>
 		<!-- new goody hut reward descriptions : diplomacy-type -->
-		<Replace Tag="LOC_GOODYHUT_DIPLOMACY_ENVOYS_DESCRIPTION" Language="es_ES">
-			<Text>[COLOR_FLOAT_DIPLOMATIC]+{1_Num} [ICON_Envoy] Enviados[ENDCOLOR]</Text>
+		<Replace Tag="LOC_GOODYHUT_SMALL_FAVOR_DESCRIPTION" Language="es_ES">
+			<Text>[COLOR_FLOAT_DIPLOMATIC] +10 [ICON_FAVOR] Favor diplomático [ENDCOLOR]</Text>
 		</Replace>
-		<Replace Tag="LOC_GOODYHUT_DIPLOMACY_GOVERNOR_TITLES_DESCRIPTION" Language="es_ES">
-			<Text>[COLOR_FLOAT_DIPLOMATIC]+{1_Num} [ICON_Governor] Títulos de Gobernador[ENDCOLOR]</Text>
+		<Replace Tag="LOC_GOODYHUT_MEDIUM_FAVOR_DESCRIPTION" Language="es_ES">
+			<Text>[COLOR_FLOAT_DIPLOMATIC] +20 [ICON_FAVOR] Favor diplomático [ENDCOLOR]</Text>
 		</Replace>
-		<Replace Tag="LOC_GOODYHUT_DIPLOMACY_SMALL_BOOST_FAVOR_DESCRIPTION" Language="es_ES">
-			<Text>[COLOR_FLOAT_DIPLOMATIC]+{1_Num} [ICON_FAVOR] Favor Diplomático en todas las ciudades[ENDCOLOR]</Text>
+		<Replace Tag="LOC_GOODYHUT_LARGE_FAVOR_DESCRIPTION" Language="es_ES">
+			<Text>[COLOR_FLOAT_DIPLOMATIC] +30 [ICON_FAVOR] Favor diplomático [ENDCOLOR]</Text>
+		</Replace>
+		<Replace Tag="LOC_GOODYHUT_HUGE_FAVOR_DESCRIPTION" Language="es_ES">
+			<Text>[COLOR_FLOAT_DIPLOMATIC] +50 [ICON_FAVOR] Favor diplomático [ENDCOLOR]</Text>
+		</Replace>
+		<!-- new goody hut reward descriptions : resources-type -->
+		<Replace Tag="LOC_GOODYHUT_SMALL_RESOURCES_DESCRIPTION" Language="es_ES">
+			<Text>[COLOR_FLOAT_MILITARY] +10 recursos estratégicos [ENDCOLOR]</Text>
+		</Replace>
+		<Replace Tag="LOC_GOODYHUT_MEDIUM_RESOURCES_DESCRIPTION" Language="es_ES">
+			<Text>[COLOR_FLOAT_MILITARY] +20 recursos estratégicos [ENDCOLOR]</Text>
+		</Replace>
+		<Replace Tag="LOC_GOODYHUT_LARGE_RESOURCES_DESCRIPTION" Language="es_ES">
+			<Text>[COLOR_FLOAT_MILITARY] +30 recursos estratégicos [ENDCOLOR]</Text>
+		</Replace>
+		<Replace Tag="LOC_GOODYHUT_HUGE_RESOURCES_DESCRIPTION" Language="es_ES">
+			<Text>[COLOR_FLOAT_MILITARY] +50 recursos estratégicos [ENDCOLOR]</Text>
 		</Replace>
 	</LocalizedText>
 </GameData>

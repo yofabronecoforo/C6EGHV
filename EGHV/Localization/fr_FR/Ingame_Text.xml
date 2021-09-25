@@ -1,116 +1,228 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
+<!--==========================================================================
 	EGHV : Enhanced Goodies and Hostile Villagers for Civilization VI
 	Copyright (C) 2020-2021 zzragnar0kzz
 	All rights reserved
--->
-<!-- localized in-game text for fr_FR -->
+===========================================================================-->
+<!-- localized in-game text for en_US -->
 <GameData>
 	<LocalizedText>
+        <!--  -->
+        <Replace Tag="LOC_TECH_VILLAGER_BASIC_NAME" Language="en_US">
+            <Text>Tribal Knowledge</Text>
+        </Replace>
+        <Replace Tag="LOC_TECH_VILLAGER_BASIC_DESC" Language="en_US">
+            <Text>Basic tribal village technology.</Text>
+        </Replace>
+        <Replace Tag="LOC_TECH_VILLAGER_ADVANCED_NAME" Language="en_US">
+            <Text>Tribal Lore</Text>
+        </Replace>
+        <Replace Tag="LOC_TECH_VILLAGER_ADVANCED_DESC" Language="en_US">
+            <Text>Advanced tribal village technology.</Text>
+        </Replace>
+        <!-- new unit abilities -->
+        <Replace Tag="LOC_ABILITY_IMPROVED_HEALING_NAME" Language="en_US">
+			<Text>Enhanced Healing</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_IMPROVED_HEALING_DESC" Language="en_US">
+			<Text>Enhanced Healing: +20 Healing Rate</Text>
+		</Replace>
+        <Replace Tag="LOC_ABILITY_IMPROVED_MOVEMENT_NAME" Language="en_US">
+			<Text>Enhanced Movement</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_IMPROVED_MOVEMENT_DESC" Language="en_US">
+			<Text>Enhanced Movement: +1 [ICON_Movement] Movement</Text>
+		</Replace>
+        <Replace Tag="LOC_ABILITY_IMPROVED_SIGHT_NAME" Language="en_US">
+			<Text>Enhanced Sight</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_IMPROVED_SIGHT_DESC" Language="en_US">
+			<Text>Enhanced Sight: +1 Sight</Text>
+		</Replace>
+        <Replace Tag="LOC_ABILITY_IMPROVED_STRENGTH_NAME" Language="en_US">
+			<Text>Enhanced Strength</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_IMPROVED_STRENGTH_DESC" Language="en_US">
+			<Text>Enhanced Strength: +10 [ICON_Strength] Combat Strength</Text>
+		</Replace>
+        <!-- villager totem building -->
+        <Replace Tag="LOC_BUILDING_TRIBAL_TOTEM_NAME" Language="en_US">
+			<Text>Tribal Village Totem</Text>
+		</Replace>
+        <Replace Tag="LOC_BUILDING_TRIBAL_TOTEM_DESC" Language="en_US">
+			<Text>Provides +1 Loyalty per turn in this city. If the city already has maximum Loyalty, also provides an additional +1 [ICON_Amenities] Amenity.</Text>
+		</Replace>
+        <!-- in-game bonus reward notifications -->
+        <Replace Tag="LOC_BONUS_REWARD_NOTIFICATION_TITLE" Language="en_US">
+            <Text>Bonus Tribal Village Reward</Text>
+        </Replace>
+        <Replace Tag="LOC_BONUS_REWARD_NOTIFICATION_MESSAGE" Language="en_US">
+            <Text>The villagers provide you with an additional reward of </Text>
+        </Replace>
+        <!-- in-game villager secrets notifications -->
+        <Replace Tag="LOC_VILLAGER_SECRETS_NOTIFICATION_TITLE" Language="en_US">
+            <Text>Villager Secrets Unlocked</Text>
+        </Replace>
+        <Replace Tag="LOC_VILLAGER_SECRETS_NOTIFICATION_MESSAGE" Language="en_US">
+            <Text>The villagers teach you forgotten architectural knowledge.</Text>
+        </Replace>
         <!-- in-game hostile villager notifications -->
-        <Replace Tag="LOC_HOSTILE_VILLAGERS_NOTIFICATION_TITLE" Language="fr_FR">
-            <Text>Villageois Hostiles</Text>
+        <Replace Tag="LOC_HOSTILE_VILLAGERS_NOTIFICATION_TITLE" Language="en_US">
+            <Text>Hostile Villagers</Text>
         </Replace>
-        <Replace Tag="LOC_HOSTILE_VILLAGERS_UNIT_NOTIFICATION_MESSAGE" Language="fr_FR">
-            <Text>Certains villageois sont fâchés que leur tribu ait traité avec des étrangers et se soient organisés en une unité de mêlée hostile en représailles!</Text>
+        <Replace Tag="LOC_HOSTILE_VILLAGERS_UNIT_NOTIFICATION_MESSAGE_1" Language="en_US">
+            <Text>Angry villagers have organized into a hostile [ICON_Unit]</Text>
         </Replace>
-        <Replace Tag="LOC_HOSTILE_VILLAGERS_CAMP_NOTIFICATION_MESSAGE" Language="fr_FR">
-            <Text>Les villageois sont extrêmement hostiles à la présence d'étrangers et ont créé un nouveau camp à partir duquel lancer de nouvelles attaques!</Text>
+        <Replace Tag="LOC_HOSTILE_VILLAGERS_UNIT_NOTIFICATION_MESSAGE_2" Language="en_US">
+            <Text>in a nearby location!</Text>
+        </Replace>
+        <Replace Tag="LOC_HOSTILE_VILLAGERS_CAMP_NOTIFICATION_MESSAGE" Language="en_US">
+            <Text>Extremely hostile villagers have created a new [ICON_Barbarian] Barbarian Outpost in a nearby location!</Text>
         </Replace>
         <!-- new goody hut reward descriptions : hostiles-type -->
-        <Replace Tag="LOC_GOODYHUT_SPAWN_HOSTILE_VILLAGERS_DESCRIPTION" Language="fr_FR">
-            <Text>[COLOR_RED]Des villageois hostiles apparaissent![ENDCOLOR]</Text>
+        <Replace Tag="LOC_GOODYHUT_HOSTILE_VILLAGERS_DESCRIPTION" Language="en_US">
+            <Text>[COLOR_RED]Hostile villagers appear![ENDCOLOR]</Text>
+        </Replace>
+        <!-- new goody hut reward descriptions : secrets-type -->
+        <Replace Tag="LOC_GOODYHUT_VILLAGER_SECRETS_DESCRIPTION" Language="en_US">
+            <Text>Hidden knowledge revealed</Text>
         </Replace>
         <!-- replacement goody hut reward description : culture-type : free relic (now faith-type) -->
-        <Replace Tag="LOC_GOODYHUT_CULTURE_RELIC_DESCRIPTION" Language="fr_FR">
-			<Text>Une [ICON_GreatWork_Relic] relique a été décernée</Text>
+        <Replace Tag="LOC_GOODYHUT_CULTURE_RELIC_DESCRIPTION" Language="en_US">
+			<Text>One [ICON_GreatWork_Relic] relic awarded</Text>
+		</Replace>
+        <!-- new goody hut reward descriptions : envoys-type -->
+		<Replace Tag="LOC_GOODYHUT_ENVOYS_GRANT_ONE_DESCRIPTION" Language="en_US">
+			<Text>One [ICON_Envoy] Envoy</Text>
+		</Replace>
+        <Replace Tag="LOC_GOODYHUT_ENVOYS_GRANT_TWO_DESCRIPTION" Language="en_US">
+			<Text>Two [ICON_Envoy] Envoys</Text>
+		</Replace>
+        <Replace Tag="LOC_GOODYHUT_ENVOYS_GRANT_THREE_DESCRIPTION" Language="en_US">
+			<Text>Three [ICON_Envoy] Envoys</Text>
+		</Replace>
+        <Replace Tag="LOC_GOODYHUT_ENVOYS_GRANT_FOUR_DESCRIPTION" Language="en_US">
+			<Text>Four [ICON_Envoy] Envoys</Text>
 		</Replace>
         <!-- new goody hut reward descriptions : culture-type -->
-        <Replace Tag="LOC_GOODYHUT_CULTURE_ONE_CIVIC_DESCRIPTION" Language="fr_FR">
-            <Text>[COLOR_FLOAT_CULTURE]Un Civique gratuit[ENDCOLOR]</Text>
+        <Replace Tag="LOC_GOODYHUT_CULTURE_ONE_CIVIC_DESCRIPTION" Language="en_US">
+            <Text>[COLOR_FLOAT_CULTURE]One free Civic[ENDCOLOR]</Text>
         </Replace>
-        <Replace Tag="LOC_GOODYHUT_CULTURE_TWO_CIVICS_DESCRIPTION" Language="fr_FR">
-            <Text>[COLOR_FLOAT_CULTURE]Deux Civiques gratuites[ENDCOLOR]</Text>
+        <Replace Tag="LOC_GOODYHUT_CULTURE_TWO_CIVICS_DESCRIPTION" Language="en_US">
+            <Text>[COLOR_FLOAT_CULTURE]Two free Civics[ENDCOLOR]</Text>
         </Replace>
-        <Replace Tag="LOC_GOODYHUT_CULTURE_SMALL_CHANGE_DESCRIPTION" Language="fr_FR">
-            <Text>[COLOR_FLOAT_CULTURE]+{1_Num} [ICON_CultureLarge] Culture dans toutes les villes[ENDCOLOR]</Text>
+        <Replace Tag="LOC_GOODYHUT_CULTURE_TWO_CIVIC_BOOSTS_DESCRIPTION" Language="en_US">
+            <Text>[COLOR_FLOAT_CULTURE]Two free [ICON_CivicBoosted] Civic boosts[ENDCOLOR]</Text>
         </Replace>
-        <Replace Tag="LOC_GOODYHUT_CULTURE_SMALL_MODIFIER_DESCRIPTION" Language="fr_FR">
-            <Text>[COLOR_FLOAT_CULTURE]+{1_Num}% [ICON_CultureLarge] Culture dans toutes les villes[ENDCOLOR]</Text>
+        <Replace Tag="LOC_GOODYHUT_CULTURE_ONE_CIVIC_BOOST_DESCRIPTION" Language="en_US">
+            <Text>[COLOR_FLOAT_CULTURE]One free [ICON_CivicBoosted] Civic boost[ENDCOLOR]</Text>
         </Replace>
         <!-- new goody hut reward descriptions : faith-type -->
-        <Replace Tag="LOC_GOODYHUT_FAITH_SMALL_CHANGE_DESCRIPTION" Language="fr_FR">
-            <Text>+{1_Num} [ICON_FaithLarge] de foi dans toutes les villes</Text>
-        </Replace>
-        <Replace Tag="LOC_GOODYHUT_FAITH_SMALL_MODIFIER_DESCRIPTION" Language="fr_FR">
-            <Text>+{1_Num}% [ICON_FaithLarge] de foi dans toutes les villes</Text>
-        </Replace>
+        <Replace Tag="LOC_GOODYHUT_LARGE_FAITH_DESCRIPTION" Language="en_US">
+			<Text>+100 [ICON_Faith]</Text>
+		</Replace>
+		<Replace Tag="LOC_GOODYHUT_MEDIUM_FAITH_DESCRIPTION" Language="en_US">
+			<Text>+60 [ICON_Faith]</Text>
+		</Replace>
+		<Replace Tag="LOC_GOODYHUT_SMALL_FAITH_DESCRIPTION" Language="en_US">
+			<Text>+20 [ICON_Faith]</Text>
+		</Replace>
         <!-- new goody hut reward descriptions : gold-type -->
-        <Replace Tag="LOC_GOODYHUT_ADD_TRADE_ROUTE_DESCRIPTION" Language="fr_FR">
-            <Text>[COLOR_FLOAT_GOLD]+{1_Num} [ICON_TradeRouteLarge] route(s) commercial(es)[ENDCOLOR]</Text>
+        <Replace Tag="LOC_GOODYHUT_ADD_TRADE_ROUTE_DESCRIPTION" Language="en_US">
+            <Text>[COLOR_FLOAT_GOLD]One [ICON_TradeRouteLarge] additional trade route[ENDCOLOR]</Text>
         </Replace>
-        <Replace Tag="LOC_GOODYHUT_GOLD_SMALL_CHANGE_DESCRIPTION" Language="fr_FR">
-            <Text>[COLOR_FLOAT_GOLD]+{1_Num} [ICON_GoldLarge] Or dans toutes les villes[ENDCOLOR]</Text>
-        </Replace>
-        <Replace Tag="LOC_GOODYHUT_GOLD_SMALL_MODIFIER_DESCRIPTION" Language="fr_FR">
-            <Text>[COLOR_FLOAT_GOLD]+{1_Num}% [ICON_GoldLarge] Or dans toutes les villes[ENDCOLOR]</Text>
-        </Replace>
+        <Replace Tag="LOC_GOODYHUT_LARGE_GOLD_DESCRIPTION" Language="en_US">
+			<Text>[COLOR_FLOAT_GOLD]+120 [ICON_Gold][ENDCOLOR]</Text>
+		</Replace>
+		<Replace Tag="LOC_GOODYHUT_MEDIUM_GOLD_DESCRIPTION" Language="en_US">
+			<Text>[COLOR_FLOAT_GOLD]+80 [ICON_Gold][ENDCOLOR]</Text>
+		</Replace>
+		<Replace Tag="LOC_GOODYHUT_SMALL_GOLD_DESCRIPTION" Language="en_US">
+			<Text>[COLOR_FLOAT_GOLD]+40 [ICON_Gold][ENDCOLOR]</Text>
+		</Replace>
         <!-- replacement goody hut reward description : military-type : grant recon unit -->
-        <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_UNIT_DESCRIPTION" Language="fr_FR">
-			<Text>[COLOR_FLOAT_MILITARY]Les villageois vous fournissent un Scout[ENDCOLOR]</Text>
+        <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_UNIT_DESCRIPTION" Language="en_US">
+			<Text>[COLOR_FLOAT_MILITARY]One recon unit[ENDCOLOR]</Text>
 		</Replace>
         <!-- new goody hut reward descriptions : military-type -->
-        <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_MELEE_UNIT_DESCRIPTION" Language="fr_FR">
-            <Text>[COLOR_FLOAT_MILITARY]Les villageois vous fournissent un Guerrier[ENDCOLOR]</Text>
+        <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_MELEE_UNIT_DESCRIPTION" Language="en_US">
+            <Text>[COLOR_FLOAT_MILITARY]One melee unit[ENDCOLOR]</Text>
         </Replace>
-        <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_RANGED_UNIT_DESCRIPTION" Language="fr_FR">
-            <Text>[COLOR_FLOAT_MILITARY]Les villageois vous fournissent un Slinger[ENDCOLOR]</Text>
+        <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_RANGED_UNIT_DESCRIPTION" Language="en_US">
+            <Text>[COLOR_FLOAT_MILITARY]One ranged unit[ENDCOLOR]</Text>
         </Replace>
-        <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_ANTI_CAVALRY_UNIT_DESCRIPTION" Language="fr_FR">
-            <Text>[COLOR_FLOAT_MILITARY]Les villageois vous fournissent un Lancier[ENDCOLOR]</Text>
+        <!-- new goody hut reward descriptions : (anti) cavalry military-type -->
+        <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_ANTI_CAVALRY_UNIT_DESCRIPTION" Language="en_US">
+            <Text>[COLOR_FLOAT_MILITARY]One anti-cavalry unit[ENDCOLOR]</Text>
         </Replace>
-        <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_LIGHT_CAVALRY_UNIT_DESCRIPTION" Language="fr_FR">
-            <Text>[COLOR_FLOAT_MILITARY]Les villageois vous fournissent un Cavalier[ENDCOLOR]</Text>
+        <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_LIGHT_CAVALRY_UNIT_DESCRIPTION" Language="en_US">
+            <Text>[COLOR_FLOAT_MILITARY]One light cavalry unit[ENDCOLOR]</Text>
         </Replace>
-        <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_HEAVY_CAVALRY_UNIT_DESCRIPTION" Language="fr_FR">
-            <Text>[COLOR_FLOAT_MILITARY]Les villageois vous fournissent un Char Lourd[ENDCOLOR]</Text>
+        <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_HEAVY_CAVALRY_UNIT_DESCRIPTION" Language="en_US">
+            <Text>[COLOR_FLOAT_MILITARY]One heavy cavalry unit[ENDCOLOR]</Text>
         </Replace>
-        <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_MILITARY_ENGINEER_DESCRIPTION" Language="fr_FR">
-            <Text>[COLOR_FLOAT_MILITARY]Les villageois vous fournissent un Ingénieur Militaire[ENDCOLOR]</Text>
+        <!-- new goody hut reward descriptions : support military-type -->
+        <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_MILITARY_ENGINEER_DESCRIPTION" Language="en_US">
+            <Text>[COLOR_FLOAT_MILITARY]One Military Engineer[ENDCOLOR]</Text>
         </Replace>
-        <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_MEDIC_DESCRIPTION" Language="fr_FR">
-            <Text>[COLOR_FLOAT_MILITARY]Les villageois vous fournissent un Medic[ENDCOLOR]</Text>
+        <!-- <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_MEDIC_DESCRIPTION" Language="en_US">
+            <Text>[COLOR_FLOAT_MILITARY]One Medic[ENDCOLOR]</Text>
+        </Replace> -->
+        <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_BATTERING_RAM_DESCRIPTION" Language="en_US">
+            <Text>[COLOR_FLOAT_MILITARY]One support unit[ENDCOLOR]</Text>
         </Replace>
-        <Replace Tag="LOC_GOODYHUT_PRODUCTION_SMALL_CHANGE_DESCRIPTION" Language="fr_FR">
-            <Text>[COLOR_FLOAT_MILITARY]+{1_Num} à toute [ICON_ProductionLarge] la Production dans toutes les villes[ENDCOLOR]</Text>
-        </Replace>
-        <Replace Tag="LOC_GOODYHUT_PRODUCTION_SMALL_MODIFIER_DESCRIPTION" Language="fr_FR">
-            <Text>[COLOR_FLOAT_MILITARY]+{1_Num}% à toute [ICON_ProductionLarge] la Production dans toutes les villes[ENDCOLOR]</Text>
+        <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_CATAPULT_DESCRIPTION" Language="en_US">
+            <Text>[COLOR_FLOAT_MILITARY]One siege unit[ENDCOLOR]</Text>
         </Replace>
         <!-- new goody hut reward descriptions : science-type -->
-        <Replace Tag="LOC_GOODYHUT_SCIENCE_TWO_TECHS_DESCRIPTION" Language="fr_FR">
-            <Text>[COLOR_FLOAT_SCIENCE]Deux Technologies gratuites[ENDCOLOR]</Text>
+        <Replace Tag="LOC_GOODYHUT_SCIENCE_TWO_TECHS_DESCRIPTION" Language="en_US">
+            <Text>[COLOR_FLOAT_SCIENCE]Two free Technologies[ENDCOLOR]</Text>
         </Replace>
-        <Replace Tag="LOC_GOODYHUT_SCIENCE_SMALL_CHANGE_DESCRIPTION" Language="fr_FR">
-            <Text>[COLOR_FLOAT_SCIENCE]+{1_Num} [ICON_ScienceLarge] la Science dans toutes les villes[ENDCOLOR]</Text>
+        <Replace Tag="LOC_GOODYHUT_SCIENCE_TWO_TECH_BOOSTS_DESCRIPTION" Language="en_US">
+            <Text>[COLOR_FLOAT_SCIENCE]Two free [ICON_TechBoosted] Technology boosts[ENDCOLOR]</Text>
         </Replace>
-        <Replace Tag="LOC_GOODYHUT_SCIENCE_SMALL_MODIFIER_DESCRIPTION" Language="fr_FR">
-            <Text>[COLOR_FLOAT_SCIENCE]+{1_Num}% [ICON_ScienceLarge] la Science dans toutes les villes[ENDCOLOR]</Text>
+        <Replace Tag="LOC_GOODYHUT_SCIENCE_ONE_TECH_BOOST_DESCRIPTION" Language="en_US">
+            <Text>[COLOR_FLOAT_SCIENCE]One free [ICON_TechBoosted] Technology boost[ENDCOLOR]</Text>
         </Replace>
         <!-- replacement goody hut reward description : survivors-type : add population -->
-        <Replace Tag="LOC_GOODYHUT_SURVIVORS_ADD_POP_DESCRIPTION" Language="fr_FR">
-			<Text>+{1_Num} [ICON_Citizen] population</Text>
+        <Replace Tag="LOC_GOODYHUT_SURVIVORS_ADD_POP_DESCRIPTION" Language="en_US">
+			<Text>+1 [ICON_Citizen] Population</Text>
 		</Replace>
-        <!-- replacement goody hut reward description : survivors-type : grant civilian unit -->
-		<Replace Tag="LOC_GOODYHUT_SURVIVORS_GRANT_UNIT_DESCRIPTION" Language="fr_FR">
-			<Text>Vous êtes accordé {1_Num}  {1_Num: plural 1?{2_Unit} unité; other?{2_Unit} unités;}</Text>
+        <!-- replacement goody hut reward descriptions : survivors-type : grant civilian unit(s) -->
+		<Replace Tag="LOC_GOODYHUT_SURVIVORS_GRANT_BUILDER_DESCRIPTION" Language="en_US">
+			<Text>One Builder</Text>
 		</Replace>
-        <!-- new goody hut reward descriptions : survivors-type -->
-        <Replace Tag="LOC_GOODYHUT_FOOD_SMALL_CHANGE_DESCRIPTION" Language="fr_FR">
-            <Text>+{1_Num} [ICON_FoodLarge] Nourriture dans toutes les villes</Text>
+        <Replace Tag="LOC_GOODYHUT_SURVIVORS_GRANT_SETTLER_DESCRIPTION" Language="en_US">
+			<Text>One Settler</Text>
+		</Replace>
+        <Replace Tag="LOC_GOODYHUT_SURVIVORS_GRANT_TRADER_DESCRIPTION" Language="en_US">
+			<Text>One Trader</Text>
+		</Replace>
+        <!-- new goody hut reward descriptions : promotions-type -->
+        <Replace Tag="LOC_GOODYHUT_SMALL_EXPERIENCE_DESCRIPTION" Language="en_US">
+            <Text>+5 combat experience</Text>
         </Replace>
-        <Replace Tag="LOC_GOODYHUT_FOOD_SMALL_MODIFIER_DESCRIPTION" Language="fr_FR">
-            <Text>+{1_Num}% [ICON_FoodLarge] Nourriture dans toutes les villes</Text>
+        <Replace Tag="LOC_GOODYHUT_MEDIUM_EXPERIENCE_DESCRIPTION" Language="en_US">
+            <Text>+10 combat experience</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_LARGE_EXPERIENCE_DESCRIPTION" Language="en_US">
+            <Text>+15 combat experience</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_HUGE_EXPERIENCE_DESCRIPTION" Language="en_US">
+            <Text>+25 combat experience</Text>
+        </Replace>
+        <!-- new goody hut reward descriptions : abilities-type -->
+        <Replace Tag="LOC_GOODYHUT_IMPROVED_SIGHT_DESCRIPTION" Language="en_US">
+            <Text>+1 [ICON_Terrain] Sight for this unit</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_IMPROVED_HEALING_DESCRIPTION" Language="en_US">
+            <Text>Improved healing rate for this unit</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_IMPROVED_MOVEMENT_DESCRIPTION" Language="en_US">
+            <Text>+1 [ICON_Movement] Movement for this unit</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_IMPROVED_STRENGTH_DESCRIPTION" Language="en_US">
+            <Text>+10 [ICON_Strength] Combat Strength for this unit</Text>
         </Replace>
     </LocalizedText>
 </GameData>

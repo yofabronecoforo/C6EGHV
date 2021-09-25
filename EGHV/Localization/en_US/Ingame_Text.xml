@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
+<!--==========================================================================
 	EGHV : Enhanced Goodies and Hostile Villagers for Civilization VI
 	Copyright (C) 2020-2021 zzragnar0kzz
 	All rights reserved
--->
+===========================================================================-->
 <!-- localized in-game text for en_US -->
 <GameData>
 	<LocalizedText>
         <!--  -->
-        <Replace Tag="LOC_TECH_VILLAGER_BASIC_NAME" Language="en_US">
+        <!-- <Replace Tag="LOC_TECH_VILLAGER_BASIC_NAME" Language="en_US">
             <Text>Tribal Knowledge</Text>
         </Replace>
         <Replace Tag="LOC_TECH_VILLAGER_BASIC_DESC" Language="en_US">
@@ -19,7 +19,7 @@
         </Replace>
         <Replace Tag="LOC_TECH_VILLAGER_ADVANCED_DESC" Language="en_US">
             <Text>Advanced tribal village technology.</Text>
-        </Replace>
+        </Replace> -->
         <!-- new unit abilities -->
         <Replace Tag="LOC_ABILITY_IMPROVED_HEALING_NAME" Language="en_US">
 			<Text>Enhanced Healing</Text>

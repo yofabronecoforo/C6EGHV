@@ -4,89 +4,89 @@
 	Copyright (C) 2020-2021 zzragnar0kzz
 	All rights reserved
 ===========================================================================-->
-<!-- localized Wondrous Goody Huts frontend text for fr_FR; Wondrous Goody Huts is the property of Sailor Cat -->
+<!-- localized Wondrous Goody Huts frontend text for en_US; Wondrous Goody Huts is the property of Sailor Cat -->
 <GameData>
 	<LocalizedText>
 		<!-- tooltip text -->
-		<Replace Tag="LOC_WGH_TT" Language="fr_FR">
-			<Text>[NEWLINE]  [COLOR_Blue]Mod[ENDCOLOR]: [COLOR_Civ6Yellow]Merveilleuses[ENDCOLOR] Huttes Goody</Text>
+		<Replace Tag="LOC_WGH_TT" Language="en_US">
+			<Text>[NEWLINE]  [COLOR_Blue]Mod[ENDCOLOR]: [COLOR_Civ6Yellow]Wondrous[ENDCOLOR] Goody Huts</Text>
 		</Replace>
 		<!-- random resource -->
-		<Replace Tag="LOC_GOODYHUT_SAILOR_RANDOMRESOURCE_NAME" Language="fr_FR">
-			<Text>Trouver une nouvelle ressource</Text>
+		<Replace Tag="LOC_GOODYHUT_SAILOR_RANDOMRESOURCE_NAME" Language="en_US">
+			<Text>Find New Resource</Text>
 		</Replace>
-		<Replace Tag="LOC_GOODYHUT_SAILOR_RANDOMRESOURCE_DESC" Language="fr_FR">
-			<Text>Découvrez une nouvelle ressource aléatoire sur votre territoire.</Text>
+		<Replace Tag="LOC_GOODYHUT_SAILOR_RANDOMRESOURCE_DESC" Language="en_US">
+			<Text>Discover a new resource in a random plot in territory controlled by the Player.</Text>
 		</Replace>
 		<!-- random unit -->
-		<Replace Tag="LOC_GOODYHUT_SAILOR_RANDOMUNIT_NAME" Language="fr_FR">
-			<Text>1 unité unique aléatoire</Text>
+		<Replace Tag="LOC_GOODYHUT_SAILOR_RANDOMUNIT_NAME" Language="en_US">
+			<Text>1 Unique Unit</Text>
 		</Replace>
-		<Replace Tag="LOC_GOODYHUT_SAILOR_RANDOMUNIT_DESC" Language="fr_FR">
-			<Text>Recevez une (1) unité unique aléatoire.</Text>
+		<Replace Tag="LOC_GOODYHUT_SAILOR_RANDOMUNIT_DESC" Language="en_US">
+			<Text>Receive one (1) random unique unit, possibly one which is unique to a Civilization other than the Player's.</Text>
 		</Replace>
 		<!-- random improvement -->
-		<Replace Tag="LOC_GOODYHUT_SAILOR_RANDOMIMPROVEMENT_NAME" Language="fr_FR">
-			<Text>1 amélioration aléatoire</Text>
+		<Replace Tag="LOC_GOODYHUT_SAILOR_RANDOMIMPROVEMENT_NAME" Language="en_US">
+			<Text>1 Improvement</Text>
 		</Replace>
-		<Replace Tag="LOC_GOODYHUT_SAILOR_RANDOMIMPROVEMENT_DESC" Language="fr_FR">
-			<Text>Recevez une (1) amélioration aléatoire, peut-être une qui est unique à une autre civilisation.</Text>
+		<Replace Tag="LOC_GOODYHUT_SAILOR_RANDOMIMPROVEMENT_DESC" Language="en_US">
+			<Text>Receive one (1) random improvement, possibly one which is unique to a Civilization other than the Player's.</Text>
 		</Replace>
 		<!-- sight bomb -->
-		<Replace Tag="LOC_GOODYHUT_SAILOR_SIGHTBOMB_NAME" Language="fr_FR">
-			<Text>[ICON_Ability] Formation en milieu sauvage</Text>
+		<Replace Tag="LOC_GOODYHUT_SAILOR_SIGHTBOMB_NAME" Language="en_US">
+			<Text>[ICON_Ability] Wilderness Training</Text>
 		</Replace>
-		<Replace Tag="LOC_GOODYHUT_SAILOR_SIGHTBOMB_DESC" Language="fr_FR">
-			<Text>Votre unité reçoit [ICON_Ability] Entraînement en milieu sauvage (+2 de vue, peut voir à travers les fonctionnalités).</Text>
+		<Replace Tag="LOC_GOODYHUT_SAILOR_SIGHTBOMB_DESC" Language="en_US">
+			<Text>The receiving unit is granted the [ICON_Ability] Wilderness Training ability (+2 sight, can see through features).</Text>
 		</Replace>
 		<!-- random policy -->
-		<Replace Tag="LOC_GOODYHUT_SAILOR_RANDOMPOLICY_NAME" Language="fr_FR">
-			<Text>1 stratégie [ICON_Policy] aléatoire</Text>
+		<Replace Tag="LOC_GOODYHUT_SAILOR_RANDOMPOLICY_NAME" Language="en_US">
+			<Text>1 [ICON_Policy] Policy</Text>
 		</Replace>
-		<Replace Tag="LOC_GOODYHUT_SAILOR_RANDOMPOLICY_DESC" Language="fr_FR">
-			<Text>Recevez une (1) politique [ICON_Policy] aléatoire de l'ère actuelle.</Text>
+		<Replace Tag="LOC_GOODYHUT_SAILOR_RANDOMPOLICY_DESC" Language="en_US">
+			<Text>Unlock one (1) random [ICON_Policy] Policy from the current Era.</Text>
 		</Replace>
 		<!-- formation -->
-		<Replace Tag="LOC_GOODYHUT_SAILOR_FORMATION_NAME" Language="fr_FR">
-			<Text>Mettre à niveau la formation [ICON_Corps]</Text>
+		<Replace Tag="LOC_GOODYHUT_SAILOR_FORMATION_NAME" Language="en_US">
+			<Text>Upgrade [ICON_Corps] Formation</Text>
 		</Replace>
-		<Replace Tag="LOC_GOODYHUT_SAILOR_FORMATION_DESC" Language="fr_FR">
-			<Text>Votre unité a sa formation [ICON_Corps] améliorée.</Text>
+		<Replace Tag="LOC_GOODYHUT_SAILOR_FORMATION_DESC" Language="en_US">
+			<Text>The receiving unit has its [ICON_Corps] Formation upgraded.</Text>
 		</Replace>
 		<!-- natural wonder -->
-		<Replace Tag="LOC_GOODYHUT_SAILOR_WONDER_NAME" Language="fr_FR">
-			<Text>Révéler une merveille naturelle</Text>
+		<Replace Tag="LOC_GOODYHUT_SAILOR_WONDER_NAME" Language="en_US">
+			<Text>Reveal Natural Wonder</Text>
 		</Replace>
-		<Replace Tag="LOC_GOODYHUT_SAILOR_WONDER_DESC" Language="fr_FR">
-			<Text>Découvrez une nouvelle merveille naturelle.</Text>
+		<Replace Tag="LOC_GOODYHUT_SAILOR_WONDER_DESC" Language="en_US">
+			<Text>Discover an unrevealed natural wonder.</Text>
 		</Replace>
 		<!-- city-state -->
-		<Replace Tag="LOC_GOODYHUT_SAILOR_CITYSTATE_NAME" Language="fr_FR">
-			<Text>Rencontrez City-State</Text>
+		<Replace Tag="LOC_GOODYHUT_SAILOR_CITYSTATE_NAME" Language="en_US">
+			<Text>Meet City-State</Text>
 		</Replace>
-		<Replace Tag="LOC_GOODYHUT_SAILOR_CITYSTATE_DESC" Language="fr_FR">
-			<Text>Découvrez une nouvelle cité-état.</Text>
+		<Replace Tag="LOC_GOODYHUT_SAILOR_CITYSTATE_DESC" Language="en_US">
+			<Text>Discover an unmet city-state.</Text>
 		</Replace>
 		<!-- spy -->
-		<Replace Tag="LOC_GOODYHUT_SAILOR_SPY_NAME" Language="fr_FR">
-			<Text>1 espion gratuit</Text>
+		<Replace Tag="LOC_GOODYHUT_SAILOR_SPY_NAME" Language="en_US">
+			<Text>1 [ICON_Unit] Spy</Text>
 		</Replace>
-		<Replace Tag="LOC_GOODYHUT_SAILOR_SPY_DESC" Language="fr_FR">
-			<Text>Recevez une (1) unité d'espionnage gratuite.</Text>
+		<Replace Tag="LOC_GOODYHUT_SAILOR_SPY_DESC" Language="en_US">
+			<Text>Receive one (1) free Spy unit.</Text>
 		</Replace>
 		<!-- production boost -->
-		<Replace Tag="LOC_GOODYHUT_SAILOR_PRODUCTION_NAME" Language="fr_FR">
-			<Text>[ICON_Production] Production en rafale</Text>
+		<Replace Tag="LOC_GOODYHUT_SAILOR_PRODUCTION_NAME" Language="en_US">
+			<Text>[ICON_Production] Production Burst</Text>
 		</Replace>
-		<Replace Tag="LOC_GOODYHUT_SAILOR_PRODUCTION_DESC" Language="fr_FR">
-			<Text>Recevez une explosion de [ICON_Production] Production dans votre [ICON_Capital] Capital.</Text>
+		<Replace Tag="LOC_GOODYHUT_SAILOR_PRODUCTION_DESC" Language="en_US">
+			<Text>The Player's [ICON_Capital] Capital city receives a burst of [ICON_Production] Production which completes the current item in its Production queue.</Text>
 		</Replace>
 		<!-- teleport -->
-		<Replace Tag="LOC_GOODYHUT_SAILOR_TELEPORT_NAME" Language="fr_FR">
-			<Text>Tour du monde</Text>
+		<Replace Tag="LOC_GOODYHUT_SAILOR_TELEPORT_NAME" Language="en_US">
+			<Text>World Tour</Text>
 		</Replace>
-		<Replace Tag="LOC_GOODYHUT_SAILOR_TELEPORT_DESC" Language="fr_FR">
-			<Text>Votre unité se lance dans une expédition vers une tuile lointaine. Il est rejoint par une (1) unité de Colon libre.</Text>
+		<Replace Tag="LOC_GOODYHUT_SAILOR_TELEPORT_DESC" Language="en_US">
+			<Text>The receiving unit embarks upon an expedition to a faraway tile. It is joined by one (1) free Settler unit.</Text>
 		</Replace>
 	</LocalizedText>
 </GameData>
