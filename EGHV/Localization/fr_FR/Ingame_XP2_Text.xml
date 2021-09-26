@@ -4,34 +4,34 @@
 	Copyright (C) 2020-2021 zzragnar0kzz
 	All rights reserved
 ===========================================================================-->
-<!-- localized in-game text for en_US -->
+<!-- localized in-game text for fr_FR -->
 <GameData>
 	<LocalizedText>
 		<!-- new goody hut reward descriptions : diplomacy-type -->
-		<Replace Tag="LOC_GOODYHUT_SMALL_FAVOR_DESCRIPTION" Language="en_US">
-			<Text>[COLOR_FLOAT_DIPLOMATIC]+10 [ICON_FAVOR] Diplomatic Favor[ENDCOLOR]</Text>
+		<Replace Tag="LOC_GOODYHUT_SMALL_FAVOR_DESCRIPTION" Language="fr_FR">
+			<Text>[COLOR_FLOAT_DIPLOMATIC] +10 [ICON_Favor] faveur diplomatique [ENDCOLOR]</Text>
 		</Replace>
-		<Replace Tag="LOC_GOODYHUT_MEDIUM_FAVOR_DESCRIPTION" Language="en_US">
-			<Text>[COLOR_FLOAT_DIPLOMATIC]+20 [ICON_FAVOR] Diplomatic Favor[ENDCOLOR]</Text>
+		<Replace Tag="LOC_GOODYHUT_MEDIUM_FAVOR_DESCRIPTION" Language="fr_FR">
+			<Text>[COLOR_FLOAT_DIPLOMATIC] +20 [ICON_Favor] faveur diplomatique [ENDCOLOR]</Text>
 		</Replace>
-		<Replace Tag="LOC_GOODYHUT_LARGE_FAVOR_DESCRIPTION" Language="en_US">
-			<Text>[COLOR_FLOAT_DIPLOMATIC]+30 [ICON_FAVOR] Diplomatic Favor[ENDCOLOR]</Text>
+		<Replace Tag="LOC_GOODYHUT_LARGE_FAVOR_DESCRIPTION" Language="fr_FR">
+			<Text>[COLOR_FLOAT_DIPLOMATIC] +30 [ICON_Favor] faveur diplomatique [ENDCOLOR]</Text>
 		</Replace>
-		<Replace Tag="LOC_GOODYHUT_HUGE_FAVOR_DESCRIPTION" Language="en_US">
-			<Text>[COLOR_FLOAT_DIPLOMATIC]+50 [ICON_FAVOR] Diplomatic Favor[ENDCOLOR]</Text>
+		<Replace Tag="LOC_GOODYHUT_HUGE_FAVOR_DESCRIPTION" Language="fr_FR">
+			<Text>[COLOR_FLOAT_DIPLOMATIC] +50 [ICON_Favor] faveur diplomatique [ENDCOLOR]</Text>
 		</Replace>
 		<!-- new goody hut reward descriptions : resources-type -->
-		<Replace Tag="LOC_GOODYHUT_SMALL_RESOURCES_DESCRIPTION" Language="en_US">
-			<Text>[COLOR_FLOAT_MILITARY]+10 strategic resources[ENDCOLOR]</Text>
+		<Replace Tag="LOC_GOODYHUT_SMALL_RESOURCES_DESCRIPTION" Language="fr_FR">
+			<Text>[COLOR_FLOAT_MILITARY] +10 Ressources stratégiques [ENDCOLOR]</Text>
 		</Replace>
-		<Replace Tag="LOC_GOODYHUT_MEDIUM_RESOURCES_DESCRIPTION" Language="en_US">
-			<Text>[COLOR_FLOAT_MILITARY]+20 strategic resources[ENDCOLOR]</Text>
+		<Replace Tag="LOC_GOODYHUT_MEDIUM_RESOURCES_DESCRIPTION" Language="fr_FR">
+			<Text>[COLOR_FLOAT_MILITARY] +20 ressources stratégiques [ENDCOLOR]</Text>
 		</Replace>
-		<Replace Tag="LOC_GOODYHUT_LARGE_RESOURCES_DESCRIPTION" Language="en_US">
-			<Text>[COLOR_FLOAT_MILITARY]+30 strategic resources[ENDCOLOR]</Text>
+		<Replace Tag="LOC_GOODYHUT_LARGE_RESOURCES_DESCRIPTION" Language="fr_FR">
+			<Text>[COLOR_FLOAT_MILITARY] +30 ressources stratégiques [ENDCOLOR]</Text>
 		</Replace>
-		<Replace Tag="LOC_GOODYHUT_HUGE_RESOURCES_DESCRIPTION" Language="en_US">
-			<Text>[COLOR_FLOAT_MILITARY]+50 strategic resources[ENDCOLOR]</Text>
+		<Replace Tag="LOC_GOODYHUT_HUGE_RESOURCES_DESCRIPTION" Language="fr_FR">
+			<Text>[COLOR_FLOAT_MILITARY] +50 ressources stratégiques [ENDCOLOR]</Text>
 		</Replace>
 	</LocalizedText>
 </GameData>

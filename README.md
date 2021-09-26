@@ -28,7 +28,7 @@ When obtained via any of the official channels referenced in the #Installation s
 - Spanish (es_ES)
 - French (fr_FR)
 
-Please report any conspicuous absent text, or any instances of localization placeholders (i.e. LOC_SOME_TEXT_HERE), when using any of the above languages.
+Please report any conspicuous absent text, grammatical errors, or instances of localization placeholders (i.e. LOC_SOME_TEXT_HERE), when using any of the above languages.
 
 # Features
 ## Goody Huts
