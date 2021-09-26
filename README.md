@@ -132,10 +132,13 @@ The tooltip for the Goody Hut picker reflects the source(s) of its content based
 
 EGHV provides a slider for decreasing or increasing the relative amount of Goody Huts that will appear on the selected map; this slider defaults to 100%, and adjusts in steps of 25% in a range of 25% - 500%, inclusive. This slider also appears in the picker window.
 
+## Reward Roller
+When some rewards are received and have an invalid target, EGHV will use a custom method to randomly select a replacement reward from the pool of available rewards.
+
 ## Bonus Rewards
 ![Bonus Rewards](/IMAGES/Bonus_Rewards.png)
 
-EGHV provides a dropdown menu for selecting the total number of potential reward(s) to receive from each Goody Hut. At the default setting of 1, nothing changes. With any of the "up to X" settings, up to X total rewards will be received from each Goody Hut, with any additional rewards beyond the first randomly selected from the pool of enabled rewards using a custom method.
+EGHV provides a dropdown menu for selecting the total number of potential reward(s) to receive from each Goody Hut. At the default setting of 1, nothing changes. With any of the "up to X" settings, up to X total rewards will be received from each Goody Hut, with any additional rewards beyond the first randomly selected from the pool of enabled rewards using the custom Reward Roller method.
 
 In certain circumstances, fewer than X rewards will be received; these include:
 - When any Hostile Villagers reward is selected as a reward, whether it's the first or a bonus reward. When this happens, it will be the last reward granted by this Goody Hut; if it is the first reward, it will be the only reward.

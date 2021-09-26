@@ -1525,8 +1525,8 @@
 				<LoadOrder>1010102</LoadOrder>
 			</Properties>
 			<File>EGHV/Localization/en_US/Ingame_XP1_Text.xml</File>
-			<!-- <File>EGHV/Localization/es_ES/Ingame_XP1_Text.xml</File> -->
-			<!-- <File>EGHV/Localization/fr_FR/Ingame_XP1_Text.xml</File> -->
+			<File>EGHV/Localization/es_ES/Ingame_XP1_Text.xml</File>
+			<File>EGHV/Localization/fr_FR/Ingame_XP1_Text.xml</File>
 		</UpdateText>
 		<UpdateText id="EGHV_INGAME_TEXT_XP2" criteria="EGHV_Expansion2">
 			<Properties>
@@ -1614,7 +1614,7 @@
         		<LoadOrder>1010141</LoadOrder>
       		</Properties>
 			<Items>
-				<!-- <File>EGHV/Scripts/C6GUE_Common.lua</File> -->
+				<!--  -->
 				<File>EGHV/UI/Additions/GoodyHutPicker.lua</File>
 				<File>EGHV/UI/Additions/GoodyHutPicker.xml</File>
 				<File>C6GUE/UI/Replacements/AdvancedSetup.lua</File>
@@ -1816,13 +1816,15 @@
 		<File>EGHV/Localization/es_ES/Frontend_Text.xml</File>
 		<File>EGHV/Localization/es_ES/Frontend_WondrousGoodyHuts_Text.xml</File>
 		<File>EGHV/Localization/es_ES/Ingame_Text.xml</File>
+		<File>EGHV/Localization/es_ES/Ingame_XP1_Text.xml</File>
 		<File>EGHV/Localization/es_ES/Ingame_XP2_Text.xml</File>
 		<File>EGHV/Localization/fr_FR/Frontend_Text.xml</File>
 		<File>EGHV/Localization/fr_FR/Frontend_WondrousGoodyHuts_Text.xml</File>
 		<File>EGHV/Localization/fr_FR/Ingame_Text.xml</File>
+		<File>EGHV/Localization/fr_FR/Ingame_XP1_Text.xml</File>
 		<File>EGHV/Localization/fr_FR/Ingame_XP2_Text.xml</File>
 		<!-- ingame new lua scripts -->
-		<!-- <File>EGHV/Scripts/C6GUE_Common.lua</File> -->
+		<!--  -->
 		<File>EGHV/Scripts/BonusRewards.lua</File>
 		<File>EGHV/Scripts/EGHV.lua</File>
 		<File>EGHV/Scripts/EGHV_Common.lua</File>
