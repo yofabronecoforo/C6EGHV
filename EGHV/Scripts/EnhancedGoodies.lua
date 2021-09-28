@@ -478,7 +478,7 @@ function GUE.UnlockVillagerSecrets( iPlayerID, iTurn, iEra, sRewardSubType )
 			local sUnlockTribalTotem = sTribalTotem .. "0";
 			GUE.AddModifierToPlayer(iPlayerID, sUnlockTribalTotem, true);
 			-- send an ingame notification for each unlocked secret
-			NotificationManager.SendNotification(iPlayerID, GUE.Notification.Secrets.TypeHash, GUE.Notification.Secrets.Title, GUE.Notification.Secrets.Message);
+			if GUE.PlayerData[iPlayerID].IsHuman then NotificationManager.SendNotification(iPlayerID, GUE.Notification.Secrets.TypeHash, GUE.Notification.Secrets.Title, GUE.Notification.Secrets.Message); end
 		-- this should fire any time after the first time this Player receives the Villager Secrets reward, until all defined secrets are unlocked
 		elseif (PlayerProperty < 5) then
 			-- configure the unlock tracker for this Player
@@ -492,7 +492,7 @@ function GUE.UnlockVillagerSecrets( iPlayerID, iTurn, iEra, sRewardSubType )
 			local sUnlockTribalTotem = sTribalTotem .. iNumUnlocks;
 			GUE.AddModifierToPlayer(iPlayerID, sUnlockTribalTotem, true);
 			-- send an ingame notification for each unlocked secret
-			NotificationManager.SendNotification(iPlayerID, GUE.Notification.Secrets.TypeHash, GUE.Notification.Secrets.Title, GUE.Notification.Secrets.Message);
+			if GUE.PlayerData[iPlayerID].IsHuman then NotificationManager.SendNotification(iPlayerID, GUE.Notification.Secrets.TypeHash, GUE.Notification.Secrets.Title, GUE.Notification.Secrets.Message); end
 		-- this should fire any time after this Player has already received the Villager Secrets reward enough times to unlock all available defined secrets
 		else
 			print("The Villager Secrets reward has already been granted the maximum number of time(s) to Player " .. iPlayerID .. "; spawning hyper-aggressive hostile villagers instead . . .");

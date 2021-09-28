@@ -354,8 +354,8 @@ function GUE.CreateHostileVillagers( iX, iY, iPlayerID, iTurn, iEra, sRewardSubT
 			ImprovementBuilder.SetImprovementType(pSpawnPlot, GUE.BarbCampIndex, -1);
 			-- log output
 			print("A group of villagers have organized into a new barbarian camp at plot (x " .. sX .. ", y " .. sY .. ")!");
-			-- send an ingame notification for the new barbarian camp
-			NotificationManager.SendNotification(iPlayerID, GUE.Notification.Hostile.CampTypeHash, GUE.Notification.Hostile.Title, GUE.Notification.Hostile.CampMessage, sX, sY);
+			-- send an ingame notification for the new barbarian camp when the player is human
+			if GUE.PlayerData[iPlayerID].IsHuman then NotificationManager.SendNotification(iPlayerID, GUE.Notification.Hostile.CampTypeHash, GUE.Notification.Hostile.Title, GUE.Notification.Hostile.CampMessage, sX, sY); end
 		-- no valid spawn plot(s) were identified, so try to compensate with additional units
 		else
 			-- adjust the number of hostile melee unit(s) to spawn
@@ -492,8 +492,8 @@ function GUE.CreateHostileVillagers( iX, iY, iPlayerID, iTurn, iEra, sRewardSubT
 			local sHostileTitle = GUE.Notification.Hostile.Title;
 			-- the hostile ingame notification message
 			local sHostileUnitMessage = GUE.Notification.Hostile.UnitMessage1 .. " " .. Locale.Lookup(GameInfo.Units[tSpawnedUnits.Units[n]].Name) .. " " .. GUE.Notification.Hostile.UnitMessage2;
-			-- send an ingame notification for each spawned unit
-			NotificationManager.SendNotification(iPlayerID, GUE.Notification.Hostile.UnitTypeHash, sHostileTitle, sHostileUnitMessage, nX, nY);
+			-- send an ingame notification for each spawned unit when the player is human
+			if GUE.PlayerData[iPlayerID].IsHuman then NotificationManager.SendNotification(iPlayerID, GUE.Notification.Hostile.UnitTypeHash, sHostileTitle, sHostileUnitMessage, nX, nY); end
 		end
 	end
 	-- define function exit message(s)

@@ -286,7 +286,7 @@ UPDATE GoodyHutSubTypes SET Weight = 20, Turn = 0 WHERE SubTypeGoodyHut = 'GOODY
 -- existing Survivor-type rewards
 UPDATE GoodyHutSubTypes SET Weight = 40, Turn = 0 WHERE SubTypeGoodyHut = 'GOODYHUT_ADD_POP';
 UPDATE GoodyHutSubTypes SET Weight = 30, Turn = 0, Description = 'LOC_GOODYHUT_SURVIVORS_GRANT_BUILDER_DESCRIPTION', ModifierID = 'GOODY_EGHV_DUMMY_REWARD' WHERE SubTypeGoodyHut = 'GOODYHUT_GRANT_BUILDER';
-UPDATE GoodyHutSubTypes SET Weight = 20, Turn = 0, Trader = 0, Description = 'LOC_GOODYHUT_SURVIVORS_GRANT_TRADER_DESCRIPTION', ModifierID = 'GOODY_EGHV_DUMMY_REWARD' WHERE SubTypeGoodyHut = 'GOODYHUT_GRANT_TRADER';
+UPDATE GoodyHutSubTypes SET Weight = 20, Turn = 0, Trader = 0, Description = 'LOC_GOODYHUT_SURVIVORS_GRANT_TRADER_DESCRIPTION' WHERE SubTypeGoodyHut = 'GOODYHUT_GRANT_TRADER';
 UPDATE GoodyHutSubTypes SET Weight = 10, Turn = 0, Description = 'LOC_GOODYHUT_SURVIVORS_GRANT_SETTLER_DESCRIPTION', ModifierID = 'GOODY_EGHV_DUMMY_REWARD' WHERE SubTypeGoodyHut = 'GOODYHUT_GRANT_SETTLER';
 
 -- new GoodyHutSubTypes

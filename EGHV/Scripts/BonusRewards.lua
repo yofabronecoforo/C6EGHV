@@ -150,7 +150,7 @@ function GUE.GetNewRewards( iNumRewards, iPlayerID, iUnitID, iX, iY, sRewardSubT
 									-- display world view notification
 									Game.AddWorldViewText(iPlayerID, sBonusRewardDesc, iX, iY, 0);
 									-- send an ingame notification for each received bonus reward
-									NotificationManager.SendNotification(iPlayerID, GUE.Notification.Reward.TypeHash, sBonusRewardTitle, sBonusRewardMessage, aX, aY);
+									if GUE.PlayerData[iPlayerID].IsHuman then NotificationManager.SendNotification(iPlayerID, GUE.Notification.Reward.TypeHash, sBonusRewardTitle, sBonusRewardMessage, aX, aY); end
 								end
 							end
 							-- increment the rolls tracker and try again if the valid roll flag remains unset
