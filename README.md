@@ -341,7 +341,7 @@ EGHV adds new item(s) to and/or modifies existing item(s) in the following table
 - GlobalParameters
 - GoodyHuts
 - GoodyHutSubTypes
-- GoodyHutSubTypes_XP2 **
+- GoodyHutSubTypes_XP2 [*]
 - Improvements
 - Modifiers
 - ModifierArguments
@@ -349,7 +349,7 @@ EGHV adds new item(s) to and/or modifies existing item(s) in the following table
 - UnitAbilities
 - UnitAbilityModifiers
 
-- [*] Requires Gathering Storm
+[*] Requires Gathering Storm
 
 If your mod operates on any similarly-named item(s) in any of the above named table(s), these change(s) will likely be overwritten by EGHV. Conflicts __WILL__ arise _regardless of relative load order_ if these changes deviate substantially from those of EGHV.
 
