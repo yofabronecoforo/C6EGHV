@@ -17,12 +17,6 @@ Ruleset in use | Standard | Rise and Fall | Gathering Storm
 Rewards (Types) built-in | 18 (6) | 18 (6) | 23 (8)
 Rewards (Types) with EGHV | 52 (11) | 56 (12) | 65 (15)
 
-Ruleset | Available Rewards (Types) | Rewards (Types) w/o EGHV
-------- | ------- | -------
-Standard | 52 (11) | 18 (6)
-Rise and Fall | 56 (12) | 18 (6)
-Gathering Storm | 65 (15) | 23 (8)
-
 Many of these rewards are implemented via a combination of the built-in Modifiers system and the Lua scripting system, as this allows these rewards to function as intended.
 
 Finally, Hostile Villagers as (and now, potentially following) a reward make their return.
