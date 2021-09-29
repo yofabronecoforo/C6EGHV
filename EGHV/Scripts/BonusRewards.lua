@@ -57,7 +57,9 @@ function GUE.GetNewRewards( iNumRewards, iPlayerID, iUnitID, iX, iY, sRewardSubT
 				-- loop until the valid roll flag has been set
 				while not bIsValidRoll do 
 					-- initialize (1) the bonus reward subtype index to a dummy value, and (2) the bonus reward type index to a random value
-					local iBonusSubTypeIndex, iBonusTypeIndex = -2, TerrainBuilder.GetRandomNumber(GUE.TotalBonusRewardTypeWeight, "Bonus reward type index") + 1;
+					local iRandomTypeIndex = TerrainBuilder.GetRandomNumber(GUE.TotalBonusRewardTypeWeight, "Bonus reward type index") + 1;
+					-- 
+					local iBonusTypeIndex = ((((GUE.TotalBonusRewardTypeWeight * 2) + iRandomTypeIndex) ^ 2) % GUE.TotalBonusRewardTypeWeight) + 1;
 					-- initialize primary debugging message
 					local sPriDebugMsg = "Bonus reward: Type index " .. iBonusTypeIndex;
 					-- iterate over the valid bonus reward types table
@@ -66,8 +68,10 @@ function GUE.GetNewRewards( iNumRewards, iPlayerID, iUnitID, iX, iY, sRewardSubT
 						if iBonusTypeIndex >= v.Start and iBonusTypeIndex <= v.End then 
 							-- adjust primary debugging message
 							sPriDebugMsg = sPriDebugMsg .. " (" .. v.GoodyHutType .. ")";
+							-- 
+							local iRandomSubTypeIndex = TerrainBuilder.GetRandomNumber(v.TotalSubTypeWeight, "Bonus reward subtype index") + 1;
 							-- get a fresh random value limited to the sum of the weights of all subtypes of this type
-							iBonusSubTypeIndex = TerrainBuilder.GetRandomNumber(v.TotalSubTypeWeight, "Bonus reward subtype index") + 1;
+							local iBonusSubTypeIndex = ((((v.TotalSubTypeWeight * 2) + iRandomSubTypeIndex) ^ 2) % v.TotalSubTypeWeight) + 1;
 							-- initialize secondary debugging message
 							local sSecDebugMsg = "Subtype index " .. iBonusSubTypeIndex;
 							-- iterate over the valid bonus reward subtypes table
@@ -100,7 +104,7 @@ function GUE.GetNewRewards( iNumRewards, iPlayerID, iUnitID, iX, iY, sRewardSubT
 										print(sPriInfoMsg);
 									end
 									-- true when the rolled reward is a villager secrets reward
-									if (sThisSubType == GUE.VillagerSecrets) then 
+									if (sThisSubType == GUE.VillagerSecrets) or (GUE.VillagerSecretsRewards[sThisSubType] ~= nil) then 
 										-- true when this Player has received this reward fewer than the defined maximum amount of time(s)
 										if (GUE.PlayerData[iPlayerID].VillagerSecretsLevel < GUE.MaxSecretsLevel) then
 											GUE.UnlockVillagerSecrets(iPlayerID, iTurn, iEra, sThisSubType);

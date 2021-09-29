@@ -7,19 +7,21 @@
 <!-- ingame icon definitions -->
 <GameInfo>
     <IconDefinitions>
-        <!-- villager totem building; for now, reuse existing Monument assets here -->
-        <Row Name="ICON_BUILDING_TRIBAL_TOTEM_LVL0"             Atlas="ICON_ATLAS_BUILDINGS" Index="0"/>
-        <Row Name="ICON_BUILDING_TRIBAL_TOTEM_LVL1"             Atlas="ICON_ATLAS_BUILDINGS" Index="0"/>
-        <Row Name="ICON_BUILDING_TRIBAL_TOTEM_LVL2"             Atlas="ICON_ATLAS_BUILDINGS" Index="0"/>
-        <Row Name="ICON_BUILDING_TRIBAL_TOTEM_LVL3"             Atlas="ICON_ATLAS_BUILDINGS" Index="0"/>
-        <Row Name="ICON_BUILDING_TRIBAL_TOTEM_LVL4"             Atlas="ICON_ATLAS_BUILDINGS" Index="0"/>
-        <Row Name="ICON_BUILDING_TRIBAL_TOTEM_LVL5"             Atlas="ICON_ATLAS_BUILDINGS" Index="0"/>
-        <!-- villager totem building fog-of-war; for now, reuse existing Monument assets here -->
-        <Row Name="ICON_BUILDING_TRIBAL_TOTEM_LVL0_FOW"            Atlas="ICON_ATLAS_BUILDINGS_FOW" Index="0"/>
-        <Row Name="ICON_BUILDING_TRIBAL_TOTEM_LVL1_FOW"            Atlas="ICON_ATLAS_BUILDINGS_FOW" Index="0"/>
-        <Row Name="ICON_BUILDING_TRIBAL_TOTEM_LVL2_FOW"            Atlas="ICON_ATLAS_BUILDINGS_FOW" Index="0"/>
-        <Row Name="ICON_BUILDING_TRIBAL_TOTEM_LVL3_FOW"            Atlas="ICON_ATLAS_BUILDINGS_FOW" Index="0"/>
-        <Row Name="ICON_BUILDING_TRIBAL_TOTEM_LVL4_FOW"            Atlas="ICON_ATLAS_BUILDINGS_FOW" Index="0"/>
-        <Row Name="ICON_BUILDING_TRIBAL_TOTEM_LVL5_FOW"            Atlas="ICON_ATLAS_BUILDINGS_FOW" Index="0"/>
+        <!-- villager totem buildings; for now, reuse existing Monument assets here -->
+        <Row Name="ICON_BUILDING_AMENITIES_TOTEM"             Atlas="ICON_ATLAS_BUILDINGS" Index="0"/>
+        <Row Name="ICON_BUILDING_CULTURE_TOTEM"             Atlas="ICON_ATLAS_BUILDINGS" Index="0"/>
+        <Row Name="ICON_BUILDING_FAITH_TOTEM"             Atlas="ICON_ATLAS_BUILDINGS" Index="0"/>
+        <Row Name="ICON_BUILDING_FOOD_TOTEM"             Atlas="ICON_ATLAS_BUILDINGS" Index="0"/>
+        <Row Name="ICON_BUILDING_GOLD_TOTEM"             Atlas="ICON_ATLAS_BUILDINGS" Index="0"/>
+        <Row Name="ICON_BUILDING_PRODUCTION_TOTEM"             Atlas="ICON_ATLAS_BUILDINGS" Index="0"/>
+        <Row Name="ICON_BUILDING_SCIENCE_TOTEM"             Atlas="ICON_ATLAS_BUILDINGS" Index="0"/>
+        <!-- villager totem buildings fog-of-war; for now, reuse existing Monument assets here -->
+        <Row Name="ICON_BUILDING_AMENITIES_TOTEM_FOW"            Atlas="ICON_ATLAS_BUILDINGS_FOW" Index="0"/>
+        <Row Name="ICON_BUILDING_CULTURE_TOTEM_FOW"            Atlas="ICON_ATLAS_BUILDINGS_FOW" Index="0"/>
+        <Row Name="ICON_BUILDING_FAITH_TOTEM_FOW"            Atlas="ICON_ATLAS_BUILDINGS_FOW" Index="0"/>
+        <Row Name="ICON_BUILDING_FOOD_TOTEM_FOW"            Atlas="ICON_ATLAS_BUILDINGS_FOW" Index="0"/>
+        <Row Name="ICON_BUILDING_GOLD_TOTEM_FOW"            Atlas="ICON_ATLAS_BUILDINGS_FOW" Index="0"/>
+        <Row Name="ICON_BUILDING_PRODUCTION_TOTEM_FOW"            Atlas="ICON_ATLAS_BUILDINGS_FOW" Index="0"/>
+        <Row Name="ICON_BUILDING_SCIENCE_TOTEM_FOW"            Atlas="ICON_ATLAS_BUILDINGS_FOW" Index="0"/>
     </IconDefinitions>
 </GameInfo>

@@ -559,13 +559,69 @@
     		</ConfigurationValueMatches>
     	</Criteria>
 		<!-- exclude (disable) unlock villager secrets reward -->
-		<Criteria id="EGHV_Exclude_GoodyHut_Unlock_Villager_Secrets">
+		<Criteria id="EGHV_Exclude_GoodyHut_Villager_Secrets_Amenities">
+    		<ConfigurationValueMatches>
+    			<ConfigurationId>EXCLUDE_GOODYHUT_VILLAGER_SECRETS_AMENITIES</ConfigurationId>
+    			<Group>Game</Group>
+    			<Value>1</Value>
+    		</ConfigurationValueMatches>
+    	</Criteria>
+		<Criteria id="EGHV_Exclude_GoodyHut_Villager_Secrets_Culture">
+    		<ConfigurationValueMatches>
+    			<ConfigurationId>EXCLUDE_GOODYHUT_VILLAGER_SECRETS_CULTURE</ConfigurationId>
+    			<Group>Game</Group>
+    			<Value>1</Value>
+    		</ConfigurationValueMatches>
+    	</Criteria>
+		<Criteria id="EGHV_Exclude_GoodyHut_Villager_Secrets_Faith">
+    		<ConfigurationValueMatches>
+    			<ConfigurationId>EXCLUDE_GOODYHUT_VILLAGER_SECRETS_FAITH</ConfigurationId>
+    			<Group>Game</Group>
+    			<Value>1</Value>
+    		</ConfigurationValueMatches>
+    	</Criteria>
+		<Criteria id="EGHV_Exclude_GoodyHut_Villager_Secrets_Favor">
+    		<ConfigurationValueMatches>
+    			<ConfigurationId>EXCLUDE_GOODYHUT_VILLAGER_SECRETS_FAVOR</ConfigurationId>
+    			<Group>Game</Group>
+    			<Value>1</Value>
+    		</ConfigurationValueMatches>
+    	</Criteria>
+		<Criteria id="EGHV_Exclude_GoodyHut_Villager_Secrets_Food">
+    		<ConfigurationValueMatches>
+    			<ConfigurationId>EXCLUDE_GOODYHUT_VILLAGER_SECRETS_FOOD</ConfigurationId>
+    			<Group>Game</Group>
+    			<Value>1</Value>
+    		</ConfigurationValueMatches>
+    	</Criteria>
+		<Criteria id="EGHV_Exclude_GoodyHut_Villager_Secrets_Gold">
+    		<ConfigurationValueMatches>
+    			<ConfigurationId>EXCLUDE_GOODYHUT_VILLAGER_SECRETS_GOLD</ConfigurationId>
+    			<Group>Game</Group>
+    			<Value>1</Value>
+    		</ConfigurationValueMatches>
+    	</Criteria>
+		<Criteria id="EGHV_Exclude_GoodyHut_Villager_Secrets_Production">
+    		<ConfigurationValueMatches>
+    			<ConfigurationId>EXCLUDE_GOODYHUT_VILLAGER_SECRETS_PRODUCTION</ConfigurationId>
+    			<Group>Game</Group>
+    			<Value>1</Value>
+    		</ConfigurationValueMatches>
+    	</Criteria>
+		<Criteria id="EGHV_Exclude_GoodyHut_Villager_Secrets_Science">
+    		<ConfigurationValueMatches>
+    			<ConfigurationId>EXCLUDE_GOODYHUT_VILLAGER_SECRETS_SCIENCE</ConfigurationId>
+    			<Group>Game</Group>
+    			<Value>1</Value>
+    		</ConfigurationValueMatches>
+    	</Criteria>
+		<!-- <Criteria id="EGHV_Exclude_GoodyHut_Unlock_Villager_Secrets">
     		<ConfigurationValueMatches>
     			<ConfigurationId>EXCLUDE_GOODYHUT_UNLOCK_VILLAGER_SECRETS</ConfigurationId>
     			<Group>Game</Group>
     			<Value>1</Value>
     		</ConfigurationValueMatches>
-    	</Criteria>
+    	</Criteria> -->
 		<!-- exclude (disable) 1 free support unit reward -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Grant_Battering_Ram">
     		<ConfigurationValueMatches>
@@ -1299,12 +1355,60 @@
 			<File>EGHV/Gameplay/ExcludeGoodyHut/Promotions/Small_Experience.sql</File>
 		</UpdateDatabase>
 		<!-- secrets -->
-		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_UNLOCK_VILLAGER_SECRETS" criteria="EGHV_Exclude_GoodyHut_Unlock_Villager_Secrets">
+		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_VILLAGER_SECRETS_AMENITIES" criteria="EGHV_Exclude_GoodyHut_Villager_Secrets_Amenities">
+			<Properties>
+        		<LoadOrder>1010171</LoadOrder>
+      		</Properties>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Secrets/Villager_Secrets_Amenities.sql</File>
+		</UpdateDatabase>
+		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_VILLAGER_SECRETS_CULTURE" criteria="EGHV_Exclude_GoodyHut_Villager_Secrets_Culture">
+			<Properties>
+        		<LoadOrder>1010171</LoadOrder>
+      		</Properties>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Secrets/Villager_Secrets_Culture.sql</File>
+		</UpdateDatabase>
+		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_VILLAGER_SECRETS_FAITH" criteria="EGHV_Exclude_GoodyHut_Villager_Secrets_Faith">
+			<Properties>
+        		<LoadOrder>1010171</LoadOrder>
+      		</Properties>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Secrets/Villager_Secrets_Faith.sql</File>
+		</UpdateDatabase>
+		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_VILLAGER_SECRETS_FAVOR" criteria="EGHV_Exclude_GoodyHut_Villager_Secrets_Favor">
+			<Properties>
+        		<LoadOrder>1010171</LoadOrder>
+      		</Properties>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Secrets/Villager_Secrets_Favor.sql</File>
+		</UpdateDatabase>
+		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_VILLAGER_SECRETS_FOOD" criteria="EGHV_Exclude_GoodyHut_Villager_Secrets_Food">
+			<Properties>
+        		<LoadOrder>1010171</LoadOrder>
+      		</Properties>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Secrets/Villager_Secrets_Food.sql</File>
+		</UpdateDatabase>
+		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_VILLAGER_SECRETS_GOLD" criteria="EGHV_Exclude_GoodyHut_Villager_Secrets_Gold">
+			<Properties>
+        		<LoadOrder>1010171</LoadOrder>
+      		</Properties>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Secrets/Villager_Secrets_Gold.sql</File>
+		</UpdateDatabase>
+		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_VILLAGER_SECRETS_PRODUCTION" criteria="EGHV_Exclude_GoodyHut_Villager_Secrets_Production">
+			<Properties>
+        		<LoadOrder>1010171</LoadOrder>
+      		</Properties>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Secrets/Villager_Secrets_Production.sql</File>
+		</UpdateDatabase>
+		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_VILLAGER_SECRETS_SCIENCE" criteria="EGHV_Exclude_GoodyHut_Villager_Secrets_Science">
+			<Properties>
+        		<LoadOrder>1010171</LoadOrder>
+      		</Properties>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Secrets/Villager_Secrets_Science.sql</File>
+		</UpdateDatabase>
+		<!-- <UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_UNLOCK_VILLAGER_SECRETS" criteria="EGHV_Exclude_GoodyHut_Unlock_Villager_Secrets">
 			<Properties>
         		<LoadOrder>1010171</LoadOrder>
       		</Properties>
 			<File>EGHV/Gameplay/ExcludeGoodyHut/Secrets/Unlock_Villager_Secrets.sql</File>
-		</UpdateDatabase>
+		</UpdateDatabase> -->
 		<!-- units -->
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_GRANT_BATTERING_RAM" criteria="EGHV_Exclude_GoodyHut_Grant_Battering_Ram">
 			<Properties>
@@ -1769,7 +1873,15 @@
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Promotions/Large_Experience.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Promotions/Medium_Experience.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Promotions/Small_Experience.sql</File>
-		<File>EGHV/Gameplay/ExcludeGoodyHut/Secrets/Unlock_Villager_Secrets.sql</File>
+		<!-- <File>EGHV/Gameplay/ExcludeGoodyHut/Secrets/Unlock_Villager_Secrets.sql</File> -->
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Secrets/Villager_Secrets_Amenities.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Secrets/Villager_Secrets_Culture.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Secrets/Villager_Secrets_Faith.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Secrets/Villager_Secrets_Favor.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Secrets/Villager_Secrets_Food.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Secrets/Villager_Secrets_Gold.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Secrets/Villager_Secrets_Production.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Secrets/Villager_Secrets_Science.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Support/Grant_Battering_Ram.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Support/Grant_Catapult.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Support/Grant_Upgrade.sql</File>

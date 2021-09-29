@@ -132,11 +132,47 @@
             <Text>Generic description for the dummy reward.</Text>
         </Replace>
         <!-- secrets type -->
-        <Replace Tag="LOC_EGHV_GOODYHUT_UNLOCK_VILLAGER_SECRETS_NAME" Language="en_US">
-            <Text>[ICON_AdditionalContent] Unlock Villager Secrets</Text>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_AMENITIES_NAME" Language="en_US">
+            <Text>[ICON_Buildings] Amenities Totem</Text>
         </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_UNLOCK_VILLAGER_SECRETS_DESC" Language="en_US">
-            <Text>Tier 5 (Specialized) Secrets-type reward.[NEWLINE][NEWLINE]The villagers provide the ability to construct, or additional benefits from, the [ICON_Buildings] Tribal Totem building.</Text>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_AMENITIES_DESC" Language="en_US">
+            <Text>Tier 5 (Specialized) Secrets-type reward.[NEWLINE][NEWLINE]Receive the ability to construct the [ICON_Buildings] Amenities Totem building, which provides +4 [ICON_Amenities] Amenities.[NEWLINE][NEWLINE]If this ability has previously been granted, instead receive a free [ICON_Buildings] Amenities Totem building in a City that does not already have one.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_CULTURE_NAME" Language="en_US">
+            <Text>[ICON_Buildings] Culture Totem</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_CULTURE_DESC" Language="en_US">
+            <Text>Tier 5 (Specialized) Secrets-type reward.[NEWLINE][NEWLINE]Receive the ability to construct the [ICON_Buildings] Culture Totem building, which provides +4 [ICON_Culture] Culture.[NEWLINE][NEWLINE]If this ability has previously been granted, instead receive a free [ICON_Buildings] Culture Totem building in a City that does not already have one.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_FAITH_NAME" Language="en_US">
+            <Text>[ICON_Buildings] Faith Totem</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_FAITH_DESC" Language="en_US">
+            <Text>Tier 5 (Specialized) Secrets-type reward.[NEWLINE][NEWLINE]Receive the ability to construct the [ICON_Buildings] Faith Totem building, which provides +4 [ICON_Faith] Faith.[NEWLINE][NEWLINE]If this ability has previously been granted, instead receive a free [ICON_Buildings] Faith Totem building in a City that does not already have one.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_FOOD_NAME" Language="en_US">
+            <Text>[ICON_Buildings] Food Totem</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_FOOD_DESC" Language="en_US">
+            <Text>Tier 5 (Specialized) Secrets-type reward.[NEWLINE][NEWLINE]Receive the ability to construct the [ICON_Buildings] Food Totem building, which provides +4 [ICON_Food] Food.[NEWLINE][NEWLINE]If this ability has previously been granted, instead receive a free [ICON_Buildings] Food Totem building in a City that does not already have one.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_GOLD_NAME" Language="en_US">
+            <Text>[ICON_Buildings] Gold Totem</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_GOLD_DESC" Language="en_US">
+            <Text>Tier 5 (Specialized) Secrets-type reward.[NEWLINE][NEWLINE]Receive the ability to construct the [ICON_Buildings] Gold Totem building, which provides +8 [ICON_Gold] Gold.[NEWLINE][NEWLINE]If this ability has previously been granted, instead receive a free [ICON_Buildings] Gold Totem building in a City that does not already have one.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_PRODUCTION_NAME" Language="en_US">
+            <Text>[ICON_Buildings] Production Totem</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_PRODUCTION_DESC" Language="en_US">
+            <Text>Tier 5 (Specialized) Secrets-type reward.[NEWLINE][NEWLINE]Receive the ability to construct the [ICON_Buildings] Production Totem building, which provides +4 [ICON_Production] Production.[NEWLINE][NEWLINE]If this ability has previously been granted, instead receive a free [ICON_Buildings] Production Totem building in a City that does not already have one.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_SCIENCE_NAME" Language="en_US">
+            <Text>[ICON_Buildings] Science Totem</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_SCIENCE_DESC" Language="en_US">
+            <Text>Tier 5 (Specialized) Secrets-type reward.[NEWLINE][NEWLINE]Receive the ability to construct the [ICON_Buildings] Science Totem building, which provides +4 [ICON_Science] Science.[NEWLINE][NEWLINE]If this ability has previously been granted, instead receive a free [ICON_Buildings] Science Totem building in a City that does not already have one.</Text>
         </Replace>
         <!-- hostiles type -->
         <Replace Tag="LOC_EGHV_GOODYHUT_LOW_HOSTILITY_VILLAGERS_NAME" Language="en_US">

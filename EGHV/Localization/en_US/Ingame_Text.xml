@@ -7,6 +7,55 @@
 <!-- localized in-game text for en_US -->
 <GameData>
 	<LocalizedText>
+        <!-- Villager Amenities totem building -->
+        <Replace Tag="LOC_BUILDING_AMENITIES_TOTEM_NAME" Language="en_US">
+			<Text>Amenities Totem</Text>
+		</Replace>
+        <Replace Tag="LOC_BUILDING_AMENITIES_TOTEM_DESC" Language="en_US">
+			<Text>A totem engraved with runes learned from the inhabitants of a forgotten village, believed to increase happiness.</Text>
+		</Replace>
+        <!-- Villager Culture totem building -->
+        <Replace Tag="LOC_BUILDING_CULTURE_TOTEM_NAME" Language="en_US">
+			<Text>Culture Totem</Text>
+		</Replace>
+        <Replace Tag="LOC_BUILDING_CULTURE_TOTEM_DESC" Language="en_US">
+			<Text>A totem engraved with runes learned from the inhabitants of a forgotten village, believed to promote a sense of civic duty.</Text>
+		</Replace>
+        <!-- Villager Faith totem building -->
+        <Replace Tag="LOC_BUILDING_FAITH_TOTEM_NAME" Language="en_US">
+			<Text>Faith Totem</Text>
+		</Replace>
+        <Replace Tag="LOC_BUILDING_FAITH_TOTEM_DESC" Language="en_US">
+			<Text>A totem engraved with runes learned from the inhabitants of a forgotten village, believed to enhance spirituality.</Text>
+		</Replace>
+        <!-- Villager Food totem building -->
+        <Replace Tag="LOC_BUILDING_FOOD_TOTEM_NAME" Language="en_US">
+			<Text>Food Totem</Text>
+		</Replace>
+        <Replace Tag="LOC_BUILDING_FOOD_TOTEM_DESC" Language="en_US">
+			<Text>A totem engraved with runes learned from the inhabitants of a forgotten village, believed to improve crop yields.</Text>
+		</Replace>
+        <!-- Villager Gold totem building -->
+        <Replace Tag="LOC_BUILDING_GOLD_TOTEM_NAME" Language="en_US">
+			<Text>Gold Totem</Text>
+		</Replace>
+        <Replace Tag="LOC_BUILDING_GOLD_TOTEM_DESC" Language="en_US">
+			<Text>A totem engraved with runes learned from the inhabitants of a forgotten village, believed to bring fortune.</Text>
+		</Replace>
+        <!-- Villager Production totem building -->
+        <Replace Tag="LOC_BUILDING_PRODUCTION_TOTEM_NAME" Language="en_US">
+			<Text>Production Totem</Text>
+		</Replace>
+        <Replace Tag="LOC_BUILDING_PRODUCTION_TOTEM_DESC" Language="en_US">
+			<Text>A totem engraved with runes learned from the inhabitants of a forgotten village, believed to increase productivity.</Text>
+		</Replace>
+        <!-- Villager Science totem building -->
+        <Replace Tag="LOC_BUILDING_SCIENCE_TOTEM_NAME" Language="en_US">
+			<Text>Science Totem</Text>
+		</Replace>
+        <Replace Tag="LOC_BUILDING_SCIENCE_TOTEM_DESC" Language="en_US">
+			<Text>A totem engraved with runes learned from the inhabitants of a forgotten village, believed to enhance knowledge.</Text>
+		</Replace>
         <!--  -->
         <!-- <Replace Tag="LOC_TECH_VILLAGER_BASIC_NAME" Language="en_US">
             <Text>Tribal Knowledge</Text>
@@ -46,12 +95,12 @@
 			<Text>Enhanced Strength: +10 [ICON_Strength] Combat Strength</Text>
 		</Replace>
         <!-- villager totem building -->
-        <Replace Tag="LOC_BUILDING_TRIBAL_TOTEM_NAME" Language="en_US">
+        <!-- <Replace Tag="LOC_BUILDING_TRIBAL_TOTEM_NAME" Language="en_US">
 			<Text>Tribal Village Totem</Text>
-		</Replace>
-        <Replace Tag="LOC_BUILDING_TRIBAL_TOTEM_DESC" Language="en_US">
+		</Replace> -->
+        <!-- <Replace Tag="LOC_BUILDING_TRIBAL_TOTEM_DESC" Language="en_US">
 			<Text>Provides +1 Loyalty per turn in this city. If the city already has maximum Loyalty, also provides an additional +1 [ICON_Amenities] Amenity.</Text>
-		</Replace>
+		</Replace> -->
         <!-- in-game bonus reward notifications -->
         <Replace Tag="LOC_BONUS_REWARD_NOTIFICATION_TITLE" Language="en_US">
             <Text>Bonus Tribal Village Reward</Text>

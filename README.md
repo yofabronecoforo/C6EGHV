@@ -12,13 +12,18 @@ A mod that provides a fairly comprehensive extension to and overhaul of the Trib
 
 In addition, the number of available ingame Goody Hut rewards has greatly increased for each official ruleset:
 
+Ruleset in use | Standard | Rise and Fall | Gathering Storm
+------- | ------- | ------- | -------
+Rewards (Types) built-in | 18 (6) | 18 (6) | 23 (8)
+Rewards (Types) with EGHV | 52 (11) | 56 (12) | 65 (15)
+
 Ruleset | Available Rewards (Types) | Rewards (Types) w/o EGHV
 ------- | ------- | -------
-Standard | 46 (11) | 18 (6)
-Rise and Fall | 50 (12) | 18 (6)
-Gathering Storm | 59 (15) | 23 (8)
+Standard | 52 (11) | 18 (6)
+Rise and Fall | 56 (12) | 18 (6)
+Gathering Storm | 65 (15) | 23 (8)
 
-Many of these rewards are implemented entirely via Lua scripting, because the built-in system is sorely lacking in many ways.
+Many of these rewards are implemented via a combination of the built-in Modifiers system and the Lua scripting system, as this allows these rewards to function as intended.
 
 Finally, Hostile Villagers as (and now, potentially following) a reward make their return.
 
@@ -81,7 +86,7 @@ Abilities [8] [10] | +1 sight | +20 healing per turn | +1 movement | +10 combat 
 Envoys [9] | 1 envoy | 2 envoys | 3 envoys | 4 envoys
 Hostiles | low hostility | medium hostility | high hostility | maximum hostility
 Promotions [8] [11] | 5 experience | 10 experience | 15 experience | upgrade and/or experience for next promotion [12]
-Secrets | villager secrets (100)
+Secrets [13] | villager secrets (100)
 
 8. Rewards of this type apply to any valid unit(s) when obtained via exploration; they should be replaced by EGHV when obtained via border expansion
 9. When the Gathering Storm expansion is present and in use, new rewards provided by this EGHV type supercede the "free envoy" Diplomacy-type reward, which is disabled
@@ -91,6 +96,7 @@ Secrets | villager secrets (100)
     1. Any unit with a valid promotion class, that has NOT yet earned any promotions, will receive a free upgrade IF it also has a valid upgrade path. Due to built-in limitations, this "upgrade" consists of destroying the existing unit and placing a new unit in the last plot the existing unit occupied. Since promotions and experience cannot currently be transferred easily and cleanly to a new unit, any unit with any promotions will be ignored. Upgraded unit(s) DO retain any abilities attached to the old unit(s); however, they lose any remaining movement for the current turn.
     2. Any unit with a valid promotion class, including any unit upgraded by (i) above, will receive enough experience for its next promotion.
     3. Units without a valid promotion class or upgrade path will be skipped by this reward; currently, this results in nothing happening.
+13. Rewards of this type have a specialized nature and inherently equalized chances of being selected. They are explained in detail below.
 
 ### New Rise and Fall Types
 ![EGHV Rewards](/IMAGES/Expansion1.gif)
@@ -99,9 +105,9 @@ These rewards are provided by EGHV for Rise and Fall and later ruleset(s):
 
 Goody Hut (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
 ------ | ------ | ------ | ------ | ------
-Governors [13] | 1 governor title | 2 governor titles | 3 governor titles | 4 governor titles
+Governors [14] | 1 governor title | 2 governor titles | 3 governor titles | 4 governor titles
 
-13. When the Gathering Storm expansion is present and in use, new rewards provided by this EGHV type supercede the "free governor title" Diplomacy-type reward, which is disabled
+14. When the Gathering Storm expansion is present and in use, new rewards provided by this EGHV type supercede the "free governor title" Diplomacy-type reward, which is disabled
 
 ### New Gathering Storm Types
 ![EGHV Rewards](/IMAGES/Expansion2.gif)
@@ -110,12 +116,12 @@ These rewards are provided by EGHV for Gathering Storm and later ruleset(s):
 
 Goody Hut (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
 ------ | ------ | ------ | ------ | ------
-Diplomacy [14] | +10 diplomatic favor | +20 diplomatic favor | +30 diplomatic favor | +50 diplomatic favor
+Diplomacy [15] | +10 diplomatic favor | +20 diplomatic favor | +30 diplomatic favor | +50 diplomatic favor
 Meteor | meteor-strike site (100)
-Resources [15] | +10 strategic resources | +20 strategic resources | +30 strategic resources | +50 strategic resources
+Resources [16] | +10 strategic resources | +20 strategic resources | +30 strategic resources | +50 strategic resources
 
-14. New rewards provided by this EGHV type supercede the "free diplomatic favor" Diplomacy-type reward, which is disabled
-15. New rewards provided by this EGHV type supercede the "free strategic resources" Military-type reward, which is disabled
+15. New rewards provided by this EGHV type supercede the "free diplomatic favor" Diplomacy-type reward, which is disabled
+16. New rewards provided by this EGHV type supercede the "free strategic resources" Military-type reward, which is disabled
 
 ## Goody Hut Reward Picker
 ![Goody Hut Picker](/IMAGES/Picker_Detail.gif)
@@ -156,7 +162,7 @@ Bonus Rewards, if enabled, can only be received from a Goody Hut. There are two 
 ![Equalize Rewards](/IMAGES/Equalize_Tribal_Village_Rewards.png)
 
 EGHV provides a checkbox option which, when enabled, assigns every enabled reward in a category an equal share of that category's Weight. This results in most enabled rewards having a roughly equal chance of being selected. Final actual chances will vary with the number of enabled rewards and/or the selected ruleset; with Standard rules and all available rewards enabled, these chances are as follows:
-- ~ 9.09% villager secrets type reward (1 reward in this parent type)
+- ~ 9.09% villager secrets type reward (multiple rewards in this parent type, each with an equal chance of being selected)
 - ~ 1.01% military-type unit reward (9 rewards in this parent type: ~ 9.09% for this parent type)
 - ~ 2.27% any other specific reward (4 rewards in each parent type: ~ 9.09% for each parent type)
 
@@ -204,22 +210,28 @@ Any hostile villagers that appear as or after a reward will generate an ingame p
 To compensate for the increased numbers of barbarian units that are likely to be present now, the experience and level caps from fighting such units have been increased. You still aren't going to get a fully-promoted unit from fighting barbarians, but at least you'll be able to get more than a single promotion.
 
 ## Villager Secrets
-![Villager Secrets](/IMAGES/Villager_Secrets.png)
+![Villager Secrets](/IMAGES/Villager_Secrets.gif)
 
-This is a specialized reward which, when received, unlocks the ability for the receiving Player to build the Tribal Totem building. This building functions like a Monument, except it provides Amenities instead of Culture. This building can also be upgraded. The second time this reward is received by the same Player, an improved version of the building will be unlocked, which provides additional yields (the initial unlock is level 0):
+(The above image is outdated and does not represent the current state of Secrets-type rewards)
 
-Tribal Totem Yield Modifiers | Culture | Faith | Food | Gold | Production | Science | Favor **
-------- | ------- | ------- | ------- | ------- | ------- | ------- | -------
-Level 1 | +1 | +1 | +1 | +2 | +1 | +1 | +1
+Villager Secrets are a group of specialized rewards which have an inherently equalized chance of being selected when enabled. When one is received, it unlocks the ability to build a Villager Totem building. Each reward unlocks a different Totem, and each of these new buildings provides a boost to a different yield:
 
-These yields are in addition to its Amenities output. The building can currently be upgraded in this way 5 times, with the additional yield modifiers stacking each time; thus, at level 5 it will look like this:
+Villager Totem | Yield Modifier
+------- | -------
+Amenities | +4
+Culture | +4
+Faith | +4
+Favor [*] | +4
+Food | +4
+Gold | +8
+Production | +4
+Science | +4
 
-Tribal Totem Yield Modifiers | Culture | Faith | Food | Gold | Production | Science | Favor **
-------- | ------- | ------- | ------- | ------- | ------- | ------- | -------
-Level 5 | +5 | +5 | +5 | +10 | +5 | +5 | +5
-- [ ** ] Requires Gathering Storm
+- [*] : Requires Gathering Storm // CURRENTLY BROKEN AND DISABLED //
 
-This means that each Player can currently receive this reward a total of 6 times in a game before there are no further "secrets" to unlock and it becomes useless. When this happens, a new reward will be randomly selected to replace it, unless this is the only currently enabled reward, in which case nothing will happen.
+Once a particular Totem has been unlocked, if the reward that provides it is received again, instead a free Totem of that type will be placed in a City that does not already have one. If all cities have that Totem already, or if there are otherwise no cities in which to place it, instead nothing will happen.
+
+With judicious use of the distribution slider and bonus reward features, and all available rewards enabled, it is likely that the number and types of unlocked Totem(s) will differ for a given Player from game to game. On the flip side, if the slider and/or bonuses are cranked to max, or the pool of available rewards is greatly narrowed - particularly to only Secrets-type rewards - via the picker, or some combination of these occurs, it is likely that all Players will shortly unlock the ability to build every Totem.
 
 If Hostile Villagers After a Reward are enabled, this reward will tend to provoke elevated hostility.
 

@@ -20,12 +20,12 @@ UPDATE GoodyHuts SET Weight = (SELECT SUM(Weight) FROM GoodyHutSubTypes WHERE Go
 
 -- refresh the overall weights of EGHV type(s) to account for any exclusions
 UPDATE GoodyHuts SET Weight = (SELECT SUM(Weight) FROM GoodyHutSubTypes WHERE GoodyHut = 'GOODYHUT_ABILITIES') WHERE GoodyHutType = 'GOODYHUT_ABILITIES';
-UPDATE GoodyHuts SET Weight = (SELECT SUM(Weight) FROM GoodyHutSubTypes WHERE GoodyHut = 'GOODYHUT_CAVALRY') WHERE GoodyHutType = 'GOODYHUT_CAVALRY';
+-- UPDATE GoodyHuts SET Weight = (SELECT SUM(Weight) FROM GoodyHutSubTypes WHERE GoodyHut = 'GOODYHUT_CAVALRY') WHERE GoodyHutType = 'GOODYHUT_CAVALRY';
 UPDATE GoodyHuts SET Weight = (SELECT SUM(Weight) FROM GoodyHutSubTypes WHERE GoodyHut = 'GOODYHUT_ENVOYS') WHERE GoodyHutType = 'GOODYHUT_ENVOYS';
 UPDATE GoodyHuts SET Weight = (SELECT SUM(Weight) FROM GoodyHutSubTypes WHERE GoodyHut = 'GOODYHUT_HOSTILES') WHERE GoodyHutType = 'GOODYHUT_HOSTILES';
 UPDATE GoodyHuts SET Weight = (SELECT SUM(Weight) FROM GoodyHutSubTypes WHERE GoodyHut = 'GOODYHUT_PROMOTIONS') WHERE GoodyHutType = 'GOODYHUT_PROMOTIONS';
-UPDATE GoodyHuts SET Weight = (SELECT SUM(Weight) FROM GoodyHutSubTypes WHERE GoodyHut = 'GOODYHUT_SECRETS') WHERE GoodyHutType = 'GOODYHUT_SECRETS';
-UPDATE GoodyHuts SET Weight = (SELECT SUM(Weight) FROM GoodyHutSubTypes WHERE GoodyHut = 'GOODYHUT_SUPPORT') WHERE GoodyHutType = 'GOODYHUT_SUPPORT';
+-- UPDATE GoodyHuts SET Weight = (SELECT SUM(Weight) FROM GoodyHutSubTypes WHERE GoodyHut = 'GOODYHUT_SECRETS') WHERE GoodyHutType = 'GOODYHUT_SECRETS';
+-- UPDATE GoodyHuts SET Weight = (SELECT SUM(Weight) FROM GoodyHutSubTypes WHERE GoodyHut = 'GOODYHUT_SUPPORT') WHERE GoodyHutType = 'GOODYHUT_SUPPORT';
 
 /* ###########################################################################
     end EGHV exclude Goody Hut configuration

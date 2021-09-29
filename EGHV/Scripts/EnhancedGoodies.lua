@@ -39,10 +39,22 @@ GUE.Notification.Secrets = {
 -- table of individual unit rewards
 GUE.GrantUnitRewards = {
 	["GOODYHUT_GRANT_SCOUT"] = 1, ["GOODYHUT_GRANT_WARRIOR"] = 2, ["GOODYHUT_GRANT_SLINGER"] = 3, ["GOODYHUT_GRANT_SPEARMAN"] = 4, ["GOODYHUT_GRANT_HEAVY_CHARIOT"] = 5, ["GOODYHUT_GRANT_HORSEMAN"] = 6, 
-	["GOODYHUT_GRANT_CATAPULT"] = 7, ["GOODYHUT_GRANT_BATTERING_RAM"] = 8, ["GOODYHUT_GRANT_MILITARY_ENGINEER"] = 9, ["GOODYHUT_GRANT_BUILDER"] = 10, ["GOODYHUT_GRANT_TRADER"] = 11, ["GOODYHUT_GRANT_SETTLER"] = 12
+	["GOODYHUT_GRANT_CATAPULT"] = 7, ["GOODYHUT_GRANT_BATTERING_RAM"] = 8, ["GOODYHUT_GRANT_MILITARY_ENGINEER"] = 9, ["GOODYHUT_GRANT_BUILDER"] = 10, ["GOODYHUT_GRANT_SETTLER"] = 11
 };
 -- define valid Villager Secrets reward(s) - these are the SubTypeGoodyHut values for any such rewards
 GUE.VillagerSecrets = "GOODYHUT_UNLOCK_VILLAGER_SECRETS";
+GUE.VillagerSecretsRewards = { 
+	["GOODYHUT_VILLAGER_SECRETS_AMENITIES"] = { ModifierID = "VILLAGER_SECRETS_UNLOCK_AMENITIES_TOTEM", Building = GameInfo.Buildings["BUILDING_AMENITIES_TOTEM"].Index }, 
+	["GOODYHUT_VILLAGER_SECRETS_CULTURE"] = { ModifierID = "VILLAGER_SECRETS_UNLOCK_CULTURE_TOTEM", Building = GameInfo.Buildings["BUILDING_CULTURE_TOTEM"].Index }, 
+	["GOODYHUT_VILLAGER_SECRETS_FAITH"] = { ModifierID = "VILLAGER_SECRETS_UNLOCK_FAITH_TOTEM", Building = GameInfo.Buildings["BUILDING_FAITH_TOTEM"].Index }, 
+	["GOODYHUT_VILLAGER_SECRETS_FOOD"] = { ModifierID = "VILLAGER_SECRETS_UNLOCK_FOOD_TOTEM", Building = GameInfo.Buildings["BUILDING_FOOD_TOTEM"].Index }, 
+	["GOODYHUT_VILLAGER_SECRETS_GOLD"] = { ModifierID = "VILLAGER_SECRETS_UNLOCK_GOLD_TOTEM", Building = GameInfo.Buildings["BUILDING_GOLD_TOTEM"].Index }, 
+	["GOODYHUT_VILLAGER_SECRETS_PRODUCTION"] = { ModifierID = "VILLAGER_SECRETS_UNLOCK_PRODUCTION_TOTEM", Building = GameInfo.Buildings["BUILDING_PRODUCTION_TOTEM"].Index }, 
+	["GOODYHUT_VILLAGER_SECRETS_SCIENCE"] = { ModifierID = "VILLAGER_SECRETS_UNLOCK_SCIENCE_TOTEM", Building = GameInfo.Buildings["BUILDING_SCIENCE_TOTEM"].Index } 
+};
+if GUE.Ruleset == "RULESET_EXPANSION_2" then 
+	GUE.VillagerSecretsRewards["GOODYHUT_VILLAGER_SECRETS_FAVOR"] = { ModifierID = "VILLAGER_SECRETS_UNLOCK_FAVOR_TOTEM", Building = GameInfo.Buildings["BUILDING_FAVOR_TOTEM"].Index }; 
+end
 -- max number of villager secrets rewards per Player is this value + 1 (first unlock is level 0)
 GUE.MaxSecretsLevel = 5;
 -- define valid Hostile Villagers "reward(s)" - keys are the SubTypeGoodyHut values for any such rewards
@@ -220,8 +232,7 @@ function GUE.AddUnitToMap( iX, iY, iPlayerID, iTurn, iEra, sRewardSubType )
 	elseif iUnitGrant == 8 then sUnitGrant = GUE.UnitRewardByEra[iEra].Support;
 	elseif iUnitGrant == 9 then sUnitGrant = "UNIT_MILITARY_ENGINEER";
 	elseif iUnitGrant == 10 then sUnitGrant = "UNIT_BUILDER";
-	elseif iUnitGrant == 11 then sUnitGrant = "UNIT_TRADER";
-	elseif iUnitGrant == 12 then sUnitGrant = "UNIT_SETTLER";
+	elseif iUnitGrant == 11 then sUnitGrant = "UNIT_SETTLER";
 	end
 	-- place the identified unit
 	UnitManager.InitUnitValidAdjacentHex(iPlayerID, sUnitGrant, iX, iY, 1);
@@ -465,38 +476,45 @@ function GUE.UnlockVillagerSecrets( iPlayerID, iTurn, iEra, sRewardSubType )
 		Dprint("Successfully fetched player data for Player " .. iPlayerID .. "; determining whether reward subtype " .. sRewardSubType .. " has previously been granted to this player . . .");
 		-- fetch the ingame Player property for this Player for this reward
 		local PlayerProperty = pPlayer:GetProperty(sRewardSubType);
-		-- define the Unlock Tribal Totem prefix
-		local sTribalTotem = "VILLAGER_SECRETS_UNLOCK_TRIBAL_TOTEM_LVL";
-		-- this should fire the first time this Player receives the Villager Secrets reward
-		if (PlayerProperty == nil) then
+		-- 
+		if (PlayerProperty == nil) or (PlayerProperty == 0) then 
 			-- log output
-			print("The Villager Secrets reward has 'NOT' previously been granted to Player " .. iPlayerID .. "; unlocking basic villager secrets for this player . . .");
+			print("The " .. sRewardSubType .. " Villager Secrets reward has 'NOT' previously been granted to Player " .. iPlayerID .. "; unlocking villager secrets for this player . . .");
 			-- set an ingame Property for this Player to track future Villager Secrets reward(s)
-			pPlayer:SetProperty(sRewardSubType, 0);
-			GUE.PlayerData[iPlayerID].VillagerSecretsLevel = 0;
-			-- unlock the level 0 building
-			local sUnlockTribalTotem = sTribalTotem .. "0";
-			GUE.AddModifierToPlayer(iPlayerID, sUnlockTribalTotem, true);
+			pPlayer:SetProperty(sRewardSubType, 1);
+			GUE.PlayerData[iPlayerID].VillagerSecretsLevel = 1;
+			-- unlock the tribal totem building
+			GUE.AddModifierToPlayer(iPlayerID, GUE.VillagerSecretsRewards[sRewardSubType].ModifierID, true);
+			-- if sRewardSubType == "GOODYHUT_VILLAGER_SECRETS_FAVOR" then GUE.AddModifierToPlayer(iPlayerID, "BUILDING_FAVOR_TOTEM_FAVOR_MODIFIER", true); end
 			-- send an ingame notification for each unlocked secret
 			if GUE.PlayerData[iPlayerID].IsHuman then NotificationManager.SendNotification(iPlayerID, GUE.Notification.Secrets.TypeHash, GUE.Notification.Secrets.Title, GUE.Notification.Secrets.Message); end
 		-- this should fire any time after the first time this Player receives the Villager Secrets reward, until all defined secrets are unlocked
-		elseif (PlayerProperty < 5) then
-			-- configure the unlock tracker for this Player
-			local iNumUnlocks = PlayerProperty + 1;
+		elseif (PlayerProperty > 0) then 
 			-- log output
-			print("The Villager Secrets reward has previously been granted " .. iNumUnlocks .. " time(s) to Player " .. iPlayerID .. "; unlocking additional villager secrets for this player . . .");
-			-- update the ingame Property for this Player to reflect the number of times this reward has been received
-			pPlayer:SetProperty(sRewardSubType, iNumUnlocks);
-			GUE.PlayerData[iPlayerID].VillagerSecretsLevel = iNumUnlocks;
-			-- unlock the updated building indicated by the unlock tracker
-			local sUnlockTribalTotem = sTribalTotem .. iNumUnlocks;
-			GUE.AddModifierToPlayer(iPlayerID, sUnlockTribalTotem, true);
+			local sPriLogMsg = "The " .. sRewardSubType .. " Villager Secrets reward has previously been granted to Player " .. iPlayerID;
+			-- 
+			local tCities = {};
+			for i, pCity in pPlayer:GetCities():Members() do 
+				table.insert(tCities, pCity);
+			end
+			-- 
+			local bValidCityFound = false;
+			if #tCities > 0 then 
+				for i, pCity in ipairs(tCities) do 
+					if not bValidCityFound then 
+						if not pCity:GetBuildings():HasBuilding(GUE.VillagerSecretsRewards[sRewardSubType].Building) then 
+							local pPlot = Map.GetPlot(pCity:GetX(), pCity:GetY());
+							local pQueue = pCity:GetBuildQueue();
+							pQueue:CreateIncompleteBuilding(GUE.VillagerSecretsRewards[sRewardSubType].Building, pPlot:GetIndex(), 100);
+							bValidCityFound = true;
+						end
+					end
+				end
+			end
+			local sSecLogMsg = bValidCityFound and "; placing a free totem building in a 'random' City . . ." or ", and this player has no valid City in which to place a totem building; skipping this reward . . .";
+			print(sPriLogMsg .. sSecLogMsg);
 			-- send an ingame notification for each unlocked secret
 			if GUE.PlayerData[iPlayerID].IsHuman then NotificationManager.SendNotification(iPlayerID, GUE.Notification.Secrets.TypeHash, GUE.Notification.Secrets.Title, GUE.Notification.Secrets.Message); end
-		-- this should fire any time after this Player has already received the Villager Secrets reward enough times to unlock all available defined secrets
-		else
-			print("The Villager Secrets reward has already been granted the maximum number of time(s) to Player " .. iPlayerID .. "; spawning hyper-aggressive hostile villagers instead . . .");
-			Dprint("'STUB'");
 		end
 	-- do nothing if iPlayerID represents an invalid Player
 	else
@@ -636,7 +654,7 @@ function GUE.ValidateGoodyHutReward( tImprovementActivated, tGoodyHutReward )
 	-- print the log message(s)
 	print(sPriLogMsg .. sSecLogMsg);
 	-- execute the UnlockVillagerSecrets() enhanced method here if this reward is a valid Villager Secrets reward
-	if (sRewardSubType == GUE.VillagerSecrets) then 
+	if (sRewardSubType == GUE.VillagerSecrets) or (GUE.VillagerSecretsRewards[sRewardSubType] ~= nil) then 
 		-- this Player has villager secrets left to unlock, so unlock the next level
 		if (GUE.PlayerData[iPlayerID].VillagerSecretsLevel < GUE.MaxSecretsLevel) then GUE.UnlockVillagerSecrets(iPlayerID, iTurn, iEra, sRewardSubType);
 		-- max villager secrets rewards already received by this Player ** 2021/07/28 this may not ever fire any more

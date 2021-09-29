@@ -8,7 +8,7 @@
     begin EGHV equalize Goody Hut configuration
     this will be loaded if :
         (1) Advanced Setup option 'Equalize Goody Huts' is enabled
-    subtype weights for enabled reward(s) within a type will we equalized below
+    subtype weights for enabled reward(s) within a type will be equalized below
 ########################################################################### */
 
 -- culture built-in type
@@ -41,9 +41,9 @@ UPDATE GoodyHutSubTypes
 SET Weight = (SELECT Weight FROM GoodyHuts WHERE GoodyHutType = 'GOODYHUT_ABILITIES') / (SELECT COUNT(*) FROM GoodyHutSubTypes WHERE GoodyHut = 'GOODYHUT_ABILITIES' AND NOT Weight = 0) 
 WHERE GoodyHut = 'GOODYHUT_ABILITIES' AND NOT Weight = 0;
 -- cavalry EGHV type
-UPDATE GoodyHutSubTypes 
-SET Weight = (SELECT Weight FROM GoodyHuts WHERE GoodyHutType = 'GOODYHUT_CAVALRY') / (SELECT COUNT(*) FROM GoodyHutSubTypes WHERE GoodyHut = 'GOODYHUT_CAVALRY' AND NOT Weight = 0) 
-WHERE GoodyHut = 'GOODYHUT_CAVALRY' AND NOT Weight = 0;
+-- UPDATE GoodyHutSubTypes 
+-- SET Weight = (SELECT Weight FROM GoodyHuts WHERE GoodyHutType = 'GOODYHUT_CAVALRY') / (SELECT COUNT(*) FROM GoodyHutSubTypes WHERE GoodyHut = 'GOODYHUT_CAVALRY' AND NOT Weight = 0) 
+-- WHERE GoodyHut = 'GOODYHUT_CAVALRY' AND NOT Weight = 0;
 -- envoys EGHV type
 UPDATE GoodyHutSubTypes 
 SET Weight = (SELECT Weight FROM GoodyHuts WHERE GoodyHutType = 'GOODYHUT_ENVOYS') / (SELECT COUNT(*) FROM GoodyHutSubTypes WHERE GoodyHut = 'GOODYHUT_ENVOYS' AND NOT Weight = 0) 
@@ -57,13 +57,13 @@ UPDATE GoodyHutSubTypes
 SET Weight = (SELECT Weight FROM GoodyHuts WHERE GoodyHutType = 'GOODYHUT_PROMOTIONS') / (SELECT COUNT(*) FROM GoodyHutSubTypes WHERE GoodyHut = 'GOODYHUT_PROMOTIONS' AND NOT Weight = 0) 
 WHERE GoodyHut = 'GOODYHUT_PROMOTIONS' AND NOT Weight = 0;
 -- secrets EGHV type
-UPDATE GoodyHutSubTypes 
-SET Weight = (SELECT Weight FROM GoodyHuts WHERE GoodyHutType = 'GOODYHUT_SECRETS') / (SELECT COUNT(*) FROM GoodyHutSubTypes WHERE GoodyHut = 'GOODYHUT_SECRETS' AND NOT Weight = 0) 
-WHERE GoodyHut = 'GOODYHUT_SECRETS' AND NOT Weight = 0;
+-- UPDATE GoodyHutSubTypes 
+-- SET Weight = (SELECT Weight FROM GoodyHuts WHERE GoodyHutType = 'GOODYHUT_SECRETS') / (SELECT COUNT(*) FROM GoodyHutSubTypes WHERE GoodyHut = 'GOODYHUT_SECRETS' AND NOT Weight = 0) 
+-- WHERE GoodyHut = 'GOODYHUT_SECRETS' AND NOT Weight = 0;
 -- units EGHV type
-UPDATE GoodyHutSubTypes 
-SET Weight = (SELECT Weight FROM GoodyHuts WHERE GoodyHutType = 'GOODYHUT_SUPPORT') / (SELECT COUNT(*) FROM GoodyHutSubTypes WHERE GoodyHut = 'GOODYHUT_SUPPORT' AND NOT Weight = 0) 
-WHERE GoodyHut = 'GOODYHUT_SUPPORT' AND NOT Weight = 0;
+-- UPDATE GoodyHutSubTypes 
+-- SET Weight = (SELECT Weight FROM GoodyHuts WHERE GoodyHutType = 'GOODYHUT_SUPPORT') / (SELECT COUNT(*) FROM GoodyHutSubTypes WHERE GoodyHut = 'GOODYHUT_SUPPORT' AND NOT Weight = 0) 
+-- WHERE GoodyHut = 'GOODYHUT_SUPPORT' AND NOT Weight = 0;
 
 -- Start with GOODYHUT_MILITARY types
 -- UPDATE GoodyHutSubTypes SET Weight = 10 WHERE GoodyHut = 'GOODYHUT_MILITARY' AND NOT SubTypeGoodyHut = 'GOODYHUT_GRANT_UPGRADE' AND NOT SubTypeGoodyHut = 'GOODYHUT_HEAL';
