@@ -335,7 +335,7 @@ EGHV adds new item(s) to and/or modifies existing item(s) in the following table
 - TypeTags
 - Building
 - BuildingConditions
-- BuildingModifiers **
+- BuildingModifiers [*]
 - BuildingReplaces
 - Building_YieldChanges
 - GlobalParameters
@@ -349,14 +349,17 @@ EGHV adds new item(s) to and/or modifies existing item(s) in the following table
 - UnitAbilities
 - UnitAbilityModifiers
 
-[ ** ] Requires Gathering Storm
+- [*] Requires Gathering Storm
 
 If your mod operates on any similarly-named item(s) in any of the above named table(s), these change(s) will likely be overwritten by EGHV. Conflicts __WILL__ arise _regardless of relative load order_ if these changes deviate substantially from those of EGHV.
 
 ### Gameplay Scripts
 EGHV employs the following new custom gameplay scripts:
+- EGHV_Common.lua
 - EnhancedGoodies.lua
-- IngameGUE.lua
+- HostileVillagers.lua
+- BonusRewards.lua
+- EGHV.lua
 
 If your mod employs any gameplay scripts with similar names, conflicts __WILL__ arise.
 
