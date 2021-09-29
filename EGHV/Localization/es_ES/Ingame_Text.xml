@@ -7,6 +7,55 @@
 <!-- localized in-game text for es_ES -->
 <GameData>
 	<LocalizedText>
+    <!-- Villager Amenities totem building -->
+        <Replace Tag="LOC_BUILDING_AMENITIES_TOTEM_NAME" Language="es_ES">
+			<Text>Servicios Totem</Text>
+		</Replace>
+        <Replace Tag="LOC_BUILDING_AMENITIES_TOTEM_DESC" Language="es_ES">
+			<Text>Un tótem grabado con runas aprendidas de los habitantes de un pueblo olvidado, se cree que aumenta la felicidad.</Text>
+		</Replace>
+        <!-- Villager Culture totem building -->
+        <Replace Tag="LOC_BUILDING_CULTURE_TOTEM_NAME" Language="es_ES">
+			<Text>Tótem de cultura</Text>
+		</Replace>
+        <Replace Tag="LOC_BUILDING_CULTURE_TOTEM_DESC" Language="es_ES">
+			<Text>Un tótem grabado con runas aprendidas de los habitantes de un pueblo olvidado, se cree que promueve un sentido del deber cívico.</Text>
+		</Replace>
+        <!-- Villager Faith totem building -->
+        <Replace Tag="LOC_BUILDING_FAITH_TOTEM_NAME" Language="es_ES">
+			<Text>Tótem de fe</Text>
+		</Replace>
+        <Replace Tag="LOC_BUILDING_FAITH_TOTEM_DESC" Language="es_ES">
+			<Text>Un tótem grabado con runas aprendidas de los habitantes de un pueblo olvidado, creía que mejora la espiritualidad.</Text>
+		</Replace>
+        <!-- Villager Food totem building -->
+        <Replace Tag="LOC_BUILDING_FOOD_TOTEM_NAME" Language="es_ES">
+			<Text>Tótem de alimentos</Text>
+		</Replace>
+        <Replace Tag="LOC_BUILDING_FOOD_TOTEM_DESC" Language="es_ES">
+			<Text>Un tótem grabado con runas aprendidas de los habitantes de un pueblo olvidado, se cree que mejora los rendimientos de los cultivos.</Text>
+		</Replace>
+        <!-- Villager Gold totem building -->
+        <Replace Tag="LOC_BUILDING_GOLD_TOTEM_NAME" Language="es_ES">
+			<Text>Tótem dorado</Text>
+		</Replace>
+        <Replace Tag="LOC_BUILDING_GOLD_TOTEM_DESC" Language="es_ES">
+			<Text>Un tótem grabado con runas aprendidas de los habitantes de un pueblo olvidado, que se cree que trae fortuna.</Text>
+		</Replace>
+        <!-- Villager Production totem building -->
+        <Replace Tag="LOC_BUILDING_PRODUCTION_TOTEM_NAME" Language="es_ES">
+			<Text>Tótem de producción</Text>
+		</Replace>
+        <Replace Tag="LOC_BUILDING_PRODUCTION_TOTEM_DESC" Language="es_ES">
+			<Text>Un tótem grabado con runas aprendidas de los habitantes de un pueblo olvidado, se cree que aumenta la productividad.</Text>
+		</Replace>
+        <!-- Villager Science totem building -->
+        <Replace Tag="LOC_BUILDING_SCIENCE_TOTEM_NAME" Language="es_ES">
+			<Text>Tótem científico</Text>
+		</Replace>
+        <Replace Tag="LOC_BUILDING_SCIENCE_TOTEM_DESC" Language="es_ES">
+			<Text>Un tótem grabado con runas aprendidas de los habitantes de un pueblo olvidado, se cree que mejora el conocimiento.</Text>
+		</Replace>
         <!--  -->
         <!-- <Replace Tag="LOC_TECH_VILLAGER_BASIC_NAME" Language="es_ES">
             <Text>Tribal Knowledge</Text>

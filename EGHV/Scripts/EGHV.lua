@@ -84,7 +84,7 @@ end
 =========================================================================== ]]
 function OnGoodyHutReward( iPlayerID, iUnitID, iTypeHash, iSubTypeHash )
 	-- abort here if this is the meteor strike reward, as Events.ImprovementActivated does not appear to fire for it
-	if (GUE.GoodyHutTypes[iTypeHash].GoodyHutType == "METEOR_GOODIES" and GUE.GoodyHutRewards[iSubTypeHash].SubTypeGoodyHut == "METEOR_GRANT_GOODIES") then return; end
+	if (GUE.OldGoodyHutTypes[iTypeHash].GoodyHutType == "METEOR_GOODIES" and GUE.OldGoodyHutRewards[iSubTypeHash].SubTypeGoodyHut == "METEOR_GRANT_GOODIES") then return; end
 	-- define function entry message(s)
 	local sPriEntryMsg = "ENTER EG_OnGoodyHutReward( iPlayerID = " .. iPlayerID .. ", iUnitID = " .. iUnitID .. ", iTypeHash = " .. iTypeHash .. ", iSubTypeHash = " .. iSubTypeHash .. " )";
 	-- print entry message(s) to the log when debugging

@@ -111,11 +111,11 @@ GUE.FallbackRewards = {};
 -- initialize table of Wondrous Goody Hut rewards; this will be used for bonus reward purposes, and will be keyed to reward SubType
 GUE.WGH_Rewards = {};
 -- true when the goody hut subtypes table exists AND the 'No Tribal Villages' setup option has NOT been set
-if GUE.GoodyHutRewards and not GUE.NoGoodyHuts then
+if GUE.OldGoodyHutRewards and not GUE.NoGoodyHuts then
 	-- initialize the hash value of the Wondrous type; if this does not get changed, there is a problem
 	local iWondrousTypeHash = -1;
 	-- iterate over the goody hut types table
-	for k, v in pairs(GUE.GoodyHutTypes) do 
+	for k, v in pairs(GUE.OldGoodyHutTypes) do 
 		-- identify the Type hash value for the Wondrous type
 		if v.GoodyHutType == "GOODYHUT_SAILOR_WONDROUS" then iWondrousTypeHash = k; end 
 		-- fetch data for certain enabled rewards for the bonus rewards table
@@ -133,7 +133,7 @@ if GUE.GoodyHutRewards and not GUE.NoGoodyHuts then
 			-- 
 			GUE.ValidRewardTypes[k].TotalSubTypeWeight = 0;
 			-- 
-			for a, b in pairs(GUE.GoodyHutRewards) do 
+			for a, b in pairs(GUE.OldGoodyHutRewards) do 
 				-- 
 				if (b.GoodyHut == v.GoodyHutType) and (b.Weight > 0) and not GUE.ExcludedRewards[b.SubTypeGoodyHut] then 
 					-- 
@@ -151,7 +151,7 @@ if GUE.GoodyHutRewards and not GUE.NoGoodyHuts then
 	-- increment the total bonus rewards counter
 	for k, v in pairs(GUE.ValidBonusRewards) do GUE.BonusRewardCount = GUE.BonusRewardCount + 1; end
 	-- iterate over the goody hut subtypes table
-	for k, v in pairs(GUE.GoodyHutRewards) do
+	for k, v in pairs(GUE.OldGoodyHutRewards) do
 		-- identify fallback rewards
 		if v.GoodyHut == "GOODYHUT_FALLBACK" then 
 			table.insert(GUE.FallbackRewards, v.ModifierID);
@@ -584,9 +584,9 @@ function GUE.ValidateGoodyHutReward( tImprovementActivated, tGoodyHutReward )
 	-- initialize the hostiles as bonus reward and the replacement reward flag(s)
 	local bHostilesAsBonusReward, bIsReplacement = false, false;
 	-- the hostile modifier of the received reward
-	local iThisRewardModifier = GUE.GoodyHutRewards[iSubTypeHash].HostileModifier;
+	local iThisRewardModifier = GUE.OldGoodyHutRewards[iSubTypeHash].HostileModifier;
 	-- fetch the type, subtype, and tier of the received reward
-	local sRewardType, sRewardSubType, sRewardTier, sPriReplacementMsg = GUE.GoodyHutTypes[iTypeHash].GoodyHutType, GUE.GoodyHutRewards[iSubTypeHash].SubTypeGoodyHut, GUE.GoodyHutRewards[iSubTypeHash].Tier, "";
+	local sRewardType, sRewardSubType, sRewardTier, sPriReplacementMsg = GUE.OldGoodyHutTypes[iTypeHash].GoodyHutType, GUE.OldGoodyHutRewards[iSubTypeHash].SubTypeGoodyHut, GUE.OldGoodyHutRewards[iSubTypeHash].Tier, "";
 	-- determine if this reward should be replaced
 	local bRequiresReplacement = ((sRewardSubType == GUE.VillagerSecrets and GUE.PlayerData[iPlayerID].VillagerSecretsLevel >= GUE.MaxSecretsLevel) or (GUE.WGH_Rewards[sRewardSubType] ~= nil and iUnitID == -1)) and true or false;
 	-- if the received reward is villager secrets, and the Player has already received it the maximum number of times, roll a replacement reward
@@ -740,14 +740,14 @@ function Initialize()
 		print("Equalize all Reward chances: " .. tostring(GUE.EqualizeRewards));
 		Dprint("Total number of defined Goody Hut type(s): " .. tostring(GUE.NumGoodyHutTypes));
 		if (GUE.NumGoodyHutTypes > 0) then			-- print additional data for each available goody hut type when debugging
-			for k, v in pairs(GUE.GoodyHutTypes) do
+			for k, v in pairs(GUE.OldGoodyHutTypes) do
 				Dprint("+ [" .. k .. "]: Type " .. v.GoodyHutType .. ", Weight " .. v.Weight);
 			end
 		end
 		print("There are " .. GUE.ActiveGoodyHutTypes .. " enabled of " .. GUE.NumGoodyHutTypes .. " defined Goody Hut type(s)");
 		Dprint("Total number of defined Goody Hut subtype(s): " .. tostring(GUE.NumGoodyHutRewards));
 		if (GUE.NumGoodyHutRewards > 0) then			-- print additional data for each available goody hut subtype when debugging
-			for k, v in pairs(GUE.GoodyHutRewards) do
+			for k, v in pairs(GUE.OldGoodyHutRewards) do
 				Dprint("+ [" .. k .. "]: GoodyHut " .. v.GoodyHut .. ", Subtype " .. v.SubTypeGoodyHut .. ", Weight " .. v.Weight .. " (" .. v.Tier .. "), HostileModifier " .. v.HostileModifier .. ", ModifierID " .. v.ModifierID);
 			end
 		end

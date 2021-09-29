@@ -132,11 +132,47 @@
             <Text>Descripción genérica de la recompensa ficticia.</Text>
         </Replace>
         <!-- secrets type -->
-        <Replace Tag="LOC_EGHV_GOODYHUT_UNLOCK_VILLAGER_SECRETS_NAME" Language="es_ES">
-            <Text>[ICON_AdditionalContent] Desbloquea los secretos de los aldeanos</Text>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_AMENITIES_NAME" Language="es_ES">
+            <Text>[ICON_Buildings] Servicios Totem</Text>
         </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_UNLOCK_VILLAGER_SECRETS_DESC" Language="es_ES">
-            <Text>Recompensa tipo Secretos (especializada) de nivel 5. [NEWLINE] [NEWLINE] Los aldeanos brindan la capacidad de construir, o beneficios adicionales, el edificio Tótem tribal [ICON_Buildings].</Text>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_AMENITIES_DESC" Language="es_ES">
+            <Text>Nivel 5 (especializado) Recompensa de tipo Secretos. [NEWLINE][NEWLINE] Recibe la capacidad de construir la construcción de Totem de [ICON_Buildings] Totem, que proporciona servicios de +4 [iCon_Amenities]. [NEWLINE][NEWLINE] Si esta habilidad ha sido previamente. Concedido, en su lugar, recibir una construcción gratuita [ICON_Buildings] Totem construyendo en una ciudad que aún no tiene una.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_CULTURE_NAME" Language="es_ES">
+            <Text>[ICON_Buildings] tótem de cultura</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_CULTURE_DESC" Language="es_ES">
+            <Text>Nivel 5 (especializado) Recompensa de tipo Secretos. [NEWLINE][NEWLINE] Recibe la capacidad de construir el edificio Tótem [ICON_Buildings], que proporciona +4 [icon_culture] cultura. [NEWLINE][NEWLINE] Si esta habilidad ha sido previamente Concedido, en cambio, recibir un edificio de tótem [ICON_Buildings] gratuito en una ciudad que aún no tiene uno.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_FAITH_NAME" Language="es_ES">
+            <Text>[ICON_Buildings] Totem de fe</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_FAITH_DESC" Language="es_ES">
+            <Text>Nivel 5 (especializado) Recompensa de tipo Secretos. [NEWLINE][NEWLINE] Recibe la capacidad de construir el edificio [ICON_Buildings] Totem Faith Totem, que proporciona +4 [Icon_Faith] Fe. [NEWLINE][NEWLINE] Si esta habilidad ha sido previamente. Concedido, en su lugar, recibir un edificio gratuito [ICON_Buildings] Totem de fe en una ciudad que aún no tiene una.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_FOOD_NAME" Language="es_ES">
+            <Text>[ICON_Buildings] Totem de alimentos</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_FOOD_DESC" Language="es_ES">
+            <Text>Nivel 5 (especializado) Recompensa de tipo Secretos. [NEWLINE][NEWLINE] Reciba la capacidad de construir el edificio Totem de alimentos [ICON_Buildings], que proporciona alimentos +4 [iCon_Food]. [NEWLINE][NEWLINE] Si esta habilidad ha sido previamente. Concedido, en su lugar, recibir un edificio de tótem de alimentos [ICON_Buildings] gratuito en una ciudad que no tiene una.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_GOLD_NAME" Language="es_ES">
+            <Text>[ICON_Buildings] Totem de oro</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_GOLD_DESC" Language="es_ES">
+            <Text>Nivel 5 (especializado) Recompensa de tipo Secretos. [NEWLINE][NEWLINE] Reciba la capacidad de construir el edificio [ICON_Buildings] Totem Gold Totem, que proporciona +8 [Icon_gold] Gold. [NEWLINE][NEWLINE] Si esta habilidad Se ha otorgado previamente, en su lugar, recibir un edificio de tótem de oro [ICON_Buildings] gratuito en una ciudad que no tiene una.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_PRODUCTION_NAME" Language="es_ES">
+            <Text>[ICON_Buildings] Tótem de producción</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_PRODUCTION_DESC" Language="es_ES">
+            <Text>Nivel 5 (especializado) Recompensa de tipo Secretos. [NEWLINE][NEWLINE] Reciba la capacidad de construir el edificio Totem de producción [ICON_Buildings], que proporciona la producción +4 [iCon_Production]. [NEWLINE][NEWLINE] Si esta habilidad ha sido previamente Concedido, en su lugar, recibir una construcción de tótem de producción gratuita [ICON_Buildings] en una ciudad que no tiene una.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_SCIENCE_NAME" Language="es_ES">
+            <Text>[ICON_Buildings] Tótem de ciencia</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_SCIENCE_DESC" Language="es_ES">
+            <Text>Nivel 5 (especializado) Recompensa de tipo Secretos. [NEWLINE][NEWLINE] recibe la capacidad de construir el edificio [ICON_BUILDING] TOTEM TOTEM, que proporciona +4 [icon_science] ciencia. [NEWLINE][NEWLINE] Si esta habilidad ha sido previamente. Concedido, en su lugar, recibir un edificio de tótem de ciencia [ICON_Buildings] gratuito en una ciudad que aún no tiene uno.</Text>
         </Replace>
         <!-- hostiles type -->
         <Replace Tag="LOC_EGHV_GOODYHUT_LOW_HOSTILITY_VILLAGERS_NAME" Language="es_ES">

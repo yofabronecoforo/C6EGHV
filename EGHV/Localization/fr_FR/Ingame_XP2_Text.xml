@@ -7,6 +7,13 @@
 <!-- localized in-game text for fr_FR -->
 <GameData>
 	<LocalizedText>
+		<!-- Villager Favor totem building -->
+        <Replace Tag="LOC_BUILDING_FAVOR_TOTEM_NAME" Language="fr_FR">
+			<Text>Totem diplomatie</Text>
+		</Replace>
+        <Replace Tag="LOC_BUILDING_FAVOR_TOTEM_DESC" Language="fr_FR">
+			<Text>Un totem gravé avec des runes tirées des habitants d'un village oublié, soupçonné de promouvoir une résolution appropriée des conflits.</Text>
+		</Replace>
 		<!-- new goody hut reward descriptions : diplomacy-type -->
 		<Replace Tag="LOC_GOODYHUT_SMALL_FAVOR_DESCRIPTION" Language="fr_FR">
 			<Text>[COLOR_FLOAT_DIPLOMATIC] +10 [ICON_Favor] faveur diplomatique [ENDCOLOR]</Text>

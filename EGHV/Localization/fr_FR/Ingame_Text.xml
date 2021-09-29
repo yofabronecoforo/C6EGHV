@@ -7,6 +7,55 @@
 <!-- localized in-game text for fr_FR -->
 <GameData>
 	<LocalizedText>
+        <!-- Villager Amenities totem building -->
+        <Replace Tag="LOC_BUILDING_AMENITIES_TOTEM_NAME" Language="fr_FR">
+			<Text>Équipements Totem</Text>
+		</Replace>
+        <Replace Tag="LOC_BUILDING_AMENITIES_TOTEM_DESC" Language="fr_FR">
+			<Text>Un totem gravé de runes tirées des habitants d'un village oublié, croyait augmenter le bonheur.</Text>
+		</Replace>
+        <!-- Villager Culture totem building -->
+        <Replace Tag="LOC_BUILDING_CULTURE_TOTEM_NAME" Language="fr_FR">
+			<Text>Totem culturel</Text>
+		</Replace>
+        <Replace Tag="LOC_BUILDING_CULTURE_TOTEM_DESC" Language="fr_FR">
+			<Text>Un totem gravé de runes tirées des habitants d'un village oublié, soupçonné de promouvoir un sentiment de service civique.</Text>
+		</Replace>
+        <!-- Villager Faith totem building -->
+        <Replace Tag="LOC_BUILDING_FAITH_TOTEM_NAME" Language="fr_FR">
+			<Text>Totem foi</Text>
+		</Replace>
+        <Replace Tag="LOC_BUILDING_FAITH_TOTEM_DESC" Language="fr_FR">
+			<Text>Un totem gravé de runes tirées des habitants d'un village oublié, soupçonné d'améliorer la spiritualité.</Text>
+		</Replace>
+        <!-- Villager Food totem building -->
+        <Replace Tag="LOC_BUILDING_FOOD_TOTEM_NAME" Language="fr_FR">
+			<Text>Totem de nourriture</Text>
+		</Replace>
+        <Replace Tag="LOC_BUILDING_FOOD_TOTEM_DESC" Language="fr_FR">
+			<Text>Un totem gravé avec des runes tirées des habitants d'un village oublié, soupçonné d'améliorer les rendements des cultures.</Text>
+		</Replace>
+        <!-- Villager Gold totem building -->
+        <Replace Tag="LOC_BUILDING_GOLD_TOTEM_NAME" Language="fr_FR">
+			<Text>Totem d'or</Text>
+		</Replace>
+        <Replace Tag="LOC_BUILDING_GOLD_TOTEM_DESC" Language="fr_FR">
+			<Text>Un totem gravé de runes tirées des habitants d'un village oublié, croyait apporter fortune.</Text>
+		</Replace>
+        <!-- Villager Production totem building -->
+        <Replace Tag="LOC_BUILDING_PRODUCTION_TOTEM_NAME" Language="fr_FR">
+			<Text>Totem de production</Text>
+		</Replace>
+        <Replace Tag="LOC_BUILDING_PRODUCTION_TOTEM_DESC" Language="fr_FR">
+			<Text>Un totem gravé de runes tirées des habitants d'un village oublié, croyait augmenter la productivité.</Text>
+		</Replace>
+        <!-- Villager Science totem building -->
+        <Replace Tag="LOC_BUILDING_SCIENCE_TOTEM_NAME" Language="fr_FR">
+			<Text>Totem science</Text>
+		</Replace>
+        <Replace Tag="LOC_BUILDING_SCIENCE_TOTEM_DESC" Language="fr_FR">
+			<Text>Un totem gravé avec des runes tirées des habitants d'un village oublié, soupçonné d'améliorer la connaissance.</Text>
+		</Replace>
         <!--  -->
         <!-- <Replace Tag="LOC_TECH_VILLAGER_BASIC_NAME" Language="fr_FR">
             <Text>Tribal Knowledge</Text>

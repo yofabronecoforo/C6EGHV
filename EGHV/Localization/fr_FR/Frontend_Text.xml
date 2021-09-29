@@ -132,11 +132,47 @@
             <Text>Description générique de la récompense factice.</Text>
         </Replace>
         <!-- secrets type -->
-        <Replace Tag="LOC_EGHV_GOODYHUT_UNLOCK_VILLAGER_SECRETS_NAME" Language="fr_FR">
-            <Text>[ICON_AdditionalContent] Déverrouillez les secrets des villageois</Text>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_AMENITIES_NAME" Language="fr_FR">
+            <Text>[ICON_Buildings] Totem commodités</Text>
         </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_UNLOCK_VILLAGER_SECRETS_DESC" Language="fr_FR">
-            <Text>Récompense de type Secrets (spécialisés) de niveau 5.[NEWLINE][NEWLINE]Les villageois offrent la possibilité de construire, ou des avantages supplémentaires, du bâtiment Tribal Totem [ICON_Buildings].</Text>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_AMENITIES_DESC" Language="fr_FR">
+            <Text>Niveau 5 (spécialisé) Récompense de type secrets.[NEWLINE][NEWLINE] Recevez la possibilité de construire le bâtiment Totem [ICON_Buildings], qui fournit +4 [icon_Anities] commodités.[NEWLINE][NEWLINE] Si cette capacité a déjà été Constituer, au lieu de cela, recevez un bâtiment Totem [ICON_Buildings] gratuit dans une ville qui n'en a pas déjà un.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_CULTURE_NAME" Language="fr_FR">
+            <Text>[ICON_Buildings] Culture Totem</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_CULTURE_DESC" Language="fr_FR">
+            <Text>Niveau 5 (spécialisé) Récompense de type secrets.[NEWLINE][NEWLINE] Recevez la possibilité de construire le bâtiment Totem de culture [ICON_Buildings], qui fournit +4 [icon_culture] culture.[NEWLINE][NEWLINE] Si cette capacité a déjà été Certes, recevez plutôt un bâtiment de totem de culture [ICON_Buildings] gratuit dans une ville qui n'en a pas déjà un.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_FAITH_NAME" Language="fr_FR">
+            <Text>[ICON_Buildings] Totem foi</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_FAITH_DESC" Language="fr_FR">
+            <Text>Niveau 5 (spécialisé) Récompense de type secrets.[NEWLINE][NEWLINE] Recevez la possibilité de construire le bâtiment Totem de foi [ICON_Buildings] qui fournit +4 [icon_faith] foi.[NEWLINE][NEWLINE] Si cette capacité a déjà été Constituée, recevez plutôt un bâtiment de Totem de foi gratuit [ICON_Buildings] dans une ville qui n'en a pas déjà un.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_FOOD_NAME" Language="fr_FR">
+            <Text>[ICON_Buildings] Totem de nourriture</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_FOOD_DESC" Language="fr_FR">
+            <Text>Niveau 5 (spécialisé) Récompense de type secrets.[NEWLINE][NEWLINE] Recevez la possibilité de construire le bâtiment Totem d'aliments [ICON_Buildings], qui fournit +4 [icon_food] Food.[NEWLINE][NEWLINE] Si cette capacité a déjà été Certes, recevez plutôt un immeuble de totem de nourriture [ICON_Buildings] gratuit dans une ville qui n'en a pas déjà un.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_GOLD_NAME" Language="fr_FR">
+            <Text>[ICON_Buildings] Totem d'or</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_GOLD_DESC" Language="fr_FR">
+            <Text>Niveau 5 (spécialisé) Récompense de type secrets.[NEWLINE][NEWLINE] Recevez la possibilité de construire le bâtiment Totem d'or [ICON_Buildings], qui fournit +8 [icon_gold] or.[NEWLINE][NEWLINE] Si cette capacité a déjà été Certes, recevez plutôt un bâtiment GRATUIT Totem d'or de [ICON_Buildings] dans une ville qui n'en a pas déjà un.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_PRODUCTION_NAME" Language="fr_FR">
+            <Text>[ICON_Buildings] Totem production</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_PRODUCTION_DESC" Language="fr_FR">
+            <Text>Niveau 5 (spécialisé) Récompense de type secrets.[NEWLINE][NEWLINE] Recevez la possibilité de construire le bâtiment de la production [ICON_Buildings], qui fournit +4 [icon_production] Production.[NEWLINE][NEWLINE] Si cette capacité a déjà été Certes, au lieu de cela, recevez un bâtiment de totem de production [ICON_Buildings] gratuit dans une ville qui n'en a pas déjà un.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_SCIENCE_NAME" Language="fr_FR">
+            <Text>[ICON_Buildings] Totem scientifique</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_SCIENCE_DESC" Language="fr_FR">
+            <Text>Niveau 5 (spécialisé) Récompense de type secrets.[NEWLINE][NEWLINE] Recevez la possibilité de construire le bâtiment [ICON_Buildings] Science Totem, qui fournit +4 [icon_cience] Science.[NEWLINE][NEWLINE] Si cette capacité a déjà été Certes, recevez plutôt un bâtiment de totem scientifique gratuit [ICON_Buildings] dans une ville qui n'en a pas déjà un.</Text>
         </Replace>
         <!-- hostiles type -->
         <Replace Tag="LOC_EGHV_GOODYHUT_LOW_HOSTILITY_VILLAGERS_NAME" Language="fr_FR">
@@ -293,138 +329,138 @@
             <Text>1 [ICON_GreatWork_Relic] relique</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_ONE_RELIC_DESC" Language="fr_FR">
-            <Text>Niveau 4 (légendaire) récompense de type foi. [NEWLINE] [NEWLINE] Recevez un (1) Relic gratuit [ICON_GreatWork_Relic].</Text>
+            <Text>Niveau 4 (légendaire) récompense de type foi.[NEWLINE][NEWLINE] Recevez un (1) Relic gratuit [ICON_GreatWork_Relic].</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_LARGE_SUM_NAME" Language="fr_FR">
             <Text>100 [ICON_Faith] Foi</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_LARGE_SUM_DESC" Language="fr_FR">
-            <Text>Niveau 3 (rare) récompense de type foi. [NEWLINE] [NEWLINE] Recevez cent (100) [ICON_Faith] foi.</Text>
+            <Text>Niveau 3 (rare) récompense de type foi.[NEWLINE][NEWLINE] Recevez cent (100) [ICON_Faith] foi.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_MEDIUM_SUM_NAME" Language="fr_FR">
             <Text>60 [ICON_Faith] Foi</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_MEDIUM_SUM_DESC" Language="fr_FR">
-            <Text>Niveau 2 (rare) récompense de type foi. [NEWLINE] [NEWLINE] reçoit soixante (60) [ICON_Faith] foi.</Text>
+            <Text>Niveau 2 (rare) récompense de type foi.[NEWLINE][NEWLINE] reçoit soixante (60) [ICON_Faith] foi.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_SMALL_SUM_NAME" Language="fr_FR">
             <Text>20 [ICON_Faith] Foi</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_SMALL_SUM_DESC" Language="fr_FR">
-            <Text>Niveau 1 (commun) récompense de type foi. [NEWLINE] [NEWLINE] Recevez vingt (20) [ICON_Faith] foi.</Text>
+            <Text>Niveau 1 (commun) récompense de type foi.[NEWLINE][NEWLINE] Recevez vingt (20) [ICON_Faith] foi.</Text>
         </Replace>
         <!-- gold type -->
         <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_ADD_TRADE_ROUTE_NAME" Language="fr_FR">
             <Text>1 [ICON_TradeRoute] Route commerciale</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_ADD_TRADE_ROUTE_DESC" Language="fr_FR">
-            <Text>Niveau 4 (légendaire) Récompense de type en or. [NEWLINE] [NEWLINE] Recevez une (1) Capacité de route supplémentaire [ICON_TradeRoute] gratuite.</Text>
+            <Text>Niveau 4 (légendaire) Récompense de type en or.[NEWLINE][NEWLINE] Recevez une (1) Capacité de route supplémentaire [ICON_TradeRoute] gratuite.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_LARGE_SUM_NAME" Language="fr_FR">
             <Text>120 [ICON_Gold] or</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_LARGE_SUM_DESC" Language="fr_FR">
-            <Text>Niveau 3 (rare) récompense de type or. [NEWLINE] [NEWLINE] Recevez cent vingt (120) [ICON_Gold] or.</Text>
+            <Text>Niveau 3 (rare) récompense de type or.[NEWLINE][NEWLINE] Recevez cent vingt (120) [ICON_Gold] or.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_MEDIUM_SUM_NAME" Language="fr_FR">
             <Text>80 [ICON_Gold] or</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_MEDIUM_SUM_DESC" Language="fr_FR">
-            <Text>Niveau 2 (rare) Récompense de type or. [NEWLINE] [NEWLINE] Recevez quatre-vingt (80) [ICON_Gold] or.</Text>
+            <Text>Niveau 2 (rare) Récompense de type or.[NEWLINE][NEWLINE] Recevez quatre-vingt (80) [ICON_Gold] or.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_SMALL_SUM_NAME" Language="fr_FR">
             <Text>40 [ICON_Gold] or</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_SMALL_SUM_DESC" Language="fr_FR">
-            <Text>Niveau 1 (commune) Récompense de type or. [NEWLINE] [NEWLINE] Recevez quarante (40) [ICON_Gold] or.</Text>
+            <Text>Niveau 1 (commune) Récompense de type or.[NEWLINE][NEWLINE] Recevez quarante (40) [ICON_Gold] or.</Text>
         </Replace>
         <!-- support military type -->
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_BATTERING_RAM_NAME" Language="fr_FR">
             <Text>1 unité de support [ICON_Unit]</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_BATTERING_RAM_DESC" Language="fr_FR">
-            <Text>Niveau 4 (légendaire) Récompense de type militaire. [NEWLINE] [NEWLINE] Recevez une (1) unité de support [ICON_Unit] appropriée de l'ère libre dans un complot à proximité.</Text>
+            <Text>Niveau 4 (légendaire) Récompense de type militaire.[NEWLINE][NEWLINE] Recevez une (1) unité de support [ICON_Unit] appropriée de l'ère libre dans un complot à proximité.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_CATAPULT_NAME" Language="fr_FR">
             <Text>1 unité de siège [ICON_Unit]</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_CATAPULT_DESC" Language="fr_FR">
-            <Text>Niveau 4 (légendaire) Récompense de type militaire. [NEWLINE] [NEWLINE] Recevez une unité de siège [1) ERA approprié [ICON_Unit] dans un terrain à proximité.</Text>
+            <Text>Niveau 4 (légendaire) Récompense de type militaire.[NEWLINE][NEWLINE] Recevez une unité de siège [1) ERA approprié [ICON_Unit] dans un terrain à proximité.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_UPGRADE_NAME" Language="fr_FR">
             <Text>Upgrade de l'unité / Promotion</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_UPGRADE_DESC" Language="fr_FR">
-            <Text>Récompense de type promotions de niveau 4 (légendaire). [NEWLINE] [NEWLINE] Toute unité qui reçoit cette récompense sera mise à niveau vers l'unité suivante dans sa classe de promotion [COLOR_GREEN] si [ENDCOLOR] a un chemin de mise à niveau valide [COLOR_GREEN] et [ENDCOLOR] Il n'a pas encore gagné de promotions. Toute unité améliorée conservera toutes les capacités qu'il avait précédemment gagnées. [NEWLINE] [NEWLINE] Toute unité reçue cette récompense recevra une expérience suffisante pour obtenir sa prochaine promotion [COLOR_GREEN] si [ENDCOLOR] a une classe de promotion valide. [NEWLINE ] Les unités invalides [NEWLINE] seront ignorées sans effet discernable.</Text>
+            <Text>Récompense de type promotions de niveau 4 (légendaire).[NEWLINE][NEWLINE] Toute unité qui reçoit cette récompense sera mise à niveau vers l'unité suivante dans sa classe de promotion [COLOR_GREEN] si [ENDCOLOR] a un chemin de mise à niveau valide [COLOR_GREEN] et [ENDCOLOR] Il n'a pas encore gagné de promotions. Toute unité améliorée conservera toutes les capacités qu'il avait précédemment gagnées.[NEWLINE][NEWLINE] Toute unité reçue cette récompense recevra une expérience suffisante pour obtenir sa prochaine promotion [COLOR_GREEN] si [ENDCOLOR] a une classe de promotion valide. [NEWLINE ] Les unités invalides [NEWLINE] seront ignorées sans effet discernable.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_MILITARY_ENGINEER_NAME" Language="fr_FR">
             <Text>1 [ICON_Unit] Ingénieur militaire</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_MILITARY_ENGINEER_DESC" Language="fr_FR">
-            <Text>Récompense de type militaire de niveau 5 (mythique). [NEWLINE] [NEWLINE] Recevez un (1) Ingénieur militaire gratuit [ICON_Unit] dans un complot à proximité.</Text>
+            <Text>Récompense de type militaire de niveau 5 (mythique).[NEWLINE][NEWLINE] Recevez un (1) Ingénieur militaire gratuit [ICON_Unit] dans un complot à proximité.</Text>
         </Replace>
         <!-- cavalry military type -->
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_HEAVY_CHARIOT_NAME" Language="fr_FR">
             <Text>1 unité de cavalerie [ICON_Unit]</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_HEAVY_CHARIOT_DESC" Language="fr_FR">
-            <Text>Niveau 3 (rare) Récompense de type militaire. [NEWLINE] [NEWLINE] Recevez une (1) une unité de cavalerie lourde [ICON_Unit] de l'ère libre dans un terrain à proximité.</Text>
+            <Text>Niveau 3 (rare) Récompense de type militaire.[NEWLINE][NEWLINE] Recevez une (1) une unité de cavalerie lourde [ICON_Unit] de l'ère libre dans un terrain à proximité.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_HORSEMAN_NAME" Language="fr_FR">
             <Text>1 unité de cavalerie [ICON_Unit]</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_HORSEMAN_DESC" Language="fr_FR">
-            <Text>Niveau 3 (rare) Récompense de type militaire. [NEWLINE] [NEWLINE] Recevez une (1) unité de cavalerie légère [ICON_Unit] de l'ère libre dans un terrain à proximité.</Text>
+            <Text>Niveau 3 (rare) Récompense de type militaire.[NEWLINE][NEWLINE] Recevez une (1) unité de cavalerie légère [ICON_Unit] de l'ère libre dans un terrain à proximité.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SPEARMAN_NAME" Language="fr_FR">
             <Text>1 unité anti-cavalerie [ICON_Unit]</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SPEARMAN_DESC" Language="fr_FR">
-            <Text>Niveau 3 (rare) Récompense de type militaire. [NEWLINE] [NEWLINE] Recevez une unité (1) une unité d'anti-cavalerie appropriée [ICON_Unit] sans ère sur un terrain à proximité.</Text>
+            <Text>Niveau 3 (rare) Récompense de type militaire.[NEWLINE][NEWLINE] Recevez une unité (1) une unité d'anti-cavalerie appropriée [ICON_Unit] sans ère sur un terrain à proximité.</Text>
         </Replace>
         <!-- military type -->
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SLINGER_NAME" Language="fr_FR">
             <Text>1 [ICON_Unit] unité à distance</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SLINGER_DESC" Language="fr_FR">
-            <Text>Récompense de type militaire de Niveau 2 (NOUVELLE) [NEWLINE] [NEWLINE] Recevez une unité (1) de l'ère sans ère [ICON_Unit] une unité à distance dans une parcelle à proximité.</Text>
+            <Text>Récompense de type militaire de Niveau 2 (NOUVELLE)[NEWLINE][NEWLINE] Recevez une unité (1) de l'ère sans ère [ICON_Unit] une unité à distance dans une parcelle à proximité.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_WARRIOR_NAME" Language="fr_FR">
             <Text>1 unité de mêlée [ICON_Unit]</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_WARRIOR_DESC" Language="fr_FR">
-            <Text>Récompense de type militaire de niveau 2 (NOUVELLE) [NEWLINE] [NEWLINE] Recevez une unité de mêlée (1) sans ère sans ère [ICON_Unit] dans un terrain à proximité.</Text>
+            <Text>Récompense de type militaire de niveau 2 (NOUVELLE)[NEWLINE][NEWLINE] Recevez une unité de mêlée (1) sans ère sans ère [ICON_Unit] dans un terrain à proximité.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SCOUT_NAME" Language="fr_FR">
             <Text>1 unité de recon [ICON_Unit]</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SCOUT_DESC" Language="fr_FR">
-            <Text>Niveau 1 (commun) Récompense de type militaire. [NEWLINE] [NEWLINE] Recevez une unité de recon (1) sans ère [ICON_Unit] sur un terrain à proximité.</Text>
+            <Text>Niveau 1 (commun) Récompense de type militaire.[NEWLINE][NEWLINE] Recevez une unité de recon (1) sans ère [ICON_Unit] sur un terrain à proximité.</Text>
         </Replace>
         <!-- science type -->
         <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_TWO_TECHS_NAME" Language="fr_FR">
             <Text>2 [ICON_TechBoosted] Techs</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_TWO_TECHS_DESC" Language="fr_FR">
-            <Text>Niveau 4 (légendaire) Récompense de type science. [NEWLINE] [NEWLINE] Recevez deux (2) Technologies gratuites [ICON_TechBoosted].</Text>
+            <Text>Niveau 4 (légendaire) Récompense de type science.[NEWLINE][NEWLINE] Recevez deux (2) Technologies gratuites [ICON_TechBoosted].</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_ONE_TECH_NAME" Language="fr_FR">
             <Text>1 [ICON_TechBoosted] Tech</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_ONE_TECH_DESC" Language="fr_FR">
-            <Text>Niveau 3 (rare) récompense de type science. [NEWLINE] [NEWLINE] Recevez une (1) Technologie de [ICON_TechBoosted].</Text>
+            <Text>Niveau 3 (rare) récompense de type science.[NEWLINE][NEWLINE] Recevez une (1) Technologie de [ICON_TechBoosted].</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_TWO_TECH_BOOSTS_NAME" Language="fr_FR">
             <Text>2 [ICON_TechBoosted] boosts techniques</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_TWO_TECH_BOOSTS_DESC" Language="fr_FR">
-            <Text>Récompense de type science de niveau 2 (rare) [NEWLINE] [NEWLINE] Recevez deux (2) la technologie de la technologie [ICON_TechBoosted].</Text>
+            <Text>Récompense de type science de niveau 2 (rare)[NEWLINE][NEWLINE] Recevez deux (2) la technologie de la technologie [ICON_TechBoosted].</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_ONE_TECH_BOOST_NAME" Language="fr_FR">
             <Text>1 [ICON_TechBoosted] Boost Tech</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_ONE_TECH_BOOST_DESC" Language="fr_FR">
-            <Text>Niveau 1 (commun) Récompense de type science. [NEWLINE] [NEWLINE] Recevez une (1) Boost de technologie de technologie [ICON_TechBoosted].</Text>
+            <Text>Niveau 1 (commun) Récompense de type science.[NEWLINE][NEWLINE] Recevez une (1) Boost de technologie de technologie [ICON_TechBoosted].</Text>
         </Replace>
         <!-- survivors type -->
         <!-- <Replace Tag="LOC_EGHV_GOODYHUT_FOOD_SMALL_MODIFIER_NAME" Language="fr_FR">
@@ -443,82 +479,82 @@
             <Text>1 [ICON_Unit] colon</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_GRANT_SETTLER_DESC" Language="fr_FR">
-            <Text>Récompense de type survivantes de niveau 4 (légendaire). [NEWLINE] [NEWLINE] Recevez un (1) Settler [ICON_Unit] sur un terrain à proximité.</Text>
+            <Text>Récompense de type survivantes de niveau 4 (légendaire).[NEWLINE][NEWLINE] Recevez un (1) Settler [ICON_Unit] sur un terrain à proximité.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_GRANT_TRADER_NAME" Language="fr_FR">
             <Text>1 [ICON_Unit] Trader</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_GRANT_TRADER_DESC" Language="fr_FR">
-            <Text>Tier 3 (rare) Récompense de type survivants. [NEWLINE] [NEWLINE] Recevez un (1) Trader GRATUIT [ICON_Unit] dans un terrain à proximité.</Text>
+            <Text>Tier 3 (rare) Récompense de type survivants.[NEWLINE][NEWLINE] Recevez un (1) Trader GRATUIT [ICON_Unit] dans un terrain à proximité.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_GRANT_BUILDER_NAME" Language="fr_FR">
             <Text>1 Constructeur [ICON_Unit]</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_GRANT_BUILDER_DESC" Language="fr_FR">
-            <Text>Récompense de type survivants de niveau 2 (peu fréquente). [NEWLINE] [NEWLINE] Recevez un (1) Général Général [ICON_Unit] dans un complot à proximité.</Text>
+            <Text>Récompense de type survivants de niveau 2 (peu fréquente).[NEWLINE][NEWLINE] Recevez un (1) Général Général [ICON_Unit] dans un complot à proximité.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_ADD_POP_NAME" Language="fr_FR">
             <Text>1 [ICON_Citizen] Population</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_ADD_POP_DESC" Language="fr_FR">
-            <Text>Récompense de type survivants de niveau 1 (commun). [NEWLINE] [NEWLINE] Recevez une (1) Population supplémentaire gratuite [ICON_Citizen] dans la ville la plus proche.</Text>
+            <Text>Récompense de type survivants de niveau 1 (commun).[NEWLINE][NEWLINE] Recevez une (1) Population supplémentaire gratuite [ICON_Citizen] dans la ville la plus proche.</Text>
         </Replace>
         <!-- governors type -->
         <Replace Tag="LOC_EGHV_GOODYHUT_FOUR_GOVERNOR_TITLES_NAME" Language="fr_FR">
             <Text>4 [ICON_Government] Titres du gouverneur</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_FOUR_GOVERNOR_TITLES_DESC" Language="fr_FR">
-            <Text>Récompense de type gouverneur de niveau 4 (légendaire). [NEWLINE] [NEWLINE] Recevez quatre (4) titres de gouverneurs [ICON_Government].</Text>
+            <Text>Récompense de type gouverneur de niveau 4 (légendaire).[NEWLINE][NEWLINE] Recevez quatre (4) titres de gouverneurs [ICON_Government].</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_THREE_GOVERNOR_TITLES_NAME" Language="fr_FR">
             <Text>3 [ICON_Government] Titres du gouverneur</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_THREE_GOVERNOR_TITLES_DESC" Language="fr_FR">
-            <Text>Tier 3 (rare) Récompense de type gouverneur. [NEWLINE] [NEWLINE] Recevez trois (3) titres de gouverneur [ICON_Government].</Text>
+            <Text>Tier 3 (rare) Récompense de type gouverneur.[NEWLINE][NEWLINE] Recevez trois (3) titres de gouverneur [ICON_Government].</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_TWO_GOVERNOR_TITLES_NAME" Language="fr_FR">
             <Text>2 [ICON_Government] Titres du gouverneur</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_TWO_GOVERNOR_TITLES_DESC" Language="fr_FR">
-            <Text>Récompense de type gouverneur de Tier 2 (peu fréquente). [NEWLINE] [NEWLINE] Recevez deux (2) titres de gouverneurs [ICON_Government].</Text>
+            <Text>Récompense de type gouverneur de Tier 2 (peu fréquente).[NEWLINE][NEWLINE] Recevez deux (2) titres de gouverneurs [ICON_Government].</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_ONE_GOVERNOR_TITLE_NAME" Language="fr_FR">
             <Text>1 [ICON_Government] Titre du gouverneur</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_ONE_GOVERNOR_TITLE_DESC" Language="fr_FR">
-            <Text>Récompense de type gouverneur de niveau 1 (commun) [NEWLINE] [NEWLINE] Recevez un (1) Titre du gouverneur [ICON_Government].</Text>
+            <Text>Récompense de type gouverneur de niveau 1 (commun)[NEWLINE][NEWLINE] Recevez un (1) Titre du gouverneur [ICON_Government].</Text>
         </Replace>
         <!-- envoys type -->
         <Replace Tag="LOC_EGHV_GOODYHUT_FOUR_ENVOYS_NAME" Language="fr_FR">
             <Text>4 Envoyés [ICON_Envoy]</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_FOUR_ENVOYS_DESC" Language="fr_FR">
-            <Text>Niveau 4 (légendaire) Récompense de type Envoyes. [NEWLINE] [NEWLINE] Recevez quatre (4) envoyés gratuits [ICON_Envoy].</Text>
+            <Text>Niveau 4 (légendaire) Récompense de type Envoyes.[NEWLINE][NEWLINE] Recevez quatre (4) envoyés gratuits [ICON_Envoy].</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_THREE_ENVOYS_NAME" Language="fr_FR">
             <Text>3 [ICON_Envoy] Envoyes</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_THREE_ENVOYS_DESC" Language="fr_FR">
-            <Text>Tier 3 (rare) récompense de type Envoyes. [NEWLINE] [NEWLINE] Recevez trois (3) envoyés gratuits [ICON_Envoy].</Text>
+            <Text>Tier 3 (rare) récompense de type Envoyes.[NEWLINE][NEWLINE] Recevez trois (3) envoyés gratuits [ICON_Envoy].</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_TWO_ENVOYS_NAME" Language="fr_FR">
             <Text>2 [ICON_Envoy] Envoyé</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_TWO_ENVOYS_DESC" Language="fr_FR">
-            <Text>Récompense de type Tier 2 (peu fréquente). [NEWLINE] [NEWLINE] Recevez deux (2) envoyés gratuits [ICON_Envoy].</Text>
+            <Text>Récompense de type Tier 2 (peu fréquente).[NEWLINE][NEWLINE] Recevez deux (2) envoyés gratuits [ICON_Envoy].</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_ONE_ENVOY_NAME" Language="fr_FR">
             <Text>1 [ICON_Envoy] Envoyé</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_ONE_ENVOY_DESC" Language="fr_FR">
-            <Text>Récompense de type Envoyes de niveau 1 (commun) [NEWLINE] [NEWLINE] Recevez un (1) Envoy gratuit [ICON_Envoy].</Text>
+            <Text>Récompense de type Envoyes de niveau 1 (commun)[NEWLINE][NEWLINE] Recevez un (1) Envoy gratuit [ICON_Envoy].</Text>
         </Replace>
         <!-- meteor strike type -->
         <Replace Tag="LOC_EGHV_GOODYHUT_METEOR_GRANT_GOODIES_NAME" Language="fr_FR">
             <Text>[ICON_Razed] Frappe météores</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_METEOR_GRANT_GOODIES_DESC" Language="fr_FR">
-            <Text>Recevez une unité avancée produite à partir de matériaux récupérés à partir d'un site de frappe de météores pillé [ICON_Razed]. [NEWLINE] [NEWLINE] Cette récompense ne peut être gagnée qu'à partir d'une amélioration de la grève du météore; Il ne peut pas être gagné d'une bonne amélioration de la cabane. [NEWLINE] [NEWLINE] Lorsque des récompenses de bonus sont activées, cette récompense sera [COLOR_RED] non [ENDCOLOR] une récompense de bonus valide. [NEWLINE] [NEWLINE] Lorsque des villageois hostiles après la récompense sont Activé, les villageois hostiles seront [COLOR_RED] non [ENDCOLOR] apparaissent à la suite de cette récompense.</Text>
+            <Text>Recevez une unité avancée produite à partir de matériaux récupérés à partir d'un site de frappe de météores pillé [ICON_Razed].[NEWLINE][NEWLINE] Cette récompense ne peut être gagnée qu'à partir d'une amélioration de la grève du météore; Il ne peut pas être gagné d'une bonne amélioration de la cabane.[NEWLINE][NEWLINE] Lorsque des récompenses de bonus sont activées, cette récompense sera [COLOR_RED] non [ENDCOLOR] une récompense de bonus valide.[NEWLINE][NEWLINE] Lorsque des villageois hostiles après la récompense sont Activé, les villageois hostiles seront [COLOR_RED] non [ENDCOLOR] apparaissent à la suite de cette récompense.</Text>
         </Replace>
         <!-- hostiles type -->
         <!-- <Replace Tag="LOC_EGHV_GOODYHUT_SPAWN_HOSTILE_VILLAGERS_NAME" Language="fr_FR">

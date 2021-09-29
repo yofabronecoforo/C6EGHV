@@ -275,6 +275,47 @@ end
 function Initialize()
 	print(GUE.RowOfDashes);
 	print("Loading EGHV component script EGHV_Common.lua . . .");
+	-- 2021/09/29 this is probably the beginning of the way; revist post v4
+	-- -- 
+	-- GUE.Rewards = { 
+	-- 	Types = { All = {}, Disabled = {}, Enabled = {}, Valid = {} },
+	-- 	Subtypes = { All = {}, Disabled = {}, Enabled = {}, Valid = {} }
+	-- };
+	-- -- 
+	-- if GUE.DebugEnabled then print(GUE.RowOfDashes); end
+	-- Dprint("Configuring global EGHV components . . .");
+	-- GUE.Ruleset = GameConfiguration.GetValue("RULESET");
+	-- Dprint("Selected ruleset: " .. GUE.Ruleset);
+	-- GUE.NoBarbarians = GameConfiguration.GetValue("GAME_NO_BARBARIANS");
+	-- Dprint("No Barbarians: " .. tostring(GUE.NoBarbarians));
+	-- GUE.NoGoodyHuts = GameConfiguration.GetValue("GAME_NO_GOODY_HUTS");
+	-- Dprint("No Tribal Villages: " .. tostring(GUE.NoGoodyHuts));
+	-- for row in GameInfo.GoodyHuts() do 
+	-- 	table.insert(GUE.Rewards.Types.All, row);
+	-- 	if row.Weight == 0 then table.insert(GUE.Rewards.Types.Disabled, row); 
+	-- 	else table.insert(GUE.Rewards.Types.Enabled, row); 
+	-- 	end
+	-- end
+	-- Dprint("Goody Hut reward types: " .. #GUE.Rewards.Types.Enabled .. " enabled of " .. #GUE.Rewards.Types.All .. " total; " .. #GUE.Rewards.Types.Disabled .. " disabled");
+	-- for i, v in ipairs(GUE.Rewards.Types.Enabled) do GUE.Rewards.Types.Valid[DB.MakeHash(v.GoodyHutType)] = v; end
+	-- for k, v in pairs(GUE.Rewards.Types.Valid) do Dprint("+ [" .. k .. "]: GoodyHutType " .. v.GoodyHutType .. " (Weight " .. v.Weight .. ")"); end
+	-- for row in GameInfo.GoodyHutSubTypes() do 
+	-- 	table.insert(GUE.Rewards.Subtypes.All, row);
+	-- 	if row.Weight == 0 then table.insert(GUE.Rewards.Subtypes.Disabled, row); 
+	-- 	else table.insert(GUE.Rewards.Subtypes.Enabled, row); 
+	-- 	end
+	-- end
+	-- Dprint("Goody Hut reward subtypes: " .. #GUE.Rewards.Subtypes.Enabled .. " enabled of " .. #GUE.Rewards.Subtypes.All .. " total; " .. #GUE.Rewards.Subtypes.Disabled .. " disabled");
+	-- for i, v in ipairs(GUE.Rewards.Subtypes.Enabled) do 
+	-- 	local iSubTypeHash = DB.MakeHash(v.SubTypeGoodyHut);
+	-- 	GUE.Rewards.Subtypes.Valid[iSubTypeHash] = v;
+	-- 	GUE.Rewards.Subtypes.Valid[iSubTypeHash].Tier = GUE.GetRewardTier(v.GoodyHut, v.Weight);
+	-- 	GUE.Rewards.Subtypes.Valid[iSubTypeHash].HostileModifier = GUE.GetHostileModifier(GUE.Rewards.Types.Valid, v.GoodyHut, v.Weight);
+	-- end
+	-- for k, v in pairs(GUE.Rewards.Subtypes.Valid) do 
+	-- 	Dprint("+ [" .. k .. "]: GoodyHut " .. v.GoodyHut .. ", Subtype " .. v.SubTypeGoodyHut .. ", Weight " .. v.Weight .. " (" .. v.Tier .. "), HostileModifier " .. v.HostileModifier .. ", ModifierID " .. v.ModifierID);
+	-- end
+	-- 
 	print(GUE.RowOfDashes);
 	print("Configuring required ingame common component(s) for EGHV . . .");
 	-- fetch game setup data
@@ -286,7 +327,7 @@ function Initialize()
 	if not GUE.NoGoodyHuts then
 		GUE.ActiveGoodyHutTypes, GUE.ActiveGoodyHutRewards, GUE.EqualizeRewards, GUE.HostilesAsReward,
 			GUE.GoodyHutFrequency, GUE.GoodyHutIndex, GUE.HostilesAfterReward, GUE.NumGoodyHutRewards, GUE.NumGoodyHutTypes,
-			GUE.GoodyHutRewards, GUE.GoodyHutTypes, GUE.HostilityLevels = GUE.GetGoodyHutsData( GUE.NoBarbarians );
+			GUE.OldGoodyHutRewards, GUE.OldGoodyHutTypes, GUE.HostilityLevels = GUE.GetGoodyHutsData( GUE.NoBarbarians );
 		print("Successfully retrieved available goody huts data");
 	else
 		print("'No Goody Huts' enabled; available goody huts data 'NOT' retrieved");

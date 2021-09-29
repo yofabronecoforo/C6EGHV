@@ -56,10 +56,13 @@ function GUE.GetNewRewards( iNumRewards, iPlayerID, iUnitID, iX, iY, sRewardSubT
 				local iNumRolls, bIsValidRoll = 0, false;
 				-- loop until the valid roll flag has been set
 				while not bIsValidRoll do 
-					-- initialize (1) the bonus reward subtype index to a dummy value, and (2) the bonus reward type index to a random value
-					local iRandomTypeIndex = TerrainBuilder.GetRandomNumber(GUE.TotalBonusRewardTypeWeight, "Bonus reward type index") + 1;
-					-- 
-					local iBonusTypeIndex = ((((GUE.TotalBonusRewardTypeWeight * 2) + iRandomTypeIndex) ^ 2) % GUE.TotalBonusRewardTypeWeight) + 1;
+					-- prime the reward roller's type pump
+					-- local iPriRandomTypeSeed = TerrainBuilder.GetRandomNumber(GUE.TotalBonusRewardTypeWeight, "Bonus reward type primary random seed") + 1;
+					-- local iSecRandomTypeSeed = TerrainBuilder.GetRandomNumber(GUE.TotalBonusRewardTypeWeight, "Bonus reward type secondary random seed") + 1;
+					-- fetch a random reward type index
+					local iBonusTypeSeed = TerrainBuilder.GetRandomNumber(GUE.TotalBonusRewardTypeWeight, "Bonus reward type seed") + 1;
+					local iBonusTypeIndex = (iBonusTypeSeed % GUE.TotalBonusRewardTypeWeight) + 1;
+					-- local iBonusTypeIndex = ((((GUE.TotalBonusRewardTypeWeight + iRandomTypeSeed) ^ 2) + iRandomTypeSeed) % GUE.TotalBonusRewardTypeWeight) + 1;
 					-- initialize primary debugging message
 					local sPriDebugMsg = "Bonus reward: Type index " .. iBonusTypeIndex;
 					-- iterate over the valid bonus reward types table
@@ -68,10 +71,14 @@ function GUE.GetNewRewards( iNumRewards, iPlayerID, iUnitID, iX, iY, sRewardSubT
 						if iBonusTypeIndex >= v.Start and iBonusTypeIndex <= v.End then 
 							-- adjust primary debugging message
 							sPriDebugMsg = sPriDebugMsg .. " (" .. v.GoodyHutType .. ")";
-							-- 
-							local iRandomSubTypeIndex = TerrainBuilder.GetRandomNumber(v.TotalSubTypeWeight, "Bonus reward subtype index") + 1;
+							-- prime the reward roller's subtype pump
+							-- local iPriRandomSubTypeSeed = TerrainBuilder.GetRandomNumber(v.TotalSubTypeWeight, "Bonus reward subtype primary random seed") + 1;
+							-- local iSecRandomSubTypeSeed = TerrainBuilder.GetRandomNumber(v.TotalSubTypeWeight, "Bonus reward subtype secondary random seed") + 1;
+							-- fetch a random reward subtype index
+							local iBonusSubTypeSeed = TerrainBuilder.GetRandomNumber(v.TotalSubTypeWeight, "Bonus reward subtype seed") + 1;
+							local iBonusSubTypeIndex = (iBonusSubTypeSeed % v.TotalSubTypeWeight) + 1;
 							-- get a fresh random value limited to the sum of the weights of all subtypes of this type
-							local iBonusSubTypeIndex = ((((v.TotalSubTypeWeight * 2) + iRandomSubTypeIndex) ^ 2) % v.TotalSubTypeWeight) + 1;
+							-- local iBonusSubTypeIndex = ((((v.TotalSubTypeWeight + iRandomSubTypeIndex) ^ 2) + iRandomSubTypeIndex) % v.TotalSubTypeWeight) + 1;
 							-- initialize secondary debugging message
 							local sSecDebugMsg = "Subtype index " .. iBonusSubTypeIndex;
 							-- iterate over the valid bonus reward subtypes table
