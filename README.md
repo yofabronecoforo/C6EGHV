@@ -368,6 +368,8 @@ Additionally, one or more 256x256 px source textures ganked from the following:
 
 Additional texture sizes derived from the above sources.
 
+Ingame assets for the various Villager Totem buildings are recycled from the built-in Monument building.
+
 # Special Thanks
 Extra special thanks to the following for their direct contributions and/or insight:
 - SailorCat
