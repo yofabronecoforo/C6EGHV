@@ -206,8 +206,6 @@ To compensate for the increased numbers of barbarian units that are likely to be
 ## Villager Secrets
 ![Villager Secrets](/IMAGES/Villager_Secrets.gif)
 
-(The above image is outdated and does not represent the current state of Secrets-type rewards)
-
 Villager Secrets are a group of specialized rewards which have an inherently equalized chance of being selected when enabled. When one is received, it unlocks the ability to build a Villager Totem building. Each reward unlocks a different Totem, and each of these new buildings provides a boost to a different yield:
 
 Villager Totem | Yield Modifier
