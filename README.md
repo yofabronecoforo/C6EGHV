@@ -225,7 +225,7 @@ Once a particular Totem has been unlocked, if the reward that provides it is rec
 
 With judicious use of the distribution slider and bonus reward features, and all available rewards enabled, it is likely that the number and types of unlocked Totem(s) will differ for a given Player from game to game. On the flip side, if the slider and/or bonuses are cranked to max, or the pool of available rewards is greatly narrowed - particularly to only Secrets-type rewards - via the picker, or some combination of these occurs, it is likely that all Players will shortly unlock the ability to build every Totem.
 
-If Hostile Villagers After a Reward are enabled, this reward will tend to provoke elevated hostility.
+If Hostile Villagers After a Reward are enabled, rewards of this type will tend to provoke elevated hostility.
 
 ## Additional Advanced Setup
 ### No Barbarians
