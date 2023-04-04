@@ -1859,7 +1859,6 @@
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Promotions/Large_Experience.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Promotions/Medium_Experience.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Promotions/Small_Experience.sql</File>
-		<!-- <File>EGHV/Gameplay/ExcludeGoodyHut/Secrets/Unlock_Villager_Secrets.sql</File> -->
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Secrets/Villager_Secrets_Amenities.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Secrets/Villager_Secrets_Culture.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Secrets/Villager_Secrets_Faith.sql</File>
