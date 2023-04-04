@@ -1079,18 +1079,6 @@
       		</Properties>
 			<File>EGHV/Gameplay/EqualizeGoodyHuts.sql</File>
 		</UpdateDatabase>
-		<!-- <UpdateDatabase id="EGHV_INGAME_EQUALIZE_GOODYHUTS_XP1" criteria="EGHV_Equalize_GoodyHuts_Expansion1AndBeyond">
-			<Properties>
-        		<LoadOrder>1010182</LoadOrder>
-      		</Properties>
-			<File>EGHV/Gameplay/EqualizeGoodyHuts_XP1.sql</File>
-		</UpdateDatabase> -->
-		<!-- <UpdateDatabase id="EGHV_INGAME_EQUALIZE_GOODYHUTS_XP2" criteria="EGHV_Equalize_GoodyHuts_Expansion2">
-			<Properties>
-        		<LoadOrder>1010183</LoadOrder>
-      		</Properties>
-			<File>EGHV/Gameplay/EqualizeGoodyHuts_XP2.sql</File>
-		</UpdateDatabase> -->
 		<!-- culture -->
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_ONE_CIVIC_BOOST" criteria="EGHV_Exclude_GoodyHut_One_Civic_Boost">
 			<Properties>
@@ -1724,7 +1712,6 @@
 				<File>C6GUE/UI/Replacements/AdvancedSetup.lua</File>
 				<File>C6GUE/UI/Replacements/AdvancedSetup.xml</File>
 				<File>C6GUE/UI/Replacements/GameSetupLogic.lua</File>
-				<!-- <File>C6GUE/UI/Replacements/Mods.lua</File> -->
 				<File>C6GUE/UI/Replacements/Multiplayer/HostGame.lua</File>
 				<File>C6GUE/UI/Replacements/Multiplayer/HostGame.xml</File>
 			</Items>
@@ -1774,13 +1761,10 @@
 		<File>C6GUE/Localization/en_US/Common_Frontend_Text.xml</File>
 		<File>C6GUE/Localization/es_ES/Common_Frontend_Text.xml</File>
 		<File>C6GUE/Localization/fr_FR/Common_Frontend_Text.xml</File>
-		<!-- C6GUE ingame script -->
-		
 		<!-- C6GUE configuration (frontend) UI replacements -->
 		<File>C6GUE/UI/Replacements/AdvancedSetup.lua</File>
 		<File>C6GUE/UI/Replacements/AdvancedSetup.xml</File>
 		<File>C6GUE/UI/Replacements/GameSetupLogic.lua</File>
-		<!-- <File>C6GUE/UI/Replacements/Mods.lua</File> -->
 		<!-- C6GUE configuration (frontend) multiplayer UI replacements -->
 		<File>C6GUE/UI/Replacements/Multiplayer/HostGame.lua</File>
 		<File>C6GUE/UI/Replacements/Multiplayer/HostGame.xml</File>
@@ -1822,8 +1806,6 @@
 		<!-- ingame configuration -->
 		<File>EGHV/Gameplay/Schema.sql</File>
 		<File>EGHV/Gameplay/EqualizeGoodyHuts.sql</File>
-		<!-- <File>EGHV/Gameplay/EqualizeGoodyHuts_XP1.sql</File> -->
-		<!-- <File>EGHV/Gameplay/EqualizeGoodyHuts_XP2.sql</File> -->
 		<File>EGHV/Gameplay/ExcludeGoodyHuts.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHuts_XP1.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHuts_XP2.sql</File>
@@ -1938,10 +1920,8 @@
 		<File>EGHV/Localization/fr_FR/Ingame_XP1_Text.xml</File>
 		<File>EGHV/Localization/fr_FR/Ingame_XP2_Text.xml</File>
 		<!-- ingame new lua scripts -->
-		<!--  -->
 		<File>EGHV/Scripts/BonusRewards.lua</File>
 		<File>EGHV/Scripts/EGHV.lua</File>
-		<!-- <File>EGHV/Scripts/EGHV_Common.lua</File> -->
 		<File>EGHV/Scripts/EnhancedGoodies.lua</File>
 		<File>EGHV/Scripts/HostileVillagers.lua</File>
 		<!-- ingame - goody hut picker -->
