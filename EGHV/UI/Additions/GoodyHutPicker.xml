@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<!-- EGHV : Enhanced Goodies and Hostile Villagers for Civilization VI. Copyright (c) 2020-2021 zzragnar0kzz. All rights reserved. -->
+<!-- EGHV : Enhanced Goodies and Hostile Villagers for Civilization VI. Copyright (c) 2020-2023 zzragnar0kzz. All rights reserved. -->
 <!-- Modified as needed from CityStatePicker.xml -->
 <Context xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\CivTech\Libs\ForgeUI\ForgeUI_Assets\Controls.xsd"
 		Style="FontNormal14">
