@@ -1318,6 +1318,12 @@
 			<File>EGHV/Gameplay/ExcludeGoodyHut/Hostiles/Max_Hostility_Villagers.sql</File>
 		</UpdateDatabase>
 		<!-- promotions -->
+		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_GRANT_UPGRADE" criteria="EGHV_Exclude_GoodyHut_Grant_Upgrade">
+			<Properties>
+        		<LoadOrder>1010171</LoadOrder>
+      		</Properties>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Promotions/Grant_Upgrade.sql</File>
+		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_HUGE_EXPERIENCE" criteria="EGHV_Exclude_GoodyHut_Huge_Experience">
 			<Properties>
         		<LoadOrder>1010171</LoadOrder>
@@ -1403,12 +1409,6 @@
         		<LoadOrder>1010171</LoadOrder>
       		</Properties>
 			<File>EGHV/Gameplay/ExcludeGoodyHut/Support/Grant_Catapult.sql</File>
-		</UpdateDatabase>
-		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_GRANT_UPGRADE" criteria="EGHV_Exclude_GoodyHut_Grant_Upgrade">
-			<Properties>
-        		<LoadOrder>1010171</LoadOrder>
-      		</Properties>
-			<File>EGHV/Gameplay/ExcludeGoodyHut/Support/Grant_Upgrade.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_GRANT_MILITARY_ENGINEER" criteria="EGHV_Exclude_GoodyHut_Grant_Military_Engineer">
 			<Properties>
@@ -1853,6 +1853,7 @@
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Hostiles/Mid_Hostility_Villagers.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Hostiles/High_Hostility_Villagers.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Hostiles/Max_Hostility_Villagers.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Promotions/Grant_Upgrade.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Promotions/Huge_Experience.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Promotions/Large_Experience.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Promotions/Medium_Experience.sql</File>
@@ -1868,7 +1869,6 @@
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Secrets/Villager_Secrets_Science.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Support/Grant_Battering_Ram.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Support/Grant_Catapult.sql</File>
-		<File>EGHV/Gameplay/ExcludeGoodyHut/Support/Grant_Upgrade.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Support/Grant_Military_Engineer.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Governors/One_Governor_Title.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Governors/Two_Governor_Titles.sql</File>
