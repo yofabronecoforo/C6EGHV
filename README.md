@@ -15,7 +15,7 @@ In addition, the number of available ingame Goody Hut rewards has greatly increa
 Ruleset in use | Standard | Rise and Fall | Gathering Storm
 ------- | ------- | ------- | -------
 Rewards (Types) built-in | 18 (6) | 18 (6) | 23 (8)
-Rewards (Types) with EGHV | 52 (11) | 56 (12) | 65 (15)
+Rewards (Types) with EGHV | 52 (11) | 56 (12) | 66 (15)
 
 Many of these rewards are implemented via a combination of the built-in Modifiers system and the Lua scripting system, as this allows these rewards to function as intended.
 
@@ -27,7 +27,7 @@ When obtained via any of the official channels referenced in the #Installation s
 - Spanish (es_ES)
 - French (fr_FR)
 
-Please report any conspicuous absent text, grammatical errors, or instances of localization placeholders (i.e. LOC_SOME_TEXT_HERE), when using any of the above languages.
+Please report any conspicuous absent text, grammatical errors, inaccurate translations, or instances of localization placeholders (i.e. LOC_SOME_TEXT_HERE), when using any of the above languages.
 
 # Features
 ## Goody Huts
@@ -35,14 +35,18 @@ Please report any conspicuous absent text, grammatical errors, or instances of l
 
 EGHV modifies existing Goody Hut rewards, and provides several new rewards in several new categories.
 
-Minimum-turn requirements have been set to 0 for all __DEFINED__ and __ENABLED__ rewards. This means that all such rewards will be available from turn 1 on.
+Minimum-turn requirements have been set to 0 for most __DEFINED__ and __ENABLED__ rewards. This means that most such rewards will be available from turn 1 on. Exceptions to this are:
+- +1 new population: Testing shows that this reward does not always successfully apply during very early-game turns
+- 2 civics: Only 1 civic will be granted when no more than that are available; this is troublesome during the very early-game before Code of Laws has been unlocked
+
+For these exceptions, a minimum turn of 15 will be enforced.
 
 ### Standard
 ![Standard Rewards](/IMAGES/Standard.gif)
 
 These rewards are available for all rulesets. Existing and new rewards have been rebalanced as follows:
 
-Goody Hut Type (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
+Goody Hut Type (Weight) | Common (55) | Uncommon (30) | Rare (10) | Legendary (5)
 ------ | ------ | ------ | ------ | ------
 Culture | 1 civic boost | 2 civic boosts | 1 civic [1] [2] | 2 civics [1] [3]
 Faith | +20 faith | +60 faith | +100 faith | +1 relic [4]
@@ -63,18 +67,18 @@ Survivors | +1 new population | 1 Builder [5] | 1 Trader [6] | 1 Settler [5] [7]
 
 Built-in Military-type rewards have been entirely disabled and reworked. For all rulesets, a reward of this type now provides a new unit as follows:
 
-Recon | Melee | Ranged | Anti-Cavalry | Heavy Cavalry | Light Cavalry | Support | Siege | Military Engineer
------- | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------
-34% | 12% | 12% | 12% | 9% | 9% | 5% | 5% | 2%
+Goody Hut Type (Weight) | Common (55) | Uncommon (30) | Rare (10) | Legendary (5)
+------ | ------ | ------ | ------ | ------
+Military | Recon | Melee OR Ranged OR Anti-Cavalry | Heavy Cavalry OR Light Cavalry | Support OR Siege OR a Military Engineer
 
-- Any unit provided by a Military-type reward will now spawn in a plot near the Goody Hut that provided the reward. Additionally, with the exception of the free Military Engineer, any unit provided by a Military-type reward will now be Era-appropriate.
+Any unit provided by a Military-type reward will now spawn in a plot near the Goody Hut that provided the reward. Additionally, with the exception of the free Military Engineer, any unit provided by a Military-type reward will now be Era-appropriate.
 
 ### New Standard Types
 ![EGHV Rewards](/IMAGES/EGHV.gif)
 
 These rewards are provided by EGHV for all rulesets:
 
-Goody Hut (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
+Goody Hut Type (Weight) | Common (55) | Uncommon (30) | Rare (10) | Legendary (5)
 ------ | ------ | ------ | ------ | ------
 Abilities [8] [10] | +1 sight | +20 healing per turn | +1 movement | +10 combat strength
 Envoys [9] | 1 envoy | 2 envoys | 3 envoys | 4 envoys
@@ -97,7 +101,7 @@ Secrets [13] | villager secrets (100)
 
 These rewards are provided by EGHV for Rise and Fall and later ruleset(s):
 
-Goody Hut (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
+Goody Hut Type (Weight) | Common (55) | Uncommon (30) | Rare (10) | Legendary (5)
 ------ | ------ | ------ | ------ | ------
 Governors [14] | 1 governor title | 2 governor titles | 3 governor titles | 4 governor titles
 
@@ -108,7 +112,7 @@ Governors [14] | 1 governor title | 2 governor titles | 3 governor titles | 4 go
 
 These rewards are provided by EGHV for Gathering Storm and later ruleset(s):
 
-Goody Hut (Weight) | Common (40) | Uncommon (30) | Rare (20) | Legendary (10)
+Goody Hut Type (Weight) | Common (55) | Uncommon (30) | Rare (10) | Legendary (5)
 ------ | ------ | ------ | ------ | ------
 Diplomacy [15] | +10 diplomatic favor | +20 diplomatic favor | +30 diplomatic favor | +50 diplomatic favor
 Meteor | meteor-strike site (100)
@@ -127,7 +131,7 @@ EGHV provides a new picker window for selecting the specific Goody Hut reward(s)
 
 Disabling all available reward(s) via the picker will cause the "No Goody Huts" game option to be implicitly enabled.
 
-The tooltip for the Goody Hut picker reflects the source(s) of its content based on the selected ruleset and/or any currently available known content; it will dynamically update to reflect any changes to known content after launch. Its button text reflects the total amount of available items(s) when all items in the picker are selected.
+The tooltip for the Goody Hut picker reflects the source(s) of its content based on the selected ruleset and/or any currently available known content as calculated at game launch. Its button text reflects the total amount of available items(s) when all items in the picker are selected.
 - This functionality extends to the built-in City-States, Leaders, and Natural Wonders pickers.
 
 ## Goody Hut Distribution Slider
@@ -155,17 +159,7 @@ Bonus Rewards, if enabled, can only be received from a Goody Hut. There are two 
 ## Equalized Reward Chances
 ![Equalize Rewards](/IMAGES/Equalize_Tribal_Village_Rewards.png)
 
-EGHV provides a checkbox option which, when enabled, assigns every enabled reward in a category an equal share of that category's Weight. This results in most enabled rewards having a roughly equal chance of being selected. Final actual chances will vary with the number of enabled rewards and/or the selected ruleset; with Standard rules and all available rewards enabled, these chances are as follows:
-- ~ 9.09% villager secrets type reward (multiple rewards in this parent type, each with an equal chance of being selected)
-- ~ 1.01% military-type unit reward (9 rewards in this parent type: ~ 9.09% for this parent type)
-- ~ 2.27% any other specific reward (4 rewards in each parent type: ~ 9.09% for each parent type)
-
-With Rise and Fall rules and all available rewards enabled, the above chances adjust to 8.33%, 0.93%, and 2.08%, respectively.
-
-With Gathering Storm rules and all available rewards enabled, the above chances adjust to 6.67%, 0.74%, and 1.67%, respectively. Additionally, the following chances exist:
-- ~ 6.67% meteor strike type reward (1 reward in this parent type)
-
-Fewer enabled rewards in a category will result in a greater chance of each enabled reward being chosen if its parent category is chosen. Fewer enabled categories will result in a greater chance of each enabled category being chosen. Ultimately, while the actual values may vary somewhat, they will be fairly close together as demonstrated above.
+EGHV provides a checkbox option which, when enabled, assigns every enabled reward in a category a Weight equal to that category's Weight. This results in most enabled rewards having a roughly equal chance of being selected.
 
 ## Hostile Villagers
 ### Hostiles After Reward
@@ -213,13 +207,13 @@ Villager Totem | Yield Modifier
 Amenities | +4
 Culture | +4
 Faith | +4
-Favor [*] | +4
+Diplomatic Favor [*] | +4
 Food | +4
 Gold | +8
 Production | +4
 Science | +4
 
-- [*] : Requires Gathering Storm // CURRENTLY BROKEN AND DISABLED //
+- [*] : Requires Gathering Storm
 
 Once a particular Totem has been unlocked, if the reward that provides it is received again, instead a free Totem of that type will be placed in a City that does not already have one. If all cities have that Totem already, or if there are otherwise no cities in which to place it, instead nothing will happen.
 
@@ -312,7 +306,11 @@ If your mod alters any _existing_ Goody Hut (sub)types, unless it is also using 
 ### Database
 EGHV adds the following custom tables to the game's Configuration SQLite database:
 - ContentFlags
+- GoodyHutsByHash
+- GoodyHutSubTypesByHash
+- HostileUnits
 - TribalVillages
+- UnitRewards
 
 If your mod uses any similarly-named tables, conflicts __WILL__ arise.
 
@@ -321,7 +319,6 @@ EGHV replaces the following existing Frontend context file(s):
 - AdvancedSetup.lua and AdvancedSetup.xml
 - GameSetupLogic.lua
 - HostGame.lua and HostGame.xml
-- Mods.lua
 
 EGHV adds the following new Frontend context file(s):
 - GoodyHutPicker.lua and GoodyHutPicker.xml
@@ -355,11 +352,10 @@ If your mod operates on any similarly-named item(s) in any of the above named ta
 
 ### Gameplay Scripts
 EGHV employs the following new custom gameplay scripts:
-- EGHV_Common.lua
+- EGHV.lua
 - EnhancedGoodies.lua
 - HostileVillagers.lua
 - BonusRewards.lua
-- EGHV.lua
 
 If your mod employs any gameplay scripts with similar names, conflicts __WILL__ arise.
 
