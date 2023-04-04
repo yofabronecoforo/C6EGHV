@@ -615,13 +615,6 @@
     			<Value>1</Value>
     		</ConfigurationValueMatches>
     	</Criteria>
-		<!-- <Criteria id="EGHV_Exclude_GoodyHut_Unlock_Villager_Secrets">
-    		<ConfigurationValueMatches>
-    			<ConfigurationId>EXCLUDE_GOODYHUT_UNLOCK_VILLAGER_SECRETS</ConfigurationId>
-    			<Group>Game</Group>
-    			<Value>1</Value>
-    		</ConfigurationValueMatches>
-    	</Criteria> -->
 		<!-- exclude (disable) 1 free support unit reward -->
 		<Criteria id="EGHV_Exclude_GoodyHut_Grant_Battering_Ram">
     		<ConfigurationValueMatches>
@@ -886,38 +879,38 @@
 		<!-- script exposed members config -->
 		<AddGameplayScripts id="C6GUE_GAMEPLAY_SCRIPT_INGAME_EXPOSED_MEMBERS" criteria="EGHV">
 			<Properties>
-        		<LoadOrder>1010141</LoadOrder>
+        		<LoadOrder>1010201</LoadOrder>
       		</Properties>
-			<File>EGHV/Scripts/EGHV_Common.lua</File>
+			<File>EGHV/Scripts/EGHV.lua</File>
 		</AddGameplayScripts>
 		<!-- script enhanced goodies config -->
 		<AddGameplayScripts id="EGHV_GAMEPLAY_SCRIPT_ENHANCED_GOODIES" criteria="EGHV">
 			<Properties>
-        		<LoadOrder>1010142</LoadOrder>
+        		<LoadOrder>1010202</LoadOrder>
       		</Properties>
 			<File>EGHV/Scripts/EnhancedGoodies.lua</File>
 		</AddGameplayScripts>
 		<!-- script hostile villagers config -->
 		<AddGameplayScripts id="EGHV_GAMEPLAY_SCRIPT_HOSTILE_VILLAGERS" criteria="EGHV">
 			<Properties>
-        		<LoadOrder>1010143</LoadOrder>
+        		<LoadOrder>1010203</LoadOrder>
       		</Properties>
 			<File>EGHV/Scripts/HostileVillagers.lua</File>
 		</AddGameplayScripts>
 		<!-- script bonus rewards config -->
 		<AddGameplayScripts id="EGHV_GAMEPLAY_SCRIPT_BONUS_REWARDS" criteria="EGHV">
 			<Properties>
-        		<LoadOrder>1010144</LoadOrder>
+        		<LoadOrder>1010204</LoadOrder>
       		</Properties>
 			<File>EGHV/Scripts/BonusRewards.lua</File>
 		</AddGameplayScripts>
 		<!-- EGHV gameplay script -->
-		<AddGameplayScripts id="EGHV_GAMEPLAY_SCRIPT_PRIMARY" criteria="EGHV">
+		<ImportFiles id="EGHV_GAMEPLAY_SCRIPT_WGH" criteria="EGHV_WGH_Ingame_Config">
 			<Properties>
-        		<LoadOrder>1010149</LoadOrder>
+        		<LoadOrder>1010205</LoadOrder>
       		</Properties>
-			<File>EGHV/Scripts/EGHV.lua</File>
-		</AddGameplayScripts>
+			<File>EGHV/Community/WondrousGoodyHuts/Sailor_Goodies_Scripts_EGHV.lua</File>
+		</ImportFiles>
 		<!-- gameplay database config for all rulesets -->
 		<UpdateDatabase id="EGHV_INGAME" criteria="EGHV">
 			<Properties>
@@ -938,6 +931,13 @@
         		<LoadOrder>1010152</LoadOrder>
       		</Properties>
 			<File Priority="2">EGHV/Gameplay/Ingame_XP2.sql</File>
+		</UpdateDatabase>
+		<!-- gameplay database hostile unit "reward" config for all rulesets -->
+		<UpdateDatabase id="EGHV_INGAME_HOSTILES" criteria="EGHV">
+			<Properties>
+        		<LoadOrder>1010175</LoadOrder>
+      		</Properties>
+			<File Priority="2">EGHV/Gameplay/Ingame_Hostiles.sql</File>
 		</UpdateDatabase>
 		<!-- goody hut appearance frequency 25% of baseline -->
 		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_025" criteria="EGHV_GoodyHut_Distribution_025">
@@ -1079,18 +1079,18 @@
       		</Properties>
 			<File>EGHV/Gameplay/EqualizeGoodyHuts.sql</File>
 		</UpdateDatabase>
-		<UpdateDatabase id="EGHV_INGAME_EQUALIZE_GOODYHUTS_XP1" criteria="EGHV_Equalize_GoodyHuts_Expansion1AndBeyond">
+		<!-- <UpdateDatabase id="EGHV_INGAME_EQUALIZE_GOODYHUTS_XP1" criteria="EGHV_Equalize_GoodyHuts_Expansion1AndBeyond">
 			<Properties>
         		<LoadOrder>1010182</LoadOrder>
       		</Properties>
 			<File>EGHV/Gameplay/EqualizeGoodyHuts_XP1.sql</File>
-		</UpdateDatabase>
-		<UpdateDatabase id="EGHV_INGAME_EQUALIZE_GOODYHUTS_XP2" criteria="EGHV_Equalize_GoodyHuts_Expansion2">
+		</UpdateDatabase> -->
+		<!-- <UpdateDatabase id="EGHV_INGAME_EQUALIZE_GOODYHUTS_XP2" criteria="EGHV_Equalize_GoodyHuts_Expansion2">
 			<Properties>
         		<LoadOrder>1010183</LoadOrder>
       		</Properties>
 			<File>EGHV/Gameplay/EqualizeGoodyHuts_XP2.sql</File>
-		</UpdateDatabase>
+		</UpdateDatabase> -->
 		<!-- culture -->
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_ONE_CIVIC_BOOST" criteria="EGHV_Exclude_GoodyHut_One_Civic_Boost">
 			<Properties>
@@ -1403,12 +1403,6 @@
       		</Properties>
 			<File>EGHV/Gameplay/ExcludeGoodyHut/Secrets/Villager_Secrets_Science.sql</File>
 		</UpdateDatabase>
-		<!-- <UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_UNLOCK_VILLAGER_SECRETS" criteria="EGHV_Exclude_GoodyHut_Unlock_Villager_Secrets">
-			<Properties>
-        		<LoadOrder>1010171</LoadOrder>
-      		</Properties>
-			<File>EGHV/Gameplay/ExcludeGoodyHut/Secrets/Unlock_Villager_Secrets.sql</File>
-		</UpdateDatabase> -->
 		<!-- units -->
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_GRANT_BATTERING_RAM" criteria="EGHV_Exclude_GoodyHut_Grant_Battering_Ram">
 			<Properties>
@@ -1538,74 +1532,74 @@
 		<!-- enable WGH content here -->
 		<UpdateDatabase id="EGHV_WGH_INGAME_INITIAL_CONFIG" criteria="EGHV_WGH_Ingame_Config">
 			<Properties>
-        		<LoadOrder>1010178</LoadOrder>
+        		<LoadOrder>1010171</LoadOrder>
       		</Properties>
 			<File>EGHV/Community/WondrousGoodyHuts/Ingame.sql</File>
 		</UpdateDatabase>
 		<!-- exclude wondrous goody huts -->
 		<UpdateDatabase id="EGHV_WGH_INGAME_EXCLUDE_GOODYHUT" criteria="EGHV_WGH_Exclude_GoodyHut_CityState">
 			<Properties>
-        		<LoadOrder>1010179</LoadOrder>
+        		<LoadOrder>1010171</LoadOrder>
       		</Properties>
 			<File>EGHV/Community/WondrousGoodyHuts/ExcludeGoodyHut/CityState.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_WGH_INGAME_EXCLUDE_GOODYHUT" criteria="EGHV_WGH_Exclude_GoodyHut_Formation">
 			<Properties>
-        		<LoadOrder>1010179</LoadOrder>
+        		<LoadOrder>1010171</LoadOrder>
       		</Properties>
 			<File>EGHV/Community/WondrousGoodyHuts/ExcludeGoodyHut/Formation.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_WGH_INGAME_EXCLUDE_GOODYHUT" criteria="EGHV_WGH_Exclude_GoodyHut_Production">
 			<Properties>
-        		<LoadOrder>1010179</LoadOrder>
+        		<LoadOrder>1010171</LoadOrder>
       		</Properties>
 			<File>EGHV/Community/WondrousGoodyHuts/ExcludeGoodyHut/Production.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_WGH_INGAME_EXCLUDE_GOODYHUT" criteria="EGHV_WGH_Exclude_GoodyHut_RandomImprovement">
 			<Properties>
-        		<LoadOrder>1010179</LoadOrder>
+        		<LoadOrder>1010171</LoadOrder>
       		</Properties>
 			<File>EGHV/Community/WondrousGoodyHuts/ExcludeGoodyHut/RandomImprovement.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_WGH_INGAME_EXCLUDE_GOODYHUT" criteria="EGHV_WGH_Exclude_GoodyHut_RandomPolicy">
 			<Properties>
-        		<LoadOrder>1010179</LoadOrder>
+        		<LoadOrder>1010171</LoadOrder>
       		</Properties>
 			<File>EGHV/Community/WondrousGoodyHuts/ExcludeGoodyHut/RandomPolicy.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_WGH_INGAME_EXCLUDE_GOODYHUT" criteria="EGHV_WGH_Exclude_GoodyHut_RandomResource">
 			<Properties>
-        		<LoadOrder>1010179</LoadOrder>
+        		<LoadOrder>1010171</LoadOrder>
       		</Properties>
 			<File>EGHV/Community/WondrousGoodyHuts/ExcludeGoodyHut/RandomResource.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_WGH_INGAME_EXCLUDE_GOODYHUT" criteria="EGHV_WGH_Exclude_GoodyHut_RandomUnit">
 			<Properties>
-        		<LoadOrder>1010179</LoadOrder>
+        		<LoadOrder>1010171</LoadOrder>
       		</Properties>
 			<File>EGHV/Community/WondrousGoodyHuts/ExcludeGoodyHut/RandomUnit.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_WGH_INGAME_EXCLUDE_GOODYHUT" criteria="EGHV_WGH_Exclude_GoodyHut_SightBomb">
 			<Properties>
-        		<LoadOrder>1010179</LoadOrder>
+        		<LoadOrder>1010171</LoadOrder>
       		</Properties>
 			<File>EGHV/Community/WondrousGoodyHuts/ExcludeGoodyHut/SightBomb.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_WGH_INGAME_EXCLUDE_GOODYHUT" criteria="EGHV_WGH_Exclude_GoodyHut_Spy">
 			<Properties>
-        		<LoadOrder>1010179</LoadOrder>
+        		<LoadOrder>1010171</LoadOrder>
       		</Properties>
 			<File>EGHV/Community/WondrousGoodyHuts/ExcludeGoodyHut/Spy.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_WGH_INGAME_EXCLUDE_GOODYHUT" criteria="EGHV_WGH_Exclude_GoodyHut_Teleport">
 			<Properties>
-        		<LoadOrder>1010179</LoadOrder>
+        		<LoadOrder>1010171</LoadOrder>
       		</Properties>
 			<File>EGHV/Community/WondrousGoodyHuts/ExcludeGoodyHut/Teleport.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_WGH_INGAME_EXCLUDE_GOODYHUT" criteria="EGHV_WGH_Exclude_GoodyHut_Wonder">
 			<Properties>
-        		<LoadOrder>1010179</LoadOrder>
+        		<LoadOrder>1010171</LoadOrder>
       		</Properties>
 			<File>EGHV/Community/WondrousGoodyHuts/ExcludeGoodyHut/Wonder.sql</File>
 		</UpdateDatabase>
@@ -1645,6 +1639,12 @@
 				<LoadOrder>1010101</LoadOrder>
 			</Properties>
 			<File>EGHV/Art/Ingame_Icons.xml</File>
+		</UpdateIcons>
+		<UpdateIcons id="EGHV_INGAME_ICONS_XP2" criteria="EGHV_Expansion2">
+			<Properties>
+				<LoadOrder>1010103</LoadOrder>
+			</Properties>
+			<File>EGHV/Art/Ingame_XP2_Icons.xml</File>
 		</UpdateIcons>
 	</InGameActions>
 	<FrontEndActions>
@@ -1724,7 +1724,7 @@
 				<File>C6GUE/UI/Replacements/AdvancedSetup.lua</File>
 				<File>C6GUE/UI/Replacements/AdvancedSetup.xml</File>
 				<File>C6GUE/UI/Replacements/GameSetupLogic.lua</File>
-				<File>C6GUE/UI/Replacements/Mods.lua</File>
+				<!-- <File>C6GUE/UI/Replacements/Mods.lua</File> -->
 				<File>C6GUE/UI/Replacements/Multiplayer/HostGame.lua</File>
 				<File>C6GUE/UI/Replacements/Multiplayer/HostGame.xml</File>
 			</Items>
@@ -1780,13 +1780,14 @@
 		<File>C6GUE/UI/Replacements/AdvancedSetup.lua</File>
 		<File>C6GUE/UI/Replacements/AdvancedSetup.xml</File>
 		<File>C6GUE/UI/Replacements/GameSetupLogic.lua</File>
-		<File>C6GUE/UI/Replacements/Mods.lua</File>
+		<!-- <File>C6GUE/UI/Replacements/Mods.lua</File> -->
 		<!-- C6GUE configuration (frontend) multiplayer UI replacements -->
 		<File>C6GUE/UI/Replacements/Multiplayer/HostGame.lua</File>
 		<File>C6GUE/UI/Replacements/Multiplayer/HostGame.xml</File>
 		<!-- "new" icon definitions -->
 		<File>EGHV/Art/Frontend_Icons.xml</File>
 		<File>EGHV/Art/Ingame_Icons.xml</File>
+		<File>EGHV/Art/Ingame_XP2_Icons.xml</File>
 		<!-- District icons for the Goody Hut Picker. 256px Diplomatic Quarter source ganked from civilization.fandom.com ; other 256px sources ganked from Development assets. Remaining sizes sourced from 256px -->
 		<File>EGHV/Art/Icons/EGHV_Districts22.dds</File>
 		<File>EGHV/Art/Icons/EGHV_Districts32.dds</File>
@@ -1821,12 +1822,13 @@
 		<!-- ingame configuration -->
 		<File>EGHV/Gameplay/Schema.sql</File>
 		<File>EGHV/Gameplay/EqualizeGoodyHuts.sql</File>
-		<File>EGHV/Gameplay/EqualizeGoodyHuts_XP1.sql</File>
-		<File>EGHV/Gameplay/EqualizeGoodyHuts_XP2.sql</File>
+		<!-- <File>EGHV/Gameplay/EqualizeGoodyHuts_XP1.sql</File> -->
+		<!-- <File>EGHV/Gameplay/EqualizeGoodyHuts_XP2.sql</File> -->
 		<File>EGHV/Gameplay/ExcludeGoodyHuts.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHuts_XP1.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHuts_XP2.sql</File>
 		<File>EGHV/Gameplay/Ingame.sql</File>
+		<File>EGHV/Gameplay/Ingame_Hostiles.sql</File>
 		<File>EGHV/Gameplay/Ingame_XP1.sql</File>
 		<File>EGHV/Gameplay/Ingame_XP2.sql</File>
 		<File>EGHV/Gameplay/Override.sql</File>
@@ -1939,7 +1941,7 @@
 		<!--  -->
 		<File>EGHV/Scripts/BonusRewards.lua</File>
 		<File>EGHV/Scripts/EGHV.lua</File>
-		<File>EGHV/Scripts/EGHV_Common.lua</File>
+		<!-- <File>EGHV/Scripts/EGHV_Common.lua</File> -->
 		<File>EGHV/Scripts/EnhancedGoodies.lua</File>
 		<File>EGHV/Scripts/HostileVillagers.lua</File>
 		<!-- ingame - goody hut picker -->
@@ -1947,6 +1949,7 @@
 		<File>EGHV/UI/Additions/GoodyHutPicker.xml</File>
 		<!-- configuration for Wondrous Goody Huts -->
 		<File>EGHV/Community/WondrousGoodyHuts/Ingame.sql</File>
+		<File>EGHV/Community/WondrousGoodyHuts/Sailor_Goodies_Scripts_EGHV.lua</File>
 		<File>EGHV/Community/WondrousGoodyHuts/WondrousGoodyHuts.sql</File>
 		<File>EGHV/Community/WondrousGoodyHuts/ExcludeGoodyHut/CityState.sql</File>
 		<File>EGHV/Community/WondrousGoodyHuts/ExcludeGoodyHut/Formation.sql</File>
