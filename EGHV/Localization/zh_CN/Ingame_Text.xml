@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--==========================================================================
+	EGHV : Enhanced Goodies and Hostile Villagers for Civilization VI
+	Copyright (C) 2020-2021 zzragnar0kzz
+	All rights reserved
+===========================================================================-->
+<!-- localized in-game text for fr_FR -->
+<GameData>
+	<LocalizedText>
+        <!--  -->
+        <!-- <Replace Tag="LOC_TECH_VILLAGER_BASIC_NAME" Language="fr_FR">
+            <Text>Tribal Knowledge</Text>
+        </Replace>
+        <Replace Tag="LOC_TECH_VILLAGER_BASIC_DESC" Language="fr_FR">
+            <Text>Basic tribal village technology.</Text>
+        </Replace>
+        <Replace Tag="LOC_TECH_VILLAGER_ADVANCED_NAME" Language="fr_FR">
+            <Text>Tribal Lore</Text>
+        </Replace>
+        <Replace Tag="LOC_TECH_VILLAGER_ADVANCED_DESC" Language="fr_FR">
+            <Text>Advanced tribal village technology.</Text>
+        </Replace> -->
+        <!-- new unit abilities -->
+        <Replace Tag="LOC_ABILITY_IMPROVED_HEALING_NAME" Language="fr_FR">
+			<Text>改善愈合</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_IMPROVED_HEALING_DESC" Language="fr_FR">
+			<Text>改善愈合：+20康复率</Text>
+		</Replace>
+        <Replace Tag="LOC_ABILITY_IMPROVED_MOVEMENT_NAME" Language="fr_FR">
+			<Text>改善运动</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_IMPROVED_MOVEMENT_DESC" Language="fr_FR">
+			<Text>改进运动：+1 [图标_movement]运动</Text>
+		</Replace>
+        <Replace Tag="LOC_ABILITY_IMPROVED_SIGHT_NAME" Language="fr_FR">
+			<Text>增强的视图</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_IMPROVED_SIGHT_DESC" Language="fr_FR">
+			<Text>改进视图：+1视图</Text>
+		</Replace>
+        <Replace Tag="LOC_ABILITY_IMPROVED_STRENGTH_NAME" Language="fr_FR">
+			<Text>改善力量</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_IMPROVED_STRENGTH_DESC" Language="fr_FR">
+			<Text>改进强度：+10 [icon_strength]战斗力</Text>
+		</Replace>
+        <!-- villager totem building -->
+        <Replace Tag="LOC_BUILDING_TRIBAL_TOTEM_NAME" Language="fr_FR">
+			<Text>图腾村部落</Text>
+		</Replace>
+        <Replace Tag="LOC_BUILDING_TRIBAL_TOTEM_DESC" Language="fr_FR">
+			<Text>在这个城市提供+1忠诚度。 如果该城市已经拥有最大的忠诚度，还提供+1 [icon_amenities]的额外设施。</Text>
+		</Replace>
+        <!-- in-game bonus reward notifications -->
+        <Replace Tag="LOC_BONUS_REWARD_NOTIFICATION_TITLE" Language="fr_FR">
+            <Text>高级部落村庄奖励</Text>
+        </Replace>
+        <Replace Tag="LOC_BONUS_REWARD_NOTIFICATION_MESSAGE" Language="fr_FR">
+            <Text>村民提供了额外的奖励 </Text>
+        </Replace>
+        <!-- in-game villager secrets notifications -->
+        <Replace Tag="LOC_VILLAGER_SECRETS_NOTIFICATION_TITLE" Language="fr_FR">
+            <Text>解锁村秘密</Text>
+        </Replace>
+        <Replace Tag="LOC_VILLAGER_SECRETS_NOTIFICATION_MESSAGE" Language="fr_FR">
+            <Text>村民教导你忘记了建筑知识。</Text>
+        </Replace>
+        <!-- in-game hostile villager notifications -->
+        <Replace Tag="LOC_HOSTILE_VILLAGERS_NOTIFICATION_TITLE" Language="fr_FR">
+            <Text>敌对村民</Text>
+        </Replace>
+        <Replace Tag="LOC_HOSTILE_VILLAGERS_UNIT_NOTIFICATION_MESSAGE_1" Language="fr_FR">
+            <Text>愤怒的村民组织在敌意[icon_unit]</Text>
+        </Replace>
+        <Replace Tag="LOC_HOSTILE_VILLAGERS_UNIT_NOTIFICATION_MESSAGE_2" Language="fr_FR">
+            <Text>在附近的地方！</Text>
+        </Replace>
+        <Replace Tag="LOC_HOSTILE_VILLAGERS_CAMP_NOTIFICATION_MESSAGE" Language="fr_FR">
+            <Text>非常敌对的村民在附近的位置创造了一个新的[图标野蛮人]野蛮的前哨！</Text>
+        </Replace>
+        <!-- new goody hut reward descriptions : hostiles-type -->
+        <Replace Tag="LOC_GOODYHUT_HOSTILE_VILLAGERS_DESCRIPTION" Language="fr_FR">
+            <Text>[color_red]敌对村民出现！ [endcolor]</Text>
+        </Replace>
+        <!-- new goody hut reward descriptions : secrets-type -->
+        <Replace Tag="LOC_GOODYHUT_VILLAGER_SECRETS_DESCRIPTION" Language="fr_FR">
+            <Text>隐藏知识揭示了</Text>
+        </Replace>
+        <!-- replacement goody hut reward description : culture-type : free relic (now faith-type) -->
+        <Replace Tag="LOC_GOODYHUT_CULTURE_RELIC_DESCRIPTION" Language="fr_FR">
+			<Text>分配了遗物[icon_greatwork_relic]</Text>
+		</Replace>
+        <!-- new goody hut reward descriptions : envoys-type -->
+		<Replace Tag="LOC_GOODYHUT_ENVOYS_GRANT_ONE_DESCRIPTION" Language="fr_FR">
+			<Text>一个特使[icon_envoy]</Text>
+		</Replace>
+        <Replace Tag="LOC_GOODYHUT_ENVOYS_GRANT_TWO_DESCRIPTION" Language="fr_FR">
+			<Text>两个发送[icon_envoy]</Text>
+		</Replace>
+        <Replace Tag="LOC_GOODYHUT_ENVOYS_GRANT_THREE_DESCRIPTION" Language="fr_FR">
+			<Text>三个发送[icon_envoy]</Text>
+		</Replace>
+        <Replace Tag="LOC_GOODYHUT_ENVOYS_GRANT_FOUR_DESCRIPTION" Language="fr_FR">
+			<Text>四个发送[icon_envoy]</Text>
+		</Replace>
+        <!-- new goody hut reward descriptions : culture-type -->
+        <Replace Tag="LOC_GOODYHUT_CULTURE_ONE_CIVIC_DESCRIPTION" Language="fr_FR">
+            <Text>[color_float_culture]一个免费的公民[endcolor]</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_CULTURE_TWO_CIVICS_DESCRIPTION" Language="fr_FR">
+            <Text>[color_float_culture]两个免费的公民[endcolor]</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_CULTURE_TWO_CIVIC_BOOSTS_DESCRIPTION" Language="fr_FR">
+            <Text>[color_float_culture] deux libres [icon_civicboosted] Civic Boosts [Endcolor]</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_CULTURE_ONE_CIVIC_BOOST_DESCRIPTION" Language="fr_FR">
+            <Text>[color_float_culture] un thature [icon_civicboosted] Boost Civic [Endcolor]</Text>
+        </Replace>
+        <!-- new goody hut reward descriptions : faith-type -->
+        <Replace Tag="LOC_GOODYHUT_LARGE_FAITH_DESCRIPTION" Language="fr_FR">
+			<Text>+100 [icon_faith]</Text>
+		</Replace>
+		<Replace Tag="LOC_GOODYHUT_MEDIUM_FAITH_DESCRIPTION" Language="fr_FR">
+			<Text>+60 [icon_faith]</Text>
+		</Replace>
+		<Replace Tag="LOC_GOODYHUT_SMALL_FAITH_DESCRIPTION" Language="fr_FR">
+			<Text>+20 [icon_faith]</Text>
+		</Replace>
+        <!-- new goody hut reward descriptions : gold-type -->
+        <Replace Tag="LOC_GOODYHUT_ADD_TRADE_ROUTE_DESCRIPTION" Language="fr_FR">
+            <Text>[color_float_gold]一个[icon_traderoutelarge] Route CommercialeSupplémentaire[endcolor]</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_LARGE_GOLD_DESCRIPTION" Language="fr_FR">
+			<Text>[color_float_gold] +120 [icon_gold] [endcolor]</Text>
+		</Replace>
+		<Replace Tag="LOC_GOODYHUT_MEDIUM_GOLD_DESCRIPTION" Language="fr_FR">
+			<Text>[color_float_gold] +80 [icon_gold] [endcolor]</Text>
+		</Replace>
+		<Replace Tag="LOC_GOODYHUT_SMALL_GOLD_DESCRIPTION" Language="fr_FR">
+			<Text>[color_float_gold] +40 [icon_gold] [endcolor]</Text>
+		</Replace>
+        <!-- replacement goody hut reward description : military-type : grant recon unit -->
+        <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_UNIT_DESCRIPTION" Language="fr_FR">
+			<Text>[color_float_militic]单位reck [endcolor]</Text>
+		</Replace>
+        <!-- new goody hut reward descriptions : military-type -->
+        <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_MELEE_UNIT_DESCRIPTION" Language="fr_FR">
+            <Text>[color_float_militic]近战单元[endcolor]</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_RANGED_UNIT_DESCRIPTION" Language="fr_FR">
+            <Text>[color_float_militic]远程单元[endcolor]</Text>
+        </Replace>
+        <!-- new goody hut reward descriptions : (anti) cavalry military-type -->
+        <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_ANTI_CAVALRY_UNIT_DESCRIPTION" Language="fr_FR">
+            <Text>[color_float_militate]反骑兵单元[endcolor]</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_LIGHT_CAVALRY_UNIT_DESCRIPTION" Language="fr_FR">
+            <Text>[color_float_militer]灯骑兵单位[endcolor]</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_HEAVY_CAVALRY_UNIT_DESCRIPTION" Language="fr_FR">
+            <Text>[color_float_militate]沉重的骑兵单元[endcolor]</Text>
+        </Replace>
+        <!-- new goody hut reward descriptions : support military-type -->
+        <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_MILITARY_ENGINEER_DESCRIPTION" Language="fr_FR">
+            <Text>[color_float_militic]军工工程师[endcolor]</Text>
+        </Replace>
+        <!-- <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_MEDIC_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_FLOAT_MILITARY]One Medic[ENDCOLOR]</Text>
+        </Replace> -->
+        <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_BATTERING_RAM_DESCRIPTION" Language="fr_FR">
+            <Text>[color_float_militic]支持单元[endcolor]</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_CATAPULT_DESCRIPTION" Language="fr_FR">
+            <Text>[color_float_militic]头部单元[endcolor]</Text>
+        </Replace>
+        <!-- new goody hut reward descriptions : science-type -->
+        <Replace Tag="LOC_GOODYHUT_SCIENCE_TWO_TECHS_DESCRIPTION" Language="fr_FR">
+            <Text>[color_float_science] Deux Technologies Gratuites [Endcolor]</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_SCIENCE_TWO_TECH_BOOSTS_DESCRIPTION" Language="fr_FR">
+            <Text>[color_float_science] Deux Technologie [Icon_techboosted]激发刺激[endcolor]</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_SCIENCE_ONE_TECH_BOOST_DESCRIPTION" Language="fr_FR">
+            <Text>[color_float_scommance] un trature [icon_techoosted] boost de la Technologie [endcolor]</Text>
+        </Replace>
+        <!-- replacement goody hut reward description : survivors-type : add population -->
+        <Replace Tag="LOC_GOODYHUT_SURVIVORS_ADD_POP_DESCRIPTION" Language="fr_FR">
+			<Text>+1 [icon_cizen]人口</Text>
+		</Replace>
+        <!-- replacement goody hut reward descriptions : survivors-type : grant civilian unit(s) -->
+		<Replace Tag="LOC_GOODYHUT_SURVIVORS_GRANT_BUILDER_DESCRIPTION" Language="fr_FR">
+			<Text>建造者</Text>
+		</Replace>
+        <Replace Tag="LOC_GOODYHUT_SURVIVORS_GRANT_SETTLER_DESCRIPTION" Language="fr_FR">
+			<Text>冒号</Text>
+		</Replace>
+        <Replace Tag="LOC_GOODYHUT_SURVIVORS_GRANT_TRADER_DESCRIPTION" Language="fr_FR">
+			<Text>卖家</Text>
+		</Replace>
+        <!-- new goody hut reward descriptions : promotions-type -->
+        <Replace Tag="LOC_GOODYHUT_SMALL_EXPERIENCE_DESCRIPTION" Language="fr_FR">
+            <Text>+5战斗经验</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_MEDIUM_EXPERIENCE_DESCRIPTION" Language="fr_FR">
+            <Text>+10战斗经验</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_LARGE_EXPERIENCE_DESCRIPTION" Language="fr_FR">
+            <Text>15战斗经验</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_HUGE_EXPERIENCE_DESCRIPTION" Language="fr_FR">
+            <Text>+25战斗经验</Text>
+        </Replace>
+        <!-- new goody hut reward descriptions : abilities-type -->
+        <Replace Tag="LOC_GOODYHUT_IMPROVED_SIGHT_DESCRIPTION" Language="fr_FR">
+            <Text>+1 [icon_terrain]查看此设备</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_IMPROVED_HEALING_DESCRIPTION" Language="fr_FR">
+            <Text>提高本机的愈合率</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_IMPROVED_MOVEMENT_DESCRIPTION" Language="fr_FR">
+            <Text>+1 [icon_movement]这个单位的运动</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_IMPROVED_STRENGTH_DESCRIPTION" Language="fr_FR">
+            <Text>+10 [icon_strength]这个单位的战斗力</Text>
+        </Replace>
+    </LocalizedText>
+</GameData>

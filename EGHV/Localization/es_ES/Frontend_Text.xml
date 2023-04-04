@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--==========================================================================
+	EGHV : Enhanced Goodies and Hostile Villagers for Civilization VI
+	Copyright (C) 2020-2023 zzragnar0kzz
+	All rights reserved
+===========================================================================-->
+<!-- localized frontend text for es_ES -->
+<GameData>
+	<LocalizedText>
+        <!-- debug mode - extremely verbose log output -->
+        <Replace Tag="LOC_GAME_EGHV_DEBUG_NAME" Language="es_ES">
+			<Text>Depuración de EGHV</Text>
+		</Replace>
+        <Replace Tag="LOC_GAME_EGHV_DEBUG_DESC" Language="es_ES">
+			<Text>Habilita [COLOR_Civ6DarkRed] EXTREMADAMENTE [ENDCOLOR] salida de registro detallado para las funciones EGHV. [NEWLINE] [NEWLINE] Esto no tiene ningún propósito más allá de la resolución de problemas y debe permanecer inhabilitado a menos que sea necesario.</Text>
+		</Replace>
+        <!-- bonus goody hut rewards -->
+        <Replace Tag="LOC_GAME_TOTAL_REWARDS_NAME" Language="es_ES">
+			<Text>Recompensas por aldea tribal</Text>
+		</Replace>
+        <Replace Tag="LOC_GAME_TOTAL_REWARDS_DESC" Language="es_ES">
+			<Text>Elija el número total máximo de recompensas que potencialmente puede proporcionar cada aldea tribal.</Text>
+		</Replace>
+        <Replace Tag="LOC_TOTAL_REWARDS_1_NAME" Language="es_ES">
+			<Text>1</Text>
+		</Replace>
+        <Replace Tag="LOC_TOTAL_REWARDS_1_DESC" Language="es_ES">
+			<Text>Cero (0) recompensas de bonificación; esta es la configuración predeterminada.</Text>
+		</Replace>
+        <Replace Tag="LOC_TOTAL_REWARDS_2_NAME" Language="es_ES">
+			<Text>Hasta 2</Text>
+		</Replace>
+        <Replace Tag="LOC_TOTAL_REWARDS_2_DESC" Language="es_ES">
+			<Text>Hasta una (1) recompensa adicional.</Text>
+		</Replace>
+        <Replace Tag="LOC_TOTAL_REWARDS_3_NAME" Language="es_ES">
+			<Text>Hasta 3</Text>
+		</Replace>
+        <Replace Tag="LOC_TOTAL_REWARDS_3_DESC" Language="es_ES">
+			<Text>Hasta dos (2) recompensas de bonificación.</Text>
+		</Replace>
+        <Replace Tag="LOC_TOTAL_REWARDS_4_NAME" Language="es_ES">
+			<Text>Hasta 4</Text>
+		</Replace>
+        <Replace Tag="LOC_TOTAL_REWARDS_4_DESC" Language="es_ES">
+			<Text>Hasta tres (3) recompensas de bonificación.</Text>
+		</Replace>
+        <Replace Tag="LOC_TOTAL_REWARDS_5_NAME" Language="es_ES">
+			<Text>Hasta 5</Text>
+		</Replace>
+        <Replace Tag="LOC_TOTAL_REWARDS_5_DESC" Language="es_ES">
+			<Text>Hasta cuatro (4) recompensas de bonificación.</Text>
+		</Replace>
+        <!-- hostile villagers after reward -->
+		<Replace Tag="LOC_GAME_HOSTILES_CHANCE_NAME" Language="es_ES">
+			<Text>Hostiles después de la recompensa</Text>
+		</Replace>
+        <Replace Tag="LOC_GAME_HOSTILES_CHANCE_DESC" Language="es_ES">
+			<Text>Elige si los aldeanos hostiles pueden aparecer [COLOR_Blue] DESPUÉS de que [ENDCOLOR] reciba cualquier recompensa de aldea tribal. [NEWLINE] [NEWLINE] Cuando está habilitado, existe la posibilidad de que los aldeanos hostiles aparezcan después de todas las recompensas otorgadas con éxito de una cabaña de regalos. [NEWLINE] [NEWLINE] Esta probabilidad aumenta con el nivel de dificultad seleccionado, el juego o la era del jugador actual y los valores de rareza de cualquier recompensa otorgada. Se modifica aún más por la forma en que se proporcionan las recompensas y / o las unidades que reciben recompensas.</Text>
+		</Replace>
+        <Replace Tag="LOC_HOSTILES_CHANCE_NEVER_NAME" Language="es_ES">
+			<Text>Nunca</Text>
+		</Replace>
+        <Replace Tag="LOC_HOSTILES_CHANCE_NEVER_DESC" Language="es_ES">
+			<Text>Los aldeanos hostiles aparecerán [COLOR_RED] NO [ENDCOLOR] después de recibir todas las recompensas asignadas de Aldeas tribales.</Text>
+		</Replace>
+        <Replace Tag="LOC_HOSTILES_CHANCE_MAYBE_NAME" Language="es_ES">
+			<Text>Quizás</Text>
+		</Replace>
+        <Replace Tag="LOC_HOSTILES_CHANCE_MAYBE_DESC" Language="es_ES">
+			<Text>Los aldeanos hostiles [COLOR_Blue] POSIBLEMENTE [ENDCOLOR] aparecerán después de recibir todas las recompensas de Aldeas tribales asignadas. [NEWLINE] [NEWLINE] [COLOR_Blue] SI [ENDCOLOR] aparecen, la hostilidad de los aldeanos se verá limitada por la rareza acumulativa de cualquier recompensa recibida (s ).</Text>
+		</Replace>
+        <Replace Tag="LOC_HOSTILES_CHANCE_ALWAYS_NAME" Language="es_ES">
+			<Text>Siempre</Text>
+		</Replace>
+        <Replace Tag="LOC_HOSTILES_CHANCE_ALWAYS_DESC" Language="es_ES">
+			<Text>Los aldeanos hostiles aparecerán [COLOR_MEDIUM_GREEN] SIEMPRE [ENDCOLOR] después de recibir todas las recompensas de Aldeas tribales asignadas. [NEWLINE] [NEWLINE] [COLOR_MEDIUM_GREEN] CUANDO [ENDCOLOR] aparezcan, la hostilidad de los aldeanos se verá limitada por la rareza acumulativa de cualquier recompensa recibida (s ).</Text>
+		</Replace>
+        <Replace Tag="LOC_HOSTILES_CHANCE_HYPER_NAME" Language="es_ES">
+			<Text>Siempre + Mayor hostilidad</Text>
+		</Replace>
+        <Replace Tag="LOC_HOSTILES_CHANCE_HYPER_DESC" Language="es_ES">
+			<Text>Los aldeanos hostiles [COLOR_MEDIUM_GREEN] SIEMPRE aparecerán [ENDCOLOR] después de recibir todas las recompensas asignadas al pueblo tribal. [NEWLINE] [NEWLINE] La hostilidad de los aldeanos se elevará más allá de los límites normales y reaccionarán con [COLOR_Civ6DarkRed] EXTREMA [ENDCOLOR] agresión independientemente de cualquier recompensa (s) recibido (s).</Text>
+		</Replace>
+        <!-- Goody Hut picker -->
+        <Replace Tag="LOC_GOODY_HUT_CONFIG_NAME" Language="es_ES">
+            <Text>Seleccionar pueblos tribales</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODY_HUT_CONFIG_DESCRIPTION" Language="es_ES">
+            <Text>Elija qué recompensas de Goody Hut tienen posibilidades de aparecer.</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODY_HUT_PICKER_SORT_BY" Language="es_ES">
+            <Text>Ordenar por:</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODY_HUT_PICKER_SORT_NAME" Language="es_ES">
+            <Text>Nombre</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODY_HUT_PICKER_SORT_TYPE" Language="es_ES">
+            <Text>Escribe</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODY_HUT_PICKER_SORT_RARITY" Language="es_ES">
+            <Text>Rareza</Text>
+        </Replace>
+        <!-- rarity tiers -->
+        <!-- <Replace Tag="LOC_EGHV_RARITY_TIER_1" Language="es_ES">
+            <Text>Common</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_RARITY_TIER_2" Language="es_ES">
+            <Text>Uncommon</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_RARITY_TIER_3" Language="es_ES">
+            <Text>Rare</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_RARITY_TIER_4" Language="es_ES">
+            <Text>Legendary</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_RARITY_TIER_5" Language="es_ES">
+            <Text>Mythic</Text>
+        </Replace> -->
+        <!-- Goody Hut frequency -->
+        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_NAME" Language="es_ES">
+            <Text>Frecuencia de aldea tribal%</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_DESCRIPTION" Language="es_ES">
+            <Text>Elija la distribución de Goody Huts en el mapa.</Text>
+        </Replace>
+        <!-- dummy tags -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_DUMMY_CONFIG_NAME" Language="es_ES">
+            <Text>Recompensa ficticia</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_DUMMY_CONFIG_DESCRIPTION" Language="es_ES">
+            <Text>Descripción genérica de la recompensa ficticia.</Text>
+        </Replace>
+        <!-- secrets type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_AMENITIES_NAME" Language="es_ES">
+            <Text>[ICON_Buildings] Tótem de comodidades</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_AMENITIES_DESC" Language="es_ES">
+            <Text>Nivel 5 (especializado) Recompensa de tipo Secretos.[NEWLINE][NEWLINE]Reciba la capacidad de construir [ICON_Buildings] el edificio del tótem de comodidades, que proporciona +4 [ICON_Amenities] comodidades.[NEWLINE][NEWLINE]Si esta habilidad se ha otorgado anteriormente, en su lugar, recibe un [ICON_Buildings] edificio del tótem de comodidades gratis en una ciudad que aún no tiene uno.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_CULTURE_NAME" Language="es_ES">
+            <Text>[ICON_Buildings] Tótem de cultura</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_CULTURE_DESC" Language="es_ES">
+            <Text>Nivel 5 (especializado) Recompensa de tipo Secretos.[NEWLINE][NEWLINE]Reciba la capacidad de construir [ICON_Buildings] el edificio del tótem de cultura, que proporciona +4 [ICON_Culture] cultura.[NEWLINE][NEWLINE]Si esta habilidad se ha otorgado anteriormente, en su lugar, recibe un [ICON_Buildings] edificio del tótem de cultura gratis en una ciudad que aún no tiene uno.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_FAITH_NAME" Language="es_ES">
+            <Text>[ICON_Buildings] Tótem de fe</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_FAITH_DESC" Language="es_ES">
+            <Text>Nivel 5 (especializado) Recompensa de tipo Secretos.[NEWLINE][NEWLINE]Reciba la capacidad de construir [ICON_Buildings] el edificio del tótem de fe, que proporciona +4 [ICON_Faith] fe.[NEWLINE][NEWLINE]Si esta habilidad se ha otorgado anteriormente, en su lugar, recibe un [ICON_Buildings] edificio del tótem de fe gratis en una ciudad que aún no tiene uno.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_FAVOR_NAME" Language="es_ES">
+            <Text>[ICON_Buildings] Tótem de la diplomacia</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_FAVOR_DESC" Language="es_ES">
+            <Text>Nivel 5 (especializado) Recompensa de tipo Secretos.[NEWLINE][NEWLINE]Reciba la capacidad de construir [ICON_Buildings] el edificio del tótem de la diplomacia, que proporciona +4 [ICON_Favor] favor diplomático.[NEWLINE][NEWLINE]Si esta habilidad se ha otorgado anteriormente, en su lugar, recibe un [ICON_Buildings] edificio del tótem de la diplomacia gratis en una ciudad que aún no tiene uno.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_FOOD_NAME" Language="es_ES">
+            <Text>[ICON_Buildings] Tótem de alimentos</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_FOOD_DESC" Language="es_ES">
+            <Text>Nivel 5 (especializado) Recompensa de tipo Secretos.[NEWLINE][NEWLINE]Reciba la capacidad de construir [ICON_Buildings] el edificio del tótem de alimentos, que proporciona +4 [ICON_Food] alimentos.[NEWLINE][NEWLINE]Si esta habilidad se ha otorgado anteriormente, en su lugar, recibe un [ICON_Buildings] edificio del tótem de alimentos gratis en una ciudad que aún no tiene uno.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_GOLD_NAME" Language="es_ES">
+            <Text>[ICON_Buildings] Tótem de oro</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_GOLD_DESC" Language="es_ES">
+            <Text>Nivel 5 (especializado) Recompensa de tipo Secretos.[NEWLINE][NEWLINE]Reciba la capacidad de construir [ICON_Buildings] el edificio del tótem de oro, que proporciona +8 [ICON_Gold] oro.[NEWLINE][NEWLINE]Si esta habilidad se ha otorgado anteriormente, en su lugar, recibe un [ICON_Buildings] edificio del tótem de oro gratis en una ciudad que aún no tiene uno.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_PRODUCTION_NAME" Language="es_ES">
+            <Text>[ICON_Buildings] Tótem de producción</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_PRODUCTION_DESC" Language="es_ES">
+            <Text>Nivel 5 (especializado) Recompensa de tipo Secretos.[NEWLINE][NEWLINE]Reciba la capacidad de construir [ICON_Buildings] el edificio del tótem de producción, que proporciona +4 [ICON_Production] producción.[NEWLINE][NEWLINE]Si esta habilidad se ha otorgado anteriormente, en su lugar, recibe un [ICON_Buildings] edificio del tótem de producción gratis en una ciudad que aún no tiene uno.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_SCIENCE_NAME" Language="es_ES">
+            <Text>[ICON_Buildings] Tótem de ciencia</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_SCIENCE_DESC" Language="es_ES">
+            <Text>Nivel 5 (especializado) Recompensa de tipo Secretos.[NEWLINE][NEWLINE]Reciba la capacidad de construir [ICON_BUILDING] el edificio del tótem de ciencia, que proporciona +4 [ICON_Science] ciencia.[NEWLINE][NEWLINE]Si esta habilidad se ha otorgado anteriormente, en su lugar, recibe un [ICON_Buildings] edificio del tótem de ciencia gratis en una ciudad que aún no tiene uno.</Text>
+        </Replace>
+        <!-- hostiles type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_LOW_HOSTILITY_VILLAGERS_NAME" Language="es_ES">
+            <Text>[ICON_Barbarian] Aldeanos hostiles (bajo)</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_LOW_HOSTILITY_VILLAGERS_DESC" Language="es_ES">
+            <Text>Recompensa de tipo hostil de nivel 1 (común). [NEWLINE] [NEWLINE] Aparecerá una (1) unidad cuerpo a cuerpo hostil [ICON_Barbarian] cerca. [NEWLINE] [NEWLINE] En su lugar, esta unidad puede montarse si hay [ICON_RESOURCE_HORSES] caballos cerca.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MID_HOSTILITY_VILLAGERS_NAME" Language="es_ES">
+            <Text>[ICON_Barbarian] Aldeanos hostiles (medio)</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MID_HOSTILITY_VILLAGERS_DESC" Language="es_ES">
+            <Text>Recompensa de tipo hostil de nivel 2 (poco común). [NEWLINE] [NEWLINE] Una (1) unidad hostil [ICON_Barbarian] cuerpo a cuerpo y una (1) unidad hostil [ICON_Barbarian] a distancia aparecerán cerca. [NEWLINE] [NEWLINE] Una o más de estas unidades se pueden montar en su lugar si hay [ICON_RESOURCE_HORSES] caballos cerca.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_HIGH_HOSTILITY_VILLAGERS_NAME" Language="es_ES">
+            <Text>[ICON_Barbarian] Aldeanos hostiles (alto)</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_HIGH_HOSTILITY_VILLAGERS_DESC" Language="es_ES">
+            <Text>Recompensa de tipo hostil de nivel 3 (raro). [NEWLINE] [NEWLINE] Dos (2) unidades hostiles [ICON_Barbarian] cuerpo a cuerpo y una (1) hostiles [ICON_Barbarian] a distancia aparecerán cerca. [NEWLINE] [NEWLINE] Una o más de estas unidades se pueden montar en su lugar si hay [ICON_RESOURCE_HORSES] caballos cerca.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MAX_HOSTILITY_VILLAGERS_NAME" Language="es_ES">
+            <Text>[ICON_Barbarian] Aldeanos hostiles (máx.)</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MAX_HOSTILITY_VILLAGERS_DESC" Language="es_ES">
+            <Text>Recompensa de tipo hostil de nivel 4 (legendario). [NEWLINE] [NEWLINE] Una (1) unidad hostil [ICON_Barbarian] cuerpo a cuerpo y una (1) unidad hostil [ICON_Barbarian] a distancia aparecerán cerca. [NEWLINE] [NEWLINE] El los aldeanos también intentarán crear un nuevo puesto de avanzada bárbaro [ICON_Barbarian] cercano; de lo contrario, aparecerán unidades hostiles adicionales. [NEWLINE] [NEWLINE] Cualquier unidad que aparezca puede montarse si hay [ICON_RESOURCE_HORSES] caballos cerca.</Text>
+        </Replace>
+        <!-- culture type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_TWO_CIVICS_NAME" Language="es_ES">
+            <Text>2 [ICON_CivicBoosted] Educación cívica</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_TWO_CIVICS_DESC" Language="es_ES">
+            <Text>Recompensa de tipo cultura (legendaria) de nivel 4. [NEWLINE] [NEWLINE] Recibe dos (2) clases cívicas [ICON_CivicBoosted] gratuitas al azar.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_ONE_CIVIC_NAME" Language="es_ES">
+            <Text>1 [ICON_CivicBoosted] Civic</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_ONE_CIVIC_DESC" Language="es_ES">
+            <Text>Recompensa tipo cultura (rara) de nivel 3. [NEWLINE] [NEWLINE] Recibe un (1) Civic [ICON_CivicBoosted] gratuito aleatorio.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_TWO_CIVIC_BOOSTS_NAME" Language="es_ES">
+            <Text>2 [ICON_CivicBoosted] Mejoras cívicas</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_TWO_CIVIC_BOOSTS_DESC" Language="es_ES">
+            <Text>Recompensa de tipo cultural de nivel 2 (poco común). [NEWLINE] [NEWLINE] Recibe dos (2) mejoras cívicas [ICON_CivicBoosted] gratuitas al azar.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_ONE_CIVIC_BOOST_NAME" Language="es_ES">
+            <Text>1 [ICON_CivicBoosted] impulso cívico</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_ONE_CIVIC_BOOST_DESC" Language="es_ES">
+            <Text>Recompensa de tipo cultural de nivel 1 (común). [NEWLINE] [NEWLINE] Recibe un (1) impulso cívico [ICON_CivicBoosted] gratuito aleatorio.</Text>
+        </Replace>
+        <!-- promotions type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_SMALL_EXPERIENCE_NAME" Language="es_ES">
+            <Text>5 [ICON_Promotion] Combate XP</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SMALL_EXPERIENCE_DESC" Language="es_ES">
+            <Text>Recompensa tipo promoción (común) de nivel 1. [NEWLINE] [NEWLINE] Cualquier unidad que reciba esta recompensa gana cinco (5) puntos de experiencia para su próxima promoción [ICON_Promotion].</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MEDIUM_EXPERIENCE_NAME" Language="es_ES">
+            <Text>10 [ICON_Promotion] Combate XP</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MEDIUM_EXPERIENCE_DESC" Language="es_ES">
+            <Text>Recompensa tipo promoción (poco común) de nivel 2. [NEWLINE] [NEWLINE] Cualquier unidad que reciba esta recompensa gana diez (10) puntos de experiencia para su próxima promoción [ICON_Promotion].</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_LARGE_EXPERIENCE_NAME" Language="es_ES">
+            <Text>15 [ICON_Promotion] Combate XP</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_LARGE_EXPERIENCE_DESC" Language="es_ES">
+            <Text>Recompensa tipo promoción (rara) de nivel 3. [NEWLINE] [NEWLINE] Cualquier unidad que reciba esta recompensa gana quince (15) puntos de experiencia para su próxima promoción [ICON_Promotion].</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_HUGE_EXPERIENCE_NAME" Language="es_ES">
+            <Text>25 [ICON_Promotion] XP de combate</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_HUGE_EXPERIENCE_DESC" Language="es_ES">
+            <Text>Recompensa tipo promoción (legendaria) de nivel 4. [NEWLINE] [NEWLINE] Cualquier unidad que reciba esta recompensa gana veinticinco (25) puntos de experiencia para su próxima promoción [ICON_Promotion].</Text>
+        </Replace>
+        <!-- diplomacy type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_SMALL_FAVOR_NAME" Language="es_ES">
+            <Text>10 [ICON_Favor] Favor</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SMALL_FAVOR_DESC" Language="es_ES">
+            <Text>Recompensa de tipo diplomático (común) de nivel 1. [NEWLINE] [NEWLINE] Recibe diez (10) [ICON_Favor] Favor diplomático.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MEDIUM_FAVOR_NAME" Language="es_ES">
+            <Text>20 [ICON_Favor] Favor</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MEDIUM_FAVOR_DESC" Language="es_ES">
+            <Text>Recompensa de nivel 2 (poco común) tipo diplomacia. [NEWLINE] [NEWLINE] Recibe veinte (20) [ICON_Favor] Favor diplomático.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_LARGE_FAVOR_NAME" Language="es_ES">
+            <Text>30 [ICON_Favor] Favor</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_LARGE_FAVOR_DESC" Language="es_ES">
+            <Text>Recompensa tipo diplomacia (rara) de nivel 3. [NEWLINE] [NEWLINE] Recibe treinta (30) [ICON_Favor] favores diplomáticos.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_HUGE_FAVOR_NAME" Language="es_ES">
+            <Text>50 [ICON_Favor] Favor</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_HUGE_FAVOR_DESC" Language="es_ES">
+            <Text>Recompensa tipo diplomacia (legendaria) de nivel 4. [NEWLINE] [NEWLINE] Recibe cincuenta (50) [ICON_Favor] favores diplomáticos.</Text>
+        </Replace>
+        <!-- resources type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_HUGE_RESOURCES_NAME" Language="es_ES">
+            <Text>50 recursos estratégicos</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_HUGE_RESOURCES_DESC" Language="es_ES">
+            <Text>Recompensa del tipo de recursos (legendarios) de nivel 4. [NEWLINE] [NEWLINE] Recibe cincuenta (50) de los recursos estratégicos más avanzados a los que tienes acceso.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_LARGE_RESOURCES_NAME" Language="es_ES">
+            <Text>30 recursos estratégicos</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_LARGE_RESOURCES_DESC" Language="es_ES">
+            <Text>Recompensa del tipo de recursos (raros) de nivel 3. [NEWLINE] [NEWLINE] Recibe treinta (30) de los recursos estratégicos más avanzados a los que tienes acceso.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MEDIUM_RESOURCES_NAME" Language="es_ES">
+            <Text>20 recursos estratégicos</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MEDIUM_RESOURCES_DESC" Language="es_ES">
+            <Text>Recompensa de tipo Recursos (poco común) de nivel 2. [NEWLINE] [NEWLINE] Recibe veinte (20) de los recursos estratégicos más avanzados a los que tienes acceso.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SMALL_RESOURCES_NAME" Language="es_ES">
+            <Text>10 recursos estratégicos</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SMALL_RESOURCES_DESC" Language="es_ES">
+            <Text>Recompensa del tipo de recursos (comunes) de nivel 1. [NEWLINE] [NEWLINE] Recibe diez (10) de los recursos estratégicos más avanzados a los que tienes acceso.</Text>
+        </Replace>
+        <!-- abilities type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_IMPROVED_SIGHT_NAME" Language="es_ES">
+            <Text>[ICON_Ability] Vista mejorada</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_IMPROVED_SIGHT_DESC" Language="es_ES">
+            <Text>Recompensa por habilidades de nivel 1 (común). [NEWLINE] [NEWLINE] Las unidades descubiertas reciben +1 [ICON_Terrain] de visión.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_IMPROVED_HEALING_NAME" Language="es_ES">
+            <Text>[ICON_Ability] Curación mejorada</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_IMPROVED_HEALING_DESC" Language="es_ES">
+            <Text>Recompensa por habilidades de nivel 2 (poco común). [NEWLINE] [NEWLINE] Las unidades descubiertas reciben +20 [ICON_Damaged] de curación por turno, si corresponde.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_IMPROVED_MOVEMENT_NAME" Language="es_ES">
+            <Text>[ICON_Ability] Movimiento mejorado</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_IMPROVED_MOVEMENT_DESC" Language="es_ES">
+            <Text>Recompensa por habilidades de nivel 3 (raras). [NEWLINE] [NEWLINE] Las unidades de descubrimiento reciben +1 [ICON_Movement] movimiento.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_IMPROVED_STRENGTH_NAME" Language="es_ES">
+            <Text>[ICON_Ability] Fuerza mejorada</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_IMPROVED_STRENGTH_DESC" Language="es_ES">
+            <Text>Recompensa por habilidades de nivel 4 (legendarias). [NEWLINE] [NEWLINE] Las unidades descubiertas reciben +10 [ICON_Strength] de fuerza de combate en todas las situaciones, si corresponde.</Text>
+        </Replace>
+        <!-- faith type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_ONE_RELIC_NAME" Language="es_ES">
+            <Text>1 [ICON_GreatWork_Relic] reliquia</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_ONE_RELIC_DESC" Language="es_ES">
+            <Text>Recompensa de tipo Fe (legendario) de nivel 4. [NEWLINE] [NEWLINE] Recibe una (1) reliquia [ICON_GreatWork_Relic] gratuita aleatoria.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_LARGE_SUM_NAME" Language="es_ES">
+            <Text>100 [ICON_Faith] Fe</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_LARGE_SUM_DESC" Language="es_ES">
+            <Text>Recompensa de tipo Fe (rara) de nivel 3. [NEWLINE] [NEWLINE] Recibe cien (100) [ICON_Faith] Fe.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_MEDIUM_SUM_NAME" Language="es_ES">
+            <Text>60 [ICON_Faith] Fe</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_MEDIUM_SUM_DESC" Language="es_ES">
+            <Text>Nivel 2 (poco común) Recompensa de tipo de fe. [NEWLINE] [NEWLINE] Recibe sesenta (60) [ICON_Faith] de fe.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_SMALL_SUM_NAME" Language="es_ES">
+            <Text>20 [ICON_Faith] Fe</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_SMALL_SUM_DESC" Language="es_ES">
+            <Text>Recompensa de tipo Fe de nivel 1 (común). [NEWLINE] [NEWLINE] Recibe veinte (20) [ICON_Faith] Fe.</Text>
+        </Replace>
+        <!-- gold type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_ADD_TRADE_ROUTE_NAME" Language="es_ES">
+            <Text>1 [ICON_TradeRoute] Ruta comercial</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_ADD_TRADE_ROUTE_DESC" Language="es_ES">
+            <Text>Recompensa de nivel 4 (legendario) tipo oro. [NEWLINE] [NEWLINE] Recibe una (1) capacidad adicional gratuita de [ICON_TradeRoute] Ruta comercial.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_LARGE_SUM_NAME" Language="es_ES">
+            <Text>120 [ICON_Gold] de oro</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_LARGE_SUM_DESC" Language="es_ES">
+            <Text>Recompensa de nivel 3 (rara) de oro. [NEWLINE] [NEWLINE] Recibe ciento veinte (120) [ICON_Gold] de oro.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_MEDIUM_SUM_NAME" Language="es_ES">
+            <Text>80 [ICON_Gold] de oro</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_MEDIUM_SUM_DESC" Language="es_ES">
+            <Text>Recompensa de nivel 2 (poco común) de oro. [NEWLINE] [NEWLINE] Recibe ochenta (80) [ICON_Gold] de oro.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_SMALL_SUM_NAME" Language="es_ES">
+            <Text>40 [ICON_Gold] de oro</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_SMALL_SUM_DESC" Language="es_ES">
+            <Text>Recompensa de nivel 1 (común) de tipo oro. [NEWLINE] [NEWLINE] Recibe cuarenta (40) [ICON_Gold] de oro.</Text>
+        </Replace>
+        <!-- support military type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_BATTERING_RAM_NAME" Language="es_ES">
+            <Text>1 [ICON_Unit] Unidad de asistencia</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_BATTERING_RAM_DESC" Language="es_ES">
+            <Text>Recompensa de tipo militar (legendario) de nivel 4. [NEWLINE] [NEWLINE] Recibe una (1) unidad de apoyo [ICON_Unit] gratuita apropiada para la Era en una parcela cercana.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_CATAPULT_NAME" Language="es_ES">
+            <Text>1 [ICON_Unit] unidad de asedio</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_CATAPULT_DESC" Language="es_ES">
+            <Text>Recompensa de tipo militar de nivel 4 (legendario). [NEWLINE] [NEWLINE] Recibe una (1) unidad de asedio [ICON_Unit] gratuita apropiada para la Era en una parcela cercana.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_UPGRADE_NAME" Language="es_ES">
+            <Text>Actualización / promoción de la unidad</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_UPGRADE_DESC" Language="es_ES">
+            <Text>Recompensa tipo promoción (legendaria) de nivel 4. [NEWLINE] [NEWLINE] Cualquier unidad que reciba esta recompensa se actualizará a la siguiente unidad en su clase de promoción [COLOR_GREEN] SI [ENDCOLOR] tiene una ruta de actualización válida [COLOR_GREEN] Y [ENDCOLOR] aún no ha obtenido ninguna promoción. Cualquier unidad mejorada conservará las habilidades que haya obtenido anteriormente. [NEWLINE] [NEWLINE] Cualquier unidad que reciba esta recompensa recibirá suficiente experiencia para obtener su próxima promoción [COLOR_GREEN] SI [ENDCOLOR] tiene una clase de promoción válida. [NEWLINE ] [NEWLINE] Las unidades no válidas se omitirán sin ningún efecto perceptible.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_MILITARY_ENGINEER_NAME" Language="es_ES">
+            <Text>1 [ICON_Unit] Ingeniero militar</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_MILITARY_ENGINEER_DESC" Language="es_ES">
+            <Text>Recompensa de tipo militar (mítica) de nivel 5. [NEWLINE] [NEWLINE] Recibe un (1) ingeniero militar de [ICON_Unit] gratis en una parcela cercana.</Text>
+        </Replace>
+        <!-- cavalry military type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_HEAVY_CHARIOT_NAME" Language="es_ES">
+            <Text>1 [ICON_Unit] unidad de caballería pesada</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_HEAVY_CHARIOT_DESC" Language="es_ES">
+            <Text>Recompensa de tipo militar de nivel 3 (raro). [NEWLINE] [NEWLINE] Recibe una (1) unidad de caballería pesada [ICON_Unit] apropiada para la Era gratuita en una parcela cercana.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_HORSEMAN_NAME" Language="es_ES">
+            <Text>1 [ICON_Unit] unidad de caballería ligera</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_HORSEMAN_DESC" Language="es_ES">
+            <Text>Recompensa de tipo militar de nivel 3 (raro). [NEWLINE] [NEWLINE] Recibe una (1) unidad de caballería ligera [ICON_Unit] gratuita apropiada para la Era en una parcela cercana.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SPEARMAN_NAME" Language="es_ES">
+            <Text>1 [ICON_Unit] unidad anticaballería</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SPEARMAN_DESC" Language="es_ES">
+            <Text>Recompensa de tipo militar (rara) de nivel 3. [NEWLINE] [NEWLINE] Recibe una (1) unidad anticaballería [ICON_Unit] apropiada para la Era gratuita en una parcela cercana.</Text>
+        </Replace>
+        <!-- military type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SLINGER_NAME" Language="es_ES">
+            <Text>1 [ICON_Unit] Unidad a distancia</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SLINGER_DESC" Language="es_ES">
+            <Text>Recompensa de tipo militar de nivel 2 (poco común). [NEWLINE] [NEWLINE] Recibe una (1) unidad a distancia [ICON_Unit] apropiada para la Era gratuita en una parcela cercana.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_WARRIOR_NAME" Language="es_ES">
+            <Text>1 [ICON_Unit] unidad cuerpo a cuerpo</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_WARRIOR_DESC" Language="es_ES">
+            <Text>Recompensa de tipo militar de nivel 2 (poco común). [NEWLINE] [NEWLINE] Recibe una (1) unidad cuerpo a cuerpo gratuita [ICON_Unit] apropiada para la Era en una parcela cercana.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SCOUT_NAME" Language="es_ES">
+            <Text>1 unidad de reconocimiento [ICON_Unit]</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SCOUT_DESC" Language="es_ES">
+            <Text>Recompensa de tipo militar de nivel 1 (común). [NEWLINE] [NEWLINE] Recibe una (1) unidad de reconocimiento [ICON_Unit] gratuita apropiada para la Era en una parcela cercana.</Text>
+        </Replace>
+        <!-- science type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_TWO_TECHS_NAME" Language="es_ES">
+            <Text>2 [ICON_TechBoosted] Técnicos</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_TWO_TECHS_DESC" Language="es_ES">
+            <Text>Recompensa tipo ciencia (legendaria) de nivel 4. [NEWLINE] [NEWLINE] Recibe dos (2) tecnologías [ICON_TechBoosted] gratuitas al azar.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_ONE_TECH_NAME" Language="es_ES">
+            <Text>1 [ICON_TechBoosted] Tecnología</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_ONE_TECH_DESC" Language="es_ES">
+            <Text>Recompensa tipo ciencia (rara) de nivel 3. [NEWLINE] [NEWLINE] Recibe una (1) tecnología [ICON_TechBoosted] gratuita aleatoria.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_TWO_TECH_BOOSTS_NAME" Language="es_ES">
+            <Text>2 [ICON_TechBoosted] Mejoras tecnológicas</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_TWO_TECH_BOOSTS_DESC" Language="es_ES">
+            <Text>Recompensa de tipo científico (poco común) de nivel 2. [NEWLINE] [NEWLINE] Recibe dos (2) mejoras tecnológicas [ICON_TechBoosted] gratuitas al azar.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_ONE_TECH_BOOST_NAME" Language="es_ES">
+            <Text>1 [ICON_TechBoosted] Impulso tecnológico</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_ONE_TECH_BOOST_DESC" Language="es_ES">
+            <Text>Recompensa de tipo científico de nivel 1 (común). [NEWLINE] [NEWLINE] Recibe una (1) mejora de tecnología [ICON_TechBoosted] gratuita aleatoria.</Text>
+        </Replace>
+        <!-- survivors type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_GRANT_SETTLER_NAME" Language="es_ES">
+            <Text>1 [ICON_Unit] colono</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_GRANT_SETTLER_DESC" Language="es_ES">
+            <Text>Recompensa tipo superviviente de nivel 4 (legendario). [NEWLINE] [NEWLINE] Recibe un (1) [ICON_Unit] colono gratis en una parcela cercana.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_GRANT_TRADER_NAME" Language="es_ES">
+            <Text>1 [ICON_Unit] comerciante</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_GRANT_TRADER_DESC" Language="es_ES">
+            <Text>Recompensa tipo superviviente (rara) de nivel 3. [NEWLINE] [NEWLINE] Recibe un (1) [ICON_Unit] comerciante gratis en una parcela cercana.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_GRANT_BUILDER_NAME" Language="es_ES">
+            <Text>1 [ICON_Unit] constructor</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_GRANT_BUILDER_DESC" Language="es_ES">
+            <Text>Recompensa tipo superviviente de nivel 2 (poco común). [NEWLINE] [NEWLINE] Recibe un (1) [ICON_Unit] constructor gratis en una parcela cercana.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_ADD_POP_NAME" Language="es_ES">
+            <Text>1 [ICON_Citizen] población</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_ADD_POP_DESC" Language="es_ES">
+            <Text>Recompensa tipo superviviente de nivel 1 (común). [NEWLINE] [NEWLINE] Recibe una (1) [ICON_Citizen] población adicional gratuita en la ciudad más cercana.</Text>
+        </Replace>
+        <!-- governors type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_FOUR_GOVERNOR_TITLES_NAME" Language="es_ES">
+            <Text>4 [ICON_Government] Títulos de gobernador</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FOUR_GOVERNOR_TITLES_DESC" Language="es_ES">
+            <Text>Recompensa tipo gobernador (legendario) de nivel 4. [NEWLINE] [NEWLINE] Recibe cuatro (4) [ICON_Government] títulos de gobernador gratuitos.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_THREE_GOVERNOR_TITLES_NAME" Language="es_ES">
+            <Text>3 [ICON_Government] Títulos de gobernador</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_THREE_GOVERNOR_TITLES_DESC" Language="es_ES">
+            <Text>Recompensa de nivel 3 (rara) tipo gobernador. [NEWLINE] [NEWLINE] Recibe tres (3) [ICON_Government] títulos de gobernador gratuitos.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_TWO_GOVERNOR_TITLES_NAME" Language="es_ES">
+            <Text>2 [ICON_Government] Títulos de gobernador</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_TWO_GOVERNOR_TITLES_DESC" Language="es_ES">
+            <Text>Recompensa de nivel 2 (poco común) tipo gobernador. [NEWLINE] [NEWLINE] Recibe dos (2) [ICON_Government] títulos de gobernador gratuitos.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_ONE_GOVERNOR_TITLE_NAME" Language="es_ES">
+            <Text>1 [ICON_Government] Título de gobernador</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_ONE_GOVERNOR_TITLE_DESC" Language="es_ES">
+            <Text>Recompensa de nivel 1 (común) tipo gobernador. [NEWLINE] [NEWLINE] Recibe un (1) [ICON_Government] título de gobernador gratis.</Text>
+        </Replace>
+        <!-- envoys type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_FOUR_ENVOYS_NAME" Language="es_ES">
+            <Text>4 [ICON_Envoy] enviados</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FOUR_ENVOYS_DESC" Language="es_ES">
+            <Text>Recompensa de nivel 4 (legendario) tipo enviado. [NEWLINE] [NEWLINE] Recibe cuatro (4) [ICON_Envoy] enviados gratis.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_THREE_ENVOYS_NAME" Language="es_ES">
+            <Text>3 [ICON_Envoy] enviados</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_THREE_ENVOYS_DESC" Language="es_ES">
+            <Text>Recompensa tipo Envoys (raro) de nivel 3. [NEWLINE] [NEWLINE] Recibe tres (3) [ICON_Envoy] enviados gratis.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_TWO_ENVOYS_NAME" Language="es_ES">
+            <Text>2 [ICON_Envoy] enviados</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_TWO_ENVOYS_DESC" Language="es_ES">
+            <Text>Recompensa de tipo enviado de nivel 2 (poco común). [NEWLINE] [NEWLINE] Recibe dos (2) [ICON_Envoy] enviados gratis.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_ONE_ENVOY_NAME" Language="es_ES">
+            <Text>1 [ICON_Envoy] enviado</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_ONE_ENVOY_DESC" Language="es_ES">
+            <Text>Recompensa tipo Envoys de nivel 1 (común). [NEWLINE] [NEWLINE] Recibe un (1) [ICON_Envoy] enviado gratis.</Text>
+        </Replace>
+        <!-- meteor strike type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_METEOR_GRANT_GOODIES_NAME" Language="es_ES">
+            <Text>[ICON_Razed] Golpe de meteorito</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_METEOR_GRANT_GOODIES_DESC" Language="es_ES">
+            <Text>Recibe una unidad avanzada producida a partir de materiales rescatados de un sitio de impacto de meteorito saqueado [ICON_Razed]. [NEWLINE] [NEWLINE] Esta recompensa solo se puede obtener mediante una mejora de impacto de meteorito; no se puede ganar con una mejora de choza. [NEWLINE] [NEWLINE] Cuando las recompensas de bonificación están habilitadas, esta recompensa [COLOR_RED] NO [ENDCOLOR] será una recompensa de bonificación válida. [NEWLINE] [NEWLINE] Cuando los aldeanos hostiles después de la recompensa son habilitado, los aldeanos hostiles aparecerán [COLOR_RED] NO [ENDCOLOR] después de esta recompensa.</Text>
+        </Replace>
+        <!-- new no barbarians parameter text -->
+        <Replace Tag="LOC_GAME_NO_BARBARIANS_DESCRIPTION" Language="es_ES">
+            <Text>Habilitar esta opción elimina a los bárbaros; por extensión, también anula cualquier opción de "Aldeanos hostiles" y elimina por completo a los aldeanos hostiles.</Text>
+        </Replace>
+        <!-- new no tribal villages parameter text -->
+        <Replace Tag="LOC_GAME_NO_GOODY_HUTS_DESCRIPTION" Language="es_ES">
+            <Text>Habilitar esta opción elimina las aldeas tribales; por extensión, también anula el selector de Goody Hut y cualquier otra opción relacionada con la recompensa.</Text>
+        </Replace>
+        <!-- equalize goody hut rewards parameter text -->
+        <Replace Tag="LOC_GAME_EQUALIZE_GOODY_HUTS_NAME" Language="es_ES">
+            <Text>Igualar las recompensas de las aldeas tribales</Text>
+        </Replace>
+        <Replace Tag="LOC_GAME_EQUALIZE_GOODY_HUTS_DESC" Language="es_ES">
+            <Text>Al habilitar esta opción, la mayoría de las recompensas de Goody Hut disponibles tienen aproximadamente la misma probabilidad de aparecer. Se ignorará si la opción "No pueblos tribales" está habilitada.</Text>
+        </Replace>
+    </LocalizedText>
+</GameData>

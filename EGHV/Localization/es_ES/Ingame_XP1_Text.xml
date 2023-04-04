@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--==========================================================================
+	EGHV : Enhanced Goodies and Hostile Villagers for Civilization VI
+	Copyright (C) 2020-2023 zzragnar0kzz
+	All rights reserved
+===========================================================================-->
+<!-- localized in-game text for es_ES -->
+<GameData>
+	<LocalizedText>
+		<!-- new goody hut reward descriptions : governors-type -->
+		<Replace Tag="LOC_GOODYHUT_GOVERNORS_ONE_TITLE_DESCRIPTION" Language="es_ES">
+			<Text>[COLOR_FLOAT_DIPLOMATIC] Un cargo de gobernador de [ICON_Government] [ENDCOLOR]</Text>
+		</Replace>
+		<Replace Tag="LOC_GOODYHUT_GOVERNORS_TWO_TITLES_DESCRIPTION" Language="es_ES">
+			<Text>[COLOR_FLOAT_DIPLOMATIC] Dos títulos de gobernador de [ICON_Government] [ENDCOLOR]</Text>
+		</Replace>
+		<Replace Tag="LOC_GOODYHUT_GOVERNORS_THREE_TITLES_DESCRIPTION" Language="es_ES">
+			<Text>[COLOR_FLOAT_DIPLOMATIC] Tres títulos de gobernador de [ICON_Government] [ENDCOLOR]</Text>
+		</Replace>
+		<Replace Tag="LOC_GOODYHUT_GOVERNORS_FOUR_TITLES_DESCRIPTION" Language="es_ES">
+			<Text>[COLOR_FLOAT_DIPLOMATIC] Cuatro títulos de gobernador de [ICON_Government] [ENDCOLOR]</Text>
+		</Replace>
+	</LocalizedText>
+</GameData>
