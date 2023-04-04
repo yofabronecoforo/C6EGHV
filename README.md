@@ -288,7 +288,7 @@ This community project is explicitly recognized by EGHV.
 
 # Installation
 ## Automatic
-EGHV is [Steam Workshop item 2474051781](https://steamcommunity.com/sharedfiles/filedetails/?id=2474051781). Subscribe to automatically download and install the latest release, and to automatically receive any updates as they are published to the Workshop.
+[Subscribe to EGHV in the Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=2474051781) to automatically download and install the latest published release, and to automatically receive any updates as they are published to the Workshop.
 
 ## Manual
 Download the [latest release](https://github.com/zzragnar0kzz/C6EGHV/releases/latest) and extract it into the game's local mods folder. Alternately, clone the repository into the game's local mods folder using your preferred tools. The local mods folder varies:
@@ -306,10 +306,12 @@ If your mod alters any _existing_ Goody Hut (sub)types, unless it is also using 
 ### Database
 EGHV adds the following custom tables to the game's Configuration SQLite database:
 - ContentFlags
+- TribalVillages
+
+EGHV adds the following custom tables to the game's Gameplay SQLite database:
 - GoodyHutsByHash
 - GoodyHutSubTypesByHash
 - HostileUnits
-- TribalVillages
 - UnitRewards
 
 If your mod uses any similarly-named tables, conflicts __WILL__ arise.
