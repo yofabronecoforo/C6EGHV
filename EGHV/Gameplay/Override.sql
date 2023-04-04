@@ -1,6 +1,6 @@
 /* ###########################################################################
     EGHV : Enhanced Goodies and Hostile Villagers for Civilization VI
-    Copyright (c) 2020-2021 zzragnar0kzz
+    Copyright (c) 2020-2023 zzragnar0kzz
     All rights reserved.
 ########################################################################### */
 
@@ -64,14 +64,6 @@
         GOODYHUT_GOVERNOR_TITLE
         GOODYHUT_GRANT_EXPERIENCE
         GOODYHUT_RESOURCES
-
-    deprecated subtypes; these are provided here for troubleshooting and debugging
-        GOODYHUT_SMALL_CHANGE_CULTURE           GOODYHUT_SMALL_MODIFIER_CULTURE
-        GOODYHUT_SMALL_CHANGE_FAITH             GOODYHUT_SMALL_MODIFIER_FAITH
-        GOODYHUT_SMALL_CHANGE_GOLD              GOODYHUT_SMALL_MODIFIER_GOLD
-        GOODYHUT_SMALL_CHANGE_PRODUCTION        GOODYHUT_SMALL_MODIFIER_PRODUCTION
-        GOODYHUT_SMALL_CHANGE_SCIENCE           GOODYHUT_SMALL_MODIFIER_SCIENCE
-        GOODYHUT_SMALL_CHANGE_FOOD              GOODYHUT_SMALL_MODIFIER_FOOD
 ########################################################################### */
 
 -- UPDATE GoodyHutSubTypes SET Weight = 0;
