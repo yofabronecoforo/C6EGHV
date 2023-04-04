@@ -1155,6 +1155,36 @@
 			<File>EGHV/Gameplay/ExcludeGoodyHut/Gold/Small_Gold.sql</File>
 		</UpdateDatabase>
 		<!-- military -->
+		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_GRANT_BATTERING_RAM" criteria="EGHV_Exclude_GoodyHut_Grant_Battering_Ram">
+			<Properties>
+        		<LoadOrder>1010171</LoadOrder>
+      		</Properties>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Military/Grant_Battering_Ram.sql</File>
+		</UpdateDatabase>
+		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_GRANT_CATAPULT" criteria="EGHV_Exclude_GoodyHut_Grant_Catapult">
+			<Properties>
+        		<LoadOrder>1010171</LoadOrder>
+      		</Properties>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Military/Grant_Catapult.sql</File>
+		</UpdateDatabase>
+		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_GRANT_HEAVY_CHARIOT" criteria="EGHV_Exclude_GoodyHut_Grant_Heavy_Chariot">
+			<Properties>
+        		<LoadOrder>1010171</LoadOrder>
+      		</Properties>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Military/Grant_Heavy_Chariot.sql</File>
+		</UpdateDatabase>
+		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_GRANT_HORSEMAN" criteria="EGHV_Exclude_GoodyHut_Grant_Horseman">
+			<Properties>
+        		<LoadOrder>1010171</LoadOrder>
+      		</Properties>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Military/Grant_Horseman.sql</File>
+		</UpdateDatabase>
+		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_GRANT_MILITARY_ENGINEER" criteria="EGHV_Exclude_GoodyHut_Grant_Military_Engineer">
+			<Properties>
+        		<LoadOrder>1010171</LoadOrder>
+      		</Properties>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Military/Grant_Military_Engineer.sql</File>
+		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_GRANT_SCOUT" criteria="EGHV_Exclude_GoodyHut_Grant_Scout">
 			<Properties>
         		<LoadOrder>1010171</LoadOrder>
@@ -1166,6 +1196,12 @@
         		<LoadOrder>1010171</LoadOrder>
       		</Properties>
 			<File>EGHV/Gameplay/ExcludeGoodyHut/Military/Grant_Slinger.sql</File>
+		</UpdateDatabase>
+		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_GRANT_SPEARMAN" criteria="EGHV_Exclude_GoodyHut_Grant_Spearman">
+			<Properties>
+        		<LoadOrder>1010171</LoadOrder>
+      		</Properties>
+			<File>EGHV/Gameplay/ExcludeGoodyHut/Military/Grant_Spearman.sql</File>
 		</UpdateDatabase>
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_GRANT_WARRIOR" criteria="EGHV_Exclude_GoodyHut_Grant_Warrior">
 			<Properties>
@@ -1247,25 +1283,6 @@
         		<LoadOrder>1010171</LoadOrder>
       		</Properties>
 			<File>EGHV/Gameplay/ExcludeGoodyHut/Abilities/Improved_Strength.sql</File>
-		</UpdateDatabase>
-		<!-- (anti) cavalry -->
-		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_GRANT_SPEARMAN" criteria="EGHV_Exclude_GoodyHut_Grant_Spearman">
-			<Properties>
-        		<LoadOrder>1010171</LoadOrder>
-      		</Properties>
-			<File>EGHV/Gameplay/ExcludeGoodyHut/Cavalry/Grant_Spearman.sql</File>
-		</UpdateDatabase>
-		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_GRANT_HEAVY_CHARIOT" criteria="EGHV_Exclude_GoodyHut_Grant_Heavy_Chariot">
-			<Properties>
-        		<LoadOrder>1010171</LoadOrder>
-      		</Properties>
-			<File>EGHV/Gameplay/ExcludeGoodyHut/Cavalry/Grant_Heavy_Chariot.sql</File>
-		</UpdateDatabase>
-		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_GRANT_HORSEMAN" criteria="EGHV_Exclude_GoodyHut_Grant_Horseman">
-			<Properties>
-        		<LoadOrder>1010171</LoadOrder>
-      		</Properties>
-			<File>EGHV/Gameplay/ExcludeGoodyHut/Cavalry/Grant_Horseman.sql</File>
 		</UpdateDatabase>
 		<!-- envoys -->
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_ONE_ENVOY" criteria="EGHV_Exclude_GoodyHut_One_Envoy">
@@ -1396,25 +1413,6 @@
         		<LoadOrder>1010171</LoadOrder>
       		</Properties>
 			<File>EGHV/Gameplay/ExcludeGoodyHut/Secrets/Villager_Secrets_Science.sql</File>
-		</UpdateDatabase>
-		<!-- units -->
-		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_GRANT_BATTERING_RAM" criteria="EGHV_Exclude_GoodyHut_Grant_Battering_Ram">
-			<Properties>
-        		<LoadOrder>1010171</LoadOrder>
-      		</Properties>
-			<File>EGHV/Gameplay/ExcludeGoodyHut/Support/Grant_Battering_Ram.sql</File>
-		</UpdateDatabase>
-		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_GRANT_CATAPULT" criteria="EGHV_Exclude_GoodyHut_Grant_Catapult">
-			<Properties>
-        		<LoadOrder>1010171</LoadOrder>
-      		</Properties>
-			<File>EGHV/Gameplay/ExcludeGoodyHut/Support/Grant_Catapult.sql</File>
-		</UpdateDatabase>
-		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_GRANT_MILITARY_ENGINEER" criteria="EGHV_Exclude_GoodyHut_Grant_Military_Engineer">
-			<Properties>
-        		<LoadOrder>1010171</LoadOrder>
-      		</Properties>
-			<File>EGHV/Gameplay/ExcludeGoodyHut/Support/Grant_Military_Engineer.sql</File>
 		</UpdateDatabase>
 		<!-- governors - requires XP1 or later -->
 		<UpdateDatabase id="EGHV_INGAME_EXCLUDE_GOODYHUT_ONE_GOVERNOR_TITLE" criteria="EGHV_Exclude_GoodyHut_One_Governor_Title">
@@ -1827,8 +1825,14 @@
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Gold/Large_Gold.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Gold/Medium_Gold.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Gold/Small_Gold.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Military/Grant_Battering_Ram.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Military/Grant_Catapult.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Military/Grant_Heavy_Chariot.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Military/Grant_Horseman.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Military/Grant_Military_Engineer.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Military/Grant_Scout.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Military/Grant_Slinger.sql</File>
+		<File>EGHV/Gameplay/ExcludeGoodyHut/Military/Grant_Spearman.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Military/Grant_Warrior.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Science/One_Tech_Boost.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Science/One_Tech.sql</File>
@@ -1842,9 +1846,6 @@
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Abilities/Improved_Healing.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Abilities/Improved_Movement.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Abilities/Improved_Strength.sql</File>
-		<File>EGHV/Gameplay/ExcludeGoodyHut/Cavalry/Grant_Spearman.sql</File>
-		<File>EGHV/Gameplay/ExcludeGoodyHut/Cavalry/Grant_Heavy_Chariot.sql</File>
-		<File>EGHV/Gameplay/ExcludeGoodyHut/Cavalry/Grant_Horseman.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Envoys/One_Envoy.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Envoys/Two_Envoys.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Envoys/Three_Envoys.sql</File>
@@ -1867,9 +1868,6 @@
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Secrets/Villager_Secrets_Gold.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Secrets/Villager_Secrets_Production.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Secrets/Villager_Secrets_Science.sql</File>
-		<File>EGHV/Gameplay/ExcludeGoodyHut/Support/Grant_Battering_Ram.sql</File>
-		<File>EGHV/Gameplay/ExcludeGoodyHut/Support/Grant_Catapult.sql</File>
-		<File>EGHV/Gameplay/ExcludeGoodyHut/Support/Grant_Military_Engineer.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Governors/One_Governor_Title.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Governors/Two_Governor_Titles.sql</File>
 		<File>EGHV/Gameplay/ExcludeGoodyHut/Governors/Three_Governor_Titles.sql</File>
