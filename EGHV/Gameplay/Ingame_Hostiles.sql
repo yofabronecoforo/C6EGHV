@@ -42,11 +42,17 @@ REPLACE INTO HostileUnits SELECT * FROM UnitRewards;
 -- adjust HostileUnits "rewards" for specific game Eras here
 UPDATE HostileUnits SET HeavyCavalry = 'UNIT_BARBARIAN_HORSEMAN', LightCavalry = 'UNIT_BARBARIAN_HORSE_ARCHER' WHERE Era = 0;
 
--- populate GoodyHutsByHash with all available Types; hash values for each type will be automatically calculated as they are added
+-- populate GoodyHutsByHash with all available Types; Hash values for each Type will be automatically calculated as they are added
 INSERT INTO GoodyHutsByHash (GoodyHutType) SELECT GoodyHutType FROM GoodyHuts;
 
--- populate GoodyHutSubTypesByHash with all available SubTypes; hash values for each subtype will be automatically calculated as they are added
+-- update GoodyHuts with the Hash values calculated above; this is stupid, but to my knowledge, required to reference Type to Hash and vice versa
+UPDATE GoodyHuts SET Hash = (SELECT Hash FROM GoodyHutsByHash WHERE GoodyHutsByHash.GoodyHutType = GoodyHuts.GoodyHutType);
+
+-- populate GoodyHutSubTypesByHash with all available SubTypes; Hash values for each SubType will be automatically calculated as they are added
 INSERT INTO GoodyHutSubTypesByHash (SubTypeGoodyHut) SELECT SubTypeGoodyHut FROM GoodyHutSubTypes;
+
+-- update GoodyHutSubTypes with the Hash values calculated above; this is stupid, but to my knowledge, required to reference SubType to Hash and vice versa
+UPDATE GoodyHutSubTypes SET Hash = (SELECT Hash FROM GoodyHutSubTypesByHash WHERE GoodyHutSubTypesByHash.SubTypeGoodyHut = GoodyHutSubTypes.SubTypeGoodyHut);
 
 /* ###########################################################################
     End EGHV ingame configuration

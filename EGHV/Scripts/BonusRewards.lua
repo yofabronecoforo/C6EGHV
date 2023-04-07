@@ -138,6 +138,8 @@ function GUE.GetNewRewards( iNumRewards, iPlayerID, iUnitID, iX, iY, sRewardSubt
 				-- use this reward's row in the ingame DB table to initialize the hostile modifer and reward modifier values
 				local t = GameInfo.GoodyHutSubTypes[sSubtype];
 				local iHostileModifier, sModifier = t.HostileModifier, t.ModifierID;
+				local iTypeHash, iSubTypeHash = GameInfo.GoodyHuts[sType].Hash, GameInfo.GoodyHutSubTypes[sSubtype].Hash;
+				local iXP, sAbility = GUE.UnitXPRewards[sSubtype] and GUE.UnitXPRewards[sSubtype] or nil, GUE.UnitAbilityRewards[sSubtype] and GUE.UnitAbilityRewards[sSubtype] or nil;
 				-- the cumulative hostile modifier value of all received bonus reward(s)
 				iSumModifiers = iSumModifiers + iHostileModifier;
 				-- panel notification title and text
@@ -153,56 +155,71 @@ function GUE.GetNewRewards( iNumRewards, iPlayerID, iUnitID, iX, iY, sRewardSubt
 					Dprint(string.format("Found bonus reward %d of %d in %d roll(s); cumulative bonus hostile modifier: %d", n, iNumRewards, iNumRolls, iSumModifiers));
 					print(string.format("The villagers also provide an additional %s %s reward of %s", sTier, sType, sSubtype));
 				end
+				-- 
+				GUE.GrantReward[iSubTypeHash](iPlayerID, iUnitID, iTypeHash, iSubTypeHash, sSubtype, iX, iY, iTurn, iEra, tUnits, iXP, sAbility, sModifier, false);
+				-- send an ingame notification for each received bonus reward and display popup text if the player is human
+				if Players[iPlayerID]:IsHuman() then 
+					NotificationManager.SendNotification(iPlayerID, GUE.Notification.Reward.TypeHash, sRewardTitle, sRewardMessage, aX, aY);
+					Game.AddWorldViewText(iPlayerID, Locale.Lookup(t.Description), iX, iY, 0);
+				end
 				-- true when the rolled reward is a hostile villagers "reward"; create hostiles and abort
 				if GUE.HostileVillagers[sSubtype] then 
 					bBonusHostiles = true;
-					GUE.CreateHostileVillagers(iX, iY, iPlayerID, iTurn, iEra, sSubtype);
 					print("Hostile villagers received as 'reward'; ignoring any further potential reward(s) from this Goody Hut");
 					return iSumModifiers, bBonusHostiles, sSubtype, sTier;
-				-- true when the rolled reward is a villager secrets reward
-				elseif (sSubtype == GUE.VillagerSecrets) or (GUE.VillagerSecretsRewards[sSubtype] ~= nil) then 
-					-- true when this Player has received this reward fewer than the defined maximum amount of time(s)
-					if (Players[iPlayerID]:GetProperty("VillagerSecretsLevel") < GUE.MaxSecretsLevel) then
-						GUE.UnlockVillagerSecrets(iPlayerID, iTurn, iEra, sSubtype);
-					-- do nothing when false ** 2023/04/02 this may not ever fire any more **
-					else
-						Dprint("VillagerSecretsLevel >= MaxSecretsLevel for Player " .. iPlayerID);
-					end
-				-- true when the rolled reward is a free unit
-				elseif (GUE.GrantUnitRewards[sSubtype] ~= nil) then GUE.AddUnitToMap(iX, iY, iPlayerID, iTurn, iEra, sSubtype);
-				-- true when the rolled reward is a unit ability reward
-				elseif (GUE.UnitAbilityRewards[sSubtype] ~= nil) then GUE.AddAbilityToUnit(iX, iY, tUnits, GUE.UnitAbilityRewards[sSubtype]);
-				-- true when the rolled reward is a unit experience reward
-				elseif (GUE.UnitXPRewards[sSubtype] ~= nil) then GUE.AddXPToUnit(iX, iY, tUnits, GUE.UnitXPRewards[sSubtype]);
-				-- true when the rolled reward is the 'upgrade unit' reward
-				elseif (sSubtype == "GOODYHUT_GRANT_UPGRADE") then tUnits = GUE.UpgradeUnit(iPlayerID, iX, iY, tUnits);
-				-- true when the rolled reward is of Wondrous-type
-				elseif (GUE.WGH_Rewards[sSubtype] ~= nil) then
-					-- true when the primary reward was earned via border expansion ** 2023/04/02 this check should be handled in RollReward(), so this shouldn't ever fire **
-					-- if (iPlayerID == -1) or (iUnitID == -1) then
-					-- 	Dprint("Wondrous-type Bonus reward(s) are invalid Border Expansion rewards; skipping this bonus reward");
-						-- bIsValidRoll = false;
-					-- true when the primary reward was earned via unit exploration
-					-- else
-						-- the Type and SubType hash values for this reward
-						local iTypeHash, iSubTypeHash = GUE.WGH_Rewards[sSubtype].TypeHash, GUE.WGH_Rewards[sSubtype].SubTypeHash;
-						-- WGH setup parameters; these enable a Wondrous-type reward as a bonus reward
-						local pPlayer = Players[iPlayerID];
-						local pPlayerUnits = pPlayer:GetUnits();
-						local pThisUnit = pPlayerUnits:FindID(iUnitID);
-						local pThisUnitAbility = pThisUnit:GetAbility();
-						-- apply this ability to trigger a Wondrous-type bonus reward
-						pThisUnitAbility:ChangeAbilityCount(GUE.WGH_Rewards[sSubtype].AbilityType, 1);
-						-- debugging output
-						Dprint(string.format("Wondrous-type Bonus reward %s identified; application will be handled by WGH", sSubtype));
-						-- call WGH to handle this bonus reward; as far as it's concerned, this is the primary reward from a popped goody hut
-						WGH.Sailor_WGH(iPlayerID, iUnitID, iTypeHash, iSubTypeHash);
-					-- end
-				-- true for any other rolled reward; attach its modifier to (re) apply the reward
-				else GUE.AddModifierToPlayer(iPlayerID, sModifier, false);
 				end
-				-- send an ingame notification for each received bonus reward
-				if Players[iPlayerID]:IsHuman() then NotificationManager.SendNotification(iPlayerID, GUE.Notification.Reward.TypeHash, sRewardTitle, sRewardMessage, aX, aY); end
+				-- -- true when the rolled reward is a hostile villagers "reward"; create hostiles and abort
+				-- if GUE.HostileVillagers[sSubtype] then 
+				-- 	bBonusHostiles = true;
+				-- 	GUE.CreateHostileVillagers(iX, iY, iPlayerID, iTurn, iEra, sSubtype);
+				-- 	print("Hostile villagers received as 'reward'; ignoring any further potential reward(s) from this Goody Hut");
+				-- 	return iSumModifiers, bBonusHostiles, sSubtype, sTier;
+				-- -- true when the rolled reward is a villager secrets reward
+				-- elseif (sSubtype == GUE.VillagerSecrets) or (GUE.VillagerSecretsRewards[sSubtype] ~= nil) then 
+				-- 	-- true when this Player has received this reward fewer than the defined maximum amount of time(s)
+				-- 	if (Players[iPlayerID]:GetProperty("VillagerSecretsLevel") < GUE.MaxSecretsLevel) then
+				-- 		GUE.UnlockVillagerSecrets(iPlayerID, iTurn, iEra, sSubtype);
+				-- 	-- do nothing when false ** 2023/04/02 this may not ever fire any more **
+				-- 	else
+				-- 		Dprint("VillagerSecretsLevel >= MaxSecretsLevel for Player " .. iPlayerID);
+				-- 	end
+				-- -- true when the rolled reward is a free unit
+				-- elseif (GUE.GrantUnitRewards[sSubtype] ~= nil) then GUE.AddUnitToMap(iX, iY, iPlayerID, iTurn, iEra, sSubtype);
+				-- -- true when the rolled reward is a unit ability reward
+				-- elseif (GUE.UnitAbilityRewards[sSubtype] ~= nil) then GUE.AddAbilityToUnit(iX, iY, tUnits, GUE.UnitAbilityRewards[sSubtype]);
+				-- -- true when the rolled reward is a unit experience reward
+				-- elseif (GUE.UnitXPRewards[sSubtype] ~= nil) then GUE.AddXPToUnit(iX, iY, tUnits, GUE.UnitXPRewards[sSubtype]);
+				-- -- true when the rolled reward is the 'upgrade unit' reward
+				-- elseif (sSubtype == "GOODYHUT_GRANT_UPGRADE") then tUnits = GUE.UpgradeUnit(iPlayerID, iX, iY, tUnits);
+				-- -- true when the rolled reward is of Wondrous-type
+				-- elseif (GUE.WGH_Rewards[sSubtype] ~= nil) then
+				-- 	-- true when the primary reward was earned via border expansion ** 2023/04/02 this check should be handled in RollReward(), so this shouldn't ever fire **
+				-- 	-- if (iPlayerID == -1) or (iUnitID == -1) then
+				-- 	-- 	Dprint("Wondrous-type Bonus reward(s) are invalid Border Expansion rewards; skipping this bonus reward");
+				-- 		-- bIsValidRoll = false;
+				-- 	-- true when the primary reward was earned via unit exploration
+				-- 	-- else
+				-- 		-- the Type and SubType hash values for this reward
+				-- 		local iTypeHash, iSubTypeHash = GUE.WGH_Rewards[sSubtype].TypeHash, GUE.WGH_Rewards[sSubtype].SubTypeHash;
+				-- 		-- WGH setup parameters; these enable a Wondrous-type reward as a bonus reward
+				-- 		local pPlayer = Players[iPlayerID];
+				-- 		local pPlayerUnits = pPlayer:GetUnits();
+				-- 		local pThisUnit = pPlayerUnits:FindID(iUnitID);
+				-- 		local pThisUnitAbility = pThisUnit:GetAbility();
+				-- 		-- apply this ability to trigger a Wondrous-type bonus reward
+				-- 		pThisUnitAbility:ChangeAbilityCount(GUE.WGH_Rewards[sSubtype].AbilityType, 1);
+				-- 		-- debugging output
+				-- 		Dprint(string.format("Wondrous-type Bonus reward %s identified; application will be handled by WGH", sSubtype));
+				-- 		-- call WGH to handle this bonus reward; as far as it's concerned, this is the primary reward from a popped goody hut
+				-- 		WGH.Sailor_WGH(iPlayerID, iUnitID, iTypeHash, iSubTypeHash);
+				-- 	-- end
+				-- -- 
+				-- elseif (sSubtype == "GOODYHUT_ADD_POP") then 
+				-- 	GUE.AddPopulationToCity(iPlayerID, iTurn, iEra);
+				-- -- true for any other rolled reward; attach its modifier to (re) apply the reward
+				-- else 
+				-- 	GUE.AddModifierToPlayer(iPlayerID, sModifier, false);
+				-- end
 			end
 		end
 	end

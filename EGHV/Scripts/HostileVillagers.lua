@@ -221,7 +221,8 @@ end
 	ingame notifications sent to iPlayerID
 	pre-init : this should be defined prior to Initialize()
 =========================================================================== ]]
-function GUE.CreateHostileVillagers( iX, iY, iPlayerID, iTurn, iEra, sRewardSubType )
+-- function GUE.CreateHostileVillagers( iX, iY, iPlayerID, iTurn, iEra, sRewardSubType )
+function GUE.CreateHostileVillagers( iPlayerID, iUnitID, iTypeHash, iSubTypeHash, sRewardSubType, iX, iY, iTurn, iEra, tUnits, iXP, sAbilityType, sModifierID, bIsPermanent )
 	-- define function entry messages
 	local sPriEntryMsg = "Turn " .. iTurn .. " | Era " .. iEra .. " | Enter CreateHostileVillagers( iX = " .. iX .. ", iY = " .. iY
 		.. ", iPlayerID = " .. iPlayerID .. ", iTurn = " .. iTurn .. ", iEra = " .. iEra .. ", sRewardSubType = " .. sRewardSubType .. " )";

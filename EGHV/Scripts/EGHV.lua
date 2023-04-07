@@ -137,6 +137,10 @@ GUE.FallbackRewards = {};
 GUE.WGH_IsEnabled = false;
 GUE.WGH_Rewards = {};
 
+-- 
+GUE.RewardTypeFunction = {};
+GUE.GrantReward = {};
+
 -- fetch additional info related to Goody Huts when 'No Tribal Villages' is NOT enabled
 if not GUE.NoGoodyHuts then 
 	-- the database index value of the Goody Hut improvement
@@ -213,7 +217,8 @@ end
 	attach Modifier with ID sModifierID to Player with ID iPlayerID
 	this should be added to ExposedMembers in Initialize()
 =========================================================================== ]]
-function GUE.AddModifierToPlayer( iPlayerID, sModifierID, bIsPermanent )
+-- function GUE.AddModifierToPlayer( iPlayerID, sModifierID, bIsPermanent )
+function GUE.AddModifierToPlayer( iPlayerID, iUnitID, iTypeHash, iSubTypeHash, sRewardSubType, iX, iY, iTurn, iEra, tUnits, iXP, sAbilityType, sModifierID, bIsPermanent )
 	Dprint("Calling AddModifierToPlayer() with the following arguments: iPlayerID = " .. iPlayerID .. " | sModifierID = " .. sModifierID .. " | bIsPermanent = " .. tostring(bIsPermanent));
 	local pPlayer = Players[iPlayerID];
 	if (pPlayer ~= nil) then
@@ -238,11 +243,11 @@ function GUE.AddModifierToPlayer( iPlayerID, sModifierID, bIsPermanent )
 end
 
 --[[ =========================================================================
-	listener function OnTurnBegin( iTurn )
+	listener function EGHV_OnTurnBegin( iTurn )
 	for Expansion1 ruleset and beyond; global Era for all Players
 	pre-init: this should be defined prior to Initialize()
 =========================================================================== ]]
-function OnTurnBegin( iTurn )
+function EGHV_OnTurnBegin( iTurn )
 	GUE.CurrentTurn = iTurn;			-- update the global current turn
 	local iPreviousEra = GUE.CurrentEra;
 	local iEraThisTurn = Game.GetEras():GetCurrentEra();		-- fetch the current era
@@ -252,17 +257,17 @@ function OnTurnBegin( iTurn )
 		if (GUE.HostilesAfterReward > 2) then Dprint("Hostility > 2: Hostile villagers will now appear with increased intensity following most goody hut rewards");
 		elseif (GUE.HostilesAfterReward > 1) then Dprint("Hostility > 1: Hostile villagers will now appear with increased frequency and intensity following most goody hut rewards");
 		end
-	else
-		Dprint("Turn " .. tostring(iTurn) .. ": The current global game Era is " .. tostring(GUE.Eras[iEraThisTurn]));
+	-- else
+	-- 	Dprint("Turn " .. tostring(iTurn) .. ": The current global game Era is " .. tostring(GUE.Eras[iEraThisTurn]));
 	end
 end
 
 --[[ =========================================================================
-	listener function OnPlayerTurnStarted( iPlayerID )
+	listener function EGHV_OnPlayerTurnStarted( iPlayerID )
 	for Standard ruleset; per-Player Eras
 	pre-init: this should be defined prior to Initialize()
 =========================================================================== ]]
-function OnPlayerTurnStarted( iPlayerID )
+function EGHV_OnPlayerTurnStarted( iPlayerID )
 	local iTurn = Game.GetCurrentGameTurn();
 	if (GUE.CurrentTurn ~= iTurn) then GUE.CurrentTurn = iTurn; end
 	local pPlayer = Players[iPlayerID];
@@ -281,59 +286,50 @@ function OnPlayerTurnStarted( iPlayerID )
 		if (GUE.HostilesAfterReward > 2) then Dprint("Hostility > 2: Hostile villagers will now appear with increased intensity following most goody hut rewards");
 		elseif (GUE.HostilesAfterReward > 1) then Dprint("Hostility > 1: Hostile villagers will now appear with increased frequency and intensity following most goody hut rewards");
 		end
-	else
-		Dprint("Turn " .. tostring(iTurn) .. " | Player " .. tostring(iPlayerID) .. ": The current Era for this Player is " .. tostring(GUE.Eras[iEraThisTurn]));
+	-- else
+	-- 	Dprint("Turn " .. tostring(iTurn) .. " | Player " .. tostring(iPlayerID) .. ": The current Era for this Player is " .. tostring(GUE.Eras[iEraThisTurn]));
 	end
 end
 
 --[[ =========================================================================
-	listener function OnGoodyHutReward( iPlayerID, iUnitID, iTypeHash, iSubTypeHash )
+	listener function EGHV_OnGoodyHutReward( iPlayerID, iUnitID, iTypeHash, iSubTypeHash )
 	fires whenever a goody hut is popped, including the meteor strike reward
 	pre-init : this should be defined prior to Initialize()
 =========================================================================== ]]
-function OnGoodyHutReward( iPlayerID, iUnitID, iTypeHash, iSubTypeHash )
+function EGHV_OnGoodyHutReward( iPlayerID, iUnitID, iTypeHash, iSubTypeHash )
 	-- abort here if this is the meteor strike reward, as Events.ImprovementActivated does not appear to fire for it, and we don't want to provide bonuses for it anyway
 	if (GameInfo.GoodyHutsByHash[iTypeHash].GoodyHutType == "METEOR_GOODIES" and GameInfo.GoodyHutSubTypesByHash[iSubTypeHash].SubTypeGoodyHut == "METEOR_GRANT_GOODIES") then 
 		return; 
 	end
-	-- [DEBUG] print function entry message
 	Dprint("ENTER OnGoodyHutReward(iPlayerID " .. iPlayerID .. ", iUnitID " .. iUnitID .. ", iTypeHash " .. iTypeHash .. ", iSubTypeHash " .. iSubTypeHash .. ")");
-	-- initialize the local event results table; any pertinent argument(s) go here
+	-- initialize the local event results table and store any pertinent argument(s) therein
 	local tGHR = {};
-	-- store pertinent passed arguments within the results table
 	tGHR.PlayerID, tGHR.UnitID, tGHR.TypeHash, tGHR.SubTypeHash, tGHR.Units = iPlayerID, iUnitID, iTypeHash, iSubTypeHash, { Count = 0 };
-	-- set the expansion and exploration flags based on the passed PlayerID and UnitID values
 	tGHR.IsExpand, tGHR.IsExplore = (iUnitID == -1 and iPlayerID == -1) and true or false, (iUnitID > -1 and iPlayerID > -1) and true or false;
 	-- this fires when Events.GoodyHutReward has fired BEFORE Events.ImprovementActivated for this reward
 	if (#GUE.PlayerEventQueues[iPlayerID].ImprovementActivated == 0) then 
 		-- insert the local table into this Player's GoodyHutReward queue
 		table.insert(GUE.PlayerEventQueues[iPlayerID].GoodyHutReward, tGHR);
-		-- [DEBUG] print event argument messages
-		Dprint("Events.GoodyHutReward fired FIRST; pushing argument(s) to GUE.PlayerEventQueues[" .. iPlayerID .. "].GoodyHutReward[" .. #GUE.PlayerEventQueues[iPlayerID].GoodyHutReward .. "] . . .");
+		Dprint(string.format("GoodyHutReward fired FIRST; arguments pushed to GUE.PlayerEventQueues[%d].GoodyHutReward[%d]", iPlayerID, #GUE.PlayerEventQueues[iPlayerID].GoodyHutReward));
 	-- this fires when Events.GoodyHutReward has fired AFTER Events.ImprovementActivated for this reward
 	elseif (#GUE.PlayerEventQueues[iPlayerID].ImprovementActivated > 0) then 
-		-- initialize a table to store argument(s) from this Player's ImprovementActivated queue
-		local tIA = {};
-		-- iterate over the first index in this Player's ImprovementActivated queue and add its data to the appropriate event table
-		for k, v in pairs(GUE.PlayerEventQueues[iPlayerID].ImprovementActivated[1]) do tIA[k] = v; end
-		-- remove the first index from this Player's ImprovementActivated queue
+		-- fetch the first index from this Player's ImprovementActivated queue, then remove it from said queue
+		local tIA = GUE.PlayerEventQueues[iPlayerID].ImprovementActivated[1];
 		table.remove(GUE.PlayerEventQueues[iPlayerID].ImprovementActivated, 1);
-		-- [DEBUG] print event argument messages
-		Dprint("Events.GoodyHutReward fired SECOND; pulling argument(s) from GUE.PlayerEventQueues[" .. iPlayerID .. "].ImprovementActivated[1] (" .. #GUE.PlayerEventQueues[iPlayerID].ImprovementActivated .. " item(s) remaining in this queue)");
+		Dprint(string.format("GoodyHutReward fired SECOND; arguments pulled from GUE.PlayerEventQueues[%d].ImprovementActivated[1] (%d item(s) remaining in this queue)", iPlayerID, #GUE.PlayerEventQueues[iPlayerID].ImprovementActivated));
 		Dprint("Calling ValidateGoodyHutReward() with arguments from both queues . . .");
 		-- use the consolidated arguments to validate and execute enhanced method(s), if any, on this reward
 		GUE.ValidateGoodyHutReward(tIA, tGHR);
 	end
-	-- [DEBUG] print function exit message
 	Dprint("EXIT OnGoodyHutReward()");
 end
 
 --[[ =========================================================================
-	listener function OnImprovementActivated( iX, iY, iOwnerID, iUnitID, iImprovementIndex, iImprovementOwnerID, iActivationType )
+	listener function EGHV_OnImprovementActivated( iX, iY, iOwnerID, iUnitID, iImprovementIndex, iImprovementOwnerID, iActivationType )
 	fires whenever an improvement is activated, including any goody hut other than the meteor strike reward
 	pre-init : this should be defined prior to Initialize()
 =========================================================================== ]]
-function OnImprovementActivated( iX, iY, iOwnerID, iUnitID, iImprovementIndex, iImprovementOwnerID, iActivationType )
+function EGHV_OnImprovementActivated( iX, iY, iOwnerID, iUnitID, iImprovementIndex, iImprovementOwnerID, iActivationType )
 	-- if the activated improvement IS NOT a barbarian camp AND IS NOT a goody hut, do nothing and abort
 	if (iImprovementIndex ~= GUE.BarbCampIndex and iImprovementIndex ~= GUE.GoodyHutIndex) then return; end
 	-- initialize flags for a barbarian camp and a goody hut
@@ -342,49 +338,39 @@ function OnImprovementActivated( iX, iY, iOwnerID, iUnitID, iImprovementIndex, i
 	local bIsSumeria = ((iOwnerID > -1 and PlayerConfigurations[iOwnerID] ~= nil and PlayerConfigurations[iOwnerID]:GetCivilizationTypeName() == "CIVILIZATION_SUMERIA") or (iImprovementOwnerID > -1 and PlayerConfigurations[iImprovementOwnerID] and PlayerConfigurations[iImprovementOwnerID]:GetCivilizationTypeName() == "CIVILIZATION_SUMERIA")) and true or false;
 	-- if the activated improvement IS a barbarian camp AND this player IS NOT Sumeria, there should be nothing else to catch, so do nothing and abort
 	if bIsBarbCamp and not bIsSumeria then return; end
-	-- [DEBUG] print function entry message
 	Dprint("ENTER OnImprovementActivated(iX " .. iX .. ", iY " .. iY .. ", iOwnerID " .. iOwnerID .. ", iUnitID " .. iUnitID .. ", iImprovementIndex " .. iImprovementIndex .. ", iImprovementOwnerID " .. iImprovementOwnerID .. ", iActivationType " .. iActivationType .. ")");
-	-- initialize the local event results table; any pertinent argument(s) go here
+	-- initialize the local event results table and store any pertinent argument(s) therein
 	local tIA = {};
-	-- store pertinent passed arguments within the results table
 	tIA.X, tIA.Y, tIA.OwnerID, tIA.ImprovementOwnerID, tIA.UnitID, tIA.ActivationType, tIA.Units = iX, iY, iOwnerID, iImprovementOwnerID, iUnitID, iActivationType, { Count = 0 };
-	-- set the expansion and exploration flags based on the passed UnitID, OwnerID, and ImprovementOwnerID values; store these flags in the results table
 	tIA.IsExpand, tIA.IsExplore = (iUnitID == -1 and iImprovementOwnerID > -1) and true or false, (iUnitID ~= -1 and iOwnerID > -1) and true or false;
-	-- store the values of the flags defined above within the results table
 	tIA.IsBarbCamp, tIA.IsGoodyHut, tIA.IsSumeria = bIsBarbCamp, bIsGoodyHut, bIsSumeria;
 	-- this fires when Events.ImprovementActivated has fired BEFORE Events.GoodyHutReward for this reward
 	if (#GUE.PlayerEventQueues[iOwnerID].GoodyHutReward == 0) then 
 		-- insert the local table into this Player's ImprovementActivated queue
 		table.insert(GUE.PlayerEventQueues[iOwnerID].ImprovementActivated, tIA);
-		-- [DEBUG] print event argument messages
-		Dprint("Events.ImprovementActivated fired FIRST; pushing argument(s) to GUE.PlayerEventQueues[" .. iOwnerID .. "].ImprovementActivated[" .. #GUE.PlayerEventQueues[iOwnerID].ImprovementActivated .. "] . . .");
+		Dprint(string.format("ImprovementActivated fired FIRST; arguments pushed to GUE.PlayerEventQueues[%d].ImprovementActivated[%d]", iOwnerID, #GUE.PlayerEventQueues[iOwnerID].ImprovementActivated));
 	-- this fires when Events.ImprovementActivated has fired AFTER Events.GoodyHutReward for this reward
 	elseif (#GUE.PlayerEventQueues[iOwnerID].GoodyHutReward > 0) then 
-		-- initialize a table to store argument(s) from this Player's GoodyHutReward queue
-		local tGHR = {};
-		-- iterate over the first index in this Player's GoodyHutReward queue and add its data to the appropriate event table
-		for k, v in pairs(GUE.PlayerEventQueues[iOwnerID].GoodyHutReward[1]) do tGHR[k] = v; end
-		-- remove the first index from this Player's GoodyHutReward queue
+		-- fetch the first index from this Player's GoodyHutReward queue, then remove it from said queue
+		local tGHR = GUE.PlayerEventQueues[iOwnerID].GoodyHutReward[1];
 		table.remove(GUE.PlayerEventQueues[iOwnerID].GoodyHutReward, 1);
-		-- [DEBUG] print event argument messages
-		Dprint("Events.ImprovementActivated fired SECOND; pulling argument(s) from GUE.PlayerEventQueues[" .. iOwnerID .. "].GoodyHutReward[1] (" .. #GUE.PlayerEventQueues[iOwnerID].GoodyHutReward .. " item(s) remaining in this queue)");
+		Dprint(string.format("ImprovementActivated fired SECOND; arguments pulled from GUE.PlayerEventQueues[%d].GoodyHutReward[1] (%d item(s) remaining in this queue)", iOwnerID, #GUE.PlayerEventQueues[iOwnerID].GoodyHutReward));
 		Dprint("Calling ValidateGoodyHutReward() with arguments from both queues . . .");
 		-- use the consolidated arguments to validate and execute enhanced method(s), if any, on this reward
 		GUE.ValidateGoodyHutReward(tIA, tGHR);
 	end
-	-- [DEBUG] print function exit message
 	Dprint("EXIT OnImprovementActivated()");
 end
 
 --[[ =========================================================================
-	listener function OnPlayerTurnDeactivated( iPlayerID )
+	listener function EGHV_OnPlayerTurnDeactivated( iPlayerID )
 	resets event argument queue(s) if their counts differ at the end of a Player's turn
 	when this fires, some enhanced method(s) may not fire on any orphaned reward(s), and earlier enhanced method(s) may not have been entirely accurate in their delivery
 		however, this should prevent similar future problem(s), unless the queues become misaligned again, in which case we end up back here
 	as the queue(s) usually properly maintain themselves, this should only fire in rare circumstances; multiple firings in a session indicate something screwy in that session
 	pre-init : this should be defined prior to Initialize()
 =========================================================================== ]]
-function OnPlayerTurnDeactivated( iPlayerID )
+function EGHV_OnPlayerTurnDeactivated( iPlayerID )
 	-- exit here if Player is not Major
 	if not Players[iPlayerID]:IsMajor() then return; end
 	-- this fires when these queue(s) are misaligned in any way at end-of-turn
@@ -398,41 +384,6 @@ function OnPlayerTurnDeactivated( iPlayerID )
 		print(sPriEntryMsg);
 	end
 end
-
---[[ =========================================================================
-	hook function OnTurnBeginHook()
-	actions related to a global game Era change
-	init: this should be hooked to Events.LoadScreenClose in Initialize()
-=========================================================================== ]]
-function OnTurnBeginHook() Events.TurnBegin.Add(OnTurnBegin); end
-
---[[ =========================================================================
-	hook function OnPlayerTurnStartedHook()
-	actions related to an Era change for an individual Player
-	init: this should be hooked to Events.LoadScreenClose in Initialize()
-=========================================================================== ]]
-function OnPlayerTurnStartedHook() GameEvents.PlayerTurnStarted.Add(OnPlayerTurnStarted); end
-
---[[ =========================================================================
-	hook function OnGoodyHutRewardHook()
-	
-	init: this should be hooked to Events.LoadScreenClose in Initialize()
-=========================================================================== ]]
-function OnGoodyHutRewardHook() Events.GoodyHutReward.Add(OnGoodyHutReward); end
-
---[[ =========================================================================
-	hook function OnImprovementActivatedHook()
-	
-	init: this should be hooked to Events.LoadScreenClose in Initialize()
-=========================================================================== ]]
-function OnImprovementActivatedHook() Events.ImprovementActivated.Add(OnImprovementActivated); end
-
---[[ =========================================================================
-	hook function OnPlayerTurnDeactivatedHook()
-	
-	init: this should be hooked to Events.LoadScreenClose in Initialize()
-=========================================================================== ]]
-function OnPlayerTurnDeactivatedHook() Events.PlayerTurnDeactivated.Add(OnPlayerTurnDeactivated); end
 
 --[[ =========================================================================
 	function Initialize() : framework cribbed and modified
@@ -451,18 +402,18 @@ function Initialize()
     print(GUE.RowOfDashes);
     print("Configuring required hook(s) for ingame Event(s) . . .");
 	if (GUE.Ruleset == "RULESET_STANDARD") then
-		Events.LoadScreenClose.Add(OnPlayerTurnStartedHook);
-		Dprint("Standard ruleset in use: OnPlayerTurnStarted() successfully hooked to GameEvents.PlayerTurnStarted");
+		GameEvents.PlayerTurnStarted.Add(EGHV_OnPlayerTurnStarted);
+		Dprint("Standard ruleset in use: EGHV_OnPlayerTurnStarted() successfully hooked to GameEvents.PlayerTurnStarted");
 	else
-		Events.LoadScreenClose.Add(OnTurnBeginHook);
-		Dprint("Non-Standard ruleset in use: OnTurnBegin() successfully hooked to Events.TurnBegin");
+		Events.TurnBegin.Add(EGHV_OnTurnBegin);
+		Dprint("Non-Standard ruleset in use: EGHV_OnTurnBegin() successfully hooked to Events.TurnBegin");
 	end
-    Events.LoadScreenClose.Add(OnGoodyHutRewardHook);
-    Dprint("OnGoodyHutReward() successfully hooked to Events.GoodyHutReward");
-    Events.LoadScreenClose.Add(OnImprovementActivatedHook);
-    Dprint("OnImprovementActivated() successfully hooked to Events.ImprovementActivated");
-    Events.LoadScreenClose.Add(OnPlayerTurnDeactivatedHook);
-    Dprint("OnPlayerTurnDeactivated() successfully hooked to Events.PlayerTurnDeactivated");
+    Events.GoodyHutReward.Add(EGHV_OnGoodyHutReward);
+    Dprint("EGHV_OnGoodyHutReward() successfully hooked to Events.GoodyHutReward");
+    Events.ImprovementActivated.Add(EGHV_OnImprovementActivated);
+    Dprint("EGHV_OnImprovementActivated() successfully hooked to Events.ImprovementActivated");
+    Events.PlayerTurnDeactivated.Add(EGHV_OnPlayerTurnDeactivated);
+    Dprint("EGHV_OnPlayerTurnDeactivated() successfully hooked to Events.PlayerTurnDeactivated");
     print(GUE.RowOfDashes);
 	if GUE.WGH_IsEnabled then 
 		include("Sailor_Goodies_Scripts_EGHV");

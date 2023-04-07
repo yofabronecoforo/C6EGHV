@@ -886,14 +886,14 @@
 		<!-- script enhanced goodies config -->
 		<AddGameplayScripts id="EGHV_GAMEPLAY_SCRIPT_ENHANCED_GOODIES" criteria="EGHV">
 			<Properties>
-        		<LoadOrder>1010202</LoadOrder>
+        		<LoadOrder>1010203</LoadOrder>
       		</Properties>
 			<File>EGHV/Scripts/EnhancedGoodies.lua</File>
 		</AddGameplayScripts>
 		<!-- script hostile villagers config -->
 		<AddGameplayScripts id="EGHV_GAMEPLAY_SCRIPT_HOSTILE_VILLAGERS" criteria="EGHV">
 			<Properties>
-        		<LoadOrder>1010203</LoadOrder>
+        		<LoadOrder>1010202</LoadOrder>
       		</Properties>
 			<File>EGHV/Scripts/HostileVillagers.lua</File>
 		</AddGameplayScripts>
