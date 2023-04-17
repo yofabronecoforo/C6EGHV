@@ -162,7 +162,7 @@ function GUE.GetNewRewards( iNumRewards, iPlayerID, iUnitID, iX, iY, sRewardSubt
 					NotificationManager.SendNotification(iPlayerID, GUE.Notification.Reward.TypeHash, sRewardTitle, sRewardMessage, aX, aY);
 					Game.AddWorldViewText(iPlayerID, Locale.Lookup(t.Description), iX, iY, 0);
 				end
-				-- true when the rolled reward is a hostile villagers "reward"; create hostiles and abort
+				-- true when the rolled reward is a hostile villagers "reward"; abort here after creating hostiles
 				if GUE.HostileVillagers[sSubtype] then 
 					bBonusHostiles = true;
 					print("Hostile villagers received as 'reward'; ignoring any further potential reward(s) from this Goody Hut");

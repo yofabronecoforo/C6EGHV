@@ -35,11 +35,9 @@ Please report any conspicuous absent text, grammatical errors, inaccurate transl
 
 EGHV modifies existing Goody Hut rewards, and provides several new rewards in several new categories.
 
-Minimum-turn requirements have been set to 0 for most __DEFINED__ and __ENABLED__ rewards. This means that most such rewards will be available from turn 1 on. Exceptions to this are:
-- +1 new population: Testing shows that this reward does not always successfully apply during very early-game turns
-- 2 civics: Only 1 civic will be granted when no more than that are available; this is troublesome during the very early-game before Code of Laws has been unlocked
+Minimum-turn requirements have been set to 0 for all __DEFINED__ and __ENABLED__ rewards. This means that these rewards will be available from turn 1 on.
 
-For these exceptions, a minimum turn of 15 will be enforced.
+There is an issue with the 2 free civics reward where only 1 civic will be granted when no more than that are available to be researched, for example before Code of Laws has been unlocked.
 
 ### Standard
 ![Standard Rewards](/IMAGES/Standard.gif)
