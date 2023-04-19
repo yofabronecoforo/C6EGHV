@@ -1712,6 +1712,7 @@
 				<File>C6GUE/UI/Replacements/GameSetupLogic.lua</File>
 				<File>C6GUE/UI/Replacements/Multiplayer/HostGame.lua</File>
 				<File>C6GUE/UI/Replacements/Multiplayer/HostGame.xml</File>
+				<File>C6GUE/UI/C6GUE_Common.lua</File>
 			</Items>
 		</ImportFiles>
 		<UpdateDatabase id="EGHV_FRONTEND">
@@ -1766,6 +1767,8 @@
 		<!-- C6GUE configuration (frontend) multiplayer UI replacements -->
 		<File>C6GUE/UI/Replacements/Multiplayer/HostGame.lua</File>
 		<File>C6GUE/UI/Replacements/Multiplayer/HostGame.xml</File>
+		<!--  -->
+		<File>C6GUE/UI/C6GUE_Common.lua</File>
 		<!-- "new" icon definitions -->
 		<File>EGHV/Art/Frontend_Icons.xml</File>
 		<File>EGHV/Art/Ingame_Icons.xml</File>
