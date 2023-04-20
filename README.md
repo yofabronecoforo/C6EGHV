@@ -115,10 +115,11 @@ Goody Hut Type (Weight) | Common (55) | Uncommon (30) | Rare (10) | Legendary (5
 ------ | ------ | ------ | ------ | ------
 Diplomacy [1] | +10 diplomatic favor | +20 diplomatic favor | +30 diplomatic favor | +50 diplomatic favor
 Meteor | meteor-strike site (100)
-Resources [2] | +10 strategic resources | +20 strategic resources | +30 strategic resources | +50 strategic resources
+Resources [2] [3] | +10 strategic resources | +20 strategic resources | +30 strategic resources | +50 strategic resources
 
 1. New rewards provided by this EGHV type supercede the "free diplomatic favor" Diplomacy-type reward, which is disabled
 2. New rewards provided by this EGHV type supercede the "free strategic resources" Military-type reward, which is disabled
+3. Currently there is a bug causing rewards of this type to provide nothing when no types of strategic resources have been revealed
 
 ## Goody Hut Reward Picker
 ![Goody Hut Picker](/IMAGES/Picker_Detail.gif)
