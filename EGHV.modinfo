@@ -911,6 +911,16 @@
       		</Properties>
 			<File>EGHV/Community/WondrousGoodyHuts/Sailor_Goodies_Scripts_EGHV.lua</File>
 		</ImportFiles>
+		<!-- EGHV additional script(s) for YnAMP compatibility -->
+		<ImportFiles id="EGHV_YNAMP_LOAD_DATABASE" criteria="EGHV">
+			<Properties>
+        		<LoadOrder>1010206</LoadOrder>
+      		</Properties>
+			<File>C6GUE/UI/Additions/CommonFrontend.lua</File>
+			<File>C6GUE/UI/Replacements/AdvancedSetup_EGHV.lua</File>
+			<File>C6GUE/UI/Replacements/GameSetupLogic_EGHV.lua</File>
+			<File>C6GUE/UI/Replacements/Multiplayer/HostGame_EGHV.lua</File>
+		</ImportFiles>
 		<!-- gameplay database config for all rulesets -->
 		<UpdateDatabase id="EGHV_INGAME" criteria="EGHV">
 			<Properties>
@@ -1707,12 +1717,16 @@
 				<!--  -->
 				<File>EGHV/UI/Additions/GoodyHutPicker.lua</File>
 				<File>EGHV/UI/Additions/GoodyHutPicker.xml</File>
-				<File>C6GUE/UI/Replacements/AdvancedSetup.lua</File>
-				<File>C6GUE/UI/Replacements/AdvancedSetup.xml</File>
-				<File>C6GUE/UI/Replacements/GameSetupLogic.lua</File>
-				<File>C6GUE/UI/Replacements/Multiplayer/HostGame.lua</File>
-				<File>C6GUE/UI/Replacements/Multiplayer/HostGame.xml</File>
-				<File>C6GUE/UI/C6GUE_Common.lua</File>
+				<File>C6GUE/UI/Additions/CommonFrontend.lua</File>
+				<File>C6GUE/UI/Replacements/AdvancedSetup_EGHV.lua</File>
+				<File>C6GUE/UI/Replacements/EnhancedAdvancedSetup.lua</File>
+				<File>C6GUE/UI/Replacements/EnhancedAdvancedSetup.xml</File>
+				<File>C6GUE/UI/Replacements/GameSetupLogic_EGHV.lua</File>
+				<!-- <File>C6GUE/UI/Replacements/GameSetupLogic.lua</File> -->
+				<File>C6GUE/UI/Replacements/MainMenu.xml</File>
+				<File>C6GUE/UI/Replacements/Multiplayer/EnhancedHostGame.lua</File>
+				<File>C6GUE/UI/Replacements/Multiplayer/EnhancedHostGame.xml</File>
+				<File>C6GUE/UI/Replacements/Multiplayer/HostGame_EGHV.lua</File>
 			</Items>
 		</ImportFiles>
 		<UpdateDatabase id="EGHV_FRONTEND">
@@ -1760,15 +1774,19 @@
 		<File>C6GUE/Localization/en_US/Common_Frontend_Text.xml</File>
 		<File>C6GUE/Localization/es_ES/Common_Frontend_Text.xml</File>
 		<File>C6GUE/Localization/fr_FR/Common_Frontend_Text.xml</File>
-		<!-- C6GUE configuration (frontend) UI replacements -->
-		<File>C6GUE/UI/Replacements/AdvancedSetup.lua</File>
-		<File>C6GUE/UI/Replacements/AdvancedSetup.xml</File>
-		<File>C6GUE/UI/Replacements/GameSetupLogic.lua</File>
-		<!-- C6GUE configuration (frontend) multiplayer UI replacements -->
-		<File>C6GUE/UI/Replacements/Multiplayer/HostGame.lua</File>
-		<File>C6GUE/UI/Replacements/Multiplayer/HostGame.xml</File>
 		<!--  -->
-		<File>C6GUE/UI/C6GUE_Common.lua</File>
+		<File>C6GUE/UI/Additions/CommonFrontend.lua</File>
+		<!-- C6GUE configuration (frontend) UI replacements -->
+		<File>C6GUE/UI/Replacements/AdvancedSetup_EGHV.lua</File>
+		<File>C6GUE/UI/Replacements/EnhancedAdvancedSetup.lua</File>
+		<File>C6GUE/UI/Replacements/EnhancedAdvancedSetup.xml</File>
+		<File>C6GUE/UI/Replacements/GameSetupLogic_EGHV.lua</File>
+		<!-- <File>C6GUE/UI/Replacements/GameSetupLogic.lua</File> -->
+		<File>C6GUE/UI/Replacements/MainMenu.xml</File>
+		<!-- C6GUE configuration (frontend) multiplayer UI replacements -->
+		<File>C6GUE/UI/Replacements/Multiplayer/EnhancedHostGame.lua</File>
+		<File>C6GUE/UI/Replacements/Multiplayer/EnhancedHostGame.xml</File>
+		<File>C6GUE/UI/Replacements/Multiplayer/HostGame_EGHV.lua</File>
 		<!-- "new" icon definitions -->
 		<File>EGHV/Art/Frontend_Icons.xml</File>
 		<File>EGHV/Art/Ingame_Icons.xml</File>

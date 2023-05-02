@@ -21,6 +21,8 @@ Many of these rewards are implemented via a combination of the built-in Modifier
 
 Finally, Hostile Villagers as (and now, potentially following) a reward make their return.
 
+EGHV is compatible with mods that replace the AdvancedSetup, GameSetupLogic, and HostGame Frontend Lua context files. See "Conflicts-Frontend-Context" below for details and limitations.
+
 # Localization
 When obtained via any of the official channels referenced in the #Installation section below, releases contain new Frontend and Ingame text fully localized in the following language(s):
 - English (en_US)
@@ -280,6 +282,8 @@ See the Conflicts section below for exceptions.
 
 New Goody Hut rewards provided by recognized content will appear in the Goody Hut picker when such content is enabled. Such content can then be manipulated via the picker and any other configuration settings EGHV provides. All such content should function normally as the Primary reward, but may require additional configuration to be provided as a Bonus Reward.
 
+EGHV is compatible with mods that replace the AdvancedSetup, GameSetupLogic, and HostGame Frontend Lua context files. See "Conflicts-Frontend-Context" below for details and limitations.
+
 #### Wondrous Goody Huts
 This community project is explicitly recognized by EGHV.
 - There does not appear to be a way of initializing the selection status of individual items in the picker. All rewards provided by WGH will therefore initialize as selected, even those normally disabled by default; such rewards will be enabled by EGHV if left selected.
@@ -308,6 +312,38 @@ EGHV adds the following custom tables to the game's Configuration SQLite databas
 - ContentFlags
 - TribalVillages
 
+If your mod uses any similarly-named tables, conflicts __WILL__ arise.
+
+### Context
+EGHV replaces the following existing Frontend context file(s):
+- MainMenu.xml
+
+The only modifications to this file consist of changing the filenames used for the "AdvancedSetup" and "HostGame" Lua contexts. The EGHV replacements for these files are:
+- EnhancedAdvancedSetup.lua and EnhancedAdvancedSetup.xml
+- EnhancedHostGame.lua and EnhancedHostGame.xml
+
+The above XML files contain changes to incorporate EGHV's new Goody Hut picker as well as the replacement Natural Wonders picker from [ENWS](https://steamcommunity.com/sharedfiles/filedetails/?id=2273495829), and in the case of EnhancedAdvancedSetup, to allow for interoperability with [YnAMP](https://steamcommunity.com/sharedfiles/filedetails/?id=871861883) when it is also loaded. YnAMP-specific buttons in the Advanced Setup header will be hidden when it is not loaded. When ENWS is not loaded, errors will be generated in the log; these are due to the missing custom picker, and as the game should fall back to the default picker, they can be safely ignored.
+
+The above Lua files contain directives to include the currently active AdvancedSetup or HostGame scripts for SP and MP setups. These will either be the base versions found in the game's UI/FrontEnd folder, or the last imported version from another mod, such as YnAMP. Necessary changes to AdvancedSetup and HostGame are now contained in separate files:
+- CommonFrontend.lua    contains new code used by both the AdvancedSetup and HostGame contexts
+- AdvancedSetup_EGHV.lua    contains modifications to existing code in the AdvancedSetup context
+- GameSetupLogic_EGHV.lua    contains modifications to existing code in the GameSetupLogic script, which is used by both the AdvancedSetup and HostGame contexts
+- HostGame_EGHV.lua    contains modifications to existing code in the HostGame context
+
+The above files are included by directive in the appropriate contexts. Additional directives will, as appropriate, include any other imported file whose name matches any of the following patterns:
+- AdvancedSetup_
+- GameSetupLogic_
+- HostGame_
+
+Doing this simulates the behavior of the Ingame "ReplaceUIScript" modinfo tag, which does nothing in the Frontend. This removes the need to overwrite the aforementioned original scripts with new versions containing any necessary changes, and allows for such changes to be placed in separate files that are loaded as needed after the existing scripts are loaded. When care is exercised, this allows multiple mods to make precision changes to these scripts and interoperate with one another. Crucially, since EGHV's load order generally makes it one of the last mods loaded, if not the last one loaded, it also allows for EGHV to function alongside other mods that __DO__ replace the original scripts, without resorting to a Frankenstein's monster of a single script containing changes from different mods. This functionality has been tested with YnAMP, but it should work with any mod that replaces the AdvancedSetup, GameSetupLogic, and/or HostGame script(s); however, as EGHV cannot make the game retain multiple versions of a script with the same name, only the last imported version of each of these files will be used.
+
+Furthermore, to implement the new Goody Hut picker, EGHV adds the following new Frontend context file(s):
+- GoodyHutPicker.lua and GoodyHutPicker.xml
+
+If your mod replaces any of the files named above, or adds any similarly-named new ones, compatibility issues __WILL__ arise.
+
+## Ingame
+### Database
 EGHV adds the following custom tables to the game's Gameplay SQLite database:
 - GoodyHutsByHash
 - GoodyHutSubTypesByHash
@@ -316,20 +352,7 @@ EGHV adds the following custom tables to the game's Gameplay SQLite database:
 
 If your mod uses any similarly-named tables, conflicts __WILL__ arise.
 
-### Context
-EGHV replaces the following existing Frontend context file(s):
-- AdvancedSetup.lua and AdvancedSetup.xml
-- GameSetupLogic.lua
-- HostGame.lua and HostGame.xml
-
-EGHV adds the following new Frontend context file(s):
-- GoodyHutPicker.lua and GoodyHutPicker.xml
-
-If your mod replaces any of the above existing files, or adds any similarly-named new ones, compatibility issues __WILL__ arise.
-
-## Ingame
-### Database
-EGHV adds new item(s) to and/or modifies existing item(s) in the following tables in the game's Gameplay SQLite database:
+EGHV modifies the structure of, adds new item(s) to, and/or modifies existing item(s) in the following tables in the game's Gameplay SQLite database:
 - Types
 - TypeTags
 - Building
