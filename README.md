@@ -337,7 +337,7 @@ The above files are included by directive in the appropriate contexts. Additiona
 
 Doing this simulates the behavior of the Ingame "ReplaceUIScript" modinfo tag, which does nothing in the Frontend. This removes the need to overwrite the aforementioned original scripts with new versions containing any necessary changes, and allows for such changes to be placed in separate files that are loaded as needed after the existing scripts are loaded. When care is exercised, this allows multiple mods to make precision changes to these scripts and interoperate with one another. Crucially, since EGHV's load order generally makes it one of the last mods loaded, if not the last one loaded, it also allows for EGHV to function alongside other mods that __DO__ replace the original scripts, without resorting to a Frankenstein's monster of a single script containing changes from different mods. This functionality has been tested with YnAMP, but it should work with any mod that replaces the AdvancedSetup, GameSetupLogic, and/or HostGame script(s); however, as EGHV cannot make the game retain multiple versions of a script with the same name, only the last imported version of each of these files will be used.
 
-Furthermore, to implement the new Goody Hut picker, EGHV adds the following new Frontend context file(s):
+To implement the new Goody Hut picker, EGHV adds the following new Frontend context file(s):
 - GoodyHutPicker.lua and GoodyHutPicker.xml
 
 If your mod replaces any of the files named above, or adds any similarly-named new ones, compatibility issues __WILL__ arise.
