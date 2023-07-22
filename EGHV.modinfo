@@ -1653,43 +1653,43 @@
 			<File Priority="2">C6GUE/Configuration/Schema.sql</File>
 			<File Priority="2">EGHV/Configuration/Schema.sql</File>
 		</UpdateDatabase>
-		<ImportFiles id="EGHV_FRONTEND_IMPORT_ICONS">
-			<Properties>
-        		<LoadOrder>1010100</LoadOrder>
-      		</Properties>
-			<Items>
+		<!-- <ImportFiles id="EGHV_FRONTEND_IMPORT_ICONS"> -->
+			<!-- <Properties> -->
+        		<!-- <LoadOrder>1010100</LoadOrder> -->
+      		<!-- </Properties> -->
+			<!-- <Items> -->
 				<!-- District icons for the Goody Hut Picker. 256px Diplomatic Quarter source ganked from civilization.fandom.com ; other 256px sources ganked from Development assets. Remaining sizes sourced from 256px -->
-				<File>EGHV/Art/Icons/EGHV_Districts22.dds</File>
-				<File>EGHV/Art/Icons/EGHV_Districts32.dds</File>
-				<File>EGHV/Art/Icons/EGHV_Districts38.dds</File>
-				<File>EGHV/Art/Icons/EGHV_Districts50.dds</File>
-				<File>EGHV/Art/Icons/EGHV_Districts80.dds</File>
-				<File>EGHV/Art/Icons/EGHV_Districts128.dds</File>
-				<File>EGHV/Art/Icons/EGHV_Districts256.dds</File>
+				<!-- <File>EGHV/Art/Icons/EGHV_Districts22.dds</File> -->
+				<!-- <File>EGHV/Art/Icons/EGHV_Districts32.dds</File> -->
+				<!-- <File>EGHV/Art/Icons/EGHV_Districts38.dds</File> -->
+				<!-- <File>EGHV/Art/Icons/EGHV_Districts50.dds</File> -->
+				<!-- <File>EGHV/Art/Icons/EGHV_Districts80.dds</File> -->
+				<!-- <File>EGHV/Art/Icons/EGHV_Districts128.dds</File> -->
+				<!-- <File>EGHV/Art/Icons/EGHV_Districts256.dds</File> -->
 				<!-- Project icons for the Goody Hut Picker. 256px sources ganked from Development Assets. Remaining sizes sourced from 256px -->
-				<File>EGHV/Art/Icons/EGHV_Projects22.dds</File>
-				<File>EGHV/Art/Icons/EGHV_Projects32.dds</File>
-				<File>EGHV/Art/Icons/EGHV_Projects38.dds</File>
-				<File>EGHV/Art/Icons/EGHV_Projects50.dds</File>
-				<File>EGHV/Art/Icons/EGHV_Projects80.dds</File>
-				<File>EGHV/Art/Icons/EGHV_Projects128.dds</File>
-				<File>EGHV/Art/Icons/EGHV_Projects256.dds</File>
+				<!-- <File>EGHV/Art/Icons/EGHV_Projects22.dds</File> -->
+				<!-- <File>EGHV/Art/Icons/EGHV_Projects32.dds</File> -->
+				<!-- <File>EGHV/Art/Icons/EGHV_Projects38.dds</File> -->
+				<!-- <File>EGHV/Art/Icons/EGHV_Projects50.dds</File> -->
+				<!-- <File>EGHV/Art/Icons/EGHV_Projects80.dds</File> -->
+				<!-- <File>EGHV/Art/Icons/EGHV_Projects128.dds</File> -->
+				<!-- <File>EGHV/Art/Icons/EGHV_Projects256.dds</File> -->
 				<!-- Unit Action icons for the Goody Hut Picker. 256px sources ganked from Development Assets. Remaining sizes sourced from 256px -->
-				<File>EGHV/Art/Icons/EGHV_UnitActions22.dds</File>
-				<File>EGHV/Art/Icons/EGHV_UnitActions32.dds</File>
-				<File>EGHV/Art/Icons/EGHV_UnitActions38.dds</File>
-				<File>EGHV/Art/Icons/EGHV_UnitActions50.dds</File>
-				<File>EGHV/Art/Icons/EGHV_UnitActions80.dds</File>
-				<File>EGHV/Art/Icons/EGHV_UnitActions128.dds</File>
-				<File>EGHV/Art/Icons/EGHV_UnitActions256.dds</File>
-			</Items>
-		</ImportFiles>
-		<UpdateIcons id="EGHV_FRONTEND_ICONS">
-			<Properties>
-        		<LoadOrder>1010101</LoadOrder>
-      		</Properties>
-			<File>EGHV/Art/Frontend_Icons.xml</File>
-		</UpdateIcons>
+				<!-- <File>EGHV/Art/Icons/EGHV_UnitActions22.dds</File> -->
+				<!-- <File>EGHV/Art/Icons/EGHV_UnitActions32.dds</File> -->
+				<!-- <File>EGHV/Art/Icons/EGHV_UnitActions38.dds</File> -->
+				<!-- <File>EGHV/Art/Icons/EGHV_UnitActions50.dds</File> -->
+				<!-- <File>EGHV/Art/Icons/EGHV_UnitActions80.dds</File> -->
+				<!-- <File>EGHV/Art/Icons/EGHV_UnitActions128.dds</File> -->
+				<!-- <File>EGHV/Art/Icons/EGHV_UnitActions256.dds</File> -->
+			<!-- </Items> -->
+		<!-- </ImportFiles> -->
+		<!-- <UpdateIcons id="EGHV_FRONTEND_ICONS"> -->
+			<!-- <Properties> -->
+        		<!-- <LoadOrder>1010101</LoadOrder> -->
+      		<!-- </Properties> -->
+			<!-- <File>EGHV/Art/Frontend_Icons.xml</File> -->
+		<!-- </UpdateIcons> -->
 		<UpdateText id="EGHV_FRONTEND_TEXT">
 			<Properties>
         		<LoadOrder>1010101</LoadOrder>
@@ -1788,33 +1788,33 @@
 		<File>C6GUE/UI/Replacements/Multiplayer/EnhancedHostGame.xml</File>
 		<File>C6GUE/UI/Replacements/Multiplayer/HostGame_EGHV.lua</File>
 		<!-- "new" icon definitions -->
-		<File>EGHV/Art/Frontend_Icons.xml</File>
+		<!-- <File>EGHV/Art/Frontend_Icons.xml</File> -->
 		<File>EGHV/Art/Ingame_Icons.xml</File>
 		<File>EGHV/Art/Ingame_XP2_Icons.xml</File>
 		<!-- District icons for the Goody Hut Picker. 256px Diplomatic Quarter source ganked from civilization.fandom.com ; other 256px sources ganked from Development assets. Remaining sizes sourced from 256px -->
-		<File>EGHV/Art/Icons/EGHV_Districts22.dds</File>
-		<File>EGHV/Art/Icons/EGHV_Districts32.dds</File>
-		<File>EGHV/Art/Icons/EGHV_Districts38.dds</File>
-		<File>EGHV/Art/Icons/EGHV_Districts50.dds</File>
-		<File>EGHV/Art/Icons/EGHV_Districts80.dds</File>
-		<File>EGHV/Art/Icons/EGHV_Districts128.dds</File>
-		<File>EGHV/Art/Icons/EGHV_Districts256.dds</File>
+		<!-- <File>EGHV/Art/Icons/EGHV_Districts22.dds</File> -->
+		<!-- <File>EGHV/Art/Icons/EGHV_Districts32.dds</File> -->
+		<!-- <File>EGHV/Art/Icons/EGHV_Districts38.dds</File> -->
+		<!-- <File>EGHV/Art/Icons/EGHV_Districts50.dds</File> -->
+		<!-- <File>EGHV/Art/Icons/EGHV_Districts80.dds</File> -->
+		<!-- <File>EGHV/Art/Icons/EGHV_Districts128.dds</File> -->
+		<!-- <File>EGHV/Art/Icons/EGHV_Districts256.dds</File> -->
 		<!-- Project icons for the Goody Hut Picker. 256px sources ganked from Development Assets. Remaining sizes sourced from 256px -->
-		<File>EGHV/Art/Icons/EGHV_Projects22.dds</File>
-		<File>EGHV/Art/Icons/EGHV_Projects32.dds</File>
-		<File>EGHV/Art/Icons/EGHV_Projects38.dds</File>
-		<File>EGHV/Art/Icons/EGHV_Projects50.dds</File>
-		<File>EGHV/Art/Icons/EGHV_Projects80.dds</File>
-		<File>EGHV/Art/Icons/EGHV_Projects128.dds</File>
-		<File>EGHV/Art/Icons/EGHV_Projects256.dds</File>
+		<!-- <File>EGHV/Art/Icons/EGHV_Projects22.dds</File> -->
+		<!-- <File>EGHV/Art/Icons/EGHV_Projects32.dds</File> -->
+		<!-- <File>EGHV/Art/Icons/EGHV_Projects38.dds</File> -->
+		<!-- <File>EGHV/Art/Icons/EGHV_Projects50.dds</File> -->
+		<!-- <File>EGHV/Art/Icons/EGHV_Projects80.dds</File> -->
+		<!-- <File>EGHV/Art/Icons/EGHV_Projects128.dds</File> -->
+		<!-- <File>EGHV/Art/Icons/EGHV_Projects256.dds</File> -->
 		<!-- Unit Action icons for the Goody Hut Picker. 256px sources ganked from Development Assets. Remaining sizes sourced from 256px -->
-		<File>EGHV/Art/Icons/EGHV_UnitActions22.dds</File>
-		<File>EGHV/Art/Icons/EGHV_UnitActions32.dds</File>
-		<File>EGHV/Art/Icons/EGHV_UnitActions38.dds</File>
-		<File>EGHV/Art/Icons/EGHV_UnitActions50.dds</File>
-		<File>EGHV/Art/Icons/EGHV_UnitActions80.dds</File>
-		<File>EGHV/Art/Icons/EGHV_UnitActions128.dds</File>
-		<File>EGHV/Art/Icons/EGHV_UnitActions256.dds</File>
+		<!-- <File>EGHV/Art/Icons/EGHV_UnitActions22.dds</File> -->
+		<!-- <File>EGHV/Art/Icons/EGHV_UnitActions32.dds</File> -->
+		<!-- <File>EGHV/Art/Icons/EGHV_UnitActions38.dds</File> -->
+		<!-- <File>EGHV/Art/Icons/EGHV_UnitActions50.dds</File> -->
+		<!-- <File>EGHV/Art/Icons/EGHV_UnitActions80.dds</File> -->
+		<!-- <File>EGHV/Art/Icons/EGHV_UnitActions128.dds</File> -->
+		<!-- <File>EGHV/Art/Icons/EGHV_UnitActions256.dds</File> -->
 		<!-- frontend configuration -->
 		<File>EGHV/Configuration/Frontend.sql</File>
 		<File>EGHV/Configuration/Schema.sql</File>
