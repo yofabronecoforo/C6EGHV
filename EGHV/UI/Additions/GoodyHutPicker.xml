@@ -87,9 +87,10 @@
 	<Instance Name="ItemInstance">
 		<GridButton ID="Button" Anchor="C,T" Size="300,60" Texture="Controls_ButtonControl.dds" SliceCorner="10,10" SliceSize="1,1" SliceTextureSize="24,24" StateOffsetIncrement="0,24">
 			<CheckBox ID="Selected" Style="MainMenuCheck" Anchor="L,C" Offset="15,0" TextOffset="-5,0" IsChecked="0"/>
-      <Image ID="IconBacking" Anchor="L,C" Offset="40,0" Size="44,44" Texture="CircleBacking44" NoStateChange="1">
-        <Image Anchor="C,C" Size="44,44" Texture="Circle44_Darker" Color="0,0,0,50"/>
-        <Image Anchor="C,C" Size="44,44" Texture="Circle44_Lighter" Color="255,255,255,100" />
+      <!-- <Image ID="IconBacking" Anchor="L,C" Offset="40,0" Size="44,44" Texture="CircleBacking44" NoStateChange="1"> -->
+		<Image ID="IconBacking" Anchor="L,C" Offset="40,0" Size="44,44" NoStateChange="1">
+        <!-- <Image Anchor="C,C" Size="44,44" Texture="Circle44_Darker" Color="0,0,0,50"/> -->
+        <!-- <Image Anchor="C,C" Size="44,44" Texture="Circle44_Lighter" Color="255,255,255,100" /> -->
         <Image ID="Icon" Anchor="C,C" Size="44,44"	/>
       </Image>
       <Label ID ="Name" Anchor="C,C" Offset="30" TruncateWidth="180" TruncatedTooltip="1"/>

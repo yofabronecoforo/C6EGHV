@@ -310,7 +310,7 @@
             <Text>[ICON_Ability] Vista mejorada</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_IMPROVED_SIGHT_DESC" Language="es_ES">
-            <Text>Recompensa por habilidades de nivel 1 (común). [NEWLINE] [NEWLINE] Las unidades descubiertas reciben +1 [ICON_Terrain] de visión.</Text>
+            <Text>Recompensa por habilidades de nivel 1 (común). [NEWLINE] [NEWLINE] Las unidades descubiertas reciben +1 [ICON_VisTopSecret] de visión.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_IMPROVED_HEALING_NAME" Language="es_ES">
             <Text>[ICON_Ability] Curación mejorada</Text>

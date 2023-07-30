@@ -310,7 +310,7 @@
             <Text>[ICON_Ability] Vue améliorée</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_IMPROVED_SIGHT_DESC" Language="fr_FR">
-            <Text>Récompense de type Capacités de niveau 1 (communes).[NEWLINE][NEWLINE]La ou les unités de découverte reçoivent +1 [ICON_Terrain] en vue.</Text>
+            <Text>Récompense de type Capacités de niveau 1 (communes).[NEWLINE][NEWLINE]La ou les unités de découverte reçoivent +1 [ICON_VisTopSecret] en vue.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_IMPROVED_HEALING_NAME" Language="fr_FR">
             <Text>[ICON_Ability] Guérison améliorée</Text>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--==========================================================================
+	EGHV : Enhanced Goodies and Hostile Villagers for Civilization VI
+	Copyright (C) 2020-2023 zzragnar0kzz
+	All rights reserved
+===========================================================================-->
+<!-- frontend icon definitions
+        Amenities, Citizen:
+            64px sourced from https://www.civilopedia.net/
+        All others:
+            64/100/128/256px sourced from pantry
+        < 256px upscaled at https://www.upscale.media/ -->
+<GameInfo>
+    <IconTextureAtlases>
+        <!-- Base game icons for the Goody Hut Picker -->
+        <Replace Name="ICON_ATLAS_EGHV_BASE" IconSize="44" IconsPerRow="7" IconsPerColumn="1" Filename="EGHV_Base_Atlas44.dds"/>
+        <Replace Name="ICON_ATLAS_EGHV_BASE" IconSize="256" IconsPerRow="7" IconsPerColumn="1" Filename="EGHV_Base_Atlas256.dds"/>
+        <!-- Base game building icons -->
+        <Replace Name="ICON_BUILDINGS_EGHV_BASE" IconSize="44" IconsPerRow="7" IconsPerColumn="1" Filename="EGHV_Base_Buildings44.dds"/>
+        <Replace Name="ICON_BUILDINGS_EGHV_BASE" IconSize="256" IconsPerRow="7" IconsPerColumn="1" Filename="EGHV_Base_Buildings256.dds"/>
+        <Replace Name="ICON_BUILDINGS_FOW_EGHV_BASE" IconSize="44" IconsPerRow="7" IconsPerColumn="1" Filename="EGHV_Base_Buildings44_FOW.dds"/>
+        <Replace Name="ICON_BUILDINGS_FOW_EGHV_BASE" IconSize="256" IconsPerRow="7" IconsPerColumn="1" Filename="EGHV_Base_Buildings256_FOW.dds"/>
+        <!-- XP1 icons for the Goody Hut Picker -->
+        <Replace Name="ICON_ATLAS_EGHV_XP1" IconSize="44" IconsPerRow="1" IconsPerColumn="1" Filename="EGHV_XP1_Atlas44.dds"/>
+        <Replace Name="ICON_ATLAS_EGHV_XP1" IconSize="256" IconsPerRow="1" IconsPerColumn="1" Filename="EGHV_XP1_Atlas256.dds"/>
+        <!-- XP2 icons for the Goody Hut Picker -->
+        <Replace Name="ICON_ATLAS_EGHV_XP2" IconSize="44" IconsPerRow="2" IconsPerColumn="1" Filename="EGHV_XP2_Atlas44.dds"/>
+        <Replace Name="ICON_ATLAS_EGHV_XP2" IconSize="256" IconsPerRow="2" IconsPerColumn="1" Filename="EGHV_XP2_Atlas256.dds"/>
+        <!-- XP2 building icons -->
+        <Replace Name="ICON_BUILDINGS_EGHV_XP2" IconSize="44" IconsPerRow="1" IconsPerColumn="1" Filename="EGHV_XP2_Buildings44.dds"/>
+        <Replace Name="ICON_BUILDINGS_EGHV_XP2" IconSize="256" IconsPerRow="1" IconsPerColumn="1" Filename="EGHV_XP2_Buildings256.dds"/>
+        <Replace Name="ICON_BUILDINGS_FOW_EGHV_XP2" IconSize="44" IconsPerRow="1" IconsPerColumn="1" Filename="EGHV_XP2_Buildings44_FOW.dds"/>
+        <Replace Name="ICON_BUILDINGS_FOW_EGHV_XP2" IconSize="256" IconsPerRow="1" IconsPerColumn="1" Filename="EGHV_XP2_Buildings256_FOW.dds"/>
+    </IconTextureAtlases>
+    <IconDefinitions>
+        <!-- Base game Subtype icons -->
+        <Replace Name="ICON_EGHV_GOODYHUT_SMALL_GOLD" Atlas="ICON_ATLAS_EGHV_BASE" Index="2"/>
+        
+        <Replace Name="ICON_EGHV_GOODYHUT_SMALL_FAITH" Atlas="ICON_ATLAS_EGHV_BASE" Index="5"/>
+        <Replace Name="ICON_EGHV_GOODYHUT_SMALL_EXPERIENCE" Atlas="ICON_ATLAS_EGHV_BASE" Index="6"/>
+
+        <Replace Name="ICON_EGHV_GOODYHUT_MEDIUM_GOLD" Atlas="ICON_ATLAS_EGHV_BASE" Index="9"/>
+        
+        <Replace Name="ICON_EGHV_GOODYHUT_MEDIUM_FAITH" Atlas="ICON_ATLAS_EGHV_BASE" Index="12"/>
+        <Replace Name="ICON_EGHV_GOODYHUT_MEDIUM_EXPERIENCE" Atlas="ICON_ATLAS_EGHV_BASE" Index="13"/>
+
+        <Replace Name="ICON_EGHV_GOODYHUT_LARGE_GOLD" Atlas="ICON_ATLAS_EGHV_BASE" Index="16"/>
+
+        <Replace Name="ICON_EGHV_GOODYHUT_LARGE_FAITH" Atlas="ICON_ATLAS_EGHV_BASE" Index="19"/>
+        <Replace Name="ICON_EGHV_GOODYHUT_LARGE_EXPERIENCE" Atlas="ICON_ATLAS_EGHV_BASE" Index="20"/>
+
+        <!-- <Replace Name="ICON_EGHV_GOODYHUT_HUGE_EXPERIENCE" Atlas="ICON_ATLAS_EGHV_BASE" Index="27"/> -->
+
+        <Replace Name="ICON_EGHV_GOODYHUT_ONE_ENVOY" Atlas="ICON_ATLAS_EGHV_BASE" Index="35"/>
+        <Replace Name="ICON_EGHV_GOODYHUT_ONE_TECH_BOOST" Atlas="ICON_ATLAS_EGHV_BASE" Index="36"/>
+        <Replace Name="ICON_EGHV_GOODYHUT_ONE_CIVIC_BOOST" Atlas="ICON_ATLAS_EGHV_BASE" Index="37"/>
+        <Replace Name="ICON_EGHV_GOODYHUT_ONE_TECH" Atlas="ICON_ATLAS_EGHV_BASE" Index="38"/>
+        <Replace Name="ICON_EGHV_GOODYHUT_ONE_CIVIC" Atlas="ICON_ATLAS_EGHV_BASE" Index="39"/>
+        <Replace Name="ICON_EGHV_GOODYHUT_LOW_HOSTILITY_VILLAGERS" Atlas="ICON_ATLAS_EGHV_BASE" Index="40"/>
+
+        <Replace Name="ICON_EGHV_GOODYHUT_TWO_ENVOYS" Atlas="ICON_ATLAS_EGHV_BASE" Index="42"/>
+        <Replace Name="ICON_EGHV_GOODYHUT_TWO_TECH_BOOSTS" Atlas="ICON_ATLAS_EGHV_BASE" Index="43"/>
+        <Replace Name="ICON_EGHV_GOODYHUT_TWO_CIVIC_BOOSTS" Atlas="ICON_ATLAS_EGHV_BASE" Index="44"/>
+        <Replace Name="ICON_EGHV_GOODYHUT_TWO_TECHS" Atlas="ICON_ATLAS_EGHV_BASE" Index="45"/>
+        <Replace Name="ICON_EGHV_GOODYHUT_TWO_CIVICS" Atlas="ICON_ATLAS_EGHV_BASE" Index="46"/>
+        <Replace Name="ICON_EGHV_GOODYHUT_MID_HOSTILITY_VILLAGERS" Atlas="ICON_ATLAS_EGHV_BASE" Index="47"/>
+        <Replace Name="ICON_EGHV_GOODYHUT_ADD_POP" Atlas="ICON_ATLAS_EGHV_BASE" Index="48"/>
+        <Replace Name="ICON_EGHV_GOODYHUT_THREE_ENVOYS" Atlas="ICON_ATLAS_EGHV_BASE" Index="49"/>
+
+        <Replace Name="ICON_EGHV_GOODYHUT_HIGH_HOSTILITY_VILLAGERS" Atlas="ICON_ATLAS_EGHV_BASE" Index="54"/>
+        <Replace Name="ICON_EGHV_GOODYHUT_ONE_RELIC" Atlas="ICON_ATLAS_EGHV_BASE" Index="55"/>
+        <Replace Name="ICON_EGHV_GOODYHUT_FOUR_ENVOYS" Atlas="ICON_ATLAS_EGHV_BASE" Index="56"/>
+
+        <Replace Name="ICON_EGHV_GOODYHUT_MAX_HOSTILITY_VILLAGERS" Atlas="ICON_ATLAS_EGHV_BASE" Index="61"/>
+        <Replace Name="ICON_EGHV_GOODYHUT_IMPROVED_SIGHT" Atlas="ICON_ATLAS_EGHV_BASE" Index="62"/>
+        <!-- Base game building icons -->
+        <Replace Name="ICON_EGHV_VILLAGER_SECRETS_FOOD" Atlas="ICON_BUILDINGS_EGHV_BASE" Index="0"/>
+        <Replace Name="ICON_EGHV_VILLAGER_SECRETS_PRODUCTION" Atlas="ICON_BUILDINGS_EGHV_BASE" Index="1"/>
+        <Replace Name="ICON_EGHV_VILLAGER_SECRETS_GOLD" Atlas="ICON_BUILDINGS_EGHV_BASE" Index="2"/>
+        <Replace Name="ICON_EGHV_VILLAGER_SECRETS_SCIENCE" Atlas="ICON_BUILDINGS_EGHV_BASE" Index="3"/>
+        <Replace Name="ICON_EGHV_VILLAGER_SECRETS_CULTURE" Atlas="ICON_BUILDINGS_EGHV_BASE" Index="4"/>
+        <Replace Name="ICON_EGHV_VILLAGER_SECRETS_FAITH" Atlas="ICON_BUILDINGS_EGHV_BASE" Index="5"/>
+        <Replace Name="ICON_EGHV_VILLAGER_SECRETS_AMENITIES" Atlas="ICON_BUILDINGS_EGHV_BASE" Index="6"/>
+        <!-- XP1 Subtype icons -->
+        <Replace Name="ICON_EGHV_GOODYHUT_ONE_GOVERNOR_TITLE" Atlas="ICON_ATLAS_EGHV_XP1" Index="0"/>
+        <Replace Name="ICON_EGHV_GOODYHUT_TWO_GOVERNOR_TITLES" Atlas="ICON_ATLAS_EGHV_XP1" Index="1"/>
+        <Replace Name="ICON_EGHV_GOODYHUT_THREE_GOVERNOR_TITLES" Atlas="ICON_ATLAS_EGHV_XP1" Index="2"/>
+        <Replace Name="ICON_EGHV_GOODYHUT_FOUR_GOVERNOR_TITLES" Atlas="ICON_ATLAS_EGHV_XP1" Index="3"/>
+        <!-- XP2 Subtype icons -->
+        <Replace Name="ICON_EGHV_GOODYHUT_SMALL_FAVOR" Atlas="ICON_ATLAS_EGHV_XP2" Index="0"/>
+        <Replace Name="ICON_EGHV_GOODYHUT_SMALL_RESOURCES" Atlas="ICON_ATLAS_EGHV_XP2" Index="1"/>
+        <Replace Name="ICON_EGHV_GOODYHUT_MEDIUM_FAVOR" Atlas="ICON_ATLAS_EGHV_XP2" Index="2"/>
+        <Replace Name="ICON_EGHV_GOODYHUT_MEDIUM_RESOURCES" Atlas="ICON_ATLAS_EGHV_XP2" Index="3"/>
+        <Replace Name="ICON_EGHV_GOODYHUT_LARGE_FAVOR" Atlas="ICON_ATLAS_EGHV_XP2" Index="4"/>
+        <Replace Name="ICON_EGHV_GOODYHUT_LARGE_RESOURCES" Atlas="ICON_ATLAS_EGHV_XP2" Index="5"/>
+        <Replace Name="ICON_EGHV_GOODYHUT_HUGE_FAVOR" Atlas="ICON_ATLAS_EGHV_XP2" Index="6"/>
+        <Replace Name="ICON_EGHV_GOODYHUT_HUGE_RESOURCES" Atlas="ICON_ATLAS_EGHV_XP2" Index="7"/>
+        <!-- XP2 building icons -->
+        <Replace Name="ICON_EGHV_VILLAGER_SECRETS_FAVOR" Atlas="ICON_BUILDINGS_EGHV_XP2" Index="0"/>
+    </IconDefinitions>
+</GameInfo>

@@ -310,7 +310,7 @@
             <Text>[ICON_Ability] Enhanced Sight</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_IMPROVED_SIGHT_DESC" Language="en_US">
-            <Text>Tier 1 (Common) Abilities-type reward.[NEWLINE][NEWLINE]The discovering unit(s) receive(s) +1 [ICON_Terrain] sight.</Text>
+            <Text>Tier 1 (Common) Abilities-type reward.[NEWLINE][NEWLINE]The discovering unit(s) receive(s) +1 [ICON_VisTopSecret] sight.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_IMPROVED_HEALING_NAME" Language="en_US">
             <Text>[ICON_Ability] Enhanced Healing</Text>
@@ -495,28 +495,28 @@
         </Replace>
         <!-- governors type -->
         <Replace Tag="LOC_EGHV_GOODYHUT_FOUR_GOVERNOR_TITLES_NAME" Language="en_US">
-            <Text>4 [ICON_Government] Governor Titles</Text>
+            <Text>4 [ICON_Governor] Governor Titles</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_FOUR_GOVERNOR_TITLES_DESC" Language="en_US">
-            <Text>Tier 4 (Legendary) Governors-type reward.[NEWLINE][NEWLINE]Receive four (4) free [ICON_Government] Governor Titles.</Text>
+            <Text>Tier 4 (Legendary) Governors-type reward.[NEWLINE][NEWLINE]Receive four (4) free [ICON_Governor] Governor Titles.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_THREE_GOVERNOR_TITLES_NAME" Language="en_US">
-            <Text>3 [ICON_Government] Governor Titles</Text>
+            <Text>3 [ICON_Governor] Governor Titles</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_THREE_GOVERNOR_TITLES_DESC" Language="en_US">
-            <Text>Tier 3 (Rare) Governors-type reward.[NEWLINE][NEWLINE]Receive three (3) free [ICON_Government] Governor Titles.</Text>
+            <Text>Tier 3 (Rare) Governors-type reward.[NEWLINE][NEWLINE]Receive three (3) free [ICON_Governor] Governor Titles.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_TWO_GOVERNOR_TITLES_NAME" Language="en_US">
-            <Text>2 [ICON_Government] Governor Titles</Text>
+            <Text>2 [ICON_Governor] Governor Titles</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_TWO_GOVERNOR_TITLES_DESC" Language="en_US">
-            <Text>Tier 2 (Uncommon) Governors-type reward.[NEWLINE][NEWLINE]Receive two (2) free [ICON_Government] Governor Titles.</Text>
+            <Text>Tier 2 (Uncommon) Governors-type reward.[NEWLINE][NEWLINE]Receive two (2) free [ICON_Governor] Governor Titles.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_ONE_GOVERNOR_TITLE_NAME" Language="en_US">
-            <Text>1 [ICON_Government] Governor Title</Text>
+            <Text>1 [ICON_Governor] Governor Title</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_ONE_GOVERNOR_TITLE_DESC" Language="en_US">
-            <Text>Tier 1 (Common) Governors-type reward.[NEWLINE][NEWLINE]Receive one (1) free [ICON_Government] Governor Title.</Text>
+            <Text>Tier 1 (Common) Governors-type reward.[NEWLINE][NEWLINE]Receive one (1) free [ICON_Governor] Governor Title.</Text>
         </Replace>
         <!-- envoys type -->
         <Replace Tag="LOC_EGHV_GOODYHUT_FOUR_ENVOYS_NAME" Language="en_US">
