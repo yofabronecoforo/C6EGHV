@@ -88,7 +88,7 @@ These built-in types are available for all rulesets. Rewards in each type differ
 Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
 :---: | :---: | :---: | :---:
 <img src='IMAGES/CivicBoost1_256.png' width='128'> | <img src='IMAGES/CivicBoost2_256.png' width='128'> | <img src='IMAGES/CivicUnlock1_256.png' width='128'> | <img src='IMAGES/CivicUnlock2_256.png' width='128'>
-1 civic boost | 2 civic boosts | 1 civic [1] [2] | 2 civics [1] [3]
+1 Civic boost | 2 Civic boosts | 1 Civic [1] [2] | 2 Civics [1] [3]
 
 1. This reward is provided by EGHV.
 2. Code of Laws will be the free Civic provided by this reward if no Civics have been unlocked.
@@ -98,7 +98,7 @@ Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
 Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
 :---: | :---: | :---: | :---:
 <img src='IMAGES/Faith1_256.png' width='128'> | <img src='IMAGES/Faith2_256.png' width='128'> | <img src='IMAGES/Faith3_256.png' width='128'> | <img src='IMAGES/Relic256.png' width='128'>
-+20 faith | +60 faith | +100 faith | +1 relic [1]
++20 Faith | +60 Faith | +100 Faith | +1 Relic [1]
 
 1. The "one relic" Culture-type reward is now a Faith-type reward.
 
@@ -106,7 +106,7 @@ Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
 Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
 :---: | :---: | :---: | :---:
 <img src='IMAGES/Gold1_256.png' width='128'> | <img src='IMAGES/Gold2_256.png' width='128'> | <img src='IMAGES/Gold3_256.png' width='128'> | <img src='IMAGES/TradeRoute256.png' width='128'>
-+40 gold | +80 gold | +120 gold | +1 trade route [1]
++40 Gold | +80 Gold | +120 Gold | +1 Trade Route [1]
 
 1. This reward is provided by EGHV.
 
@@ -114,7 +114,7 @@ Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
 Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
 :---: | :---: | :---: | :---:
 <img src='IMAGES/TechBoost1_256.png' width='128'> | <img src='IMAGES/TechBoost2_256.png' width='128'> | <img src='IMAGES/TechUnlock1_256.png' width='128'> | <img src='IMAGES/TechUnlock2_256.png' width='128'>
-1 tech boost | 2 tech boosts | 1 tech | 2 techs [1]
+1 Tech boost | 2 Tech boosts | 1 Tech | 2 Techs [1]
 
 1. This reward is provided by EGHV.
 
@@ -122,7 +122,7 @@ Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
 Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
 :---: | :---: | :---: | :---:
 <img src='IMAGES/Citizen256.png' width='128'> | <img src='IMAGES/Builder256.png' width='128'> | <img src='IMAGES/Trader256.png' width='128'> | <img src='IMAGES/Settler256.png' width='128'>
-+1 population [1] | 1 Builder [2] | 1 Trader [3] | 1 Settler [2] [4]
++1 Population [1] | 1 Builder [2] | 1 Trader [3] | 1 Settler [2] [4]
 
 1. The built-in "add population" Survivors-type reward modifier would only correctly fire once per Goody Hut, with the side effect of breaking the reward system for the player who received it. When this reward is received multiple times from the same Goody Hut, additional new population beyond the first will now bypass this modifier and be provided by Lua directly.
 2. The unit provided by this reward will now spawn in a plot near the Goody Hut that provided the reward.
@@ -136,7 +136,7 @@ These new types are provided by EGHV for all rulesets.
 Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
 :---: | :---: | :---: | :---:
 <img src='IMAGES/EnhancedSight256.png' width='128'> | <img src='IMAGES/EnhancedHealing256.png' width='128'> | <img src='IMAGES/EnhancedMovement256.png' width='128'> | <img src='IMAGES/EnhancedStrength256.png' width='128'>
-+1 sight | +20 healing/turn | +1 movement | +10 strength
++1 Sight | +20 Healing/turn | +1 Movement | +10 Strength
 
 - Rewards of this type are valid only when obtained via exploration; they should be replaced by EGHV when obtained via border expansion.
 - Unit Ability rewards apply to any valid unit(s) in formation with the popping unit, as well as the popping unit. These rewards apply to each valid unit up to one time for the lifetime of that unit. For example, a Builder, Missionary, or Great Person can and will receive increased movement once, but not additional combat strength. Currently, the end result of this is that nothing will happen when an Ability reward is received and all valid unit(s) have already received the ability.
@@ -145,7 +145,7 @@ Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
 Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
 :---: | :---: | :---: | :---:
 <img src='IMAGES/Envoy1_256.png' width='128'> | <img src='IMAGES/Envoy2_256.png' width='128'> | <img src='IMAGES/Envoy3_256.png' width='128'> | <img src='IMAGES/Envoy4_256.png' width='128'>
-1 envoy | 2 envoys | 3 envoys | 4 envoys
+1 Envoy | 2 Envoys | 3 Envoys | 4 Envoys
 
 - When the Gathering Storm expansion is present and in use, new rewards provided by this EGHV type supercede the "free envoy" Diplomacy-type reward, which is disabled.
 
@@ -153,11 +153,11 @@ Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
 Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
 :---: | :---: | :---: | :---:
 <img src='IMAGES/Experience1_256.png' width='128'> | <img src='IMAGES/Experience2_256.png' width='128'> | <img src='IMAGES/Experience3_256.png' width='128'> | <img src='IMAGES/UnitUpgrade256.png' width='128'>
-5 experience | 10 experience | 15 experience | free upgrade
+5 Experience | 10 Experience | 15 Experience | Upgrade unit
 
 - Rewards of this type are valid only when obtained via exploration; they should be replaced by EGHV when obtained via border expansion.
 - Combat experience rewards apply to any valid unit(s) in formation with the popping unit, as well as the popping unit. These rewards can be applied an unlimited number of times to any specific unit; however, built-in limitations prevent a specific unit from earning more experience than is needed for its next promotion, so any experience earned beyond this amount by any unit will be lost.
-- The Upgrade Unit reward provides one of the following to each valid unit in formation with the popping unit, as well as the popping unit:
+- The Upgrade unit reward provides one of the following to each valid unit in formation with the popping unit, as well as the popping unit:
     1. Any unit with a valid promotion class, that HAS NOT yet earned any promotions, will receive a free upgrade IF it also has a valid upgrade path. Due to built-in limitations, this "upgrade" consists of destroying the existing unit and placing a new unit in the last plot the existing unit occupied. Upgraded unit(s) will retain any abilities attached to the old unit(s); however, they lose any remaining movement for the current turn.
     2. Any unit with a valid promotion class, that HAS already earned at least one promotion, will receive enough experience for its next promotion. This includes any unit(s) previously upgraded by (i) above.
     3. Units without a valid promotion class or upgrade path will be skipped by this reward; currently, this results in nothing happening.
@@ -169,7 +169,7 @@ These new types are provided by EGHV for Rise and Fall and later ruleset(s).
 Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
 :---: | :---: | :---: | :---:
 <img src='IMAGES/Governor1_256.png' width='128'> | <img src='IMAGES/Governor2_256.png' width='128'> | <img src='IMAGES/Governor3_256.png' width='128'> | <img src='IMAGES/Governor4_256.png' width='128'>
-1 governor title | 2 governor titles | 3 governor titles | 4 governor titles
+1 Governor Title | 2 Governor Titles | 3 Governor Titles | 4 Governor Titles
 
 - When the Gathering Storm expansion is present and in use, new rewards provided by this EGHV type supercede the "free governor title" Diplomacy-type reward, which is disabled.
 
@@ -177,9 +177,10 @@ Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
 These built-in types are provided for Gathering Storm and later ruleset(s).
 
 #### Meteor Strike (1 reward)
-| <img src='IMAGES/MeteorStrike256.png' width='128'>
+| Common (100%)
 | :---:
-| meteor strike
+| <img src='IMAGES/MeteorStrike256.png' width='128'>
+| Meteor strike
 
 #### Disabled Rewards
 Some rewards provided by this expansion are superceded by rewards provided by EGHV; these rewards have been disabled where indicated.
@@ -191,7 +192,7 @@ These new types are provided by EGHV for Gathering Storm and later ruleset(s).
 Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
 :---: | :---: | :---: | :---:
 <img src='IMAGES/Favor1_256.png' width='128'> | <img src='IMAGES/Favor2_256.png' width='128'> | <img src='IMAGES/Favor3_256.png' width='128'> | <img src='IMAGES/Favor4_256.png' width='128'>
-+10 favor | +20 favor | +30 favor | +50 favor
++10 Favor | +20 Favor | +30 Favor | +50 Favor
 
 - New rewards provided by this EGHV type supercede the "free diplomatic favor" Diplomacy-type reward, which is disabled.
 
@@ -199,7 +200,7 @@ Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
 Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
 :---: | :---: | :---: | :---:
 <img src='IMAGES/Resources1_256.png' width='128'> | <img src='IMAGES/Resources2_256.png' width='128'> | <img src='IMAGES/Resources3_256.png' width='128'> | <img src='IMAGES/Resources4_256.png' width='128'>
-+10 resources | +20 resources | +30 resources | +50 resources
++10 Resources | +20 Resources | +30 Resources | +50 Resources
 
 - New rewards provided by this EGHV type supercede the "free strategic resources" Military-type reward, which is disabled.
 - The cache of resources provided will be of the most advanced type the player has revealed.
@@ -214,7 +215,7 @@ Built-in Military-type rewards have been entirely disabled and reworked. A rewar
 Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
 :---: | :---: | :---: | :---:
 <img src='IMAGES/Recon256.png' width='128'> | <img src='IMAGES/Melee256.png' width='128'><img src='IMAGES/Ranged256.png' width='128'><img src='IMAGES/AntiCavalry256.png' width='128'> | <img src='IMAGES/HeavyCavalry256.png' width='128'><img src='IMAGES/LightCavalry256.png' width='128'> | <img src='IMAGES/Support256.png' width='128'><img src='IMAGES/Siege256.png' width='128'><img src='IMAGES/MilitaryEngineer256.png' width='128'>
-Recon | Melee OR Ranged OR Anti-Cavalry | Heavy Cavalry OR Light Cavalry | Support OR Siege OR a Military Engineer
+1 Recon unit | 1 Melee unit OR 1 Ranged unit OR 1 Anti-Cavalry unit | 1 Heavy Cavalry unit OR 1 Light Cavalry unit | 1 Support unit OR 1 Siege unit OR 1 Military Engineer
 
 Any unit provided by a Military-type reward will now spawn in a plot near the Goody Hut that provided the reward. Additionally, with the exception of the free Military Engineer, any unit provided by a Military-type reward will now be Era-appropriate.
 
@@ -225,7 +226,7 @@ Sometimes the villagers will give you the pointy end of a stick in addition to a
 Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
 :---: | :---: | :---: | :---:
 <img src='IMAGES/Hostile1_256.png' width='128'> | <img src='IMAGES/Hostile2_256.png' width='128'> | <img src='IMAGES/Hostile3_256.png' width='128'> | <img src='IMAGES/Hostile4_256.png' width='128'>
-low hostility | medium hostility | high hostility | maximum hostility
+Low hostility | Medium hostility | High hostility | Maximum hostility
 
 No traditional rewards here. Instead, the villagers retaliate against your intrusion by organizing one or more barbarian units in (a) nearby tile(s) as follows:
 
@@ -265,12 +266,12 @@ Any hostile villagers that appear as or after a reward will generate an ingame p
 To compensate for the increased numbers of barbarian units that are likely to be present now, the experience and level caps from fighting such units have been increased. You still aren't going to get a fully-promoted unit from fighting barbarians, but at least you'll be able to get more than a single promotion.
 
 #### Villager Secrets: 7 rewards (8 with Gathering Storm ruleset)
-Rewards of this type always have a chance of being selected equal to (1 / n), where "n" is equal to the number of such rewards for the chosen ruleset which are presently enabled. When one is received, it unlocks the ability to build a Villager Totem building. Each reward unlocks a different Totem, and each of these new buildings provides a boost to a different yield:
+Rewards of this type always have a chance of being selected equal to (1 / X)%, where X is equal to the number of such rewards for the chosen ruleset which are presently enabled. When one is received, it unlocks the ability to build a Villager Totem building. Each reward unlocks a different Totem, and each of these new buildings provides a boost to a different yield:
 
-Amenities | Culture | Faith | Food | Gold | Production | Science | Favor [1]
+Amenities | Culture | Faith | Food | Gold | Production | Science | Favor
 :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---:
 <img src='IMAGES/TotemAmenities256.png' width='128'> | <img src='IMAGES/TotemCulture256.png' width='128'> | <img src='IMAGES/TotemFaith256.png' width='128'> | <img src='IMAGES/TotemFood256.png' width='128'> | <img src='IMAGES/TotemGold256.png' width='128'> | <img src='IMAGES/TotemProduction256.png' width='128'> | <img src='IMAGES/TotemScience256.png' width='128'> | <img src='IMAGES/TotemFavor256.png' width='128'>
-+4 amenities | +4 culture | +4 faith | +4 food | +8 gold | +4 production | +4 science | +4 favor
++4 Amenities | +4 Culture | +4 Faith | +4 Food | +8 Gold | +4 Production | +4 Science | +4 Favor [1]
 
 1. Requires Gathering Storm.
 
@@ -392,7 +393,7 @@ The above files are included by directive in the appropriate contexts. Additiona
 
 Doing this simulates the behavior of the Ingame "ReplaceUIScript" modinfo tag, which does nothing in the Frontend. This removes the need to overwrite the aforementioned original scripts with new versions containing any necessary changes, and allows for such changes to be placed in separate files that are loaded as needed after the existing scripts are loaded. When care is exercised, this allows multiple mods to make precision changes to these scripts and interoperate with one another. Crucially, since EGHV's load order generally makes it one of the last mods loaded, if not the last one loaded, it also allows for EGHV to function alongside other mods that __DO__ replace the original scripts, without resorting to a Frankenstein's monster of a single script containing changes from different mods. This functionality has been tested with YnAMP, but it *should* work with any mod that replaces the AdvancedSetup, GameSetupLogic, and/or HostGame script(s); however, there are limitations:
 - EGHV cannot make the game retain multiple versions of a script with the same name, so only the last imported version of each of these files will be used. This means other mods that overwrite one or more of these scripts will likely continue to conflict with each other.
-- Mods that make extensive changes to the AdvancedSetup and/or HostGame XML templates are not supported by EGHV. Notably, this applies to Sukitract's Civ Selection Screen.
+- Mods that make extensive changes to the AdvancedSetup and/or HostGame XML templates are not supported by EGHV. Notably, this applies to Sukritact's Civ Selection Screen.
 
 To implement the new Goody Hut picker, EGHV adds the following new Frontend context file(s):
 - GoodyHutPicker.lua and GoodyHutPicker.xml
@@ -442,10 +443,7 @@ EGHV employs the following new custom gameplay scripts:
 If your mod employs any gameplay scripts with similar names, conflicts __WILL__ arise.
 
 # Art
-256x256 px source textures for EGHV content ganked from the pantry.
-
-Additionally, one or more 256x256 px source textures ganked from the following:
-- [Civilization Wiki](https://civilization.fandom.com/)
+64/100/128/256px source textures for EGHV content ganked from the pantry.
 
 Additional texture sizes derived from the above sources.
 
