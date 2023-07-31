@@ -13,7 +13,7 @@ A mod that provides a fairly comprehensive extension to and overhaul of the Trib
 In addition, the number of available ingame Goody Hut rewards has greatly increased for each official ruleset:
 
 Ruleset in use | Standard | Rise and Fall | Gathering Storm
-------- | ------- | ------- | -------
+:--- | :---: | :---: | :---:
 Rewards (Types) built-in | 18 (6) | 18 (6) | 23 (8)
 Rewards (Types) with EGHV | 52 (11) | 56 (12) | 66 (15)
 
@@ -32,97 +32,6 @@ When obtained via any of the official channels referenced in the #Installation s
 Please report any conspicuous absent text, grammatical errors, inaccurate translations, or instances of localization placeholders (i.e. LOC_SOME_TEXT_HERE), when using any of the above languages.
 
 # Features
-## Goody Huts
-![Goody Hut Picker](/IMAGES/Goody_Hut_Picker.png)
-
-EGHV modifies existing Goody Hut rewards, and provides several new rewards in several new categories.
-
-Minimum-turn requirements have been set to 0 for all __DEFINED__ and __ENABLED__ rewards. This means that these rewards will be available from turn 1 on.
-
-There is an issue with the 2 free civics reward where only 1 civic will be granted when no more than that are available to be researched, for example before Code of Laws has been unlocked.
-
-### Standard
-![Standard Rewards](/IMAGES/Standard.gif)
-
-These rewards are available for all rulesets. Existing and new rewards have been rebalanced as follows:
-
-Goody Hut Type (Weight) | Common (55) | Uncommon (30) | Rare (10) | Legendary (5)
------- | ------ | ------ | ------ | ------
-Culture | 1 civic boost | 2 civic boosts | 1 civic [1] [2] | 2 civics [1] [3]
-Faith | +20 faith | +60 faith | +100 faith | +1 relic [4]
-Gold | +40 gold | +80 gold | +120 gold | +1 trade route [1]
-Science | 1 tech boost | 2 tech boosts | 1 tech | 2 techs [1]
-Survivors | +1 new population [5] | 1 Builder [6] | 1 Trader [7] | 1 Settler [6] [8]
-
-1. This reward is provided by EGHV
-2. Code of Laws will be the free Civic provided by this reward if no Civics have been unlocked
-3. Code of Laws will be the __ONLY__ free Civic provided by this reward if no Civics have been unlocked, and the second free Civic will be lost. C'est la vie
-4. The "one relic" Culture-type reward is now a Faith-type reward
-5. The built-in "add population" Survivors-type reward modifier would only correctly fire once per Goody Hut; when this reward is received multiple times from the same Goody Hut, additional new population beyond the first will now bypass this modifier and be provided by Lua directly
-6. The unit provided by this reward will now spawn in a plot near the Goody Hut that provided the reward
-7. This reward is unmodified, and the provided Trader unit will spawn wherever it was originally supposed to; this prevents it from being rendered essentially unusable
-8. The defined-but-disabled "one settler" Survivors-type reward is now enabled
-
-### Military-Type
-![Military Rewards](/IMAGES/Military-type.gif)
-
-Built-in Military-type rewards have been entirely disabled and reworked. For all rulesets, a reward of this type now provides a new unit as follows:
-
-Goody Hut Type (Weight) | Common (55) | Uncommon (30) | Rare (10) | Legendary (5)
------- | ------ | ------ | ------ | ------
-Military | Recon | Melee OR Ranged OR Anti-Cavalry | Heavy Cavalry OR Light Cavalry | Support OR Siege OR a Military Engineer
-
-Any unit provided by a Military-type reward will now spawn in a plot near the Goody Hut that provided the reward. Additionally, with the exception of the free Military Engineer, any unit provided by a Military-type reward will now be Era-appropriate.
-
-### New Standard Types
-![EGHV Rewards](/IMAGES/EGHV.gif)
-
-These rewards are provided by EGHV for all rulesets:
-
-Goody Hut Type (Weight) | Common (55) | Uncommon (30) | Rare (10) | Legendary (5)
------- | ------ | ------ | ------ | ------
-Abilities [1] [3] | +1 sight | +20 healing per turn | +1 movement | +10 combat strength
-Envoys [2] | 1 envoy | 2 envoys | 3 envoys | 4 envoys
-Hostiles | low hostility | medium hostility | high hostility | maximum hostility
-Promotions [1] [4] | 5 experience | 10 experience | 15 experience | upgrade and/or experience for next promotion [5]
-Secrets [6] | villager secrets (100)
-
-1. Rewards of this type apply to any valid unit(s) when obtained via exploration; they should be replaced by EGHV when obtained via border expansion
-2. When the Gathering Storm expansion is present and in use, new rewards provided by this EGHV type supercede the "free envoy" Diplomacy-type reward, which is disabled
-3. Unit Ability rewards apply to any valid unit(s) in formation with the popping unit, as well as the popping unit. These rewards apply to each valid unit up to one time for the lifetime of that unit. For example, a Builder, Missionary, or Great Person can and will receive increased movement once, but not additional combat strength. Currently, the end result of this is that nothing will happen when an Ability reward is received and all valid unit(s) have already received the ability.
-4. Unit Promotion rewards apply to any valid unit(s) in formation with the popping unit, as well as the popping unit. These rewards can be applied an unlimited number of times to any specific unit; however, built-in limitations prevent a specific unit from earning more experience than is needed for its next promotion, so any experience earned beyond this amount by any unit will be lost.
-5. The Upgrade Unit reward provides one or more of the following to any valid unit(s) in formation with the popping unit, as well as the popping unit:
-    1. Any unit with a valid promotion class, that has NOT yet earned any promotions, will receive a free upgrade IF it also has a valid upgrade path. Due to built-in limitations, this "upgrade" consists of destroying the existing unit and placing a new unit in the last plot the existing unit occupied. Since promotions and experience cannot currently be transferred easily and cleanly to a new unit, any unit with any promotions will be ignored. Upgraded unit(s) DO retain any abilities attached to the old unit(s); however, they lose any remaining movement for the current turn.
-    2. Any unit with a valid promotion class, including any unit upgraded by (i) above, will receive enough experience for its next promotion.
-    3. Units without a valid promotion class or upgrade path will be skipped by this reward; currently, this results in nothing happening.
-6. Rewards of this type have a specialized nature and inherently equalized chances of being selected. They are explained in detail below.
-
-### New Rise and Fall Types
-![EGHV Rewards](/IMAGES/Expansion1.gif)
-
-These rewards are provided by EGHV for Rise and Fall and later ruleset(s):
-
-Goody Hut Type (Weight) | Common (55) | Uncommon (30) | Rare (10) | Legendary (5)
------- | ------ | ------ | ------ | ------
-Governors [1] | 1 governor title | 2 governor titles | 3 governor titles | 4 governor titles
-
-1. When the Gathering Storm expansion is present and in use, new rewards provided by this EGHV type supercede the "free governor title" Diplomacy-type reward, which is disabled
-
-### New Gathering Storm Types
-![EGHV Rewards](/IMAGES/Expansion2.gif)
-
-These rewards are provided by EGHV for Gathering Storm and later ruleset(s):
-
-Goody Hut Type (Weight) | Common (55) | Uncommon (30) | Rare (10) | Legendary (5)
------- | ------ | ------ | ------ | ------
-Diplomacy [1] | +10 diplomatic favor | +20 diplomatic favor | +30 diplomatic favor | +50 diplomatic favor
-Meteor | meteor-strike site (100)
-Resources [2] [3] | +10 strategic resources | +20 strategic resources | +30 strategic resources | +50 strategic resources
-
-1. New rewards provided by this EGHV type supercede the "free diplomatic favor" Diplomacy-type reward, which is disabled
-2. New rewards provided by this EGHV type supercede the "free strategic resources" Military-type reward, which is disabled
-3. Currently there is a bug causing rewards of this type to provide nothing when no types of strategic resources have been revealed
-
 ## Goody Hut Reward Picker
 ![Goody Hut Picker](/IMAGES/Picker_Detail.gif)
 
@@ -131,7 +40,7 @@ EGHV provides a new picker window for selecting the specific Goody Hut reward(s)
 - Type (alphabetical by individual reward subtype, then grouped by parent reward type)
 - Rarity (alphabetical by individual reward subtype, then ascending by rarity tier)
 
-Disabling all available reward(s) via the picker will cause the "No Goody Huts" game option to be implicitly enabled.
+Disabling all available reward(s) via the picker will automatically cause the "No Goody Huts" game option to be enabled.
 
 The tooltip for the Goody Hut picker reflects the source(s) of its content based on the selected ruleset and/or any currently available known content as calculated at game launch. Its button text reflects the total amount of available items(s) when all items in the picker are selected.
 - This functionality extends to the built-in City-States, Leaders, and Natural Wonders pickers.
@@ -139,7 +48,7 @@ The tooltip for the Goody Hut picker reflects the source(s) of its content based
 ## Goody Hut Distribution Slider
 ![Goody Hut Frequency](/IMAGES/Goody_Hut_Distribution.png)
 
-EGHV provides a slider for decreasing or increasing the relative amount of Goody Huts that will appear on the selected map; this slider defaults to 100%, and adjusts in steps of 25% in a range of 25% - 500%, inclusive. This slider also appears in the picker window.
+EGHV provides a slider for decreasing or increasing the relative amount of Goody Huts that will appear on the selected map; this slider defaults to 100%, and adjusts in increments of 25% in a range of 25% - 500%, inclusive. This slider also appears in the picker window.
 
 ## Reward Roller
 When some rewards are received and have an invalid target, EGHV will use a custom method to randomly select a replacement reward from the pool of available rewards. This method is also used to provide a(ny) bonus reward(s) as outlined below.
@@ -163,11 +72,174 @@ Bonus Rewards, if enabled, can only be received from a Goody Hut. There are two 
 
 EGHV provides a checkbox option which, when enabled, assigns every enabled reward in a category a Weight equal to that category's Weight. This results in most enabled rewards having a roughly equal chance of being selected.
 
-## Hostile Villagers
-### Hostiles After Reward
+## Goody Huts
+![Goody Hut Picker](/IMAGES/Goody_Hut_Picker.png)
+
+EGHV modifies existing Goody Hut rewards, and provides several new rewards in both existing and new categories. All categories are equally weighted by default; table column headers below reflect each individual reward's rarity tier and likelihood of being the selected reward if its category is selected.
+
+Minimum-turn requirements have been set to 0 for all __DEFINED__ and __ENABLED__ rewards. This means that these rewards will be available from turn 1 on.
+
+There is an issue with the 2 free civics reward where only 1 civic will be granted when no more than that are available to be researched, for example before Code of Laws has been unlocked.
+
+### Standard Types
+These built-in types are available for all rulesets. Rewards in each type differ from the defaults where indicated.
+
+#### Culture: 4 rewards
+Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
+:---: | :---: | :---: | :---:
+<img src='IMAGES/CivicBoost1_256.png' width='128'> | <img src='IMAGES/CivicBoost2_256.png' width='128'> | <img src='IMAGES/CivicUnlock1_256.png' width='128'> | <img src='IMAGES/CivicUnlock2_256.png' width='128'>
+1 civic boost | 2 civic boosts | 1 civic [1] [2] | 2 civics [1] [3]
+
+1. This reward is provided by EGHV.
+2. Code of Laws will be the free Civic provided by this reward if no Civics have been unlocked.
+3. Code of Laws will be the __ONLY__ free Civic provided by this reward if no Civics have been unlocked, and the second free Civic will be lost. C'est la vie.
+
+#### Faith: 4 rewards
+Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
+:---: | :---: | :---: | :---:
+<img src='IMAGES/Faith1_256.png' width='128'> | <img src='IMAGES/Faith2_256.png' width='128'> | <img src='IMAGES/Faith3_256.png' width='128'> | <img src='IMAGES/Relic256.png' width='128'>
++20 faith | +60 faith | +100 faith | +1 relic [1]
+
+1. The "one relic" Culture-type reward is now a Faith-type reward.
+
+#### Gold: 4 rewards
+Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
+:---: | :---: | :---: | :---:
+<img src='IMAGES/Gold1_256.png' width='128'> | <img src='IMAGES/Gold2_256.png' width='128'> | <img src='IMAGES/Gold3_256.png' width='128'> | <img src='IMAGES/TradeRoute256.png' width='128'>
++40 gold | +80 gold | +120 gold | +1 trade route [1]
+
+1. This reward is provided by EGHV.
+
+#### Science: 4 rewards
+Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
+:---: | :---: | :---: | :---:
+<img src='IMAGES/TechBoost1_256.png' width='128'> | <img src='IMAGES/TechBoost2_256.png' width='128'> | <img src='IMAGES/TechUnlock1_256.png' width='128'> | <img src='IMAGES/TechUnlock2_256.png' width='128'>
+1 tech boost | 2 tech boosts | 1 tech | 2 techs [1]
+
+1. This reward is provided by EGHV.
+
+#### Survivors: 4 rewards
+Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
+:---: | :---: | :---: | :---:
+<img src='IMAGES/Citizen256.png' width='128'> | <img src='IMAGES/Builder256.png' width='128'> | <img src='IMAGES/Trader256.png' width='128'> | <img src='IMAGES/Settler256.png' width='128'>
++1 population [1] | 1 Builder [2] | 1 Trader [3] | 1 Settler [2] [4]
+
+1. The built-in "add population" Survivors-type reward modifier would only correctly fire once per Goody Hut, with the side effect of breaking the reward system for the player who received it. When this reward is received multiple times from the same Goody Hut, additional new population beyond the first will now bypass this modifier and be provided by Lua directly.
+2. The unit provided by this reward will now spawn in a plot near the Goody Hut that provided the reward.
+3. This reward is unmodified, and the provided Trader unit will spawn wherever it was originally supposed to; this prevents it from being rendered essentially unusable.
+4. The defined-but-disabled "one settler" Survivors-type reward is now enabled by default.
+
+### New Standard Types
+These new types are provided by EGHV for all rulesets.
+
+#### Abilities: 4 rewards
+Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
+:---: | :---: | :---: | :---:
+<img src='IMAGES/EnhancedSight256.png' width='128'> | <img src='IMAGES/EnhancedHealing256.png' width='128'> | <img src='IMAGES/EnhancedMovement256.png' width='128'> | <img src='IMAGES/EnhancedStrength256.png' width='128'>
++1 sight | +20 healing/turn | +1 movement | +10 strength
+
+- Rewards of this type are valid only when obtained via exploration; they should be replaced by EGHV when obtained via border expansion.
+- Unit Ability rewards apply to any valid unit(s) in formation with the popping unit, as well as the popping unit. These rewards apply to each valid unit up to one time for the lifetime of that unit. For example, a Builder, Missionary, or Great Person can and will receive increased movement once, but not additional combat strength. Currently, the end result of this is that nothing will happen when an Ability reward is received and all valid unit(s) have already received the ability.
+
+#### Envoys: 4 rewards
+Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
+:---: | :---: | :---: | :---:
+<img src='IMAGES/Envoy1_256.png' width='128'> | <img src='IMAGES/Envoy2_256.png' width='128'> | <img src='IMAGES/Envoy3_256.png' width='128'> | <img src='IMAGES/Envoy4_256.png' width='128'>
+1 envoy | 2 envoys | 3 envoys | 4 envoys
+
+- When the Gathering Storm expansion is present and in use, new rewards provided by this EGHV type supercede the "free envoy" Diplomacy-type reward, which is disabled.
+
+#### Promotions: 4 rewards
+Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
+:---: | :---: | :---: | :---:
+<img src='IMAGES/Experience1_256.png' width='128'> | <img src='IMAGES/Experience2_256.png' width='128'> | <img src='IMAGES/Experience3_256.png' width='128'> | <img src='IMAGES/UnitUpgrade256.png' width='128'>
+5 experience | 10 experience | 15 experience | free upgrade
+
+- Rewards of this type are valid only when obtained via exploration; they should be replaced by EGHV when obtained via border expansion.
+- Combat experience rewards apply to any valid unit(s) in formation with the popping unit, as well as the popping unit. These rewards can be applied an unlimited number of times to any specific unit; however, built-in limitations prevent a specific unit from earning more experience than is needed for its next promotion, so any experience earned beyond this amount by any unit will be lost.
+- The Upgrade Unit reward provides one of the following to each valid unit in formation with the popping unit, as well as the popping unit:
+    1. Any unit with a valid promotion class, that HAS NOT yet earned any promotions, will receive a free upgrade IF it also has a valid upgrade path. Due to built-in limitations, this "upgrade" consists of destroying the existing unit and placing a new unit in the last plot the existing unit occupied. Upgraded unit(s) will retain any abilities attached to the old unit(s); however, they lose any remaining movement for the current turn.
+    2. Any unit with a valid promotion class, that HAS already earned at least one promotion, will receive enough experience for its next promotion. This includes any unit(s) previously upgraded by (i) above.
+    3. Units without a valid promotion class or upgrade path will be skipped by this reward; currently, this results in nothing happening.
+
+### New Rise and Fall Types
+These new types are provided by EGHV for Rise and Fall and later ruleset(s).
+
+#### Governor Titles: 4 rewards
+Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
+:---: | :---: | :---: | :---:
+<img src='IMAGES/Governor1_256.png' width='128'> | <img src='IMAGES/Governor2_256.png' width='128'> | <img src='IMAGES/Governor3_256.png' width='128'> | <img src='IMAGES/Governor4_256.png' width='128'>
+1 governor title | 2 governor titles | 3 governor titles | 4 governor titles
+
+- When the Gathering Storm expansion is present and in use, new rewards provided by this EGHV type supercede the "free governor title" Diplomacy-type reward, which is disabled.
+
+### Gathering Storm Types
+These built-in types are provided for Gathering Storm and later ruleset(s).
+
+#### Meteor Strike (1 reward)
+| <img src='IMAGES/MeteorStrike256.png' width='128'>
+| :---:
+| meteor strike
+
+#### Disabled Rewards
+Some rewards provided by this expansion are superceded by rewards provided by EGHV; these rewards have been disabled where indicated.
+
+### New Gathering Storm Types
+These new types are provided by EGHV for Gathering Storm and later ruleset(s).
+
+#### Diplomatic Favor: 4 rewards
+Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
+:---: | :---: | :---: | :---:
+<img src='IMAGES/Favor1_256.png' width='128'> | <img src='IMAGES/Favor2_256.png' width='128'> | <img src='IMAGES/Favor3_256.png' width='128'> | <img src='IMAGES/Favor4_256.png' width='128'>
++10 favor | +20 favor | +30 favor | +50 favor
+
+- New rewards provided by this EGHV type supercede the "free diplomatic favor" Diplomacy-type reward, which is disabled.
+
+#### Strategic Resources: 4 rewards
+Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
+:---: | :---: | :---: | :---:
+<img src='IMAGES/Resources1_256.png' width='128'> | <img src='IMAGES/Resources2_256.png' width='128'> | <img src='IMAGES/Resources3_256.png' width='128'> | <img src='IMAGES/Resources4_256.png' width='128'>
++10 resources | +20 resources | +30 resources | +50 resources
+
+- New rewards provided by this EGHV type supercede the "free strategic resources" Military-type reward, which is disabled.
+- The cache of resources provided will be of the most advanced type the player has revealed.
+- Currently there is a bug causing rewards of this type to provide nothing when no types of strategic resources have been revealed.
+
+### Specialized Types
+Rewards of these types have a specialized nature and do not rely on the gamecore's modifier system. They are provided by EGHV for all rulesets.
+
+#### Military: 9 rewards
+Built-in Military-type rewards have been entirely disabled and reworked. A reward of this type now provides a new unit as follows:
+
+Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
+:---: | :---: | :---: | :---:
+<img src='IMAGES/Recon256.png' width='128'> | <img src='IMAGES/Melee256.png' width='128'><img src='IMAGES/Ranged256.png' width='128'><img src='IMAGES/AntiCavalry256.png' width='128'> | <img src='IMAGES/HeavyCavalry256.png' width='128'><img src='IMAGES/LightCavalry256.png' width='128'> | <img src='IMAGES/Support256.png' width='128'><img src='IMAGES/Siege256.png' width='128'><img src='IMAGES/MilitaryEngineer256.png' width='128'>
+Recon | Melee OR Ranged OR Anti-Cavalry | Heavy Cavalry OR Light Cavalry | Support OR Siege OR a Military Engineer
+
+Any unit provided by a Military-type reward will now spawn in a plot near the Goody Hut that provided the reward. Additionally, with the exception of the free Military Engineer, any unit provided by a Military-type reward will now be Era-appropriate.
+
+#### Hostile Villagers: 4 rewards
+Sometimes the villagers will give you the pointy end of a stick in addition to any other reward(s). Sometimes, it's the only thing they'll give you.
+
+##### Hostiles As Reward
+Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
+:---: | :---: | :---: | :---:
+<img src='IMAGES/Hostile1_256.png' width='128'> | <img src='IMAGES/Hostile2_256.png' width='128'> | <img src='IMAGES/Hostile3_256.png' width='128'> | <img src='IMAGES/Hostile4_256.png' width='128'>
+low hostility | medium hostility | high hostility | maximum hostility
+
+No traditional rewards here. Instead, the villagers retaliate against your intrusion by organizing one or more barbarian units in (a) nearby tile(s) as follows:
+
+- Low hostility: One melee unit.
+- Medium hostility: One melee unit and one ranged unit.
+- High hostility: Two melee units and one ranged unit.
+- Maximum hostility: One new barbarian camp, plus one melee unit.
+
+If Horses are located near the site of the former village, there is a chance that any unit(s) that appear may instead be mounted; this chance increases with each additional nearby source of Horses.
+
+##### Hostiles After Reward
 ![Hostiles After Reward](/IMAGES/Hostiles_After_Reward.png)
 
-Whenever a reward is earned from a Goody Hut, there is a chance that some of the villagers will be displeased that their tribe treated with outsiders. This does not apply to the meteor strike reward, or to any rewards earned via trait or ability as outlined above; it only applies to rewards received from an actual Goody Hut. This chance fluctuates based on several factors:
+Whenever a non-hostile reward is earned from a Goody Hut, there is a chance that some of the villagers will be displeased that their tribe treated with outsiders. This does not apply to the meteor strike reward, or to any rewards earned via trait or ability; it only applies to rewards received from an actual Goody Hut. This chance fluctuates based on several factors:
 
 - The selected difficulty level (Base chance increases with higher settings).
 - The method used to pop the hut (Increased chance with a reward received via border expansion or by a unit susceptible to instant removal like capture, condemnation, plunder, or return to another tile; decreased chance with most non-recon military units).
@@ -177,7 +249,7 @@ Whenever a reward is earned from a Goody Hut, there is a chance that some of the
 
 On the default difficulty setting, in the Ancient era, with one reward, there should be a 5-16% chance of encountering hostile villagers, depending on the received reward and the method in which it was received. This chance scales with each successive era, so that in the Future era, it will be 45-144%. On the lowest difficulty setting, the chance should start at 2-7% in the Ancient era, and scale from there. On the highest difficulty setting, the chancce should start at 9-28%, and scale from there. If bonus rewards are enabled, these chances increase slightly based upon the rarity of each reward received beyond the first. Thus, on higher difficulties, late enough in the game and with sufficient quantity and/or quality of rewards, encountering hostile villagers is no longer a chance, but instead becomes a guarantee.
 
-If the villagers are hostile, they will retaliate by organizing into one barbarian melee unit in a nearby tile. If they are very hostile, more than one unit will appear, and some will be ranged. If they are downright pissed off, they will organize into a new barbarian camp near the site of their former village, and they will spawn a handful of units. If Horses are located near the site of the former village, there is a chance that any unit(s) that appear may instead be mounted; this chance increases with each additional nearby source of Horses. Villager hostility level greatly fluctuates based on the same factors as the chance to be hostile above, and like above, eventually multiple units, and even a camp, will move from being a chance to a guarantee.
+Villager hostility level greatly fluctuates based on the same factors as the chance to be hostile above; if they are hostile, eventually multiple units, and even a camp, will move from being a chance to a guarantee.
 
 Hostile Villagers AFTER any other reward are configurable via a new dropdown option in Advanced Setup. Available settings are:
 - Never (hostile villagers will NOT appear)
@@ -187,35 +259,20 @@ Hostile Villagers AFTER any other reward are configurable via a new dropdown opt
 
 Setting this option to 'Never', while also disabling all 'Hostile Villagers' reward type(s) via the picker, will remove any chance of encountering hostile villagers entirely, whether as or after a reward.
 
-### Hostiles As Reward
-![Hostiles As Reward](/IMAGES/Hostile_Villagers.gif)
-
-What's that? "Not masochistic enough!" you say? Then how about a new reward type that's nothing but hostile villagers "rewards?" They won't even lure you in with the carrot before reaching for the stick, they just go straight for the stick, and the stick is pointy. When enabled, these rewards can be selected by the rewards system like any other reward, and have pre-determined villager hostility values. Hostility increases as "reward" rarity does; in fact, one of these rewards is selected internally after calculating villager hostility to place any hostiles that appear after any other reward.
-
-Hostile Villagers AS a "reward" are configurable via the picker like any other available reward.
-
-### Hostiles Errata
+##### Hostiles Errata
 Any hostile villagers that appear as or after a reward will generate an ingame panel notification with details.
 
 To compensate for the increased numbers of barbarian units that are likely to be present now, the experience and level caps from fighting such units have been increased. You still aren't going to get a fully-promoted unit from fighting barbarians, but at least you'll be able to get more than a single promotion.
 
-## Villager Secrets
-![Villager Secrets](/IMAGES/Villager_Secrets.gif)
+#### Villager Secrets: 7 rewards (8 with Gathering Storm ruleset)
+Rewards of this type always have a chance of being selected equal to (1 / n), where "n" is equal to the number of such rewards for the chosen ruleset which are presently enabled. When one is received, it unlocks the ability to build a Villager Totem building. Each reward unlocks a different Totem, and each of these new buildings provides a boost to a different yield:
 
-Villager Secrets are a group of specialized rewards which have an inherently equalized chance of being selected when enabled. When one is received, it unlocks the ability to build a Villager Totem building. Each reward unlocks a different Totem, and each of these new buildings provides a boost to a different yield:
+Amenities | Culture | Faith | Food | Gold | Production | Science | Favor [1]
+:---: | :---: | :---: | :---: | :---: | :---: | :---: | :---:
+<img src='IMAGES/TotemAmenities256.png' width='128'> | <img src='IMAGES/TotemCulture256.png' width='128'> | <img src='IMAGES/TotemFaith256.png' width='128'> | <img src='IMAGES/TotemFood256.png' width='128'> | <img src='IMAGES/TotemGold256.png' width='128'> | <img src='IMAGES/TotemProduction256.png' width='128'> | <img src='IMAGES/TotemScience256.png' width='128'> | <img src='IMAGES/TotemFavor256.png' width='128'>
++4 amenities | +4 culture | +4 faith | +4 food | +8 gold | +4 production | +4 science | +4 favor
 
-Villager Totem | Yield Modifier
-------- | -------
-Amenities | +4
-Culture | +4
-Faith | +4
-Diplomatic Favor [1] | +4
-Food | +4
-Gold | +8
-Production | +4
-Science | +4
-
-1. Requires Gathering Storm
+1. Requires Gathering Storm.
 
 Once a particular Totem has been unlocked, if the reward that provides it is received again, instead a free Totem of that type will be placed in a City that does not already have one. If all cities have that Totem already, or if there are otherwise no cities in which to place it, instead nothing will happen.
 
@@ -270,8 +327,6 @@ Has not been tested with the following game modes:
 ### Incompatible Mods
 The following community projects are known to alter one or more of the game files also modified by EGHV:
 - (placeholder)
-
-To prevent breakage, when any of the above mod(s) are enabled, EGHV will be disabled. Further, EGHV cannot be enabled while any of the above mod(s) are also enabled.
 
 ### Compatible Mods
 Should work with other mods that add new Goody Hut (sub)types, with the following caveats:
