@@ -1659,22 +1659,14 @@
       		</Properties>
 			<Items>
 				<!-- Base game icons for the Goody Hut Picker -->
-				<File>EGHV/Art/Icons/EGHV_Base_Atlas44.dds</File>
-				<File>EGHV/Art/Icons/EGHV_Base_Atlas256.dds</File>
-				<File>EGHV/Art/Icons/EGHV_Base_Buildings44.dds</File>
-				<File>EGHV/Art/Icons/EGHV_Base_Buildings44_FOW.dds</File>
-				<File>EGHV/Art/Icons/EGHV_Base_Buildings256.dds</File>
-				<File>EGHV/Art/Icons/EGHV_Base_Buildings256_FOW.dds</File>
+				<File>EGHV/Art/Icons/GoodyHutAtlas44.dds</File>
+				<File>EGHV/Art/Icons/GoodyHutAtlas256.dds</File>
 				<!-- XP1 icons for the Goody Hut Picker -->
-				<File>EGHV/Art/Icons/EGHV_XP1_Atlas44.dds</File>
-				<File>EGHV/Art/Icons/EGHV_XP1_Atlas256.dds</File>
+				<File>EGHV/Art/Icons/XP1_GoodyHutAtlas44.dds</File>
+				<File>EGHV/Art/Icons/XP1_GoodyHutAtlas256.dds</File>
 				<!-- XP2 icons for the Goody Hut Picker -->
-				<File>EGHV/Art/Icons/EGHV_XP2_Atlas44.dds</File>
-				<File>EGHV/Art/Icons/EGHV_XP2_Atlas256.dds</File>
-				<File>EGHV/Art/Icons/EGHV_XP2_Buildings44.dds</File>
-				<File>EGHV/Art/Icons/EGHV_XP2_Buildings44_FOW.dds</File>
-				<File>EGHV/Art/Icons/EGHV_XP2_Buildings256.dds</File>
-				<File>EGHV/Art/Icons/EGHV_XP2_Buildings256_FOW.dds</File>
+				<File>EGHV/Art/Icons/XP2_GoodyHutAtlas44.dds</File>
+				<File>EGHV/Art/Icons/XP2_GoodyHutAtlas256.dds</File>
 			</Items>
 		</ImportFiles>
 		<UpdateIcons id="EGHV_FRONTEND_ICONS">
@@ -1785,22 +1777,14 @@
 		<File>EGHV/Art/Ingame_Icons.xml</File>
 		<File>EGHV/Art/Ingame_XP2_Icons.xml</File>
 		<!-- Base game icons for the Goody Hut Picker -->
-		<File>EGHV/Art/Icons/EGHV_Base_Atlas44.dds</File>
-		<File>EGHV/Art/Icons/EGHV_Base_Atlas256.dds</File>
-		<File>EGHV/Art/Icons/EGHV_Base_Buildings44.dds</File>
-		<File>EGHV/Art/Icons/EGHV_Base_Buildings44_FOW.dds</File>
-		<File>EGHV/Art/Icons/EGHV_Base_Buildings256.dds</File>
-		<File>EGHV/Art/Icons/EGHV_Base_Buildings256_FOW.dds</File>
+		<File>EGHV/Art/Icons/GoodyHutAtlas44.dds</File>
+		<File>EGHV/Art/Icons/GoodyHutAtlas256.dds</File>
 		<!-- XP1 icons for the Goody Hut Picker -->
-		<File>EGHV/Art/Icons/EGHV_XP1_Atlas44.dds</File>
-		<File>EGHV/Art/Icons/EGHV_XP1_Atlas256.dds</File>
+		<File>EGHV/Art/Icons/XP1_GoodyHutAtlas44.dds</File>
+		<File>EGHV/Art/Icons/XP1_GoodyHutAtlas256.dds</File>
 		<!-- XP2 icons for the Goody Hut Picker -->
-		<File>EGHV/Art/Icons/EGHV_XP2_Atlas44.dds</File>
-		<File>EGHV/Art/Icons/EGHV_XP2_Atlas256.dds</File>
-		<File>EGHV/Art/Icons/EGHV_XP2_Buildings44.dds</File>
-		<File>EGHV/Art/Icons/EGHV_XP2_Buildings44_FOW.dds</File>
-		<File>EGHV/Art/Icons/EGHV_XP2_Buildings256.dds</File>
-		<File>EGHV/Art/Icons/EGHV_XP2_Buildings256_FOW.dds</File>
+		<File>EGHV/Art/Icons/XP2_GoodyHutAtlas44.dds</File>
+		<File>EGHV/Art/Icons/XP2_GoodyHutAtlas256.dds</File>
 		<!-- frontend configuration -->
 		<File>EGHV/Configuration/Frontend.sql</File>
 		<File>EGHV/Configuration/Schema.sql</File>
