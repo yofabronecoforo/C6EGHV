@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Mod id="a4b1fac6-8c9e-4873-a1c1-7ddf08dbbf11" version="7.0">
+<Mod id="a4b1fac6-8c9e-4873-a1c1-7ddf08dbbf11" version="8.0">
     <Properties>
         <Name>LOC_EGHV_MOD_TITLE</Name>
         <Teaser>LOC_EGHV_MOD_TEASER</Teaser>
@@ -1653,6 +1653,16 @@
 			<File Priority="2">C6GUE/Configuration/Schema.sql</File>
 			<File Priority="2">EGHV/Configuration/Schema.sql</File>
 		</UpdateDatabase>
+		<ImportFiles id="EGHV_FRONTEND_ENWS_DUMMY_FILE">
+			<!-- this needs to load before the script loaded by ENWS -->
+			<Properties>
+        		<LoadOrder>10101</LoadOrder>
+      		</Properties>
+			<Items>
+				<!-- dummy file to prevent lua log errors when ENWS is not present and enabled -->
+				<File>EGHV/UI/Additions/NaturalWonderPicker.lua</File>
+			</Items>
+		</ImportFiles>
 		<ImportFiles id="EGHV_FRONTEND_IMPORT_ICONS">
 			<Properties>
         		<LoadOrder>1010100</LoadOrder>
@@ -1915,6 +1925,8 @@
 		<!-- ingame - goody hut picker -->
 		<File>EGHV/UI/Additions/GoodyHutPicker.lua</File>
 		<File>EGHV/UI/Additions/GoodyHutPicker.xml</File>
+		<!-- dummy file to prevent lua log errors when ENWS is not present and enabled -->
+		<File>EGHV/UI/Additions/NaturalWonderPicker.lua</File>
 		<!-- configuration for Wondrous Goody Huts -->
 		<File>EGHV/Community/WondrousGoodyHuts/Ingame.sql</File>
 		<File>EGHV/Community/WondrousGoodyHuts/Sailor_Goodies_Scripts_EGHV.lua</File>

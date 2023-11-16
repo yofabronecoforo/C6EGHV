@@ -3,11 +3,32 @@
 
 	<!-- Include Instances -->
 	<Include File="PopupDialog" />
-  
+
+  <Instance Name="CarouselEntry">
+    <Container Size="400,300" ID="Top">
+      <Button ID="CarouselEntryButton"  Size="parent,parent" Offset="0,0"  Anchor="C,C" Hidden="0" Texture="Controls_HowtoPlayButton" NoStateChange="1"/>
+    </Container>
+  </Instance>
+  <Instance Name="CarouselEntryIndicator">
+    <Container Size="15,14" ID="Top">
+      <Image ID="CarouselIndicatorImage" Size="parent,parent" Texture="Controls_DancerCarouselIndicators" TextureOffset="0,0"/>
+    </Container>
+  </Instance>
+
   <Stack                  ID="ShellMenuAndLogo" StackGrowth="Down" Anchor="C,C">
     <Image ID="Logo"				Anchor="C,T"	Offset="0,0" Texture="MainLogo.dds" StretchMode="Auto"/>
     
     <SlideAnim            ID="SubMenuSlide" Begin="200,54"	End="0,54" Size="640,450" Anchor="C,T" Speed="2" Cycle="Once" Function="OutQuad" Stopped="1" FunctionPower="5" Hidden="0">
+      <Container ID="ChallengeContainer" Anchor="C,C"	Size="400,300" InnerPadding="0,0" Offset="-535,-45">
+        <ScrollPanel ID="ChallengeScroll" Anchor="C,C"  Size="400,300" Horizontal="1" AutoScollbar="0" ClampSize="V" DisableMouseWheelScroll="1">
+          <Stack ID="ChallengeStack" Anchor="L,T" StackGrowth="Right" StackPadding="0" ClampSize="V"/>
+        </ScrollPanel>
+        <Button ID="ChallengeLButton" Texture="Controls_DancerCarouselLeftArrow" Offset="0,0" Anchor="L,C" Size="37,79" StateOffsetIncrement="0,79"/>
+        <Button ID="ChallengeRButton" Texture="Controls_DancerCarouselRightArrow" Offset="0,0" Anchor="R,C" Size="37,79" StateOffsetIncrement="0,79"/>
+        <Stack ID="ChallengeIndicatorStack" Anchor="C,B" Offset="0, 5" StackGrowth="Right"/>
+        <Image ID="ChallengeFrame" Anchor="C,C" Size="433,328" Offset="0,0" Texture="CIV_ProjectDancer_CarouselImages_Frame" />
+      </Container>
+
       <Stack              ID="ShellStack" StackGrowth="Right" StackPadding="20">
         <Container Size="300,400">
           <ScrollPanel	  ID="MainMenuClip" Anchor="L,C"	Size="400,450" FullClip="1" Disabled="1">
@@ -87,6 +108,7 @@
   
   <LuaContext    ID="Options"                             FileName="Options"          Hidden="1" />
   <LuaContext    ID="ModsContext"         DeferLoad="1"   FileName="Mods"             Hidden="1" />
+  <!-- <LuaContext    ID="AdvancedSetup"       DeferLoad="1"   FileName="AdvancedSetup"    Hidden="1" /> -->
   <!-- EGHV/ENWS: enable incorporation of other mods' changes for SP -->
   <LuaContext    ID="AdvancedSetup"       DeferLoad="1"   FileName="EnhancedAdvancedSetup"    Hidden="1" />
   <LuaContext    ID="ScenarioSetup"       DeferLoad="1"   FileName="ScenarioSetup"    Hidden="1" /> 
@@ -96,6 +118,7 @@
   <LuaContext    ID="HallofFame"          DeferLoad="1"   FileName="GameSummaries"    Hidden="1" />
   <LuaContext    ID="TutorialSetup"       DeferLoad="1"   FileName="TutorialSetup"    Hidden="1" />
   <LuaContext    ID="Lobby"                               FileName="Lobby"            Hidden="1" />
+  <!-- <LuaContext    ID="HostGame"                            FileName="HostGame"         Hidden="1" /> -->
   <!-- EGHV/ENWS: enable incorporation of other mods' changes for MP -->
   <LuaContext    ID="HostGame"                            FileName="EnhancedHostGame"         Hidden="1" />
   <LuaContext    ID="StagingRoom"                         FileName="StagingRoom"      Hidden="1" />
@@ -105,4 +128,7 @@
   <LuaContext    ID="CivRoyaleIntro"                      FileName="CivRoyaleIntro"   Hidden="1" />
   <LuaContext    ID="PiratesIntro"                        FileName="PiratesIntro"     Hidden="1" />
   <LuaContext    ID="CrossPlay"                           FileName="CrossPlayLogin"   Hidden="1" />
+
+  <!-- Dialog Support -->
+	<MakeInstance Name="PopupDialog" />
 </ContextDefaults>
