@@ -8,11 +8,14 @@
     begin EGHV equalize Goody Hut configuration
     this will be loaded if :
         (1) Advanced Setup option 'Equalize Goody Huts' is enabled
-    subtype weights for enabled reward(s) will be equalized below
+    weights for enabled reward (sub)types will be equalized below
 ########################################################################### */
 
+-- give all enabled reward types an identical weight value
+UPDATE GoodyHuts_EGHV SET Weight = 100 WHERE Weight > 0;
+
 -- give all enabled rewards an identical weight value
-UPDATE GoodyHutSubTypes SET Weight = 100 WHERE Weight > 0;
+UPDATE GoodyHutSubTypes_EGHV SET Weight = 100 WHERE Weight > 0;
 
 /* ###########################################################################
     end EGHV equalize Goody Hut configuration

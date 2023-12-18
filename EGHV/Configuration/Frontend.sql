@@ -36,13 +36,23 @@ UPDATE Parameters SET Description = 'LOC_GAME_NO_BARBARIANS_DESCRIPTION', SortIn
 -- reposition the No Tribal Villages parameter, and give it a description
 UPDATE Parameters SET Description = 'LOC_GAME_NO_GOODY_HUTS_DESCRIPTION', SortIndex = 2030 WHERE ParameterId = 'NoGoodyHuts';
 
+-- 
+REPLACE INTO Parameters (Key1, Key2, ParameterId, Name, Description, Domain, DefaultValue, ConfigurationGroup, ConfigurationId, GroupId, SortIndex)
+VALUES
+    ('Ruleset', 'RULESET_EXPANSION_2', 'DisableMeteorStrike', 'LOC_GAME_DISABLE_METEOR_STRIKE_NAME', 'LOC_GAME_DISABLE_METEOR_STRIKE_DESC', 'bool', 0, 'Game', 'GAME_DISABLE_METEOR_STRIKE', 'AdvancedOptions', 2042);
+
 -- equalize reward weights, and hostile villagers after reward dropdown
 REPLACE INTO Parameters (ParameterId, Name, Description, Domain, DefaultValue, ConfigurationGroup, ConfigurationId, GroupId, SortIndex)
 VALUES
-    ('TotalRewards', 'LOC_GAME_TOTAL_REWARDS_NAME', 'LOC_GAME_TOTAL_REWARDS_DESC', 'TotalRewards', 1, 'Game', 'GAME_TOTAL_REWARDS', 'AdvancedOptions', 2034),
-    ('HostilesChance', 'LOC_GAME_HOSTILES_CHANCE_NAME', 'LOC_GAME_HOSTILES_CHANCE_DESC', 'HostilesChance', 2, 'Game', 'GAME_HOSTILES_CHANCE', 'AdvancedOptions', 2035),
-    ('EqualizeGoodyHuts', 'LOC_GAME_EQUALIZE_GOODY_HUTS_NAME', 'LOC_GAME_EQUALIZE_GOODY_HUTS_DESC', 'bool', 0, 'Game', 'GAME_EQUALIZE_GOODY_HUTS', 'AdvancedOptions', 2036),
-    ('EGHV_Debug', 'LOC_GAME_EGHV_DEBUG_NAME', 'LOC_GAME_EGHV_DEBUG_DESC', 'bool', 0, 'Game', 'GAME_EGHV_DEBUG', 'AdvancedOptions', 2049);
+    ('EqualizeGoodyHuts', 'LOC_GAME_EQUALIZE_GOODY_HUTS_NAME', 'LOC_GAME_EQUALIZE_GOODY_HUTS_DESC', 'bool', 0, 'Game', 'GAME_EQUALIZE_GOODY_HUTS', 'AdvancedOptions', 2041),
+    ('TotalRewards', 'LOC_GAME_TOTAL_REWARDS_NAME', 'LOC_GAME_TOTAL_REWARDS_DESC', 'TotalRewards', 1, 'Game', 'GAME_TOTAL_REWARDS', 'AdvancedOptions', 2033),
+    ('NoDuplicateRewards', 'LOC_GAME_NO_DUPLICATE_REWARDS_NAME', 'LOC_GAME_NO_DUPLICATE_REWARDS_DESC', 'bool', 1, 'Game', 'GAME_NO_DUPLICATE_REWARDS', 'AdvancedOptions', 2034),
+    ('HostilesChance', 'LOC_GAME_HOSTILES_CHANCE_NAME', 'LOC_GAME_HOSTILES_CHANCE_DESC', 'HostilesChance', 2, 'Game', 'GAME_HOSTILES_CHANCE', 'AdvancedOptions', 2037),
+    ('HostilesMinTurn', 'LOC_GAME_HOSTILES_MIN_TURN_NAME', 'LOC_GAME_HOSTILES_MIN_TURN_DESC', 'HostilesMinTurn', 2, 'Game', 'GAME_HOSTILES_MIN_TURN', 'AdvancedOptions', 2038),
+    ('UnlockVillagerSecrets', 'LOC_GAME_UNLOCK_VILLAGER_SECRETS_NAME', 'LOC_GAME_UNLOCK_VILLAGER_SECRETS_DESC', 'UnlockVillagerSecrets', 1, 'Game', 'GAME_UNLOCK_VILLAGER_SECRETS', 'AdvancedOptions', 2036),
+    ('BonusUnitOrPop', 'LOC_GAME_BONUS_UNIT_OR_POP_NAME', 'LOC_GAME_BONUS_UNIT_OR_POP_DESC', 'BonusUnitOrPop', 1, 'Game', 'GAME_BONUS_UNIT_OR_POP', 'AdvancedOptions', 2035),
+    ('EGHV_Logging', 'LOC_GAME_EGHV_LOGGING_NAME', 'LOC_GAME_EGHV_LOGGING_DESC', 'EGHV_Logging', 2, 'Game', 'GAME_EGHV_LOGGING', 'AdvancedOptions', 2049);
+    -- ('EGHV_Debug', 'LOC_GAME_EGHV_DEBUG_NAME', 'LOC_GAME_EGHV_DEBUG_DESC', 'bool', 0, 'Game', 'GAME_EGHV_DEBUG', 'AdvancedOptions', 2049);
 
 -- domain values for specified parameter(s)
 REPLACE INTO DomainValues (Domain, Value, Name, Description, SortIndex)
@@ -55,7 +65,25 @@ VALUES
     ('HostilesChance', 1, 'LOC_HOSTILES_CHANCE_NEVER_NAME', 'LOC_HOSTILES_CHANCE_NEVER_DESC', 10),
     ('HostilesChance', 2, 'LOC_HOSTILES_CHANCE_MAYBE_NAME', 'LOC_HOSTILES_CHANCE_MAYBE_DESC', 20),
     ('HostilesChance', 3, 'LOC_HOSTILES_CHANCE_ALWAYS_NAME', 'LOC_HOSTILES_CHANCE_ALWAYS_DESC', 30),
-    ('HostilesChance', 4, 'LOC_HOSTILES_CHANCE_HYPER_NAME', 'LOC_HOSTILES_CHANCE_HYPER_DESC', 40);
+    ('HostilesChance', 4, 'LOC_HOSTILES_CHANCE_HYPER_NAME', 'LOC_HOSTILES_CHANCE_HYPER_DESC', 40),
+    ('HostilesMinTurn', 2, 'LOC_HOSTILES_MIN_TURN_2_NAME', 'LOC_HOSTILES_MIN_TURN_2_DESC', 10),
+    ('HostilesMinTurn', 5, 'LOC_HOSTILES_MIN_TURN_5_NAME', 'LOC_HOSTILES_MIN_TURN_5_DESC', 20),
+    ('HostilesMinTurn', 10, 'LOC_HOSTILES_MIN_TURN_10_NAME', 'LOC_HOSTILES_MIN_TURN_10_DESC', 30),
+    ('UnlockVillagerSecrets', 1, 'LOC_UNLOCK_VILLAGER_SECRETS_NO_NAME', 'LOC_UNLOCK_VILLAGER_SECRETS_NO_DESC', 10),
+    ('UnlockVillagerSecrets', 2, 'LOC_UNLOCK_VILLAGER_SECRETS_YES_HUMAN_NAME', 'LOC_UNLOCK_VILLAGER_SECRETS_YES_HUMAN_DESC', 20),
+    ('UnlockVillagerSecrets', 3, 'LOC_UNLOCK_VILLAGER_SECRETS_YES_AI_NAME', 'LOC_UNLOCK_VILLAGER_SECRETS_YES_AI_DESC', 30),
+    ('UnlockVillagerSecrets', 4, 'LOC_UNLOCK_VILLAGER_SECRETS_YES_ALL_NAME', 'LOC_UNLOCK_VILLAGER_SECRETS_YES_ALL_DESC', 40),
+    ('BonusUnitOrPop', 1, 'LOC_UNIT_OR_POP_ONE_ALWAYS_NAME', 'LOC_UNIT_OR_POP_ONE_ALWAYS_DESC', 10),
+    ('BonusUnitOrPop', 20, 'LOC_UNIT_OR_POP_TWO_5_NAME', 'LOC_UNIT_OR_POP_TWO_5_DESC', 20),
+    ('BonusUnitOrPop', 10, 'LOC_UNIT_OR_POP_TWO_10_NAME', 'LOC_UNIT_OR_POP_TWO_10_DESC', 30),
+    ('BonusUnitOrPop', 6, 'LOC_UNIT_OR_POP_TWO_17_NAME', 'LOC_UNIT_OR_POP_TWO_17_DESC', 40),
+    ('BonusUnitOrPop', 4, 'LOC_UNIT_OR_POP_TWO_25_NAME', 'LOC_UNIT_OR_POP_TWO_25_DESC', 50),
+    ('BonusUnitOrPop', 2, 'LOC_UNIT_OR_POP_TWO_50_NAME', 'LOC_UNIT_OR_POP_TWO_50_DESC', 60),
+    ('BonusUnitOrPop', 7, 'LOC_UNIT_OR_POP_TWO_ALWAYS_NAME', 'LOC_UNIT_OR_POP_TWO_ALWAYS_DESC', 70),
+    ('EGHV_Logging', 1, 'LOC_EGHV_LOGGING_MINIMAL_NAME', 'LOC_EGHV_LOGGING_MINIMAL_DESC', 10),
+    ('EGHV_Logging', 2, 'LOC_EGHV_LOGGING_NORMAL_NAME', 'LOC_EGHV_LOGGING_NORMAL_DESC', 20),
+    ('EGHV_Logging', 3, 'LOC_EGHV_LOGGING_VERBOSE_NAME', 'LOC_EGHV_LOGGING_VERBOSE_DESC', 30);
+    -- ('EGHV_Logging', 4, 'LOC_EGHV_LOGGING_EXTRA_VERBOSE_NAME', 'LOC_EGHV_LOGGING_EXTRA_VERBOSE_DESC', 40);
 
 -- 2021/05/24 : these options have been superceded, and are * DEPRECATED *; keeping them here as a learning experience
 -- add advanced options to (1) equalize reward(s), and (2) disable hostile villagers _after_ a reward, and (3) disable hostile villagers _as_ the "reward"

@@ -1,0 +1,211 @@
+<?xml version="1.0"?>
+<PanelData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>EGHV</Name>
+  <App>Civ6</App>
+  <EnterAction />
+  <ExitAction />
+  <CompatibleStates>
+    <string>EGHV</string>
+  </CompatibleStates>
+  <LoadStates />
+  <Actions />
+  <StringControls />
+  <IntegerControls>
+    <IntegerControlData>
+      <Name>Plot X</Name>
+      <GetFunction>function()
+   if Players == nil or g_TunerSelectedPlayer == nil or Players[g_TunerSelectedPlayer] == nil or Players[g_TunerSelectedPlayer]:GetTreasury() == nil then return -1; end
+  return Players[g_TunerSelectedPlayer]:GetTreasury():GetGoldBalance();
+end</GetFunction>
+      <SetFunction>function(value)
+   if Players == nil or g_TunerSelectedPlayer == nil or Players[g_TunerSelectedPlayer] == nil or Players[g_TunerSelectedPlayer]:GetTreasury() == nil then return -1; end
+   Players[g_TunerSelectedPlayer]:GetTreasury():SetGoldBalance(value);
+end</SetFunction>
+      <Location>
+        <X>340</X>
+        <Y>384</Y>
+      </Location>
+      <DefaultValue>0</DefaultValue>
+    </IntegerControlData>
+    <IntegerControlData>
+      <Name>Plot Y</Name>
+      <GetFunction>function()
+   if Players == nil or g_TunerSelectedPlayer == nil or Players[g_TunerSelectedPlayer] == nil or Players[g_TunerSelectedPlayer]:GetTreasury() == nil then return -1; end
+  return Players[g_TunerSelectedPlayer]:GetTreasury():GetGoldBalance();
+end</GetFunction>
+      <SetFunction>function(value)
+   if Players == nil or g_TunerSelectedPlayer == nil or Players[g_TunerSelectedPlayer] == nil or Players[g_TunerSelectedPlayer]:GetTreasury() == nil then return -1; end
+   Players[g_TunerSelectedPlayer]:GetTreasury():SetGoldBalance(value);
+end</SetFunction>
+      <Location>
+        <X>450</X>
+        <Y>384</Y>
+      </Location>
+      <DefaultValue>0</DefaultValue>
+    </IntegerControlData>
+  </IntegerControls>
+  <FloatControls />
+  <BooleanControls />
+  <TableViews />
+  <TreeViews />
+  <DataViews />
+  <StatTrackers />
+  <SelectionLists>
+    <SelectionListData>
+      <Location>
+        <X>330</X>
+        <Y>40</Y>
+      </Location>
+      <Size>
+        <Width>200</Width>
+        <Height>300</Height>
+      </Size>
+      <Name>ID;Major Player Name</Name>
+      <PopulateList>function()
+	if (g_TunerSelectedPlayer == nil) then
+		g_TunerSelectedPlayer = 0;
+	end
+	
+	local items = {};
+	local aPlayers = PlayerManager.GetAlive();
+	for _, pPlayer in ipairs(aPlayers) do
+		if pPlayer:IsMajor() then 
+			local pPlayerConfig = PlayerConfigurations[pPlayer:GetID()];
+			local strPlrID = tostring(pPlayer:GetID())
+			local strPlrName = pPlayerConfig:GetNickName();
+		
+			if ( #strPlrName == 0 ) then
+				strPlrName = Locale.Lookup(pPlayerConfig:GetCivilizationShortDescription()):upper();
+				strPlrName = strPlrName:gsub("LOC_CIVILIZATION_", "");
+			end
+		
+			table.insert( items, pPlayer:GetID() .. ";" .. strPlrName );
+		end
+	end
+	
+	return items;
+end</PopulateList>
+      <OnSelection>function(selection)
+   local selectedPlayerIDStr = string.match(selection, "%d+");
+	  g_TunerSelectedPlayer = tonumber(selectedPlayerIDStr);
+end</OnSelection>
+      <Sorted>false</Sorted>
+    </SelectionListData>
+    <SelectionListData>
+      <Location>
+        <X>10</X>
+        <Y>138</Y>
+      </Location>
+      <Size>
+        <Width>310</Width>
+        <Height>460</Height>
+      </Size>
+      <Name>Hash;Goody Hut Reward</Name>
+      <PopulateList>function()
+	if (g_TunerSelectedReward == nil) then
+		g_TunerSelectedReward = 0;
+	end
+	
+	local items = {};
+	for row in GameInfo.GoodyHutSubTypes() do 
+		local strHash = tostring(row.Hash);
+		local strReward = row.SubTypeGoodyHut;
+		strReward = strReward:gsub("GOODYHUT_", "");
+		table.insert( items, strHash .. ";" .. strReward );
+	end
+		
+	return items;
+end</PopulateList>
+      <OnSelection>function(selection)
+   local selectedRewardIDStr = string.match(selection, "%-?%d+");
+	  g_TunerSelectedReward = tonumber(selectedRewardIDStr);
+	  print(selectedRewardIDStr);
+end</OnSelection>
+      <Sorted>false</Sorted>
+    </SelectionListData>
+    <SelectionListData>
+      <Location>
+        <X>540</X>
+        <Y>41</Y>
+      </Location>
+      <Size>
+        <Width>1250</Width>
+        <Height>320</Height>
+      </Size>
+      <Name>ID:60;Type:220;X:40;Y:40;Damage:56;Fortify:40;XP:40;Owner:180;Orig Owner:180;Operation:180</Name>
+      <PopulateList>function()
+	local listItems = {};
+	local i = 0;
+	local z = 1;
+	for i = 0, GameDefines.MAX_PLAYERS-1, 1 do
+		local pPlayer = Players[i];
+		local pPlayerConfig = PlayerConfigurations[i];
+
+		if pPlayer:WasEverAlive()  then
+			local strPlayer = pPlayerConfig:GetCivilizationShortDescription();
+			if (#strPlayer == 0) then
+				strPlayer = "Player " .. tostring(i);
+			end
+			
+			local pUnits = pPlayer:GetUnits();
+			local pUnit;
+			for ii, pUnit in pUnits:Members() do
+				local origOwner = pUnit:GetOriginalOwner();
+				local origOwnerStr = "none";
+				if origOwner ~= -1 then
+					origOwnerStr = PlayerConfigurations[origOwner]:GetCivilizationShortDescription();
+					if (#origOwnerStr == 0) then
+						origOwnerStr = "Player " .. tostring(origOwner);
+					end
+				end
+				local typeName = string.gsub(GameInfo.Units[pUnit:GetType()].UnitType, "UNIT_", "");
+				local unitXP = pUnit:GetExperience();
+				local fortifyTurns = pUnit:GetFortifyTurns();
+				local str = pPlayer:GetID() .. "," .. pUnit:GetID() .. ";" .. typeName .. ";" .. pUnit:GetX() .. ";" .. pUnit:GetY() .. ";" .. pUnit:GetDamage() .. ";" .. fortifyTurns .. ";" .. unitXP:GetExperiencePoints() .. ";" .. strPlayer .. ";" .. origOwnerStr .. ";" .. UnitManager.GetOperationTypeName(pUnit);
+				listItems[z] = str;
+				z = z + 1;			
+			end		
+		end
+	end
+
+  return listItems;
+end</PopulateList>
+      <OnSelection>function(selection)
+	local selectionParts = {};
+	-- No split available?
+	local str1 = string.match(selection, "%d+");
+	local str2 = string.match(selection, "%d+", string.len(str1) + 1);
+	
+	g_SelectedPlayer = tonumber(str1);
+	g_SelectedUnitID = tonumber(str2);	
+end</OnSelection>
+      <Sorted>false</Sorted>
+    </SelectionListData>
+    <SelectionListData>
+      <Location>
+        <X>10</X>
+        <Y>37</Y>
+      </Location>
+      <Size>
+        <Width>260</Width>
+        <Height>80</Height>
+      </Size>
+      <Name>ID;Improvement</Name>
+      <PopulateList>function()
+	local barbcamp = GameInfo.Improvements["IMPROVEMENT_BARBARIAN_CAMP"];
+	local barbcampname = string.gsub( barbcamp.ImprovementType, "IMPROVEMENT_", "" );
+	local goodyhut = GameInfo.Improvements["IMPROVEMENT_GOODY_HUT"];
+	local goodyhutname = string.gsub( goodyhut.ImprovementType, "IMPROVEMENT_", "" );
+	items = {
+		barbcamp.Index .. ";" .. barbcampname,
+		goodyhut.Index .. ";" .. goodyhutname
+	};
+	return items;
+end
+</PopulateList>
+      <OnSelection />
+      <Sorted>false</Sorted>
+    </SelectionListData>
+  </SelectionLists>
+  <MultiselectLists />
+</PanelData>

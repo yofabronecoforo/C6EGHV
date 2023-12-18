@@ -13,6 +13,12 @@
     otherwise, the Weight of the parent type will remain unchanged
 ########################################################################### */
 
+-- 
+-- UPDATE GoodyHutSubTypes SET Weight = CASE
+--     WHEN (SELECT GameConfiguration(EXCLUDE_GOODYHUT_ONE_GOODYHUT)) = 1 THEN 0
+--     ELSE (SELECT Weight FROM GoodyHutSubTypes WHERE SubTypeGoodyHut = 'GOODYHUT_ONE_GOODYHUT')
+-- WHERE SubTypeGoodyHut = 'GOODYHUT_ONE_GOODYHUT';
+
 -- culture type
 UPDATE GoodyHuts SET Weight = CASE
     WHEN (SELECT SUM(Weight) FROM GoodyHutSubTypes WHERE GoodyHut = 'GOODYHUT_CULTURE') = 0 THEN 0

@@ -7,16 +7,149 @@
 <!-- localized frontend text for en_US -->
 <GameData>
 	<LocalizedText>
-        <!-- debug mode - extremely verbose log output -->
-        <Replace Tag="LOC_GAME_EGHV_DEBUG_NAME" Language="en_US">
-			<Text>EGHV Debugging</Text>
+        <!-- new no barbarians parameter text -->
+        <Replace Tag="LOC_GAME_NO_BARBARIANS_DESCRIPTION" Language="en_US">
+            <Text>Enabling this option removes barbarians; by extension, it also overrides any 'Hostile Villagers' options, and removes hostile villagers entirely.</Text>
+        </Replace>
+        <!-- new no tribal villages parameter text -->
+        <Replace Tag="LOC_GAME_NO_GOODY_HUTS_DESCRIPTION" Language="en_US">
+            <Text>Enabling this option removes Tribal Villages; by extension, it also overrides the Goody Hut picker, and any other reward-related options.</Text>
+        </Replace>
+        <!-- no duplicate rewards parameter text -->
+        <Replace Tag="LOC_GAME_NO_DUPLICATE_REWARDS_NAME" Language="en_US">
+            <Text>No Duplicate Rewards</Text>
+        </Replace>
+        <Replace Tag="LOC_GAME_NO_DUPLICATE_REWARDS_DESC" Language="en_US">
+            <Text>Enabling this option prevents any reward from being granted more than once by the same Tribal Village.</Text>
+        </Replace>
+        <!-- equalize goody hut rewards parameter text -->
+        <Replace Tag="LOC_GAME_EQUALIZE_GOODY_HUTS_NAME" Language="en_US">
+            <Text>Equalize Tribal Village Rewards</Text>
+        </Replace>
+        <Replace Tag="LOC_GAME_EQUALIZE_GOODY_HUTS_DESC" Language="en_US">
+            <Text>Enabling this option gives most available Goody Hut rewards a roughly equal chance of appearing. Will be ignored if 'No Tribal Villages' is enabled.</Text>
+        </Replace>
+        <!-- disable meteor strike goodies - XP2 -->
+        <Replace Tag="LOC_GAME_DISABLE_METEOR_STRIKE_NAME" Language="en_US">
+			<Text>Disable Meteor Strike Goodies</Text>
 		</Replace>
-        <Replace Tag="LOC_GAME_EGHV_DEBUG_DESC" Language="en_US">
-			<Text>Enable [COLOR_Civ6DarkRed]EXTREMELY[ENDCOLOR] verbose log output for EGHV functions.[NEWLINE][NEWLINE]This serves no purpose beyond troubleshooting, and should remain disabled unless needed.</Text>
+        <Replace Tag="LOC_GAME_DISABLE_METEOR_STRIKE_DESC" Language="en_US">
+			<Text>Enabling this option prevents goodies from being received from the meteor strike event.[NEWLINE][NEWLINE]For Gathering Storm ruleset.</Text>
+		</Replace>
+        <!-- unlock villager secrets at startup -->
+        <Replace Tag="LOC_GAME_UNLOCK_VILLAGER_SECRETS_NAME" Language="en_US">
+			<Text>Unlock Villager Secrets</Text>
+		</Replace>
+        <Replace Tag="LOC_GAME_UNLOCK_VILLAGER_SECRETS_DESC" Language="en_US">
+			<Text>Controls whether the various Villager Totem buildings are unlocked and constructable at game start.</Text>
+		</Replace>
+        <Replace Tag="LOC_UNLOCK_VILLAGER_SECRETS_NO_NAME" Language="en_US">
+			<Text>No</Text>
+		</Replace>
+        <Replace Tag="LOC_UNLOCK_VILLAGER_SECRETS_NO_DESC" Language="en_US">
+			<Text>For all Major Players, the ability to construct a particular Villager Totem building must first be unlocked by receiving the corresponding reward.[NEWLINE][NEWLINE]This is the default setting.</Text>
+		</Replace>
+        <Replace Tag="LOC_UNLOCK_VILLAGER_SECRETS_YES_HUMAN_NAME" Language="en_US">
+			<Text>Yes, for Human Players</Text>
+		</Replace>
+        <Replace Tag="LOC_UNLOCK_VILLAGER_SECRETS_YES_HUMAN_DESC" Language="en_US">
+			<Text>Human Major Players begin the game with the ability to construct all available Villager Totem buildings. For AI Major Players, the ability to construct a particular Villager Totem building must first be unlocked by receiving the corresponding reward.</Text>
+		</Replace>
+        <Replace Tag="LOC_UNLOCK_VILLAGER_SECRETS_YES_AI_NAME" Language="en_US">
+			<Text>Yes, for AI Players</Text>
+		</Replace>
+        <Replace Tag="LOC_UNLOCK_VILLAGER_SECRETS_YES_AI_DESC" Language="en_US">
+			<Text>AI Major Players begin the game with the ability to construct all available Villager Totem buildings. For Human Major Players, the ability to construct a particular Villager Totem building must first be unlocked by receiving the corresponding reward.</Text>
+		</Replace>
+        <Replace Tag="LOC_UNLOCK_VILLAGER_SECRETS_YES_ALL_NAME" Language="en_US">
+			<Text>Yes, for All Players</Text>
+		</Replace>
+        <Replace Tag="LOC_UNLOCK_VILLAGER_SECRETS_YES_ALL_DESC" Language="en_US">
+			<Text>All Major Players begin the game with the ability to construct all available Villager Totem buildings.</Text>
+		</Replace>
+        <!-- potential bonus unit or population from reward -->
+        <Replace Tag="LOC_GAME_BONUS_UNIT_OR_POP_NAME" Language="en_US">
+			<Text>New Units/Citizens to Grant</Text>
+		</Replace>
+        <Replace Tag="LOC_GAME_BONUS_UNIT_OR_POP_DESC" Language="en_US">
+			<Text>Controls the amount of units and population provided by the various unit grant and add population rewards.</Text>
+		</Replace>
+        <Replace Tag="LOC_UNIT_OR_POP_ONE_ALWAYS_NAME" Language="en_US">
+			<Text>1 (Always)</Text>
+		</Replace>
+        <Replace Tag="LOC_UNIT_OR_POP_ONE_ALWAYS_DESC" Language="en_US">
+			<Text>These rewards will always provide 1 unit or citizen.[NEWLINE][NEWLINE]This is the default setting.</Text>
+		</Replace>
+        <Replace Tag="LOC_UNIT_OR_POP_TWO_5_NAME" Language="en_US">
+			<Text>2 (5% chance) or 1</Text>
+		</Replace>
+        <Replace Tag="LOC_UNIT_OR_POP_TWO_5_DESC" Language="en_US">
+			<Text>These rewards will have a 1-in-20 chance of providing 2 units or citizens; they will otherwise provide 1 unit or citizen.</Text>
+		</Replace>
+        <Replace Tag="LOC_UNIT_OR_POP_TWO_10_NAME" Language="en_US">
+			<Text>2 (10% chance) or 1</Text>
+		</Replace>
+        <Replace Tag="LOC_UNIT_OR_POP_TWO_10_DESC" Language="en_US">
+			<Text>These rewards will have a 1-in-10 chance of providing 2 units or citizens; they will otherwise provide 1 unit or citizen.</Text>
+		</Replace>
+        <Replace Tag="LOC_UNIT_OR_POP_TWO_17_NAME" Language="en_US">
+			<Text>2 (17% chance) or 1</Text>
+		</Replace>
+        <Replace Tag="LOC_UNIT_OR_POP_TWO_17_DESC" Language="en_US">
+			<Text>These rewards will have a 1-in-6 chance of providing 2 units or citizens; they will otherwise provide 1 unit or citizen.</Text>
+		</Replace>
+        <Replace Tag="LOC_UNIT_OR_POP_TWO_25_NAME" Language="en_US">
+			<Text>2 (25% chance) or 1</Text>
+		</Replace>
+        <Replace Tag="LOC_UNIT_OR_POP_TWO_25_DESC" Language="en_US">
+			<Text>These rewards will have a 1-in-4 chance of providing 2 units or citizens; they will otherwise provide 1 unit or citizen.</Text>
+		</Replace>
+        <Replace Tag="LOC_UNIT_OR_POP_TWO_50_NAME" Language="en_US">
+			<Text>2 (50% chance) or 1</Text>
+		</Replace>
+        <Replace Tag="LOC_UNIT_OR_POP_TWO_50_DESC" Language="en_US">
+			<Text>These rewards will have a 1-in-2 chance of providing 2 units or citizens; they will otherwise provide 1 unit or citizen.</Text>
+		</Replace>
+        <Replace Tag="LOC_UNIT_OR_POP_TWO_ALWAYS_NAME" Language="en_US">
+			<Text>2 (Always)</Text>
+		</Replace>
+        <Replace Tag="LOC_UNIT_OR_POP_TWO_ALWAYS_DESC" Language="en_US">
+			<Text>These rewards will always provide 2 units or citizens.</Text>
+		</Replace>
+        <!-- EGHV Logging Verbosity -->
+        <Replace Tag="LOC_GAME_EGHV_LOGGING_NAME" Language="en_US">
+			<Text>EGHV Logging Verbosity</Text>
+		</Replace>
+        <Replace Tag="LOC_GAME_EGHV_LOGGING_DESC" Language="en_US">
+			<Text>Control EGHV log output verbosity.[NEWLINE][NEWLINE]This serves no purpose beyond troubleshooting, and should remain at the default setting unless needed.</Text>
+		</Replace>
+        <Replace Tag="LOC_EGHV_LOGGING_MINIMAL_NAME" Language="en_US">
+			<Text>Minimal</Text>
+		</Replace>
+        <Replace Tag="LOC_EGHV_LOGGING_MINIMAL_DESC" Language="en_US">
+			<Text>Initialization of EGHV main gameplay script will be logged. All other EGHV log output will be suppressed.[NEWLINE][NEWLINE]This is the default setting.</Text>
+		</Replace>
+        <Replace Tag="LOC_EGHV_LOGGING_NORMAL_NAME" Language="en_US">
+			<Text>Normal</Text>
+		</Replace>
+        <Replace Tag="LOC_EGHV_LOGGING_NORMAL_DESC" Language="en_US">
+			<Text>The following will be logged:[NEWLINE][NEWLINE]  Goody Hut Picker exclusion totals[NEWLINE]  EGHV main gameplay script initialization[NEWLINE]  Initialization of EGHV component scripts[NEWLINE]  A condensed summary of any reward(s) received from each Tribal Village (or Barbarian Outpost, if applicable)</Text>
+		</Replace>
+        <Replace Tag="LOC_EGHV_LOGGING_VERBOSE_NAME" Language="en_US">
+			<Text>Verbose</Text>
+		</Replace>
+        <Replace Tag="LOC_EGHV_LOGGING_VERBOSE_DESC" Language="en_US">
+			<Text>The following will be logged:[NEWLINE][NEWLINE]  Goody Hut Picker exclusion totals, and any specific excluded reward(s)[NEWLINE]  EGHV main gameplay script initialization[NEWLINE]  Initialization of EGHV component scripts with component status[NEWLINE]  A summary of any reward(s) received from each Tribal Village (or Barbarian Outpost, if applicable), including results from RewardGenerator</Text>
+		</Replace>
+        <Replace Tag="LOC_EGHV_LOGGING_EXTRA_VERBOSE_NAME" Language="en_US">
+			<Text>Extra Verbose</Text>
+		</Replace>
+        <Replace Tag="LOC_EGHV_LOGGING_EXTRA_VERBOSE_DESC" Language="en_US">
+			<Text>The following will be logged:[NEWLINE][NEWLINE]  Goody Hut Picker exclusion totals, and any specific excluded reward(s)[NEWLINE]  EGHV main gameplay script initialization[NEWLINE]  Initialization of EGHV component scripts with thorough component status[NEWLINE]  A summary of any reward(s) received from each Tribal Village (or Barbarian Outpost, if applicable), including results from RewardGenerator and applicable script functions</Text>
 		</Replace>
         <!-- bonus goody hut rewards -->
         <Replace Tag="LOC_GAME_TOTAL_REWARDS_NAME" Language="en_US">
-			<Text>Rewards per Tribal Village</Text>
+			<Text>Rewards Per Tribal Village</Text>
 		</Replace>
         <Replace Tag="LOC_GAME_TOTAL_REWARDS_DESC" Language="en_US">
 			<Text>Choose the maximum total number of reward(s) which can potentially be provided by each Tribal Village.</Text>
@@ -25,7 +158,7 @@
 			<Text>1</Text>
 		</Replace>
         <Replace Tag="LOC_TOTAL_REWARDS_1_DESC" Language="en_US">
-			<Text>Zero (0) bonus rewards; this is the default setting.</Text>
+			<Text>Zero (0) bonus rewards.[NEWLINE][NEWLINE]This is the default setting.</Text>
 		</Replace>
         <Replace Tag="LOC_TOTAL_REWARDS_2_NAME" Language="en_US">
 			<Text>Up to 2</Text>
@@ -68,7 +201,7 @@
 			<Text>Maybe</Text>
 		</Replace>
         <Replace Tag="LOC_HOSTILES_CHANCE_MAYBE_DESC" Language="en_US">
-			<Text>Hostile Villagers will [COLOR_Blue]POSSIBLY[ENDCOLOR] appear after receiving all allotted Tribal Village rewards.[NEWLINE][NEWLINE][COLOR_Blue]IF[ENDCOLOR] they appear, villager hostility will be capped by the cumulative rarity of any received reward(s).</Text>
+			<Text>Hostile Villagers will [COLOR_Blue]POSSIBLY[ENDCOLOR] appear after receiving all allotted Tribal Village rewards.[NEWLINE][NEWLINE][COLOR_Blue]IF[ENDCOLOR] they appear, villager hostility will be capped by the cumulative rarity of any received reward(s).[NEWLINE][NEWLINE]This is the default setting.</Text>
 		</Replace>
         <Replace Tag="LOC_HOSTILES_CHANCE_ALWAYS_NAME" Language="en_US">
 			<Text>Always</Text>
@@ -81,6 +214,31 @@
 		</Replace>
         <Replace Tag="LOC_HOSTILES_CHANCE_HYPER_DESC" Language="en_US">
 			<Text>Hostile Villagers will [COLOR_MEDIUM_GREEN]ALWAYS[ENDCOLOR] appear after receiving all allotted Tribal Village rewards.[NEWLINE][NEWLINE]Villager hostility will be elevated beyond normal limits, and they will react with [COLOR_Civ6DarkRed]EXTREME[ENDCOLOR] aggression regardless of any received reward(s).</Text>
+		</Replace>
+        <!-- minimum turn for hostile villagers as or after reward -->
+        <Replace Tag="LOC_GAME_HOSTILES_MIN_TURN_NAME" Language="en_US">
+			<Text>Hostiles Minimum Turn</Text>
+		</Replace>
+        <Replace Tag="LOC_GAME_HOSTILES_MIN_TURN_DESC" Language="en_US">
+			<Text>The minimum game Turn in which Hostile Villagers may appear, whether as or after a reward.</Text>
+		</Replace>
+        <Replace Tag="LOC_HOSTILES_MIN_TURN_2_NAME" Language="en_US">
+			<Text>2</Text>
+		</Replace>
+        <Replace Tag="LOC_HOSTILES_MIN_TURN_2_DESC" Language="en_US">
+			<Text>Hostile Villagers may appear beginning on Turn 2.[NEWLINE][NEWLINE]This is the default setting.</Text>
+		</Replace>
+        <Replace Tag="LOC_HOSTILES_MIN_TURN_5_NAME" Language="en_US">
+			<Text>5</Text>
+		</Replace>
+        <Replace Tag="LOC_HOSTILES_MIN_TURN_5_DESC" Language="en_US">
+			<Text>Hostile Villagers may appear beginning on Turn 5.</Text>
+		</Replace>
+        <Replace Tag="LOC_HOSTILES_MIN_TURN_10_NAME" Language="en_US">
+			<Text>10</Text>
+		</Replace>
+        <Replace Tag="LOC_HOSTILES_MIN_TURN_10_DESC" Language="en_US">
+			<Text>Hostile Villagers may appear beginning on Turn 10.</Text>
 		</Replace>
         <!-- Goody Hut picker -->
         <Replace Tag="LOC_GOODY_HUT_CONFIG_NAME" Language="en_US">
@@ -101,22 +259,6 @@
         <Replace Tag="LOC_GOODY_HUT_PICKER_SORT_RARITY" Language="en_US">
             <Text>Rarity</Text>
         </Replace>
-        <!-- rarity tiers -->
-        <!-- <Replace Tag="LOC_EGHV_RARITY_TIER_1" Language="en_US">
-            <Text>Common</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_RARITY_TIER_2" Language="en_US">
-            <Text>Uncommon</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_RARITY_TIER_3" Language="en_US">
-            <Text>Rare</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_RARITY_TIER_4" Language="en_US">
-            <Text>Legendary</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_RARITY_TIER_5" Language="en_US">
-            <Text>Mythic</Text>
-        </Replace> -->
         <!-- Goody Hut frequency -->
         <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_NAME" Language="en_US">
             <Text>Tribal Village Frequency %</Text>
@@ -131,392 +273,80 @@
         <Replace Tag="LOC_EGHV_GOODYHUT_DUMMY_CONFIG_DESCRIPTION" Language="en_US">
             <Text>Generic description for the dummy reward.</Text>
         </Replace>
-        <!-- secrets type -->
-        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_AMENITIES_NAME" Language="en_US">
-            <Text>[ICON_Buildings] Amenities Totem</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_AMENITIES_DESC" Language="en_US">
-            <Text>Tier 5 (Specialized) Secrets-type reward.[NEWLINE][NEWLINE]Receive the ability to construct the [ICON_Buildings] Amenities Totem building, which provides +4 [ICON_Amenities] Amenities.[NEWLINE][NEWLINE]If this ability has previously been granted, instead receive a free [ICON_Buildings] Amenities Totem building in a City that does not already have one.</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_CULTURE_NAME" Language="en_US">
-            <Text>[ICON_Buildings] Culture Totem</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_CULTURE_DESC" Language="en_US">
-            <Text>Tier 5 (Specialized) Secrets-type reward.[NEWLINE][NEWLINE]Receive the ability to construct the [ICON_Buildings] Culture Totem building, which provides +4 [ICON_Culture] Culture.[NEWLINE][NEWLINE]If this ability has previously been granted, instead receive a free [ICON_Buildings] Culture Totem building in a City that does not already have one.</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_FAITH_NAME" Language="en_US">
-            <Text>[ICON_Buildings] Faith Totem</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_FAITH_DESC" Language="en_US">
-            <Text>Tier 5 (Specialized) Secrets-type reward.[NEWLINE][NEWLINE]Receive the ability to construct the [ICON_Buildings] Faith Totem building, which provides +4 [ICON_Faith] Faith.[NEWLINE][NEWLINE]If this ability has previously been granted, instead receive a free [ICON_Buildings] Faith Totem building in a City that does not already have one.</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_FAVOR_NAME" Language="en_US">
-            <Text>[ICON_Buildings] Diplomacy Totem</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_FAVOR_DESC" Language="en_US">
-            <Text>Tier 5 (Specialized) Secrets-type reward.[NEWLINE][NEWLINE]Receive the ability to construct the [ICON_Buildings] Diplomacy Totem building, which provides +4 [ICON_Favor] Diplomatic Favor.[NEWLINE][NEWLINE]If this ability has previously been granted, instead receive a free [ICON_Buildings] Diplomacy Totem building in a City that does not already have one.</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_FOOD_NAME" Language="en_US">
-            <Text>[ICON_Buildings] Food Totem</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_FOOD_DESC" Language="en_US">
-            <Text>Tier 5 (Specialized) Secrets-type reward.[NEWLINE][NEWLINE]Receive the ability to construct the [ICON_Buildings] Food Totem building, which provides +4 [ICON_Food] Food.[NEWLINE][NEWLINE]If this ability has previously been granted, instead receive a free [ICON_Buildings] Food Totem building in a City that does not already have one.</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_GOLD_NAME" Language="en_US">
-            <Text>[ICON_Buildings] Gold Totem</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_GOLD_DESC" Language="en_US">
-            <Text>Tier 5 (Specialized) Secrets-type reward.[NEWLINE][NEWLINE]Receive the ability to construct the [ICON_Buildings] Gold Totem building, which provides +8 [ICON_Gold] Gold.[NEWLINE][NEWLINE]If this ability has previously been granted, instead receive a free [ICON_Buildings] Gold Totem building in a City that does not already have one.</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_PRODUCTION_NAME" Language="en_US">
-            <Text>[ICON_Buildings] Production Totem</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_PRODUCTION_DESC" Language="en_US">
-            <Text>Tier 5 (Specialized) Secrets-type reward.[NEWLINE][NEWLINE]Receive the ability to construct the [ICON_Buildings] Production Totem building, which provides +4 [ICON_Production] Production.[NEWLINE][NEWLINE]If this ability has previously been granted, instead receive a free [ICON_Buildings] Production Totem building in a City that does not already have one.</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_SCIENCE_NAME" Language="en_US">
-            <Text>[ICON_Buildings] Science Totem</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_SCIENCE_DESC" Language="en_US">
-            <Text>Tier 5 (Specialized) Secrets-type reward.[NEWLINE][NEWLINE]Receive the ability to construct the [ICON_Buildings] Science Totem building, which provides +4 [ICON_Science] Science.[NEWLINE][NEWLINE]If this ability has previously been granted, instead receive a free [ICON_Buildings] Science Totem building in a City that does not already have one.</Text>
-        </Replace>
-        <!-- hostiles type -->
-        <Replace Tag="LOC_EGHV_GOODYHUT_LOW_HOSTILITY_VILLAGERS_NAME" Language="en_US">
-            <Text>[ICON_Barbarian] Hostile Villagers (Low)</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_LOW_HOSTILITY_VILLAGERS_DESC" Language="en_US">
-            <Text>Tier 1 (Common) Hostiles-type reward.[NEWLINE][NEWLINE]One (1) hostile [ICON_Barbarian] melee unit will appear nearby.[NEWLINE][NEWLINE]This unit may instead be mounted if [ICON_RESOURCE_HORSES] Horses are nearby.</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_MID_HOSTILITY_VILLAGERS_NAME" Language="en_US">
-            <Text>[ICON_Barbarian] Hostile Villagers (Mid)</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_MID_HOSTILITY_VILLAGERS_DESC" Language="en_US">
-            <Text>Tier 2 (Uncommon) Hostiles-type reward.[NEWLINE][NEWLINE]One (1) hostile [ICON_Barbarian] melee and one (1) hostile [ICON_Barbarian] ranged unit(s) will appear nearby.[NEWLINE][NEWLINE]One or more of these unit(s) may instead be mounted if [ICON_RESOURCE_HORSES] Horses are nearby.</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_HIGH_HOSTILITY_VILLAGERS_NAME" Language="en_US">
-            <Text>[ICON_Barbarian] Hostile Villagers (High)</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_HIGH_HOSTILITY_VILLAGERS_DESC" Language="en_US">
-            <Text>Tier 3 (Rare) Hostiles-type reward.[NEWLINE][NEWLINE]Two (2) hostile [ICON_Barbarian] melee and one (1) hostile [ICON_Barbarian] ranged unit(s) will appear nearby.[NEWLINE][NEWLINE]One or more of these unit(s) may instead be mounted if [ICON_RESOURCE_HORSES] Horses are nearby.</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_MAX_HOSTILITY_VILLAGERS_NAME" Language="en_US">
-            <Text>[ICON_Barbarian] Hostile Villagers (Max)</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_MAX_HOSTILITY_VILLAGERS_DESC" Language="en_US">
-            <Text>Tier 4 (Legendary) Hostiles-type reward.[NEWLINE][NEWLINE]One (1) hostile [ICON_Barbarian] melee and one (1) hostile [ICON_Barbarian] ranged unit(s) will appear nearby.[NEWLINE][NEWLINE]The villagers will also attempt to create a new [ICON_Barbarian] barbarian outpost nearby; failing this, additional hostile unit(s) will appear instead.[NEWLINE][NEWLINE]Any unit(s) that appear may instead be mounted if [ICON_RESOURCE_HORSES] Horses are nearby.</Text>
-        </Replace>
-        <!-- culture type -->
-        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_TWO_CIVICS_NAME" Language="en_US">
-            <Text>2 [ICON_CivicBoosted] Civics</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_TWO_CIVICS_DESC" Language="en_US">
-            <Text>Tier 4 (Legendary) Culture-type reward.[NEWLINE][NEWLINE]Receive two (2) random free [ICON_CivicBoosted] Civics.</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_ONE_CIVIC_NAME" Language="en_US">
-            <Text>1 [ICON_CivicBoosted] Civic</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_ONE_CIVIC_DESC" Language="en_US">
-            <Text>Tier 3 (Rare) Culture-type reward.[NEWLINE][NEWLINE]Receive one (1) random free [ICON_CivicBoosted] Civic.</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_TWO_CIVIC_BOOSTS_NAME" Language="en_US">
-            <Text>2 [ICON_CivicBoosted] Civic boosts</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_TWO_CIVIC_BOOSTS_DESC" Language="en_US">
-            <Text>Tier 2 (Uncommon) Culture-type reward.[NEWLINE][NEWLINE]Receive two (2) random free [ICON_CivicBoosted] Civic boosts.</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_ONE_CIVIC_BOOST_NAME" Language="en_US">
-            <Text>1 [ICON_CivicBoosted] Civic boost</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_ONE_CIVIC_BOOST_DESC" Language="en_US">
-            <Text>Tier 1 (Common) Culture-type reward.[NEWLINE][NEWLINE]Receive one (1) random free [ICON_CivicBoosted] Civic boost.</Text>
-        </Replace>
-        <!-- promotions type -->
-        <Replace Tag="LOC_EGHV_GOODYHUT_SMALL_EXPERIENCE_NAME" Language="en_US">
-            <Text>5 [ICON_Promotion] Combat XP</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_SMALL_EXPERIENCE_DESC" Language="en_US">
-            <Text>Tier 1 (Common) Promotions-type reward.[NEWLINE][NEWLINE]Any unit that receives this reward gains five (5) experience points towards its next [ICON_Promotion] Promotion.</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_MEDIUM_EXPERIENCE_NAME" Language="en_US">
-            <Text>10 [ICON_Promotion] Combat XP</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_MEDIUM_EXPERIENCE_DESC" Language="en_US">
-            <Text>Tier 2 (Uncommon) Promotions-type reward.[NEWLINE][NEWLINE]Any unit that receives this reward gains ten (10) experience points towards its next [ICON_Promotion] Promotion.</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_LARGE_EXPERIENCE_NAME" Language="en_US">
-            <Text>15 [ICON_Promotion] Combat XP</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_LARGE_EXPERIENCE_DESC" Language="en_US">
-            <Text>Tier 3 (Rare) Promotions-type reward.[NEWLINE][NEWLINE]Any unit that receives this reward gains fifteen (15) experience points towards its next [ICON_Promotion] Promotion.</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_HUGE_EXPERIENCE_NAME" Language="en_US">
-            <Text>25 [ICON_Promotion] Combat XP</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_HUGE_EXPERIENCE_DESC" Language="en_US">
-            <Text>Tier 4 (Legendary) Promotions-type reward.[NEWLINE][NEWLINE]Any unit that receives this reward gains twenty-five (25) experience points towards its next [ICON_Promotion] Promotion.</Text>
-        </Replace>
-        <!-- diplomacy type -->
-        <Replace Tag="LOC_EGHV_GOODYHUT_SMALL_FAVOR_NAME" Language="en_US">
-            <Text>10 [ICON_Favor] Favor</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_SMALL_FAVOR_DESC" Language="en_US">
-            <Text>Tier 1 (Common) Diplomacy-type reward.[NEWLINE][NEWLINE]Receive ten (10) [ICON_Favor] Diplomatic Favor.</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_MEDIUM_FAVOR_NAME" Language="en_US">
-            <Text>20 [ICON_Favor] Favor</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_MEDIUM_FAVOR_DESC" Language="en_US">
-            <Text>Tier 2 (Uncommon) Diplomacy-type reward.[NEWLINE][NEWLINE]Receive twenty (20) [ICON_Favor] Diplomatic Favor.</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_LARGE_FAVOR_NAME" Language="en_US">
-            <Text>30 [ICON_Favor] Favor</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_LARGE_FAVOR_DESC" Language="en_US">
-            <Text>Tier 3 (Rare) Diplomacy-type reward.[NEWLINE][NEWLINE]Receive thirty (30) [ICON_Favor] Diplomatic Favor.</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_HUGE_FAVOR_NAME" Language="en_US">
-            <Text>50 [ICON_Favor] Favor</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_HUGE_FAVOR_DESC" Language="en_US">
-            <Text>Tier 4 (Legendary) Diplomacy-type reward.[NEWLINE][NEWLINE]Receive fifty (50) [ICON_Favor] Diplomatic Favor.</Text>
-        </Replace>
-        <!-- resources type -->
-        <Replace Tag="LOC_EGHV_GOODYHUT_HUGE_RESOURCES_NAME" Language="en_US">
-            <Text>50 Strategic Resources</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_HUGE_RESOURCES_DESC" Language="en_US">
-            <Text>Tier 4 (Legendary) Resources-type reward.[NEWLINE][NEWLINE]Receive fifty (50) of the most advanced strategic resource you have access to.</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_LARGE_RESOURCES_NAME" Language="en_US">
-            <Text>30 Strategic Resources</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_LARGE_RESOURCES_DESC" Language="en_US">
-            <Text>Tier 3 (Rare) Resources-type reward.[NEWLINE][NEWLINE]Receive thirty (30) of the most advanced strategic resource you have access to.</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_MEDIUM_RESOURCES_NAME" Language="en_US">
-            <Text>20 Strategic Resources</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_MEDIUM_RESOURCES_DESC" Language="en_US">
-            <Text>Tier 2 (Uncommon) Resources-type reward.[NEWLINE][NEWLINE]Receive twenty (20) of the most advanced strategic resource you have access to.</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_SMALL_RESOURCES_NAME" Language="en_US">
-            <Text>10 Strategic Resources</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_SMALL_RESOURCES_DESC" Language="en_US">
-            <Text>Tier 1 (Common) Resources-type reward.[NEWLINE][NEWLINE]Receive ten (10) of the most advanced strategic resource you have access to.</Text>
-        </Replace>
         <!-- abilities type -->
         <Replace Tag="LOC_EGHV_GOODYHUT_IMPROVED_SIGHT_NAME" Language="en_US">
             <Text>[ICON_Ability] Enhanced Sight</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_IMPROVED_SIGHT_DESC" Language="en_US">
-            <Text>Tier 1 (Common) Abilities-type reward.[NEWLINE][NEWLINE]The discovering unit(s) receive(s) +1 [ICON_VisTopSecret] sight.</Text>
+            <Text>Tier 1 (Common) Abilities-type reward.[NEWLINE][NEWLINE]Any valid unit that receives this reward earns +1 [ICON_VisTopSecret] sight.[NEWLINE][NEWLINE]This reward requires village discovery by one or more units, and will not be provided when the discovery method is border expansion.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_IMPROVED_HEALING_NAME" Language="en_US">
             <Text>[ICON_Ability] Enhanced Healing</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_IMPROVED_HEALING_DESC" Language="en_US">
-            <Text>Tier 2 (Uncommon) Abilities-type reward.[NEWLINE][NEWLINE]The discovering unit(s) receive(s) +20 [ICON_Damaged] healing per turn, if applicable.</Text>
+            <Text>Tier 2 (Uncommon) Abilities-type reward.[NEWLINE][NEWLINE]Any valid unit that receives this reward earns +20 [ICON_Damaged] healing per turn.[NEWLINE][NEWLINE]This reward requires village discovery by one or more units, and will not be provided when the discovery method is border expansion.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_IMPROVED_MOVEMENT_NAME" Language="en_US">
             <Text>[ICON_Ability] Enhanced Movement</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_IMPROVED_MOVEMENT_DESC" Language="en_US">
-            <Text>Tier 3 (Rare) Abilities-type reward.[NEWLINE][NEWLINE]The discovering unit(s) receive(s) +1 [ICON_Movement] movement.</Text>
+            <Text>Tier 3 (Rare) Abilities-type reward.[NEWLINE][NEWLINE]Any valid unit that receives this reward earns +1 [ICON_Movement] movement.[NEWLINE][NEWLINE]This reward requires village discovery by one or more units, and will not be provided when the discovery method is border expansion.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_IMPROVED_STRENGTH_NAME" Language="en_US">
             <Text>[ICON_Ability] Enhanced Strength</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_IMPROVED_STRENGTH_DESC" Language="en_US">
-            <Text>Tier 4 (Legendary) Abilities-type reward.[NEWLINE][NEWLINE]The discovering unit(s) receive(s) +10 [ICON_Strength] combat strength in all situations, if applicable.</Text>
+            <Text>Tier 4 (Legendary) Abilities-type reward.[NEWLINE][NEWLINE]Any valid unit that receives this reward earns +10 [ICON_Strength] combat strength in all situations.[NEWLINE][NEWLINE]This reward requires village discovery by one or more units, and will not be provided when the discovery method is border expansion.</Text>
         </Replace>
-        <!-- faith type -->
-        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_ONE_RELIC_NAME" Language="en_US">
-            <Text>1 [ICON_GreatWork_Relic] Relic</Text>
+        <!-- civics type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_ONE_CIVIC_BOOST_NAME" Language="en_US">
+            <Text>1 [ICON_CivicBoosted] Civic Boost</Text>
         </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_ONE_RELIC_DESC" Language="en_US">
-            <Text>Tier 4 (Legendary) Faith-type reward.[NEWLINE][NEWLINE]Receive one (1) random free [ICON_GreatWork_Relic] Relic.</Text>
+        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_ONE_CIVIC_BOOST_DESC" Language="en_US">
+            <Text>Tier 1 (Common) Civics-type reward.[NEWLINE][NEWLINE]Receive one (1) random free [ICON_CivicBoosted] Civic boost.</Text>
         </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_LARGE_SUM_NAME" Language="en_US">
-            <Text>100 [ICON_Faith] Faith</Text>
+        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_TWO_CIVIC_BOOSTS_NAME" Language="en_US">
+            <Text>2 [ICON_CivicBoosted] Civic Boosts</Text>
         </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_LARGE_SUM_DESC" Language="en_US">
-            <Text>Tier 3 (Rare) Faith-type reward.[NEWLINE][NEWLINE]Receive one hundred (100) [ICON_Faith] Faith.</Text>
+        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_TWO_CIVIC_BOOSTS_DESC" Language="en_US">
+            <Text>Tier 2 (Uncommon) Civics-type reward.[NEWLINE][NEWLINE]Receive two (2) random free [ICON_CivicBoosted] Civic boosts.</Text>
         </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_MEDIUM_SUM_NAME" Language="en_US">
-            <Text>60 [ICON_Faith] Faith</Text>
+        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_ONE_CIVIC_NAME" Language="en_US">
+            <Text>1 [ICON_CivicBoosted] Civic</Text>
         </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_MEDIUM_SUM_DESC" Language="en_US">
-            <Text>Tier 2 (Uncommon) Faith-type reward.[NEWLINE][NEWLINE]Receive sixty (60) [ICON_Faith] Faith.</Text>
+        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_ONE_CIVIC_DESC" Language="en_US">
+            <Text>Tier 3 (Rare) Civics-type reward.[NEWLINE][NEWLINE]Receive one (1) random free [ICON_CivicBoosted] Civic.</Text>
         </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_SMALL_SUM_NAME" Language="en_US">
-            <Text>20 [ICON_Faith] Faith</Text>
+        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_TWO_CIVICS_NAME" Language="en_US">
+            <Text>2 [ICON_CivicBoosted] Civics</Text>
         </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_SMALL_SUM_DESC" Language="en_US">
-            <Text>Tier 1 (Common) Faith-type reward.[NEWLINE][NEWLINE]Receive twenty (20) [ICON_Faith] Faith.</Text>
+        <Replace Tag="LOC_EGHV_GOODYHUT_CULTURE_TWO_CIVICS_DESC" Language="en_US">
+            <Text>Tier 4 (Legendary) Civics-type reward.[NEWLINE][NEWLINE]Receive two (2) random free [ICON_CivicBoosted] Civics.[NEWLINE][NEWLINE]This reward will not be provided prior to Turn 20.</Text>
         </Replace>
-        <!-- gold type -->
-        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_ADD_TRADE_ROUTE_NAME" Language="en_US">
-            <Text>1 [ICON_TradeRoute] Trade Route</Text>
+        <!-- culture type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_SMALL_CULTURE_NAME" Language="en_US">
+            <Text>5 [ICON_Culture] Culture</Text>
         </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_ADD_TRADE_ROUTE_DESC" Language="en_US">
-            <Text>Tier 4 (Legendary) Gold-type reward.[NEWLINE][NEWLINE]Receive one (1) free additional [ICON_TradeRoute] Trade Route capacity.</Text>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SMALL_CULTURE_DESC" Language="en_US">
+            <Text>Tier 1 (Common) Culture-type reward.[NEWLINE][NEWLINE]Receive five (5) [ICON_Culture] Culture.</Text>
         </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_LARGE_SUM_NAME" Language="en_US">
-            <Text>120 [ICON_Gold] Gold</Text>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MEDIUM_CULTURE_NAME" Language="en_US">
+            <Text>10 [ICON_Culture] Culture</Text>
         </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_LARGE_SUM_DESC" Language="en_US">
-            <Text>Tier 3 (Rare) Gold-type reward.[NEWLINE][NEWLINE]Receive one hundred twenty (120) [ICON_Gold] Gold.</Text>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MEDIUM_CULTURE_DESC" Language="en_US">
+            <Text>Tier 2 (Uncommon) Culture-type reward.[NEWLINE][NEWLINE]Receive ten (10) [ICON_Culture] Culture.</Text>
         </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_MEDIUM_SUM_NAME" Language="en_US">
-            <Text>80 [ICON_Gold] Gold</Text>
+        <Replace Tag="LOC_EGHV_GOODYHUT_LARGE_CULTURE_NAME" Language="en_US">
+            <Text>15 [ICON_Culture] Culture</Text>
         </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_MEDIUM_SUM_DESC" Language="en_US">
-            <Text>Tier 2 (Uncommon) Gold-type reward.[NEWLINE][NEWLINE]Receive eighty (80) [ICON_Gold] Gold.</Text>
+        <Replace Tag="LOC_EGHV_GOODYHUT_LARGE_CULTURE_DESC" Language="en_US">
+            <Text>Tier 3 (Rare) Culture-type reward.[NEWLINE][NEWLINE]Receive fifteen (15) [ICON_Culture] Culture.</Text>
         </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_SMALL_SUM_NAME" Language="en_US">
-            <Text>40 [ICON_Gold] Gold</Text>
+        <Replace Tag="LOC_EGHV_GOODYHUT_HUGE_CULTURE_NAME" Language="en_US">
+            <Text>25 [ICON_Culture] Culture</Text>
         </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_SMALL_SUM_DESC" Language="en_US">
-            <Text>Tier 1 (Common) Gold-type reward.[NEWLINE][NEWLINE]Receive forty (40) [ICON_Gold] Gold.</Text>
-        </Replace>
-        <!-- support military type -->
-        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_BATTERING_RAM_NAME" Language="en_US">
-            <Text>1 [ICON_Unit] Support unit</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_BATTERING_RAM_DESC" Language="en_US">
-            <Text>Tier 4 (Legendary) Military-type reward.[NEWLINE][NEWLINE]Receive one (1) free Era-appropriate [ICON_Unit] support unit in a nearby plot.</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_CATAPULT_NAME" Language="en_US">
-            <Text>1 [ICON_Unit] Siege unit</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_CATAPULT_DESC" Language="en_US">
-            <Text>Tier 4 (Legendary) Military-type reward.[NEWLINE][NEWLINE]Receive one (1) free Era-appropriate [ICON_Unit] siege unit in a nearby plot.</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_UPGRADE_NAME" Language="en_US">
-            <Text>Unit upgrade/promotion</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_UPGRADE_DESC" Language="en_US">
-            <Text>Tier 4 (Legendary) Promotions-type reward.[NEWLINE][NEWLINE]Any unit that receives this reward will be upgraded to the next unit in its promotion class [COLOR_GREEN]IF[ENDCOLOR] it has a valid upgrade path [COLOR_GREEN]AND[ENDCOLOR] it has not yet earned any promotions. Any upgraded unit will retain any abilities it had previously earned.[NEWLINE][NEWLINE]Any unit that receives this reward will be granted enough experience to earn its next promotion [COLOR_GREEN]IF[ENDCOLOR] it has a valid promotion class.[NEWLINE][NEWLINE]Invalid units will be skipped with no discernable effect.</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_MILITARY_ENGINEER_NAME" Language="en_US">
-            <Text>1 [ICON_Unit] Military Engineer</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_MILITARY_ENGINEER_DESC" Language="en_US">
-            <Text>Tier 5 (Mythic) Military-type reward.[NEWLINE][NEWLINE]Receive one (1) free [ICON_Unit] Military Engineer in a nearby plot.</Text>
-        </Replace>
-        <!-- cavalry military type -->
-        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_HEAVY_CHARIOT_NAME" Language="en_US">
-            <Text>1 [ICON_Unit] Heavy Cavalry unit</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_HEAVY_CHARIOT_DESC" Language="en_US">
-            <Text>Tier 3 (Rare) Military-type reward.[NEWLINE][NEWLINE]Receive one (1) free Era-appropriate [ICON_Unit] heavy cavalry unit in a nearby plot.</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_HORSEMAN_NAME" Language="en_US">
-            <Text>1 [ICON_Unit] Light Cavalry unit</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_HORSEMAN_DESC" Language="en_US">
-            <Text>Tier 3 (Rare) Military-type reward.[NEWLINE][NEWLINE]Receive one (1) free Era-appropriate [ICON_Unit] light cavalry unit in a nearby plot.</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SPEARMAN_NAME" Language="en_US">
-            <Text>1 [ICON_Unit] Anti-Cavalry unit</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SPEARMAN_DESC" Language="en_US">
-            <Text>Tier 3 (Rare) Military-type reward.[NEWLINE][NEWLINE]Receive one (1) free Era-appropriate [ICON_Unit] anti-cavalry unit in a nearby plot.</Text>
-        </Replace>
-        <!-- military type -->
-        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SLINGER_NAME" Language="en_US">
-            <Text>1 [ICON_Unit] Ranged unit</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SLINGER_DESC" Language="en_US">
-            <Text>Tier 2 (Uncommon) Military-type reward.[NEWLINE][NEWLINE]Receive one (1) free Era-appropriate [ICON_Unit] ranged unit in a nearby plot.</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_WARRIOR_NAME" Language="en_US">
-            <Text>1 [ICON_Unit] Melee unit</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_WARRIOR_DESC" Language="en_US">
-            <Text>Tier 2 (Uncommon) Military-type reward.[NEWLINE][NEWLINE]Receive one (1) free Era-appropriate [ICON_Unit] melee unit in a nearby plot.</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SCOUT_NAME" Language="en_US">
-            <Text>1 [ICON_Unit] Recon unit</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SCOUT_DESC" Language="en_US">
-            <Text>Tier 1 (Common) Military-type reward.[NEWLINE][NEWLINE]Receive one (1) free Era-appropriate [ICON_Unit] recon unit in a nearby plot.</Text>
-        </Replace>
-        <!-- science type -->
-        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_TWO_TECHS_NAME" Language="en_US">
-            <Text>2 [ICON_TechBoosted] Techs</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_TWO_TECHS_DESC" Language="en_US">
-            <Text>Tier 4 (Legendary) Science-type reward.[NEWLINE][NEWLINE]Receive two (2) random free [ICON_TechBoosted] Technologies.</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_ONE_TECH_NAME" Language="en_US">
-            <Text>1 [ICON_TechBoosted] Tech</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_ONE_TECH_DESC" Language="en_US">
-            <Text>Tier 3 (Rare) Science-type reward.[NEWLINE][NEWLINE]Receive one (1) random free [ICON_TechBoosted] Technology.</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_TWO_TECH_BOOSTS_NAME" Language="en_US">
-            <Text>2 [ICON_TechBoosted] Tech boosts</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_TWO_TECH_BOOSTS_DESC" Language="en_US">
-            <Text>Tier 2 (Uncommon) Science-type reward.[NEWLINE][NEWLINE]Receive two (2) random free [ICON_TechBoosted] Technology boosts.</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_ONE_TECH_BOOST_NAME" Language="en_US">
-            <Text>1 [ICON_TechBoosted] Tech boost</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_ONE_TECH_BOOST_DESC" Language="en_US">
-            <Text>Tier 1 (Common) Science-type reward.[NEWLINE][NEWLINE]Receive one (1) random free [ICON_TechBoosted] Technology boost.</Text>
-        </Replace>
-        <!-- survivors type -->
-        <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_GRANT_SETTLER_NAME" Language="en_US">
-            <Text>1 [ICON_Unit] Settler</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_GRANT_SETTLER_DESC" Language="en_US">
-            <Text>Tier 4 (Legendary) Survivors-type reward.[NEWLINE][NEWLINE]Receive one (1) free [ICON_Unit] Settler in a nearby plot.</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_GRANT_TRADER_NAME" Language="en_US">
-            <Text>1 [ICON_Unit] Trader</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_GRANT_TRADER_DESC" Language="en_US">
-            <Text>Tier 3 (Rare) Survivors-type reward.[NEWLINE][NEWLINE]Receive one (1) free [ICON_Unit] Trader in a nearby plot.</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_GRANT_BUILDER_NAME" Language="en_US">
-            <Text>1 [ICON_Unit] Builder</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_GRANT_BUILDER_DESC" Language="en_US">
-            <Text>Tier 2 (Uncommon) Survivors-type reward.[NEWLINE][NEWLINE]Receive one (1) free [ICON_Unit] Builder in a nearby plot.</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_ADD_POP_NAME" Language="en_US">
-            <Text>1 [ICON_Citizen] Population</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_ADD_POP_DESC" Language="en_US">
-            <Text>Tier 1 (Common) Survivors-type reward.[NEWLINE][NEWLINE]Receive one (1) free additional [ICON_Citizen] Population in the nearest city.</Text>
-        </Replace>
-        <!-- governors type -->
-        <Replace Tag="LOC_EGHV_GOODYHUT_FOUR_GOVERNOR_TITLES_NAME" Language="en_US">
-            <Text>4 [ICON_Governor] Governor Titles</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_FOUR_GOVERNOR_TITLES_DESC" Language="en_US">
-            <Text>Tier 4 (Legendary) Governors-type reward.[NEWLINE][NEWLINE]Receive four (4) free [ICON_Governor] Governor Titles.</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_THREE_GOVERNOR_TITLES_NAME" Language="en_US">
-            <Text>3 [ICON_Governor] Governor Titles</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_THREE_GOVERNOR_TITLES_DESC" Language="en_US">
-            <Text>Tier 3 (Rare) Governors-type reward.[NEWLINE][NEWLINE]Receive three (3) free [ICON_Governor] Governor Titles.</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_TWO_GOVERNOR_TITLES_NAME" Language="en_US">
-            <Text>2 [ICON_Governor] Governor Titles</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_TWO_GOVERNOR_TITLES_DESC" Language="en_US">
-            <Text>Tier 2 (Uncommon) Governors-type reward.[NEWLINE][NEWLINE]Receive two (2) free [ICON_Governor] Governor Titles.</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_ONE_GOVERNOR_TITLE_NAME" Language="en_US">
-            <Text>1 [ICON_Governor] Governor Title</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_ONE_GOVERNOR_TITLE_DESC" Language="en_US">
-            <Text>Tier 1 (Common) Governors-type reward.[NEWLINE][NEWLINE]Receive one (1) free [ICON_Governor] Governor Title.</Text>
+        <Replace Tag="LOC_EGHV_GOODYHUT_HUGE_CULTURE_DESC" Language="en_US">
+            <Text>Tier 4 (Legendary) Culture-type reward.[NEWLINE][NEWLINE]Receive twenty-five (25) [ICON_Culture] Culture.</Text>
         </Replace>
         <!-- envoys type -->
         <Replace Tag="LOC_EGHV_GOODYHUT_FOUR_ENVOYS_NAME" Language="en_US">
@@ -543,27 +373,446 @@
         <Replace Tag="LOC_EGHV_GOODYHUT_ONE_ENVOY_DESC" Language="en_US">
             <Text>Tier 1 (Common) Envoys-type reward.[NEWLINE][NEWLINE]Receive one (1) free [ICON_Envoy] Envoy.</Text>
         </Replace>
-        <!-- meteor strike type -->
-        <Replace Tag="LOC_EGHV_GOODYHUT_METEOR_GRANT_GOODIES_NAME" Language="en_US">
+        <!-- faith type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_ONE_RELIC_NAME" Language="en_US">
+            <Text>1 [ICON_GreatWork_Relic] Relic</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_ONE_RELIC_DESC" Language="en_US">
+            <Text>Tier 4 (Legendary) Faith-type reward.[NEWLINE][NEWLINE]Receive one (1) random free [ICON_GreatWork_Relic] Relic.[NEWLINE][NEWLINE]This reward will not be provided when you do not have at least one (1) City.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_LARGE_SUM_NAME" Language="en_US">
+            <Text>100 [ICON_Faith] Faith</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_LARGE_SUM_DESC" Language="en_US">
+            <Text>Tier 3 (Rare) Faith-type reward.[NEWLINE][NEWLINE]Receive one hundred (100) [ICON_Faith] Faith.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_MEDIUM_SUM_NAME" Language="en_US">
+            <Text>60 [ICON_Faith] Faith</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_MEDIUM_SUM_DESC" Language="en_US">
+            <Text>Tier 2 (Uncommon) Faith-type reward.[NEWLINE][NEWLINE]Receive sixty (60) [ICON_Faith] Faith.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_SMALL_SUM_NAME" Language="en_US">
+            <Text>20 [ICON_Faith] Faith</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FAITH_SMALL_SUM_DESC" Language="en_US">
+            <Text>Tier 1 (Common) Faith-type reward.[NEWLINE][NEWLINE]Receive twenty (20) [ICON_Faith] Faith.</Text>
+        </Replace>
+        <!-- gold type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_ADD_TRADE_ROUTE_NAME" Language="en_US">
+            <Text>1 [ICON_TradeRoute] Trade Route</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_ADD_TRADE_ROUTE_DESC" Language="en_US">
+            <Text>Tier 4 (Legendary) Gold-type reward.[NEWLINE][NEWLINE]Receive one (1) free additional [ICON_TradeRoute] Trade Route capacity.[NEWLINE][NEWLINE]This reward will not be provided when you do not have at least one (1) City.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_LARGE_SUM_NAME" Language="en_US">
+            <Text>120 [ICON_Gold] Gold</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_LARGE_SUM_DESC" Language="en_US">
+            <Text>Tier 3 (Rare) Gold-type reward.[NEWLINE][NEWLINE]Receive one hundred twenty (120) [ICON_Gold] Gold.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_MEDIUM_SUM_NAME" Language="en_US">
+            <Text>80 [ICON_Gold] Gold</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_MEDIUM_SUM_DESC" Language="en_US">
+            <Text>Tier 2 (Uncommon) Gold-type reward.[NEWLINE][NEWLINE]Receive eighty (80) [ICON_Gold] Gold.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_SMALL_SUM_NAME" Language="en_US">
+            <Text>40 [ICON_Gold] Gold</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_GOLD_SMALL_SUM_DESC" Language="en_US">
+            <Text>Tier 1 (Common) Gold-type reward.[NEWLINE][NEWLINE]Receive forty (40) [ICON_Gold] Gold.</Text>
+        </Replace>
+        <!-- goody huts type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_ONE_GOODYHUT_NAME" Language="en_US">
+            <Text>1 New Tribal Village</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_ONE_GOODYHUT_DESC" Language="en_US">
+            <Text>Tier 1 (Common) Goodyhuts-type reward.[NEWLINE][NEWLINE]The villagers reveal the location of one (1) previously unknown tribal village.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_TWO_GOODYHUTS_NAME" Language="en_US">
+            <Text>2 New Tribal Villages</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_TWO_GOODYHUTS_DESC" Language="en_US">
+            <Text>Tier 2 (Uncommon) Goodyhuts-type reward.[NEWLINE][NEWLINE]The villagers reveal the locations of two (2) previously unknown tribal villages.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_THREE_GOODYHUTS_NAME" Language="en_US">
+            <Text>3 New Tribal Villages</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_THREE_GOODYHUTS_DESC" Language="en_US">
+            <Text>Tier 3 (Rare) Goodyhuts-type reward.[NEWLINE][NEWLINE]The villagers reveal the locations of three (3) previously unknown tribal villages.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FOUR_GOODYHUTS_NAME" Language="en_US">
+            <Text>4 New Tribal Villages</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FOUR_GOODYHUTS_DESC" Language="en_US">
+            <Text>Tier 4 (Legendary) Goodyhuts-type reward.[NEWLINE][NEWLINE]The villagers reveal the locations of four (4) previously unknown tribal villages.</Text>
+        </Replace>
+        <!-- great people type -->
+        <!-- hostiles type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_LOW_HOSTILITY_VILLAGERS_NAME" Language="en_US">
+            <Text>Slightly Hostile Villagers</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_LOW_HOSTILITY_VILLAGERS_DESC" Language="en_US">
+            <Text>Tier 1 (Common) Hostiles-type reward.[NEWLINE][NEWLINE]One (1) hostile [ICON_Barbarian] melee unit will appear nearby. If there are more valid water plots than land plots nearby, this will instead be a naval melee unit; otherwise, there is a 50% chance that this will instead be a heavy cavalry unit.[NEWLINE][NEWLINE]Any unit that appears will be the most advanced that nearby resources allow for the current Era.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MID_HOSTILITY_VILLAGERS_NAME" Language="en_US">
+            <Text>Moderately Hostile Villagers</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MID_HOSTILITY_VILLAGERS_DESC" Language="en_US">
+            <Text>Tier 2 (Uncommon) Hostiles-type reward.[NEWLINE][NEWLINE]One (1) hostile [ICON_Barbarian] melee unit will appear nearby. If there are more valid water plots than land plots nearby, this will instead be a naval melee unit; otherwise, there is a 50% chance that this will instead be a heavy cavalry unit.[NEWLINE][NEWLINE]One (1) hostile [ICON_Barbarian] ranged unit will appear nearby. If there are more valid water plots than land plots nearby, this will instead be a naval ranged unit; otherwise, if [ICON_RESOURCE_HORSES] Horses are nearby there is a 50% chance that this will instead be a light cavalry unit.[NEWLINE][NEWLINE]Any units that appear will be the most advanced that nearby resources allow for the current Era.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_HIGH_HOSTILITY_VILLAGERS_NAME" Language="en_US">
+            <Text>Very Hostile Villagers</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_HIGH_HOSTILITY_VILLAGERS_DESC" Language="en_US">
+            <Text>Tier 3 (Rare) Hostiles-type reward.[NEWLINE][NEWLINE]Two (2) hostile [ICON_Barbarian] melee units will appear nearby. If there are more valid water plots than land plots nearby, one or both of these will instead be a naval melee unit; otherwise, each has a 50% chance of instead being a heavy cavalry unit.[NEWLINE][NEWLINE]One (1) hostile [ICON_Barbarian] ranged unit will appear nearby. If there are more valid water plots than land plots nearby, this will instead be a naval ranged unit; otherwise, if [ICON_RESOURCE_HORSES] Horses are nearby there is a 50% chance that this will instead be a light cavalry unit.[NEWLINE][NEWLINE]Any units that appear will be the most advanced that nearby resources allow for the current Era.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MAX_HOSTILITY_VILLAGERS_NAME" Language="en_US">
+            <Text>Extremely Hostile Villagers</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MAX_HOSTILITY_VILLAGERS_DESC" Language="en_US">
+            <Text>Tier 4 (Legendary) Hostiles-type reward.[NEWLINE][NEWLINE]One (1) hostile [ICON_Barbarian] melee unit will appear nearby. If there are more valid water plots than land plots nearby, this will instead be a naval melee unit; otherwise, there is a 50% chance that this will instead be a heavy cavalry unit.[NEWLINE][NEWLINE]One (1) hostile [ICON_Barbarian] ranged unit will appear nearby. If there are more valid water plots than land plots nearby, this will instead be a naval ranged unit; otherwise, if [ICON_RESOURCE_HORSES] Horses are nearby there is a 50% chance that this will instead be a light cavalry unit.[NEWLINE][NEWLINE]The villagers will also attempt to create a new [ICON_Barbarian] barbarian outpost nearby; failing this, one (1) additional hostile [ICON_Barbarian] melee or ranged unit will appear instead, subject to the above criteria.[NEWLINE][NEWLINE]Any units that appear will be the most advanced that nearby resources allow for the current Era.</Text>
+        </Replace>
+        <!-- military type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SCOUT_NAME" Language="en_US">
+            <Text>1 [ICON_Unit] Recon Unit</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SCOUT_DESC" Language="en_US">
+            <Text>Tier 1 (Common) Military-type reward.[NEWLINE][NEWLINE]Receive at least one (1) free Era-appropriate [ICON_Unit] recon unit in a nearby plot, or in a random City's Encampment or City Center District.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_WARRIOR_NAME" Language="en_US">
+            <Text>1 [ICON_Unit] Melee Unit</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_WARRIOR_DESC" Language="en_US">
+            <Text>Tier 2 (Uncommon) Military-type reward.[NEWLINE][NEWLINE]Receive at least one (1) free Era-appropriate [ICON_Unit] melee unit in a nearby plot, or in a random City's Encampment or City Center District.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SLINGER_NAME" Language="en_US">
+            <Text>1 [ICON_Unit] Ranged Unit</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SLINGER_DESC" Language="en_US">
+            <Text>Tier 2 (Uncommon) Military-type reward.[NEWLINE][NEWLINE]Receive at least one (1) free Era-appropriate [ICON_Unit] ranged unit in a nearby plot, or in a random City's Encampment or City Center District.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SPEARMAN_NAME" Language="en_US">
+            <Text>1 [ICON_Unit] Anti-Cavalry Unit</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_SPEARMAN_DESC" Language="en_US">
+            <Text>Tier 2 (Uncommon) Military-type reward.[NEWLINE][NEWLINE]Receive at least one (1) free Era-appropriate [ICON_Unit] anti-cavalry unit in a nearby plot, or in a random City's Encampment or City Center District.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_HEAVY_CHARIOT_NAME" Language="en_US">
+            <Text>1 [ICON_Unit] Heavy Cavalry Unit</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_HEAVY_CHARIOT_DESC" Language="en_US">
+            <Text>Tier 3 (Rare) Military-type reward.[NEWLINE][NEWLINE]Receive at least one (1) free Era-appropriate [ICON_Unit] heavy cavalry unit in a nearby plot, or in a random City's Encampment or City Center District.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_HORSEMAN_NAME" Language="en_US">
+            <Text>1 [ICON_Unit] Light Cavalry Unit</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_HORSEMAN_DESC" Language="en_US">
+            <Text>Tier 3 (Rare) Military-type reward.[NEWLINE][NEWLINE]Receive at least one (1) free Era-appropriate [ICON_Unit] light cavalry unit in a nearby plot, or in a random City's Encampment or City Center District.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_BATTERING_RAM_NAME" Language="en_US">
+            <Text>1 [ICON_Unit] Support Unit</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_BATTERING_RAM_DESC" Language="en_US">
+            <Text>Tier 4 (Legendary) Military-type reward.[NEWLINE][NEWLINE]Receive at least one (1) free Era-appropriate [ICON_Unit] support unit in a nearby plot, or in a random City's Encampment or City Center District.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_CATAPULT_NAME" Language="en_US">
+            <Text>1 [ICON_Unit] Siege Unit</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_CATAPULT_DESC" Language="en_US">
+            <Text>Tier 4 (Legendary) Military-type reward.[NEWLINE][NEWLINE]Receive at least one (1) free Era-appropriate [ICON_Unit] siege unit in a nearby plot, or in a random City's Encampment or City Center District.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_MILITARY_ENGINEER_NAME" Language="en_US">
+            <Text>1 [ICON_Unit] Military Engineer</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_MILITARY_ENGINEER_DESC" Language="en_US">
+            <Text>Tier 4 (Legendary) Military-type reward.[NEWLINE][NEWLINE]Receive at least one (1) free [ICON_Unit] Military Engineer in a nearby plot, or in a random City's Encampment or City Center District.</Text>
+        </Replace>
+        <!-- policies type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_POLICIES_ONE_MILITARY_SLOT_NAME" Language="en_US">
+            <Text>1 [ICON_Policy] Military Policy Slot</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_POLICIES_ONE_MILITARY_SLOT_DESC" Language="en_US">
+            <Text>Tier 5 (Mythic) Policies-type reward.[NEWLINE][NEWLINE]Receive one (1) additional [ICON_Policy] military policy slot beyond what your selected government provides.[NEWLINE][NEWLINE]This reward will not be provided prior to Turn 76.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_POLICIES_ONE_ECONOMIC_SLOT_NAME" Language="en_US">
+            <Text>1 [ICON_Policy] Economic Policy Slot</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_POLICIES_ONE_ECONOMIC_SLOT_DESC" Language="en_US">
+            <Text>Tier 5 (Mythic) Policies-type reward.[NEWLINE][NEWLINE]Receive one (1) additional [ICON_Policy] economic policy slot beyond what your selected government provides.[NEWLINE][NEWLINE]This reward will not be provided prior to Turn 76.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_POLICIES_ONE_DIPLOMATIC_SLOT_NAME" Language="en_US">
+            <Text>1 [ICON_Policy] Diplomatic Policy Slot</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_POLICIES_ONE_DIPLOMATIC_SLOT_DESC" Language="en_US">
+            <Text>Tier 5 (Mythic) Policies-type reward.[NEWLINE][NEWLINE]Receive one (1) additional [ICON_Policy] diplomatic policy slot beyond what your selected government provides.[NEWLINE][NEWLINE]This reward will not be provided prior to Turn 76.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_POLICIES_ONE_WILDCARD_SLOT_NAME" Language="en_US">
+            <Text>1 [ICON_Policy] Wildcard Policy Slot</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_POLICIES_ONE_WILDCARD_SLOT_DESC" Language="en_US">
+            <Text>Tier 5 (Mythic) Policies-type reward.[NEWLINE][NEWLINE]Receive one (1) additional [ICON_Policy] wildcard policy slot beyond what your selected government provides.[NEWLINE][NEWLINE]This reward will not be provided prior to Turn 76.</Text>
+        </Replace>
+        <!-- promotions type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_SMALL_EXPERIENCE_NAME" Language="en_US">
+            <Text>25% XP To Next Level</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SMALL_EXPERIENCE_DESC" Language="en_US">
+            <Text>Tier 1 (Common) Promotions-type reward.[NEWLINE][NEWLINE]Any valid unit that receives this reward will gain twenty-five percent (25%) of the experience points needed for its next [ICON_Promotion] Promotion.[NEWLINE][NEWLINE]This reward requires village discovery by one or more units, and will not be provided when the discovery method is border expansion.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MEDIUM_EXPERIENCE_NAME" Language="en_US">
+            <Text>50% XP To Next Level</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MEDIUM_EXPERIENCE_DESC" Language="en_US">
+            <Text>Tier 2 (Uncommon) Promotions-type reward.[NEWLINE][NEWLINE]Any valid unit that receives this reward will gain fifty percent (50%) of the experience points needed for its next [ICON_Promotion] Promotion.[NEWLINE][NEWLINE]This reward requires village discovery by one or more units, and will not be provided when the discovery method is border expansion.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_LARGE_EXPERIENCE_NAME" Language="en_US">
+            <Text>75% XP To Next Level</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_LARGE_EXPERIENCE_DESC" Language="en_US">
+            <Text>Tier 3 (Rare) Promotions-type reward.[NEWLINE][NEWLINE]Any valid unit that receives this reward will gain seventy-five percent (75%) of the experience points needed for its next [ICON_Promotion] Promotion.[NEWLINE][NEWLINE]This reward requires village discovery by one or more units, and will not be provided when the discovery method is border expansion.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_HUGE_EXPERIENCE_NAME" Language="en_US">
+            <Text>100% XP To Next Level</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_HUGE_EXPERIENCE_DESC" Language="en_US">
+            <Text>Tier 4 (Legendary) Promotions-type reward.[NEWLINE][NEWLINE]Any valid unit that receives this reward will gain one hundred percent (100%) of the experience points needed for its next [ICON_Promotion] Promotion.[NEWLINE][NEWLINE]This reward requires village discovery by one or more units, and will not be provided when the discovery method is border expansion.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_UPGRADE_NAME" Language="en_US">
+            <Text>Unit "Upgrade++"</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_UPGRADE_DESC" Language="en_US">
+            <Text>Tier 4 (Legendary) Promotions-type reward.[NEWLINE][NEWLINE]Any valid unit that receives this reward will be "upgraded" to the next unit in its promotion class [COLOR_GREEN]IF[ENDCOLOR] it has a valid upgrade path.[NEWLINE][NEWLINE]Any "upgraded" unit will retain any abilities it previously had and any veteran name it was previously assigned.[NEWLINE][NEWLINE]Any "upgraded" unit will gain one hundred percent (100%) of the experience points needed to earn its first promotion; any previously earned promotions will be stored when the unit is "upgraded" and can be reapplied.[NEWLINE][NEWLINE]This reward requires village discovery by one or more units, and will not be provided when the discovery method is border expansion.</Text>
+        </Replace>
+        <!-- science type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_SMALL_SCIENCE_NAME" Language="en_US">
+            <Text>5 [ICON_Science] Science</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SMALL_SCIENCE_DESC" Language="en_US">
+            <Text>Tier 1 (Common) Science-type reward.[NEWLINE][NEWLINE]Receive five (5) [ICON_Science] Science.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MEDIUM_SCIENCE_NAME" Language="en_US">
+            <Text>10 [ICON_Science] Science</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MEDIUM_SCIENCE_DESC" Language="en_US">
+            <Text>Tier 2 (Uncommon) Science-type reward.[NEWLINE][NEWLINE]Receive ten (10) [ICON_Science] Science.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_LARGE_SCIENCE_NAME" Language="en_US">
+            <Text>15 [ICON_Science] Science</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_LARGE_SCIENCE_DESC" Language="en_US">
+            <Text>Tier 3 (Rare) Science-type reward.[NEWLINE][NEWLINE]Receive fifteen (15) [ICON_Science] Science.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_HUGE_SCIENCE_NAME" Language="en_US">
+            <Text>25 [ICON_Science] Science</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_HUGE_SCIENCE_DESC" Language="en_US">
+            <Text>Tier 4 (Legendary) Science-type reward.[NEWLINE][NEWLINE]Receive twenty-five (25) [ICON_Science] Science.</Text>
+        </Replace>
+        <!-- secrets type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_AMENITIES_NAME" Language="en_US">
+            <Text>[ICON_Buildings] Amenities Totem</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_AMENITIES_DESC" Language="en_US">
+            <Text>Tier 5 (Mythic) Secrets-type reward.[NEWLINE][NEWLINE]Receive the ability to construct the [ICON_Buildings] Amenities Totem building, which provides +4 [ICON_Amenities] Amenities.[NEWLINE][NEWLINE]If this ability has previously been granted, instead receive a free [ICON_Buildings] Amenities Totem building in a City that does not already have one.[NEWLINE][NEWLINE]This reward will not be provided when you do not have at least one (1) City.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_CULTURE_NAME" Language="en_US">
+            <Text>[ICON_Buildings] Culture Totem</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_CULTURE_DESC" Language="en_US">
+            <Text>Tier 5 (Mythic) Secrets-type reward.[NEWLINE][NEWLINE]Receive the ability to construct the [ICON_Buildings] Culture Totem building, which provides +4 [ICON_Culture] Culture.[NEWLINE][NEWLINE]If this ability has previously been granted, instead receive a free [ICON_Buildings] Culture Totem building in a City that does not already have one.[NEWLINE][NEWLINE]This reward will not be provided when you do not have at least one (1) City.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_FAITH_NAME" Language="en_US">
+            <Text>[ICON_Buildings] Faith Totem</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_FAITH_DESC" Language="en_US">
+            <Text>Tier 5 (Mythic) Secrets-type reward.[NEWLINE][NEWLINE]Receive the ability to construct the [ICON_Buildings] Faith Totem building, which provides +4 [ICON_Faith] Faith.[NEWLINE][NEWLINE]If this ability has previously been granted, instead receive a free [ICON_Buildings] Faith Totem building in a City that does not already have one.[NEWLINE][NEWLINE]This reward will not be provided when you do not have at least one (1) City.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_FAVOR_NAME" Language="en_US">
+            <Text>[ICON_Buildings] Diplomacy Totem</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_FAVOR_DESC" Language="en_US">
+            <Text>Tier 5 (Mythic) Secrets-type reward.[NEWLINE][NEWLINE]Receive the ability to construct the [ICON_Buildings] Diplomacy Totem building, which provides +4 [ICON_Favor] Diplomatic Favor.[NEWLINE][NEWLINE]If this ability has previously been granted, instead receive a free [ICON_Buildings] Diplomacy Totem building in a City that does not already have one.[NEWLINE][NEWLINE]This reward will not be provided when you do not have at least one (1) City.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_FOOD_NAME" Language="en_US">
+            <Text>[ICON_Buildings] Food Totem</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_FOOD_DESC" Language="en_US">
+            <Text>Tier 5 (Mythic) Secrets-type reward.[NEWLINE][NEWLINE]Receive the ability to construct the [ICON_Buildings] Food Totem building, which provides +4 [ICON_Food] Food.[NEWLINE][NEWLINE]If this ability has previously been granted, instead receive a free [ICON_Buildings] Food Totem building in a City that does not already have one.[NEWLINE][NEWLINE]This reward will not be provided when you do not have at least one (1) City.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_GOLD_NAME" Language="en_US">
+            <Text>[ICON_Buildings] Gold Totem</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_GOLD_DESC" Language="en_US">
+            <Text>Tier 5 (Mythic) Secrets-type reward.[NEWLINE][NEWLINE]Receive the ability to construct the [ICON_Buildings] Gold Totem building, which provides +8 [ICON_Gold] Gold.[NEWLINE][NEWLINE]If this ability has previously been granted, instead receive a free [ICON_Buildings] Gold Totem building in a City that does not already have one.[NEWLINE][NEWLINE]This reward will not be provided when you do not have at least one (1) City.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_PRODUCTION_NAME" Language="en_US">
+            <Text>[ICON_Buildings] Production Totem</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_PRODUCTION_DESC" Language="en_US">
+            <Text>Tier 5 (Mythic) Secrets-type reward.[NEWLINE][NEWLINE]Receive the ability to construct the [ICON_Buildings] Production Totem building, which provides +4 [ICON_Production] Production.[NEWLINE][NEWLINE]If this ability has previously been granted, instead receive a free [ICON_Buildings] Production Totem building in a City that does not already have one.[NEWLINE][NEWLINE]This reward will not be provided when you do not have at least one (1) City.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_SCIENCE_NAME" Language="en_US">
+            <Text>[ICON_Buildings] Science Totem</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_VILLAGER_SECRETS_SCIENCE_DESC" Language="en_US">
+            <Text>Tier 5 (Mythic) Secrets-type reward.[NEWLINE][NEWLINE]Receive the ability to construct the [ICON_Buildings] Science Totem building, which provides +4 [ICON_Science] Science.[NEWLINE][NEWLINE]If this ability has previously been granted, instead receive a free [ICON_Buildings] Science Totem building in a City that does not already have one.[NEWLINE][NEWLINE]This reward will not be provided when you do not have at least one (1) City.</Text>
+        </Replace>
+        <!-- survivors type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_ADD_POP_NAME" Language="en_US">
+            <Text>1 [ICON_Citizen] Population</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_ADD_POP_DESC" Language="en_US">
+            <Text>Tier 1 (Common) Survivors-type reward.[NEWLINE][NEWLINE]Receive at least one (1) free additional [ICON_Citizen] Population in one or more random Cities.[NEWLINE][NEWLINE]This reward will not be provided when you do not have at least one (1) City.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_GRANT_BUILDER_NAME" Language="en_US">
+            <Text>1 [ICON_Unit] Builder</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_GRANT_BUILDER_DESC" Language="en_US">
+            <Text>Tier 2 (Uncommon) Survivors-type reward.[NEWLINE][NEWLINE]Receive at least one (1) free [ICON_Unit] Builder in a nearby plot, or in a random City's City Center District.[NEWLINE][NEWLINE]This reward will not be provided when you do not have at least one (1) City.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_GRANT_TRADER_NAME" Language="en_US">
+            <Text>1 [ICON_Unit] Trader</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_GRANT_TRADER_DESC" Language="en_US">
+            <Text>Tier 3 (Rare) Survivors-type reward.[NEWLINE][NEWLINE]Receive at least one (1) free [ICON_Unit] Trader in a random City's City Center District.[NEWLINE][NEWLINE]This reward will not be provided when you do not have at least one (1) City.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_GRANT_SETTLER_NAME" Language="en_US">
+            <Text>1 [ICON_Unit] Settler</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SURVIVORS_GRANT_SETTLER_DESC" Language="en_US">
+            <Text>Tier 4 (Legendary) Survivors-type reward.[NEWLINE][NEWLINE]Receive at least one (1) free [ICON_Unit] Settler in a nearby plot, or in a random City's City Center District.</Text>
+        </Replace>
+        <!-- techs type -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_ONE_TECH_BOOST_NAME" Language="en_US">
+            <Text>1 [ICON_TechBoosted] Tech Boost</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_ONE_TECH_BOOST_DESC" Language="en_US">
+            <Text>Tier 1 (Common) Techs-type reward.[NEWLINE][NEWLINE]Receive one (1) random free [ICON_TechBoosted] Technology boost.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_TWO_TECH_BOOSTS_NAME" Language="en_US">
+            <Text>2 [ICON_TechBoosted] Tech Boosts</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_TWO_TECH_BOOSTS_DESC" Language="en_US">
+            <Text>Tier 2 (Uncommon) Techs-type reward.[NEWLINE][NEWLINE]Receive two (2) random free [ICON_TechBoosted] Technology boosts.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_ONE_TECH_NAME" Language="en_US">
+            <Text>1 [ICON_TechBoosted] Tech</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_ONE_TECH_DESC" Language="en_US">
+            <Text>Tier 3 (Rare) Techs-type reward.[NEWLINE][NEWLINE]Receive one (1) random free [ICON_TechBoosted] Technology.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_TWO_TECHS_NAME" Language="en_US">
+            <Text>2 [ICON_TechBoosted] Techs</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SCIENCE_TWO_TECHS_DESC" Language="en_US">
+            <Text>Tier 4 (Legendary) Techs-type reward.[NEWLINE][NEWLINE]Receive two (2) random free [ICON_TechBoosted] Technologies.</Text>
+        </Replace>
+        <!-- governors type - XP1 -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_ONE_GOVERNOR_TITLE_NAME" Language="en_US">
+            <Text>1 [ICON_Governor] Governor Title</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_ONE_GOVERNOR_TITLE_DESC" Language="en_US">
+            <Text>Tier 1 (Common) Governors-type reward.[NEWLINE][NEWLINE]Receive one (1) free [ICON_Governor] Governor Title.[NEWLINE][NEWLINE]This reward will not be provided when you do not have at least one (1) City.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_TWO_GOVERNOR_TITLES_NAME" Language="en_US">
+            <Text>2 [ICON_Governor] Governor Titles</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_TWO_GOVERNOR_TITLES_DESC" Language="en_US">
+            <Text>Tier 2 (Uncommon) Governors-type reward.[NEWLINE][NEWLINE]Receive two (2) free [ICON_Governor] Governor Titles.[NEWLINE][NEWLINE]This reward will not be provided when you do not have at least one (1) City.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_THREE_GOVERNOR_TITLES_NAME" Language="en_US">
+            <Text>3 [ICON_Governor] Governor Titles</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_THREE_GOVERNOR_TITLES_DESC" Language="en_US">
+            <Text>Tier 3 (Rare) Governors-type reward.[NEWLINE][NEWLINE]Receive three (3) free [ICON_Governor] Governor Titles.[NEWLINE][NEWLINE]This reward will not be provided when you do not have at least one (1) City.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FOUR_GOVERNOR_TITLES_NAME" Language="en_US">
+            <Text>4 [ICON_Governor] Governor Titles</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_FOUR_GOVERNOR_TITLES_DESC" Language="en_US">
+            <Text>Tier 4 (Legendary) Governors-type reward.[NEWLINE][NEWLINE]Receive four (4) free [ICON_Governor] Governor Titles.[NEWLINE][NEWLINE]This reward will not be provided when you do not have at least one (1) City.</Text>
+        </Replace>
+        <!-- diplomacy type - XP2 -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_SMALL_FAVOR_NAME" Language="en_US">
+            <Text>10 [ICON_Favor] Diplomatic Favor</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SMALL_FAVOR_DESC" Language="en_US">
+            <Text>Tier 1 (Common) Diplomacy-type reward.[NEWLINE][NEWLINE]Receive ten (10) [ICON_Favor] Diplomatic Favor.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MEDIUM_FAVOR_NAME" Language="en_US">
+            <Text>20 [ICON_Favor] Diplomatic Favor</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MEDIUM_FAVOR_DESC" Language="en_US">
+            <Text>Tier 2 (Uncommon) Diplomacy-type reward.[NEWLINE][NEWLINE]Receive twenty (20) [ICON_Favor] Diplomatic Favor.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_LARGE_FAVOR_NAME" Language="en_US">
+            <Text>30 [ICON_Favor] Diplomatic Favor</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_LARGE_FAVOR_DESC" Language="en_US">
+            <Text>Tier 3 (Rare) Diplomacy-type reward.[NEWLINE][NEWLINE]Receive thirty (30) [ICON_Favor] Diplomatic Favor.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_HUGE_FAVOR_NAME" Language="en_US">
+            <Text>50 [ICON_Favor] Diplomatic Favor</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_HUGE_FAVOR_DESC" Language="en_US">
+            <Text>Tier 4 (Legendary) Diplomacy-type reward.[NEWLINE][NEWLINE]Receive fifty (50) [ICON_Favor] Diplomatic Favor.</Text>
+        </Replace>
+        <!-- resources type - XP2 -->
+        <Replace Tag="LOC_EGHV_GOODYHUT_SMALL_RESOURCES_NAME" Language="en_US">
+            <Text>10 Strategic Resources</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_SMALL_RESOURCES_DESC" Language="en_US">
+            <Text>Tier 1 (Common) Resources-type reward.[NEWLINE][NEWLINE]Receive ten (10) of the most advanced strategic resource you have access to.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MEDIUM_RESOURCES_NAME" Language="en_US">
+            <Text>20 Strategic Resources</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_MEDIUM_RESOURCES_DESC" Language="en_US">
+            <Text>Tier 2 (Uncommon) Resources-type reward.[NEWLINE][NEWLINE]Receive twenty (20) of the most advanced strategic resource you have access to.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_LARGE_RESOURCES_NAME" Language="en_US">
+            <Text>30 Strategic Resources</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_LARGE_RESOURCES_DESC" Language="en_US">
+            <Text>Tier 3 (Rare) Resources-type reward.[NEWLINE][NEWLINE]Receive thirty (30) of the most advanced strategic resource you have access to.</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_HUGE_RESOURCES_NAME" Language="en_US">
+            <Text>50 Strategic Resources</Text>
+        </Replace>
+        <Replace Tag="LOC_EGHV_GOODYHUT_HUGE_RESOURCES_DESC" Language="en_US">
+            <Text>Tier 4 (Legendary) Resources-type reward.[NEWLINE][NEWLINE]Receive fifty (50) of the most advanced strategic resource you have access to.</Text>
+        </Replace>
+        <!-- debug mode - extremely verbose log output *** 2023/11/26 DEPRECATED *** -->
+        <!-- <Replace Tag="LOC_GAME_EGHV_DEBUG_NAME" Language="en_US">
+			<Text>EGHV Debugging</Text>
+		</Replace> -->
+        <!-- <Replace Tag="LOC_GAME_EGHV_DEBUG_DESC" Language="en_US">
+			<Text>Enable [COLOR_Civ6DarkRed]EXTREMELY[ENDCOLOR] verbose log output for EGHV functions.[NEWLINE][NEWLINE]This serves no purpose beyond troubleshooting, and should remain disabled unless needed.</Text>
+		</Replace> -->
+        <!-- meteor strike type *** 2023/11/26 DEPRECATED *** -->
+        <!-- <Replace Tag="LOC_EGHV_GOODYHUT_METEOR_GRANT_GOODIES_NAME" Language="en_US">
             <Text>[ICON_Razed] Meteor Strike</Text>
-        </Replace>
-        <Replace Tag="LOC_EGHV_GOODYHUT_METEOR_GRANT_GOODIES_DESC" Language="en_US">
+        </Replace> -->
+        <!-- <Replace Tag="LOC_EGHV_GOODYHUT_METEOR_GRANT_GOODIES_DESC" Language="en_US">
             <Text>Receive an advanced unit produced from materials salvaged from a looted [ICON_Razed] meteor strike site.[NEWLINE][NEWLINE]This reward can only be earned from a meteor strike improvement; it cannot be earned from a goody hut improvement.[NEWLINE][NEWLINE]When Bonus Rewards are enabled, this reward will [COLOR_RED]NOT[ENDCOLOR] be a valid bonus reward.[NEWLINE][NEWLINE]When Hostile Villagers After Reward are enabled, hostile villagers will [COLOR_RED]NOT[ENDCOLOR] appear following this reward.</Text>
-        </Replace>
-        <!-- new no barbarians parameter text -->
-        <Replace Tag="LOC_GAME_NO_BARBARIANS_DESCRIPTION" Language="en_US">
-            <Text>Enabling this option removes barbarians; by extension, it also overrides any 'Hostile Villagers' options, and removes hostile villagers entirely.</Text>
-        </Replace>
-        <!-- new no tribal villages parameter text -->
-        <Replace Tag="LOC_GAME_NO_GOODY_HUTS_DESCRIPTION" Language="en_US">
-            <Text>Enabling this option removes tribal villages; by extension, it also overrides the Goody Hut picker, and any other reward-related options.</Text>
-        </Replace>
-        <!-- equalize goody hut rewards parameter text -->
-        <Replace Tag="LOC_GAME_EQUALIZE_GOODY_HUTS_NAME" Language="en_US">
-            <Text>Equalize Tribal Village Rewards</Text>
-        </Replace>
-        <Replace Tag="LOC_GAME_EQUALIZE_GOODY_HUTS_DESC" Language="en_US">
-            <Text>Enabling this option gives most available Goody Hut rewards a roughly equal chance of appearing. Will be ignored if 'No Tribal Villages' is enabled.</Text>
-        </Replace>
+        </Replace> -->
+        <!-- rarity tiers *** 2023/11/26 DEPRECATED *** -->
+        <!-- <Replace Tag="LOC_EGHV_RARITY_TIER_1" Language="en_US">
+            <Text>Common</Text>
+        </Replace> -->
+        <!-- <Replace Tag="LOC_EGHV_RARITY_TIER_2" Language="en_US">
+            <Text>Uncommon</Text>
+        </Replace> -->
+        <!-- <Replace Tag="LOC_EGHV_RARITY_TIER_3" Language="en_US">
+            <Text>Rare</Text>
+        </Replace> -->
+        <!-- <Replace Tag="LOC_EGHV_RARITY_TIER_4" Language="en_US">
+            <Text>Legendary</Text>
+        </Replace> -->
+        <!-- <Replace Tag="LOC_EGHV_RARITY_TIER_5" Language="en_US">
+            <Text>Mythic</Text>
+        </Replace> -->
     </LocalizedText>
 </GameData>

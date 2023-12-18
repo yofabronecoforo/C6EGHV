@@ -85,49 +85,57 @@ end
 	NEW: check for Goody Huts marked as excluded within the picker and set a game configuration value for each one found
 	these values will be used to disable excluded Goody Huts when ingame content is loaded
 	when all available Goody Huts for the selected ruleset are excluded, manually set the "No Goody Huts" setup option
-	when the "No Barbarians" setup option is enabled, manually exclude hostile villager "rewards" from the available pool
+	when the "No Barbarians" setup option is enabled, manually disable hostiles after reward, and exclude hostile villager "rewards" from the available pool
 =========================================================================== ]]
-function ExcludeGoodyHuts()
-    local excludeGoodyHutsConfig = GameConfiguration.GetValue("EXCLUDE_GOODY_HUTS");
+function ExcludeGoodyHuts() 
+	local iLoggingLevel = bEGHV_IsEnabled and GameConfiguration.GetValue("GAME_EGHV_LOGGING") or 4;
+    local excludeGoodyHutsConfig = GameConfiguration.GetValue("EXCLUDE_GOODY_HUTS") or {};
+	local tExcludedRewards = {};
+	for _, v in ipairs(excludeGoodyHutsConfig) do tExcludedRewards[v] = true; end
 	local sRuleset = GameConfiguration.GetValue("RULESET");
     local sDomain = (sRuleset == "RULESET_EXPANSION_2") and "Expansion2GoodyHuts" or (sRuleset == "RULESET_EXPANSION_1") and "Expansion1GoodyHuts" or "StandardGoodyHuts";
 	local sPrefix = "EXCLUDE_";
-	if(excludeGoodyHutsConfig and #excludeGoodyHutsConfig > 0) then 
-		print(#excludeGoodyHutsConfig .. " Tribal Village reward(s) marked as 'excluded':");
-		local tGoodyHuts = DB.ConfigurationQuery("SELECT * FROM TribalVillages WHERE Domain = ?", sDomain);
-
-		if (#excludeGoodyHutsConfig == #tGoodyHuts) then 
-			print(" *** All available Tribal Village reward(s) for the selected ruleset marked as 'excluded'; enabling option 'No Tribal Villages' to attempt to ensure total exclusion");
-			GameConfiguration.SetValue("GAME_NO_GOODY_HUTS", true);
-		end
-
-		GameConfiguration.SetValue("GOODYHUTS_EXCLUDED", 1);
-		for i, v in ipairs(excludeGoodyHutsConfig) do 
-			local sGHSetting = sPrefix .. v;
-			GameConfiguration.SetValue(sGHSetting, 1);
-			print(" - " .. sGHSetting);
-		end
-	else
-		print("No Tribal Village rewards have been marked as 'excluded'.");
-	end
-	
 	if GameConfiguration.GetValue("GAME_NO_BARBARIANS") then 
 		GameConfiguration.SetValue("GOODYHUTS_EXCLUDED", 1);
 		local tHostileRewards = DB.ConfigurationQuery("SELECT * FROM TribalVillages WHERE Domain = ? AND SubTypeGoodyHut LIKE '%HOSTILITY%'", sDomain);
-		print("The 'No Barbarians' setup option is enabled; ensuring " .. #tHostileRewards .. " defined hostile villager reward(s) are disabled . . .");
-		for i, v in ipairs(tHostileRewards) do 
-			local sGHSetting = sPrefix .. v.SubTypeGoodyHut;
-			GameConfiguration.SetValue(sGHSetting, 1);
-			print(" - " .. sGHSetting);
+		if iLoggingLevel > 1 then 
+			local sRewards = (#tHostileRewards == 1) and "reward" or "rewards";
+			print(string.format("[*]: The 'No Barbarians' setup option is enabled; disabling hostile villagers after reward, and ensuring %d defined hostile villager '%s' are disabled . . .", #tHostileRewards, sRewards));
 		end
+		GameConfiguration.SetValue("GAME_HOSTILES_CHANCE", 1);
+		for _, v in ipairs(tHostileRewards) do 
+			local sGHSetting = sPrefix .. v.SubTypeGoodyHut;    -- this no longer affects anything other than some log output during gameplay script init
+			GameConfiguration.SetValue(sGHSetting, 1);          -- same as above
+			if not tExcludedRewards[v.SubTypeGoodyHut] then table.insert(excludeGoodyHutsConfig, v.SubTypeGoodyHut); end
+		end
+		GameConfiguration.SetValue("EXCLUDE_GOODY_HUTS", excludeGoodyHutsConfig);
 	end
+	tExcludedRewards = nil;
+	if #excludeGoodyHutsConfig > 0 then 
+		GameConfiguration.SetValue("GOODYHUTS_EXCLUDED", 1);
+		if iLoggingLevel > 1 then 
+			local sIsOrAre = (#excludeGoodyHutsConfig == 1) and "is" or "are";
+			local sRewards = (#excludeGoodyHutsConfig == 1) and "reward" or "rewards";
+			print("[*]: Excluding any rewards that were explicitly disabled in the picker or implicitly disabled by way of the 'No Barbarians' setup option . . .");
+			if iLoggingLevel > 2 then for _, v in ipairs(excludeGoodyHutsConfig) do print(string.format("[-]: %s", v)); end end
+			print(string.format("[*]: There %s %d Tribal Village %s marked as 'excluded'", sIsOrAre, #excludeGoodyHutsConfig, sRewards));
+		end
+		local tGoodyHuts = DB.ConfigurationQuery("SELECT * FROM TribalVillages WHERE Domain = ?", sDomain);
+		if (#excludeGoodyHutsConfig == #tGoodyHuts) then 
+			if iLoggingLevel > 1 then print("[*]: All available Tribal Village rewards for the selected ruleset have been marked as 'excluded'; enabling setup option 'No Tribal Villages' to attempt to ensure total exclusion"); end
+			GameConfiguration.SetValue("GAME_NO_GOODY_HUTS", true);
+		end
+	else
+		if iLoggingLevel > 1 then print("[*]: No Tribal Village rewards have been marked as 'excluded'"); end
+	end
+	return;
 end
 
 --[[ =========================================================================
 	NEW: this driver is for launching the picker indicated by parameter in a separate window
 	since there were only 2 lines that differed between the various original picker drivers, they have been condensed here
 	picker button text is modified to reflect the amount of selected items for selections of everything, and tooltip text is modified to reflect source(s) of available content
-	any new picker(s) can be handled by adding new and/or modifing existing (else)if statement(s) below
+	any new picker(s) can be handled by adding new and/or modifying existing (else)if statement(s) below
 	the original drivers for the city-states and leader pickers should still exist in an unmodified state
 =========================================================================== ]]
 function CreatePickerDriverByParameter(o, parameter, parent)
@@ -187,7 +195,13 @@ function CreatePickerDriverByParameter(o, parameter, parent)
 		UpdateValue = function(value, p)
 			local valueText = value and value.Name or nil;
 			local valueAmount :number = 0;
-		
+
+			local priorityAmount :number = 0;
+			if (parameterId == "NaturalWonders" and bENWS_IsEnabled) then 
+				priorityAmount = GameConfiguration.GetValue("PRIORITY_NATURAL_WONDERS_COUNT") or 0;
+			end
+			local priorityText = (priorityAmount > 0) and string.format(", %s %d", Locale.Lookup("LOC_PICKER_PRIORITIZED_TEXT"), priorityAmount) or "";
+
 			if(valueText == nil) then
 				if(value == nil) then
 					if (parameter.UxHint ~= nil and parameter.UxHint == "InvertSelection") then
@@ -220,13 +234,16 @@ function CreatePickerDriverByParameter(o, parameter, parent)
 						end
 					end
 				end
-			end				
+			end
 
-			if(cache.ValueText ~= valueText) or (cache.ValueAmount ~= valueAmount) then
-				local button = c.Button;			
-				button:LocalizeAndSetText(valueText, valueAmount);
+			if(cache.ValueText ~= valueText) or (cache.ValueAmount ~= valueAmount) or (cache.PriorityAmount ~= priorityAmount) then
+				local button = c.Button;
+				valueText = string.format("%s %d of %d%s", Locale.Lookup("LOC_PICKER_SELECTED_TEXT"), valueAmount, #p.Values, priorityText);
+				button:LocalizeAndSetText(valueText);
+				-- 	button:LocalizeAndSetText(valueText, valueAmount);
 				cache.ValueText = valueText;
 				cache.ValueAmount = valueAmount;
+				cache.PriorityAmount = priorityAmount;
 				button:SetToolTipString(parameter.Description .. UpdateButtonToolTip(parameterId)); 	-- update button tooltip text
 			end
 		end,
