@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Mod id="a4b1fac6-8c9e-4873-a1c1-7ddf08dbbf11" version="8.0">
+<Mod id="a4b1fac6-8c9e-4873-a1c1-7ddf08dbbf11" version="9.0">
     <Properties>
         <Name>LOC_EGHV_MOD_TITLE</Name>
         <Teaser>LOC_EGHV_MOD_TEASER</Teaser>
@@ -217,378 +217,394 @@
     		</ConfigurationValueMatches>
     	</Criteria>
 	</ActionCriteria>
+	<FrontEndActions>
+		<UpdateDatabase id="EGHV_CONFIGURATION_SCHEMA">
+			<!-- this needs to load RFE -->
+			<Properties>
+				<LoadOrder>-52</LoadOrder>
+			</Properties>
+			<!-- configuration db schema changes -->
+			<File Priority="2">eghv/configuration/schema.sql</File>
+		</UpdateDatabase>
+		<UpdateText id="EGHV_CONFIGURATION_TEXT">
+			<!-- this needs to load RFL -->
+			<Properties>
+        		<LoadOrder>2000000</LoadOrder>
+      		</Properties>
+			<!-- EN_US localized frontend text -->
+			<File>eghv/localization/en_us/frontend_text.xml</File>
+			<!-- EN_US localized frontend text for WGH -->
+			<File>eghv/localization/en_us/frontend_wondrousgoodyhuts_text.xml</File>
+			<!-- ES_ES localized frontend text -->
+			<File>eghv/localization/es_es/frontend_text.xml</File>
+			<!-- ES_ES localized frontend text for WGH -->
+			<File>eghv/localization/es_es/frontend_wondrousgoodyhuts_text.xml</File>
+			<!-- FR_FR localized frontend text -->
+			<File>eghv/localization/fr_fr/frontend_text.xml</File>
+			<!-- FR_FR localized frontend text for WGH -->
+			<File>eghv/localization/fr_fr/frontend_wondrousgoodyhuts_text.xml</File>
+		</UpdateText>
+		<ImportFiles id="EGHV_CONFIGURATION_UI">
+			<!-- this needs to load RFL -->
+			<Properties>
+        		<LoadOrder>2000001</LoadOrder>
+      		</Properties>
+			<Items>
+				<!-- advanced setup replacements -->
+				<File>eghv/ui/advancedsetup_eghv.lua</File>
+				<!-- game setup logic replacements -->
+				<File>eghv/ui/gamesetuplogic_eghv.lua</File>
+				<!-- goody hut picker -->
+				<File>eghv/ui/goodyhutpicker.lua</File>
+				<File>eghv/ui/goodyhutpicker.xml</File>
+				<!-- host game replacements -->
+				<File>eghv/ui/hostgame_eghv.lua</File>
+			</Items>
+		</ImportFiles>
+		<UpdateDatabase id="EGHV_CONFIGURATION_DATABASE">
+			<!-- this needs to load RFL -->
+			<Properties>
+        		<LoadOrder>2000002</LoadOrder>
+      		</Properties>
+			<!-- goody hut picker configuration for WGH -->
+			<File Priority="5">eghv/community/wondrousgoodyhuts/wondrousgoodyhuts.sql</File>
+			<!-- goody hut picker configuration for all rulesets -->
+			<File Priority="4">eghv/configuration/goodyhutpicker/standard.sql</File>
+			<!-- goody hut picker configuration for XP1 and beyond -->
+			<File Priority="3">eghv/configuration/goodyhutpicker/expansion1.sql</File>
+			<!-- goody hut picker configuration for XP2 -->
+			<File Priority="2">eghv/configuration/goodyhutpicker/expansion2.sql</File>
+			<!-- configuration database changes -->
+			<File Priority="1">eghv/configuration/frontend.sql</File>
+        </UpdateDatabase>
+		<ImportFiles id="EGHV_CONFIGURATION_ICON_ATLASES">
+			<!-- this needs to load RFL -->
+			<Properties>
+        		<LoadOrder>2000003</LoadOrder>
+      		</Properties>
+			<Items>
+				<!-- goody hut picker icons for all rulesets -->
+				<File>eghv/art/icons/goodyhutatlas44.dds</File>
+				<File>eghv/art/icons/goodyhutatlas256.dds</File>
+				<!-- goody hut picker icons for XP1 and beyond -->
+				<File>eghv/art/icons/xp1_goodyhutatlas44.dds</File>
+				<File>eghv/art/icons/xp1_goodyhutatlas256.dds</File>
+				<!-- goody hut picker icons for XP2 -->
+				<File>eghv/art/icons/xp2_goodyhutatlas44.dds</File>
+				<File>eghv/art/icons/xp2_goodyhutatlas256.dds</File>
+			</Items>
+		</ImportFiles>
+		<UpdateIcons id="EGHV_CONFIGURATION_ICON_DEFINITIONS">
+			<!-- this needs to load RFL -->
+			<Properties>
+        		<LoadOrder>2000004</LoadOrder>
+      		</Properties>
+			<!-- frontend icon definitions -->
+			<File>eghv/art/frontend_icons.xml</File>
+		</UpdateIcons>
+    </FrontEndActions>
 	<InGameActions>
-		<!-- ingame - gameplay database schema changes -->
 		<UpdateDatabase id="EGHV_GAMEPLAY_SCHEMA" criteria="EGHV">
 			<!-- this needs to load RFE -->
 			<Properties>
 				<LoadOrder>-42</LoadOrder>
 			</Properties>
-			<File Priority="2">EGHV/Gameplay/Schema.sql</File>
+			<!-- gameplay db schema changes -->
+			<File Priority="2">eghv/gameplay/schema.sql</File>
 		</UpdateDatabase>
-		<!-- ingame - gameplay component script files for main gameplay script -->
 		<ImportFiles id="EGHV_GAMEPLAY_COMPONENT_SCRIPTS" criteria="EGHV">
+			<!-- this needs to load RFL -->
 			<Properties>
         		<LoadOrder>1010200</LoadOrder>
       		</Properties>
-			<File>EGHV/Scripts/EGHV_Utilities.lua</File>
-			<File>EGHV/Scripts/EGHV_RewardGenerator.lua</File>
-			<File>EGHV/Scripts/EGHV_EventHooks.lua</File>
-			<File>EGHV/Community/WondrousGoodyHuts/EGHV_Sailor_Goodies_Scripts.lua</File>
+			<!-- lua utility functions -->
+			<File>eghv/scripts/eghv_utilities.lua</File>
+			<!-- reward generator -->
+			<File>eghv/scripts/eghv_rewardgenerator.lua</File>
+			<!-- event hooks -->
+			<File>eghv/scripts/eghv_eventhooks.lua</File>
+			<!-- WGH integration -->
+			<File>eghv/community/wondrousgoodyhuts/eghv_sailor_goodies_scripts.lua</File>
 		</ImportFiles>
-		<!-- ingame - main gameplay script file -->
 		<AddGameplayScripts id="EGHV_GAMEPLAY_SCRIPT" criteria="EGHV">
+			<!-- this needs to load RFL -->
 			<Properties>
         		<LoadOrder>1010201</LoadOrder>
       		</Properties>
-			<File>EGHV/Scripts/EGHV.lua</File>
+			<!-- main gameplay script file -->
+			<File>eghv/scripts/eghv.lua</File>
 		</AddGameplayScripts>
-		<!-- ingame - frontend configuration script files for YnAMP compatibility -->
 		<ImportFiles id="EGHV_YNAMP_LOAD_DATABASE" criteria="EGHV">
+			<!-- this needs to load RFL -->
 			<Properties>
         		<LoadOrder>1010206</LoadOrder>
       		</Properties>
-			<!-- <File>C6GUE/UI/Additions/CommonFrontend.lua</File> -->
-			<File>C6GUE/UI/Replacements/AdvancedSetup_EGHV.lua</File>
-			<File>C6GUE/UI/Replacements/GameSetupLogic_EGHV.lua</File>
-			<File>C6GUE/UI/Replacements/Multiplayer/HostGame_EGHV.lua</File>
+			<!-- load EGHV frontend scripts here for YnAMP compatibility -->
+			<File>eghv/ui/advancedsetup_eghv.lua</File>
+			<File>eghv/ui/gamesetuplogic_eghv.lua</File>
+			<File>eghv/ui/hostgame_eghv.lua</File>
 		</ImportFiles>
-		<!-- ingame - gameplay database changes for all rulesets -->
-		<UpdateDatabase id="EGHV_INGAME" criteria="EGHV">
+		<UpdateDatabase id="EGHV_GAMEPLAY_DATABASE" criteria="EGHV">
+			<!-- this needs to load RFL -->
 			<Properties>
         		<LoadOrder>1010150</LoadOrder>
       		</Properties>
-			<File Priority="2">EGHV/Gameplay/Ingame.sql</File>
+			<!-- gameplay database changes for all rulesets -->
+			<File Priority="2">eghv/gameplay/ingame.sql</File>
 		</UpdateDatabase>
-		<!-- ingame - gameplay database changes for XP1 and beyond -->
-		<UpdateDatabase id="EGHV_INGAME_XP1_AND_BEYOND" criteria="EGHV_Expansion1AndBeyond">
+		<UpdateDatabase id="EGHV_GAMEPLAY_DATABASE_XP1_AND_BEYOND" criteria="EGHV_Expansion1AndBeyond">
+			<!-- this needs to load RFL -->
 			<Properties>
         		<LoadOrder>1010151</LoadOrder>
       		</Properties>
-			<File Priority="2">EGHV/Gameplay/Ingame_XP1.sql</File>
+			<!-- gameplay database changes for XP1 and beyond -->
+			<File Priority="2">eghv/gameplay/ingame_xp1.sql</File>
 		</UpdateDatabase>
-		<!-- ingame - gameplay database changes for XP2 -->
-		<UpdateDatabase id="EGHV_INGAME_XP2" criteria="EGHV_Expansion2">
+		<UpdateDatabase id="EGHV_GAMEPLAY_DATABASE_XP2" criteria="EGHV_Expansion2">
+			<!-- this needs to load RFL -->
 			<Properties>
         		<LoadOrder>1010152</LoadOrder>
       		</Properties>
-			<File Priority="2">EGHV/Gameplay/Ingame_XP2.sql</File>
+			<!-- gameplay database changes for XP2 -->
+			<File Priority="2">eghv/gameplay/ingame_xp2.sql</File>
 		</UpdateDatabase>
-		<!-- ingame - disable meteor strike event for XP2 -->
-		<UpdateDatabase id="EGHV_INGAME_DISABLE_METEOR_STRIKE" criteria="EGHV_Disable_Meteor_Strike">
+		<UpdateDatabase id="EGHV_GAMEPLAY_DATABASE_DISABLE_METEOR_STRIKE" criteria="EGHV_Disable_Meteor_Strike">
+			<!-- this needs to load RFL -->
 			<Properties>
         		<LoadOrder>1010153</LoadOrder>
       		</Properties>
-			<File Priority="2">EGHV/Gameplay/Ingame_DisableMeteorStrike.sql</File>
+			<!-- gameplay disable meteor strike event for XP2 -->
+			<File Priority="2">eghv/gameplay/ingame_disablemeteorstrike.sql</File>
 		</UpdateDatabase>
-		<!-- ingame - gameplay database changes for hostile unit spawns, for all rulesets -->
-		<UpdateDatabase id="EGHV_INGAME_HOSTILES" criteria="EGHV">
+		<UpdateDatabase id="EGHV_GAMEPLAY_DATABASE_HOSTILES" criteria="EGHV">
+			<!-- this needs to load RFL -->
 			<Properties>
         		<LoadOrder>1010175</LoadOrder>
       		</Properties>
-			<File Priority="2">EGHV/Gameplay/Ingame_Hostiles.sql</File>
+			<!-- gameplay database changes for hostile unit spawns, for all rulesets -->
+			<File Priority="2">eghv/gameplay/ingame_hostiles.sql</File>
 		</UpdateDatabase>
-		<!-- ingame - gameplay database goody hut frequency changes, 25% of baseline -->
-		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_025" criteria="EGHV_GoodyHut_Distribution_025">
+		<UpdateDatabase id="EGHV_GAMEPLAY_GOODYHUT_DISTRIBUTION_025" criteria="EGHV_GoodyHut_Distribution_025">
+			<!-- this needs to load RFL -->
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
-			<File>EGHV/Gameplay/GoodyHutDistribution/025.sql</File>
+			<!-- gameplay database goody hut frequency changes, 25% of baseline -->
+			<File>eghv/gameplay/goodyhutdistribution/025.sql</File>
 		</UpdateDatabase>
-		<!-- ingame - gameplay database goody hut frequency changes, 50% of baseline -->
-		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_050" criteria="EGHV_GoodyHut_Distribution_050">
+		<UpdateDatabase id="EGHV_GAMEPLAY_GOODYHUT_DISTRIBUTION_050" criteria="EGHV_GoodyHut_Distribution_050">
+			<!-- this needs to load RFL -->
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
-			<File>EGHV/Gameplay/GoodyHutDistribution/050.sql</File>
+			<!-- gameplay database goody hut frequency changes, 50% of baseline -->
+			<File>eghv/gameplay/goodyhutdistribution/050.sql</File>
 		</UpdateDatabase>
-		<!-- ingame - gameplay database goody hut frequency changes, 75% of baseline -->
-		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_075" criteria="EGHV_GoodyHut_Distribution_075">
+		<UpdateDatabase id="EGHV_GAMEPLAY_GOODYHUT_DISTRIBUTION_075" criteria="EGHV_GoodyHut_Distribution_075">
+			<!-- this needs to load RFL -->
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
-			<File>EGHV/Gameplay/GoodyHutDistribution/075.sql</File>
+			<!-- gameplay database goody hut frequency changes, 75% of baseline -->
+			<File>eghv/gameplay/goodyhutdistribution/075.sql</File>
 		</UpdateDatabase>
-		<!-- ingame - gameplay database goody hut frequency changes, 125% of baseline -->
-		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_125" criteria="EGHV_GoodyHut_Distribution_125">
+		<UpdateDatabase id="EGHV_GAMEPLAY_GOODYHUT_DISTRIBUTION_125" criteria="EGHV_GoodyHut_Distribution_125">
+			<!-- this needs to load RFL -->
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
-			<File>EGHV/Gameplay/GoodyHutDistribution/125.sql</File>
+			<!-- gameplay database goody hut frequency changes, 125% of baseline -->
+			<File>eghv/gameplay/goodyhutdistribution/125.sql</File>
 		</UpdateDatabase>
-		<!-- ingame - gameplay database goody hut frequency changes, 150% of baseline -->
-		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_150" criteria="EGHV_GoodyHut_Distribution_150">
+		<UpdateDatabase id="EGHV_GAMEPLAY_GOODYHUT_DISTRIBUTION_150" criteria="EGHV_GoodyHut_Distribution_150">
+			<!-- this needs to load RFL -->
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
-			<File>EGHV/Gameplay/GoodyHutDistribution/150.sql</File>
+			<!-- gameplay database goody hut frequency changes, 150% of baseline -->
+			<File>eghv/gameplay/goodyhutdistribution/150.sql</File>
 		</UpdateDatabase>
-		<!-- ingame - gameplay database goody hut frequency changes, 175% of baseline -->
-		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_175" criteria="EGHV_GoodyHut_Distribution_175">
+		<UpdateDatabase id="EGHV_GAMEPLAY_GOODYHUT_DISTRIBUTION_175" criteria="EGHV_GoodyHut_Distribution_175">
+			<!-- this needs to load RFL -->
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
-			<File>EGHV/Gameplay/GoodyHutDistribution/175.sql</File>
+			<!-- gameplay database goody hut frequency changes, 175% of baseline -->
+			<File>eghv/gameplay/goodyhutdistribution/175.sql</File>
 		</UpdateDatabase>
-		<!-- ingame - gameplay database goody hut frequency changes, 200% of baseline -->
-		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_200" criteria="EGHV_GoodyHut_Distribution_200">
+		<UpdateDatabase id="EGHV_GAMEPLAY_GOODYHUT_DISTRIBUTION_200" criteria="EGHV_GoodyHut_Distribution_200">
+			<!-- this needs to load RFL -->
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
-			<File>EGHV/Gameplay/GoodyHutDistribution/200.sql</File>
+			<!-- gameplay database goody hut frequency changes, 200% of baseline -->
+			<File>eghv/gameplay/goodyhutdistribution/200.sql</File>
 		</UpdateDatabase>
-		<!-- ingame - gameplay database goody hut frequency changes, 225% of baseline -->
-		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_225" criteria="EGHV_GoodyHut_Distribution_225">
+		<UpdateDatabase id="EGHV_GAMEPLAY_GOODYHUT_DISTRIBUTION_225" criteria="EGHV_GoodyHut_Distribution_225">
+			<!-- this needs to load RFL -->
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
-			<File>EGHV/Gameplay/GoodyHutDistribution/225.sql</File>
+			<!-- gameplay database goody hut frequency changes, 225% of baseline -->
+			<File>eghv/gameplay/goodyhutdistribution/225.sql</File>
 		</UpdateDatabase>
-		<!-- ingame - gameplay database goody hut frequency changes, 250% of baseline -->
-		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_250" criteria="EGHV_GoodyHut_Distribution_250">
+		<UpdateDatabase id="EGHV_GAMEPLAY_GOODYHUT_DISTRIBUTION_250" criteria="EGHV_GoodyHut_Distribution_250">
+			<!-- this needs to load RFL -->
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
-			<File>EGHV/Gameplay/GoodyHutDistribution/250.sql</File>
+			<!-- gameplay database goody hut frequency changes, 250% of baseline -->
+			<File>eghv/gameplay/goodyhutdistribution/250.sql</File>
 		</UpdateDatabase>
-		<!-- ingame - gameplay database goody hut frequency changes, 275% of baseline -->
-		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_275" criteria="EGHV_GoodyHut_Distribution_275">
+		<UpdateDatabase id="EGHV_GAMEPLAY_GOODYHUT_DISTRIBUTION_275" criteria="EGHV_GoodyHut_Distribution_275">
+			<!-- this needs to load RFL -->
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
-			<File>EGHV/Gameplay/GoodyHutDistribution/275.sql</File>
+			<!-- gameplay database goody hut frequency changes, 275% of baseline -->
+			<File>eghv/gameplay/goodyhutdistribution/275.sql</File>
 		</UpdateDatabase>
-		<!-- ingame - gameplay database goody hut frequency changes, 300% of baseline -->
-		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_300" criteria="EGHV_GoodyHut_Distribution_300">
+		<UpdateDatabase id="EGHV_GAMEPLAY_GOODYHUT_DISTRIBUTION_300" criteria="EGHV_GoodyHut_Distribution_300">
+			<!-- this needs to load RFL -->
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
-			<File>EGHV/Gameplay/GoodyHutDistribution/300.sql</File>
+			<!-- gameplay database goody hut frequency changes, 300% of baseline -->
+			<File>eghv/gameplay/goodyhutdistribution/300.sql</File>
 		</UpdateDatabase>
-		<!-- ingame - gameplay database goody hut frequency changes, 325% of baseline -->
-		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_325" criteria="EGHV_GoodyHut_Distribution_325">
+		<UpdateDatabase id="EGHV_GAMEPLAY_GOODYHUT_DISTRIBUTION_325" criteria="EGHV_GoodyHut_Distribution_325">
+			<!-- this needs to load RFL -->
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
-			<File>EGHV/Gameplay/GoodyHutDistribution/325.sql</File>
+			<!-- gameplay database goody hut frequency changes, 325% of baseline -->
+			<File>eghv/gameplay/goodyhutdistribution/325.sql</File>
 		</UpdateDatabase>
-		<!-- ingame - gameplay database goody hut frequency changes, 350% of baseline -->
-		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_350" criteria="EGHV_GoodyHut_Distribution_350">
+		<UpdateDatabase id="EGHV_GAMEPLAY_GOODYHUT_DISTRIBUTION_350" criteria="EGHV_GoodyHut_Distribution_350">
+			<!-- this needs to load RFL -->
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
-			<File>EGHV/Gameplay/GoodyHutDistribution/350.sql</File>
+			<!-- gameplay database goody hut frequency changes, 350% of baseline -->
+			<File>eghv/gameplay/goodyhutdistribution/350.sql</File>
 		</UpdateDatabase>
-		<!-- ingame - gameplay database goody hut frequency changes, 375% of baseline -->
-		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_375" criteria="EGHV_GoodyHut_Distribution_375">
+		<UpdateDatabase id="EGHV_GAMEPLAY_GOODYHUT_DISTRIBUTION_375" criteria="EGHV_GoodyHut_Distribution_375">
+			<!-- this needs to load RFL -->
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
-			<File>EGHV/Gameplay/GoodyHutDistribution/375.sql</File>
+			<!-- gameplay database goody hut frequency changes, 375% of baseline -->
+			<File>eghv/gameplay/goodyhutdistribution/375.sql</File>
 		</UpdateDatabase>
-		<!-- ingame - gameplay database goody hut frequency changes, 400% of baseline -->
-		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_400" criteria="EGHV_GoodyHut_Distribution_400">
+		<UpdateDatabase id="EGHV_GAMEPLAY_GOODYHUT_DISTRIBUTION_400" criteria="EGHV_GoodyHut_Distribution_400">
+			<!-- this needs to load RFL -->
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
-			<File>EGHV/Gameplay/GoodyHutDistribution/400.sql</File>
+			<!-- gameplay database goody hut frequency changes, 400% of baseline -->
+			<File>eghv/gameplay/goodyhutdistribution/400.sql</File>
 		</UpdateDatabase>
-		<!-- ingame - gameplay database goody hut frequency changes, 425% of baseline -->
-		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_425" criteria="EGHV_GoodyHut_Distribution_425">
+		<UpdateDatabase id="EGHV_GAMEPLAY_GOODYHUT_DISTRIBUTION_425" criteria="EGHV_GoodyHut_Distribution_425">
+			<!-- this needs to load RFL -->
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
-			<File>EGHV/Gameplay/GoodyHutDistribution/425.sql</File>
+			<!-- gameplay database goody hut frequency changes, 425% of baseline -->
+			<File>eghv/gameplay/goodyhutdistribution/425.sql</File>
 		</UpdateDatabase>
-		<!-- ingame - gameplay database goody hut frequency changes, 450% of baseline -->
-		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_450" criteria="EGHV_GoodyHut_Distribution_450">
+		<UpdateDatabase id="EGHV_GAMEPLAY_GOODYHUT_DISTRIBUTION_450" criteria="EGHV_GoodyHut_Distribution_450">
+			<!-- this needs to load RFL -->
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
-			<File>EGHV/Gameplay/GoodyHutDistribution/450.sql</File>
+			<!-- gameplay database goody hut frequency changes, 450% of baseline -->
+			<File>eghv/gameplay/goodyhutdistribution/450.sql</File>
 		</UpdateDatabase>
-		<!-- ingame - gameplay database goody hut frequency changes, 475% of baseline -->
-		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_475" criteria="EGHV_GoodyHut_Distribution_475">
+		<UpdateDatabase id="EGHV_GAMEPLAY_GOODYHUT_DISTRIBUTION_475" criteria="EGHV_GoodyHut_Distribution_475">
+			<!-- this needs to load RFL -->
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
-			<File>EGHV/Gameplay/GoodyHutDistribution/475.sql</File>
+			<!-- gameplay database goody hut frequency changes, 475% of baseline -->
+			<File>eghv/gameplay/goodyhutdistribution/475.sql</File>
 		</UpdateDatabase>
-		<!-- ingame - gameplay database goody hut frequency changes, 500% of baseline -->
-		<UpdateDatabase id="EGHV_INGAME_GOODYHUT_DISTRIBUTION_500" criteria="EGHV_GoodyHut_Distribution_500">
+		<UpdateDatabase id="EGHV_GAMEPLAY_GOODYHUT_DISTRIBUTION_500" criteria="EGHV_GoodyHut_Distribution_500">
+			<!-- this needs to load RFL -->
 			<Properties>
         		<LoadOrder>1010161</LoadOrder>
       		</Properties>
-			<File>EGHV/Gameplay/GoodyHutDistribution/500.sql</File>
+			<!-- gameplay database goody hut frequency changes, 500% of baseline -->
+			<File>eghv/gameplay/goodyhutdistribution/500.sql</File>
 		</UpdateDatabase>
-		<!-- ingame - gameplay database equalize goody hut weights -->
-		<UpdateDatabase id="EGHV_INGAME_EQUALIZE_GOODYHUTS" criteria="EGHV_Equalize_GoodyHuts">
+		<UpdateDatabase id="EGHV_GAMEPLAY_EQUALIZE_GOODYHUTS" criteria="EGHV_Equalize_GoodyHuts">
+			<!-- this needs to load RFL -->
 			<Properties>
         		<LoadOrder>1010181</LoadOrder>
       		</Properties>
-			<File>EGHV/Gameplay/EqualizeGoodyHuts.sql</File>
+			<!-- gameplay database equalize goody hut weights -->
+			<File>eghv/gameplay/equalizegoodyhuts.sql</File>
 		</UpdateDatabase>
-		<!-- ingame - gameplay database changes for WGH content -->
-		<UpdateDatabase id="EGHV_WGH_INGAME_INITIAL_CONFIG" criteria="EGHV_WGH_Ingame_Config">
+		<UpdateDatabase id="EGHV_WGH_GAMEPLAY_DATABASE" criteria="EGHV_WGH_Ingame_Config">
+			<!-- this needs to load RFL -->
 			<Properties>
         		<LoadOrder>1010171</LoadOrder>
       		</Properties>
-			<File>EGHV/Community/WondrousGoodyHuts/Ingame.sql</File>
+			<!-- gameplay database changes for WGH content -->
+			<File>eghv/community/wondrousgoodyhuts/ingame.sql</File>
 		</UpdateDatabase>
-		<!-- ingame - gameplay database override for all rulesets; currently does nothing -->
-		<UpdateDatabase id="EGHV_INGAME_OVERRIDE" criteria="EGHV">
-			<Properties>
-        		<LoadOrder>1010199</LoadOrder>
-      		</Properties>
-			<File Priority="1">EGHV/Gameplay/Override.sql</File>
-		</UpdateDatabase>
-		<!-- ingame - gameplay text localizations for all rulesets -->
-		<UpdateText id="EGHV_INGAME_TEXT" criteria="EGHV">
+		<UpdateText id="EGHV_GAMEPLAY_TEXT" criteria="EGHV">
+			<!-- this needs to load RFL -->
 			<Properties>
 				<LoadOrder>1010101</LoadOrder>
 			</Properties>
-			<File>EGHV/Localization/en_US/Ingame_Text.xml</File>
-			<File>EGHV/Localization/es_ES/Ingame_Text.xml</File>
-			<File>EGHV/Localization/fr_FR/Ingame_Text.xml</File>
+			<!-- EN_US localized ingame text for all rulesets -->
+			<File>eghv/localization/en_us/ingame_text.xml</File>
+			<!-- ES_ES localized ingame text for all rulesets -->
+			<File>eghv/localization/es_es/ingame_text.xml</File>
+			<!-- FR_FR localized ingame text for all rulesets -->
+			<File>eghv/localization/fr_fr/ingame_text.xml</File>
 		</UpdateText>
-		<!-- ingame - gameplay text localizations for XP1 and beyond -->
-		<UpdateText id="EGHV_INGAME_TEXT_XP1" criteria="EGHV_Expansion1AndBeyond">
+		<UpdateText id="EGHV_GAMEPLAY_TEXT_XP1" criteria="EGHV_Expansion1AndBeyond">
+			<!-- this needs to load RFL -->
 			<Properties>
 				<LoadOrder>1010102</LoadOrder>
 			</Properties>
-			<File>EGHV/Localization/en_US/Ingame_XP1_Text.xml</File>
-			<File>EGHV/Localization/es_ES/Ingame_XP1_Text.xml</File>
-			<File>EGHV/Localization/fr_FR/Ingame_XP1_Text.xml</File>
+			<!-- EN_US localized ingame text for XP1 and beyond -->
+			<File>eghv/localization/en_us/ingame_xp1_text.xml</File>
+			<!-- ES_ES localized ingame text for XP1 and beyond -->
+			<File>eghv/localization/es_es/ingame_xp1_text.xml</File>
+			<!-- FR_FR localized ingame text for XP1 and beyond -->
+			<File>eghv/localization/fr_fr/ingame_xp1_text.xml</File>
 		</UpdateText>
-		<!-- ingame - gameplay text localizations for XP2 -->
-		<UpdateText id="EGHV_INGAME_TEXT_XP2" criteria="EGHV_Expansion2">
+		<UpdateText id="EGHV_GAMEPLAY_TEXT_XP2" criteria="EGHV_Expansion2">
+			<!-- this needs to load RFL -->
 			<Properties>
 				<LoadOrder>1010103</LoadOrder>
 			</Properties>
-			<File>EGHV/Localization/en_US/Ingame_XP2_Text.xml</File>
-			<File>EGHV/Localization/es_ES/Ingame_XP2_Text.xml</File>
-			<File>EGHV/Localization/fr_FR/Ingame_XP2_Text.xml</File>
+			<!-- EN_US localized ingame text for XP2 -->
+			<File>eghv/localization/en_us/ingame_xp2_text.xml</File>
+			<!-- ES_ES localized ingame text for XP2 -->
+			<File>eghv/localization/es_es/ingame_xp2_text.xml</File>
+			<!-- FR_FR localized ingame text for XP2 -->
+			<File>eghv/localization/fr_fr/ingame_xp2_text.xml</File>
 		</UpdateText>
-		<!-- ingame - gameplay icon definitions for all rulesets -->
-		<UpdateIcons id="EGHV_INGAME_ICONS" criteria="EGHV">
+		<UpdateIcons id="EGHV_GAMEPLAY_ICON_DEFINITIONS" criteria="EGHV">
+			<!-- this needs to load RFL -->
 			<Properties>
 				<LoadOrder>1010101</LoadOrder>
 			</Properties>
-			<File>EGHV/Art/Ingame_Icons.xml</File>
+			<!-- ingame icon definitions for all rulesets -->
+			<File>eghv/art/ingame_icons.xml</File>
 		</UpdateIcons>
-		<!-- ingame - gameplay icon definitions for XP2 -->
-		<UpdateIcons id="EGHV_INGAME_ICONS_XP2" criteria="EGHV_Expansion2">
+		<UpdateIcons id="EGHV_GAMEPLAY_ICON_DEFINITIONS_XP2" criteria="EGHV_Expansion2">
+			<!-- this needs to load RFL -->
 			<Properties>
 				<LoadOrder>1010103</LoadOrder>
 			</Properties>
-			<File>EGHV/Art/Ingame_XP2_Icons.xml</File>
+			<!-- ingame icon definitions for XP2 -->
+			<File>eghv/art/ingame_xp2_icons.xml</File>
 		</UpdateIcons>
 	</InGameActions>
-	<FrontEndActions>
-		<!-- frontend - configuration database schema changes -->
-		<UpdateDatabase id="EGHV_CONFIGURATION_SCHEMA">
-			<!-- this needs to load RFE -->
-			<Properties>
-				<LoadOrder>-42</LoadOrder>
-			</Properties>
-			<!-- <File Priority="2">C6GUE/Configuration/Schema.sql</File> -->
-			<File Priority="2">EGHV/Configuration/Schema.sql</File>
-		</UpdateDatabase>
-		<!-- frontend - dummy Natural Wonder Picker script file; will be overwritten if ENWS is present and enabled -->
-		<!-- <ImportFiles id="EGHV_FRONTEND_ENWS_DUMMY_FILE"> -->
-			<!-- this needs to load before the script loaded by ENWS -->
-			<!-- <Properties> -->
-        		<!-- <LoadOrder>10101</LoadOrder> -->
-      		<!-- </Properties> -->
-			<!-- <Items> -->
-				<!-- dummy file to suppress errors in the lua log when ENWS is not present and enabled -->
-				<!-- <File>EGHV/UI/Additions/NaturalWonderPicker.lua</File> -->
-			<!-- </Items> -->
-		<!-- </ImportFiles> -->
-		<!-- frontend - configuration icon atlases -->
-		<ImportFiles id="EGHV_FRONTEND_IMPORT_ICONS">
-			<Properties>
-        		<LoadOrder>1010100</LoadOrder>
-      		</Properties>
-			<Items>
-				<!-- Goody Hut Picker icons for all rulesets -->
-				<File>EGHV/Art/Icons/GoodyHutAtlas44.dds</File>
-				<File>EGHV/Art/Icons/GoodyHutAtlas256.dds</File>
-				<!-- Goody Hut Picker icons for XP1 and beyond -->
-				<File>EGHV/Art/Icons/XP1_GoodyHutAtlas44.dds</File>
-				<File>EGHV/Art/Icons/XP1_GoodyHutAtlas256.dds</File>
-				<!-- Goody Hut Picker icons for XP2 -->
-				<File>EGHV/Art/Icons/XP2_GoodyHutAtlas44.dds</File>
-				<File>EGHV/Art/Icons/XP2_GoodyHutAtlas256.dds</File>
-			</Items>
-		</ImportFiles>
-		<!-- frontend - configuration icon definitions -->
-		<UpdateIcons id="EGHV_FRONTEND_ICONS">
-			<Properties>
-        		<LoadOrder>1010101</LoadOrder>
-      		</Properties>
-			<File>EGHV/Art/Frontend_Icons.xml</File>
-		</UpdateIcons>
-		<!-- frontend - configuration text localizations -->
-		<UpdateText id="EGHV_FRONTEND_TEXT">
-			<Properties>
-        		<LoadOrder>1010101</LoadOrder>
-      		</Properties>
-			<!-- <File>C6GUE/Localization/en_US/Common_Frontend_Text.xml</File> -->
-			<!-- <File>C6GUE/Localization/es_ES/Common_Frontend_Text.xml</File> -->
-			<!-- <File>C6GUE/Localization/fr_FR/Common_Frontend_Text.xml</File> -->
-			<File>EGHV/Localization/en_US/Frontend_Text.xml</File>
-			<File>EGHV/Localization/es_ES/Frontend_Text.xml</File>
-			<File>EGHV/Localization/fr_FR/Frontend_Text.xml</File>
-		</UpdateText>
-		<!-- frontend - configuration text localizations for WGH content -->
-		<UpdateText id="EGHV_WGH_FRONTEND_TEXT">
-			<Properties>
-        		<LoadOrder>1010102</LoadOrder>
-      		</Properties>
-			<File>EGHV/Localization/en_US/Frontend_WondrousGoodyHuts_Text.xml</File>
-			<File>EGHV/Localization/es_ES/Frontend_WondrousGoodyHuts_Text.xml</File>
-			<File>EGHV/Localization/fr_FR/Frontend_WondrousGoodyHuts_Text.xml</File>
-		</UpdateText>
-		<!-- frontend - configuration UI and script components -->
-		<ImportFiles id="EGHV_FRONTEND_LUA">
-			<Properties>
-        		<LoadOrder>1010141</LoadOrder>
-      		</Properties>
-			<Items>
-				<!-- Goody Hut Picker -->
-				<File>EGHV/UI/Additions/GoodyHutPicker.lua</File>
-				<File>EGHV/UI/Additions/GoodyHutPicker.xml</File>
-				<!-- script components shared with ENWS -->
-				<!-- <File>C6GUE/UI/Additions/CommonFrontend.lua</File> -->
-				<!-- AdvancedSetup changes -->
-				<File>C6GUE/UI/Replacements/AdvancedSetup_EGHV.lua</File>
-				<!-- wrapper for new EnhancedAdvancedSetup context; enables compatibility with YnAMP -->
-				<!-- <File>C6GUE/UI/Replacements/EnhancedAdvancedSetup.lua</File> -->
-				<!-- <File>C6GUE/UI/Replacements/EnhancedAdvancedSetup.xml</File> -->
-				<!-- GameSetupLogic changes -->
-				<File>C6GUE/UI/Replacements/GameSetupLogic_EGHV.lua</File>
-				<!-- replaces AdvancedSetup and HostGame contexts; enables new wrapper functionality -->
-				<!-- <File>C6GUE/UI/Replacements/MainMenu.xml</File> -->
-				<!-- wrapper for new EnhancedHostGame context; enables compatibility with YnAMP -->
-				<!-- <File>C6GUE/UI/Replacements/Multiplayer/EnhancedHostGame.lua</File> -->
-				<!-- <File>C6GUE/UI/Replacements/Multiplayer/EnhancedHostGame.xml</File> -->
-				<!-- HostGame changes -->
-				<File>C6GUE/UI/Replacements/Multiplayer/HostGame_EGHV.lua</File>
-			</Items>
-		</ImportFiles>
-		<!-- frontend - configuration database changes -->
-		<UpdateDatabase id="EGHV_FRONTEND">
-			<Properties>
-        		<LoadOrder>1010171</LoadOrder>
-      		</Properties>
-			<File Priority="5">EGHV/Community/WondrousGoodyHuts/WondrousGoodyHuts.sql</File>
-			<File Priority="4">EGHV/Configuration/GoodyHutPicker/Standard.sql</File>
-			<File Priority="3">EGHV/Configuration/GoodyHutPicker/Expansion1.sql</File>
-			<File Priority="2">EGHV/Configuration/GoodyHutPicker/Expansion2.sql</File>
-			<File Priority="1">EGHV/Configuration/Frontend.sql</File>
-        </UpdateDatabase>
-    </FrontEndActions>
 	<LocalizedText>
 		<Text id="LOC_EGHV_MOD_TITLE">
 			<en_US>Enhanced Goodies and Hostile Villagers</en_US>
@@ -617,97 +633,140 @@
 		</Text>
 	</LocalizedText>
 	<Files>
-		<!-- <File>C6GUE/Configuration/Schema.sql</File> -->
+		<!-- frontend icon definitions -->
+		<File>eghv/art/frontend_icons.xml</File>
+		<!-- ingame icon definitions for all rulesets -->
+		<File>eghv/art/ingame_icons.xml</File>
+		<!-- ingame icon definitions for XP2 -->
+		<File>eghv/art/ingame_xp2_icons.xml</File>
+		<!-- goody hut picker icons for all rulesets -->
+		<File>eghv/art/icons/goodyhutatlas44.dds</File>
+		<File>eghv/art/icons/goodyhutatlas256.dds</File>
+		<!-- goody hut picker icons for XP1 and beyond -->
+		<File>eghv/art/icons/xp1_goodyhutatlas44.dds</File>
+		<File>eghv/art/icons/xp1_goodyhutatlas256.dds</File>
+		<!-- goody hut picker icons for XP2 -->
+		<File>eghv/art/icons/xp2_goodyhutatlas44.dds</File>
+		<File>eghv/art/icons/xp2_goodyhutatlas256.dds</File>
 
-		<!-- <File>C6GUE/Localization/en_US/Common_Frontend_Text.xml</File> -->
-		<!-- <File>C6GUE/Localization/es_ES/Common_Frontend_Text.xml</File> -->
-		<!-- <File>C6GUE/Localization/fr_FR/Common_Frontend_Text.xml</File> -->
+		<!-- configuration database changes -->
+		<File>eghv/configuration/frontend.sql</File>
+		<!-- configuration db schema changes -->
+		<File>eghv/configuration/schema.sql</File>
+		<!-- goody hut picker configuration for XP1 and beyond -->
+		<File>eghv/configuration/goodyhutpicker/expansion1.sql</File>
+		<!-- goody hut picker configuration for XP2 -->
+		<File>eghv/configuration/goodyhutpicker/expansion2.sql</File>
+		<!-- goody hut picker configuration for all rulesets -->
+		<File>eghv/configuration/goodyhutpicker/standard.sql</File>
+		<!-- goody hut picker configuration for WGH -->
+		<File>eghv/community/wondrousgoodyhuts/wondrousgoodyhuts.sql</File>
 
-		<!-- <File>C6GUE/UI/Additions/CommonFrontend.lua</File> -->
+		<!-- gameplay database equalize goody hut weights -->
+		<File>eghv/gameplay/equalizegoodyhuts.sql</File>
+		<!-- gameplay database changes for all rulesets -->
+		<File>eghv/gameplay/ingame.sql</File>
+		<!-- gameplay disable meteor strike event for XP2 -->
+		<File>eghv/gameplay/ingame_disablemeteorstrike.sql</File>
+		<!-- gameplay database changes for hostile unit spawns, for all rulesets -->
+		<File>eghv/gameplay/ingame_hostiles.sql</File>
+		<!-- gameplay database changes for WGH content -->
+		<File>eghv/community/wondrousgoodyhuts/ingame.sql</File>
+		<!-- gameplay database changes for XP1 and beyond -->
+		<File>eghv/gameplay/ingame_xp1.sql</File>
+		<!-- gameplay database changes for XP2 -->
+		<File>eghv/gameplay/ingame_xp2.sql</File>
+		<!-- gameplay db schema changes -->
+		<File>eghv/gameplay/schema.sql</File>
+		<!-- gameplay database goody hut frequency changes, 25% of baseline -->
+		<File>eghv/gameplay/goodyhutdistribution/025.sql</File>
+		<!-- gameplay database goody hut frequency changes, 50% of baseline -->
+		<File>eghv/gameplay/goodyhutdistribution/050.sql</File>
+		<!-- gameplay database goody hut frequency changes, 75% of baseline -->
+		<File>eghv/gameplay/goodyhutdistribution/075.sql</File>
+		<!-- gameplay database goody hut frequency changes, 125% of baseline -->
+		<File>eghv/gameplay/goodyhutdistribution/125.sql</File>
+		<!-- gameplay database goody hut frequency changes, 150% of baseline -->
+		<File>eghv/gameplay/goodyhutdistribution/150.sql</File>
+		<!-- gameplay database goody hut frequency changes, 175% of baseline -->
+		<File>eghv/gameplay/goodyhutdistribution/175.sql</File>
+		<!-- gameplay database goody hut frequency changes, 200% of baseline -->
+		<File>eghv/gameplay/goodyhutdistribution/200.sql</File>
+		<!-- gameplay database goody hut frequency changes, 225% of baseline -->
+		<File>eghv/gameplay/goodyhutdistribution/225.sql</File>
+		<!-- gameplay database goody hut frequency changes, 250% of baseline -->
+		<File>eghv/gameplay/goodyhutdistribution/250.sql</File>
+		<!-- gameplay database goody hut frequency changes, 275% of baseline -->
+		<File>eghv/gameplay/goodyhutdistribution/275.sql</File>
+		<!-- gameplay database goody hut frequency changes, 300% of baseline -->
+		<File>eghv/gameplay/goodyhutdistribution/300.sql</File>
+		<!-- gameplay database goody hut frequency changes, 325% of baseline -->
+		<File>eghv/gameplay/goodyhutdistribution/325.sql</File>
+		<!-- gameplay database goody hut frequency changes, 350% of baseline -->
+		<File>eghv/gameplay/goodyhutdistribution/350.sql</File>
+		<!-- gameplay database goody hut frequency changes, 375% of baseline -->
+		<File>eghv/gameplay/goodyhutdistribution/375.sql</File>
+		<!-- gameplay database goody hut frequency changes, 400% of baseline -->
+		<File>eghv/gameplay/goodyhutdistribution/400.sql</File>
+		<!-- gameplay database goody hut frequency changes, 425% of baseline -->
+		<File>eghv/gameplay/goodyhutdistribution/425.sql</File>
+		<!-- gameplay database goody hut frequency changes, 450% of baseline -->
+		<File>eghv/gameplay/goodyhutdistribution/450.sql</File>
+		<!-- gameplay database goody hut frequency changes, 475% of baseline -->
+		<File>eghv/gameplay/goodyhutdistribution/475.sql</File>
+		<!-- gameplay database goody hut frequency changes, 500% of baseline -->
+		<File>eghv/gameplay/goodyhutdistribution/500.sql</File>
 
-		<File>C6GUE/UI/Replacements/AdvancedSetup_EGHV.lua</File>
-		<!-- <File>C6GUE/UI/Replacements/EnhancedAdvancedSetup.lua</File> -->
-		<!-- <File>C6GUE/UI/Replacements/EnhancedAdvancedSetup.xml</File> -->
-		<File>C6GUE/UI/Replacements/GameSetupLogic_EGHV.lua</File>
-		<!-- <File>C6GUE/UI/Replacements/MainMenu.xml</File> -->
-		<!-- <File>C6GUE/UI/Replacements/Multiplayer/EnhancedHostGame.lua</File> -->
-		<!-- <File>C6GUE/UI/Replacements/Multiplayer/EnhancedHostGame.xml</File> -->
-		<File>C6GUE/UI/Replacements/Multiplayer/HostGame_EGHV.lua</File>
+		<!-- EN_US localized frontend text -->
+		<File>eghv/localization/en_us/frontend_text.xml</File>
+		<!-- EN_US localized frontend text for WGH -->
+		<File>eghv/localization/en_us/frontend_wondrousgoodyhuts_text.xml</File>
+		<!-- EN_US localized ingame text for all rulesets -->
+		<File>eghv/localization/en_us/ingame_text.xml</File>
+		<!-- EN_US localized ingame text for XP1 and beyond -->
+		<File>eghv/localization/en_us/ingame_xp1_text.xml</File>
+		<!-- EN_US localized ingame text for XP2 -->
+		<File>eghv/localization/en_us/ingame_xp2_text.xml</File>
+		<!-- ES_ES localized frontend text -->
+		<File>eghv/localization/es_es/frontend_text.xml</File>
+		<!-- ES_ES localized frontend text for WGH -->
+		<File>eghv/localization/es_es/frontend_wondrousgoodyhuts_text.xml</File>
+		<!-- ES_ES localized ingame text for all rulesets -->
+		<File>eghv/localization/es_es/ingame_text.xml</File>
+		<!-- ES_ES localized ingame text for XP1 and beyond -->
+		<File>eghv/localization/es_es/ingame_xp1_text.xml</File>
+		<!-- ES_ES localized ingame text for XP2 -->
+		<File>eghv/localization/es_es/ingame_xp2_text.xml</File>
+		<!-- FR_FR localized frontend text -->
+		<File>eghv/localization/fr_fr/frontend_text.xml</File>
+		<!-- FR_FR localized frontend text for WGH -->
+		<File>eghv/localization/fr_fr/frontend_wondrousgoodyhuts_text.xml</File>
+		<!-- FR_FR localized ingame text for all rulesets -->
+		<File>eghv/localization/fr_fr/ingame_text.xml</File>
+		<!-- FR_FR localized ingame text for XP1 and beyond -->
+		<File>eghv/localization/fr_fr/ingame_xp1_text.xml</File>
+		<!-- FR_FR localized ingame text for XP2 -->
+		<File>eghv/localization/fr_fr/ingame_xp2_text.xml</File>
 
-		<File>EGHV/Art/Frontend_Icons.xml</File>
-		<File>EGHV/Art/Ingame_Icons.xml</File>
-		<File>EGHV/Art/Ingame_XP2_Icons.xml</File>
+		<!-- main gameplay script -->
+		<File>eghv/scripts/eghv.lua</File>
+		<!-- event hooks script -->
+		<File>eghv/scripts/eghv_eventhooks.lua</File>
+		<!-- reward generator script -->
+		<File>eghv/scripts/eghv_rewardgenerator.lua</File>
+		<!-- lua utility functions script -->
+		<File>eghv/scripts/eghv_utilities.lua</File>
+		<!-- WGH integration script -->
+		<File>eghv/community/wondrousgoodyhuts/eghv_sailor_goodies_scripts.lua</File>
 
-		<File>EGHV/Art/Icons/GoodyHutAtlas44.dds</File>
-		<File>EGHV/Art/Icons/GoodyHutAtlas256.dds</File>
-		<File>EGHV/Art/Icons/XP1_GoodyHutAtlas44.dds</File>
-		<File>EGHV/Art/Icons/XP1_GoodyHutAtlas256.dds</File>
-		<File>EGHV/Art/Icons/XP2_GoodyHutAtlas44.dds</File>
-		<File>EGHV/Art/Icons/XP2_GoodyHutAtlas256.dds</File>
-
-		<File>EGHV/Configuration/Frontend.sql</File>
-		<File>EGHV/Configuration/Schema.sql</File>
-
-		<File>EGHV/Configuration/GoodyHutPicker/Standard.sql</File>
-		<File>EGHV/Configuration/GoodyHutPicker/Expansion1.sql</File>
-		<File>EGHV/Configuration/GoodyHutPicker/Expansion2.sql</File>
-
-		<File>EGHV/Gameplay/Schema.sql</File>
-		<File>EGHV/Gameplay/Ingame_DisableMeteorStrike.sql</File>
-		<File>EGHV/Gameplay/EqualizeGoodyHuts.sql</File>
-		<File>EGHV/Gameplay/Ingame.sql</File>
-		<File>EGHV/Gameplay/Ingame_Hostiles.sql</File>
-		<File>EGHV/Gameplay/Ingame_XP1.sql</File>
-		<File>EGHV/Gameplay/Ingame_XP2.sql</File>
-		<File>EGHV/Gameplay/Override.sql</File>
-
-		<File>EGHV/Gameplay/GoodyHutDistribution/025.sql</File>
-		<File>EGHV/Gameplay/GoodyHutDistribution/050.sql</File>
-		<File>EGHV/Gameplay/GoodyHutDistribution/075.sql</File>
-		<File>EGHV/Gameplay/GoodyHutDistribution/125.sql</File>
-		<File>EGHV/Gameplay/GoodyHutDistribution/150.sql</File>
-		<File>EGHV/Gameplay/GoodyHutDistribution/175.sql</File>
-		<File>EGHV/Gameplay/GoodyHutDistribution/200.sql</File>
-		<File>EGHV/Gameplay/GoodyHutDistribution/225.sql</File>
-		<File>EGHV/Gameplay/GoodyHutDistribution/250.sql</File>
-		<File>EGHV/Gameplay/GoodyHutDistribution/275.sql</File>
-		<File>EGHV/Gameplay/GoodyHutDistribution/300.sql</File>
-		<File>EGHV/Gameplay/GoodyHutDistribution/325.sql</File>
-		<File>EGHV/Gameplay/GoodyHutDistribution/350.sql</File>
-		<File>EGHV/Gameplay/GoodyHutDistribution/375.sql</File>
-		<File>EGHV/Gameplay/GoodyHutDistribution/400.sql</File>
-		<File>EGHV/Gameplay/GoodyHutDistribution/425.sql</File>
-		<File>EGHV/Gameplay/GoodyHutDistribution/450.sql</File>
-		<File>EGHV/Gameplay/GoodyHutDistribution/475.sql</File>
-		<File>EGHV/Gameplay/GoodyHutDistribution/500.sql</File>
-
-		<File>EGHV/Localization/en_US/Frontend_Text.xml</File>
-		<File>EGHV/Localization/en_US/Frontend_WondrousGoodyHuts_Text.xml</File>
-		<File>EGHV/Localization/en_US/Ingame_Text.xml</File>
-		<File>EGHV/Localization/en_US/Ingame_XP1_Text.xml</File>
-		<File>EGHV/Localization/en_US/Ingame_XP2_Text.xml</File>
-		<File>EGHV/Localization/es_ES/Frontend_Text.xml</File>
-		<File>EGHV/Localization/es_ES/Frontend_WondrousGoodyHuts_Text.xml</File>
-		<File>EGHV/Localization/es_ES/Ingame_Text.xml</File>
-		<File>EGHV/Localization/es_ES/Ingame_XP1_Text.xml</File>
-		<File>EGHV/Localization/es_ES/Ingame_XP2_Text.xml</File>
-		<File>EGHV/Localization/fr_FR/Frontend_Text.xml</File>
-		<File>EGHV/Localization/fr_FR/Frontend_WondrousGoodyHuts_Text.xml</File>
-		<File>EGHV/Localization/fr_FR/Ingame_Text.xml</File>
-		<File>EGHV/Localization/fr_FR/Ingame_XP1_Text.xml</File>
-		<File>EGHV/Localization/fr_FR/Ingame_XP2_Text.xml</File>
-
-		<File>EGHV/Scripts/EGHV.lua</File>
-		<File>EGHV/Scripts/EGHV_Utilities.lua</File>
-		<File>EGHV/Scripts/EGHV_EventHooks.lua</File>
-		<File>EGHV/Scripts/EGHV_RewardGenerator.lua</File>
-
-		<File>EGHV/UI/Additions/GoodyHutPicker.lua</File>
-		<File>EGHV/UI/Additions/GoodyHutPicker.xml</File>
-		<!-- <File>EGHV/UI/Additions/NaturalWonderPicker.lua</File> -->
-
-		<File>EGHV/Community/WondrousGoodyHuts/Ingame.sql</File>
-		<File>EGHV/Community/WondrousGoodyHuts/EGHV_Sailor_Goodies_Scripts.lua</File>
-		<File>EGHV/Community/WondrousGoodyHuts/WondrousGoodyHuts.sql</File>
+		<!-- advanced setup replacements -->
+		<File>eghv/ui/advancedsetup_eghv.lua</File>
+		<!-- game setup logic replacements -->
+		<File>eghv/ui/gamesetuplogic_eghv.lua</File>
+		<!-- goody hut picker -->
+		<File>eghv/ui/goodyhutpicker.lua</File>
+		<File>eghv/ui/goodyhutpicker.xml</File>
+		<!-- host game replacements -->
+		<File>eghv/ui/hostgame_eghv.lua</File>
 	</Files>
 </Mod>
