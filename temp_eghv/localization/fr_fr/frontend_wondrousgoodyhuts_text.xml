@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--==========================================================================
+	EGHV : Enhanced Goodies and Hostile Villagers for Civilization VI
+	Copyright (C) 2020-2023 zzragnar0kzz
+	All rights reserved
+===========================================================================-->
+<!-- localized Wondrous Goody Huts frontend text for fr_FR; Wondrous Goody Huts is the property of Sailor Cat -->
+<GameData>
+	<LocalizedText>
+		<!-- tooltip text -->
+		<Replace Tag="LOC_WGH_TT" Language="fr_FR">
+			<Text>[NEWLINE] [COLOR_Blue] mod [ENDCOLOR]: [COLOR_Civ6Yellow] Wondrous [ENDCOLOR] Goody Hutts</Text>
+		</Replace>
+		<!-- random resource -->
+		<Replace Tag="LOC_GOODYHUT_SAILOR_RANDOMRESOURCE_NAME" Language="fr_FR">
+			<Text>Trouver une nouvelle ressource</Text>
+		</Replace>
+		<Replace Tag="LOC_GOODYHUT_SAILOR_RANDOMRESOURCE_DESC" Language="fr_FR">
+			<Text>Découvrez une nouvelle ressource dans une parcelle aléatoire sur le territoire contrôlé par le joueur.</Text>
+		</Replace>
+		<!-- random unit -->
+		<Replace Tag="LOC_GOODYHUT_SAILOR_RANDOMUNIT_NAME" Language="fr_FR">
+			<Text>1 unité unique</Text>
+		</Replace>
+		<Replace Tag="LOC_GOODYHUT_SAILOR_RANDOMUNIT_DESC" Language="fr_FR">
+			<Text>Recevez une (1) unité unique aléatoire, éventuellement une unité unique à une civilisation autre que celle du joueur.</Text>
+		</Replace>
+		<!-- random improvement -->
+		<Replace Tag="LOC_GOODYHUT_SAILOR_RANDOMIMPROVEMENT_NAME" Language="fr_FR">
+			<Text>1 amélioration</Text>
+		</Replace>
+		<Replace Tag="LOC_GOODYHUT_SAILOR_RANDOMIMPROVEMENT_DESC" Language="fr_FR">
+			<Text>Recevez une (1) amélioration aléatoire, éventuellement celle qui est unique à une civilisation autre que celle du joueur.</Text>
+		</Replace>
+		<!-- sight bomb -->
+		<Replace Tag="LOC_GOODYHUT_SAILOR_SIGHTBOMB_NAME" Language="fr_FR">
+			<Text>[ICON_Ability] Formation sauvage</Text>
+		</Replace>
+		<Replace Tag="LOC_GOODYHUT_SAILOR_SIGHTBOMB_DESC" Language="fr_FR">
+			<Text>L'unité de réception est accordée à la capacité de formation [ICON_Ability] désert (+2 vue, peut voir via des fonctionnalités).</Text>
+		</Replace>
+		<!-- random policy -->
+		<Replace Tag="LOC_GOODYHUT_SAILOR_RANDOMPOLICY_NAME" Language="fr_FR">
+			<Text>1 politique [ICON_Policy]</Text>
+		</Replace>
+		<Replace Tag="LOC_GOODYHUT_SAILOR_RANDOMPOLICY_DESC" Language="fr_FR">
+			<Text>Déverrouiller une (1) politique aléatoire [ICON_Policy] de l'époque actuelle.</Text>
+		</Replace>
+		<!-- formation -->
+		<Replace Tag="LOC_GOODYHUT_SAILOR_FORMATION_NAME" Language="fr_FR">
+			<Text>Mise à niveau [ICON_Corps] Formation</Text>
+		</Replace>
+		<Replace Tag="LOC_GOODYHUT_SAILOR_FORMATION_DESC" Language="fr_FR">
+			<Text>L'unité de réception a sa formation [ICON_Corps] mis à niveau.</Text>
+		</Replace>
+		<!-- natural wonder -->
+		<Replace Tag="LOC_GOODYHUT_SAILOR_WONDER_NAME" Language="fr_FR">
+			<Text>Révéler la merveille naturelle</Text>
+		</Replace>
+		<Replace Tag="LOC_GOODYHUT_SAILOR_WONDER_DESC" Language="fr_FR">
+			<Text>Découvrez une merveille naturelle non révérée.</Text>
+		</Replace>
+		<!-- city-state -->
+		<Replace Tag="LOC_GOODYHUT_SAILOR_CITYSTATE_NAME" Language="fr_FR">
+			<Text>Rencontrer la ville-état</Text>
+		</Replace>
+		<Replace Tag="LOC_GOODYHUT_SAILOR_CITYSTATE_DESC" Language="fr_FR">
+			<Text>Découvrez un état de ville non satisfaits.</Text>
+		</Replace>
+		<!-- spy -->
+		<Replace Tag="LOC_GOODYHUT_SAILOR_SPY_NAME" Language="fr_FR">
+			<Text>1 [ICON_Unit] espion</Text>
+		</Replace>
+		<Replace Tag="LOC_GOODYHUT_SAILOR_SPY_DESC" Language="fr_FR">
+			<Text>Recevez une unité d'espion (1) libre.</Text>
+		</Replace>
+		<!-- production boost -->
+		<Replace Tag="LOC_GOODYHUT_SAILOR_PRODUCTION_NAME" Language="fr_FR">
+			<Text>[ICON_PRODUCTION] Écarté de production</Text>
+		</Replace>
+		<Replace Tag="LOC_GOODYHUT_SAILOR_PRODUCTION_DESC" Language="fr_FR">
+			<Text>La capitale [icon_capital] du joueur reçoit une explosion de la production [icon_Production] qui complète l'élément actuel de sa file d'attente de production.</Text>
+		</Replace>
+		<!-- teleport -->
+		<Replace Tag="LOC_GOODYHUT_SAILOR_TELEPORT_NAME" Language="fr_FR">
+			<Text>Tour du monde</Text>
+		</Replace>
+		<Replace Tag="LOC_GOODYHUT_SAILOR_TELEPORT_DESC" Language="fr_FR">
+			<Text>L'unité de réception embarque sur une expédition à une tuile lointaine. Il est joint à une (1) unité de colons gratuite.</Text>
+		</Replace>
+	</LocalizedText>
+</GameData>
