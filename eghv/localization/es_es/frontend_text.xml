@@ -397,25 +397,25 @@
             <Text>1 Nueva Aldea Tribal</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_ONE_GOODYHUT_DESC" Language="es_ES">
-            <Text>Recompensa de tipo Goodyhuts de nivel 1 (común).[NEWLINE][NEWLINE]Los aldeanos revelan la ubicación de una (1) aldea tribal previamente desconocida.</Text>
+            <Text>Recompensa de tipo cabañas de regalos de nivel 1 (común).[NEWLINE][NEWLINE]Los aldeanos revelan la ubicación de una (1) aldea tribal previamente desconocida.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_TWO_GOODYHUTS_NAME" Language="es_ES">
             <Text>2 Nuevas Aldeas Tribales</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_TWO_GOODYHUTS_DESC" Language="es_ES">
-            <Text>Recompensa de tipo Goodyhuts de nivel 2 (poco común).[NEWLINE][NEWLINE]Los aldeanos revelan la ubicación de dos (2) aldeas tribales previamente desconocidas.</Text>
+            <Text>Recompensa de tipo cabañas de regalos de nivel 2 (poco común).[NEWLINE][NEWLINE]Los aldeanos revelan la ubicación de dos (2) aldeas tribales previamente desconocidas.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_THREE_GOODYHUTS_NAME" Language="es_ES">
             <Text>3 Nuevas Aldeas Tribales</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_THREE_GOODYHUTS_DESC" Language="es_ES">
-            <Text>Recompensa de tipo Goodyhuts de nivel 3 (raro).[NEWLINE][NEWLINE]Los aldeanos revelan la ubicación de tres (3) aldeas tribales previamente desconocidas.</Text>
+            <Text>Recompensa de tipo cabañas de regalos de nivel 3 (raro).[NEWLINE][NEWLINE]Los aldeanos revelan la ubicación de tres (3) aldeas tribales previamente desconocidas.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_FOUR_GOODYHUTS_NAME" Language="es_ES">
             <Text>4 Nuevas Aldeas Tribales</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_FOUR_GOODYHUTS_DESC" Language="es_ES">
-            <Text>Recompensa de tipo Goodyhuts de nivel 4 (legendario).[NEWLINE][NEWLINE]Los aldeanos revelan la ubicación de cuatro (4) aldeas tribales previamente desconocidas.</Text>
+            <Text>Recompensa de tipo cabañas de regalos de nivel 4 (legendario).[NEWLINE][NEWLINE]Los aldeanos revelan la ubicación de cuatro (4) aldeas tribales previamente desconocidas.</Text>
         </Replace>
         <!-- great people type -->
         <!-- hostiles type -->

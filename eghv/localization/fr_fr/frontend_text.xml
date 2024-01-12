@@ -397,25 +397,25 @@
             <Text>1 Nouveau Village Tribal</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_ONE_GOODYHUT_DESC" Language="fr_FR">
-            <Text>Récompense de type Goodyhuts de niveau 1 (commune).[NEWLINE][NEWLINE]Les villageois révèlent l'emplacement d'un (1) village tribal jusqu'alors inconnu.</Text>
+            <Text>Récompense de type cabanes de cadeaux de niveau 1 (commune).[NEWLINE][NEWLINE]Les villageois révèlent l'emplacement d'un (1) village tribal jusqu'alors inconnu.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_TWO_GOODYHUTS_NAME" Language="fr_FR">
             <Text>2 Nouveaux Villages Tribaux</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_TWO_GOODYHUTS_DESC" Language="fr_FR">
-            <Text>Récompense de type Goodyhuts de niveau 2 (peu fréquente).[NEWLINE][NEWLINE]Les villageois révèlent l'emplacement de deux (2) villages tribaux jusqu'alors inconnus.</Text>
+            <Text>Récompense de type cabanes de cadeaux de niveau 2 (peu fréquente).[NEWLINE][NEWLINE]Les villageois révèlent l'emplacement de deux (2) villages tribaux jusqu'alors inconnus.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_THREE_GOODYHUTS_NAME" Language="fr_FR">
             <Text>3 Nouveaux Villages Tribaux</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_THREE_GOODYHUTS_DESC" Language="fr_FR">
-            <Text>Récompense de type Goodyhuts de niveau 3 (rare).[NEWLINE][NEWLINE]Les villageois révèlent l'emplacement de trois (3) villages tribaux jusqu'alors inconnus.</Text>
+            <Text>Récompense de type cabanes de cadeaux de niveau 3 (rare).[NEWLINE][NEWLINE]Les villageois révèlent l'emplacement de trois (3) villages tribaux jusqu'alors inconnus.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_FOUR_GOODYHUTS_NAME" Language="fr_FR">
             <Text>4 Nouveaux Villages Tribaux</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_FOUR_GOODYHUTS_DESC" Language="fr_FR">
-            <Text>Récompense de type Goodyhuts de niveau 4 (légendaire).[NEWLINE][NEWLINE]Les villageois révèlent l'emplacement de quatre (4) villages tribaux jusqu'alors inconnus.</Text>
+            <Text>Récompense de type cabanes de cadeaux de niveau 4 (légendaire).[NEWLINE][NEWLINE]Les villageois révèlent l'emplacement de quatre (4) villages tribaux jusqu'alors inconnus.</Text>
         </Replace>
         <!-- great people type -->
         <!-- hostiles type -->
