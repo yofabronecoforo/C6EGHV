@@ -16,77 +16,77 @@
 			<Text>Find New Resource</Text>
 		</Replace>
 		<Replace Tag="LOC_GOODYHUT_SAILOR_RANDOMRESOURCE_DESC" Language="en_US">
-			<Text>Discover a new resource in a random plot in territory you control.</Text>
+			<Text>Tier 5 (Mythic) Wondrous-type reward.[NEWLINE][NEWLINE]Discover a new resource in a random plot in territory you control.</Text>
 		</Replace>
 		<!-- random unit -->
 		<Replace Tag="LOC_GOODYHUT_SAILOR_RANDOMUNIT_NAME" Language="en_US">
 			<Text>Random Unit</Text>
 		</Replace>
 		<Replace Tag="LOC_GOODYHUT_SAILOR_RANDOMUNIT_DESC" Language="en_US">
-			<Text>Receive one (1) random unit, possibly one which is unique to another Civilization.</Text>
+			<Text>Tier 5 (Mythic) Wondrous-type reward.[NEWLINE][NEWLINE]Receive one (1) random unit, possibly one which is unique to another Civilization.</Text>
 		</Replace>
 		<!-- random improvement -->
 		<Replace Tag="LOC_GOODYHUT_SAILOR_RANDOMIMPROVEMENT_NAME" Language="en_US">
 			<Text>Random Improvement</Text>
 		</Replace>
 		<Replace Tag="LOC_GOODYHUT_SAILOR_RANDOMIMPROVEMENT_DESC" Language="en_US">
-			<Text>Receive one (1) random improvement, possibly one which is unique to another Civilization.</Text>
+			<Text>Tier 5 (Mythic) Wondrous-type reward.[NEWLINE][NEWLINE]Receive one (1) random improvement, possibly one which is unique to another Civilization.</Text>
 		</Replace>
 		<!-- sight bomb -->
 		<Replace Tag="LOC_GOODYHUT_SAILOR_SIGHTBOMB_NAME" Language="en_US">
 			<Text>[ICON_Ability] Wilderness Training</Text>
 		</Replace>
 		<Replace Tag="LOC_GOODYHUT_SAILOR_SIGHTBOMB_DESC" Language="en_US">
-			<Text>The receiving unit is granted the [ICON_Ability] Wilderness Training ability (+2 Sight, can see through features).</Text>
+			<Text>Tier 5 (Mythic) Wondrous-type reward.[NEWLINE][NEWLINE]The receiving unit is granted the [ICON_Ability] Wilderness Training ability (+2 Sight, can see through features).</Text>
 		</Replace>
 		<!-- random policy -->
 		<Replace Tag="LOC_GOODYHUT_SAILOR_RANDOMPOLICY_NAME" Language="en_US">
 			<Text>1 [ICON_Policy] Policy</Text>
 		</Replace>
 		<Replace Tag="LOC_GOODYHUT_SAILOR_RANDOMPOLICY_DESC" Language="en_US">
-			<Text>Unlock one (1) random [ICON_Policy] Policy from the current Era.</Text>
+			<Text>Tier 5 (Mythic) Wondrous-type reward.[NEWLINE][NEWLINE]Unlock one (1) random [ICON_Policy] Policy from the current Era.</Text>
 		</Replace>
 		<!-- formation -->
 		<Replace Tag="LOC_GOODYHUT_SAILOR_FORMATION_NAME" Language="en_US">
 			<Text>[ICON_Corps]/[ICON_Army] Formation</Text>
 		</Replace>
 		<Replace Tag="LOC_GOODYHUT_SAILOR_FORMATION_DESC" Language="en_US">
-			<Text>The receiving unit has its [ICON_Corps]/[ICON_Army] Formation upgraded, if applicable.</Text>
+			<Text>Tier 5 (Mythic) Wondrous-type reward.[NEWLINE][NEWLINE]The receiving unit has its [ICON_Corps]/[ICON_Army] Formation upgraded, if applicable.</Text>
 		</Replace>
 		<!-- natural wonder -->
 		<Replace Tag="LOC_GOODYHUT_SAILOR_WONDER_NAME" Language="en_US">
 			<Text>Reveal Natural Wonder</Text>
 		</Replace>
 		<Replace Tag="LOC_GOODYHUT_SAILOR_WONDER_DESC" Language="en_US">
-			<Text>Discover an unrevealed natural wonder.</Text>
+			<Text>Tier 5 (Mythic) Wondrous-type reward.[NEWLINE][NEWLINE]Discover an unrevealed natural wonder.</Text>
 		</Replace>
 		<!-- city-state -->
 		<Replace Tag="LOC_GOODYHUT_SAILOR_CITYSTATE_NAME" Language="en_US">
 			<Text>Meet City-State</Text>
 		</Replace>
 		<Replace Tag="LOC_GOODYHUT_SAILOR_CITYSTATE_DESC" Language="en_US">
-			<Text>Discover an unmet city-state.</Text>
+			<Text>Tier 5 (Mythic) Wondrous-type reward.[NEWLINE][NEWLINE]Discover an unmet city-state.</Text>
 		</Replace>
 		<!-- spy -->
 		<Replace Tag="LOC_GOODYHUT_SAILOR_SPY_NAME" Language="en_US">
 			<Text>1 [ICON_Unit] Spy</Text>
 		</Replace>
 		<Replace Tag="LOC_GOODYHUT_SAILOR_SPY_DESC" Language="en_US">
-			<Text>Receive one (1) free [ICON_Unit] Spy in a random City.</Text>
+			<Text>Tier 5 (Mythic) Wondrous-type reward.[NEWLINE][NEWLINE]Receive one (1) free [ICON_Unit] Spy in a random City.</Text>
 		</Replace>
 		<!-- production boost -->
 		<Replace Tag="LOC_GOODYHUT_SAILOR_PRODUCTION_NAME" Language="en_US">
 			<Text>[ICON_Production] Production Burst</Text>
 		</Replace>
 		<Replace Tag="LOC_GOODYHUT_SAILOR_PRODUCTION_DESC" Language="en_US">
-			<Text>Receive a burst of [ICON_Production] Production in a random City, which completes the current item in its Production queue.</Text>
+			<Text>Tier 5 (Mythic) Wondrous-type reward.[NEWLINE][NEWLINE]Receive a burst of [ICON_Production] Production in a random City, which completes the current item in its Production queue.</Text>
 		</Replace>
 		<!-- teleport -->
 		<Replace Tag="LOC_GOODYHUT_SAILOR_TELEPORT_NAME" Language="en_US">
 			<Text>Teleport</Text>
 		</Replace>
 		<Replace Tag="LOC_GOODYHUT_SAILOR_TELEPORT_DESC" Language="en_US">
-			<Text>The receiving unit is instantly teleported to a far away tile. It is joined in this world tour by one (1) free [ICON_Unit] Settler.</Text>
+			<Text>Tier 5 (Mythic) Wondrous-type reward.[NEWLINE][NEWLINE]The receiving unit is instantly teleported to a far away tile. It is joined in this world tour by one (1) free [ICON_Unit] Settler.</Text>
 		</Replace>
 	</LocalizedText>
 </GameData>

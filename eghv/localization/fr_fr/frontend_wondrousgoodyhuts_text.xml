@@ -9,84 +9,84 @@
 	<LocalizedText>
 		<!-- tooltip text -->
 		<Replace Tag="LOC_WGH_TT" Language="fr_FR">
-			<Text>[NEWLINE] [COLOR_Blue] mod [ENDCOLOR]: [COLOR_Civ6Yellow] Wondrous [ENDCOLOR] Goody Hutts</Text>
+			<Text>[NEWLINE]  [COLOR_Blue]Mod[ENDCOLOR]: [COLOR_Civ6Yellow]Merveilleuses[ENDCOLOR] Cabanes de Cadeaux</Text>
 		</Replace>
 		<!-- random resource -->
 		<Replace Tag="LOC_GOODYHUT_SAILOR_RANDOMRESOURCE_NAME" Language="fr_FR">
 			<Text>Trouver une nouvelle ressource</Text>
 		</Replace>
 		<Replace Tag="LOC_GOODYHUT_SAILOR_RANDOMRESOURCE_DESC" Language="fr_FR">
-			<Text>Découvrez une nouvelle ressource dans une parcelle aléatoire sur le territoire contrôlé par le joueur.</Text>
+			<Text>Récompense de type merveilleux de niveau 5 (mythique).[NEWLINE][NEWLINE]Découvrez une nouvelle ressource dans une parcelle aléatoire sur le territoire que vous contrôlez.</Text>
 		</Replace>
 		<!-- random unit -->
 		<Replace Tag="LOC_GOODYHUT_SAILOR_RANDOMUNIT_NAME" Language="fr_FR">
 			<Text>1 unité unique</Text>
 		</Replace>
 		<Replace Tag="LOC_GOODYHUT_SAILOR_RANDOMUNIT_DESC" Language="fr_FR">
-			<Text>Recevez une (1) unité unique aléatoire, éventuellement une unité unique à une civilisation autre que celle du joueur.</Text>
+			<Text>Récompense de type merveilleux de niveau 5 (mythique).[NEWLINE][NEWLINE]Recevez une (1) unité aléatoire, éventuellement unique à une autre civilisation.</Text>
 		</Replace>
 		<!-- random improvement -->
 		<Replace Tag="LOC_GOODYHUT_SAILOR_RANDOMIMPROVEMENT_NAME" Language="fr_FR">
 			<Text>1 amélioration</Text>
 		</Replace>
 		<Replace Tag="LOC_GOODYHUT_SAILOR_RANDOMIMPROVEMENT_DESC" Language="fr_FR">
-			<Text>Recevez une (1) amélioration aléatoire, éventuellement celle qui est unique à une civilisation autre que celle du joueur.</Text>
+			<Text>Récompense de type merveilleux de niveau 5 (mythique).[NEWLINE][NEWLINE]Recevez une (1) amélioration aléatoire, éventuellement unique à une autre civilisation.</Text>
 		</Replace>
 		<!-- sight bomb -->
 		<Replace Tag="LOC_GOODYHUT_SAILOR_SIGHTBOMB_NAME" Language="fr_FR">
 			<Text>[ICON_Ability] Formation sauvage</Text>
 		</Replace>
 		<Replace Tag="LOC_GOODYHUT_SAILOR_SIGHTBOMB_DESC" Language="fr_FR">
-			<Text>L'unité de réception est accordée à la capacité de formation [ICON_Ability] désert (+2 vue, peut voir via des fonctionnalités).</Text>
+			<Text>Récompense de type merveilleux de niveau 5 (mythique).[NEWLINE][NEWLINE]L'unité qui reçoit reçoit la capacité [ICON_Ability] Entraînement en pleine nature (+2 en vue, peut voir à travers les fonctionnalités).</Text>
 		</Replace>
 		<!-- random policy -->
 		<Replace Tag="LOC_GOODYHUT_SAILOR_RANDOMPOLICY_NAME" Language="fr_FR">
 			<Text>1 politique [ICON_Policy]</Text>
 		</Replace>
 		<Replace Tag="LOC_GOODYHUT_SAILOR_RANDOMPOLICY_DESC" Language="fr_FR">
-			<Text>Déverrouiller une (1) politique aléatoire [ICON_Policy] de l'époque actuelle.</Text>
+			<Text>Récompense de type merveilleux de niveau 5 (mythique).[NEWLINE][NEWLINE]Débloquez une (1) politique [ICON_Policy] aléatoire de l'ère actuelle.</Text>
 		</Replace>
 		<!-- formation -->
 		<Replace Tag="LOC_GOODYHUT_SAILOR_FORMATION_NAME" Language="fr_FR">
 			<Text>Mise à niveau [ICON_Corps] Formation</Text>
 		</Replace>
 		<Replace Tag="LOC_GOODYHUT_SAILOR_FORMATION_DESC" Language="fr_FR">
-			<Text>L'unité de réception a sa formation [ICON_Corps] mis à niveau.</Text>
+			<Text>Récompense de type merveilleux de niveau 5 (mythique).[NEWLINE][NEWLINE]L'unité qui reçoit voit sa [ICON_Corps]/[ICON_Army] formation améliorée, le cas échéant.</Text>
 		</Replace>
 		<!-- natural wonder -->
 		<Replace Tag="LOC_GOODYHUT_SAILOR_WONDER_NAME" Language="fr_FR">
 			<Text>Révéler la merveille naturelle</Text>
 		</Replace>
 		<Replace Tag="LOC_GOODYHUT_SAILOR_WONDER_DESC" Language="fr_FR">
-			<Text>Découvrez une merveille naturelle non révérée.</Text>
+			<Text>Récompense de type merveilleux de niveau 5 (mythique).[NEWLINE][NEWLINE]Découvrez une merveille naturelle inédite.</Text>
 		</Replace>
 		<!-- city-state -->
 		<Replace Tag="LOC_GOODYHUT_SAILOR_CITYSTATE_NAME" Language="fr_FR">
 			<Text>Rencontrer la ville-état</Text>
 		</Replace>
 		<Replace Tag="LOC_GOODYHUT_SAILOR_CITYSTATE_DESC" Language="fr_FR">
-			<Text>Découvrez un état de ville non satisfaits.</Text>
+			<Text>Récompense de type merveilleux de niveau 5 (mythique).[NEWLINE][NEWLINE]Découvrez une cité-état insatisfaite.</Text>
 		</Replace>
 		<!-- spy -->
 		<Replace Tag="LOC_GOODYHUT_SAILOR_SPY_NAME" Language="fr_FR">
 			<Text>1 [ICON_Unit] espion</Text>
 		</Replace>
 		<Replace Tag="LOC_GOODYHUT_SAILOR_SPY_DESC" Language="fr_FR">
-			<Text>Recevez une unité d'espion (1) libre.</Text>
+			<Text>Récompense de type merveilleux de niveau 5 (mythique).[NEWLINE][NEWLINE]Recevez un (1) [ICON_Unit] espion gratuit dans une ville aléatoire.</Text>
 		</Replace>
 		<!-- production boost -->
 		<Replace Tag="LOC_GOODYHUT_SAILOR_PRODUCTION_NAME" Language="fr_FR">
 			<Text>[ICON_PRODUCTION] Écarté de production</Text>
 		</Replace>
 		<Replace Tag="LOC_GOODYHUT_SAILOR_PRODUCTION_DESC" Language="fr_FR">
-			<Text>La capitale [icon_capital] du joueur reçoit une explosion de la production [icon_Production] qui complète l'élément actuel de sa file d'attente de production.</Text>
+			<Text>Récompense de type merveilleux de niveau 5 (mythique).[NEWLINE][NEWLINE]Recevez une rafale de [ICON_Production] production dans une ville aléatoire, qui complète l'élément actuel dans sa file d'attente de production.</Text>
 		</Replace>
 		<!-- teleport -->
 		<Replace Tag="LOC_GOODYHUT_SAILOR_TELEPORT_NAME" Language="fr_FR">
 			<Text>Tour du monde</Text>
 		</Replace>
 		<Replace Tag="LOC_GOODYHUT_SAILOR_TELEPORT_DESC" Language="fr_FR">
-			<Text>L'unité de réception embarque sur une expédition à une tuile lointaine. Il est joint à une (1) unité de colons gratuite.</Text>
+			<Text>Récompense de type merveilleux de niveau 5 (mythique).[NEWLINE][NEWLINE]L'unité réceptrice est instantanément téléportée sur une tuile lointaine. Il est rejoint dans ce tour du monde par un (1) [ICON_Unit] colon gratuit.</Text>
 		</Replace>
 	</LocalizedText>
 </GameData>
