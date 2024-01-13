@@ -230,10 +230,10 @@
         </Replace>
         <!-- Goody Hut frequency -->
         <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_NAME" Language="fr_FR">
-            <Text>Village tribal Fréquence %</Text>
+            <Text>Fréquence des Villages Tribaux</Text>
         </Replace>
         <Replace Tag="LOC_GOODYHUT_DISTRIBUTION_DESCRIPTION" Language="fr_FR">
-            <Text>Choisissez la répartition des Goody Huts sur la carte.</Text>
+            <Text>Choisissez la répartition des Cabanes de Cadeaux sur la carte en pourcentage du montant de base.</Text>
         </Replace>
         <!-- dummy tags -->
         <Replace Tag="LOC_EGHV_GOODYHUT_DUMMY_CONFIG_NAME" Language="fr_FR">

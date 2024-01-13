@@ -121,7 +121,7 @@ function GameParameters_UI_DefaultCreateParameterDriver(o, parameter, parent)
 			UpdateValue = function(value)
 				if(value) then
 					c.OptionSlider:SetStep(value / minimumValue);
-					c.NumberDisplay:SetText(tostring(value));
+					c.NumberDisplay:SetText(tostring(value) .. "%");
 				end
 			end,
 			UpdateValues = function(values)
@@ -202,7 +202,7 @@ function CreateSimpleParameterDriver(o, parameter, parent)
 			UpdateValue = function(value)
 				if(value) then
 					c.OptionSlider:SetStep(value / minimumValue);
-					c.NumberDisplay:SetText(tostring(value));
+					c.NumberDisplay:SetText(tostring(value) .. "%");
 				end
 			end,
 			UpdateValues = function(values)
