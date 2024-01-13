@@ -7,90 +7,27 @@
 <!-- localized in-game text for fr_FR -->
 <GameData>
 	<LocalizedText>
-        <!-- Villager Amenities totem building -->
-        <Replace Tag="LOC_BUILDING_AMENITIES_TOTEM_NAME" Language="fr_FR">
-			<Text>Totem des commodités</Text>
+        <!-- World-view text for dummy reward -->
+        <Replace Tag="LOC_GOODYHUT_EGHV_PLACEHOLDER_DESC" Language="fr_FR">
+			<Text>Des cadeaux améliorés!</Text>
 		</Replace>
-        <Replace Tag="LOC_BUILDING_AMENITIES_TOTEM_DESC" Language="fr_FR">
-			<Text>Un totem gravé de runes apprises des habitants d'un village oublié, censé augmenter le bonheur.</Text>
-		</Replace>
-        <!-- Villager Culture totem building -->
-        <Replace Tag="LOC_BUILDING_CULTURE_TOTEM_NAME" Language="fr_FR">
-			<Text>Totem culturel</Text>
-		</Replace>
-        <Replace Tag="LOC_BUILDING_CULTURE_TOTEM_DESC" Language="fr_FR">
-			<Text>Un totem gravé de runes apprises des habitants d'un village oublié, censé promouvoir le sens du devoir civique.</Text>
-		</Replace>
-        <!-- Villager Faith totem building -->
-        <Replace Tag="LOC_BUILDING_FAITH_TOTEM_NAME" Language="fr_FR">
-			<Text>Totem de la foi</Text>
-		</Replace>
-        <Replace Tag="LOC_BUILDING_FAITH_TOTEM_DESC" Language="fr_FR">
-			<Text>Un totem gravé de runes apprises des habitants d'un village oublié, censé améliorer la spiritualité.</Text>
-		</Replace>
-        <!-- Villager Food totem building -->
-        <Replace Tag="LOC_BUILDING_FOOD_TOTEM_NAME" Language="fr_FR">
-			<Text>Totem alimentaire</Text>
-		</Replace>
-        <Replace Tag="LOC_BUILDING_FOOD_TOTEM_DESC" Language="fr_FR">
-			<Text>Un totem gravé de runes apprises des habitants d'un village oublié, censé améliorer les rendements des cultures.</Text>
-		</Replace>
-        <!-- Villager Gold totem building -->
-        <Replace Tag="LOC_BUILDING_GOLD_TOTEM_NAME" Language="fr_FR">
-			<Text>Totem d'or</Text>
-		</Replace>
-        <Replace Tag="LOC_BUILDING_GOLD_TOTEM_DESC" Language="fr_FR">
-			<Text>Un totem gravé de runes apprises des habitants d'un village oublié, censé apporter la fortune.</Text>
-		</Replace>
-        <!-- Villager Production totem building -->
-        <Replace Tag="LOC_BUILDING_PRODUCTION_TOTEM_NAME" Language="fr_FR">
-			<Text>Totem de production</Text>
-		</Replace>
-        <Replace Tag="LOC_BUILDING_PRODUCTION_TOTEM_DESC" Language="fr_FR">
-			<Text>Un totem gravé de runes apprises des habitants d'un village oublié, censé augmenter la productivité.</Text>
-		</Replace>
-        <!-- Villager Science totem building -->
-        <Replace Tag="LOC_BUILDING_SCIENCE_TOTEM_NAME" Language="fr_FR">
-			<Text>Totem scientifique</Text>
-		</Replace>
-        <Replace Tag="LOC_BUILDING_SCIENCE_TOTEM_DESC" Language="fr_FR">
-			<Text>Un totem gravé de runes apprises des habitants d'un village oublié, censé améliorer les connaissances.</Text>
-		</Replace>
-        <!-- new unit abilities -->
-        <Replace Tag="LOC_ABILITY_IMPROVED_HEALING_NAME" Language="fr_FR">
-			<Text>Guérison amélioré</Text>
-		</Replace>
-		<Replace Tag="LOC_ABILITY_IMPROVED_HEALING_DESC" Language="fr_FR">
-			<Text>Guérison amélioré: Taux de guérison +20</Text>
-		</Replace>
-        <Replace Tag="LOC_ABILITY_IMPROVED_MOVEMENT_NAME" Language="fr_FR">
-			<Text>Mouvement amélioré</Text>
-		</Replace>
-		<Replace Tag="LOC_ABILITY_IMPROVED_MOVEMENT_DESC" Language="fr_FR">
-			<Text>Mouvement amélioré: +1 [ICON_Movement] Mouvement</Text>
-		</Replace>
-        <Replace Tag="LOC_ABILITY_IMPROVED_SIGHT_NAME" Language="fr_FR">
-			<Text>Vue améliorée</Text>
-		</Replace>
-		<Replace Tag="LOC_ABILITY_IMPROVED_SIGHT_DESC" Language="fr_FR">
-			<Text>Vue améliorée: +1 vue</Text>
-		</Replace>
-        <Replace Tag="LOC_ABILITY_IMPROVED_STRENGTH_NAME" Language="fr_FR">
-			<Text>Force améliorée</Text>
-		</Replace>
-		<Replace Tag="LOC_ABILITY_IMPROVED_STRENGTH_DESC" Language="fr_FR">
-			<Text>Force améliorée: +10 [ICON_Strength] Force de combat</Text>
-		</Replace>
-        <!-- in-game bonus reward notifications -->
-        <Replace Tag="LOC_BONUS_REWARD_NOTIFICATION_TITLE" Language="fr_FR">
-            <Text>Prime tribal village récompense</Text>
+        <!-- in-game reward notifications -->
+        <Replace Tag="LOC_REWARD_NOTIFICATION_TITLE" Language="fr_FR">
+            <Text>Récompenses reçues de</Text>
         </Replace>
-        <Replace Tag="LOC_BONUS_REWARD_NOTIFICATION_MESSAGE" Language="fr_FR">
-            <Text>Les villageois vous fournissent une récompense supplémentaire de </Text>
+        <Replace Tag="LOC_REWARD_NOTIFICATION_MESSAGE" Language="fr_FR">
+            <Text>Récapitulatif des récompenses reçues:</Text>
+        </Replace>
+        <!-- in-game new goody hut notifications -->
+        <Replace Tag="LOC_NEW_GOODYHUT_NOTIFICATION_TITLE" Language="fr_FR">
+            <Text>Nouveau village tribal révélé</Text>
+        </Replace>
+        <Replace Tag="LOC_NEW_GOODYHUT_NOTIFICATION_MESSAGE" Language="fr_FR">
+            <Text>Les villageois révèlent l'emplacement d'un village tribal jusqu'alors inconnu.</Text>
         </Replace>
         <!-- in-game villager secrets notifications -->
         <Replace Tag="LOC_VILLAGER_SECRETS_NOTIFICATION_TITLE" Language="fr_FR">
-            <Text>Secrets de villagetage déverrouillé</Text>
+            <Text>Secrets de villageois débloqués</Text>
         </Replace>
         <Replace Tag="LOC_VILLAGER_SECRETS_NOTIFICATION_MESSAGE" Language="fr_FR">
             <Text>Les villageois vous enseignent des connaissances architecturales oubliées.</Text>
@@ -100,168 +37,306 @@
             <Text>Villageois hostiles</Text>
         </Replace>
         <Replace Tag="LOC_HOSTILE_VILLAGERS_UNIT_NOTIFICATION_MESSAGE_1" Language="fr_FR">
-            <Text>Les villageois en colère ont organisé en une hostile [ICON_Unit]</Text>
+            <Text>Les villageois en colère se sont organisés en un groupe hostile [ICON_Unit]</Text>
         </Replace>
         <Replace Tag="LOC_HOSTILE_VILLAGERS_UNIT_NOTIFICATION_MESSAGE_2" Language="fr_FR">
-            <Text>Dans un endroit à proximité!</Text>
+            <Text>dans un endroit proche!</Text>
         </Replace>
         <Replace Tag="LOC_HOSTILE_VILLAGERS_CAMP_NOTIFICATION_MESSAGE" Language="fr_FR">
-            <Text>Les villageois extrêmement hostiles ont créé un nouvel avant-poste barbare [ICON_Barbarian] dans un endroit à proximité!</Text>
+            <Text>Des villageois hostiles ont établi un nouvel [ICON Barbarian] avant-poste barbare à proximité!</Text>
         </Replace>
-        <!-- new goody hut reward descriptions : hostiles-type -->
-        <Replace Tag="LOC_GOODYHUT_HOSTILE_VILLAGERS_DESCRIPTION" Language="fr_FR">
-            <Text>[COLOR_RED] Les villageois hostiles apparaissent! [ENDCOLOR]</Text>
+        <!-- Villager Amenities totem building -->
+        <Replace Tag="LOC_BUILDING_AMENITIES_TOTEM_NAME" Language="fr_FR">
+			<Text>Totem des Commodités</Text>
+		</Replace>
+        <Replace Tag="LOC_BUILDING_AMENITIES_TOTEM_DESC" Language="fr_FR">
+			<Text>Un totem gravé de runes apprises des habitants d'un village oublié, censées accroître le bonheur.</Text>
+		</Replace>
+        <!-- Villager Culture totem building -->
+        <Replace Tag="LOC_BUILDING_CULTURE_TOTEM_NAME" Language="fr_FR">
+			<Text>Totem Culturel</Text>
+		</Replace>
+        <Replace Tag="LOC_BUILDING_CULTURE_TOTEM_DESC" Language="fr_FR">
+			<Text>Un totem gravé de runes apprises des habitants d'un village oublié, censé promouvoir le sens du devoir civique.</Text>
+		</Replace>
+        <!-- Villager Faith totem building -->
+        <Replace Tag="LOC_BUILDING_FAITH_TOTEM_NAME" Language="fr_FR">
+			<Text>Totem de la Foi</Text>
+		</Replace>
+        <Replace Tag="LOC_BUILDING_FAITH_TOTEM_DESC" Language="fr_FR">
+			<Text>Un totem gravé de runes apprises des habitants d'un village oublié, censées renforcer la spiritualité.</Text>
+		</Replace>
+        <!-- Villager Food totem building -->
+        <Replace Tag="LOC_BUILDING_FOOD_TOTEM_NAME" Language="fr_FR">
+			<Text>Totem Alimentaire</Text>
+		</Replace>
+        <Replace Tag="LOC_BUILDING_FOOD_TOTEM_DESC" Language="fr_FR">
+			<Text>Un totem gravé de runes apprises des habitants d'un village oublié, censées améliorer les rendements des cultures.</Text>
+		</Replace>
+        <!-- Villager Gold totem building -->
+        <Replace Tag="LOC_BUILDING_GOLD_TOTEM_NAME" Language="fr_FR">
+			<Text>Totem d'Or</Text>
+		</Replace>
+        <Replace Tag="LOC_BUILDING_GOLD_TOTEM_DESC" Language="fr_FR">
+			<Text>Un totem gravé de runes apprises des habitants d'un village oublié, censées apporter la fortune.</Text>
+		</Replace>
+        <!-- Villager Production totem building -->
+        <Replace Tag="LOC_BUILDING_PRODUCTION_TOTEM_NAME" Language="fr_FR">
+			<Text>Totem de Fabrication</Text>
+		</Replace>
+        <Replace Tag="LOC_BUILDING_PRODUCTION_TOTEM_DESC" Language="fr_FR">
+			<Text>Un totem gravé de runes apprises des habitants d'un village oublié, censées augmenter la productivité.</Text>
+		</Replace>
+        <!-- Villager Science totem building -->
+        <Replace Tag="LOC_BUILDING_SCIENCE_TOTEM_NAME" Language="fr_FR">
+			<Text>Totem Scientifique</Text>
+		</Replace>
+        <Replace Tag="LOC_BUILDING_SCIENCE_TOTEM_DESC" Language="fr_FR">
+			<Text>Un totem gravé de runes apprises des habitants d'un village oublié, censées améliorer les connaissances.</Text>
+		</Replace>
+        <!-- new unit abilities -->
+        <Replace Tag="LOC_ABILITY_IMPROVED_SIGHT_NAME" Language="fr_FR">
+			<Text>Vue Améliorée</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_IMPROVED_SIGHT_DESC" Language="fr_FR">
+			<Text>+1 [ICON_VisTopSecret] Vue</Text>
+		</Replace>
+        <Replace Tag="LOC_ABILITY_IMPROVED_HEALING_NAME" Language="fr_FR">
+			<Text>Guérison Améliorée</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_IMPROVED_HEALING_DESC" Language="fr_FR">
+			<Text>+20 [ICON_Damaged] Guérison Par Tour</Text>
+		</Replace>
+        <Replace Tag="LOC_ABILITY_IMPROVED_MOVEMENT_NAME" Language="fr_FR">
+			<Text>Mouvement Amélioré</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_IMPROVED_MOVEMENT_DESC" Language="fr_FR">
+			<Text>+1 [ICON_Movement] Mouvement</Text>
+		</Replace>
+        <Replace Tag="LOC_ABILITY_IMPROVED_STRENGTH_NAME" Language="fr_FR">
+			<Text>Force Améliorée</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_IMPROVED_STRENGTH_DESC" Language="fr_FR">
+			<Text>+10 [ICON_Strength] Force de Combat</Text>
+		</Replace>
+       <!-- new goody hut reward descriptions : abilities-type -->
+        <Replace Tag="LOC_GOODYHUT_IMPROVED_SIGHT_DESCRIPTION" Language="fr_FR">
+            <Text>+1 [ICON_VisTopSecret] Vue</Text>
         </Replace>
-        <!-- new goody hut reward descriptions : secrets-type -->
-        <Replace Tag="LOC_GOODYHUT_VILLAGER_SECRETS_DESCRIPTION" Language="fr_FR">
-            <Text>Connaissances cachées révélées</Text>
+        <Replace Tag="LOC_GOODYHUT_IMPROVED_HEALING_DESCRIPTION" Language="fr_FR">
+            <Text>+20 [ICON_Damaged] Guérison Par Tour</Text>
         </Replace>
-        <!-- replacement goody hut reward description : culture-type : free relic (now faith-type) -->
-        <Replace Tag="LOC_GOODYHUT_CULTURE_RELIC_DESCRIPTION" Language="fr_FR">
-			<Text>Une relique [ICON_GreatWork_Relic] attribué</Text>
-		</Replace>
-        <!-- new goody hut reward descriptions : envoys-type -->
-		<Replace Tag="LOC_GOODYHUT_ENVOYS_GRANT_ONE_DESCRIPTION" Language="fr_FR">
-			<Text>Un envoyé [ICON_Envoy]</Text>
-		</Replace>
-        <Replace Tag="LOC_GOODYHUT_ENVOYS_GRANT_TWO_DESCRIPTION" Language="fr_FR">
-			<Text>Deux envoyés [ICON_Envoy]</Text>
-		</Replace>
-        <Replace Tag="LOC_GOODYHUT_ENVOYS_GRANT_THREE_DESCRIPTION" Language="fr_FR">
-			<Text>Trois envoyés [ICON_Envoy]</Text>
-		</Replace>
-        <Replace Tag="LOC_GOODYHUT_ENVOYS_GRANT_FOUR_DESCRIPTION" Language="fr_FR">
-			<Text>Quatre envoyés [ICON_Envoy]</Text>
-		</Replace>
-        <!-- new goody hut reward descriptions : culture-type -->
-        <Replace Tag="LOC_GOODYHUT_CULTURE_ONE_CIVIC_DESCRIPTION" Language="fr_FR">
-            <Text>[COLOR_FLOAT_CULTURE] UN CIVIQUE GRATUIT [ENDCOLOR]</Text>
+        <Replace Tag="LOC_GOODYHUT_IMPROVED_MOVEMENT_DESCRIPTION" Language="fr_FR">
+            <Text>+1 [ICON_Movement] Mouvement</Text>
         </Replace>
-        <Replace Tag="LOC_GOODYHUT_CULTURE_TWO_CIVICS_DESCRIPTION" Language="fr_FR">
-            <Text>[COLOR_FLOAT_CULTURE] Deux civiques libres [ENDCOLOR]</Text>
+        <Replace Tag="LOC_GOODYHUT_IMPROVED_STRENGTH_DESCRIPTION" Language="fr_FR">
+            <Text>+10 [ICON_Strength] Force de Combat</Text>
+        </Replace>
+        <!-- new goody hut reward descriptions : civics-type -->
+        <Replace Tag="LOC_GOODYHUT_CULTURE_ONE_CIVIC_BOOST_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_FLOAT_CULTURE]One [ICON_CivicBoosted] Boost Civique gratuit[ENDCOLOR]</Text>
         </Replace>
         <Replace Tag="LOC_GOODYHUT_CULTURE_TWO_CIVIC_BOOSTS_DESCRIPTION" Language="fr_FR">
-            <Text>[COLOR_FLOAT_CULTURE] Deux libres [ICON_CivicBoosted] Civic Boosts [ENDCOLOR]</Text>
+            <Text>[COLOR_FLOAT_CULTURE]Two [ICON_CivicBoosted] Boosts Civiques gratuits[ENDCOLOR]</Text>
         </Replace>
-        <Replace Tag="LOC_GOODYHUT_CULTURE_ONE_CIVIC_BOOST_DESCRIPTION" Language="fr_FR">
-            <Text>[COLOR_FLOAT_CULTURE] UN GRATURE [ICON_CivicBoosted] Boost Civic [ENDCOLOR]</Text>
+        <Replace Tag="LOC_GOODYHUT_CULTURE_ONE_CIVIC_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_FLOAT_CULTURE]One Civic gratuit[ENDCOLOR]</Text>
         </Replace>
+        <Replace Tag="LOC_GOODYHUT_CULTURE_TWO_CIVICS_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_FLOAT_CULTURE]Two Civics gratuits[ENDCOLOR]</Text>
+        </Replace>
+        <!-- new goody hut reward descriptions : culture-type -->
+        <Replace Tag="LOC_GOODYHUT_SMALL_CULTURE_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_FLOAT_CULTURE]+5 [ICON_Culture][ENDCOLOR]</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_MEDIUM_CULTURE_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_FLOAT_CULTURE]+10 [ICON_Culture][ENDCOLOR]</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_LARGE_CULTURE_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_FLOAT_CULTURE]+15 [ICON_Culture][ENDCOLOR]</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_HUGE_CULTURE_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_FLOAT_CULTURE]+25 [ICON_Culture][ENDCOLOR]</Text>
+        </Replace>
+        <!-- new goody hut reward descriptions : envoys-type -->
+		<Replace Tag="LOC_GOODYHUT_ENVOYS_GRANT_ONE_DESCRIPTION" Language="fr_FR">
+			<Text>Un [ICON_Envoy] Envoyé</Text>
+		</Replace>
+        <Replace Tag="LOC_GOODYHUT_ENVOYS_GRANT_TWO_DESCRIPTION" Language="fr_FR">
+			<Text>Deux [ICON_Envoy] Envoyés</Text>
+		</Replace>
+        <Replace Tag="LOC_GOODYHUT_ENVOYS_GRANT_THREE_DESCRIPTION" Language="fr_FR">
+			<Text>Trois [ICON_Envoy] Envoyés</Text>
+		</Replace>
+        <Replace Tag="LOC_GOODYHUT_ENVOYS_GRANT_FOUR_DESCRIPTION" Language="fr_FR">
+			<Text>Quatre [ICON_Envoy] Envoyés</Text>
+		</Replace>
         <!-- new goody hut reward descriptions : faith-type -->
+        <Replace Tag="LOC_GOODYHUT_SMALL_FAITH_DESCRIPTION" Language="fr_FR">
+			<Text>+20 [ICON_Faith]</Text>
+		</Replace>
+        <Replace Tag="LOC_GOODYHUT_MEDIUM_FAITH_DESCRIPTION" Language="fr_FR">
+			<Text>+60 [ICON_Faith]</Text>
+		</Replace>
         <Replace Tag="LOC_GOODYHUT_LARGE_FAITH_DESCRIPTION" Language="fr_FR">
 			<Text>+100 [ICON_Faith]</Text>
 		</Replace>
-		<Replace Tag="LOC_GOODYHUT_MEDIUM_FAITH_DESCRIPTION" Language="fr_FR">
-			<Text>+60 [ICON_Faith]</Text>
-		</Replace>
-		<Replace Tag="LOC_GOODYHUT_SMALL_FAITH_DESCRIPTION" Language="fr_FR">
-			<Text>+20 [ICON_Faith]</Text>
+        <Replace Tag="LOC_GOODYHUT_CULTURE_RELIC_DESCRIPTION" Language="fr_FR">
+			<Text>Un [ICON_GreatWork_Relic] Relique gratuit</Text>
 		</Replace>
         <!-- new goody hut reward descriptions : gold-type -->
-        <Replace Tag="LOC_GOODYHUT_ADD_TRADE_ROUTE_DESCRIPTION" Language="fr_FR">
-            <Text>[COLOR_FLOAT_GOLD] Une [ICON_TradeRouteLarge] Route commerciale supplémentaire [ENDCOLOR]</Text>
-        </Replace>
+        <Replace Tag="LOC_GOODYHUT_SMALL_GOLD_DESCRIPTION" Language="fr_FR">
+			<Text>[COLOR_FLOAT_GOLD]+40 [ICON_Gold][ENDCOLOR]</Text>
+		</Replace>
+        <Replace Tag="LOC_GOODYHUT_MEDIUM_GOLD_DESCRIPTION" Language="fr_FR">
+			<Text>[COLOR_FLOAT_GOLD]+80 [ICON_Gold][ENDCOLOR]</Text>
+		</Replace>
         <Replace Tag="LOC_GOODYHUT_LARGE_GOLD_DESCRIPTION" Language="fr_FR">
-			<Text>[COLOR_FLOAT_GOLD] +120 [ICON_Gold] [ENDCOLOR]</Text>
+			<Text>[COLOR_FLOAT_GOLD]+120 [ICON_Gold][ENDCOLOR]</Text>
 		</Replace>
-		<Replace Tag="LOC_GOODYHUT_MEDIUM_GOLD_DESCRIPTION" Language="fr_FR">
-			<Text>[COLOR_FLOAT_GOLD] +80 [ICON_Gold] [ENDCOLOR]</Text>
+        <Replace Tag="LOC_GOODYHUT_ADD_TRADE_ROUTE_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_FLOAT_GOLD]+1 [ICON_TradeRoute] Route Commerciale gratuite[ENDCOLOR]</Text>
+        </Replace>
+        <!-- new goody hut reward descriptions : goodyhut-type -->
+        <Replace Tag="LOC_GOODYHUT_GOODYHUTS_PLACE_ONE_DESCRIPTION" Language="fr_FR">
+			<Text>Un nouveau village tribal!</Text>
 		</Replace>
-		<Replace Tag="LOC_GOODYHUT_SMALL_GOLD_DESCRIPTION" Language="fr_FR">
-			<Text>[COLOR_FLOAT_GOLD] +40 [ICON_Gold] [ENDCOLOR]</Text>
+        <Replace Tag="LOC_GOODYHUT_GOODYHUTS_PLACE_TWO_DESCRIPTION" Language="fr_FR">
+			<Text>Deux nouveaux villages tribaux!</Text>
 		</Replace>
-        <!-- replacement goody hut reward description : military-type : grant recon unit -->
-        <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_UNIT_DESCRIPTION" Language="fr_FR">
-			<Text>[COLOR_FLOAT_MILITARY] UNITÉ UN RECON [ENDCOLOR]</Text>
+        <Replace Tag="LOC_GOODYHUT_GOODYHUTS_PLACE_THREE_DESCRIPTION" Language="fr_FR">
+			<Text>Trois nouveaux villages tribaux!</Text>
 		</Replace>
+        <Replace Tag="LOC_GOODYHUT_GOODYHUTS_PLACE_FOUR_DESCRIPTION" Language="fr_FR">
+			<Text>Quatre nouveaux villages tribaux!</Text>
+		</Replace>
+         <!-- new goody hut reward descriptions : hostiles-type -->
+        <Replace Tag="LOC_GOODYHUT_LOW_HOSTILITY_VILLAGERS_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_RED]Des villageois LÉGÈREMENT hostiles apparaissent![ENDCOLOR]</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_MID_HOSTILITY_VILLAGERS_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_RED]Des villageois * MODÉRÉMENT * hostiles apparaissent![ENDCOLOR]</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_HIGH_HOSTILITY_VILLAGERS_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_RED]Des villageois ** TRÈS ** hostiles apparaissent![ENDCOLOR]</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_MAX_HOSTILITY_VILLAGERS_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_RED]Des villageois *** EXTRÊMEMENT *** hostiles apparaissent![ENDCOLOR]</Text>
+        </Replace>
         <!-- new goody hut reward descriptions : military-type -->
+        <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_UNIT_DESCRIPTION" Language="fr_FR">
+			<Text>[COLOR_FLOAT_MILITARY]Une unité de reconnaissance gratuite[ENDCOLOR]</Text>
+		</Replace>
         <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_MELEE_UNIT_DESCRIPTION" Language="fr_FR">
-            <Text>[COLOR_FLOAT_MILITARY] une unité de mêlée [ENDCOLOR]</Text>
+            <Text>[COLOR_FLOAT_MILITARY]Une unité de mêlée gratuite[ENDCOLOR]</Text>
         </Replace>
         <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_RANGED_UNIT_DESCRIPTION" Language="fr_FR">
-            <Text>[COLOR_FLOAT_MILITARY] une unité à distance [ENDCOLOR]</Text>
+            <Text>[COLOR_FLOAT_MILITARY]Une unité à distance gratuite[ENDCOLOR]</Text>
         </Replace>
-        <!-- new goody hut reward descriptions : (anti) cavalry military-type -->
         <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_ANTI_CAVALRY_UNIT_DESCRIPTION" Language="fr_FR">
-            <Text>[COLOR_FLOAT_MILITARY] une unité anti-cavalerie [ENDCOLOR]</Text>
-        </Replace>
-        <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_LIGHT_CAVALRY_UNIT_DESCRIPTION" Language="fr_FR">
-            <Text>[COLOR_FLOAT_MILITARY] Unité de cavalerie légère [ENDCOLOR]</Text>
+            <Text>[COLOR_FLOAT_MILITARY]Une unité de anti-cavalerie gratuite[ENDCOLOR]</Text>
         </Replace>
         <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_HEAVY_CAVALRY_UNIT_DESCRIPTION" Language="fr_FR">
-            <Text>[COLOR_FLOAT_MILITARY] une unité de cavalerie lourde [ENDCOLOR]</Text>
+            <Text>[COLOR_FLOAT_MILITARY]Une unité de cavalerie lourde gratuite[ENDCOLOR]</Text>
         </Replace>
-        <!-- new goody hut reward descriptions : support military-type -->
-        <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_MILITARY_ENGINEER_DESCRIPTION" Language="fr_FR">
-            <Text>[COLOR_FLOAT_MILITARY] Un ingénieur militaire [ENDCOLOR]</Text>
+        <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_LIGHT_CAVALRY_UNIT_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_FLOAT_MILITARY]Une unité de cavalerie légère gratuite[ENDCOLOR]</Text>
         </Replace>
         <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_BATTERING_RAM_DESCRIPTION" Language="fr_FR">
-            <Text>[COLOR_FLOAT_MILITARY] Unité d'assistance [ENDCOLOR]</Text>
+            <Text>[COLOR_FLOAT_MILITARY]Une unité de support gratuite[ENDCOLOR]</Text>
         </Replace>
         <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_CATAPULT_DESCRIPTION" Language="fr_FR">
-            <Text>[COLOR_FLOAT_MILITARY] Unité de siège [ENDCOLOR]</Text>
+            <Text>[COLOR_FLOAT_MILITARY]Une unité de siège gratuite[ENDCOLOR]</Text>
         </Replace>
-        <!-- new goody hut reward descriptions : science-type -->
-        <Replace Tag="LOC_GOODYHUT_SCIENCE_TWO_TECHS_DESCRIPTION" Language="fr_FR">
-            <Text>[COLOR_FLOAT_SCIENCE] Deux technologies gratuites [ENDCOLOR]</Text>
+        <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_MILITARY_ENGINEER_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_FLOAT_MILITARY]Un ingénieur militaire gratuit[ENDCOLOR]</Text>
         </Replace>
-        <Replace Tag="LOC_GOODYHUT_SCIENCE_TWO_TECH_BOOSTS_DESCRIPTION" Language="fr_FR">
-            <Text>[COLOR_FLOAT_SCIENCE] Deux technologie [ICON_TechBoosted] stimulent [ENDCOLOR]</Text>
-        </Replace>
-        <Replace Tag="LOC_GOODYHUT_SCIENCE_ONE_TECH_BOOST_DESCRIPTION" Language="fr_FR">
-            <Text>[COLOR_FLOAT_SCIENCE] UN GRATURE [ICON_TechBoosted] Boost de la technologie [ENDCOLOR]</Text>
-        </Replace>
-        <!-- replacement goody hut reward description : survivors-type : add population -->
-        <Replace Tag="LOC_GOODYHUT_SURVIVORS_ADD_POP_DESCRIPTION" Language="fr_FR">
-			<Text>+1 [ICON_Citizen] Population</Text>
+        <!-- new goody hut reward descriptions : policies-type -->
+        <Replace Tag="LOC_GOODYHUT_POLICIES_ONE_MILITARY_SLOT_DESCRIPTION" Language="fr_FR">
+			<Text>[COLOR_FLOAT_MILITARY]+1 [ICON_Policy] emplacement de politique militaire[ENDCOLOR]</Text>
 		</Replace>
-        <!-- replacement goody hut reward descriptions : survivors-type : grant civilian unit(s) -->
-		<Replace Tag="LOC_GOODYHUT_SURVIVORS_GRANT_BUILDER_DESCRIPTION" Language="fr_FR">
-			<Text>Un constructeur</Text>
+		<Replace Tag="LOC_GOODYHUT_POLICIES_ONE_ECONOMIC_SLOT_DESCRIPTION" Language="fr_FR">
+			<Text>[COLOR_FLOAT_PRODUCTION]+1 [ICON_Policy] emplacement de politique économique[ENDCOLOR]</Text>
 		</Replace>
-        <Replace Tag="LOC_GOODYHUT_SURVIVORS_GRANT_SETTLER_DESCRIPTION" Language="fr_FR">
-			<Text>Un colon</Text>
+        <Replace Tag="LOC_GOODYHUT_POLICIES_ONE_DIPLOMATIC_SLOT_DESCRIPTION" Language="fr_FR">
+			<Text>[COLOR_MEDIUM_GREEN]+1 [ICON_Policy] emplacement de politique diplomatique[ENDCOLOR]</Text>
 		</Replace>
-        <Replace Tag="LOC_GOODYHUT_SURVIVORS_GRANT_TRADER_DESCRIPTION" Language="fr_FR">
-			<Text>Un commerçant</Text>
+        <Replace Tag="LOC_GOODYHUT_POLICIES_ONE_WILDCARD_SLOT_DESCRIPTION" Language="fr_FR">
+			<Text>[COLOR:72,39,111,255]+1 [ICON_Policy] emplacement de politique caractère générique[ENDCOLOR]</Text>
 		</Replace>
         <!-- new goody hut reward descriptions : promotions-type -->
         <Replace Tag="LOC_GOODYHUT_SMALL_EXPERIENCE_DESCRIPTION" Language="fr_FR">
-            <Text>+5 expérience de combat</Text>
+            <Text>+25% expérience de combat au niveau supérieur</Text>
         </Replace>
         <Replace Tag="LOC_GOODYHUT_MEDIUM_EXPERIENCE_DESCRIPTION" Language="fr_FR">
-            <Text>+10 expérience de combat</Text>
+            <Text>+50% expérience de combat au niveau supérieur</Text>
         </Replace>
         <Replace Tag="LOC_GOODYHUT_LARGE_EXPERIENCE_DESCRIPTION" Language="fr_FR">
-            <Text>+15 Expérience de combat</Text>
+            <Text>+75% expérience de combat au niveau supérieur</Text>
         </Replace>
         <Replace Tag="LOC_GOODYHUT_HUGE_EXPERIENCE_DESCRIPTION" Language="fr_FR">
-            <Text>+25 Expérience de combat</Text>
+            <Text>+100% expérience de combat au niveau supérieur</Text>
         </Replace>
-        <!-- new goody hut reward descriptions : abilities-type -->
-        <Replace Tag="LOC_GOODYHUT_IMPROVED_SIGHT_DESCRIPTION" Language="fr_FR">
-            <Text>+1 [ICON_Terrain] vue pour cet appareil</Text>
+         <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_UPGRADE_DESCRIPTION" Language="fr_FR">
+            <Text>Unité "Mise à niveau++"</Text>
         </Replace>
-        <Replace Tag="LOC_GOODYHUT_IMPROVED_HEALING_DESCRIPTION" Language="fr_FR">
-            <Text>Taux de guérison amélioré pour cette unité</Text>
+        <!-- new goody hut reward descriptions : science-type -->
+		<Replace Tag="LOC_GOODYHUT_SMALL_SCIENCE_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_FLOAT_SCIENCE]+5 [ICON_Science][ENDCOLOR]</Text>
         </Replace>
-        <Replace Tag="LOC_GOODYHUT_IMPROVED_MOVEMENT_DESCRIPTION" Language="fr_FR">
-            <Text>+1 [ICON_Movement] Mouvement pour cette unité</Text>
+        <Replace Tag="LOC_GOODYHUT_MEDIUM_SCIENCE_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_FLOAT_SCIENCE]+10 [ICON_Science][ENDCOLOR]</Text>
         </Replace>
-        <Replace Tag="LOC_GOODYHUT_IMPROVED_STRENGTH_DESCRIPTION" Language="fr_FR">
-            <Text>+10 [ICON_Strength] Force de combat de cette unité</Text>
+        <Replace Tag="LOC_GOODYHUT_LARGE_SCIENCE_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_FLOAT_SCIENCE]+15 [ICON_Science][ENDCOLOR]</Text>
         </Replace>
-        <!-- new goody hut reward descriptions : fallback -->
-        <Replace Tag="LOC_GOODYHUT_CULTURE_FALLBACK_DESCRIPTION" Language="fr_FR">
-            <Text>[COLOR_FLOAT_CULTURE]+10 [ICON_Culture] prix de consolation[ENDCOLOR]</Text>
+        <Replace Tag="LOC_GOODYHUT_HUGE_SCIENCE_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_FLOAT_SCIENCE]+25 [ICON_Science][ENDCOLOR]</Text>
         </Replace>
-        <Replace Tag="LOC_GOODYHUT_FAITH_FALLBACK_DESCRIPTION" Language="fr_FR">
-			<Text>+10 [ICON_Faith] prix de consolation</Text>
+        <!-- new goody hut reward descriptions : secrets-type -->
+        <Replace Tag="LOC_GOODYHUT_VILLAGER_SECRETS_AMENITIES_DESCRIPTION" Language="fr_FR">
+            <Text>[ICON_Buildings] Totem des Commodités débloqué ou construit</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_VILLAGER_SECRETS_CULTURE_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_FLOAT_CULTURE][ICON_Buildings] Totem Culturel débloqué ou construit[ENDCOLOR]</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_VILLAGER_SECRETS_FAITH_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_FLOAT_FAITH][ICON_Buildings] Totem de la Foi débloqué ou construit[ENDCOLOR]</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_VILLAGER_SECRETS_FOOD_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_FLOAT_FOOD][ICON_Buildings] Totem Alimentaire débloqué ou construit[ENDCOLOR]</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_VILLAGER_SECRETS_GOLD_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_FLOAT_GOLD][ICON_Buildings] Totem d'Or débloqué ou construit[ENDCOLOR]</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_VILLAGER_SECRETS_PRODUCTION_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_FLOAT_PRODUCTION][ICON_Buildings] Totem de Fabrication débloqué ou construit[ENDCOLOR]</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_VILLAGER_SECRETS_SCIENCE_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_FLOAT_SCIENCE][ICON_Buildings] Totem Scientifique débloqué ou construit[ENDCOLOR]</Text>
+        </Replace>
+        <!-- new goody hut reward descriptions : survivors-type -->
+        <Replace Tag="LOC_GOODYHUT_SURVIVORS_ADD_POP_DESCRIPTION" Language="fr_FR">
+			<Text>+1 [ICON_Citizen] Habitant</Text>
 		</Replace>
-		<Replace Tag="LOC_GOODYHUT_GOLD_FALLBACK_DESCRIPTION" Language="fr_FR">
-			<Text>[COLOR_FLOAT_GOLD]+20 [ICON_Gold] prix de consolation[ENDCOLOR]</Text>
+		<Replace Tag="LOC_GOODYHUT_SURVIVORS_GRANT_BUILDER_DESCRIPTION" Language="fr_FR">
+			<Text>Un Constructeur gratuit</Text>
 		</Replace>
-		<Replace Tag="LOC_GOODYHUT_SCIENCE_FALLBACK_DESCRIPTION" Language="fr_FR">
-			<Text>[COLOR_FLOAT_SCIENCE]+10 [ICON_Science] prix de consolation[ENDCOLOR]</Text>
+        <Replace Tag="LOC_GOODYHUT_SURVIVORS_GRANT_TRADER_DESCRIPTION" Language="fr_FR">
+			<Text>Un Commerçant gratuit</Text>
 		</Replace>
+        <Replace Tag="LOC_GOODYHUT_SURVIVORS_GRANT_SETTLER_DESCRIPTION" Language="fr_FR">
+			<Text>Un Colon gratuit</Text>
+		</Replace>
+        <!-- new goody hut reward descriptions : techs-type -->
+        <Replace Tag="LOC_GOODYHUT_SCIENCE_ONE_TECH_BOOST_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_FLOAT_SCIENCE]Un [ICON_TechBoosted] boost technologique gratuit[ENDCOLOR]</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_SCIENCE_TWO_TECH_BOOSTS_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_FLOAT_SCIENCE]Deus [ICON_TechBoosted] boosts technologiques gratuits[ENDCOLOR]</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_SCIENCE_TWO_TECHS_DESCRIPTION" Language="fr_FR">
+            <Text>[COLOR_FLOAT_SCIENCE]Deux Technologiques gratuites[ENDCOLOR]</Text>
+        </Replace>
     </LocalizedText>
 </GameData>

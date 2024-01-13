@@ -95,55 +95,55 @@
 			<Text>A totem engraved with runes learned from the inhabitants of a forgotten village, believed to enhance knowledge.</Text>
 		</Replace>
         <!-- new unit abilities -->
+        <Replace Tag="LOC_ABILITY_IMPROVED_SIGHT_NAME" Language="en_US">
+			<Text>Enhanced Sight</Text>
+		</Replace>
+		<Replace Tag="LOC_ABILITY_IMPROVED_SIGHT_DESC" Language="en_US">
+			<Text>+1 [ICON_VisTopSecret] Sight</Text>
+		</Replace>
         <Replace Tag="LOC_ABILITY_IMPROVED_HEALING_NAME" Language="en_US">
 			<Text>Enhanced Healing</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_IMPROVED_HEALING_DESC" Language="en_US">
-			<Text>Enhanced Healing: +20 Healing Rate</Text>
+			<Text>+20 [ICON_Damaged] Healing Per Turn</Text>
 		</Replace>
         <Replace Tag="LOC_ABILITY_IMPROVED_MOVEMENT_NAME" Language="en_US">
 			<Text>Enhanced Movement</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_IMPROVED_MOVEMENT_DESC" Language="en_US">
-			<Text>Enhanced Movement: +1 [ICON_Movement] Movement</Text>
-		</Replace>
-        <Replace Tag="LOC_ABILITY_IMPROVED_SIGHT_NAME" Language="en_US">
-			<Text>Enhanced Sight</Text>
-		</Replace>
-		<Replace Tag="LOC_ABILITY_IMPROVED_SIGHT_DESC" Language="en_US">
-			<Text>Enhanced Sight: +1 Sight</Text>
+			<Text>+1 [ICON_Movement] Movement</Text>
 		</Replace>
         <Replace Tag="LOC_ABILITY_IMPROVED_STRENGTH_NAME" Language="en_US">
 			<Text>Enhanced Strength</Text>
 		</Replace>
 		<Replace Tag="LOC_ABILITY_IMPROVED_STRENGTH_DESC" Language="en_US">
-			<Text>Enhanced Strength: +10 [ICON_Strength] Combat Strength</Text>
+			<Text>+10 [ICON_Strength] Combat Strength</Text>
 		</Replace>
        <!-- new goody hut reward descriptions : abilities-type -->
         <Replace Tag="LOC_GOODYHUT_IMPROVED_SIGHT_DESCRIPTION" Language="en_US">
-            <Text>+1 [ICON_Terrain] Sight for this unit</Text>
+            <Text>+1 [ICON_VisTopSecret] Sight</Text>
         </Replace>
         <Replace Tag="LOC_GOODYHUT_IMPROVED_HEALING_DESCRIPTION" Language="en_US">
-            <Text>Improved healing rate for this unit</Text>
+            <Text>+20 [ICON_Damaged] Healing Per Turn</Text>
         </Replace>
         <Replace Tag="LOC_GOODYHUT_IMPROVED_MOVEMENT_DESCRIPTION" Language="en_US">
-            <Text>+1 [ICON_Movement] Movement for this unit</Text>
+            <Text>+1 [ICON_Movement] Movement</Text>
         </Replace>
         <Replace Tag="LOC_GOODYHUT_IMPROVED_STRENGTH_DESCRIPTION" Language="en_US">
-            <Text>+10 [ICON_Strength] Combat Strength for this unit</Text>
+            <Text>+10 [ICON_Strength] Combat Strength</Text>
         </Replace>
         <!-- new goody hut reward descriptions : civics-type -->
+        <Replace Tag="LOC_GOODYHUT_CULTURE_ONE_CIVIC_BOOST_DESCRIPTION" Language="en_US">
+            <Text>[COLOR_FLOAT_CULTURE]One free [ICON_CivicBoosted] Civic boost[ENDCOLOR]</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_CULTURE_TWO_CIVIC_BOOSTS_DESCRIPTION" Language="en_US">
+            <Text>[COLOR_FLOAT_CULTURE]Two free [ICON_CivicBoosted] Civic boosts[ENDCOLOR]</Text>
+        </Replace>
         <Replace Tag="LOC_GOODYHUT_CULTURE_ONE_CIVIC_DESCRIPTION" Language="en_US">
             <Text>[COLOR_FLOAT_CULTURE]One free Civic[ENDCOLOR]</Text>
         </Replace>
         <Replace Tag="LOC_GOODYHUT_CULTURE_TWO_CIVICS_DESCRIPTION" Language="en_US">
             <Text>[COLOR_FLOAT_CULTURE]Two free Civics[ENDCOLOR]</Text>
-        </Replace>
-        <Replace Tag="LOC_GOODYHUT_CULTURE_TWO_CIVIC_BOOSTS_DESCRIPTION" Language="en_US">
-            <Text>[COLOR_FLOAT_CULTURE]Two free [ICON_CivicBoosted] Civic boosts[ENDCOLOR]</Text>
-        </Replace>
-        <Replace Tag="LOC_GOODYHUT_CULTURE_ONE_CIVIC_BOOST_DESCRIPTION" Language="en_US">
-            <Text>[COLOR_FLOAT_CULTURE]One free [ICON_CivicBoosted] Civic boost[ENDCOLOR]</Text>
         </Replace>
         <!-- new goody hut reward descriptions : culture-type -->
         <Replace Tag="LOC_GOODYHUT_SMALL_CULTURE_DESCRIPTION" Language="en_US">
@@ -172,31 +172,31 @@
 			<Text>Four [ICON_Envoy] Envoys</Text>
 		</Replace>
         <!-- new goody hut reward descriptions : faith-type -->
-        <Replace Tag="LOC_GOODYHUT_CULTURE_RELIC_DESCRIPTION" Language="en_US">
-			<Text>One [ICON_GreatWork_Relic] relic awarded</Text>
+        <Replace Tag="LOC_GOODYHUT_SMALL_FAITH_DESCRIPTION" Language="en_US">
+			<Text>+20 [ICON_Faith]</Text>
+		</Replace>
+        <Replace Tag="LOC_GOODYHUT_MEDIUM_FAITH_DESCRIPTION" Language="en_US">
+			<Text>+60 [ICON_Faith]</Text>
 		</Replace>
         <Replace Tag="LOC_GOODYHUT_LARGE_FAITH_DESCRIPTION" Language="en_US">
 			<Text>+100 [ICON_Faith]</Text>
 		</Replace>
-		<Replace Tag="LOC_GOODYHUT_MEDIUM_FAITH_DESCRIPTION" Language="en_US">
-			<Text>+60 [ICON_Faith]</Text>
-		</Replace>
-		<Replace Tag="LOC_GOODYHUT_SMALL_FAITH_DESCRIPTION" Language="en_US">
-			<Text>+20 [ICON_Faith]</Text>
+        <Replace Tag="LOC_GOODYHUT_CULTURE_RELIC_DESCRIPTION" Language="en_US">
+			<Text>One free [ICON_GreatWork_Relic] Relic</Text>
 		</Replace>
         <!-- new goody hut reward descriptions : gold-type -->
-        <Replace Tag="LOC_GOODYHUT_ADD_TRADE_ROUTE_DESCRIPTION" Language="en_US">
-            <Text>[COLOR_FLOAT_GOLD]One [ICON_TradeRouteLarge] additional trade route[ENDCOLOR]</Text>
-        </Replace>
+        <Replace Tag="LOC_GOODYHUT_SMALL_GOLD_DESCRIPTION" Language="en_US">
+			<Text>[COLOR_FLOAT_GOLD]+40 [ICON_Gold][ENDCOLOR]</Text>
+		</Replace>
+        <Replace Tag="LOC_GOODYHUT_MEDIUM_GOLD_DESCRIPTION" Language="en_US">
+			<Text>[COLOR_FLOAT_GOLD]+80 [ICON_Gold][ENDCOLOR]</Text>
+		</Replace>
         <Replace Tag="LOC_GOODYHUT_LARGE_GOLD_DESCRIPTION" Language="en_US">
 			<Text>[COLOR_FLOAT_GOLD]+120 [ICON_Gold][ENDCOLOR]</Text>
 		</Replace>
-		<Replace Tag="LOC_GOODYHUT_MEDIUM_GOLD_DESCRIPTION" Language="en_US">
-			<Text>[COLOR_FLOAT_GOLD]+80 [ICON_Gold][ENDCOLOR]</Text>
-		</Replace>
-		<Replace Tag="LOC_GOODYHUT_SMALL_GOLD_DESCRIPTION" Language="en_US">
-			<Text>[COLOR_FLOAT_GOLD]+40 [ICON_Gold][ENDCOLOR]</Text>
-		</Replace>
+        <Replace Tag="LOC_GOODYHUT_ADD_TRADE_ROUTE_DESCRIPTION" Language="en_US">
+            <Text>[COLOR_FLOAT_GOLD]+1 [ICON_TradeRouteLarge] Trade Route[ENDCOLOR]</Text>
+        </Replace>
         <!-- new goody hut reward descriptions : goodyhut-type -->
         <Replace Tag="LOC_GOODYHUT_GOODYHUTS_PLACE_ONE_DESCRIPTION" Language="en_US">
 			<Text>One new tribal village!</Text>
@@ -225,44 +225,44 @@
         </Replace>
         <!-- new goody hut reward descriptions : military-type -->
         <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_UNIT_DESCRIPTION" Language="en_US">
-			<Text>[COLOR_FLOAT_MILITARY]One recon unit[ENDCOLOR]</Text>
+			<Text>[COLOR_FLOAT_MILITARY]One free recon unit[ENDCOLOR]</Text>
 		</Replace>
         <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_MELEE_UNIT_DESCRIPTION" Language="en_US">
-            <Text>[COLOR_FLOAT_MILITARY]One melee unit[ENDCOLOR]</Text>
+            <Text>[COLOR_FLOAT_MILITARY]One free melee unit[ENDCOLOR]</Text>
         </Replace>
         <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_RANGED_UNIT_DESCRIPTION" Language="en_US">
-            <Text>[COLOR_FLOAT_MILITARY]One ranged unit[ENDCOLOR]</Text>
+            <Text>[COLOR_FLOAT_MILITARY]One free ranged unit[ENDCOLOR]</Text>
         </Replace>
         <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_ANTI_CAVALRY_UNIT_DESCRIPTION" Language="en_US">
-            <Text>[COLOR_FLOAT_MILITARY]One anti-cavalry unit[ENDCOLOR]</Text>
-        </Replace>
-        <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_LIGHT_CAVALRY_UNIT_DESCRIPTION" Language="en_US">
-            <Text>[COLOR_FLOAT_MILITARY]One light cavalry unit[ENDCOLOR]</Text>
+            <Text>[COLOR_FLOAT_MILITARY]One free anti-cavalry unit[ENDCOLOR]</Text>
         </Replace>
         <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_HEAVY_CAVALRY_UNIT_DESCRIPTION" Language="en_US">
-            <Text>[COLOR_FLOAT_MILITARY]One heavy cavalry unit[ENDCOLOR]</Text>
+            <Text>[COLOR_FLOAT_MILITARY]One free heavy cavalry unit[ENDCOLOR]</Text>
         </Replace>
-        <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_MILITARY_ENGINEER_DESCRIPTION" Language="en_US">
-            <Text>[COLOR_FLOAT_MILITARY]One Military Engineer[ENDCOLOR]</Text>
+        <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_LIGHT_CAVALRY_UNIT_DESCRIPTION" Language="en_US">
+            <Text>[COLOR_FLOAT_MILITARY]One free light cavalry unit[ENDCOLOR]</Text>
         </Replace>
         <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_BATTERING_RAM_DESCRIPTION" Language="en_US">
-            <Text>[COLOR_FLOAT_MILITARY]One support unit[ENDCOLOR]</Text>
+            <Text>[COLOR_FLOAT_MILITARY]One free support unit[ENDCOLOR]</Text>
         </Replace>
         <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_CATAPULT_DESCRIPTION" Language="en_US">
-            <Text>[COLOR_FLOAT_MILITARY]One siege unit[ENDCOLOR]</Text>
+            <Text>[COLOR_FLOAT_MILITARY]One free siege unit[ENDCOLOR]</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_MILITARY_ENGINEER_DESCRIPTION" Language="en_US">
+            <Text>[COLOR_FLOAT_MILITARY]One free Military Engineer[ENDCOLOR]</Text>
         </Replace>
         <!-- new goody hut reward descriptions : policies-type -->
         <Replace Tag="LOC_GOODYHUT_POLICIES_ONE_MILITARY_SLOT_DESCRIPTION" Language="en_US">
-			<Text>[COLOR_FLOAT_MILITARY]One [ICON_Policy] Military Policy slot[ENDCOLOR]</Text>
+			<Text>[COLOR_FLOAT_MILITARY]+1 [ICON_Policy] Military Policy Slot[ENDCOLOR]</Text>
 		</Replace>
 		<Replace Tag="LOC_GOODYHUT_POLICIES_ONE_ECONOMIC_SLOT_DESCRIPTION" Language="en_US">
-			<Text>[COLOR_FLOAT_PRODUCTION]One [ICON_Policy] Economic Policy slot[ENDCOLOR]</Text>
+			<Text>[COLOR_FLOAT_PRODUCTION]+1 [ICON_Policy] Economic Policy Slot[ENDCOLOR]</Text>
 		</Replace>
         <Replace Tag="LOC_GOODYHUT_POLICIES_ONE_DIPLOMATIC_SLOT_DESCRIPTION" Language="en_US">
-			<Text>[COLOR_MEDIUM_GREEN]One [ICON_Policy] Diplomatic Policy slot[ENDCOLOR]</Text>
+			<Text>[COLOR_MEDIUM_GREEN]+1 [ICON_Policy] Diplomatic Policy Slot[ENDCOLOR]</Text>
 		</Replace>
         <Replace Tag="LOC_GOODYHUT_POLICIES_ONE_WILDCARD_SLOT_DESCRIPTION" Language="en_US">
-			<Text>[COLOR:72,39,111,255]One [ICON_Policy] Wildcard Policy slot[ENDCOLOR]</Text>
+			<Text>[COLOR:72,39,111,255]+1 [ICON_Policy] Wildcard Policy Slot[ENDCOLOR]</Text>
 		</Replace>
         <!-- new goody hut reward descriptions : promotions-type -->
         <Replace Tag="LOC_GOODYHUT_SMALL_EXPERIENCE_DESCRIPTION" Language="en_US">
@@ -276,6 +276,9 @@
         </Replace>
         <Replace Tag="LOC_GOODYHUT_HUGE_EXPERIENCE_DESCRIPTION" Language="en_US">
             <Text>+100% combat experience to next level</Text>
+        </Replace>
+        <Replace Tag="LOC_GOODYHUT_MILITARY_GRANT_UPGRADE_DESCRIPTION" Language="en_US">
+            <Text>Unit "Upgrade++"</Text>
         </Replace>
         <!-- new goody hut reward descriptions : science-type -->
 		<Replace Tag="LOC_GOODYHUT_SMALL_SCIENCE_DESCRIPTION" Language="en_US">
@@ -317,31 +320,23 @@
 			<Text>+1 [ICON_Citizen] Population</Text>
 		</Replace>
 		<Replace Tag="LOC_GOODYHUT_SURVIVORS_GRANT_BUILDER_DESCRIPTION" Language="en_US">
-			<Text>One Builder</Text>
-		</Replace>
-        <Replace Tag="LOC_GOODYHUT_SURVIVORS_GRANT_SETTLER_DESCRIPTION" Language="en_US">
-			<Text>One Settler</Text>
+			<Text>One free Builder</Text>
 		</Replace>
         <Replace Tag="LOC_GOODYHUT_SURVIVORS_GRANT_TRADER_DESCRIPTION" Language="en_US">
-			<Text>One Trader</Text>
+			<Text>One free Trader</Text>
+		</Replace>
+        <Replace Tag="LOC_GOODYHUT_SURVIVORS_GRANT_SETTLER_DESCRIPTION" Language="en_US">
+			<Text>One free Settler</Text>
 		</Replace>
         <!-- new goody hut reward descriptions : techs-type -->
-        <Replace Tag="LOC_GOODYHUT_SCIENCE_TWO_TECHS_DESCRIPTION" Language="en_US">
-            <Text>[COLOR_FLOAT_SCIENCE]Two free Technologies[ENDCOLOR]</Text>
+        <Replace Tag="LOC_GOODYHUT_SCIENCE_ONE_TECH_BOOST_DESCRIPTION" Language="en_US">
+            <Text>[COLOR_FLOAT_SCIENCE]One free [ICON_TechBoosted] Technology boost[ENDCOLOR]</Text>
         </Replace>
         <Replace Tag="LOC_GOODYHUT_SCIENCE_TWO_TECH_BOOSTS_DESCRIPTION" Language="en_US">
             <Text>[COLOR_FLOAT_SCIENCE]Two free [ICON_TechBoosted] Technology boosts[ENDCOLOR]</Text>
         </Replace>
-        <Replace Tag="LOC_GOODYHUT_SCIENCE_ONE_TECH_BOOST_DESCRIPTION" Language="en_US">
-            <Text>[COLOR_FLOAT_SCIENCE]One free [ICON_TechBoosted] Technology boost[ENDCOLOR]</Text>
+        <Replace Tag="LOC_GOODYHUT_SCIENCE_TWO_TECHS_DESCRIPTION" Language="en_US">
+            <Text>[COLOR_FLOAT_SCIENCE]Two free Technologies[ENDCOLOR]</Text>
         </Replace>
-        <!--  -->
-        <!-- <Replace Tag="LOC_GOODYHUT_HOSTILE_VILLAGERS_DESCRIPTION" Language="en_US">
-            <Text>[COLOR_RED]Hostile villagers appear![ENDCOLOR]</Text>
-        </Replace> -->
-        <!--  -->
-        <!-- <Replace Tag="LOC_GOODYHUT_VILLAGER_SECRETS_DESCRIPTION" Language="en_US">
-            <Text>Hidden knowledge revealed</Text>
-        </Replace> -->
     </LocalizedText>
 </GameData>

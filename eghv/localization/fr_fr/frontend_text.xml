@@ -549,7 +549,7 @@
             <Text>Récompense de type promotions de niveau 4 (légendaire).[NEWLINE][NEWLINE]Toute unité valide qui reçoit cette récompense gagnera cent pour cent (100%) des points d'expérience nécessaires pour sa prochaine [ICON_Promotion] promotion.[NEWLINE][NEWLINE]Cette récompense nécessite la découverte du village par une ou plusieurs unités, et ne sera pas fournie lorsque la méthode de découverte est l'expansion des frontières.</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_UPGRADE_NAME" Language="fr_FR">
-            <Text>Upgrade de l'unité / Promotion</Text>
+            <Text>Unité "Mise à niveau++"</Text>
         </Replace>
         <Replace Tag="LOC_EGHV_GOODYHUT_MILITARY_GRANT_UPGRADE_DESC" Language="fr_FR">
             <Text>Récompense de type promotions de niveau 4 (légendaire).[NEWLINE][NEWLINE]Toute unité valide qui reçoit cette récompense sera « améliorée » vers l'unité suivante de sa classe de promotion [COLOR_GREEN]SI[ENDCOLOR] elle dispose d'un chemin de mise à niveau valide.[NEWLINE][NEWLINE]Toute unité « améliorée » conservera toutes les capacités qu'elle possédait auparavant et tout nom de vétéran qui lui avait été précédemment attribué.[NEWLINE][NEWLINE]Toute unité « améliorée » gagnera cent pour cent (100 %) des points d'expérience nécessaires pour obtenir sa première promotion; toutes les promotions précédemment gagnées seront stockées lorsque l'unité sera « mise à niveau » et pourront être réappliquées.[NEWLINE][NEWLINE]Cette récompense nécessite la découverte du village par une ou plusieurs unités, et ne sera pas fournie lorsque la méthode de découverte est l'expansion des frontières.</Text>

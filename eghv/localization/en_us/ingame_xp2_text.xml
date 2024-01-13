@@ -12,8 +12,12 @@
 			<Text>Diplomacy Totem</Text>
 		</Replace>
         <Replace Tag="LOC_BUILDING_FAVOR_TOTEM_DESC" Language="en_US">
-			<Text>A totem engraved with runes learned from the inhabitants of a forgotten village, believed to promote proper conflict resolution.[NEWLINE][NEWLINE]+4 [ICON_Favor] Diplomatic Favor</Text>
+			<Text>A totem engraved with runes learned from the inhabitants of a forgotten village, believed to promote proper conflict resolution.[NEWLINE][NEWLINE]+4 [ICON_Favor]</Text>
 		</Replace>
+		<!-- new goody hut reward descriptions : secrets-type -->
+		<Replace Tag="LOC_GOODYHUT_VILLAGER_SECRETS_FAVOR_DESCRIPTION" Language="en_US">
+            <Text>[COLOR_FLOAT_DIPLOMATIC][ICON_Buildings] Diplomacy Totem unlocked or built[ENDCOLOR]</Text>
+        </Replace>
 		<!-- new goody hut reward descriptions : diplomacy-type -->
 		<Replace Tag="LOC_GOODYHUT_SMALL_FAVOR_DESCRIPTION" Language="en_US">
 			<Text>[COLOR_FLOAT_DIPLOMATIC]+10 [ICON_FAVOR][ENDCOLOR]</Text>
@@ -40,9 +44,5 @@
 		<Replace Tag="LOC_GOODYHUT_HUGE_RESOURCES_DESCRIPTION" Language="en_US">
 			<Text>[COLOR_FLOAT_MILITARY]+50 strategic resources[ENDCOLOR]</Text>
 		</Replace>
-		<!-- new goody hut reward descriptions : secrets-type -->
-		<Replace Tag="LOC_GOODYHUT_VILLAGER_SECRETS_FAVOR_DESCRIPTION" Language="en_US">
-            <Text>[COLOR_FLOAT_DIPLOMATIC][ICON_Buildings] Diplomacy Totem unlocked or built[ENDCOLOR]</Text>
-        </Replace>
 	</LocalizedText>
 </GameData>
