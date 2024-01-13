@@ -254,7 +254,7 @@ function InitGoodyHutFrequencySlider()
 		end
 	end
 
-	Controls.GoodyHutFrequencyNumber:SetText(currentValue);
+	Controls.GoodyHutFrequencyNumber:SetText(currentValue .. "%");
 	Controls.GoodyHutFrequencySlider:SetNumSteps(maximumValue / minimumValue);
 	Controls.GoodyHutFrequencySlider:SetStep(currentValue / minimumValue);
 
@@ -263,12 +263,12 @@ function InitGoodyHutFrequencySlider()
 		local value:number = minimumValue * stepNum;
 			
 		-- This method can get called pretty frequently, try and throttle it.
-		if(currentValue ~= value) then
+		-- if(currentValue ~= value) then
 			GameConfiguration.SetValue("GOODYHUT_FREQUENCY", value);
-			Controls.GoodyHutFrequencyNumber:SetText(value);
+			Controls.GoodyHutFrequencyNumber:SetText(value .. "%");
 			Network.BroadcastGameConfig();
 			-- RefreshCountWarning();
-		end
+		-- end
 	end);
 
 end
