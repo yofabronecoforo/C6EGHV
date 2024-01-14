@@ -1,8 +1,6 @@
 # Enhanced Goodies and Hostile Villagers (EGHV) for Civilization VI
 A mod which enables additional Frontend and Ingame settings related to Tribal Village (Goody Hut) rewards.
 
-The above image, and all other image(s) reflecting game content herein, reflect an Advanced Setup with Gathering Storm rules; actual configuration options will vary with different rules and/or available additional content. Icons may not be accurate; the correct ones are shown in the reward tables below.
-
 # Overview
 EGHV performs a fairly comprehensive overhaul of and extension to the Goody Hut reward system. Many new Frontend options relating to Goody Huts are available within the game's single-player Advanced Setup and multi-player Host Game, including:
 - A custom picker for selecting exactly which rewards, if any, will have a chance of being provided by a Goody Hut ingame. As with the built-in pickers for City-States and Natural Wonders, undesired rewards can be excluded.
@@ -66,7 +64,7 @@ Ruleset in use | Standard | Rise and Fall | Gathering Storm
 Rewards (Types) built-in | 18 (6) | 18 (6) | 23 (8)
 Rewards (Types) with EGHV | 69 (15) | 73 (16) | 82 (18)
 
-Following is a list of all recognized rewards arranged (1) alphabetically by category and (2) by rarity, with the number of rewards in each category and the minimum ruleset for which they are valid.
+Following is a list of all recognized rewards arranged (1) alphabetically by category and (2) by ascending rarity, with the number of rewards in each category and the minimum ruleset for which they are valid.
 
 ### Abilities: Standard (4 rewards)
 This new category contains new rewards provided by EGHV which grant abilities to valid target units. These rewards will only be selected by Reward Generator when a Goody Hut has been discovered by one or more units.
@@ -294,16 +292,20 @@ Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
 
 - The Common reward is a designated Fallback reward.
 
-## Game Setup Options
-EGHV provides many new options which can control the behavior of Reward Generator and selected rewards ingame.
+## Goody Hut Reward Picker
+![EGHV Goody Hut Picker](/images/EGHV_GoodyHutPicker.gif)
 
-### Goody Hut Reward Picker
 EGHV provides a custom picker for selecting the specific rewards that can be provided by a Goody Hut ingame, available in the game's single-player Advanced Setup and multi-player Host Game. Content presented in the picker will vary with the selected ruleset and/or compatible community content, and can be sorted by:
 - Name (alphabetical by individual reward subtype)
 - Type (alphabetical by individual reward subtype, then grouped by parent reward type)
 - Rarity (alphabetical by individual reward subtype, then ascending by rarity tier)
 
 Disabling all available rewards via the picker will explicitly enable the "No Goody Huts" game option.
+
+## New Game Setup Options
+![EGHV Advanced Setup](/images/EGHV_AdvancedSetup.gif)
+
+EGHV provides many new options which can control the behavior of Reward Generator and selected rewards ingame.
 
 ### Goody Hut Distribution Slider
 EGHV provides a slider for decreasing or increasing the relative amount of Goody Huts that will appear on the selected map; this slider defaults to 100%, and adjusts in increments of 25% in a range of 25% - 500%, inclusive. This slider also appears in the picker window.
