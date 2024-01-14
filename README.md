@@ -1,246 +1,341 @@
-# Enhanced Goodies and Hostile Villagers for Civilization VI
-![Advanced Setup](/images/EGHV_AdvancedSetup.png)
+# Enhanced Goodies and Hostile Villagers (EGHV) for Civilization VI
+A mod which enables additional Frontend and Ingame settings related to Tribal Village (Goody Hut) rewards.
 
 The above image, and all other image(s) reflecting game content herein, reflect an Advanced Setup with Gathering Storm rules; actual configuration options will vary with different rules and/or available additional content. Icons may not be accurate; the correct ones are shown in the reward tables below.
 
 # Overview
-A mod that provides a fairly comprehensive extension to and overhaul of the Tribal Village (Goody Hut) rewards system. Many new Frontend options relating to Goody Huts are available, including:
-- A picker for choosing exactly which Goody Hut reward(s), if any, will have a chance of appearing ingame.
-- A slider for decreasing or increasing the number of Goody Huts that will appear ingame, relative to the baseline amount for the selected map and/or size.
-- A dropdown menu for selecting an amount of possible bonus reward(s), which may be provided in addition to the usual reward from a Goody Hut.
-- A checkbox flag for equalizing the chances of receiving all enabled reward(s).
+EGHV performs a fairly comprehensive overhaul of and extension to the Goody Hut reward system. Many new Frontend options relating to Goody Huts are available within the game's single-player Advanced Setup and multi-player Host Game, including:
+- A custom picker for selecting exactly which rewards, if any, will have a chance of being provided by a Goody Hut ingame. As with the built-in pickers for City-States and Natural Wonders, undesired rewards can be excluded.
+- A new slider control for decreasing or increasing the amount of Goody Huts that will be placed ingame, relative to the baseline amount for the selected map and size. This control is also present within the Goody Hut picker.
+- New options that control the total amount of rewards provided by a Goody Hut, the amount of new units or citizens certain rewards will provide, whether the new buildings provided by certain rewards are available to be constructed at game start, the relative chances of receiving all active rewards, whether a single Goody Hut can provide the same reward more than once, and more.
 
-In addition, the number of available ingame Goody Hut rewards has greatly increased for each official ruleset:
+The total amount of available Goody Hut rewards has greatly increased for each official ruleset.
 
-Ruleset in use | Standard | Rise and Fall | Gathering Storm
-:--- | :---: | :---: | :---:
-Rewards (Types) built-in | 18 (6) | 18 (6) | 23 (8)
-Rewards (Types) with EGHV | 52 (11) | 56 (12) | 66 (15)
+Ingame, the built-in system for choosing and applying rewards has been replaced by a custom Lua Reward Generator. Each activated Goody Hut -- or in the case of Sumeria, dispersed Barbarian Outpost -- will prompt Reward Generator to select one or more applicable rewards from the pool of active rewards; if a selected reward is invalid for any reason, Reward Generator will try again until it finds one that is valid. This resolves several problems with the built-in system.
 
-Many of these rewards are implemented via a combination of the built-in Modifiers system and the Lua scripting system, as this allows these rewards to function as intended.
+Minimum turn requirements have been removed from all rewards. Instead, many existing and new rewards now have a minimum Civic and/or Technology prerequisite which must be met. Some rewards can only be granted once per player per game Era.
+
+Rewards themselves are implemented via a combination of the built-in Modifiers system and the Lua scripting system, which allows all rewards to function as intended.
+
+Every reward generates popup World View text indicating what was provided. In addition, each activated Goody Hut will generate a notification with a summary of all rewards provided by that Goody Hut. Some rewards may generate additional notifications. Popup text and notifications are only provided for human players.
 
 Finally, Hostile Villagers as (and now, potentially following) a reward make their return.
 
-EGHV is compatible with mods that replace the AdvancedSetup, GameSetupLogic, and HostGame Frontend Lua context files. See "Conflicts-Frontend-Context" below for details and limitations.
+Some limitations apply; see below for these and more comprehensive details.
 
-# Localization
-When obtained via any of the official channels referenced in the #Installation section below, releases contain new Frontend and Ingame text fully localized in the following language(s):
+# Translations
+New Frontend and Ingame text is fully localized in the following languages:
 - English (en_US)
 - Spanish (es_ES)
 - French (fr_FR)
 
 Please report any conspicuous absent text, grammatical errors, inaccurate translations, or instances of localization placeholders (i.e. LOC_SOME_TEXT_HERE), when using any of the above languages.
 
+# Dependencies
+EGHV **REQUIRES** Enhanced Community FrontEnd, and will be blocked from loading if that mod is not present or is not enabled.
+
 # Features
-## Goody Hut Reward Picker
-![Goody Hut Picker](/images/EGHV_PickerDetail.gif)
+EGHV alters Frontend and Ingame components relating to the selection and application of Goody Hut rewards. These changes are described below.
 
-EGHV provides a new picker window for selecting the specific Goody Hut reward(s) that can appear ingame, available in the game's Advanced Setup. Available content in the picker will vary with the selected ruleset and/or compatible enabled content. Available content can be sorted by:
-- Name (alphabetical by individual reward subtype)
-- Type (alphabetical by individual reward subtype, then grouped by parent reward type)
-- Rarity (alphabetical by individual reward subtype, then ascending by rarity tier)
+## Reward Generator
+EGHV uses its own custom database tables to determine reward selections. The Weights for all rewards present in the relevant existing database tables have been set to zero, and a single dummy reward has been introduced, which basically becomes the only reward that the built-in reward selection system will grant whenever a Goody Hut Reward event occurs. This allows the built-in system to be effectively replaced by a custom Lua script known as Reward Generator.
 
-Disabling all available reward(s) via the picker will automatically cause the "No Goody Huts" game option to be enabled.
+For each reward to be granted, Reward Generator will make up to ***n*** attempts to randomly select a valid reward from the active pool, where ***n*** is equal to the total number of rewards in the active pool. After ***n*** attempts, if a valid reward has not been selected, Reward Generator will resort to a Fallback reward as detailed below. This prevents hangs and CTD in situations where Reward Generator would indefinitely fail to identify a valid reward, such as when:
+- The active pool contains only rewards that require a valid unit but the Goody Hut was discovered via border expansion or by one or more units that are not eligible targets of any of the available rewards.
+- The active pool contains only rewards that have possession of at least one City as a requirement but the player has none.
+- The active pool contains only rewards with Civic and/or Technology prerequisites which the player has not met.
+- The active pool contains only rewards that can only be granted once per game Era and the player has previously received those rewards the maximum number of times that the current game Era allows.
+- Every reward in the active pool has already been granted by the Goody Hut and the "No Duplicate Rewards" option is enabled.
 
-The tooltip for the Goody Hut picker reflects the source(s) of its content based on the selected ruleset and/or any currently available known content as calculated at game launch. Its button text reflects the total amount of available items(s) when all items in the picker are selected.
-- This functionality extends to the built-in City-States, Leaders, and Natural Wonders pickers.
+## Fallback Rewards
+Many Common rewards detailed below are designated as Fallback rewards within EGHV's custom database tables. These rewards do not require a unit or player possession of a City, do not produce hostile units, and have no Civic or Technology prerequisites or other restrictions of any kind. These rewards are therefore valid regardless of how a Goody Hut was activated. These rewards will always be available in the Fallback pool, even when they have otherwise been excluded from normal consideration.
 
-## Goody Hut Distribution Slider
-![Goody Hut Frequency](/images/EGHV_GoodyHutDistribution.png)
+When Reward Generator fails to select a valid reward as detailed above, it will then make up to ***f*** attempts to select a reward from the Fallback pool, where ***f*** is equal to the total number of rewards in the Fallback pool.
 
-EGHV provides a slider for decreasing or increasing the relative amount of Goody Huts that will appear on the selected map; this slider defaults to 100%, and adjusts in increments of 25% in a range of 25% - 500%, inclusive. This slider also appears in the picker window.
+Bad luck with the RNG means that, however unlikely, it is still possible that Reward Generator will exhaust its allotted attempts and fail to select a valid reward from both the active and Fallback pools. If this happens, Reward Generator will simply abort with no discernable affect.
 
-## Reward Roller
-When some rewards are received and have an invalid target, EGHV will use a custom method to randomly select a replacement reward from the pool of available rewards. This method is also used to provide a(ny) bonus reward(s) as outlined below.
+## Supported Goody Hut Rewards
+EGHV modifies existing Goody Hut rewards, and provides several new rewards, in both existing and new categories. All categories are equally weighted by default; table column headers below generally reflect each individual reward's rarity tier and likelihood of being the selected reward if its category is selected.
 
-## Bonus Rewards
-![Bonus Rewards](/images/EGHV_BonusRewards.png)
+Minimum turn requirements have been removed from all rewards. Instead, many existing and new rewards now have a minimum Civic and/or Technology prerequisite which must be met. Some rewards can only be granted once per player per game Era. Additionally, minimum City and unit requirements are enforced for applicable rewards.
 
-EGHV provides a dropdown menu for selecting the total number of potential reward(s) to receive from each Goody Hut. At the default setting of 1, nothing changes. With any of the "up to X" settings, up to X total rewards will be received from each Goody Hut, with any additional rewards beyond the first randomly selected from the pool of enabled rewards using the custom Reward Roller method.
+The total amount of available Goody Hut rewards has nearly quadrupled:
 
-In certain circumstances, fewer than X rewards will be received; these include:
-- When any Hostile Villagers reward is selected as a reward, whether it's the first or a bonus reward. When this happens, it will be the last reward granted by this Goody Hut; if it is the first reward, it will be the only reward.
+Ruleset in use | Standard | Rise and Fall | Gathering Storm
+:--- | :---: | :---: | :---:
+Rewards (Types) built-in | 18 (6) | 18 (6) | 23 (8)
+Rewards (Types) with EGHV | 69 (15) | 73 (16) | 82 (18)
 
-Any received bonus reward will generate an ingame panel notification with details about the received reward. These notifications use one of the built-in "user-defined" types, so the icon used is subject to frequent change, as the game itself cannot seem to consistently use the same icon.
+Following is a list of all recognized rewards arranged (1) alphabetically by category and (2) by rarity, with the number of rewards in each category and the minimum ruleset for which they are valid.
 
-Bonus Rewards, if enabled, can only be received from a Goody Hut. There are two main consequences of this:
-1. The meteor strike reward will not provide any bonus rewards. For now, we're going to assume that the meteor is not the wreckage of advanced replicator technology from beyond the stars.
-2. Civilization traits and other abilities that provide a reward when another condition is met will also not provide any bonus rewards. Nice try, Gilgamesh.
+### Abilities: Standard (4 rewards)
+This new category contains new rewards provided by EGHV which grant abilities to valid target units. These rewards will only be selected by Reward Generator when a Goody Hut has been discovered by one or more units.
 
-## Equalized Reward Chances
-![Equalize Rewards](/images/EGHV_EqualizeRewards.png)
-
-EGHV provides a checkbox option which, when enabled, assigns every enabled reward in a category a Weight equal to that category's Weight. This results in most enabled rewards having a roughly equal chance of being selected.
-
-## Goody Huts
-![Goody Hut Picker](/images/EGHV_GoodyHutPicker.png)
-
-EGHV modifies existing Goody Hut rewards, and provides several new rewards in both existing and new categories. All categories are equally weighted by default; table column headers below reflect each individual reward's rarity tier and likelihood of being the selected reward if its category is selected.
-
-Minimum-turn requirements have been set to 0 for all __DEFINED__ and __ENABLED__ rewards. This means that these rewards will be available from turn 1 on.
-
-There is an issue with the 2 free civics reward where only 1 civic will be granted when no more than that are available to be researched, for example before Code of Laws has been unlocked.
-
-### Standard Types
-These built-in types are available for all rulesets. Rewards in each type differ from the defaults where indicated.
-
-#### Culture: 4 rewards
-Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
-:---: | :---: | :---: | :---:
-<img src='images/IconCivicBoost1_256.png' width='128'> | <img src='images/IconCivicBoost2_256.png' width='128'> | <img src='images/IconCivicUnlock1_256.png' width='128'> | <img src='images/IconCivicUnlock2_256.png' width='128'>
-1 Civic boost | 2 Civic boosts | 1 Civic [1] [2] | 2 Civics [1] [3]
-
-1. This reward is provided by EGHV.
-2. Code of Laws will be the free Civic provided by this reward if no Civics have been unlocked.
-3. Code of Laws will be the __ONLY__ free Civic provided by this reward if no Civics have been unlocked, and the second free Civic will be lost. C'est la vie.
-
-#### Faith: 4 rewards
-Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
-:---: | :---: | :---: | :---:
-<img src='images/IconFaith1_256.png' width='128'> | <img src='images/IconFaith2_256.png' width='128'> | <img src='images/IconFaith3_256.png' width='128'> | <img src='images/IconRelic256.png' width='128'>
-+20 Faith | +60 Faith | +100 Faith | +1 Relic [1]
-
-1. The "one relic" Culture-type reward is now a Faith-type reward.
-
-#### Gold: 4 rewards
-Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
-:---: | :---: | :---: | :---:
-<img src='images/IconGold1_256.png' width='128'> | <img src='images/IconGold2_256.png' width='128'> | <img src='images/IconGold3_256.png' width='128'> | <img src='images/IconAddTradeRoute256.png' width='128'>
-+40 Gold | +80 Gold | +120 Gold | +1 Trade Route [1]
-
-1. This reward is provided by EGHV.
-
-#### Science: 4 rewards
-Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
-:---: | :---: | :---: | :---:
-<img src='images/IconTechBoost1_256.png' width='128'> | <img src='images/IconTechBoost2_256.png' width='128'> | <img src='images/IconTechUnlock1_256.png' width='128'> | <img src='images/IconTechUnlock2_256.png' width='128'>
-1 Tech boost | 2 Tech boosts | 1 Tech | 2 Techs [1]
-
-1. This reward is provided by EGHV.
-
-#### Survivors: 4 rewards
-Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
-:---: | :---: | :---: | :---:
-<img src='images/IconAddPopulation256.png' width='128'> | <img src='images/IconGrantBuilder256.png' width='128'> | <img src='images/IconGrantTrader256.png' width='128'> | <img src='images/IconGrantSettler256.png' width='128'>
-+1 Population [1] | 1 Builder [2] | 1 Trader [3] | 1 Settler [2] [4]
-
-1. The built-in "add population" Survivors-type reward modifier would only correctly fire once per Goody Hut, with the side effect of breaking the reward system for the player who received it. When this reward is received multiple times from the same Goody Hut, additional new population beyond the first will now bypass this modifier and be provided by Lua directly.
-2. The unit provided by this reward will now spawn in a plot near the Goody Hut that provided the reward.
-3. This reward is unmodified, and the provided Trader unit will spawn wherever it was originally supposed to; this prevents it from being rendered essentially unusable.
-4. The defined-but-disabled "one settler" Survivors-type reward is now enabled by default.
-
-### New Standard Types
-These new types are provided by EGHV for all rulesets.
-
-#### Abilities: 4 rewards
 Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
 :---: | :---: | :---: | :---:
 <img src='images/IconEnhancedSight256.png' width='128'> | <img src='images/IconEnhancedHealing256.png' width='128'> | <img src='images/IconEnhancedMovement256.png' width='128'> | <img src='images/IconEnhancedStrength256.png' width='128'>
 +1 Sight | +20 Healing/turn | +1 Movement | +10 Strength
 
-- Rewards of this type are valid only when obtained via exploration; they should be replaced by EGHV when obtained via border expansion.
-- Unit Ability rewards apply to any valid unit(s) in formation with the popping unit, as well as the popping unit. These rewards apply to each valid unit up to one time for the lifetime of that unit. For example, a Builder, Missionary, or Great Person can and will receive increased movement once, but not additional combat strength. Currently, the end result of this is that nothing will happen when an Ability reward is received and all valid unit(s) have already received the ability.
+- These rewards apply to all valid units in formation with the unit that discovers the Goody Hut, and can be granted to any given unit up to one time for the lifetime of that unit.
+- Improved Sight and Improved Movement are valid for all units.
+- Improved Healing and Improved Combat Strength are valid only for combat units. When received by a non-combat unit, Improved Sight or Improved Movement will be randomly selected instead.
+- When all target units are ineligible for the selected ability, or any applicable replacement, the reward will fail, and Reward Generator will resort to a Fallback reward.
 
-#### Envoys: 4 rewards
+### Civics: Standard (4 rewards)
+This new category contains existing and new rewards which grant random Civics (boosts) when received. Existing rewards were previously in the built-in Culture category. The Legendary reward is provided by EGHV. These rewards can be selected by Reward Generator regardless of how a Goody Hut was discovered.
+
 Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
 :---: | :---: | :---: | :---:
-<img src='images/IconEnvoy1_256.png' width='128'> | <img src='images/IconEnvoy2_256.png' width='128'> | <img src='images/IconEnvoy3_256.png' width='128'> | <img src='images/IconEnvoy4_256.png' width='128'>
-1 Envoy | 2 Envoys | 3 Envoys | 4 Envoys
+<img src='images/IconCivicBoost1_256.png' width='128'> | <img src='images/IconCivicBoost2_256.png' width='128'> | <img src='images/IconCivicUnlock1_256.png' width='128'> | <img src='images/IconCivicUnlock2_256.png' width='128'>
+1 Civic boost | 2 Civic boosts | 1 Civic | 2 Civics
 
-- When the Gathering Storm expansion is present and in use, new rewards provided by this EGHV type supercede the "free envoy" Diplomacy-type reward, which is disabled.
+- The Common reward is a designated Fallback reward.
+- When the Rare reward is received prior to researching Code of Laws, Code of Laws will always be the free Civic granted.
+- Due to a bug where only one Civic would be granted prior to researching Code of Laws, with that Civic being Code of Laws, the Legendary reward will not be selected by Reward Generator when Code of Laws has not yet been researched.
 
-#### Promotions: 4 rewards
+### Culture: Standard (4 rewards)
+This existing category contains new rewards provided by EGHV which provide one-time Culture yields. Other rewards which were previously in this category have been moved to the new Civics category and the existing Faith category. These rewards can be selected by Reward Generator regardless of how a Goody Hut was discovered.
+
 Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
 :---: | :---: | :---: | :---:
-<img src='images/IconExperience1_256.png' width='128'> | <img src='images/IconExperience2_256.png' width='128'> | <img src='images/IconExperience3_256.png' width='128'> | <img src='images/IconUnitUpgrade256.png' width='128'>
-5 Experience | 10 Experience | 15 Experience | Upgrade unit
+<img src='images/IconCulture1_256.png' width='128'> | <img src='images/IconCulture2_256.png' width='128'> | <img src='images/IconCulture3_256.png' width='128'> | <img src='images/IconCulture4_256.png' width='128'>
++5 Culture | +10 Culture | +15 Culture | +25 Culture
 
-- Rewards of this type are valid only when obtained via exploration; they should be replaced by EGHV when obtained via border expansion.
-- Combat experience rewards apply to any valid unit(s) in formation with the popping unit, as well as the popping unit. These rewards can be applied an unlimited number of times to any specific unit; however, built-in limitations prevent a specific unit from earning more experience than is needed for its next promotion, so any experience earned beyond this amount by any unit will be lost.
-- The Upgrade unit reward provides one of the following to each valid unit in formation with the popping unit, as well as the popping unit:
-    1. Any unit with a valid promotion class, that HAS NOT yet earned any promotions, will receive a free upgrade IF it also has a valid upgrade path. Due to built-in limitations, this "upgrade" consists of destroying the existing unit and placing a new unit in the last plot the existing unit occupied. Upgraded unit(s) will retain any abilities attached to the old unit(s); however, they lose any remaining movement for the current turn.
-    2. Any unit with a valid promotion class, that HAS already earned at least one promotion, will receive enough experience for its next promotion. This includes any unit(s) previously upgraded by (i) above.
-    3. Units without a valid promotion class or upgrade path will be skipped by this reward; currently, this results in nothing happening.
+- The Common reward is a designated Fallback reward.
 
-### New Rise and Fall Types
-These new types are provided by EGHV for Rise and Fall and later ruleset(s).
+### Diplomacy: Gathering Storm (4 rewards)
+This existing category contains new rewards provided by EGHV which provide one-time Diplomatic Favor yields. Existing rewards in this category have been superceded. These rewards require Gathering Storm or a later ruleset, and will not be available when an earlier ruleset is in use. These rewards can be selected by Reward Generator regardless of how a Goody Hut was discovered.
 
-#### Governor Titles: 4 rewards
-Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
-:---: | :---: | :---: | :---:
-<img src='images/IconGovernorTitle1_256.png' width='128'> | <img src='images/IconGovernorTitle2_256.png' width='128'> | <img src='images/IconGovernorTitle3_256.png' width='128'> | <img src='images/IconGovernorTitle4_256.png' width='128'>
-1 Governor Title | 2 Governor Titles | 3 Governor Titles | 4 Governor Titles
-
-- When the Gathering Storm expansion is present and in use, new rewards provided by this EGHV type supercede the "free governor title" Diplomacy-type reward, which is disabled.
-
-### Gathering Storm Types
-These built-in types are provided for Gathering Storm and later ruleset(s).
-
-#### Meteor Strike (1 reward)
-| Common (100%)
-| :---:
-| <img src='images/IconMeteorStrike256.png' width='128'>
-| Meteor strike
-
-- No changes have been made to this reward.
-
-#### Disabled Rewards
-Some rewards provided by this expansion are superceded by rewards provided by EGHV; these rewards have been disabled where indicated.
-
-### New Gathering Storm Types
-These new types are provided by EGHV for Gathering Storm and later ruleset(s).
-
-#### Diplomatic Favor: 4 rewards
 Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
 :---: | :---: | :---: | :---:
 <img src='images/IconFavor1_256.png' width='128'> | <img src='images/IconFavor2_256.png' width='128'> | <img src='images/IconFavor3_256.png' width='128'> | <img src='images/IconFavor4_256.png' width='128'>
 +10 Favor | +20 Favor | +30 Favor | +50 Favor
 
-- New rewards provided by this EGHV type supercede the "free diplomatic favor" Diplomacy-type reward, which is disabled.
+- The Common reward is a designated Fallback reward.
 
-#### Strategic Resources: 4 rewards
+### Envoys: Standard (4 rewards)
+This new category contains new rewards provided by EGHV which provide one or more free Envoys. These rewards can be selected by Reward Generator regardless of how a Goody Hut was discovered.
+
 Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
 :---: | :---: | :---: | :---:
-<img src='images/IconResources1_256.png' width='128'> | <img src='images/IconResources2_256.png' width='128'> | <img src='images/IconResources3_256.png' width='128'> | <img src='images/IconResources4_256.png' width='128'>
-+10 Resources | +20 Resources | +30 Resources | +50 Resources
+<img src='images/IconEnvoy1_256.png' width='128'> | <img src='images/IconEnvoy2_256.png' width='128'> | <img src='images/IconEnvoy3_256.png' width='128'> | <img src='images/IconEnvoy4_256.png' width='128'>
+1 Envoy | 2 Envoys | 3 Envoys | 4 Envoys
 
-- New rewards provided by this EGHV type supercede the "free strategic resources" Military-type reward, which is disabled.
-- The cache of resources provided will be of the most advanced type the player has revealed.
-- Currently there is a bug causing rewards of this type to provide nothing when no types of strategic resources have been revealed.
+- The Common reward is a designated Fallback reward.
+- When the Gathering Storm expansion is present and in use, the Common reward will supercede that expansion's "one free Envoy" reward, which has been removed from the Diplomacy category.
 
-### Specialized Types
-Rewards of these types have a specialized nature and do not rely on the gamecore's modifier system. They are provided by EGHV for all rulesets.
+### Faith: Standard (4 rewards)
+This existing category contains existing rewards which provide one-time Faith yields. It also contains the existing "one free relic" reward which was previously in the existing Culture category. These rewards can be selected by Reward Generator regardless of how a Goody Hut was discovered.
 
-#### Military: 9 rewards
-Built-in Military-type rewards have been entirely disabled and reworked. A reward of this type now provides a new unit as follows:
+Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
+:---: | :---: | :---: | :---:
+<img src='images/IconFaith1_256.png' width='128'> | <img src='images/IconFaith2_256.png' width='128'> | <img src='images/IconFaith3_256.png' width='128'> | <img src='images/IconRelic256.png' width='128'>
++20 Faith | +60 Faith | +100 Faith | +1 Relic
+
+- The Common reward is a designated Fallback reward.
+- The Legendary reward will not be selected by Reward Generator if the player does not possess at least one City.
+
+### Gold: Standard (4 rewards)
+This existing category contains existing rewards which provide one-time Gold yields. It also contains a new reward that grants one additional trade route capacity; this reward is provided by EGHV. These rewards can be selected by Reward Generator regardless of how a Goody Hut was discovered.
+
+Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
+:---: | :---: | :---: | :---:
+<img src='images/IconGold1_256.png' width='128'> | <img src='images/IconGold2_256.png' width='128'> | <img src='images/IconGold3_256.png' width='128'> | <img src='images/IconAddTradeRoute256.png' width='128'>
++40 Gold | +80 Gold | +120 Gold | +1 Trade Route
+
+- The Common reward is a designated Fallback reward.
+- The Legendary reward will not be selected by Reward Generator if the player does not possess at least one City.
+
+### Goody Huts: Standard (4 rewards)
+This new category contains new rewards provided by EGHV which will place one or more new Goody Huts on the map. Each new Goody Hut will be created in a random valid plot which is at least 3 plots and no more than 8 plots away from the target plot. These rewards can be selected by Reward Generator regardless of how a Goody Hut was discovered.
+
+Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
+:---: | :---: | :---: | :---:
+<img src='images/IconTribalVillage1_256.png' width='128'> | <img src='images/IconTribalVillage2_256.png' width='128'> | <img src='images/IconTribalVillage3_256.png' width='128'> | <img src='images/IconTribalVillage4_256.png' width='128'>
+1 new Goody Hut | 2 new Goody Huts | 3 new Goody Huts | 4 new Goody Huts
+
+- The Common reward is a designated Fallback reward.
+
+### Governors: Rise and Fall (4 rewards)
+This new category contains new rewards provided by EGHV which provide one or more free Governor titles. These rewards require Rise and Fall or a later ruleset, and will not be available when an earlier ruleset is in use. These rewards can be selected by Reward Generator regardless of how a Goody Hut was discovered.
+
+Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
+:---: | :---: | :---: | :---:
+<img src='images/IconGovernorTitle1_256.png' width='128'> | <img src='images/IconGovernorTitle2_256.png' width='128'> | <img src='images/IconGovernorTitle3_256.png' width='128'> | <img src='images/IconGovernorTitle4_256.png' width='128'>
+1 Governor Title | 2 Governor Titles | 3 Governor Titles | 4 Governor Titles
+
+- All rewards in this category have one City as a prerequisite; they will not be selected by Reward Generator if the player does not possess at least one City.
+- When the Gathering Storm expansion is present and in use, the Common reward will supercede that expansion's "one free Governor Title" reward, which has been removed from the Diplomacy category.
+
+### Hostile Villagers: Standard (4 rewards)
+This new category contains new rewards provided by EGHV which produce one or more Barbarian units, and possibly a Barbarian Outpost. Each hostile unit or outpost will be placed in a random valid plot within 3 plots of the target plot. These rewards can be selected by Reward Generator regardless of how a Goody Hut was discovered.
+
+Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
+:---: | :---: | :---: | :---:
+<img src='images/IconHostiles1_256.png' width='128'> | <img src='images/IconHostiles2_256.png' width='128'> | <img src='images/IconHostiles3_256.png' width='128'> | <img src='images/IconHostiles4_256.png' width='128'>
+1 hostile unit | 2 hostile units | 3 hostile units | 4 hostile units<br/>AND<br/>1 camp
+
+- Each produced unit will be randomly selected from the following classes: Melee, Ranged, Anti-Cavalry, Heavy Cavalry, Light Cavalry, Naval Melee, and Naval Ranged. Naval units will be favored when there are more valid water plots nearby than there are valid land plots; otherwise, land units will be favored.
+- Each unit produced will be the most advanced of its class that Barbarian research and nearby resources allow. For example, if it is the Classical Era and a Melee unit is produced, and Iron Working has been researched by the Barbarian player, this unit will be a Swordsman ***IF*** there is also a source of iron near the target plot; otherwise, it will be a Warrior.
+
+### Military: Standard (9 rewards)
+This existing category contains existing and new rewards which provide one or more military units. Except for the "one free recon unit" reward, all rewards are provided by EGHV. Each new unit will be created in a random valid plot immediately adjacent to the target plot. If this fails, or if there are no valid nearby plots, a random City belonging to the player will be selected, and the unit will instead be created in that City's Encampment district if one is present, or in its City Center district otherwise. These rewards can be selected by Reward Generator regardless of how a Goody Hut was discovered.
 
 Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
 :---: | :---: | :---: | :---:
 <img src='images/IconGrantRecon256.png' width='128'> | <img src='images/IconGrantMelee256.png' width='128'><img src='images/IconGrantRanged256.png' width='128'><img src='images/IconGrantAntiCavalry256.png' width='128'> | <img src='images/IconGrantHeavyCavalry256.png' width='128'><img src='images/IconGrantLightCavalry256.png' width='128'> | <img src='images/IconGrantSupport256.png' width='128'><img src='images/IconGrantSiege256.png' width='128'><img src='images/IconGrantMilitaryEngineer256.png' width='128'>
 1 Recon unit | 1 Melee unit<br/>OR<br/>1 Ranged unit<br/>OR<br/>1 Anti-Cavalry unit | 1 Heavy Cavalry unit<br/>OR<br/>1 Light Cavalry unit | 1 Support unit<br/>OR<br/>1 Siege unit<br/>OR<br/>1 Military Engineer
 
-Any unit provided by a Military-type reward will now spawn in a plot near the Goody Hut that provided the reward. Additionally, with the exception of the free Military Engineer, any unit provided by a Military-type reward will now be Era-appropriate.
+Some of these rewards will not be selected by Reward Generator if specific Technology prerequisites are not met:
 
-#### Hostile Villagers: 4 rewards
-Sometimes the villagers will give you the pointy end of a stick in addition to any other reward(s). Sometimes, it's the only thing they'll give you.
+Unit class or type | Technology prerequisite
+:--- | :---:
+Anti-Cavalry | Bronze Working
+Heavy Cavalry | The Wheel
+Light Cavalry | Horseback Riding
+Support | Masonry
+Siege | Engineering
+Military Engineer | Military Engineering
 
-##### Hostiles As Reward
+- The Common reward is a designated Fallback reward.
+- Excluding the Military Engineer, each unit produced will be the most advanced of its class that player research and resources allow. For example, if it is the Classical Era and a Melee unit is produced, and Iron Working has been researched by the player, this unit will be a Swordsman ***IF*** the player also possesses at least one source of Iron; otherwise, it will be a Warrior.
+
+### Policies: Standard (4 rewards)
+This new category contains new rewards provided by EGHV which grant additional government policy slots beyond those the player's chosen government normally provides. All rewards are of Mythic rarity and have inherently equalized Weights. Each reward's likelihood of being selected is ***(1 / X)%***, where ***X*** is equal to the number of available rewards in this category which are presently active. These rewards can be selected by Reward Generator regardless of how a Goody Hut was discovered.
+
+Military | Economic | Diplomatic | Wildcard
+:---: | :---: | :---: | :---:
+<img src='images/src/MilitarySlot256.png' width='128'> | <img src='images/src/EconomicSlot256.png' width='128'> | <img src='images/src/DiplomaticSlot256.png' width='128'> | <img src='images/src/WildcardSlot256.png' width='128'>
+1 Military policy slot | 1 Economic policy slot | 1 Diplomatic policy slot | 1 Wildcard policy slot
+
+To ensure that a suitable pool of policies is available to select from, these rewards will not be selected by Reward Generator if specific Civic prerequisites are not met:
+
+Policy type | Civic prerequisite
+:--- | :---:
+Military | Political Philosophy
+Economic | Political Philosophy
+Diplomatic | Diplomatic Service
+Wildcard | Political Philosophy
+
+- These rewards are potentially game-breaking, and not just in the sense that they provide powerful benefits. They may only be granted once per player per game Era.
+
+### Promotions: Standard (5 rewards)
+This new category contains new rewards provided by EGHV which grant combat experience or a free upgrade and respec to valid target units. These rewards will only be selected by Reward Generator when a Goody Hut has been discovered by one or more units.
+
 Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
 :---: | :---: | :---: | :---:
-<img src='images/IconHostiles1_256.png' width='128'> | <img src='images/IconHostiles2_256.png' width='128'> | <img src='images/IconHostiles3_256.png' width='128'> | <img src='images/IconHostiles4_256.png' width='128'>
-Low hostility | Medium hostility | High hostility | Maximum hostility
+<img src='images/IconExperience1_256.png' width='128'> | <img src='images/IconExperience2_256.png' width='128'> | <img src='images/IconExperience3_256.png' width='128'> | <img src='images/IconExperience4_256.png' width='128'><img src='images/IconUnitUpgrade256.png' width='128'>
++25% XP to next level | +50% XP to next level | +75% XP to next level | 100% XP to next level<br/>OR<br/>"Upgrade" unit
 
-No traditional rewards here. Instead, the villagers retaliate against your intrusion by organizing one or more barbarian units in (a) nearby tile(s) as follows:
+- Experience rewards apply to all valid units in formation with the unit that discovers the Goody Hut, and can be granted to any given unit an unlimited number of times if the unit is eligible for combat experience. The amount of experience granted will be a percentage of the total experience needed for the unit to attain its next promotion.  However, built-in limitations prevent a given unit from earning more experience than is needed for its next promotion, so any experience earned beyond this amount by any unit will be lost.
+- For each valid unit, the Upgrade unit reward will provide a free "upgrade" if this unit has a valid upgrade path. The player's research and resources must be able to support a manual upgrade of this unit, but there will be no associated Gold cost. Due to built-in limitations, this "upgrade" will consist of the following:
+  1. The existing unit will be destroyed.
+  2. A new unit of the type the existing unit would have upgraded to will be placed in the last plot the existing unit is known to have occupied.
+  3. The new unit will retain any abilities attached to the existing unit, as well as any veteran name assigned to it.
+  4. The new unit will receive 100% of the combat experience needed for its first promotion; any promotions the existing unit had earned will be stored, and can be immediately reselected by the new unit after choosing its first promotion.
+  5. The new unit's movement will be reset to zero for the current turn.
+- When all target units are ineligible for combat experience, or do not have a valid upgrade path, these rewards will fail, and Reward Generator will resort to a Fallback reward.
 
-- Low hostility: One melee unit.
-- Medium hostility: One melee unit and one ranged unit.
-- High hostility: Two melee units and one ranged unit.
-- Maximum hostility: One new barbarian camp, plus one melee unit.
+### Resources: Gathering Storm (4 rewards)
+This existing category contains new rewards provided by EGHV which provide one-time strategic resource caches. These rewards require Gathering Storm or a later ruleset, and will not be available when an earlier ruleset is in use. These rewards can be selected by Reward Generator regardless of how a Goody Hut was discovered.
 
-If Horses are located near the site of the former village, there is a chance that any unit(s) that appear may instead be mounted; this chance increases with each additional nearby source of Horses.
+Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
+:---: | :---: | :---: | :---:
+<img src='images/IconResources1_256.png' width='128'> | <img src='images/IconResources2_256.png' width='128'> | <img src='images/IconResources3_256.png' width='128'> | <img src='images/IconResources4_256.png' width='128'>
++10 Resources | +20 Resources | +30 Resources | +50 Resources
 
-##### Hostiles After Reward
-![Hostiles After Reward](/images/EGHV_HostilesAfterReward.png)
+- The Common reward is a designated Fallback reward.
+- These rewards supercede the "free strategic resources" reward, which has been removed.
+- The cache of resources provided will be of the most advanced type the player has revealed.
+- These rewards will not be selected by Reward Generator if the player has not yet researched either Animal Husbandry (revealing Horses) or Bronze Working (revealing Iron). This fixes a bug which causes these rewards to have no effect when no types of strategic resources have been revealed.
+
+### Science: Standard (4 rewards)
+This existing category contains new rewards provided by EGHV which provide one-time Science yields. Other rewards which were previously in this category have been moved to the new Techs category. These rewards can be selected by Reward Generator regardless of how a Goody Hut was discovered.
+
+Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
+:---: | :---: | :---: | :---:
+<img src='images/IconScience1_256.png' width='128'> | <img src='images/IconScience2_256.png' width='128'> | <img src='images/IconScience3_256.png' width='128'> | <img src='images/IconScience4_256.png' width='128'>
++5 Science | +10 Science | +15 Science | +25 Science
+
+- The Common reward is a designated Fallback reward.
+
+### Secrets: Standard (7 rewards) or Gathering Storm (8 rewards)
+This new category contains new rewards provided by EGHV which unlock or provide the various Villager Totem buildings. All rewards are of Mythic rarity and have inherently equalized Weights. Each reward's likelihood of being selected is ***(1 / X)%***, where ***X*** is equal to the number of available rewards in this category which are presently active. These rewards can be selected by Reward Generator regardless of how a Goody Hut was discovered.
+
+Amenities | Culture | Faith | Food | Gold | Production | Science | Favor
+:---: | :---: | :---: | :---: | :---: | :---: | :---: | :---:
+<img src='images/IconTotemAmenities256.png' width='128'> | <img src='images/IconTotemCulture256.png' width='128'> | <img src='images/IconTotemFaith256.png' width='128'> | <img src='images/IconTotemFood256.png' width='128'> | <img src='images/IconTotemGold256.png' width='128'> | <img src='images/IconTotemProduction256.png' width='128'> | <img src='images/IconTotemScience256.png' width='128'> | <img src='images/IconTotemFavor256.png' width='128'>
++4 Amenities | +4 Culture | +4 Faith | +4 Food | +8 Gold | +4 Production | +4 Science | +4 Favor [1]
+
+1. Requires Gathering Storm.
+
+- Once a particular Totem has been unlocked, if the reward that provides it is received again, a random City belonging to the player that has not already built the Totem will be selected instead, and a free Totem of that type will be placed in that City. If all of the player's Cities have that Totem already, or if there are otherwise no cities in which to place it, the reward will fail, and Reward Generator will resort to a Fallback reward.
+
+### Survivors: Standard (4 rewards)
+This existing category contains existing rewards which provide one or more civilian units or additional population in Cities. These rewards can be selected by Reward Generator regardless of how a Goody Hut was discovered.
+
+Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
+:---: | :---: | :---: | :---:
+<img src='images/IconAddPopulation256.png' width='128'> | <img src='images/IconGrantBuilder256.png' width='128'> | <img src='images/IconGrantTrader256.png' width='128'> | <img src='images/IconGrantSettler256.png' width='128'>
++1 Population | 1 Builder | 1 Trader | 1 Settler
+
+- All rewards in this category except for the Legendary reward have one City as a prerequisite; they will not be selected by Reward Generator if the player does not possess at least one City.
+- Due to a bug, the built-in reward system would irrepairably break for any player that received the "add population" reward more than once from a single Goody Hut. This reward is now provided by Lua directly, which has the additional benefit of enabling more than one free citizen to be granted per City.
+- Any Builder or Settler provided by the appropriate rewards will now be created in a plot immediately adjacent to the target plot. If this fails, or if there are no valid nearby plots, the unit will instead be created in the City Center district of a randomly selected City belonging to the player.
+- Any Trader provided by the appropriate reward will always be created in the City Center district of a randomly selected City belonging to the player.
+
+### Techs: Standard (4 rewards)
+This new category contains existing and new rewards which grant random Technologies (boosts) when received. Existing rewards were previously in the built-in Science category. The Legendary reward is provided by EGHV. These rewards can be selected by Reward Generator regardless of how a Goody Hut was discovered.
+
+Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
+:---: | :---: | :---: | :---:
+<img src='images/IconTechBoost1_256.png' width='128'> | <img src='images/IconTechBoost2_256.png' width='128'> | <img src='images/IconTechUnlock1_256.png' width='128'> | <img src='images/IconTechUnlock2_256.png' width='128'>
+1 Tech boost | 2 Tech boosts | 1 Tech | 2 Techs
+
+- The Common reward is a designated Fallback reward.
+
+## Game Setup Options
+EGHV provides many new options which can control the behavior of Reward Generator and selected rewards ingame.
+
+### Goody Hut Reward Picker
+EGHV provides a custom picker for selecting the specific rewards that can be provided by a Goody Hut ingame, available in the game's single-player Advanced Setup and multi-player Host Game. Content presented in the picker will vary with the selected ruleset and/or compatible community content, and can be sorted by:
+- Name (alphabetical by individual reward subtype)
+- Type (alphabetical by individual reward subtype, then grouped by parent reward type)
+- Rarity (alphabetical by individual reward subtype, then ascending by rarity tier)
+
+Disabling all available rewards via the picker will explicitly enable the "No Goody Huts" game option.
+
+### Goody Hut Distribution Slider
+EGHV provides a slider for decreasing or increasing the relative amount of Goody Huts that will appear on the selected map; this slider defaults to 100%, and adjusts in increments of 25% in a range of 25% - 500%, inclusive. This slider also appears in the picker window.
+
+### No Duplicate Rewards
+EGHV provides an option which, when enabled, will prevent a single Goody Hut from providing the same reward more than once. Disabling this can result in silliness like an unlucky RNG giving you five free recon unit rewards from a single Goody Hut, although it can also reduce the number of attempts Reward Generator must make. The default setting is enabled.
+
+### Equalized Reward Chances
+EGHV provides an option which, when enabled, assigns every enabled reward in a category a Weight equal to that category's Weight. This results in most enabled rewards having a roughly equal chance of being selected. The default setting is disabled.
+
+### Disable Meteor Strike Goodies (Gathering Storm)
+EGHV provides an option which, when enabled, will prevent any reward from being provided by the meteor strike event. Requires Gathering Storm or a later ruleset. The default setting is disabled.
+
+### Rewards Per Tribal Village
+EGHV provides a dropdown for selecting the total number of potential rewards each Goody Hut may provide. As detailed above, Reward Generator will attempt to select at least one and up to ***r*** total rewards to grant from each Goody Hut, where ***r*** is equal to the value of this option.
+
+Sometimes, fewer than ***r*** rewards will be received. This can happen when:
+- Reward Generator fails to select a valid reward from both the active and Fallback pools.
+- Hostile Villagers are selected as a reward, whether it's the first reward or a bonus reward. When this happens, it will be the last reward granted by this Goody Hut; if it is the first reward, it will be the only reward.
+
+Any number of rewards beyond one can only be received from a Goody Hut. There are two main consequences of this:
+1. Bonus rewards will not be provided when Civilization traits or other abilities provide a reward when another condition is met, such as when Sumeria disperses a Barbarian Outpost. Nice try, Gilgamesh.
+2. When using the Gathering Storm ruleset, the meteor strike reward will not provide any bonus rewards. For now, we're going to assume that the meteor is not the wreckage of advanced replicator technology from beyond the stars.
+
+### New Units/Citizens
+EGHV provides a dropdown for selecting the likelihood of a free unit or population reward providing two units or citizens instead of only one.
+
+### Unlock Villager Secrets
+EGHV provides a dropdown which controls whether the Villager Totem buildings must first be unlocked before they can be built.
+
+### Hostiles After Reward
+EGHV provides a dropdown which controls whether hostile villagers can appear following other rewards.
 
 Whenever a non-hostile reward is earned from a Goody Hut, there is a chance that some of the villagers will be displeased that their tribe treated with outsiders. This does not apply to the meteor strike reward, or to any rewards earned via trait or ability; it only applies to rewards received from an actual Goody Hut. This chance fluctuates based on several factors:
 
@@ -254,65 +349,40 @@ On the default difficulty setting, in the Ancient era, with one reward, there sh
 
 Villager hostility level greatly fluctuates based on the same factors as the chance to be hostile above; if they are hostile, eventually multiple units, and even a camp, will move from being a chance to a guarantee.
 
-Hostile Villagers AFTER any other reward are configurable via a new dropdown option in Advanced Setup. Available settings are:
-- Never (hostile villagers will NOT appear)
-- Maybe ( * this is the default option; a chance for hostile villagers to appear, as described above)
-- Always (hostile villagers will ALWAYS appear; their hostility level will be as described above)
-- Always + Increased Hostility (hostile villagers will ALWAYS appear, and their hostility level will be hyper-elevated)
-
 Setting this option to 'Never', while also disabling all 'Hostile Villagers' reward type(s) via the picker, will remove any chance of encountering hostile villagers entirely, whether as or after a reward.
 
-##### Hostiles Errata
+### Hostiles Minimum Turn
+EGHV provides a dropdown which determines the game turn on which hostile villagers can begin appearing as or after a reward.
+
+## Hostiles Errata
 Any hostile villagers that appear as or after a reward will generate an ingame panel notification with details.
 
-To compensate for the increased numbers of barbarian units that are likely to be present now, the experience and level caps from fighting such units have been increased. You still aren't going to get a fully-promoted unit from fighting barbarians, but at least you'll be able to get more than a single promotion.
+Hostiles will not be provided as a reward earned via Sumeria's Civilization trait.
 
-#### Villager Secrets: 7 rewards (8 with Gathering Storm ruleset)
-Rewards of this type always have a chance of being selected equal to (1 / X)%, where X is equal to the number of such rewards for the chosen ruleset which are presently enabled. When one is received, it unlocks the ability to build a Villager Totem building. Each reward unlocks a different Totem, and each of these new buildings provides a boost to a different yield:
+To compensate for the increased numbers of Barbarian units that are likely to be present now, the experience and level caps from fighting such units have been increased. You still aren't going to get a fully-promoted unit from fighting Barbarians, but at least you'll be able to get more than a single promotion.
 
-Amenities | Culture | Faith | Food | Gold | Production | Science | Favor
-:---: | :---: | :---: | :---: | :---: | :---: | :---: | :---:
-<img src='images/IconTotemAmenities256.png' width='128'> | <img src='images/IconTotemCulture256.png' width='128'> | <img src='images/IconTotemFaith256.png' width='128'> | <img src='images/IconTotemFood256.png' width='128'> | <img src='images/IconTotemGold256.png' width='128'> | <img src='images/IconTotemProduction256.png' width='128'> | <img src='images/IconTotemScience256.png' width='128'> | <img src='images/IconTotemFavor256.png' width='128'>
-+4 Amenities | +4 Culture | +4 Faith | +4 Food | +8 Gold | +4 Production | +4 Science | +4 Favor [1]
+## Additional Advanced Setup/Host Game Alterations
+EGHV makes minor changes to some other existing game setup options.
 
-1. Requires Gathering Storm.
-
-Once a particular Totem has been unlocked, if the reward that provides it is received again, instead a free Totem of that type will be placed in a City that does not already have one. If all cities have that Totem already, or if there are otherwise no cities in which to place it, instead nothing will happen.
-
-With judicious use of the distribution slider and bonus reward features, and all available rewards enabled, it is likely that the number and types of unlocked Totem(s) will differ for a given Player from game to game. On the flip side, if the slider and/or bonuses are cranked to max, or the pool of available rewards is greatly narrowed - particularly to only Secrets-type rewards - via the picker, or some combination of these occurs, it is likely that all Players will shortly unlock the ability to build every Totem.
-
-If Hostile Villagers After a Reward are enabled, rewards of this type will tend to provoke elevated hostility.
-
-## Additional Advanced Setup
 ### No Barbarians
-![No Barbarians](/images/EGHV_NoBarbarians.png)
-
 Enabling 'No Barbarians' will override any hostiles-related options and/or selections above, and will also remove any chance of encountering hostile villagers, whether as or after a reward. The tooltip for this option has been updated to reflect this.
 
 ### No Tribal Villages
-![No Tribal Villages](/images/EGHV_NoTribalVillages.png)
-
 Enabling 'No Tribal Villages' will override any selections made with the Goody Hut picker. It will also override any other Goody-Hut-related values, including hostiles-related options and/or selections, but will not otherwise affect Barbarians. The tooltip for this option has been updated to reflect this.
 
-### Debugging
-![EGHV Debugging](/images/EGHV_Debugging.png)
-
-Provides a checkbox option that, when enabled, will produce __EXTREMELY__ verbose logging output for debugging purposes. This is disabled by default, and should remain disabled unless absolutely necessary.
-- Again, logging output will be __EXTREMELY__ verbose when this option is enabled; unless this verbosity is required, it is recommended that this option remain disabled.
+## ECFE Logging Verbosity
+EGHV respects ECFE's Logging Verbosity option. Log output will vary with the setting of this option as follows:
+- Minimal: Script initialization will be logged when it occurs. All other output will be surpressed.
+- Normal: In addition to the above, reward exclusions made with the Goody Hut picker will be logged. Goody Hut Reward events will also be logged, such as the activation of a Goody Hut, or the dispersal of a Barbarian Outpost by Sumeria. The number of rewards received from each event will also be logged, as will the villagers' hostility level, if applicable.
+- Verbose: In addition to the above, a metric shitload of pertinent game configuration information will be logged during script initialization. All Reward Generator output will also be logged, as will all reward function activity. Useful for troubleshooting, or if you want to see exactly what's going on at all times, but be warned: The resulting log file will be **HUGE**.
 
 # Compatibility
-## SP / MP
-Compatible with Single- and Multi-Player game setups.
+EGHV is compatible with single- and multi-player game setups.
 
-## Rulesets
-Compatible with the following rulesets:
-
-* Standard
-* Rise and Fall
-* Gathering Storm
+EGHV is compatible with all official rulesets.
 
 ## Game Modes
-Compatible with the following game modes:
+EGHV is compatible with the following official game modes:
 
 * Apocalypse
 * Barbarian Clans
@@ -321,98 +391,97 @@ Compatible with the following game modes:
 * Monopolies and Corporations
 * Secret Societies
 
-Has not been tested with the following game modes:
+EGHV has not been tested with the following official game modes:
 
 * Tech and Civic Shuffle
 * Zombie Defense
 
-## Mods
-### Incompatible Mods
-The following community projects are known to alter one or more of the game files also modified by EGHV:
-- (placeholder)
+## Mod Compatibility
+EGHV was developed with the following mods enabled, and is thus known to be compatible with them:
+- Better Civilization Icons
+- Better Coastal Cities and Water Tiles
+- Better Report Screen (UI)
+- Civilizations Expanded
+- CIVITAS City-States
+- Colorized Historic Moments
+- Enhanced Mod Manager
+- Extended Policy Cards
+- More Barbarian EXP
+- More Maritime: Seaside Sectors
+- Ophidy's Start by Wonders
+- Real Great People
+- Religion Expanded
+- Removable Districts
+- Sailor Cat's Wondrous Goody Huts
+- Tomatekh's Historical Religions
+- Yet (not) Another Maps Pack
 
-### Compatible Mods
-Should work with other mods that add new Goody Hut (sub)types, with the following caveats:
-- Any rewards which EGHV does NOT recognize will **NOT** appear in the Goody Hut picker; these must be configured and recognized to do so. If you would like any Goody Huts provided by a particular community project to be reflected within the picker when said project is enabled, please open an issue with the project details, and it will be considered.
-  - Note that the above means EGHV has no interaction with unrecognized Goody Hut rewards beyond potentially spawning hostile villagers after receiving such a reward.
+### Unrecognized Mods
+Mods that provide new Goody Hut (sub)types **WILL NOT** appear in the Goody Hut picker and **WILL NOT** be recognized by Reward Generator unless EGHV is configured to recognize them. One of two things will happen with unrecognized rewards:
+1. If they are loaded before EGHV, they will be disabled as part of EGHV's game configuration process, and will never appear. This is the most likely outcome.
+2. If they are loaded after EGHV, they will be (among) the only enabled rewards present in the game's built-in database tables, and will thus appear far more frequently than they otherwise should. Reward Generator will still operate, but will never select these rewards. The final result will often be an extra reward in addition to the amount provided by Reward Generator, even for Barbarian Outpost dispersals.
 
-See the Conflicts section below for exceptions.
+If you would like any Goody Huts provided by a particular community project to be reflected within the picker and recognized by Reward Generator when said project is enabled, please open an issue with the project details, and it will be considered.
 
-New Goody Hut rewards provided by recognized content will appear in the Goody Hut picker when such content is enabled. Such content can then be manipulated via the picker and any other configuration settings EGHV provides. All such content should function normally as the Primary reward, but may require additional configuration to be provided as a Bonus Reward.
-
-EGHV is compatible with mods that replace the AdvancedSetup, GameSetupLogic, and HostGame Frontend Lua context files. See "Conflicts-Frontend-Context" below for details and limitations.
+### Recognized Mods
+New Goody Hut rewards provided by recognized content will appear in the Goody Hut picker when such content is enabled. Such content can then be manipulated via the picker and any other configuration settings EGHV provides. If necessary, additional measures will be taken to ensure that such content is properly configured for Reward Generator.
 
 #### Wondrous Goody Huts
 This community project is explicitly recognized by EGHV.
 - There does not appear to be a way of initializing the selection status of individual items in the picker. All rewards provided by WGH will therefore initialize as selected, even those normally disabled by default; such rewards will be enabled by EGHV if left selected.
-- Rewards provided by WGH are supported as the only or Primary reward with no further configuration required.
-- Rewards provided by WGH are supported as a Bonus reward when WGH methods are available to EGHV via the global ExposedMembers table; this is currently accomplished by including a modified version of WGH's script when EGHV loads.
+- Rewards provided by WGH are configured for Reward Generator by including a modified version of WGH's script when EGHV loads.
 
 # Installation
+EGHV can be installed via the Steam Workshopo or GitHub.
+
 ## Automatic
 [Subscribe to EGHV in the Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=2474051781) to automatically download and install the latest published release, and to automatically receive any updates as they are published to the Workshop.
 
 ## Manual
-Download the [latest release](https://github.com/zzragnar0kzz/C6EGHV/releases/latest) and extract it into the game's local mods folder. Alternately, clone the repository into the game's local mods folder using your preferred tools. The local mods folder varies:
-- Windows : `$userprofile\Documents\My Games\Sid Meier's Civilization VI\Mods`
-- Linux : 
-- MacOS : 
+Download the [latest release](https://github.com/zzragnar0kzz/C6EGHV/releases/latest) and extract it into the game's local mods folder. Alternately, clone the repository into a new folder within the game's local mods folder using your preferred tools. To update to a newer release, clone or download the latest release as described above, overwriting any existing items in the destination folder. The local mods folder varies.
 
-To update to a newer release, clone or download the latest release as described above, overwriting any existing items in the destination folder.
+### Windows
+`"$userprofile\Documents\My Games\Sid Meier's Civilization VI\Mods"`
+
+### Linux
+`"~/.local/share/aspyr-media/Sid Meier's Civilization VI/Mods"`
+
+-or-
+
+`"~/.steam/steam/steamapps/compatdata/289070/pfx/drive_c/users/steamuser/Documents/My Games/Sid Meier's Civilization VI/Mods"`
+
+Which of these is correct depends on whether you are using the native Linux client or the Windows client via Proton Experimental.
 
 # Conflicts
-## General
-If your mod alters any _existing_ Goody Hut (sub)types, unless it is also using a ludicrously high load order to apply these changes, they will likely be overwritten by EGHV due to its ridiculously high load order. Conflicts __WILL__ arise _regardless of relative load order_ if these alterations deviate substantially from those of EGHV.
+Following is a non-comprehensive list of items that may potentially cause conflicts with other content.
 
-## Frontend
-### Database
-EGHV adds the following custom tables to the game's Configuration SQLite database:
-- ContentFlags
+## General
+If your mod alters any *existing* Goody Hut (sub)types, unless it is also using a ludicrously high load order to apply these changes, they will likely be overwritten by EGHV due to its ridiculously high load order. If they are not overwritten, they will likely operate outside the parameters of Reward Generator and may cause undesired behavior.
+
+## Configuration Database
+EGHV adds the following custom tables to the game's Configuration database:
 - TribalVillages
 
-If your mod uses any similarly-named tables, conflicts __WILL__ arise.
+If your mod uses any similarly-named tables, conflicts **WILL** arise.
 
-### Context
-EGHV replaces the following existing Frontend context file(s):
-- MainMenu.xml
-
-The only modifications to this file consist of changing the filenames used for the "AdvancedSetup" and "HostGame" Lua contexts. The EGHV replacements for these files are:
-- EnhancedAdvancedSetup.lua and EnhancedAdvancedSetup.xml
-- EnhancedHostGame.lua and EnhancedHostGame.xml
-
-The above new XML files contain changes to incorporate EGHV's new Goody Hut picker as well as the replacement Natural Wonders picker from [ENWS](https://steamcommunity.com/sharedfiles/filedetails/?id=2273495829), and in the case of EnhancedAdvancedSetup, to allow for interoperability with [YnAMP](https://steamcommunity.com/sharedfiles/filedetails/?id=871861883) when it is also loaded. YnAMP-specific buttons in the Advanced Setup header will be hidden when it is not loaded. When ENWS is not loaded, errors will be generated in the log; these are due to the missing custom picker, and as the game should fall back to the default picker, they can be safely ignored.
-
-The above new Lua files contain directives to include the currently active AdvancedSetup or HostGame scripts for SP and MP setups. These will either be the base versions found in the game's UI/FrontEnd folder, or the last imported version from another mod, such as YnAMP. Necessary changes to AdvancedSetup and HostGame are now contained in separate files:
-- CommonFrontend.lua    contains new code used by both the AdvancedSetup and HostGame contexts
-- AdvancedSetup_EGHV.lua    contains modifications to existing code in the AdvancedSetup context
-- GameSetupLogic_EGHV.lua    contains modifications to existing code in the GameSetupLogic script, which is used by both the AdvancedSetup and HostGame contexts
-- HostGame_EGHV.lua    contains modifications to existing code in the HostGame context
-
-The above files are included by directive in the appropriate contexts. Additional directives will, as appropriate, include any other imported file whose name matches any of the following patterns:
-- AdvancedSetup_
-- GameSetupLogic_
-- HostGame_
-
-Doing this simulates the behavior of the Ingame "ReplaceUIScript" modinfo tag, which does nothing in the Frontend. This removes the need to overwrite the aforementioned original scripts with new versions containing any necessary changes, and allows for such changes to be placed in separate files that are loaded as needed after the existing scripts are loaded. When care is exercised, this allows multiple mods to make precision changes to these scripts and interoperate with one another. Crucially, since EGHV's load order generally makes it one of the last mods loaded, if not the last one loaded, it also allows for EGHV to function alongside other mods that __DO__ replace the original scripts, without resorting to a Frankenstein's monster of a single script containing changes from different mods. This functionality has been tested with YnAMP, but it *should* work with any mod that replaces the AdvancedSetup, GameSetupLogic, and/or HostGame script(s); however, there are limitations:
-- EGHV cannot make the game retain multiple versions of a script with the same name, so only the last imported version of each of these files will be used. This means other mods that overwrite one or more of these scripts will likely continue to conflict with each other.
-- Mods that make extensive changes to the AdvancedSetup and/or HostGame XML templates are not supported by EGHV. Notably, this applies to Sukritact's Civ Selection Screen.
-
+## Frontend Context
 To implement the new Goody Hut picker, EGHV adds the following new Frontend context file(s):
-- GoodyHutPicker.lua and GoodyHutPicker.xml
+- `GoodyHutPicker.lua` and `GoodyHutPicker.xml`
 
-If your mod replaces any of the files named above, or adds any similarly-named new ones, compatibility issues __WILL__ arise.
+If your mod replaces any of the files named above, or adds any similarly-named new ones, compatibility issues **WILL** arise.
 
-## Ingame
-### Database
-EGHV adds the following custom tables to the game's Gameplay SQLite database:
+## Gameplay Database
+EGHV adds the following custom tables to the game's Gameplay database:
 - GoodyHutsByHash
+- GoodyHuts_EGHV
 - GoodyHutSubTypesByHash
+- GoodyHutSubTypes_EGHV
 - HostileUnits
 - UnitRewards
 
-If your mod uses any similarly-named tables, conflicts __WILL__ arise.
+If your mod uses any similarly-named tables, conflicts **WILL** arise.
 
-EGHV modifies the structure of, adds new item(s) to, and/or modifies existing item(s) in the following tables in the game's Gameplay SQLite database:
+EGHV modifies the structure of, adds new item(s) to, and/or modifies existing item(s) in the following tables in the game's Gameplay database:
 - Types
 - TypeTags
 - Building
@@ -433,16 +502,16 @@ EGHV modifies the structure of, adds new item(s) to, and/or modifies existing it
 
 1. Requires Gathering Storm
 
-If your mod operates on any similarly-named item(s) in any of the above named table(s), these change(s) will likely be overwritten by EGHV. Conflicts __WILL__ arise _regardless of relative load order_ if these changes deviate substantially from those of EGHV.
+If your mod operates on any similarly-named item(s) in any of the above named table(s), these change(s) will likely be overwritten by EGHV. Conflicts **WILL** arise *regardless of relative load order* if these changes deviate substantially from those of EGHV.
 
-### Gameplay Scripts
+## Gameplay Scripts
 EGHV employs the following new custom gameplay scripts:
-- EGHV.lua
-- EnhancedGoodies.lua
-- HostileVillagers.lua
-- BonusRewards.lua
+- `EGHV.lua`
+- `EGHV_EventHooks.lua`
+- `EGHV_RewardGenerator.lua`
+- `EGHV_Utilities.lua`
 
-If your mod employs any gameplay scripts with similar names, conflicts __WILL__ arise.
+If your mod employs any gameplay scripts with similar names, conflicts **WILL** arise.
 
 # Art
 64px source textures for the Add Population and Amenities Totem rewards ganked from [Civilopedia](https://www.civilopedia.net/gathering-storm/concepts/intro).
