@@ -1,6 +1,6 @@
 --[[ =========================================================================
-	EGHV : Enhanced Goodies and Hostile Villagers for Civilization VI
-	Copyright (C) 2020-2023 zzragnar0kzz
+	C6EGHV : Enhanced Goodies and Hostile Villagers for Civilization VI
+	Copyright (C) 2020-2024 zzragnar0kzz
 	All rights reserved
 =========================================================================== ]]
 
@@ -12,7 +12,8 @@ include("InstanceManager");
 include("PlayerSetupLogic");
 include("Civ6Common");
 
-print("Loading GoodyHutPicker.lua . . .")
+print("[i]: Enhanced Goodies and Hostile Villagers (EGHV) v9 (2024-01-14)");
+print("[+]: Loading GoodyHutPicker.lua . . .")
 
 -- ===========================================================================
 -- Members
