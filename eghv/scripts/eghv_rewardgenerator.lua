@@ -1,6 +1,6 @@
 --[[ =========================================================================
-	C6GUE : Gameplay and Usability Enhancements for Civilization VI
-	Copyright (C) 2020-2023 zzragnar0kzz
+	C6EGHV : Enhanced Goodies and Hostile Villagers for Civilization VI
+	Copyright (C) 2020-2024 zzragnar0kzz
 	All rights reserved
 =========================================================================== ]]
 
@@ -198,12 +198,13 @@ end
 --[[ =========================================================================
 	function RewardGenerator:GetEligibleUnitOfClass(sClass)
     identifies the most advanced Era-appropriate unit of the provided class which can be placed
-    the effective Era will be capped based on resources that are available in table Resources
-    if Horses are not available and the provided class is "LightCavalry", resets the provided class to "HeavyCavalry"
-    there are no resource requirements for Ranged, Recon, and Support unit types
+    the effective Era will be capped based on research and resources
+    if the provided class is "LightCavalry" AND this is not a hostile unit AND Horses are not available, do one of the following:
+        (1) reset to "HeavyCavalry" if The Wheel has been researched, or 
+        (2) reset to "Ranged" otherwise
     returns: 
-        when field Hostiles is defined and true, the identified unit from game DB table HostileUnits, or
-        the identified unit from game DB UnitRewards otherwise
+        when field Hostiles is defined and true, the identified unit from GameInfo.HostileUnits, or
+        the identified unit from GameInfo.UnitRewards otherwise
 =========================================================================== ]]
 function RewardGenerator:GetEligibleUnitOfClass(sClass) 
     sClass = (type(sClass) == "string" and sClass ~= "") and sClass or self.UnitClass;
@@ -212,6 +213,14 @@ function RewardGenerator:GetEligibleUnitOfClass(sClass)
     local iPlayerID = self.Hostile and g_iBarbarianID or self.PlayerID;
     local pPlayer = self.Hostile and Players[g_iBarbarianID] or self.Player;
     local pPlayerTechs = pPlayer:GetTechs();
+    if sClass == "LightCavalry" and not self.Hostile and not self.Resources["RESOURCE_HORSES"] then 
+        if pPlayerTechs:HasTech(GameInfo.Technologies[g_iTheWheelIndex]) then 
+            sClass = "HeavyCavalry";
+        else 
+            sClass = "Ranged";
+        end
+        print(string.format("[i]: %s Changing LightCavalry to %s due to lack of Horses", sFunc, sClass));
+    end
     local tUnits = self.Hostile and GameInfo.HostileUnits or GameInfo.UnitRewards;
     local sUnit, sUnitName, sValidUnit;
     for e = self.Era, 0, -1 do 
@@ -622,12 +631,15 @@ function CreateUnitInPlot(self)
                 local sThisUnit = string.format("[%d/%d]: 'FAILED' to create 1 %s", n, self.NumToPlace, self.UnitName);
                 local sSummary = string.format("[-]: %s %s under the control of Player %d in %s", sFunc, sThisUnit, iPlayerID, sAttempts);
                 if iPlayerID ~= g_iBarbarianID then 
-                    print(string.format("%s; attempting City placement for this unit . . .", sSummary));
-                    local bSuccess = self:CreateUnitInCity();    --fallback to City placement for this unit
-                    if bSuccess then 
-                        iNumRemaining = iNumRemaining - 1;
-                        iNumPlaced = iNumPlaced + 1;
-                    end
+                    -- print(string.format("%s; attempting City placement for this unit . . .", sSummary));
+                    -- local bSuccess = self:CreateUnitInCity();    --fallback to City placement for this unit
+                    -- if bSuccess then 
+                    --     iNumRemaining = iNumRemaining - 1;
+                    --     iNumPlaced = iNumPlaced + 1;
+                    -- end
+                    print(string.format("%s; attempting City placement for %d remaining %s . . .", sSummary, iNumRemaining, SingularOrPlural(iNumRemaining, "unit")));
+                    self.NumToPlace = iNumRemaining;
+                    return self:CreateUnitInCity();    -- fallback to City placement for remaining unit(s)
                 else 
                     print(string.format("%s", sSummary));
                     return (iNumPlaced > 0);
@@ -1132,297 +1144,3 @@ end
 --[[ =========================================================================
     end EGHV component script EGHV_RewardGenerator.lua; below here is deprecated code
 =========================================================================== ]]
-
---[[ =========================================================================
-	function RewardGenerator:GetBonusRewards(n)
-    generate and apply up to n bonus reward(s)
-    returns: 
-        -1 if a hostile 'reward' is selected as any bonus reward, or 
-        -2 if GenerateReward() fails to identify a valid reward and a fallback, or 
-        cumulative hostile modifier h if n bonus rewards are successfully generated
-=========================================================================== ]]
--- function RewardGenerator:GetBonusRewards(n) 
---     local h = self.RewardTier;
---     for i = 1, n do 
---         -- local bSuccess = self:GenerateReward(g_iActiveRewardCount);
---         local bSuccess = self.IsExplore and self:GenerateReward() or self:GenerateReward(g_tValidRewards.Expansion, g_iExpansionRewardCount);
---         if not bSuccess then bSuccess = self:GenerateReward(g_tValidRewards.Fallback, g_iFallbackRewardCount); end
---         if not bSuccess then return -2; end
---         if self.Type == "GOODYHUT_SAILOR_WONDROUS" then 
---             WGH.Sailor_WGH(self.PlayerID, self.UnitID, self.TypeHash, self.RewardHash);
---         else 
---             local tSummary = self:GrantReward();
---             table.insert(self.Summary, tSummary);
---         end
---         if self.Player:IsHuman() then 
---             local pAdjacentPlot = Map.GetAdjacentPlot(self.X, self.Y, (i - 1));
--- 			local aX, aY = pAdjacentPlot:GetX(), pAdjacentPlot:GetY();
---             local sRewardTitle, sRewardMessage = g_tNotification.Reward.Title, string.format("%s %s.", g_tNotification.Reward.Message, self.Description);
---             NotificationManager.SendNotification(self.PlayerID, g_tNotification.Reward.TypeHash, sRewardTitle, sRewardMessage, aX, aY);
---             Game.AddWorldViewText(self.PlayerID, self.Description, self.X, self.Y, 0);
---         end
---         if self.Hostile then return -1; end
---         h = h + self.RewardTier;
---     end
---     return h;
--- end
-
---[[ =========================================================================
-	function RewardGenerator:Execute()
-    apply primary reward if this has not already been done by another context
-    obtain and apply any applicable bonus reward(s)
-    calculate and apply any applicable hostile reward after other rewards
-    returns ShowSummary()
-=========================================================================== ]]
--- function RewardGenerator:Execute() 
---     local tSummary = self:GrantReward();
---     table.insert(self.Summary, tSummary);
---     if self.Player:IsHuman() then 
---         Game.AddWorldViewText(self.PlayerID, self.Description, self.X, self.Y, 0);
---     end
---     if not (self.IsBarbCamp and self.IsSumeria) then 
---         RemoveGoodyHutPlot(self.X, self.Y);
---         if not self.Hostile then 
---             local iCumulativeHostileModifier = (g_iBonusRewardsPerGoodyHut > 0) and self:GetBonusRewards(g_iBonusRewardsPerGoodyHut) or self.RewardTier;
---             if iCumulativeHostileModifier > -1 and g_iHostilesAfterReward > 1 then 
---                 self:GetHostilityModifiers(iCumulativeHostileModifier);
---                 local sHostile = self:GetHostilityLevel();
---                 if GameInfo.GoodyHutSubTypes_EGHV[sHostile] then 
---                     self:RefreshRewardDetails(GameInfo.GoodyHutSubTypes_EGHV[sHostile]);
---                     tSummary = self:GrantReward();
---                     table.insert(self.Summary, tSummary);
---                 end
---             end
---         end
---     end
---     return self:ShowSummary();
--- end
-
---[[ =========================================================================
-	function RewardGenerator:ShowSummary()
-    prints to the log a summary of granted reward(s)
-    creates an ingame notification containing a condensed summary of granted reward(s)
-    returns true
-=========================================================================== ]]
--- function RewardGenerator:ShowSummary() 
---     local sSource = self.IsGoodyHut and g_sGoodyHutName or g_sBarbCampName;
---     local sTitle = string.format("%s %s", g_tNotification.Reward.Title, sSource);
---     local sNotification = string.format("%s", g_tNotification.Reward.Message);
---     local iNumRewards = (#self.Rewards <= g_iTotalRewardsPerGoodyHut) and #self.Rewards or g_iTotalRewardsPerGoodyHut;
---     local sHostilesAppear = (#self.Rewards > g_iTotalRewardsPerGoodyHut) and "; the villagers reacted aggressively" or "";
---     if g_iLoggingLevel > 1 then 
---         print(string.format("%s and received %d %s%s", self.SummaryHeader, iNumRewards, SingularOrPlural(iNumRewards, "reward"), sHostilesAppear));
---     end
---     for i, v in ipairs(self.Rewards) do 
---         sNotification = string.format("%s[NEWLINE][%d] %s", sNotification, i, v[11]);
---         if g_iLoggingLevel > 2 then 
---             print(string.format("[%d/%d]: Roll %d/%d: [%d | %d | %s (%d)]: %d %s | %d %s", i, iNumRewards, v[1], v[2], v[3], v[4], v[5], v[6], v[7], v[8], v[9], v[10]));
---             if g_iLoggingLevel > 3 then 
---                 for _, s in ipairs(self.Summary[i]) do 
---                     print(string.format("[%s]: %s", s[1] and "+" or "-", s[2]));
---                 end
---             end
---         end
---     end
---     if self.Player:IsHuman() then NotificationManager.SendNotification(self.PlayerID, g_tNotification.Reward.TypeHash, sTitle, sNotification, self.X, self.Y); end
---     return true;
--- end
-
---[[ =========================================================================
-	function RewardGenerator:GetRewards(n)
-    generates and applies up to n reward(s)
-    calculates and applies any applicable hostile reward after other rewards
-    returns ShowSummary()
-=========================================================================== ]]
--- function RewardGenerator:GetRewards(n) 
---     n = (type(n) == "number" and n > 0) and n or g_iTotalRewardsPerGoodyHut;    -- default to the total rewards game configuration option if n is invalid
---     n = self.IsBarbCamp and 1 or n;                                             -- reset n for that sneaky bastard Gilgamesh; no bonus rewards from a barbarian camp
---     local sFunc = "GetRewards():";
---     if self.IsGoodyHut then RemoveGoodyHutPlot(self.X, self.Y); end
---     if self.Player:IsHuman() then Game.AddWorldViewText(self.PlayerID, Locale.Lookup("LOC_GOODYHUT_EGHV_PLACEHOLDER_DESC"), self.X, self.Y, 0); end
---     local h = 0;
---     for i = 1, n do 
---         local bSuccess = self.IsExplore and self:GenerateReward() or self:GenerateReward(g_tValidRewards.Expansion, g_iExpansionRewardCount);
---         if not bSuccess then bSuccess = self:GenerateReward(g_tValidRewards.Fallback, g_iFallbackRewardCount); end
---         if not bSuccess then return false; end
---         local tSummary = {};
---         if self.Type == "GOODYHUT_SAILOR_WONDROUS" then tSummary = Sailor_WGH(self.PlayerID, self.UnitID, self.TypeHash, self.RewardHash);
---         else tSummary = self:GrantReward();
---         end
---         -- if self.Hostile then table.insert(tSummary, { false, string.format("%s Hostiles received as 'reward' %d of %d; skipping hostiles check after rewards", sFunc, i, n) }); end
---         table.insert(self.Summary, tSummary);
---         if self.Player:IsHuman() and not self.Experience and not self.UnitAbility then Game.AddWorldViewText(self.PlayerID, self.Description, self.X, self.Y, 0); end
---         if self.Hostile and n > 1 then 
---             table.insert(self.Summary[i], { false, string.format("%s Hostiles received as 'reward' %d of up to %d; skipping any potential additional rewards and post-reward hostiles check", sFunc, i, n) });
---             return self:ShowSummary();
---         end
---         h = h + self.RewardTier;
---     end
---     if g_iHostilesAfterReward > 1 and not self.IsBarbCamp then 
---         self:GetHostilityModifiers(h);
---         local sHostile = self:GetHostilityLevel();
---         if GameInfo.GoodyHutSubTypes_EGHV[sHostile] then 
---             self:RefreshRewardDetails(GameInfo.GoodyHutSubTypes_EGHV[sHostile]);
---             local tSummary = self:GrantReward();
---             table.insert(self.Summary, tSummary);
---             if self.Player:IsHuman() then Game.AddWorldViewText(self.PlayerID, self.Description, self.X, self.Y, 0); end
---         end
---     end
---     return self:ShowSummary();
--- end
-
---[[ =========================================================================
-	function PlaceUnitInPlot(self, sUnit, iNumUnits, iPlayerID) 
-	spawns one or more units belonging to target Player near plot (X, Y)
-    when the number of units left to spawn exceeds the amount of valid spawn plots, remaining units are spawned in a random City belonging to target Player
-    returns: 
-        false when the provided Hostile field and the provided Unit field are both invalid, or 
-        the result of PlaceUnitInCity() if it is called, or 
-        true otherwise
-	this should be added to a RewardGenerator object as soon as it is created
-=========================================================================== ]]
--- function PlaceUnitInPlot(self, sUnit, iNumUnits, iPlayerID) 
---     local sFunc = "PlaceUnitInPlot():";
---     if not self.Hostile and not self.Unit then 
---         self.Summary[(#self.Summary + 1)] = string.format("[-]: %s Reward %s does not provide a unit; aborting", sFunc, self.Reward);
---         return false;
---     end
---     sUnit = (type(sUnit) == "string") and sUnit or self.UnitType and self.UnitType or GameInfo.UnitRewards[self.Era][self.UnitClass];
---     iPlayerID = (type(iPlayerID) == "number" and iPlayerID > -1 and iPlayerID < 64) and iPlayerID or self.PlayerID;
---     iNumUnits = (type(iNumUnits) == "number" and iNumUnits > 0) and iNumUnits or (iPlayerID == g_iBarbarianID) and 1 or (g_iBonusUnitOrPop == 7 or (g_iBonusUnitOrPop > 1 and RollDieWithSides(g_iBonusUnitOrPop) == 1)) and 2 or 1;
---     local sUnitName = Locale.Lookup(GameInfo.Units[sUnit].Name);
---     if iNumUnits > 1 and not self.Hostile then 
---         self.Summary[(#self.Summary + 1)] = string.format("[+]: %s Critical roll! An additional %s will be granted (%d total)", sFunc, sUnitName, iNumUnits);
---     end
---     local bIsNaval = (GameInfo.Units[sUnit].FormationClass == "FORMATION_CLASS_NAVAL");
---     local iRadius = (iPlayerID ~= g_iBarbarianID) and 1 or 3;
---     local tPlots = GetAdjacentPlotsInRadius(self.X, self.Y, iRadius);
---     local tLandUnitPlots, tWaterUnitPlots = GetValidUnitSpawnPlots(tPlots);
---     local tValidPlots = bIsNaval and tWaterUnitPlots or tLandUnitPlots;
---     local sDistance = string.format("within a %d plot radius of plot (x %d, y %d)", iRadius, self.X, self.Y);
---     if #tValidPlots < 1 then 
---         local sSummary = string.format("[-]: %s There are no valid plots %s in which a new %s may be created", sFunc, sDistance, sUnitName);
---         local bFallback = false;
---         if iPlayerID ~= g_iBarbarianID then 
---             self.Summary[(#self.Summary + 1)] = string.format("%s; attempting City placement instead . . .", sSummary);
---             self.PlaceUnitInCity = PlaceUnitInCity;
---             bFallback = self:PlaceUnitInCity(sUnit, iNumUnits, iPlayerID);
---         else 
---             self.Summary[(#self.Summary + 1)] = string.format("%s; doing nothing", sSummary);
---         end
---         return bFallback;
---     end
---     local sValidPlots = string.format("Identified %d valid %s %s", #tValidPlots, SingularOrPlural(#tValidPlots, "plot"), sDistance);
---     self.Summary[(#self.Summary + 1)] = string.format("[+]: %s %s in which a new %s may be created", sFunc, sValidPlots, sUnitName);
---     local iNumPlaced = 0;
---     for n = 1, iNumUnits do 
---         if #tValidPlots > 0 then 
---             local bUnitPlaced = false;
---             local tFailedPlots = {};
---             local pSpawnPlot;
---             bUnitPlaced, pSpawnPlot, tValidPlots, tFailedPlots = PlaceUnitInRandomPlot(tValidPlots, sUnit, iPlayerID);
---             local iAttempts = bUnitPlaced and #tFailedPlots + 1 or #tFailedPlots;
---             local sAttempts = string.format("%d %s", iAttempts, SingularOrPlural(iAttempts, "attempt"));
---             if bUnitPlaced then 
---                 iNumPlaced = iNumPlaced + 1;
---                 local sX, sY = pSpawnPlot:GetX(), pSpawnPlot:GetY();
---                 if iPlayerID == g_iBarbarianID then 
---                     local sI = pSpawnPlot:GetIndex();
---                     PlayersVisibility[self.PlayerID]:ChangeVisibilityCount(sI, 0);    -- mark this plot as explored by this Player
---                     if self.IsHuman then 
---                         local sHostileUnitMessage = string.format("%s %s %s", g_tNotification.Hostile.UnitMessage1, sUnitName, g_tNotification.Hostile.UnitMessage2);
---                         NotificationManager.SendNotification(self.PlayerID, g_tNotification.Hostile.UnitTypeHash, g_tNotification.Hostile.Title, sHostileUnitMessage, sX, sY);
---                     end
---                 end
---                 local sThisUnit = string.format("[%d/%d]: Successfully created 1 %s", n, iNumUnits, sUnitName);
---                 self.Summary[(#self.Summary + 1)] = string.format("[+]: %s %s in plot (x %d, y %d) under the control of Player %d (%s)", sFunc, sThisUnit, sX, sY, iPlayerID, sAttempts);
---             else 
---                 local sThisUnit = string.format("[%d/%d]: 'FAILED' to create 1 %s", n, iNumUnits, sUnitName);
---                 self.Summary[(#self.Summary + 1)] = string.format("[-]: %s %s under the control of Player %d in %s", sFunc, sThisUnit, iPlayerID, sAttempts);
---             end
---         else 
---             self.Summary[(#self.Summary + 1)] = string.format("[-]: %s [%d/%d]: There are no remaining valid plots %s in which a new %s may be created", sFunc, n, iNumUnits, sDistance, sUnitName);
---         end
---     end
---     local iNumRemaining = iNumUnits - iNumPlaced;
---     if iNumRemaining > 0 then 
---         local bFallback = false;
---         if iPlayerID ~= g_iBarbarianID then 
---             self.PlaceUnitInCity = PlaceUnitInCity;
---             bFallback = self:PlaceUnitInCity(sUnit, iNumRemaining, iPlayerID);
---         else 
---             self.Summary[(#self.Summary + 1)] = string.format("[-]: %s Unable to create %d %s %s under the control of Player %d", sFunc, iNumRemaining, sUnitName, SingularOrPlural(iNumRemaining, "unit"), iPlayerID);
---         end
---         return bFallback;
---     end
---     if #self.Summary < 1 then 
---         self.Summary[(#self.Summary + 1)] = string.format("[-]: %s Strange things are afoot at the Circle K", sFunc);
---         return false;
---     end
---     return true;
--- end
-
---[[ =========================================================================
-	function PlaceUnitInCity(self)
-	spawns one or more units belonging to target Player in a random City belonging to Player
-    returns: 
-        false when the provided Unit field is invalid, or 
-        false when the provided Cities table is invalid or empty, or 
-        true otherwise
-	this should be added to a RewardGenerator object as soon as it is created
-=========================================================================== ]]
--- function PlaceUnitInCity(self, sUnit, iNumUnits, iPlayerID) 
---     local sFunc = "PlaceUnitInCity():";
---     if not self.Unit then 
---         self.Summary[(#self.Summary + 1)] = string.format("[-]: %s Reward %s does not provide a unit; aborting", sFunc, self.Reward);
---         return false;
---     elseif not self.Cities or #self.Cities < 1 then 
---         self.Summary[(#self.Summary + 1)] = string.format("[-]: %s Invalid or empty Cities table; aborting", sFunc);
---         return false;
---     end
---     sUnit = (type(sUnit) == "string") and sUnit or self.UnitType and self.UnitType or GameInfo.UnitRewards[self.Era][self.UnitClass];
---     iPlayerID = (type(iPlayerID) == "number" and iPlayerID > -1 and iPlayerID < 63) and iPlayerID or self.PlayerID;
---     iNumUnits = (type(iNumUnits) == "number" and iNumUnits > 0) and iNumUnits or 1;
---     local sUnitName = Locale.Lookup(GameInfo.Units[sUnit].Name);
---     if sUnit == "UNIT_TRADER" then 
---         iNumUnits = (g_iBonusUnitOrPop == 7 or (g_iBonusUnitOrPop > 1 and RollDieWithSides(g_iBonusUnitOrPop) == 1)) and 2 or 1;
---         if iNumUnits > 1 then 
---             self.Summary[(#self.Summary + 1)] = string.format("[+]: %s Critical roll! An additional %s will be granted (%d total)", sFunc, sUnitName, iNumUnits);
---         end
---     end
---     local bIsNaval = (GameInfo.Units[sUnit].FormationClass == "FORMATION_CLASS_NAVAL");
---     for n = 1, iNumUnits do 
---         local iCity = (#self.Cities > 1) and RollDieWithSides(#self.Cities) or 1;
---         local pCity = self.Cities[iCity];
---         local sCityName = Locale.Lookup(pCity:GetName());
--- 	    local cX, cY = pCity:GetX(), pCity:GetY();
---         local bHasEncampment = pCity:GetDistricts():HasDistrict(g_iEncampmentIndex);
---         local bHasHarbor = pCity:GetDistricts():HasDistrict(g_iHarborIndex);
---         local sThisCity = string.format("Player %d's City of %s", iPlayerID, sCityName);
---         local sThisUnit = string.format("[%d/%d]:", n, iNumUnits);
---         if bHasHarbor and bIsNaval then 
---             local pHarbor = pCity:GetDistricts():GetDistrict(g_iHarborIndex);
---             local hX, hY = pHarbor:GetX(), pHarbor:GetY();
---             UnitManager.InitUnit(iPlayerID, sUnit, hX, hY);
---             self.Summary[(#self.Summary + 1)] = string.format("[+]: %s %s Successfully created 1 %s in the Harbor District of %s", sFunc, sThisUnit, sUnitName, sThisCity);
---         elseif bHasEncampment and GameInfo.Units[sUnit].FormationClass == "FORMATION_CLASS_LAND_COMBAT" then 
---             local pEncampment = pCity:GetDistricts():GetDistrict(g_iEncampmentIndex);
---             local eX, eY = pEncampment:GetX(), pEncampment:GetY();
---             UnitManager.InitUnit(iPlayerID, sUnit, eX, eY);
---             self.Summary[(#self.Summary + 1)] = string.format("[+]: %s %s Successfully created 1 %s in the Encampment District of %s", sFunc, sThisUnit, sUnitName, sThisCity);
---         else 
---             local sSummary;
---             if not bIsNaval then 
---                 UnitManager.InitUnit(iPlayerID, sUnit, cX, cY);
---                 self.Summary[(#self.Summary + 1)] = string.format("[+]: %s %s Successfully created 1 %s in the City Center District of %s", sFunc, sThisUnit, sUnitName, sThisCity);
---             else 
---                 self.Summary[(#self.Summary + 1)] = string.format("[-]: %s %s 'FAILED' to create 1 %s in %s", sFunc, sThisUnit, sUnitName, sThisCity);
---             end
---         end
---     end
---     if #self.Summary < 1 then 
---         self.Summary[(#self.Summary + 1)] = string.format("[-]: %s Strange things are afoot at the Circle K", sFunc);
---         return false;
---     end
---     return true;
--- end

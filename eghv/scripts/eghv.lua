@@ -37,6 +37,7 @@ g_iBarbCampIndex = GameInfo.Improvements["IMPROVEMENT_BARBARIAN_CAMP"].Index;
 g_iGoodyHutIndex = GameInfo.Improvements["IMPROVEMENT_GOODY_HUT"].Index;
 g_iEncampmentIndex = GameInfo.Districts["DISTRICT_ENCAMPMENT"].Index;
 g_iHarborIndex = GameInfo.Districts["DISTRICT_HARBOR"].Index;
+g_iTheWheelIndex = GameInfo.Technologies["TECH_THE_WHEEL"].Index;
 -- g_iAnimalHusbandryIndex = GameInfo.Technologies["TECH_ANIMAL_HUSBANDRY"].Index;
 -- g_iCodeOfLawsIndex = GameInfo.Civics["CIVIC_CODE_OF_LAWS"].Index;
 g_iGoodyHutFrequency = GameConfiguration.GetValue("GOODYHUT_FREQUENCY");

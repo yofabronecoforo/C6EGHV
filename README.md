@@ -173,8 +173,8 @@ Common (55%) | Uncommon (30%) | Rare (10%) | Legendary (5%)
 <img src='images/IconHostiles1_256.png' width='128'> | <img src='images/IconHostiles2_256.png' width='128'> | <img src='images/IconHostiles3_256.png' width='128'> | <img src='images/IconHostiles4_256.png' width='128'>
 1 hostile unit | 2 hostile units | 3 hostile units | 4 hostile units<br/>AND<br/>1 camp
 
-- Each produced unit will be randomly selected from the following classes: Melee, Ranged, Anti-Cavalry, Heavy Cavalry, Light Cavalry, Naval Melee, and Naval Ranged. Naval units will be favored when there are more valid water plots nearby than there are valid land plots; otherwise, land units will be favored.
-- Each unit produced will be the most advanced of its class that Barbarian research and nearby resources allow. For example, if it is the Classical Era and a Melee unit is produced, and Iron Working has been researched by the Barbarian player, this unit will be a Swordsman ***IF*** there is also a source of iron near the target plot; otherwise, it will be a Warrior.
+- Each produced unit will be randomly selected. Melee, Ranged, and Anti-Cavalry units are always potential choices when there are any valid land plots near the target plot; when there is at least one source of Horses near the target plot, Heavy Cavalry and Light Cavalry units are additional potential choices. Naval Melee and Naval Ranged units are always potential choices when there are any valid water plots near the target plot. Naval units will be favored when there are more valid water plots near the target plot than there are valid land plots; otherwise, land units will be favored.
+- Each unit produced will be the most advanced of its class that Barbarian research and nearby resources allow. For example, if it is the Classical Era and a Melee unit is produced, and Iron Working has been researched by the Barbarian player, this unit will be a Swordsman ***IF*** there is also a source of Iron near the target plot; otherwise, it will be a Warrior.
 
 ### Military: Standard (9 rewards)
 This existing category contains existing and new rewards which provide one or more military units. Except for the "one free recon unit" reward, all rewards are provided by EGHV. Each new unit will be created in a random valid plot immediately adjacent to the target plot. If this fails, or if there are no valid nearby plots, a random City belonging to the player will be selected, and the unit will instead be created in that City's Encampment district if one is present, or in its City Center district otherwise. These rewards can be selected by Reward Generator regardless of how a Goody Hut was discovered.
@@ -196,6 +196,7 @@ Siege | Engineering
 Military Engineer | Military Engineering
 
 - The Common reward is a designated Fallback reward.
+- Horses are an additional requirement for Light Cavalry units beyond the technology requirement. When the player does not possess at least one source of Horses, a Light Cavalry unit will be converted into a Heavy Cavalry unit if the player has met that class's technology prerequisite as detailed above, or into a Ranged unit otherwise.
 - Excluding the Military Engineer, each unit produced will be the most advanced of its class that player research and resources allow. For example, if it is the Classical Era and a Melee unit is produced, and Iron Working has been researched by the player, this unit will be a Swordsman ***IF*** the player also possesses at least one source of Iron; otherwise, it will be a Warrior.
 
 ### Policies: Standard (4 rewards)
