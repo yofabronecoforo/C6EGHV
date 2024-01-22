@@ -435,7 +435,7 @@ This community project is explicitly recognized by EGHV.
 - Rewards provided by WGH are configured for Reward Generator by including a modified version of WGH's script when EGHV loads.
 
 # Installation
-EGHV can be installed via the Steam Workshopo or GitHub.
+EGHV can be installed via the Steam Workshop or GitHub.
 
 ## Automatic
 [Subscribe to EGHV in the Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=2474051781) to automatically download and install the latest published release, and to automatically receive any updates as they are published to the Workshop.
