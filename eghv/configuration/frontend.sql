@@ -1,6 +1,6 @@
 /* ###########################################################################
     EGHV : Enhanced Goodies and Hostile Villagers for Civilization VI
-    Copyright (c) 2020-2023 zzragnar0kzz
+    Copyright (c) 2020-2024 yofabronecoforo (zzragnar0kzz)
     All rights reserved.
 ########################################################################### */
 
@@ -82,25 +82,25 @@ VALUES
 -- Goody Hut picker
 REPLACE INTO Parameters (Key1, Key2, ParameterId, Name, Description, Domain, Hash, Array, ConfigurationGroup, ConfigurationId, GroupId, UxHint, SortIndex)
 VALUES
-    ('Ruleset', 'RULESET_STANDARD', 'GoodyHutConfig', 'LOC_GOODY_HUT_CONFIG_NAME', 'LOC_GOODY_HUT_CONFIG_DESCRIPTION', 'StandardGoodyHuts', 0, 1, 'Game', 'EXCLUDE_GOODY_HUTS', 'AdvancedOptions', 'InvertSelection', 2032),
-    ('Ruleset', 'RULESET_EXPANSION_1', 'GoodyHutConfig', 'LOC_GOODY_HUT_CONFIG_NAME', 'LOC_GOODY_HUT_CONFIG_DESCRIPTION', 'Expansion1GoodyHuts', 0, 1, 'Game', 'EXCLUDE_GOODY_HUTS', 'AdvancedOptions', 'InvertSelection', 2032),
-    ('Ruleset', 'RULESET_EXPANSION_2', 'GoodyHutConfig', 'LOC_GOODY_HUT_CONFIG_NAME', 'LOC_GOODY_HUT_CONFIG_DESCRIPTION', 'Expansion2GoodyHuts', 0, 1, 'Game', 'EXCLUDE_GOODY_HUTS', 'AdvancedOptions', 'InvertSelection', 2032);
+    ('Ruleset', 'RULESET_STANDARD', 'GoodyHuts', 'LOC_GOODY_HUT_CONFIG_NAME', 'LOC_GOODY_HUT_CONFIG_DESCRIPTION', 'StandardGoodyHuts', 0, 1, 'Game', 'EXCLUDE_GOODY_HUTS', 'AdvancedOptions', 'InvertSelection', 2032),
+    ('Ruleset', 'RULESET_EXPANSION_1', 'GoodyHuts', 'LOC_GOODY_HUT_CONFIG_NAME', 'LOC_GOODY_HUT_CONFIG_DESCRIPTION', 'Expansion1GoodyHuts', 0, 1, 'Game', 'EXCLUDE_GOODY_HUTS', 'AdvancedOptions', 'InvertSelection', 2032),
+    ('Ruleset', 'RULESET_EXPANSION_2', 'GoodyHuts', 'LOC_GOODY_HUT_CONFIG_NAME', 'LOC_GOODY_HUT_CONFIG_DESCRIPTION', 'Expansion2GoodyHuts', 0, 1, 'Game', 'EXCLUDE_GOODY_HUTS', 'AdvancedOptions', 'InvertSelection', 2032);
 
 -- disable certain options if this is for the world builder
 REPLACE INTO ParameterDependencies (ParameterId, ConfigurationGroup, ConfigurationId, Operator, ConfigurationValue)
 VALUES
-    ('GoodyHutConfig', 'Game', 'WORLD_BUILDER', 'NotEquals', 1);
+    ('GoodyHuts', 'Game', 'WORLD_BUILDER', 'NotEquals', 1);
     -- ('NoHostilesAfterReward', 'Game', 'WORLD_BUILDER', 'NotEquals', 1),
     -- ('NoHostilesAsReward', 'Game', 'WORLD_BUILDER', 'NotEquals', 1);
 
 -- Goody Hut frequency slider range values
-REPLACE INTO DomainRanges (Domain, MinimumValue, MaximumValue) VALUES ('GoodyHutFrequencyRange', 25, 500);
+REPLACE INTO DomainRanges (Domain, MinimumValue, MaximumValue) VALUES ('GoodyHutFrequencyRange', 0, 500);
 
 -- prep the Goody Hut picker
-REPLACE INTO DomainValueQueries (QueryId) VALUES ('GoodyHutConfig');
+REPLACE INTO DomainValueQueries (QueryId) VALUES ('GoodyHuts');
 
 -- queries for the Goody Hut picker
-REPLACE INTO Queries (QueryId, SQL) VALUES ('GoodyHutConfig', 'SELECT Domain, Name, Description, SubTypeGoodyHut AS Value, Icon, SortIndex FROM TribalVillages');
+REPLACE INTO Queries (QueryId, SQL) VALUES ('GoodyHuts', 'SELECT Domain, Name, Description, SubTypeGoodyHut AS Value, Icon, SortIndex FROM TribalVillages');
 
 /* ###########################################################################
     end EGHV frontend configuration

@@ -1,6 +1,6 @@
 /* ###########################################################################
     EGHV : Enhanced Goodies and Hostile Villagers for Civilization VI
-    Copyright (c) 2020-2023 zzragnar0kzz
+    Copyright (c) 2020-2024 yofabronecoforo (zzragnar0kzz)
     All rights reserved.
 ########################################################################### */
 

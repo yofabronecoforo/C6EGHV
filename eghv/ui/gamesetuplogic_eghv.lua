@@ -1,80 +1,208 @@
 --[[ =========================================================================
 	C6EGHV : Enhanced Goodies and Hostile Villagers for Civilization VI
-	Copyright (C) 2020-2024 zzragnar0kzz
+	Copyright (c) 2020-2024 yofabronecoforo (zzragnar0kzz)
 	All rights reserved
 =========================================================================== ]]
 
 --[[ =========================================================================
 	begin gamesetuplogic_eghv.lua configuration script
 =========================================================================== ]]
-print("[+]: Loading GameSetupLogic_EGHV.lua . . .");
+print("[+]: Loading GameSetupLogic_EGHV.lua UI script . . .");
 
 --[[ =========================================================================
-	store original function(s) that will be overwritten below
+	NEW: does exactly what it says on the tin
 =========================================================================== ]]
--- BASE_GameParameters_UI_DefaultCreateParameterDriver = (BASE_GameParameters_UI_DefaultCreateParameterDriver ~= nil) and BASE_GameParameters_UI_DefaultCreateParameterDriver or GameParameters_UI_DefaultCreateParameterDriver;
--- BASE_MapSize_ValueNeedsChanging = MapSize_ValueNeedsChanging;
--- BASE_MapSize_ValueChanged = MapSize_ValueChanged;
+function LogGameStartProceed() 
+	print("[i]: Proceeding with game start . . .");
+	return nil;
+end
 
 --[[ =========================================================================
-	NEW: check for Goody Huts marked as excluded within the picker and set a game configuration value for each one found
-	these values will be used to disable excluded Goody Huts when ingame content is loaded
-	when all available Goody Huts for the selected ruleset are excluded, manually set the "No Goody Huts" setup option
-	when the "No Barbarians" setup option is enabled, manually disable hostiles after reward, and exclude hostile villager "rewards" from the available pool
+	NEW: does the following at game start:
+	(1) aborts when No Tribal Villages is enabled
+	(2) enables No Tribal Villages and aborts when goody hut distribution is set to 0% of map baseline
+	(3) when No Barbarians is enabled, ensures hostile "rewards" are excluded and disables hostiles after rewards
+	(4) aborts when the excluded rewards table is empty or nil
+	(5) enables No Tribal Villages and aborts when the excluded rewards table contains all rewards for the selected ruleset
+	(6) validates and logs any rewards excluded via the Goody Huts picker
 =========================================================================== ]]
 function ExcludeGoodyHuts() 
-	-- local iLoggingLevel = bEGHV_IsEnabled and GameConfiguration.GetValue("GAME_EGHV_LOGGING") or 4;
-	local iLoggingLevel = GameConfiguration.GetValue("GAME_ECFE_LOGGING");
+	local iLoggingLevel = GameConfiguration.GetValue("GAME_ECFE_LOGGING");           -- get the ingame logging verbosity level to control log output
+	local print = (iLoggingLevel > 1) and print or function (s, ...) return; end;    -- disable print function locally when logging level is not Normal or higher
+
+	if GameConfiguration.GetValue("GAME_NO_GOODY_HUTS") then 
+		print("[i]: Setup option 'No Tribal Villages' is enabled.");
+		return LogGameStartProceed();
+	end
+	
+	if GameConfiguration.GetValue("GOODYHUT_FREQUENCY") == 0 then 
+		print("[!]: Tribal Village distribution set to '0%%' of map baseline. Setup option 'No Tribal Villages' will be enabled.");
+		GameConfiguration.SetValue("GAME_NO_GOODY_HUTS", true);
+		return LogGameStartProceed();
+	end
+	
+	local sRuleset = GameConfiguration.GetValue("RULESET");    -- ruleset at game start
+
+	-- goody hut parameter domains keyed to ruleset
+	local tGoodyHutDomains = {};
+	for _, v in ipairs(DB.ConfigurationQuery("SELECT DISTINCT Key2 AS 'Ruleset', Domain FROM Parameters WHERE ParameterId = 'GoodyHuts'")) do 
+		tGoodyHutDomains[v.Ruleset] = v.Domain;
+	end
+
+	-- all valid goody hut rewards for the selected ruleset
+	local tAllGoodyHuts = {};
+	for _, v in ipairs(DB.ConfigurationQuery("SELECT SubTypeGoodyHut FROM TribalVillages WHERE Domain = ?", tGoodyHutDomains[sRuleset])) do 
+		tAllGoodyHuts[(#tAllGoodyHuts + 1)] = v.SubTypeGoodyHut;
+	end
+
+	-- get and parse the goody hut exclusion table
     local excludeGoodyHutsConfig = GameConfiguration.GetValue("EXCLUDE_GOODY_HUTS") or {};
 	local tExcludedRewards = {};
 	for _, v in ipairs(excludeGoodyHutsConfig) do tExcludedRewards[v] = true; end
-	local sRuleset = GameConfiguration.GetValue("RULESET");
-    local sDomain = (sRuleset == "RULESET_EXPANSION_2") and "Expansion2GoodyHuts" or (sRuleset == "RULESET_EXPANSION_1") and "Expansion1GoodyHuts" or "StandardGoodyHuts";
-	local sPrefix = "EXCLUDE_";
+	
 	if GameConfiguration.GetValue("GAME_NO_BARBARIANS") then 
-		GameConfiguration.SetValue("GOODYHUTS_EXCLUDED", 1);
-		local tHostileRewards = DB.ConfigurationQuery("SELECT * FROM TribalVillages WHERE Domain = ? AND SubTypeGoodyHut LIKE '%HOSTILITY%'", sDomain);
-		if iLoggingLevel > 1 then 
-			local sRewards = (#tHostileRewards == 1) and "reward" or "rewards";
-			print(string.format("[*]: The 'No Barbarians' setup option is enabled; disabling hostile villagers after reward, and ensuring %d defined hostile villager '%s' are disabled . . .", #tHostileRewards, sRewards));
-		end
-		GameConfiguration.SetValue("GAME_HOSTILES_CHANCE", 1);
-		for _, v in ipairs(tHostileRewards) do 
-			local sGHSetting = sPrefix .. v.SubTypeGoodyHut;    -- this no longer affects anything other than some log output during gameplay script init
-			GameConfiguration.SetValue(sGHSetting, 1);          -- same as above
+		print(string.format("[!]: Setup option 'No Barbarians' is enabled. All hostile 'rewards' will be excluded and hostiles after reward disabled."));
+		for _, v in ipairs(DB.ConfigurationQuery("SELECT SubTypeGoodyHut FROM TribalVillages WHERE Domain = ? AND SubTypeGoodyHut LIKE '%HOSTILITY%'", tGoodyHutDomains[sRuleset])) do 
 			if not tExcludedRewards[v.SubTypeGoodyHut] then table.insert(excludeGoodyHutsConfig, v.SubTypeGoodyHut); end
 		end
 		GameConfiguration.SetValue("EXCLUDE_GOODY_HUTS", excludeGoodyHutsConfig);
+		GameConfiguration.SetValue("GAME_HOSTILES_CHANCE", 1);
 	end
-	tExcludedRewards = nil;
-	if #excludeGoodyHutsConfig > 0 then 
-		GameConfiguration.SetValue("GOODYHUTS_EXCLUDED", 1);
-		if iLoggingLevel > 1 then 
-			local sIsOrAre = (#excludeGoodyHutsConfig == 1) and "is" or "are";
-			local sRewards = (#excludeGoodyHutsConfig == 1) and "reward" or "rewards";
-			print("[*]: Excluding any rewards that were explicitly disabled in the picker or implicitly disabled by way of the 'No Barbarians' setup option . . .");
-			if iLoggingLevel > 2 then for _, v in ipairs(excludeGoodyHutsConfig) do print(string.format("[-]: %s", v)); end end
-			print(string.format("[*]: There %s %d Tribal Village %s marked as 'excluded'", sIsOrAre, #excludeGoodyHutsConfig, sRewards));
-		end
-		local tGoodyHuts = DB.ConfigurationQuery("SELECT * FROM TribalVillages WHERE Domain = ?", sDomain);
-		if (#excludeGoodyHutsConfig == #tGoodyHuts) then 
-			if iLoggingLevel > 1 then print("[*]: All available Tribal Village rewards for the selected ruleset have been marked as 'excluded'; enabling setup option 'No Tribal Villages' to attempt to ensure total exclusion"); end
-			GameConfiguration.SetValue("GAME_NO_GOODY_HUTS", true);
-		end
-	else
-		if iLoggingLevel > 1 then print("[*]: No Tribal Village rewards have been marked as 'excluded'"); end
+	
+	if #excludeGoodyHutsConfig == 0 then 
+		print("[i]: There are no Tribal Village reward exclusions. All rewards for the selected ruleset will be available.");
+		return LogGameStartProceed();
 	end
-	return;
+	
+	if (#excludeGoodyHutsConfig == #tAllGoodyHuts) then 
+		print("[!]: All available Tribal Village rewards for the selected ruleset have been excluded. Setup option 'No Tribal Villages' will be enabled.");
+		GameConfiguration.SetValue("GAME_NO_GOODY_HUTS", true);
+		return LogGameStartProceed();
+	end
+	
+	if iLoggingLevel > 2 then 
+		print(string.format("[i]: Identifying %d excluded Tribal Village reward%s . . .", #excludeGoodyHutsConfig, (#excludeGoodyHutsConfig ~= 1) and "s" or ""));
+		for _, v in ipairs(excludeGoodyHutsConfig) do 
+			print(string.format("[-]: %s", v));
+		end
+	end
+	print(string.format("[!]: %d of %d Tribal Village reward%s for the selected ruleset will be disabled.", #excludeGoodyHutsConfig, #tAllGoodyHuts, (#tAllGoodyHuts ~= 1) and "s" or ""));
+	return LogGameStartProceed();
 end
 
 --[[ =========================================================================
-	OVERRIDE: if this parameter is the Goody Hut frequency slider, configure its control
-	otherwise, call the original GameParameters_UI_DefaultCreateParameterDriver() to configure this parameter's control
+	OVERRIDE: pass arguments to pre-EGHV CreatePickerDriverByParameter() if parameter is not the Goody Hut picker
+	otherwise create and return a driver for the Goody Hut picker
+=========================================================================== ]]
+Pre_EGHV_CreatePickerDriverByParameter = CreatePickerDriverByParameter;
+function CreatePickerDriverByParameter(o, parameter, parent) 
+	if parameter.ParameterId ~= "GoodyHuts" then 
+		return Pre_EGHV_CreatePickerDriverByParameter(o, parameter, parent);
+	end
+
+	if(parent == nil) then
+		parent = GetControlStack(parameter.GroupId);
+	end
+			
+	-- Get the UI instance
+	local c :object = g_ButtonParameterManager:GetInstance();	
+
+	local parameterId = parameter.ParameterId;
+	local button = c.Button;
+
+	print(string.format("[+]: Creating driver for %s picker . . .", parameterId));
+
+	button:RegisterCallback( Mouse.eLClick, function()
+		LuaEvents.GoodyHutPicker_Initialize(o.Parameters[parameterId], g_GameParameters);
+		Controls.GoodyHutPicker:SetHide(false);
+	end);
+	button:SetToolTipString(parameter.Description .. ECFE.Content.Tooltips[GameConfiguration.GetValue("RULESET")][parameterId]);		-- update button tooltip text
+
+	-- Store the root control, NOT the instance table.
+	g_SortingMap[tostring(c.ButtonRoot)] = parameter;
+
+	c.ButtonRoot:ChangeParent(parent);
+	if c.StringName ~= nil then
+		c.StringName:SetText(parameter.Name);
+	end
+
+	local cache = {};
+
+	local kDriver :table = {
+		Control = c,
+		Cache = cache,
+		UpdateValue = function(value, p)
+			local valueText = value and value.Name or nil;
+			local valueAmount :number = 0;
+
+			if(valueText == nil) then
+				if(value == nil) then
+					if (parameter.UxHint ~= nil and parameter.UxHint == "InvertSelection") then
+						valueText = "LOC_SELECTION_EVERYTHING";
+						valueAmount = #p.Values; 	-- display count for selections of "everything"
+					else
+						valueText = "LOC_SELECTION_NOTHING";
+					end
+				elseif(type(value) == "table") then
+					local count = #value;
+					if (parameter.UxHint ~= nil and parameter.UxHint == "InvertSelection") then
+						if(count == 0) then
+							valueText = "LOC_SELECTION_EVERYTHING";
+							valueAmount = #p.Values; 	-- display count for selections of "everything"
+						elseif(count == #p.Values) then
+							valueText = "LOC_SELECTION_NOTHING";
+						else
+							valueText = "LOC_SELECTION_CUSTOM";
+							valueAmount = #p.Values - count;
+						end
+					else
+						if(count == 0) then
+							valueText = "LOC_SELECTION_NOTHING";
+						elseif(count == #p.Values) then
+							valueText = "LOC_SELECTION_EVERYTHING";
+							valueAmount = #p.Values; 	-- display count for selections of "everything"
+						else
+							valueText = "LOC_SELECTION_CUSTOM";
+							valueAmount = count;
+						end
+					end
+				end
+			end
+
+			if(cache.ValueText ~= valueText) or (cache.ValueAmount ~= valueAmount) then
+				local button = c.Button;			
+				button:LocalizeAndSetText(valueText, valueAmount);
+				cache.ValueText = valueText;
+				cache.ValueAmount = valueAmount;
+				button:SetToolTipString(parameter.Description .. ECFE.Content.Tooltips[GameConfiguration.GetValue("RULESET")][parameterId]);		-- update button tooltip text
+			end
+		end,
+		UpdateValues = function(values, p) 
+			-- Values are refreshed when the window is open.
+		end,
+		SetEnabled = function(enabled, p)
+			c.Button:SetDisabled(not enabled or #p.Values <= 1);
+		end,
+		SetVisible = function(visible)
+			c.ButtonRoot:SetHide(not visible);
+		end,
+		Destroy = function()
+			g_ButtonParameterManager:ReleaseInstance(c);
+		end,
+	};	
+
+	return kDriver;
+end
+
+--[[ =========================================================================
+	OVERRIDE: pass arguments to pre-EGHV GameParameters_UI_DefaultCreateParameterDriver() if parameter is not the Goody Hut frequency slider
+	otherwise create and return a control for the Goody Hut frequency slider
 =========================================================================== ]]
 Pre_EGHV_GameParameters_UI_DefaultCreateParameterDriver = GameParameters_UI_DefaultCreateParameterDriver;
 function GameParameters_UI_DefaultCreateParameterDriver(o, parameter, parent) 
-	-- store the original value of parent if the original function must be called, which is the most likely outcome
-	local ORIGINAL_parent = parent;
+	if (parameter.ParameterId ~= "GoodyHutFrequency") then 
+		return Pre_EGHV_GameParameters_UI_DefaultCreateParameterDriver(o, parameter, parent);
+	end
 
 	if(parent == nil) then
 		parent = GetControlStack(parameter.GroupId);
@@ -87,73 +215,70 @@ function GameParameters_UI_DefaultCreateParameterDriver(o, parameter, parent)
 		return;
 	end;
 
-	if (g_bIsEnabledEGHV and parameter.ParameterId == "GoodyHutFrequency") then	-- configure the Goody Huts frequency slider
-		local minimumValue = parameter.Values.MinimumValue;
-		local maximumValue = parameter.Values.MaximumValue;
+	local minimumValue = parameter.Values.MinimumValue;
+	local maximumValue = parameter.Values.MaximumValue;
+	local perStepValue = 25;
 	
-		-- Get the UI instance
-		local c = g_SliderParameterManager:GetInstance();	
+	-- Get the UI instance
+	local c = g_SliderParameterManager:GetInstance();	
 	
-		-- Store the root control, NOT the instance table.
-		g_SortingMap[tostring(c.Root)] = parameter;
+	-- Store the root control, NOT the instance table.
+	g_SortingMap[tostring(c.Root)] = parameter;
 	
-		c.Root:ChangeParent(parent);
-		if c.StringName ~= nil then
-			c.StringName:SetText(parameter.Name);
-		end
-	
-		c.OptionTitle:SetText(parameter.Name);
-		c.Root:SetToolTipString(parameter.Description);
-		c.OptionSlider:RegisterSliderCallback(function()
-			local stepNum = c.OptionSlider:GetStep();
-			local value = minimumValue * stepNum;
-				
-			-- This method can get called pretty frequently, try and throttle it.
-			if(parameter.Value ~= minimumValue * stepNum) then
-				o:SetParameterValue(parameter, value);
-				BroadcastGameConfigChanges();
-			end
-		end);
-	
-	
-		control = {
-			Control = c,
-			UpdateValue = function(value)
-				if(value) then
-					c.OptionSlider:SetStep(value / minimumValue);
-					c.NumberDisplay:SetText(tostring(value) .. "%");
-				end
-			end,
-			UpdateValues = function(values)
-				c.OptionSlider:SetNumSteps(values.MaximumValue / values.MinimumValue);
-				minimumValue = values.MinimumValue;
-				maximumValue = values.MaximumValue;
-			end,
-			SetEnabled = function(enabled, parameter)
-				c.OptionSlider:SetHide(not enabled or parameter.Values == nil or parameter.Values.MinimumValue == parameter.Values.MaximumValue);
-			end,
-			SetVisible = function(visible, parameter)
-				c.Root:SetHide(not visible or parameter.Value == nil );
-			end,
-			Destroy = function()
-				g_SliderParameterManager:ReleaseInstance(c);
-			end,
-		};
-	else -- call original function with ORIGINAL_parent in case parent changed above
-		control = Pre_EGHV_GameParameters_UI_DefaultCreateParameterDriver(o, parameter, ORIGINAL_parent);
+	c.Root:ChangeParent(parent);
+	if c.StringName ~= nil then
+		c.StringName:SetText(parameter.Name);
 	end
+	
+	c.OptionTitle:SetText(parameter.Name);
+	c.Root:SetToolTipString(parameter.Description);
+	c.OptionSlider:RegisterSliderCallback(function()
+		local stepNum = c.OptionSlider:GetStep();
+		local value = perStepValue * stepNum;
+				
+		-- This method can get called pretty frequently, try and throttle it.
+		if(parameter.Value ~= perStepValue * stepNum) then
+			o:SetParameterValue(parameter, value);
+			BroadcastGameConfigChanges();
+		end
+	end);
+
+	control = {
+		Control = c,
+		UpdateValue = function(value)
+			if(value) then
+				c.OptionSlider:SetStep(value / perStepValue);
+				c.NumberDisplay:SetText(tostring(value) .. "%");
+			end
+		end,
+		UpdateValues = function(values)
+			c.OptionSlider:SetNumSteps(values.MaximumValue / perStepValue);
+			minimumValue = values.MinimumValue;
+			maximumValue = values.MaximumValue;
+		end,
+		SetEnabled = function(enabled, parameter)
+			c.OptionSlider:SetHide(not enabled or parameter.Values == nil or parameter.Values.MinimumValue == parameter.Values.MaximumValue);
+		end,
+		SetVisible = function(visible, parameter)
+			c.Root:SetHide(not visible or parameter.Value == nil );
+		end,
+		Destroy = function()
+			g_SliderParameterManager:ReleaseInstance(c);
+		end,
+	};
 
 	return control;
 end
 
 --[[ =========================================================================
-	OVERRIDE: if this parameter is the Goody Hut frequency slider, configure its control
-	otherwise, call the original CreateSimpleParameterDriver() to configure this parameter's control
+	OVERRIDE: pass arguments to pre-EGHV CreateSimpleParameterDriver() if parameter is not the Goody Hut frequency slider
+	otherwise create and return a control for the Goody Hut frequency slider
 =========================================================================== ]]
 Pre_EGHV_CreateSimpleParameterDriver = CreateSimpleParameterDriver;
 function CreateSimpleParameterDriver(o, parameter, parent) 
-	-- store the original value of parent if the original function must be called, which is the most likely outcome
-	local ORIGINAL_parent = parent;
+	if (parameter.ParameterId ~= "GoodyHutFrequency") then 
+		return Pre_EGHV_CreateSimpleParameterDriver(o, parameter, parent);
+	end
 
 	if(parent == nil) then
 		parent = GetControlStack(parameter.GroupId);
@@ -166,192 +291,61 @@ function CreateSimpleParameterDriver(o, parameter, parent)
 		return;
 	end;
 
-	if (g_bIsEnabledEGHV and parameter.ParameterId == "GoodyHutFrequency") then	-- configure the Goody Hut frequency slider
-		local minimumValue = parameter.Values.MinimumValue;
-		local maximumValue = parameter.Values.MaximumValue;
+	local minimumValue = parameter.Values.MinimumValue;
+	local maximumValue = parameter.Values.MaximumValue;
+	local perStepValue = 25;
 
-		-- Get the UI instance
-		local c = g_SimpleSliderParameterManager:GetInstance();	
+	-- Get the UI instance
+	local c = g_SimpleSliderParameterManager:GetInstance();	
 		
-		-- Store the root control, NOT the instance table.
-		g_SortingMap[tostring(c.Root)] = parameter;
+	-- Store the root control, NOT the instance table.
+	g_SortingMap[tostring(c.Root)] = parameter;
 		
-		c.Root:ChangeParent(parent);
+	c.Root:ChangeParent(parent);
 
-		local name = Locale.ToUpper(parameter.Name);
-		if c.StringName ~= nil then
-			c.StringName:SetText(name);
-		end
-			
-		c.OptionTitle:SetText(name);
-		c.Root:SetToolTipString(parameter.Description);
-
-		c.OptionSlider:RegisterSliderCallback(function()
-			local stepNum = c.OptionSlider:GetStep();
-			local value = minimumValue * stepNum;
-			
-			-- This method can get called pretty frequently, try and throttle it.
-			if(parameter.Value ~= minimumValue * stepNum) then
-				o:SetParameterValue(parameter, value);
-				Network.BroadcastGameConfig();
-			end
-		end);
-
-		control = {
-			Control = c,
-			UpdateValue = function(value)
-				if(value) then
-					c.OptionSlider:SetStep(value / minimumValue);
-					c.NumberDisplay:SetText(tostring(value) .. "%");
-				end
-			end,
-			UpdateValues = function(values)
-				c.OptionSlider:SetNumSteps(values.MaximumValue / values.MinimumValue);
-			end,
-			SetEnabled = function(enabled, parameter)
-				c.OptionSlider:SetHide(not enabled or parameter.Values == nil or parameter.Values.MinimumValue == parameter.Values.MaximumValue);
-			end,
-			SetVisible = function(visible, parameter)
-				c.Root:SetHide(not visible or parameter.Value == nil );
-			end,
-			Destroy = function()
-				g_SimpleSliderParameterManager:ReleaseInstance(c);
-			end,
-		};
-	else -- call original function with ORIGINAL_parent in case parent changed above
-		control = Pre_EGHV_CreateSimpleParameterDriver(o, parameter, ORIGINAL_parent);
+	local name = Locale.ToUpper(parameter.Name);
+	if c.StringName ~= nil then
+		c.StringName:SetText(name);
 	end
+			
+	c.OptionTitle:SetText(name);
+	c.Root:SetToolTipString(parameter.Description);
 
+	c.OptionSlider:RegisterSliderCallback(function()
+		local stepNum = c.OptionSlider:GetStep();
+		local value = minimumValue * stepNum;
+			
+		-- This method can get called pretty frequently, try and throttle it.
+		if(parameter.Value ~= perStepValue * stepNum) then
+			o:SetParameterValue(parameter, value);
+			Network.BroadcastGameConfig();
+		end
+	end);
+
+	control = {
+		Control = c,
+		UpdateValue = function(value)
+			if(value) then
+				c.OptionSlider:SetStep(value / perStepValue);
+				c.NumberDisplay:SetText(tostring(value) .. "%");
+			end
+		end,
+		UpdateValues = function(values)
+			c.OptionSlider:SetNumSteps(values.MaximumValue / perStepValue);
+		end,
+		SetEnabled = function(enabled, parameter)
+			c.OptionSlider:SetHide(not enabled or parameter.Values == nil or parameter.Values.MinimumValue == parameter.Values.MaximumValue);
+		end,
+		SetVisible = function(visible, parameter)
+			c.Root:SetHide(not visible or parameter.Value == nil );
+		end,
+		Destroy = function()
+			g_SimpleSliderParameterManager:ReleaseInstance(c);
+		end,
+	};
+	
 	return control;
 end
-
---[[ =========================================================================
-	OVERRIDE: replace MapSize_ValueNeedsChanging() wholesale to include necessary changes and avoid multiple DB queries
-=========================================================================== ]]
--- function MapSize_ValueNeedsChanging(p)
--- 	local results = CachedQuery("SELECT * from MapSizes where Domain = ? and MapSizeType = ? LIMIT 1", p.Value.Domain, p.Value.Value);
-
--- 	-- define min/max/default values for Players, City States, and Natural Wonders; NW values will be used for the slider(s) if ENWS is present
--- 	local minPlayers = 2;
--- 	local maxPlayers = 2;
--- 	local defPlayers = 2;
--- 	local minCityStates = 0;
--- 	local maxCityStates = 0;
--- 	local defCityStates = 0;
--- 	local minNaturalWonders = 0;
--- 	local maxNaturalWonders = 0;
--- 	local defNaturalWonders = 0;
-
--- 	-- results should only contain one table, so iterating over it is kinda stupid; access values in results[1] directly here instead
--- 	if(results) then
--- 		minPlayers = results[1].MinPlayers;
--- 		maxPlayers = results[1].MaxPlayers;
--- 		defPlayers = results[1].DefaultPlayers;
--- 		minCityStates = results[1].MinCityStates;
--- 		maxCityStates = results[1].MaxCityStates;
--- 		defCityStates = results[1].DefaultCityStates;
--- 		if (results[1].MinNaturalWonders ~= nil) then minNaturalWonders = results[1].MinNaturalWonders; end
--- 		if (results[1].MaxNaturalWonders ~= nil) then maxNaturalWonders = results[1].MaxNaturalWonders; end
--- 		if (results[1].DefaultNaturalWonders ~= nil) then defNaturalWonders = results[1].DefaultNaturalWonders; end
--- 	end
-
--- 	-- TODO: Add Min/Max city states, set defaults.
--- 	if(MapConfiguration.GetMinMajorPlayers() ~= minPlayers) then
--- 		SetupParameters_Log("Min Major Players: " .. MapConfiguration.GetMinMajorPlayers() .. " should be " .. minPlayers);
--- 		return true;
--- 	elseif(MapConfiguration.GetMaxMajorPlayers() ~= maxPlayers) then
--- 		SetupParameters_Log("Max Major Players: " .. MapConfiguration.GetMaxMajorPlayers() .. " should be " .. maxPlayers);
--- 		return true;
--- 	elseif(MapConfiguration.GetMinMinorPlayers() ~= minCityStates) then
--- 		SetupParameters_Log("Min Minor Players: " .. MapConfiguration.GetMinMinorPlayers() .. " should be " .. minCityStates);
--- 		return true;
--- 	elseif(MapConfiguration.GetMaxMinorPlayers() ~= maxCityStates) then
--- 		SetupParameters_Log("Max Minor Players: " .. MapConfiguration.GetMaxMinorPlayers() .. " should be " .. maxCityStates);
--- 		return true;
--- 	elseif(MapConfiguration.GetValue("MAP_MIN_NATURAL_WONDERS") ~= minNaturalWonders) then
--- 		if (MapConfiguration.GetValue("MAP_MIN_NATURAL_WONDERS") == nil) then
--- 			MapConfiguration.SetValue("MAP_MIN_NATURAL_WONDERS", minNaturalWonders);
--- 		end
--- 		SetupParameters_Log("Min Natural Wonders: ", MapConfiguration.GetValue("MAP_MIN_NATURAL_WONDERS"), " should be ", minNaturalWonders);
--- 		return true;
--- 	elseif(MapConfiguration.GetValue("MAP_MAX_NATURAL_WONDERS") ~= maxNaturalWonders) then
--- 		if (MapConfiguration.GetValue("MAP_MAX_NATURAL_WONDERS") == nil) then
--- 			MapConfiguration.SetValue("MAP_MAX_NATURAL_WONDERS", maxNaturalWonders);
--- 		end
--- 		SetupParameters_Log("Max Natural Wonders: ", MapConfiguration.GetValue("MAP_MAX_NATURAL_WONDERS"), " should be ", maxNaturalWonders);
--- 		return true;
--- 	end
-
--- 	return false;
--- end
-
---[[ =========================================================================
-	OVERRIDE: replace MapSize_ValueChanged() wholesale to include necessary changes and avoid multiple DB queries
-=========================================================================== ]]
--- function MapSize_ValueChanged(p)
--- 	SetupParameters_Log("MAP SIZE CHANGED");
-
--- 	-- The map size has changed!
--- 	-- Adjust the number of players to match the default players of the map size.
--- 	local results = CachedQuery("SELECT * from MapSizes where Domain = ? and MapSizeType = ? LIMIT 1", p.Value.Domain, p.Value.Value);
-
--- 	-- initialize min/max/default values for Players, City States, and Natural Wonders; NW values will be used for the slider(s) if ENWS is present
--- 	local minPlayers = 2;
--- 	local maxPlayers = 2;
--- 	local defPlayers = 2;
--- 	local minCityStates = 0;
--- 	local maxCityStates = 0;
--- 	local defCityStates = 0;
--- 	local minNaturalWonders = 0;
--- 	local maxNaturalWonders = 0;
--- 	local defNaturalWonders = 0;
-
--- 	-- results should only contain one table, so iterating over it is kinda stupid; access values in results[1] directly here instead and change the above values as needed
--- 	if(results) then
--- 		minPlayers = results[1].MinPlayers;
--- 		maxPlayers = results[1].MaxPlayers;
--- 		defPlayers = results[1].DefaultPlayers;
--- 		minCityStates = results[1].MinCityStates;
--- 		maxCityStates = results[1].MaxCityStates;
--- 		defCityStates = results[1].DefaultCityStates;
--- 		if (results[1].MinNaturalWonders ~= nil) then minNaturalWonders = results[1].MinNaturalWonders; end
--- 		if (results[1].MaxNaturalWonders ~= nil) then maxNaturalWonders = results[1].MaxNaturalWonders; end
--- 		if (results[1].DefaultNaturalWonders ~= nil) then defNaturalWonders = results[1].DefaultNaturalWonders; end
--- 	end
-
--- 	-- set min/max/default values for Players, City States, and Natural Wonders
--- 	MapConfiguration.SetMinMajorPlayers(minPlayers);
--- 	MapConfiguration.SetMaxMajorPlayers(maxPlayers);
--- 	MapConfiguration.SetMinMinorPlayers(minCityStates);
--- 	MapConfiguration.SetMaxMinorPlayers(maxCityStates);
--- 	GameConfiguration.SetValue("CITY_STATE_COUNT", defCityStates);
--- 	MapConfiguration.SetValue("MAP_MIN_NATURAL_WONDERS", minNaturalWonders);
--- 	MapConfiguration.SetValue("MAP_MAX_NATURAL_WONDERS", maxNaturalWonders);
--- 	GameConfiguration.SetValue("NATURAL_WONDER_COUNT", defNaturalWonders);
-
--- 	-- Clamp participating player count in network multiplayer so we only ever auto-spawn players up to the supported limit. 
--- 	local mpMaxSupportedPlayers = 8; -- The officially supported number of players in network multiplayer games.
--- 	local participatingCount = defPlayers + GameConfiguration.GetHiddenPlayerCount();
--- 	if GameConfiguration.IsNetworkMultiplayer() or GameConfiguration.IsPlayByCloud() then
--- 		participatingCount = math.clamp(participatingCount, 0, mpMaxSupportedPlayers);
--- 	end
-
--- 	SetupParameters_Log("Setting participating player count to " .. tonumber(participatingCount));
--- 	local playerCountChange = GameConfiguration.SetParticipatingPlayerCount(participatingCount);
--- 	Network.BroadcastGameConfig(true);
-
--- 	-- NOTE: This used to only be called if playerCountChange was non-zero.
--- 	-- This needs to be called more frequently than that because each player slot entry's add/remove button
--- 	-- needs to be potentially updated to reflect the min/max player constraints.
--- 	if(GameSetup_PlayerCountChanged) then
--- 		GameSetup_PlayerCountChanged();
--- 	end
--- end
-
---[[ =========================================================================
-	log successful loading of this component
-=========================================================================== ]]
-print("[i]: Finished loading GameSetupLogic_EGHV.lua, proceeding . . .");
 
 --[[ =========================================================================
 	end gamesetuplogic_eghv.lua configuration script

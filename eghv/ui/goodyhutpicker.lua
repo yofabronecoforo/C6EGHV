@@ -1,6 +1,6 @@
 --[[ =========================================================================
 	C6EGHV : Enhanced Goodies and Hostile Villagers for Civilization VI
-	Copyright (C) 2020-2024 zzragnar0kzz
+	Copyright (c) 2020-2024 yofabronecoforo (zzragnar0kzz)
 	All rights reserved
 =========================================================================== ]]
 
@@ -245,7 +245,7 @@ function InitGoodyHutFrequencySlider()
 	local tResult = DB.ConfigurationQuery(sQuery, sDomain);
 	local minimumValue = 25;
 	local maximumValue = 500;
-	-- local defaultValue = 100;
+	local perStepValue = 25;
 	local currentValue = GameConfiguration.GetValue("GOODYHUT_FREQUENCY");
 
 	if (tResult and #tResult > 0) then
@@ -256,12 +256,12 @@ function InitGoodyHutFrequencySlider()
 	end
 
 	Controls.GoodyHutFrequencyNumber:SetText(currentValue .. "%");
-	Controls.GoodyHutFrequencySlider:SetNumSteps(maximumValue / minimumValue);
-	Controls.GoodyHutFrequencySlider:SetStep(currentValue / minimumValue);
+	Controls.GoodyHutFrequencySlider:SetNumSteps(maximumValue / perStepValue);
+	Controls.GoodyHutFrequencySlider:SetStep(currentValue / perStepValue);
 
 	Controls.GoodyHutFrequencySlider:RegisterSliderCallback(function()
 		local stepNum:number = Controls.GoodyHutFrequencySlider:GetStep();
-		local value:number = minimumValue * stepNum;
+		local value:number = perStepValue * stepNum;
 			
 		-- This method can get called pretty frequently, try and throttle it.
 		-- if(currentValue ~= value) then
