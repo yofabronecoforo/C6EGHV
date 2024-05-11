@@ -110,13 +110,13 @@ function CreatePickerDriverByParameter(o, parameter, parent)
 	local parameterId = parameter.ParameterId;
 	local button = c.Button;
 
-	print(string.format("[+]: Creating driver for %s picker . . .", parameterId));
+	-- print(string.format("[+]: Creating driver for %s picker . . .", parameterId));
 
 	button:RegisterCallback( Mouse.eLClick, function()
 		LuaEvents.GoodyHutPicker_Initialize(o.Parameters[parameterId], g_GameParameters);
 		Controls.GoodyHutPicker:SetHide(false);
 	end);
-	button:SetToolTipString(parameter.Description .. ECFE.Content.Tooltips[GameConfiguration.GetValue("RULESET")][parameterId]);		-- update button tooltip text
+	button:SetToolTipString(parameter.Description .. ECFE.Content.Tooltips[GameConfiguration.GetValue("RULESET")][parameterId]);    -- show content sources in tooltip text
 
 	-- Store the root control, NOT the instance table.
 	g_SortingMap[tostring(c.ButtonRoot)] = parameter;
@@ -135,46 +135,40 @@ function CreatePickerDriverByParameter(o, parameter, parent)
 			local valueText = value and value.Name or nil;
 			local valueAmount :number = 0;
 
-			if(valueText == nil) then
-				if(value == nil) then
-					if (parameter.UxHint ~= nil and parameter.UxHint == "InvertSelection") then
-						valueText = "LOC_SELECTION_EVERYTHING";
-						valueAmount = #p.Values; 	-- display count for selections of "everything"
-					else
-						valueText = "LOC_SELECTION_NOTHING";
+			-- only amounts displayed by valueText change now so updates to it have been removed here; can this be further simplified?
+			if(valueText == nil) then 
+				if(value == nil) then 
+					if (parameter.UxHint ~= nil and parameter.UxHint == "InvertSelection") then 
+						valueAmount = #p.Values;    -- all available items
 					end
-				elseif(type(value) == "table") then
+				elseif(type(value) == "table") then 
 					local count = #value;
-					if (parameter.UxHint ~= nil and parameter.UxHint == "InvertSelection") then
-						if(count == 0) then
-							valueText = "LOC_SELECTION_EVERYTHING";
-							valueAmount = #p.Values; 	-- display count for selections of "everything"
-						elseif(count == #p.Values) then
-							valueText = "LOC_SELECTION_NOTHING";
-						else
-							valueText = "LOC_SELECTION_CUSTOM";
+					if (parameter.UxHint ~= nil and parameter.UxHint == "InvertSelection") then 
+						if(count == 0) then 
+							valueAmount = #p.Values;    -- all available items
+						else 
 							valueAmount = #p.Values - count;
 						end
-					else
-						if(count == 0) then
-							valueText = "LOC_SELECTION_NOTHING";
-						elseif(count == #p.Values) then
-							valueText = "LOC_SELECTION_EVERYTHING";
-							valueAmount = #p.Values; 	-- display count for selections of "everything"
-						else
-							valueText = "LOC_SELECTION_CUSTOM";
+					else 
+						if(count == #p.Values) then 
+							valueAmount = #p.Values;    -- all available items
+						else 
 							valueAmount = count;
 						end
 					end
 				end
 			end
 
-			if(cache.ValueText ~= valueText) or (cache.ValueAmount ~= valueAmount) then
-				local button = c.Button;			
-				button:LocalizeAndSetText(valueText, valueAmount);
+			-- update valueText here
+			valueText = string.format("%s %d of %d", Locale.Lookup("LOC_PICKER_SELECTED_TEXT"), valueAmount, #p.Values);
+
+			-- add update to tooltip text here
+			if(cache.ValueText ~= valueText) or (cache.ValueAmount ~= valueAmount) then 
+				local button = c.Button;
+				button:LocalizeAndSetText(valueText);
 				cache.ValueText = valueText;
 				cache.ValueAmount = valueAmount;
-				button:SetToolTipString(parameter.Description .. ECFE.Content.Tooltips[GameConfiguration.GetValue("RULESET")][parameterId]);		-- update button tooltip text
+				button:SetToolTipString(parameter.Description .. ECFE.Content.Tooltips[GameConfiguration.GetValue("RULESET")][parameterId]);    -- show content sources in tooltip text
 			end
 		end,
 		UpdateValues = function(values, p) 
