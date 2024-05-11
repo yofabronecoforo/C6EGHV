@@ -1,19 +1,44 @@
 --[[ =========================================================================
 	C6EGHV : Enhanced Goodies and Hostile Villagers for Civilization VI
-	Copyright (C) 2020-2024 zzragnar0kzz
+	Copyright (c) 2020-2024 yofabronecoforo (zzragnar0kzz)
 	All rights reserved
 =========================================================================== ]]
 
 --[[ =========================================================================
 	begin EGHV.lua gameplay script
 =========================================================================== ]]
-g_bIsWGHEnabled = (#(DB.Query("SELECT * FROM 'GoodyHutSubTypes' WHERE GoodyHut = 'GOODYHUT_SAILOR_WONDROUS'")) > 0);
--- g_iLoggingLevel = GameConfiguration.GetValue("GAME_EGHV_LOGGING");
 g_iLoggingLevel = GameConfiguration.GetValue("GAME_ECFE_LOGGING");
 g_sRowOfDashes = "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -";
 print(g_sRowOfDashes);
-print(string.format("Loading gameplay script EGHV.lua [Logging verbosity: %d] . . .", g_iLoggingLevel));
+print(string.format("[i]: Loading gameplay script EGHV.lua [ECFE logging verbosity: %d] . . .", g_iLoggingLevel));
 print(g_sRowOfDashes);
+
+--[[ =========================================================================
+	pre-pre-init: since goodies are our raison d'être, abort here if:
+    (1) setup option No Tribal Villages is enabled, or
+    (2) goody hut distribution slider is set to 0% 
+        this is a failsafe, since if this is true, (1) should also be true (gamesetuplogic_eghv.lua 38)
+=========================================================================== ]]
+g_bNoGoodyHuts = GameConfiguration.GetValue("GAME_NO_GOODY_HUTS");
+if g_bNoGoodyHuts then 
+    print("[!]: Setup option 'No Tribal Villages' is enabled. EGHV will be disabled.");
+    print("[i]: Proceeding with game startup . . .");
+    print(g_sRowOfDashes);
+    return;
+end
+g_iGoodyHutFrequency = GameConfiguration.GetValue("GOODYHUT_FREQUENCY");
+if g_iGoodyHutFrequency == 0 then 
+    print("[!]: Tribal Village distribution set to '0%%' of map baseline. EGHV will be disabled.");
+    print("[i]: Proceeding with game startup . . .");
+    print(g_sRowOfDashes);
+    return;
+end
+
+--[[ =========================================================================
+	pre-init: assign ExposedMembers table to a shortcut variable
+=========================================================================== ]]
+ECFE = ExposedMembers;
+-- g_bIsWGHEnabled = (#(DB.Query("SELECT * FROM 'GoodyHutSubTypes' WHERE GoodyHut = 'GOODYHUT_SAILOR_WONDROUS'")) > 0);
 
 --[[ =========================================================================
 	load component script files
@@ -21,7 +46,8 @@ print(g_sRowOfDashes);
 include("EGHV_Utilities");
 include("EGHV_RewardGenerator");
 include("EGHV_EventHooks");
-if g_bIsWGHEnabled then include("EGHV_Sailor_Goodies_Scripts"); end
+-- if g_bIsWGHEnabled then include("EGHV_Sailor_Goodies_Scripts"); end
+if ECFE.Content.WGH.IsEnabled then include("EGHV_Sailor_Goodies_Scripts"); end
 
 --[[ =========================================================================
 	init global strings
@@ -40,7 +66,7 @@ g_iHarborIndex = GameInfo.Districts["DISTRICT_HARBOR"].Index;
 g_iTheWheelIndex = GameInfo.Technologies["TECH_THE_WHEEL"].Index;
 -- g_iAnimalHusbandryIndex = GameInfo.Technologies["TECH_ANIMAL_HUSBANDRY"].Index;
 -- g_iCodeOfLawsIndex = GameInfo.Civics["CIVIC_CODE_OF_LAWS"].Index;
-g_iGoodyHutFrequency = GameConfiguration.GetValue("GOODYHUT_FREQUENCY");
+
 g_iTotalRewardsPerGoodyHut = GameConfiguration.GetValue("GAME_TOTAL_REWARDS");
 g_iBonusRewardsPerGoodyHut = g_iTotalRewardsPerGoodyHut - 1;
 g_iCityStatesCount = GameConfiguration.GetValue("CITY_STATE_COUNT");
@@ -70,7 +96,7 @@ g_iHostilesMinTurn = GameConfiguration.GetValue("GAME_HOSTILES_MIN_TURN");
 	init global booleans
 =========================================================================== ]]
 g_bNoBarbarians = GameConfiguration.GetValue("GAME_NO_BARBARIANS");
-g_bNoGoodyHuts = GameConfiguration.GetValue("GAME_NO_GOODY_HUTS");
+
 g_bEqualizeRewards = GameConfiguration.GetValue("GAME_EQUALIZE_GOODY_HUTS");
 g_bLowHostilityAsReward = (GameConfiguration.GetValue("EXCLUDE_GOODYHUT_LOW_HOSTILITY_VILLAGERS") ~= 1);
 g_bMidHostilityAsReward = (GameConfiguration.GetValue("EXCLUDE_GOODYHUT_MID_HOSTILITY_VILLAGERS") ~= 1);
@@ -360,7 +386,8 @@ function Initialize()
         print(g_sRowOfDashes);
     	print("Finished initializing ingame Reward Generator components; proceeding . . .");
         print(g_sRowOfDashes);
-        if g_iLoggingLevel > 2 and g_bIsWGHEnabled then 
+        -- if g_iLoggingLevel > 2 and g_bIsWGHEnabled then 
+        if g_iLoggingLevel > 2 and ECFE.Content.WGH.IsEnabled then 
 	    	print("Wondrous Goody Huts integration is enabled");
 		    print(g_sRowOfDashes);
     	end

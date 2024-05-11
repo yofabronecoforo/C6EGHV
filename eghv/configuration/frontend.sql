@@ -86,12 +86,29 @@ VALUES
     ('Ruleset', 'RULESET_EXPANSION_1', 'GoodyHuts', 'LOC_GOODY_HUT_CONFIG_NAME', 'LOC_GOODY_HUT_CONFIG_DESCRIPTION', 'Expansion1GoodyHuts', 0, 1, 'Game', 'EXCLUDE_GOODY_HUTS', 'AdvancedOptions', 'InvertSelection', 2032),
     ('Ruleset', 'RULESET_EXPANSION_2', 'GoodyHuts', 'LOC_GOODY_HUT_CONFIG_NAME', 'LOC_GOODY_HUT_CONFIG_DESCRIPTION', 'Expansion2GoodyHuts', 0, 1, 'Game', 'EXCLUDE_GOODY_HUTS', 'AdvancedOptions', 'InvertSelection', 2032);
 
--- disable certain options if this is for the world builder
+-- parameters defined here are only visible when the specified conditions are met
 REPLACE INTO ParameterDependencies (ParameterId, ConfigurationGroup, ConfigurationId, Operator, ConfigurationValue)
 VALUES
-    ('GoodyHuts', 'Game', 'WORLD_BUILDER', 'NotEquals', 1);
-    -- ('NoHostilesAfterReward', 'Game', 'WORLD_BUILDER', 'NotEquals', 1),
-    -- ('NoHostilesAsReward', 'Game', 'WORLD_BUILDER', 'NotEquals', 1);
+    ('BonusUnitOrPop', 'Game', 'GAME_NO_GOODY_HUTS', 'Equals', 0),
+    ('BonusUnitOrPop', 'Game', 'GOODYHUT_FREQUENCY', 'NotEquals', 0),
+    ('EqualizeGoodyHuts', 'Game', 'GAME_NO_GOODY_HUTS', 'Equals', 0),
+    ('EqualizeGoodyHuts', 'Game', 'GOODYHUT_FREQUENCY', 'NotEquals', 0),
+    ('GoodyHutFrequency', 'Game', 'GAME_NO_GOODY_HUTS', 'Equals', 0),
+    ('GoodyHuts', 'Game', 'GAME_NO_GOODY_HUTS', 'Equals', 0),
+    ('GoodyHuts', 'Game', 'GOODYHUT_FREQUENCY', 'NotEquals', 0),
+    ('GoodyHuts', 'Game', 'WORLD_BUILDER', 'NotEquals', 1),
+    ('HostilesChance', 'Game', 'GAME_NO_BARBARIANS', 'Equals', 0),
+    ('HostilesChance', 'Game', 'GAME_NO_GOODY_HUTS', 'Equals', 0),
+    ('HostilesChance', 'Game', 'GOODYHUT_FREQUENCY', 'NotEquals', 0),
+    ('HostilesMinTurn', 'Game', 'GAME_NO_BARBARIANS', 'Equals', 0),
+    ('HostilesMinTurn', 'Game', 'GAME_NO_GOODY_HUTS', 'Equals', 0),
+    ('HostilesMinTurn', 'Game', 'GOODYHUT_FREQUENCY', 'NotEquals', 0),
+    ('NoDuplicateRewards', 'Game', 'GAME_NO_GOODY_HUTS', 'Equals', 0),
+    ('NoDuplicateRewards', 'Game', 'GOODYHUT_FREQUENCY', 'NotEquals', 0),
+    ('TotalRewards', 'Game', 'GAME_NO_GOODY_HUTS', 'Equals', 0),
+    ('TotalRewards', 'Game', 'GOODYHUT_FREQUENCY', 'NotEquals', 0),
+    ('UnlockVillagerSecrets', 'Game', 'GAME_NO_GOODY_HUTS', 'Equals', 0),
+    ('UnlockVillagerSecrets', 'Game', 'GOODYHUT_FREQUENCY', 'NotEquals', 0);
 
 -- Goody Hut frequency slider range values
 REPLACE INTO DomainRanges (Domain, MinimumValue, MaximumValue) VALUES ('GoodyHutFrequencyRange', 0, 500);
