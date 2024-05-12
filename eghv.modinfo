@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Mod id="a4b1fac6-8c9e-4873-a1c1-7ddf08dbbf11" version="9.0">
+<Mod id="a4b1fac6-8c9e-4873-a1c1-7ddf08dbbf11" version="10.0">
     <Properties>
         <Name>LOC_EGHV_MOD_TITLE</Name>
+		<Version>1.10.240512.0423</Version>
         <Teaser>LOC_EGHV_MOD_TEASER</Teaser>
         <Description>LOC_EGHV_MOD_DESCRIPTION</Description>
         <Authors>LOC_EGHV_MOD_AUTHORS</Authors>
@@ -622,9 +623,9 @@
 			<fr_FR>Fournit une extension assez complète et une refonte du système de récompenses de Tribal Village (Goody Hut). De nombreuses nouvelles options frontales relatifs aux goody huttes sont disponibles, notamment:[NEWLINE][NEWLINE] [ICON_Bullet] Un sélecteur pour choisir exactement quel (s) goody hut récompense (s), le cas échéant, aura une chance de comparaître ingame.[NEWLINE] [ICON_Bullet] Un curseur pour la diminution ou l'augmentation du nombre de goody hutts qui apparaîtront à Ingame, par rapport au montant de la ligne de base pour la carte sélectionnée et / ou la taille.[NEWLINE] [ICON_Bullet] Menu déroulant pour la sélection d'une récompense de bonus possible(s), qui peut être fournie en plus de la récompense habituelle d'une hutte goody.[NEWLINE] [ICON_Bullet] Drapeau de cocher pour l'égalisation des chances de recevoir toutes les récompenses activées.[NEWLINE][NEWLINE]Nombre de récompenses Disponibles Goody Goody Hut a considérablement augmenté pour chaque règles de règles officielle.[NEWLINE][NEWLINE]Enfin, des villageois hostiles comme (et maintenant, éventuellement suivant) une récompense marque leur retour.</fr_FR>
 		</Text>
 		<Text id="LOC_EGHV_MOD_AUTHORS">
-			<en_US>zzragnar0kzz</en_US>
-			<es_ES>zzragnar0kzz</es_ES>
-			<fr_FR>zzragnar0kzz</fr_FR>
+			<en_US>yofabronecoforo</en_US>
+			<es_ES>yofabronecoforo</es_ES>
+			<fr_FR>yofabronecoforo</fr_FR>
 		</Text>
 		<Text id="LOC_EGHV_MOD_SPECIALTHANKS">
 			<en_US>The Community</en_US>
