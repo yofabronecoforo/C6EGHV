@@ -8,12 +8,15 @@
 	begin GoodyHutPicker.lua frontend script
 =========================================================================== ]]
 
+ECFE = ExposedMembers;
+
 include("InstanceManager");
 include("PlayerSetupLogic");
 include("Civ6Common");
 
-print("[i]: Enhanced Goodies and Hostile Villagers (EGHV) v9 (2024-01-14)");
-print("[+]: Loading GoodyHutPicker.lua . . .")
+print(string.format("[i]: Enhanced Goodies and Hostile Villagers (EGHV) v%s: Loading GoodyHutPicker.lua . . .", ECFE.Content.EGHV.Version));
+-- print("[i]: Enhanced Goodies and Hostile Villagers (EGHV) v9 (2024-01-14)");
+-- print("[+]: Loading GoodyHutPicker.lua . . .")
 
 -- ===========================================================================
 -- Members
